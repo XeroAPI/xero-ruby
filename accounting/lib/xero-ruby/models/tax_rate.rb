@@ -189,7 +189,7 @@ module XeroRuby
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      status_validator = EnumAttributeValidator.new('String', ["ACTIVE", "DELETED", "ARCHIVED", "PENDING"])
+      status_validator = EnumAttributeValidator.new('String', ["ACTIVE", "DELETED", "ARCHIVED"])
       return false unless status_validator.valid?(@status)
       return false if @report_tax_type.nil?
       report_tax_type_validator = EnumAttributeValidator.new('String', ["OUTPUT", "INPUT", "EXEMPTOUTPUT", "INPUTTAXED", "BASEXCLUDED", "EXEMPTEXPENSES", "EXEMPTINPUT", "ECOUTPUT", "ECOUTPUTSERVICES", "ECINPUT", "ECACQUISITIONS", "CAPITALSALESOUTPUT", "CAPITALEXPENSESINPUT", "MOSSSALES", "NONE", "GSTONIMPORTS", "AVALARA", "ECACQUISITIONS", "REVERSECHARGES"])
@@ -200,7 +200,7 @@ module XeroRuby
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] status Object to be assigned
     def status=(status)
-      validator = EnumAttributeValidator.new('String', ["ACTIVE", "DELETED", "ARCHIVED", "PENDING"])
+      validator = EnumAttributeValidator.new('String', ["ACTIVE", "DELETED", "ARCHIVED"])
       unless validator.valid?(status)
         fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
       end
