@@ -192,7 +192,7 @@ module XeroRuby
       status_validator = EnumAttributeValidator.new('String', ["ACTIVE", "DELETED", "ARCHIVED"])
       return false unless status_validator.valid?(@status)
       return false if @report_tax_type.nil?
-      report_tax_type_validator = EnumAttributeValidator.new('String', ["OUTPUT", "INPUT", "EXEMPTOUTPUT", "INPUTTAXED", "BASEXCLUDED", "EXEMPTEXPENSES", "EXEMPTINPUT", "ECOUTPUT", "ECOUTPUTSERVICES", "ECINPUT", "ECACQUISITIONS", "CAPITALSALESOUTPUT", "CAPITALEXPENSESINPUT", "MOSSSALES", "NONE", "GSTONIMPORTS", "AVALARA", "ECACQUISITIONS", "REVERSECHARGES"])
+      report_tax_type_validator = EnumAttributeValidator.new('String', ["OUTPUT", "INPUT", "EXEMPTOUTPUT", "INPUTTAXED", "BASEXCLUDED", "EXEMPTEXPENSES", "EXEMPTINPUT", "ECOUTPUT", "ECOUTPUTSERVICES", "ECINPUT", "ECACQUISITIONS", "CAPITALSALESOUTPUT", "CAPITALEXPENSESINPUT", "MOSSSALES", "NONE", "GSTONIMPORTS", "AVALARA", "REVERSECHARGES"])
       return false unless report_tax_type_validator.valid?(@report_tax_type)
       true
     end
@@ -210,7 +210,7 @@ module XeroRuby
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] report_tax_type Object to be assigned
     def report_tax_type=(report_tax_type)
-      validator = EnumAttributeValidator.new('String', ["OUTPUT", "INPUT", "EXEMPTOUTPUT", "INPUTTAXED", "BASEXCLUDED", "EXEMPTEXPENSES", "EXEMPTINPUT", "ECOUTPUT", "ECOUTPUTSERVICES", "ECINPUT", "ECACQUISITIONS", "CAPITALSALESOUTPUT", "CAPITALEXPENSESINPUT", "MOSSSALES", "NONE", "GSTONIMPORTS", "AVALARA", "ECACQUISITIONS", "REVERSECHARGES"])
+      validator = EnumAttributeValidator.new('String', ["OUTPUT", "INPUT", "EXEMPTOUTPUT", "INPUTTAXED", "BASEXCLUDED", "EXEMPTEXPENSES", "EXEMPTINPUT", "ECOUTPUT", "ECOUTPUTSERVICES", "ECINPUT", "ECACQUISITIONS", "CAPITALSALESOUTPUT", "CAPITALEXPENSESINPUT", "MOSSSALES", "NONE", "GSTONIMPORTS", "AVALARA", "REVERSECHARGES"])
       unless validator.valid?(report_tax_type)
         fail ArgumentError, "invalid value for \"report_tax_type\", must be one of #{validator.allowable_values}."
       end
