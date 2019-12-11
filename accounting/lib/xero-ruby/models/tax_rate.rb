@@ -189,10 +189,10 @@ module XeroRuby
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      status_validator = EnumAttributeValidator.new('String', ["ACTIVE", "DELETED", "ARCHIVED"])
+      status_validator = EnumAttributeValidator.new('String', ["ACTIVE", "DELETED", "ARCHIVED", "PENDING"])
       return false unless status_validator.valid?(@status)
       return false if @report_tax_type.nil?
-      report_tax_type_validator = EnumAttributeValidator.new('String', ["OUTPUT", "INPUT", "EXEMPTOUTPUT", "INPUTTAXED", "BASEXCLUDED", "EXEMPTEXPENSES", "EXEMPTINPUT", "ECOUTPUT", "ECOUTPUTSERVICES", "ECINPUT", "ECACQUISITIONS", "CAPITALSALESOUTPUT", "CAPITALEXPENSESINPUT", "MOSSSALES", "NONE", "GSTONIMPORTS", "AVALARA"])
+      report_tax_type_validator = EnumAttributeValidator.new('String', ["OUTPUT", "INPUT", "EXEMPTOUTPUT", "INPUTTAXED", "BASEXCLUDED", "EXEMPTEXPENSES", "EXEMPTINPUT", "ECOUTPUT", "ECOUTPUTSERVICES", "ECINPUT", "ECACQUISITIONS", "CAPITALSALESOUTPUT", "CAPITALEXPENSESINPUT", "MOSSSALES", "NONE", "GSTONIMPORTS", "AVALARA", "ECACQUISITIONS", "REVERSECHARGES"])
       return false unless report_tax_type_validator.valid?(@report_tax_type)
       true
     end
@@ -200,7 +200,7 @@ module XeroRuby
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] status Object to be assigned
     def status=(status)
-      validator = EnumAttributeValidator.new('String', ["ACTIVE", "DELETED", "ARCHIVED"])
+      validator = EnumAttributeValidator.new('String', ["ACTIVE", "DELETED", "ARCHIVED", "PENDING"])
       unless validator.valid?(status)
         fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
       end
@@ -210,7 +210,7 @@ module XeroRuby
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] report_tax_type Object to be assigned
     def report_tax_type=(report_tax_type)
-      validator = EnumAttributeValidator.new('String', ["OUTPUT", "INPUT", "EXEMPTOUTPUT", "INPUTTAXED", "BASEXCLUDED", "EXEMPTEXPENSES", "EXEMPTINPUT", "ECOUTPUT", "ECOUTPUTSERVICES", "ECINPUT", "ECACQUISITIONS", "CAPITALSALESOUTPUT", "CAPITALEXPENSESINPUT", "MOSSSALES", "NONE", "GSTONIMPORTS", "AVALARA"])
+      validator = EnumAttributeValidator.new('String', ["OUTPUT", "INPUT", "EXEMPTOUTPUT", "INPUTTAXED", "BASEXCLUDED", "EXEMPTEXPENSES", "EXEMPTINPUT", "ECOUTPUT", "ECOUTPUTSERVICES", "ECINPUT", "ECACQUISITIONS", "CAPITALSALESOUTPUT", "CAPITALEXPENSESINPUT", "MOSSSALES", "NONE", "GSTONIMPORTS", "AVALARA", "ECACQUISITIONS", "REVERSECHARGES"])
       unless validator.valid?(report_tax_type)
         fail ArgumentError, "invalid value for \"report_tax_type\", must be one of #{validator.allowable_values}."
       end
