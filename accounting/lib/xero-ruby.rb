@@ -17,6 +17,8 @@ require 'xero-ruby/version'
 require 'xero-ruby/configuration'
 
 # Models
+require 'xero-ruby/models/base'
+
 require 'xero-ruby/models/account'
 require 'xero-ruby/models/account_type'
 require 'xero-ruby/models/accounts'
