@@ -14,7 +14,7 @@ require 'time'
 require 'date'
 
 module XeroRuby
-  class Account < Base
+  class Account
     # Customer defined alpha numeric account code e.g 200 or SALES (max length = 10)
     attr_accessor :code
 

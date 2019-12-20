@@ -14,7 +14,7 @@ require 'time'
 require 'date'
 
 module XeroRuby
-  class Organisation < Base
+  class Organisation
     # Unique Xero identifier
     attr_accessor :organisation_id
 
