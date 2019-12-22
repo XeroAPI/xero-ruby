@@ -97,7 +97,7 @@ end
 ```
 
 ### More details on how to use interact with each endpiont 
-Check out [full documentation](https://github.com/XeroAPI/xero-ruby/accounting) under /accounting.
+Check out [full documentation](https://github.com/XeroAPI/xero-ruby/tree/master/accounting) under /accounting.
 
 ## TLS 1.0 deprecation
 As of June 30, 2018, Xero's API will remove support for TLS 1.0.  
