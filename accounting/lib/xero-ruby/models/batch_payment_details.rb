@@ -207,7 +207,7 @@ module XeroRuby
       when :DateTime
         DateTime.parse(parse_date(value))
       when :Date
-        Date._iso8601(parse_date(value))
+        Date.parse(parse_date(value))
       when :String
         value.to_s
       when :Integer
