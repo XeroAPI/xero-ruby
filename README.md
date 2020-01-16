@@ -1,7 +1,7 @@
 # xero-ruby
 Xero Ruby SDK for OAuth 2.0 generated from Xero API OpenAPI Spec 3.0
 
-[![RubyGem](https://img.shields.io/badge/xero--ruby%20gem-v0.1.1-brightgreen)](https://rubygems.org/gems/xero-ruby)
+[![RubyGem](https://img.shields.io/badge/xero--ruby%20gem-v0.1.2-brightgreen)](https://rubygems.org/gems/xero-ruby)
 
 ## Current release of SDK with OAuth 2.0 support
 Version 0.x.x of Xero Ruby SDK only supports OAuth 2.0 authentication and the following API sets.
