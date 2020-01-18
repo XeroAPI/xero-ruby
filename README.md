@@ -22,7 +22,7 @@ We have built an Omniauth strategy for Xero OAuth 2.0. Check out [omniauth-xero-
 
 [![RubyGem](https://img.shields.io/badge/omniauth--xero--oauth2%20gem-v0.9.3-brightgreen)](https://rubygems.org/gems/omniauth-xero-oauth2)
 
-To learn more about how our OAuth 2.0 flow works and how to use our Omniauth strateg, check out our Xero developer blog post: [Xero OAuth 2.0 with Ruby](https://devblog.xero.com/xero-oauth-2-with-ruby-313a6ea37989)
+To learn more about how our OAuth 2.0 flow works and how to use our Omniauth strategy, check out our Xero developer blog post: [Xero OAuth 2.0 with Ruby](https://devblog.xero.com/xero-oauth-2-with-ruby-313a6ea37989)
 
 ![image](https://user-images.githubusercontent.com/41350731/70225201-b2324080-17a2-11ea-8966-23efafa6df52.png)
 
@@ -99,11 +99,13 @@ end
 ### More details on how to use interact with each endpiont 
 Check out [full documentation](https://github.com/XeroAPI/xero-ruby/tree/master/accounting) under /accounting.
 
+## Contribution is welcome!
+We love to get your input on how we can improve the SDK! Please read our [Contribuion Guide](https://github.com/XeroAPI/xero-ruby/CONTRIBUTING.md) before making an pull request! 
+
 ## TLS 1.0 deprecation
 As of June 30, 2018, Xero's API will remove support for TLS 1.0.  
 
 The easiest way to force TLS 1.2 is to set the Runtime Environment for your server (Tomcat, etc) to Java 1.8 which defaults to TLS 1.2.
-
 
 ## License
 
