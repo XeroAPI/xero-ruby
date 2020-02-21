@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **String** | See Invoice Types | 
-**contact** | [**Contact**](Contact.md) |  | 
-**line_items** | [**Array&lt;LineItem&gt;**](LineItem.md) | See LineItems | 
+**type** | **String** | See Invoice Types | [optional] 
+**contact** | [**Contact**](Contact.md) |  | [optional] 
+**line_items** | [**Array&lt;LineItem&gt;**](LineItem.md) | See LineItems | [optional] 
 **date** | **Date** | Date invoice was issued – YYYY-MM-DD. If the Date element is not specified it will default to the current date based on the timezone setting of the organisation | [optional] 
 **due_date** | **Date** | Date invoice is due – YYYY-MM-DD | [optional] 
 **line_amount_types** | [**LineAmountTypes**](LineAmountTypes.md) |  | [optional] 
@@ -41,6 +41,7 @@ Name | Type | Description | Notes
 **has_errors** | **Boolean** | A boolean to indicate if a invoice has an validation errors | [optional] 
 **status_attribute_string** | **String** | A string to indicate if a invoice status | [optional] 
 **validation_errors** | [**Array&lt;ValidationError&gt;**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
+**warnings** | [**Array&lt;ValidationError&gt;**](ValidationError.md) | Displays array of warning messages from the API | [optional] 
 
 ## Code Sample
 
@@ -83,7 +84,8 @@ instance = XeroRuby::Invoice.new(type: null,
                                  attachments: null,
                                  has_errors: null,
                                  status_attribute_string: null,
-                                 validation_errors: null)
+                                 validation_errors: null,
+                                 warnings: null)
 ```
 
 

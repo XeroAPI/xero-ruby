@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **tax_type** | **String** | The tax type | [optional] 
 **tax_components** | [**Array&lt;TaxComponent&gt;**](TaxComponent.md) | See TaxComponents | [optional] 
 **status** | **String** | See Status Codes | [optional] 
-**report_tax_type** | **String** | See ReportTaxTypes | 
+**report_tax_type** | **String** | See ReportTaxTypes | [optional] 
 **can_apply_to_assets** | **Boolean** | Boolean to describe if tax rate can be used for asset accounts i.e.  true,false | [optional] 
 **can_apply_to_equity** | **Boolean** | Boolean to describe if tax rate can be used for equity accounts i.e true,false | [optional] 
 **can_apply_to_expenses** | **Boolean** | Boolean to describe if tax rate can be used for expense accounts  i.e. true,false | [optional] 

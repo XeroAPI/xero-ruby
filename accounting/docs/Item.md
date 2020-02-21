@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **code** | **String** | User defined item code (max length &#x3D; 30) | 
-**inventory_asset_account_code** | **String** | The inventory asset account for the item. The account must be of type INVENTORY. The  COGSAccountCode in PurchaseDetails is also required to create a tracked item | 
+**inventory_asset_account_code** | **String** | The inventory asset account for the item. The account must be of type INVENTORY. The  COGSAccountCode in PurchaseDetails is also required to create a tracked item | [optional] 
 **name** | **String** | The name of the item (max length &#x3D; 50) | [optional] 
 **is_sold** | **Boolean** | Boolean value, defaults to true. When IsSold is true the item will be available on sales transactions in the Xero UI. If IsSold is updated to false then Description and SalesDetails values will be nulled. | [optional] 
 **is_purchased** | **Boolean** | Boolean value, defaults to true. When IsPurchased is true the item is available for purchase transactions in the Xero UI. If IsPurchased is updated to false then PurchaseDescription and PurchaseDetails values will be nulled. | [optional] 
@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **quantity_on_hand** | **Float** | The quantity of the item on hand | [optional] 
 **updated_date_utc** | **DateTime** | Last modified date in UTC format | [optional] 
 **item_id** | **String** | The Xero identifier for an Item | [optional] 
+**status_attribute_string** | **String** | Status of object | [optional] 
 **validation_errors** | [**Array&lt;ValidationError&gt;**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
 
 ## Code Sample
@@ -39,6 +40,7 @@ instance = XeroRuby::Item.new(code: null,
                                  quantity_on_hand: null,
                                  updated_date_utc: null,
                                  item_id: null,
+                                 status_attribute_string: null,
                                  validation_errors: null)
 ```
 
