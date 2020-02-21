@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 **report_type** | **String** | The type of report (BalanceSheet,ProfitLoss, etc) | [optional] 
 **report_titles** | **Array&lt;String&gt;** | Report titles array (3 to 4 strings with the report name, orgnisation name and time frame of report) | [optional] 
 **report_date** | **String** | Date of report | [optional] 
-**updated_date_utc** | **DateTime** | Updated Date | [optional] 
 **rows** | [**Array&lt;ReportRows&gt;**](ReportRows.md) |  | [optional] 
+**updated_date_utc** | **DateTime** | Updated Date | [optional] 
 **fields** | [**Array&lt;ReportFields&gt;**](ReportFields.md) |  | [optional] 
 
 ## Code Sample
@@ -25,8 +25,8 @@ instance = XeroRuby::ReportWithRow.new(report_id: null,
                                  report_type: null,
                                  report_titles: null,
                                  report_date: null,
-                                 updated_date_utc: null,
                                  rows: null,
+                                 updated_date_utc: null,
                                  fields: null)
 ```
 

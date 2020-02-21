@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **payments** | [**Array&lt;Payment&gt;**](Payment.md) | See Payments | [optional] 
 **branding_theme_id** | **String** | See BrandingThemes | [optional] 
 **has_attachments** | **Boolean** | boolean to indicate if a credit note has an attachment | [optional] 
+**has_errors** | **Boolean** | A boolean to indicate if a credit note has an validation errors | [optional] 
 **validation_errors** | [**Array&lt;ValidationError&gt;**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
 
 ## Code Sample
@@ -55,6 +56,7 @@ instance = XeroRuby::CreditNote.new(type: null,
                                  payments: null,
                                  branding_theme_id: null,
                                  has_attachments: null,
+                                 has_errors: null,
                                  validation_errors: null)
 ```
 

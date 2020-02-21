@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **tracking_category_id** | **String** | The Xero identifier for a tracking category | [optional] 
+**tracking_option_id** | **String** | The Xero identifier for a tracking category option | [optional] 
 **name** | **String** | The name of the tracking category | [optional] 
 **option** | **String** | See Tracking Options | [optional] 
 
@@ -13,7 +14,8 @@ Name | Type | Description | Notes
 ```ruby
 require 'XeroRuby'
 
-instance = XeroRuby::LineItemTracking.new(tracking_category_id: 297c2dc5-cc47-4afd-8ec8-74990b8761e9,
+instance = XeroRuby::LineItemTracking.new(tracking_category_id: 00000000-0000-0000-0000-000000000000,
+                                 tracking_option_id: 00000000-0000-0000-0000-000000000000,
                                  name: Region,
                                  option: North)
 ```

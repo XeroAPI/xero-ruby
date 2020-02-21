@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**contact** | [**Contact**](Contact.md) |  | 
-**line_items** | [**Array&lt;LineItem&gt;**](LineItem.md) | See LineItems | 
+**contact** | [**Contact**](Contact.md) |  | [optional] 
+**line_items** | [**Array&lt;LineItem&gt;**](LineItem.md) | See LineItems | [optional] 
 **date** | **Date** | Date purchase order was issued – YYYY-MM-DD. If the Date element is not specified then it will default to the current date based on the timezone setting of the organisation | [optional] 
 **delivery_date** | **Date** | Date the goods are to be delivered – YYYY-MM-DD | [optional] 
 **line_amount_types** | [**LineAmountTypes**](LineAmountTypes.md) |  | [optional] 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **delivery_instructions** | **String** | A free text feild for instructions (500 characters max) | [optional] 
 **expected_arrival_date** | **Date** | The date the goods are expected to arrive. | [optional] 
 **purchase_order_id** | **String** | Xero generated unique identifier for purchase order | [optional] 
-**currency_rate** | **Float** | The currency rate for a multicurrency purchase order. As no rate can  be specified, the XE.com day rate is used. | [optional] 
+**currency_rate** | **Float** | The currency rate for a multicurrency purchase order. If no rate is specified, the XE.com day rate is used. | [optional] 
 **sub_total** | **Float** | Total of purchase order excluding taxes | [optional] 
 **total_tax** | **Float** | Total tax on purchase order | [optional] 
 **total** | **Float** | Total of Purchase Order tax inclusive (i.e. SubTotal + TotalTax) | [optional] 

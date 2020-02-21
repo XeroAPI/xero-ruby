@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **reporting_code_name** | **String** | Shown if set | [optional] 
 **has_attachments** | **Boolean** | boolean to indicate if an account has an attachment (read only) | [optional] 
 **updated_date_utc** | **DateTime** | Last modified date UTC format | [optional] 
+**add_to_watchlist** | **Boolean** | Boolean – describes whether the account is shown in the watchlist widget on the dashboard | [optional] 
 **validation_errors** | [**Array&lt;ValidationError&gt;**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
 
 ## Code Sample
@@ -31,7 +32,7 @@ require 'XeroRuby'
 
 instance = XeroRuby::Account.new(code: 4400,
                                  name: Food Sales,
-                                 account_id: null,
+                                 account_id: 00000000-0000-0000-0000-000000000000,
                                  type: null,
                                  bank_account_number: null,
                                  status: null,
@@ -47,6 +48,7 @@ instance = XeroRuby::Account.new(code: 4400,
                                  reporting_code_name: null,
                                  has_attachments: null,
                                  updated_date_utc: null,
+                                 add_to_watchlist: null,
                                  validation_errors: null)
 ```
 

@@ -14,16 +14,16 @@ Name | Type | Description | Notes
 **tax_amount** | **Float** | The tax amount is auto calculated as a percentage of the line amount (see below) based on the tax rate. This value can be overriden if the calculated &lt;TaxAmount&gt; is not correct. | [optional] 
 **line_amount** | **Float** | If you wish to omit either of the &lt;Quantity&gt; or &lt;UnitAmount&gt; you can provide a LineAmount and Xero will calculate the missing amount for you. The line amount reflects the discounted price if a DiscountRate has been used . i.e LineAmount &#x3D; Quantity * Unit Amount * ((100 – DiscountRate)/100) | [optional] 
 **tracking** | [**Array&lt;LineItemTracking&gt;**](LineItemTracking.md) | Optional Tracking Category – see Tracking.  Any LineItem can have a  maximum of 2 &lt;TrackingCategory&gt; elements. | [optional] 
-**discount_rate** | **String** | Percentage discount being applied to a line item (only supported on  ACCREC invoices – ACC PAY invoices and credit notes in Xero do not support discounts | [optional] 
+**discount_rate** | **Float** | Percentage discount being applied to a line item (only supported on  ACCREC invoices – ACC PAY invoices and credit notes in Xero do not support discounts | [optional] 
 **discount_amount** | **Float** | Discount amount being applied to a line item. Only supported on ACCREC invoices - ACCPAY invoices and credit notes in Xero do not support discounts. | [optional] 
-**repeating_invoice_id** | **String** | The Xero identifier for a Repeating Invoicee.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9 | [optional] 
+**repeating_invoice_id** | **String** | The Xero identifier for a Repeating Invoice | [optional] 
 
 ## Code Sample
 
 ```ruby
 require 'XeroRuby'
 
-instance = XeroRuby::LineItem.new(line_item_id: null,
+instance = XeroRuby::LineItem.new(line_item_id: 00000000-0000-0000-0000-000000000000,
                                  description: null,
                                  quantity: null,
                                  unit_amount: null,
@@ -35,7 +35,7 @@ instance = XeroRuby::LineItem.new(line_item_id: null,
                                  tracking: null,
                                  discount_rate: null,
                                  discount_amount: null,
-                                 repeating_invoice_id: null)
+                                 repeating_invoice_id: 00000000-0000-0000-0000-000000000000)
 ```
 
 

@@ -6,63 +6,54 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_account**](AccountingApi.md#create_account) | **PUT** /Accounts | Allows you to create a new chart of accounts
 [**create_account_attachment_by_file_name**](AccountingApi.md#create_account_attachment_by_file_name) | **PUT** /Accounts/{AccountID}/Attachments/{FileName} | Allows you to create Attachment on Account
-[**create_bank_transaction**](AccountingApi.md#create_bank_transaction) | **PUT** /BankTransactions | Allows you to create a spend or receive money transaction
 [**create_bank_transaction_attachment_by_file_name**](AccountingApi.md#create_bank_transaction_attachment_by_file_name) | **PUT** /BankTransactions/{BankTransactionID}/Attachments/{FileName} | Allows you to createa an Attachment on BankTransaction by Filename
 [**create_bank_transaction_history_record**](AccountingApi.md#create_bank_transaction_history_record) | **PUT** /BankTransactions/{BankTransactionID}/History | Allows you to create history record for a bank transactions
-[**create_bank_transactions**](AccountingApi.md#create_bank_transactions) | **PUT** /BankTransactions#bulk | Allows you to create a spend or receive money transaction
+[**create_bank_transactions**](AccountingApi.md#create_bank_transactions) | **PUT** /BankTransactions | Allows you to create one or more spend or receive money transaction
 [**create_bank_transfer**](AccountingApi.md#create_bank_transfer) | **PUT** /BankTransfers | Allows you to create a bank transfers
 [**create_bank_transfer_attachment_by_file_name**](AccountingApi.md#create_bank_transfer_attachment_by_file_name) | **PUT** /BankTransfers/{BankTransferID}/Attachments/{FileName} | 
 [**create_bank_transfer_history_record**](AccountingApi.md#create_bank_transfer_history_record) | **PUT** /BankTransfers/{BankTransferID}/History | 
 [**create_batch_payment**](AccountingApi.md#create_batch_payment) | **PUT** /BatchPayments | Create one or many BatchPayments for invoices
 [**create_batch_payment_history_record**](AccountingApi.md#create_batch_payment_history_record) | **PUT** /BatchPayments/{BatchPaymentID}/History | Allows you to create a history record for a Batch Payment
 [**create_branding_theme_payment_services**](AccountingApi.md#create_branding_theme_payment_services) | **POST** /BrandingThemes/{BrandingThemeID}/PaymentServices | Allow for the creation of new custom payment service for specified Branding Theme
-[**create_contact**](AccountingApi.md#create_contact) | **PUT** /Contacts | 
 [**create_contact_attachment_by_file_name**](AccountingApi.md#create_contact_attachment_by_file_name) | **PUT** /Contacts/{ContactID}/Attachments/{FileName} | 
 [**create_contact_group**](AccountingApi.md#create_contact_group) | **PUT** /ContactGroups | Allows you to create a contact group
 [**create_contact_group_contacts**](AccountingApi.md#create_contact_group_contacts) | **PUT** /ContactGroups/{ContactGroupID}/Contacts | Allows you to add Contacts to a Contract Group
 [**create_contact_history**](AccountingApi.md#create_contact_history) | **PUT** /Contacts/{ContactID}/History | Allows you to retrieve a history records of an Contact
-[**create_contacts**](AccountingApi.md#create_contacts) | **PUT** /Contacts#bulk | 
-[**create_credit_note**](AccountingApi.md#create_credit_note) | **PUT** /CreditNotes | Allows you to create a credit note
+[**create_contacts**](AccountingApi.md#create_contacts) | **PUT** /Contacts | Allows you to create a multiple contacts (bulk) in a Xero organisation
 [**create_credit_note_allocation**](AccountingApi.md#create_credit_note_allocation) | **PUT** /CreditNotes/{CreditNoteID}/Allocations | Allows you to create Allocation on CreditNote
 [**create_credit_note_attachment_by_file_name**](AccountingApi.md#create_credit_note_attachment_by_file_name) | **PUT** /CreditNotes/{CreditNoteID}/Attachments/{FileName} | Allows you to create Attachments on CreditNote by file name
 [**create_credit_note_history**](AccountingApi.md#create_credit_note_history) | **PUT** /CreditNotes/{CreditNoteID}/History | Allows you to retrieve a history records of an CreditNote
-[**create_credit_notes**](AccountingApi.md#create_credit_notes) | **PUT** /CreditNotes#bulk | Allows you to create a credit note
+[**create_credit_notes**](AccountingApi.md#create_credit_notes) | **PUT** /CreditNotes | Allows you to create a credit note
 [**create_currency**](AccountingApi.md#create_currency) | **PUT** /Currencies | 
-[**create_employee**](AccountingApi.md#create_employee) | **PUT** /Employees | Allows you to create new employees used in Xero payrun
-[**create_employees**](AccountingApi.md#create_employees) | **PUT** /Employees#bulk | Allows you to create new employees used in Xero payrun
+[**create_employees**](AccountingApi.md#create_employees) | **PUT** /Employees | Allows you to create new employees used in Xero payrun
 [**create_expense_claim_history**](AccountingApi.md#create_expense_claim_history) | **PUT** /ExpenseClaims/{ExpenseClaimID}/History | Allows you to create a history records of an ExpenseClaim
 [**create_expense_claims**](AccountingApi.md#create_expense_claims) | **PUT** /ExpenseClaims | Allows you to retrieve expense claims
-[**create_invoice**](AccountingApi.md#create_invoice) | **PUT** /Invoices | Allows you to create any sales invoices or purchase bills
 [**create_invoice_attachment_by_file_name**](AccountingApi.md#create_invoice_attachment_by_file_name) | **PUT** /Invoices/{InvoiceID}/Attachments/{FileName} | Allows you to create an Attachment on invoices or purchase bills by it&#39;s filename
 [**create_invoice_history**](AccountingApi.md#create_invoice_history) | **PUT** /Invoices/{InvoiceID}/History | Allows you to retrieve a history records of an invoice
-[**create_invoices**](AccountingApi.md#create_invoices) | **PUT** /Invoices#bulk | Allows you to create any sales invoices or purchase bills
-[**create_item**](AccountingApi.md#create_item) | **PUT** /Items | Allows you to create an item
+[**create_invoices**](AccountingApi.md#create_invoices) | **PUT** /Invoices | Allows you to create one or more sales invoices or purchase bills
 [**create_item_history**](AccountingApi.md#create_item_history) | **PUT** /Items/{ItemID}/History | Allows you to create a history record for items
-[**create_items**](AccountingApi.md#create_items) | **PUT** /Items#bulk | Allows you to create an item
+[**create_items**](AccountingApi.md#create_items) | **PUT** /Items | Allows you to create one or more items
 [**create_linked_transaction**](AccountingApi.md#create_linked_transaction) | **PUT** /LinkedTransactions | Allows you to create linked transactions (billable expenses)
-[**create_linked_transactions**](AccountingApi.md#create_linked_transactions) | **PUT** /LinkedTransactions#bulk | Allows you to create linked transactions (billable expenses)
-[**create_manual_journal**](AccountingApi.md#create_manual_journal) | **PUT** /ManualJournals | Allows you to create a manual journal
 [**create_manual_journal_attachment_by_file_name**](AccountingApi.md#create_manual_journal_attachment_by_file_name) | **PUT** /ManualJournals/{ManualJournalID}/Attachments/{FileName} | Allows you to create a specified Attachment on ManualJournal by file name
-[**create_manual_journals**](AccountingApi.md#create_manual_journals) | **PUT** /ManualJournals#bulk | Allows you to create a manual journal
-[**create_overpayment_allocation**](AccountingApi.md#create_overpayment_allocation) | **PUT** /Overpayments/{OverpaymentID}/Allocations | Allows you to retrieve Allocations for overpayments
-[**create_overpayment_allocations**](AccountingApi.md#create_overpayment_allocations) | **PUT** /Overpayments/{OverpaymentID}/Allocations#bulk | Allows you to retrieve Allocations for overpayments
+[**create_manual_journals**](AccountingApi.md#create_manual_journals) | **PUT** /ManualJournals | Allows you to create one or more manual journals
+[**create_overpayment_allocations**](AccountingApi.md#create_overpayment_allocations) | **PUT** /Overpayments/{OverpaymentID}/Allocations | Allows you to create a single allocation for an overpayment
 [**create_overpayment_history**](AccountingApi.md#create_overpayment_history) | **PUT** /Overpayments/{OverpaymentID}/History | Allows you to create history records of an Overpayment
-[**create_payment**](AccountingApi.md#create_payment) | **PUT** /Payments | Allows you to create payments for invoices and credit notes
+[**create_payment**](AccountingApi.md#create_payment) | **POST** /Payments | Allows you to create a single payment for invoices or credit notes
 [**create_payment_history**](AccountingApi.md#create_payment_history) | **PUT** /Payments/{PaymentID}/History | Allows you to create a history record for a payment
 [**create_payment_service**](AccountingApi.md#create_payment_service) | **PUT** /PaymentServices | Allows you to create payment services
-[**create_payments**](AccountingApi.md#create_payments) | **PUT** /Payments#bulk | Allows you to create payments for invoices and credit notes
-[**create_prepayment_allocation**](AccountingApi.md#create_prepayment_allocation) | **PUT** /Prepayments/{PrepaymentID}/Allocations | Allows you to create an Allocation for prepayments
+[**create_payments**](AccountingApi.md#create_payments) | **PUT** /Payments | Allows you to create multiple payments for invoices or credit notes
+[**create_prepayment_allocations**](AccountingApi.md#create_prepayment_allocations) | **PUT** /Prepayments/{PrepaymentID}/Allocations | Allows you to create an Allocation for prepayments
 [**create_prepayment_history**](AccountingApi.md#create_prepayment_history) | **PUT** /Prepayments/{PrepaymentID}/History | Allows you to create a history record for an Prepayment
-[**create_purchase_order**](AccountingApi.md#create_purchase_order) | **PUT** /PurchaseOrders | Allows you to create purchase orders
 [**create_purchase_order_history**](AccountingApi.md#create_purchase_order_history) | **PUT** /PurchaseOrders/{PurchaseOrderID}/History | Allows you to create HistoryRecord for purchase orders
-[**create_purchase_orders**](AccountingApi.md#create_purchase_orders) | **PUT** /PurchaseOrders#bulk | Allows you to create purchase orders
+[**create_purchase_orders**](AccountingApi.md#create_purchase_orders) | **PUT** /PurchaseOrders | Allows you to create one or more purchase orders
+[**create_quote_history**](AccountingApi.md#create_quote_history) | **PUT** /Quotes/{QuoteID}/History | Allows you to retrieve a history records of an quote
+[**create_quotes**](AccountingApi.md#create_quotes) | **PUT** /Quotes | Allows you to create one or more quotes
 [**create_receipt**](AccountingApi.md#create_receipt) | **PUT** /Receipts | Allows you to create draft expense claim receipts for any user
 [**create_receipt_attachment_by_file_name**](AccountingApi.md#create_receipt_attachment_by_file_name) | **PUT** /Receipts/{ReceiptID}/Attachments/{FileName} | Allows you to create Attachment on expense claim receipts by file name
 [**create_receipt_history**](AccountingApi.md#create_receipt_history) | **PUT** /Receipts/{ReceiptID}/History | Allows you to retrieve a history records of an Receipt
 [**create_repeating_invoice_attachment_by_file_name**](AccountingApi.md#create_repeating_invoice_attachment_by_file_name) | **PUT** /RepeatingInvoices/{RepeatingInvoiceID}/Attachments/{FileName} | Allows you to create attachment on repeating invoices by file name
 [**create_repeating_invoice_history**](AccountingApi.md#create_repeating_invoice_history) | **PUT** /RepeatingInvoices/{RepeatingInvoiceID}/History | Allows you to create history for a repeating invoice
-[**create_tax_rate**](AccountingApi.md#create_tax_rate) | **PUT** /TaxRates | Allows you to create Tax Rates
-[**create_tax_rates**](AccountingApi.md#create_tax_rates) | **PUT** /TaxRates#bulk | Allows you to create Tax Rates
+[**create_tax_rates**](AccountingApi.md#create_tax_rates) | **PUT** /TaxRates | Allows you to create one or more Tax Rates
 [**create_tracking_category**](AccountingApi.md#create_tracking_category) | **PUT** /TrackingCategories | Allows you to create tracking categories
 [**create_tracking_options**](AccountingApi.md#create_tracking_options) | **PUT** /TrackingCategories/{TrackingCategoryID}/Options | Allows you to create options for a specified tracking category
 [**delete_account**](AccountingApi.md#delete_account) | **DELETE** /Accounts/{AccountID} | Allows you to delete a chart of accounts
@@ -154,6 +145,9 @@ Method | HTTP request | Description
 [**get_purchase_order**](AccountingApi.md#get_purchase_order) | **GET** /PurchaseOrders/{PurchaseOrderID} | Allows you to retrieve a specified purchase orders
 [**get_purchase_order_history**](AccountingApi.md#get_purchase_order_history) | **GET** /PurchaseOrders/{PurchaseOrderID}/History | Allows you to retrieve history for PurchaseOrder
 [**get_purchase_orders**](AccountingApi.md#get_purchase_orders) | **GET** /PurchaseOrders | Allows you to retrieve purchase orders
+[**get_quote**](AccountingApi.md#get_quote) | **GET** /Quotes/{QuoteID} | Allows you to retrieve a specified quote
+[**get_quote_history**](AccountingApi.md#get_quote_history) | **GET** /Quotes/{QuoteID}/History | Allows you to retrieve a history records of an quote
+[**get_quotes**](AccountingApi.md#get_quotes) | **GET** /Quotes | Allows you to retrieve any sales quotes
 [**get_receipt**](AccountingApi.md#get_receipt) | **GET** /Receipts/{ReceiptID} | Allows you to retrieve a specified draft expense claim receipts
 [**get_receipt_attachment_by_file_name**](AccountingApi.md#get_receipt_attachment_by_file_name) | **GET** /Receipts/{ReceiptID}/Attachments/{FileName} | Allows you to retrieve Attachments on expense claim receipts by file name
 [**get_receipt_attachment_by_id**](AccountingApi.md#get_receipt_attachment_by_id) | **GET** /Receipts/{ReceiptID}/Attachments/{AttachmentID} | Allows you to retrieve Attachments on expense claim receipts by ID
@@ -196,11 +190,21 @@ Method | HTTP request | Description
 [**update_expense_claim**](AccountingApi.md#update_expense_claim) | **POST** /ExpenseClaims/{ExpenseClaimID} | Allows you to update specified expense claims
 [**update_invoice**](AccountingApi.md#update_invoice) | **POST** /Invoices/{InvoiceID} | Allows you to update a specified sales invoices or purchase bills
 [**update_invoice_attachment_by_file_name**](AccountingApi.md#update_invoice_attachment_by_file_name) | **POST** /Invoices/{InvoiceID}/Attachments/{FileName} | Allows you to update Attachment on invoices or purchase bills by it&#39;s filename
-[**update_item**](AccountingApi.md#update_item) | **POST** /Items/{ItemID} | Allows you to udpate a specified item
+[**update_item**](AccountingApi.md#update_item) | **POST** /Items/{ItemID} | Allows you to update a specified item
 [**update_linked_transaction**](AccountingApi.md#update_linked_transaction) | **POST** /LinkedTransactions/{LinkedTransactionID} | Allows you to update a specified linked transactions (billable expenses)
 [**update_manual_journal**](AccountingApi.md#update_manual_journal) | **POST** /ManualJournals/{ManualJournalID} | Allows you to update a specified manual journal
 [**update_manual_journal_attachment_by_file_name**](AccountingApi.md#update_manual_journal_attachment_by_file_name) | **POST** /ManualJournals/{ManualJournalID}/Attachments/{FileName} | Allows you to update a specified Attachment on ManualJournal by file name
+[**update_or_create_bank_transactions**](AccountingApi.md#update_or_create_bank_transactions) | **POST** /BankTransactions | Allows you to update or create one or more spend or receive money transaction
+[**update_or_create_contacts**](AccountingApi.md#update_or_create_contacts) | **POST** /Contacts | Allows you to update OR create one or more contacts in a Xero organisation
+[**update_or_create_credit_notes**](AccountingApi.md#update_or_create_credit_notes) | **POST** /CreditNotes | Allows you to update OR create one or more credit notes
+[**update_or_create_employees**](AccountingApi.md#update_or_create_employees) | **POST** /Employees | Allows you to create a single new employees used in Xero payrun
+[**update_or_create_invoices**](AccountingApi.md#update_or_create_invoices) | **POST** /Invoices | Allows you to update OR create one or more sales invoices or purchase bills
+[**update_or_create_items**](AccountingApi.md#update_or_create_items) | **POST** /Items | Allows you to update or create one or more items
+[**update_or_create_manual_journals**](AccountingApi.md#update_or_create_manual_journals) | **POST** /ManualJournals | Allows you to create a single manual journal
+[**update_or_create_purchase_orders**](AccountingApi.md#update_or_create_purchase_orders) | **POST** /PurchaseOrders | Allows you to update or create one or more purchase orders
+[**update_or_create_quotes**](AccountingApi.md#update_or_create_quotes) | **POST** /Quotes | Allows you to update OR create one or more quotes
 [**update_purchase_order**](AccountingApi.md#update_purchase_order) | **POST** /PurchaseOrders/{PurchaseOrderID} | Allows you to update a specified purchase order
+[**update_quote**](AccountingApi.md#update_quote) | **POST** /Quotes/{QuoteID} | Allows you to update a specified quote
 [**update_receipt**](AccountingApi.md#update_receipt) | **POST** /Receipts/{ReceiptID} | Allows you to retrieve a specified draft expense claim receipts
 [**update_receipt_attachment_by_file_name**](AccountingApi.md#update_receipt_attachment_by_file_name) | **POST** /Receipts/{ReceiptID}/Attachments/{FileName} | Allows you to update Attachment on expense claim receipts by file name
 [**update_repeating_invoice_attachment_by_file_name**](AccountingApi.md#update_repeating_invoice_attachment_by_file_name) | **POST** /RepeatingInvoices/{RepeatingInvoiceID}/Attachments/{FileName} | Allows you to update specified attachment on repeating invoices by file name
@@ -228,8 +232,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-account = { "Code":"123456", "Name":"Foobar", "Type":"EXPENSE", "Description":"Hello World" } # Account | Request of type Account
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+account = { code: "123456", name: "Foobar", type: AccountType.EXPENSE, description: "Hello World" } # Account | Account object in body of request
 
 begin
   #Allows you to create a new chart of accounts
@@ -246,7 +250,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **account** | [**Account**](Account.md)| Request of type Account | 
+ **account** | [**Account**](Account.md)| Account object in body of request | 
 
 ### Return type
 
@@ -280,9 +284,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-account_id = 'account_id_example' # String | Unique identifier for Account object
-file_name = 'file_name_example' # String | Name of the attachment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+account_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Account object
+file_name = 'xero-dev.jpg' # String | Name of the attachment
 body = 'body_example' # String | Byte array of file in body of request
 
 begin
@@ -318,58 +322,6 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## create_bank_transaction
-
-> BankTransactions create_bank_transaction(xero_tenant_id, bank_transaction)
-
-Allows you to create a spend or receive money transaction
-
-### Example
-
-```ruby
-# load the gem
-require 'xero-ruby'
-# setup authorization
-XeroRuby.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
-
-api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-bank_transaction = { "BankTransactions":[ { "Type":"SPEND", "Contact":{ "ContactID":"5cc8cf28-567e-4d43-b287-687cfcaec47c" }, "LineItems":[ { "Description":"Foobar", "Quantity":1.0, "UnitAmount":20.0, "AccountCode":"400" } ], "BankAccount":{ "Code":"088" } } ] } # BankTransaction | 
-
-begin
-  #Allows you to create a spend or receive money transaction
-  result = api_instance.create_bank_transaction(xero_tenant_id, bank_transaction)
-  p result
-rescue XeroRuby::ApiError => e
-  puts "Exception when calling AccountingApi->create_bank_transaction: #{e}"
-end
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **bank_transaction** | [**BankTransaction**](BankTransaction.md)|  | 
-
-### Return type
-
-[**BankTransactions**](BankTransactions.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
 ## create_bank_transaction_attachment_by_file_name
 
 > Attachments create_bank_transaction_attachment_by_file_name(xero_tenant_id, bank_transaction_id, file_name, body)
@@ -388,9 +340,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-bank_transaction_id = 'bank_transaction_id_example' # String | Xero generated unique identifier for a bank transaction
-file_name = 'file_name_example' # String | The name of the file being attached
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transaction_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transaction
+file_name = 'xero-dev.jpg' # String | The name of the file being attached
 body = 'body_example' # String | Byte array of file in body of request
 
 begin
@@ -444,9 +396,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-bank_transaction_id = 'bank_transaction_id_example' # String | Xero generated unique identifier for a bank transaction
-history_records = XeroRuby::HistoryRecords.new # HistoryRecords | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transaction_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transaction
+history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 begin
   #Allows you to create history record for a bank transactions
@@ -464,7 +416,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **bank_transaction_id** | [**String**](.md)| Xero generated unique identifier for a bank transaction | 
- **history_records** | [**HistoryRecords**](HistoryRecords.md)|  | 
+ **history_records** | [**HistoryRecords**](HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request | 
 
 ### Return type
 
@@ -484,7 +436,7 @@ Name | Type | Description  | Notes
 
 > BankTransactions create_bank_transactions(xero_tenant_id, bank_transactions, opts)
 
-Allows you to create a spend or receive money transaction
+Allows you to create one or more spend or receive money transaction
 
 ### Example
 
@@ -498,14 +450,15 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-bank_transactions = { "BankTransactions":[ { "Type":"SPEND", "Contact":{ "ContactID":"5cc8cf28-567e-4d43-b287-687cfcaec47c" }, "LineItems":[ { "Description":"Foobar", "Quantity":1.0, "UnitAmount":20.0, "AccountCode":"400" } ], "BankAccount":{ "Code":"088" } } ] } # BankTransactions | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transactions = { bankTransactions:[ { type: BankTransaction.TypeEnum.SPEND, contact: { contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity: 1.0, unitAmount:20.0, accountCode:"000" } ], bankAccount:{ code:"000" } } ] } # BankTransactions | BankTransactions with an array of BankTransaction objects in body of request
 opts = {
-  summarize_errors: true # Boolean | response format that shows validation errors for each bank transaction
+  summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+  unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
 
 begin
-  #Allows you to create a spend or receive money transaction
+  #Allows you to create one or more spend or receive money transaction
   result = api_instance.create_bank_transactions(xero_tenant_id, bank_transactions, opts)
   p result
 rescue XeroRuby::ApiError => e
@@ -519,8 +472,9 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **bank_transactions** | [**BankTransactions**](BankTransactions.md)|  | 
- **summarize_errors** | **Boolean**| response format that shows validation errors for each bank transaction | [optional] [default to true]
+ **bank_transactions** | [**BankTransactions**](BankTransactions.md)| BankTransactions with an array of BankTransaction objects in body of request | 
+ **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
 
 ### Return type
 
@@ -554,8 +508,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-bank_transfers = { "BankTransfers":[ { "FromBankAccount":{ "Code":"090", "Name":"My Savings", "AccountID":"7e5e243b-9fcd-4aef-8e3a-c70be1e39bfa", "Type":"BANK", "BankAccountNumber":"123455", "Status":"ACTIVE", "BankAccountType":"BANK", "CurrencyCode":"USD", "TaxType":"NONE", "EnablePaymentsToAccount":false, "ShowInExpenseClaims":false, "Class":"ASSET", "ReportingCode":"ASS", "ReportingCodeName":"Assets", "HasAttachments":false, "UpdatedDateUTC":"2016-10-17T13:45:33.993-07:00" }, "ToBankAccount":{ "Code":"088", "Name":"Business Wells Fargo", "AccountID":"6f7594f2-f059-4d56-9e67-47ac9733bfe9", "Type":"BANK", "BankAccountNumber":"123455", "Status":"ACTIVE", "BankAccountType":"BANK", "CurrencyCode":"USD", "TaxType":"NONE", "EnablePaymentsToAccount":false, "ShowInExpenseClaims":false, "Class":"ASSET", "ReportingCode":"ASS", "ReportingCodeName":"Assets", "HasAttachments":false, "UpdatedDateUTC":"2016-06-03T08:31:14.517-07:00" }, "Amount":"50.00" } ] } # BankTransfers | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transfers = { bankTransfers:[ { fromBankAccount: { code:"000", accountID:"00000000-0000-0000-000-000000000000"}, toBankAccount:{ code:"001", accountID:"00000000-0000-0000-000-000000000000"}, amount:"50.00" } ] } # BankTransfers | BankTransfers with array of BankTransfer objects in request body
 
 begin
   #Allows you to create a bank transfers
@@ -572,7 +526,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **bank_transfers** | [**BankTransfers**](BankTransfers.md)|  | 
+ **bank_transfers** | [**BankTransfers**](BankTransfers.md)| BankTransfers with array of BankTransfer objects in request body | 
 
 ### Return type
 
@@ -606,9 +560,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-bank_transfer_id = 'bank_transfer_id_example' # String | Xero generated unique identifier for a bank transfer
-file_name = 'file_name_example' # String | The name of the file being attached to a Bank Transfer
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transfer_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transfer
+file_name = 'xero-dev.jpg' # String | The name of the file being attached to a Bank Transfer
 body = 'body_example' # String | Byte array of file in body of request
 
 begin
@@ -661,9 +615,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-bank_transfer_id = 'bank_transfer_id_example' # String | Xero generated unique identifier for a bank transfer
-history_records = XeroRuby::HistoryRecords.new # HistoryRecords | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transfer_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transfer
+history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 begin
   result = api_instance.create_bank_transfer_history_record(xero_tenant_id, bank_transfer_id, history_records)
@@ -680,7 +634,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **bank_transfer_id** | [**String**](.md)| Xero generated unique identifier for a bank transfer | 
- **history_records** | [**HistoryRecords**](HistoryRecords.md)|  | 
+ **history_records** | [**HistoryRecords**](HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request | 
 
 ### Return type
 
@@ -698,7 +652,7 @@ Name | Type | Description  | Notes
 
 ## create_batch_payment
 
-> BatchPayments create_batch_payment(xero_tenant_id, batch_payments)
+> BatchPayments create_batch_payment(xero_tenant_id, batch_payments, opts)
 
 Create one or many BatchPayments for invoices
 
@@ -714,15 +668,15 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-batch_payments = { "BatchPayments":[ { "Account":{ "AccountID":"5ec2f302-cd60-4f8b-a915-9229dd45e6fa" }, "Reference":"Foobar38515", "Date":"2019-02-22", "Amount":3.0, "Payments":[ { "Invoice":{ "LineItems":[
-], "InvoiceID":"e6039672-b161-40cd-b07b-a0178e7186ad" }, "Account":{ "AccountID":"5ec2f302-cd60-4f8b-a915-9229dd45e6fa" }, "Date":"2019-02-22", "Amount":1.0 }, { "Invoice":{ "LineItems":[
-], "InvoiceID":"e4abafb4-1f5b-4d9f-80b3-9a7b815bc302" }, "Account":{ "AccountID":"5ec2f302-cd60-4f8b-a915-9229dd45e6fa" }, "Date":"2019-02-22", "Amount":1.0 }, { "Invoice":{ "LineItems":[
-], "InvoiceID":"3323652c-155e-433b-8a73-4dde7cfbf410" }, "Account":{ "AccountID":"5ec2f302-cd60-4f8b-a915-9229dd45e6fa" }, "Date":"2019-02-22", "Amount":1.0 } ] } ] } # BatchPayments | Request of type BatchPayments containing a Payments array with one or more Payment objects
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+batch_payments = { batchPayments: [ { account: { accountID: "00000000-0000-0000-000-000000000000" }, reference: "ref", date: "2018-08-01", payments: [ { account: { code: "001" }, date: "2019-12-31", amount: 500, invoice: { invoiceID: "00000000-0000-0000-000-000000000000", lineItems: [], contact: {}, type: Invoice.TypeEnum.ACCPAY } } ] } ] } # BatchPayments | BatchPayments with an array of Payments in body of request
+opts = {
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+}
 
 begin
   #Create one or many BatchPayments for invoices
-  result = api_instance.create_batch_payment(xero_tenant_id, batch_payments)
+  result = api_instance.create_batch_payment(xero_tenant_id, batch_payments, opts)
   p result
 rescue XeroRuby::ApiError => e
   puts "Exception when calling AccountingApi->create_batch_payment: #{e}"
@@ -735,7 +689,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **batch_payments** | [**BatchPayments**](BatchPayments.md)| Request of type BatchPayments containing a Payments array with one or more Payment objects | 
+ **batch_payments** | [**BatchPayments**](BatchPayments.md)| BatchPayments with an array of Payments in body of request | 
+ **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -769,9 +724,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-batch_payment_id = 'batch_payment_id_example' # String | Unique identifier for BatchPayment
-history_records = { "HistoryRecords":[ { "Details":"Hello World" } ] } # HistoryRecords | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+batch_payment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for BatchPayment
+history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 begin
   #Allows you to create a history record for a Batch Payment
@@ -789,7 +744,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **batch_payment_id** | [**String**](.md)| Unique identifier for BatchPayment | 
- **history_records** | [**HistoryRecords**](HistoryRecords.md)|  | 
+ **history_records** | [**HistoryRecords**](HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request | 
 
 ### Return type
 
@@ -823,9 +778,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-branding_theme_id = 'branding_theme_id_example' # String | Unique identifier for a Branding Theme
-payment_service = { "PaymentServiceID":"dede7858-14e3-4a46-bf95-4d4cc491e645", "PaymentServiceName":"ACME Payments", "PaymentServiceUrl":"https://www.payupnow.com/", "PayNowText":"Pay Now" } # PaymentService | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+branding_theme_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Branding Theme
+payment_service = { paymentServiceID:"dede7858-14e3-4a46-bf95-4d4cc491e645", paymentServiceName:"ACME Payments", paymentServiceUrl:"https://www.payupnow.com/", payNowText:"Pay Now" } # PaymentService | PaymentService object in body of request
 
 begin
   #Allow for the creation of new custom payment service for specified Branding Theme
@@ -843,62 +798,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **branding_theme_id** | [**String**](.md)| Unique identifier for a Branding Theme | 
- **payment_service** | [**PaymentService**](PaymentService.md)|  | 
+ **payment_service** | [**PaymentService**](PaymentService.md)| PaymentService object in body of request | 
 
 ### Return type
 
 [**PaymentServices**](PaymentServices.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## create_contact
-
-> Contacts create_contact(xero_tenant_id, contact)
-
-
-
-### Example
-
-```ruby
-# load the gem
-require 'xero-ruby'
-# setup authorization
-XeroRuby.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
-
-api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-contact = { "Name":"Foo9987", "EmailAddress":"sid32476@blah.com", "Phones":[ { "PhoneType":"MOBILE", "PhoneNumber":"555-1212", "PhoneAreaCode":"415" } ], "PaymentTerms":{ "Bills":{ "Day":15, "Type":"OFCURRENTMONTH" }, "Sales":{ "Day":10, "Type":"DAYSAFTERBILLMONTH" } } } # Contact | 
-
-begin
-  result = api_instance.create_contact(xero_tenant_id, contact)
-  p result
-rescue XeroRuby::ApiError => e
-  puts "Exception when calling AccountingApi->create_contact: #{e}"
-end
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **contact** | [**Contact**](Contact.md)|  | 
-
-### Return type
-
-[**Contacts**](Contacts.md)
 
 ### Authorization
 
@@ -928,9 +832,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-contact_id = 'contact_id_example' # String | Unique identifier for a Contact
-file_name = 'file_name_example' # String | Name for the file you are attaching
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
+file_name = 'xero-dev.jpg' # String | Name for the file you are attaching
 body = 'body_example' # String | Byte array of file in body of request
 
 begin
@@ -983,8 +887,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-contact_groups = { "ContactGroups":[ { "Name":"Suppliers" } ] } # ContactGroups | an array of contact groups with names specified
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contact_groups = { contactGroups:[ { name:"VIPs" } ] } # ContactGroups | ContactGroups with an array of names in request body
 
 begin
   #Allows you to create a contact group
@@ -1001,7 +905,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **contact_groups** | [**ContactGroups**](ContactGroups.md)| an array of contact groups with names specified | 
+ **contact_groups** | [**ContactGroups**](ContactGroups.md)| ContactGroups with an array of names in request body | 
 
 ### Return type
 
@@ -1035,9 +939,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-contact_group_id = 'contact_group_id_example' # String | Unique identifier for a Contact Group
-contacts = { "Contacts":[ { "ContactID":"a3675fc4-f8dd-4f03-ba5b-f1870566bcd7" }, { "ContactID":"4e1753b9-018a-4775-b6aa-1bc7871cfee3" } ] } # Contacts | an array of contacts with ContactID to be added to ContactGroup
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contact_group_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact Group
+contacts = { contacts:[ { contactID:"a3675fc4-f8dd-4f03-ba5b-f1870566bcd7" }, { contactID:"4e1753b9-018a-4775-b6aa-1bc7871cfee3" } ] } # Contacts | Contacts with array of contacts specifiying the ContactID to be added to ContactGroup in body of request
 
 begin
   #Allows you to add Contacts to a Contract Group
@@ -1055,7 +959,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **contact_group_id** | [**String**](.md)| Unique identifier for a Contact Group | 
- **contacts** | [**Contacts**](Contacts.md)| an array of contacts with ContactID to be added to ContactGroup | 
+ **contacts** | [**Contacts**](Contacts.md)| Contacts with array of contacts specifiying the ContactID to be added to ContactGroup in body of request | 
 
 ### Return type
 
@@ -1089,9 +993,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-contact_id = 'contact_id_example' # String | Unique identifier for a Contact
-history_records = { "HistoryRecords":[ { "Details":"Hello World" } ] } # HistoryRecords | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
+history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 begin
   #Allows you to retrieve a history records of an Contact
@@ -1109,7 +1013,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **contact_id** | [**String**](.md)| Unique identifier for a Contact | 
- **history_records** | [**HistoryRecords**](HistoryRecords.md)|  | 
+ **history_records** | [**HistoryRecords**](HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request | 
 
 ### Return type
 
@@ -1127,9 +1031,9 @@ Name | Type | Description  | Notes
 
 ## create_contacts
 
-> Contacts create_contacts(xero_tenant_id, contacts)
+> Contacts create_contacts(xero_tenant_id, contacts, opts)
 
-
+Allows you to create a multiple contacts (bulk) in a Xero organisation
 
 ### Example
 
@@ -1143,11 +1047,15 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-contacts = { "Name":"Foo9987", "EmailAddress":"sid32476@blah.com", "Phones":[ { "PhoneType":"MOBILE", "PhoneNumber":"555-1212", "PhoneAreaCode":"415" } ], "PaymentTerms":{ "Bills":{ "Day":15, "Type":"OFCURRENTMONTH" }, "Sales":{ "Day":10, "Type":"DAYSAFTERBILLMONTH" } } } # Contacts | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contacts = {contacts: [{ name:"Bruce Banner", emailAddress:"hulk@avengers.com", phones:[ { phoneType: Phone.PhoneTypeEnum.MOBILE, phoneNumber:"555-1212", phoneAreaCode:"415" } ], paymentTerms:{ bills:{ day:15, type: PaymentTermType.OFCURRENTMONTH }, sales:{ day:10, type: PaymentTermType.DAYSAFTERBILLMONTH } } } ] } # Contacts | Contacts with an array of Contact objects to create in body of request
+opts = {
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+}
 
 begin
-  result = api_instance.create_contacts(xero_tenant_id, contacts)
+  #Allows you to create a multiple contacts (bulk) in a Xero organisation
+  result = api_instance.create_contacts(xero_tenant_id, contacts, opts)
   p result
 rescue XeroRuby::ApiError => e
   puts "Exception when calling AccountingApi->create_contacts: #{e}"
@@ -1160,63 +1068,12 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **contacts** | [**Contacts**](Contacts.md)|  | 
+ **contacts** | [**Contacts**](Contacts.md)| Contacts with an array of Contact objects to create in body of request | 
+ **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
 [**Contacts**](Contacts.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## create_credit_note
-
-> CreditNotes create_credit_note(xero_tenant_id, credit_note)
-
-Allows you to create a credit note
-
-### Example
-
-```ruby
-# load the gem
-require 'xero-ruby'
-# setup authorization
-XeroRuby.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
-
-api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-credit_note = { "CreditNotes":[ { "Type":"ACCPAYCREDIT", "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "Date":"2019-01-05", "LineItems":[ { "Description":"Foobar", "Quantity":2.0, "UnitAmount":20.0, "AccountCode":"400" } ] } ] } # CreditNote | an array of Credit Notes with a single CreditNote object.
-
-begin
-  #Allows you to create a credit note
-  result = api_instance.create_credit_note(xero_tenant_id, credit_note)
-  p result
-rescue XeroRuby::ApiError => e
-  puts "Exception when calling AccountingApi->create_credit_note: #{e}"
-end
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **credit_note** | [**CreditNote**](CreditNote.md)| an array of Credit Notes with a single CreditNote object. | 
-
-### Return type
-
-[**CreditNotes**](CreditNotes.md)
 
 ### Authorization
 
@@ -1246,10 +1103,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-credit_note_id = 'credit_note_id_example' # String | Unique identifier for a Credit Note
-allocations = { "Allocations":[ { "Invoice":{ "LineItems":[
-], "InvoiceID":"c45720a1-ade3-4a38-a064-d15489be6841" }, "Amount":1.0, "Date":"2019-03-05" } ] } # Allocations | an array of Allocations with single Allocation object defined.
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+credit_note_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Credit Note
+allocations = { allocations:[ { amount:1.0, date:"2019-03-05", invoice:{ invoiceID:"c45720a1-ade3-4a38-a064-d15489be6841", lineItems:[], type: Invoice.TypeEnum.ACCPAY, contact:{} } } ] } # Allocations | Allocations with array of Allocation object in body of request.
 
 begin
   #Allows you to create Allocation on CreditNote
@@ -1267,7 +1123,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **credit_note_id** | [**String**](.md)| Unique identifier for a Credit Note | 
- **allocations** | [**Allocations**](Allocations.md)| an array of Allocations with single Allocation object defined. | 
+ **allocations** | [**Allocations**](Allocations.md)| Allocations with array of Allocation object in body of request. | 
 
 ### Return type
 
@@ -1285,7 +1141,7 @@ Name | Type | Description  | Notes
 
 ## create_credit_note_attachment_by_file_name
 
-> Attachments create_credit_note_attachment_by_file_name(xero_tenant_id, credit_note_id, file_name, body)
+> Attachments create_credit_note_attachment_by_file_name(xero_tenant_id, credit_note_id, file_name, include_online, body)
 
 Allows you to create Attachments on CreditNote by file name
 
@@ -1301,14 +1157,15 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-credit_note_id = 'credit_note_id_example' # String | Unique identifier for a Credit Note
-file_name = 'file_name_example' # String | Name of the file you are attaching to Credit Note
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+credit_note_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Credit Note
+file_name = 'xero-dev.jpg' # String | Name of the file you are attaching to Credit Note
+include_online = true # Boolean | Set an attachment to be included with the invoice when viewed online (through Xero)
 body = 'body_example' # String | Byte array of file in body of request
 
 begin
   #Allows you to create Attachments on CreditNote by file name
-  result = api_instance.create_credit_note_attachment_by_file_name(xero_tenant_id, credit_note_id, file_name, body)
+  result = api_instance.create_credit_note_attachment_by_file_name(xero_tenant_id, credit_note_id, file_name, include_online, body)
   p result
 rescue XeroRuby::ApiError => e
   puts "Exception when calling AccountingApi->create_credit_note_attachment_by_file_name: #{e}"
@@ -1323,6 +1180,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **credit_note_id** | [**String**](.md)| Unique identifier for a Credit Note | 
  **file_name** | **String**| Name of the file you are attaching to Credit Note | 
+ **include_online** | **Boolean**| Set an attachment to be included with the invoice when viewed online (through Xero) | 
  **body** | **String**| Byte array of file in body of request | 
 
 ### Return type
@@ -1357,9 +1215,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-credit_note_id = 'credit_note_id_example' # String | Unique identifier for a Credit Note
-history_records = { "HistoryRecords":[ { "Details":"Hello World" } ] } # HistoryRecords | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+credit_note_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Credit Note
+history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 begin
   #Allows you to retrieve a history records of an CreditNote
@@ -1377,7 +1235,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **credit_note_id** | [**String**](.md)| Unique identifier for a Credit Note | 
- **history_records** | [**HistoryRecords**](HistoryRecords.md)|  | 
+ **history_records** | [**HistoryRecords**](HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request | 
 
 ### Return type
 
@@ -1411,10 +1269,11 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-credit_notes = { "CreditNotes":[ { "Type":"ACCPAYCREDIT", "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "Date":"2019-01-05", "LineItems":[ { "Description":"Foobar", "Quantity":2.0, "UnitAmount":20.0, "AccountCode":"400" } ] } ] } # CreditNotes | an array of Credit Notes with a single CreditNote object.
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+credit_notes = { creditNotes:[ { type: CreditNote.TypeEnum.ACCPAYCREDIT, contact:{ contactID:"430fa14a-f945-44d3-9f97-5df5e28441b8" }, date:"2019-01-05", lineItems:[ { description:"Foobar", quantity:2.0, unitAmount:20.0, accountCode:"400" } ] } ] } # CreditNotes | Credit Notes with array of CreditNote object in body of request
 opts = {
-  summarize_errors: true # Boolean | shows validation errors for each credit note
+  summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+  unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
 
 begin
@@ -1432,8 +1291,9 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **credit_notes** | [**CreditNotes**](CreditNotes.md)| an array of Credit Notes with a single CreditNote object. | 
- **summarize_errors** | **Boolean**| shows validation errors for each credit note | [optional] [default to true]
+ **credit_notes** | [**CreditNotes**](CreditNotes.md)| Credit Notes with array of CreditNote object in body of request | 
+ **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
 
 ### Return type
 
@@ -1467,8 +1327,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-currency = { "Code":"USD", "Description":"United States Dollar" } # Currency | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+currency = { code: CurrencyCode.USD, description:"United States Dollar" } # Currency | Currency obejct in the body of request
 
 begin
   result = api_instance.create_currency(xero_tenant_id, currency)
@@ -1484,7 +1344,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **currency** | [**Currency**](Currency.md)|  | 
+ **currency** | [**Currency**](Currency.md)| Currency obejct in the body of request | 
 
 ### Return type
 
@@ -1500,61 +1360,9 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## create_employee
-
-> Employees create_employee(xero_tenant_id, employee)
-
-Allows you to create new employees used in Xero payrun
-
-### Example
-
-```ruby
-# load the gem
-require 'xero-ruby'
-# setup authorization
-XeroRuby.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
-
-api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-employee = { "Employees":[ { "FirstName":"Nick", "LastName":"Fury", "ExternalLink":{ "Url":"http://twitter.com/#!/search/Nick+Fury" } } ] } # Employee | 
-
-begin
-  #Allows you to create new employees used in Xero payrun
-  result = api_instance.create_employee(xero_tenant_id, employee)
-  p result
-rescue XeroRuby::ApiError => e
-  puts "Exception when calling AccountingApi->create_employee: #{e}"
-end
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **employee** | [**Employee**](Employee.md)|  | 
-
-### Return type
-
-[**Employees**](Employees.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
 ## create_employees
 
-> Employees create_employees(xero_tenant_id, employees)
+> Employees create_employees(xero_tenant_id, employees, opts)
 
 Allows you to create new employees used in Xero payrun
 
@@ -1570,12 +1378,15 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-employees = { "Employees":[ { "FirstName":"Nick", "LastName":"Fury", "ExternalLink":{ "Url":"http://twitter.com/#!/search/Nick+Fury" } } ] } # Employees | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+employees = { employees:[ { firstName:"Nick", lastName:"Fury", externalLink:{ url:"http://twitter.com/#!/search/Nick+Fury" } } ] } # Employees | Employees with array of Employee object in body of request
+opts = {
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+}
 
 begin
   #Allows you to create new employees used in Xero payrun
-  result = api_instance.create_employees(xero_tenant_id, employees)
+  result = api_instance.create_employees(xero_tenant_id, employees, opts)
   p result
 rescue XeroRuby::ApiError => e
   puts "Exception when calling AccountingApi->create_employees: #{e}"
@@ -1588,7 +1399,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **employees** | [**Employees**](Employees.md)|  | 
+ **employees** | [**Employees**](Employees.md)| Employees with array of Employee object in body of request | 
+ **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -1622,9 +1434,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-expense_claim_id = 'expense_claim_id_example' # String | Unique identifier for a ExpenseClaim
-history_records = { "HistoryRecords":[ { "Details":"Hello World" } ] } # HistoryRecords | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+expense_claim_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ExpenseClaim
+history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 begin
   #Allows you to create a history records of an ExpenseClaim
@@ -1642,7 +1454,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **expense_claim_id** | [**String**](.md)| Unique identifier for a ExpenseClaim | 
- **history_records** | [**HistoryRecords**](HistoryRecords.md)|  | 
+ **history_records** | [**HistoryRecords**](HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request | 
 
 ### Return type
 
@@ -1676,9 +1488,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-expense_claims = { "ExpenseClaims":[ { "Status":"SUBMITTED", "User":{ "UserID":"d1164823-0ac1-41ad-987b-b4e30fe0b273" }, "Receipts":[ { "LineItems":[
-], "ReceiptID":"dc1c7f6d-0a4c-402f-acac-551d62ce5816" } ] } ] } # ExpenseClaims | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+expense_claims = { expenseClaims:[ { status: ExpenseClaim.StatusEnum.SUBMITTED, user:{ userID:"d1164823-0ac1-41ad-987b-b4e30fe0b273" }, receipts:[ { receiptID:"dc1c7f6d-0a4c-402f-acac-551d62ce5816", lineItems:[], contact: {}, user: {}, date: "2018-01-01" } ] } ] } # ExpenseClaims | ExpenseClaims with array of ExpenseClaim object in body of request
 
 begin
   #Allows you to retrieve expense claims
@@ -1695,7 +1506,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **expense_claims** | [**ExpenseClaims**](ExpenseClaims.md)|  | 
+ **expense_claims** | [**ExpenseClaims**](ExpenseClaims.md)| ExpenseClaims with array of ExpenseClaim object in body of request | 
 
 ### Return type
 
@@ -1711,61 +1522,9 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## create_invoice
-
-> Invoices create_invoice(xero_tenant_id, invoice)
-
-Allows you to create any sales invoices or purchase bills
-
-### Example
-
-```ruby
-# load the gem
-require 'xero-ruby'
-# setup authorization
-XeroRuby.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
-
-api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-invoice = { "Invoices":[ { "Type":"ACCREC", "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "LineItems":[ { "Description":"Acme Tires", "Quantity":2.0, "UnitAmount":20.0, "AccountCode":"200", "TaxType":"NONE", "LineAmount":40.0 } ], "Date":"2019-03-11", "DueDate":"2018-12-10", "Reference":"Website Design", "Status":"AUTHORISED" } ] } # Invoice | 
-
-begin
-  #Allows you to create any sales invoices or purchase bills
-  result = api_instance.create_invoice(xero_tenant_id, invoice)
-  p result
-rescue XeroRuby::ApiError => e
-  puts "Exception when calling AccountingApi->create_invoice: #{e}"
-end
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **invoice** | [**Invoice**](Invoice.md)|  | 
-
-### Return type
-
-[**Invoices**](Invoices.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
 ## create_invoice_attachment_by_file_name
 
-> Attachments create_invoice_attachment_by_file_name(xero_tenant_id, invoice_id, file_name, body)
+> Attachments create_invoice_attachment_by_file_name(xero_tenant_id, invoice_id, file_name, include_online, body)
 
 Allows you to create an Attachment on invoices or purchase bills by it's filename
 
@@ -1781,14 +1540,15 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-invoice_id = 'invoice_id_example' # String | Unique identifier for an Invoice
-file_name = 'file_name_example' # String | Name of the file you are attaching
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoice
+file_name = 'xero-dev.jpg' # String | Name of the file you are attaching
+include_online = true # Boolean | Set an attachment to be included with the invoice when viewed online (through Xero)
 body = 'body_example' # String | Byte array of file in body of request
 
 begin
   #Allows you to create an Attachment on invoices or purchase bills by it's filename
-  result = api_instance.create_invoice_attachment_by_file_name(xero_tenant_id, invoice_id, file_name, body)
+  result = api_instance.create_invoice_attachment_by_file_name(xero_tenant_id, invoice_id, file_name, include_online, body)
   p result
 rescue XeroRuby::ApiError => e
   puts "Exception when calling AccountingApi->create_invoice_attachment_by_file_name: #{e}"
@@ -1803,6 +1563,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **invoice_id** | [**String**](.md)| Unique identifier for an Invoice | 
  **file_name** | **String**| Name of the file you are attaching | 
+ **include_online** | **Boolean**| Set an attachment to be included with the invoice when viewed online (through Xero) | 
  **body** | **String**| Byte array of file in body of request | 
 
 ### Return type
@@ -1837,9 +1598,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-invoice_id = 'invoice_id_example' # String | Unique identifier for an Invoice
-history_records = { "HistoryRecords":[ { "Details":"Hello World" } ] } # HistoryRecords | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoice
+history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 begin
   #Allows you to retrieve a history records of an invoice
@@ -1857,7 +1618,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **invoice_id** | [**String**](.md)| Unique identifier for an Invoice | 
- **history_records** | [**HistoryRecords**](HistoryRecords.md)|  | 
+ **history_records** | [**HistoryRecords**](HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request | 
 
 ### Return type
 
@@ -1877,7 +1638,7 @@ Name | Type | Description  | Notes
 
 > Invoices create_invoices(xero_tenant_id, invoices, opts)
 
-Allows you to create any sales invoices or purchase bills
+Allows you to create one or more sales invoices or purchase bills
 
 ### Example
 
@@ -1891,14 +1652,15 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-invoices = { "Invoices":[ { "Type":"ACCREC", "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "LineItems":[ { "Description":"Acme Tires", "Quantity":2.0, "UnitAmount":20.0, "AccountCode":"200", "TaxType":"NONE", "LineAmount":40.0 } ], "Date":"2019-03-11", "DueDate":"2018-12-10", "Reference":"Website Design", "Status":"AUTHORISED" } ] } # Invoices | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+invoices = { invoices:[ { type: Invoice.TypeEnum.ACCREC, contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Acme Tires", quantity:2.0, unitAmount:20.0, accountCode:"000", taxType:"NONE", lineAmount:40.0 } ], date:"2019-03-11", dueDate:"2018-12-10", reference:"Website Design", status: Invoice.StatusEnum.DRAFT } ] } # Invoices | Invoices with an array of invoice objects in body of request
 opts = {
-  summarize_errors: true # Boolean | shows validation errors for each invoice
+  summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+  unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
 
 begin
-  #Allows you to create any sales invoices or purchase bills
+  #Allows you to create one or more sales invoices or purchase bills
   result = api_instance.create_invoices(xero_tenant_id, invoices, opts)
   p result
 rescue XeroRuby::ApiError => e
@@ -1912,64 +1674,13 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **invoices** | [**Invoices**](Invoices.md)|  | 
- **summarize_errors** | **Boolean**| shows validation errors for each invoice | [optional] [default to true]
+ **invoices** | [**Invoices**](Invoices.md)| Invoices with an array of invoice objects in body of request | 
+ **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
 
 ### Return type
 
 [**Invoices**](Invoices.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## create_item
-
-> Items create_item(xero_tenant_id, item)
-
-Allows you to create an item
-
-### Example
-
-```ruby
-# load the gem
-require 'xero-ruby'
-# setup authorization
-XeroRuby.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
-
-api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-item = { "Items":[ { "Code":"abc65591", "Name":"Hello11350", "Description":"foobar" } ] } # Item | 
-
-begin
-  #Allows you to create an item
-  result = api_instance.create_item(xero_tenant_id, item)
-  p result
-rescue XeroRuby::ApiError => e
-  puts "Exception when calling AccountingApi->create_item: #{e}"
-end
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **item** | [**Item**](Item.md)|  | 
-
-### Return type
-
-[**Items**](Items.md)
 
 ### Authorization
 
@@ -1999,9 +1710,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-item_id = 'item_id_example' # String | Unique identifier for an Item
-history_records = { "HistoryRecords":[ { "Details":"Hello World" } ] } # HistoryRecords | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+item_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Item
+history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 begin
   #Allows you to create a history record for items
@@ -2019,7 +1730,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **item_id** | [**String**](.md)| Unique identifier for an Item | 
- **history_records** | [**HistoryRecords**](HistoryRecords.md)|  | 
+ **history_records** | [**HistoryRecords**](HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request | 
 
 ### Return type
 
@@ -2037,9 +1748,9 @@ Name | Type | Description  | Notes
 
 ## create_items
 
-> Items create_items(xero_tenant_id, items)
+> Items create_items(xero_tenant_id, items, opts)
 
-Allows you to create an item
+Allows you to create one or more items
 
 ### Example
 
@@ -2053,12 +1764,16 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-items = { "Items":[ { "Code":"abc65591", "Name":"Hello11350", "Description":"foobar" } ] } # Items | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+items = { items:[ { code:"abcXYZ123", name:"HelloWorld11", description:"Foobar", inventoryAssetAccountCode:"140", purchaseDetails: {cOGSAccountCode:"500"} } ] } # Items | Items with an array of Item objects in body of request
+opts = {
+  summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+  unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+}
 
 begin
-  #Allows you to create an item
-  result = api_instance.create_items(xero_tenant_id, items)
+  #Allows you to create one or more items
+  result = api_instance.create_items(xero_tenant_id, items, opts)
   p result
 rescue XeroRuby::ApiError => e
   puts "Exception when calling AccountingApi->create_items: #{e}"
@@ -2071,7 +1786,9 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **items** | [**Items**](Items.md)|  | 
+ **items** | [**Items**](Items.md)| Items with an array of Item objects in body of request | 
+ **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
 
 ### Return type
 
@@ -2105,8 +1822,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-linked_transaction = { "LinkedTransactions":[ { "SourceTransactionID":"a848644a-f20f-4630-98c3-386bd7505631", "SourceLineItemID":"b0df260d-3cc8-4ced-9bd6-41924f624ed3" } ] } # LinkedTransaction | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+linked_transaction = { sourceTransactionID:"00000000-0000-0000-000-000000000000", sourceLineItemID:"00000000-0000-0000-000-000000000000"} # LinkedTransaction | LinkedTransaction object in body of request
 
 begin
   #Allows you to create linked transactions (billable expenses)
@@ -2123,115 +1840,11 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **linked_transaction** | [**LinkedTransaction**](LinkedTransaction.md)|  | 
+ **linked_transaction** | [**LinkedTransaction**](LinkedTransaction.md)| LinkedTransaction object in body of request | 
 
 ### Return type
 
 [**LinkedTransactions**](LinkedTransactions.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## create_linked_transactions
-
-> LinkedTransactions create_linked_transactions(xero_tenant_id, linked_transactions)
-
-Allows you to create linked transactions (billable expenses)
-
-### Example
-
-```ruby
-# load the gem
-require 'xero-ruby'
-# setup authorization
-XeroRuby.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
-
-api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-linked_transactions = { "LinkedTransactions":[ { "SourceTransactionID":"a848644a-f20f-4630-98c3-386bd7505631", "SourceLineItemID":"b0df260d-3cc8-4ced-9bd6-41924f624ed3" } ] } # LinkedTransactions | 
-
-begin
-  #Allows you to create linked transactions (billable expenses)
-  result = api_instance.create_linked_transactions(xero_tenant_id, linked_transactions)
-  p result
-rescue XeroRuby::ApiError => e
-  puts "Exception when calling AccountingApi->create_linked_transactions: #{e}"
-end
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **linked_transactions** | [**LinkedTransactions**](LinkedTransactions.md)|  | 
-
-### Return type
-
-[**LinkedTransactions**](LinkedTransactions.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## create_manual_journal
-
-> ManualJournals create_manual_journal(xero_tenant_id, manual_journal)
-
-Allows you to create a manual journal
-
-### Example
-
-```ruby
-# load the gem
-require 'xero-ruby'
-# setup authorization
-XeroRuby.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
-
-api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-manual_journal = { "ManualJournals":[ { "Narration":"Foo bar", "JournalLines":[ { "LineAmount":100.0, "AccountCode":"400", "Description":"Hello there" }, { "LineAmount":-100.0, "AccountCode":"400", "Description":"Goodbye", "Tracking":[ { "Name":"Simpsons", "Option":"Bart" } ] } ], "Date":"2019-03-14" } ] } # ManualJournal | 
-
-begin
-  #Allows you to create a manual journal
-  result = api_instance.create_manual_journal(xero_tenant_id, manual_journal)
-  p result
-rescue XeroRuby::ApiError => e
-  puts "Exception when calling AccountingApi->create_manual_journal: #{e}"
-end
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **manual_journal** | [**ManualJournal**](ManualJournal.md)|  | 
-
-### Return type
-
-[**ManualJournals**](ManualJournals.md)
 
 ### Authorization
 
@@ -2261,9 +1874,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-manual_journal_id = 'manual_journal_id_example' # String | Unique identifier for a ManualJournal
-file_name = 'file_name_example' # String | The name of the file being attached to a ManualJournal
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+manual_journal_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ManualJournal
+file_name = 'xero-dev.jpg' # String | The name of the file being attached to a ManualJournal
 body = 'body_example' # String | Byte array of file in body of request
 
 begin
@@ -2301,9 +1914,9 @@ Name | Type | Description  | Notes
 
 ## create_manual_journals
 
-> ManualJournals create_manual_journals(xero_tenant_id, manual_journals)
+> ManualJournals create_manual_journals(xero_tenant_id, manual_journals, opts)
 
-Allows you to create a manual journal
+Allows you to create one or more manual journals
 
 ### Example
 
@@ -2317,12 +1930,15 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-manual_journals = { "ManualJournals":[ { "Narration":"Foo bar", "JournalLines":[ { "LineAmount":100.0, "AccountCode":"400", "Description":"Hello there" }, { "LineAmount":-100.0, "AccountCode":"400", "Description":"Goodbye", "Tracking":[ { "Name":"Simpsons", "Option":"Bart" } ] } ], "Date":"2019-03-14" } ] } # ManualJournals | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+manual_journals = { manualJournals:[ { narration:"Foo bar", journalLines:[ { lineAmount:100.0, accountCode:"400", description:"Hello there" }, { lineAmount:-100.0, accountCode:"400", description:"Goodbye", tracking:[ { name:"Simpsons", option:"Bart" } ] } ], date:"2019-03-14" } ] } # ManualJournals | ManualJournals array with ManualJournal object in body of request
+opts = {
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+}
 
 begin
-  #Allows you to create a manual journal
-  result = api_instance.create_manual_journals(xero_tenant_id, manual_journals)
+  #Allows you to create one or more manual journals
+  result = api_instance.create_manual_journals(xero_tenant_id, manual_journals, opts)
   p result
 rescue XeroRuby::ApiError => e
   puts "Exception when calling AccountingApi->create_manual_journals: #{e}"
@@ -2335,7 +1951,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **manual_journals** | [**ManualJournals**](ManualJournals.md)|  | 
+ **manual_journals** | [**ManualJournals**](ManualJournals.md)| ManualJournals array with ManualJournal object in body of request | 
+ **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -2351,66 +1968,11 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## create_overpayment_allocation
-
-> Allocations create_overpayment_allocation(xero_tenant_id, overpayment_id, allocation)
-
-Allows you to retrieve Allocations for overpayments
-
-### Example
-
-```ruby
-# load the gem
-require 'xero-ruby'
-# setup authorization
-XeroRuby.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
-
-api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-overpayment_id = 'overpayment_id_example' # String | Unique identifier for a Overpayment
-allocation = { "Allocations":[ { "Invoice":{ "LineItems":[
-], "InvoiceID":"c45720a1-ade3-4a38-a064-d15489be6841" }, "Amount":1.0, "Date":"2019-03-12" } ] } # Allocation | 
-
-begin
-  #Allows you to retrieve Allocations for overpayments
-  result = api_instance.create_overpayment_allocation(xero_tenant_id, overpayment_id, allocation)
-  p result
-rescue XeroRuby::ApiError => e
-  puts "Exception when calling AccountingApi->create_overpayment_allocation: #{e}"
-end
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **overpayment_id** | [**String**](.md)| Unique identifier for a Overpayment | 
- **allocation** | [**Allocation**](Allocation.md)|  | 
-
-### Return type
-
-[**Allocations**](Allocations.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
 ## create_overpayment_allocations
 
-> Allocations create_overpayment_allocations(xero_tenant_id, overpayment_id, allocations)
+> Allocations create_overpayment_allocations(xero_tenant_id, overpayment_id, allocations, opts)
 
-Allows you to retrieve Allocations for overpayments
+Allows you to create a single allocation for an overpayment
 
 ### Example
 
@@ -2424,14 +1986,16 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-overpayment_id = 'overpayment_id_example' # String | Unique identifier for a Overpayment
-allocations = { "Allocations":[ { "Invoice":{ "LineItems":[
-], "InvoiceID":"c45720a1-ade3-4a38-a064-d15489be6841" }, "Amount":1.0, "Date":"2019-03-12" } ] } # Allocations | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+overpayment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Overpayment
+allocations = { allocations:[ { invoice:{ invoiceID:"00000000-0000-0000-000-000000000000", lineItems:[], contact: {}, type: Invoice.TypeEnum.ACCPAY }, amount:1.0, date:"2019-03-12" } ] } # Allocations | Allocations array with Allocation object in body of request
+opts = {
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+}
 
 begin
-  #Allows you to retrieve Allocations for overpayments
-  result = api_instance.create_overpayment_allocations(xero_tenant_id, overpayment_id, allocations)
+  #Allows you to create a single allocation for an overpayment
+  result = api_instance.create_overpayment_allocations(xero_tenant_id, overpayment_id, allocations, opts)
   p result
 rescue XeroRuby::ApiError => e
   puts "Exception when calling AccountingApi->create_overpayment_allocations: #{e}"
@@ -2445,7 +2009,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **overpayment_id** | [**String**](.md)| Unique identifier for a Overpayment | 
- **allocations** | [**Allocations**](Allocations.md)|  | 
+ **allocations** | [**Allocations**](Allocations.md)| Allocations array with Allocation object in body of request | 
+ **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -2479,9 +2044,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-overpayment_id = 'overpayment_id_example' # String | Unique identifier for a Overpayment
-history_records = XeroRuby::HistoryRecords.new # HistoryRecords | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+overpayment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Overpayment
+history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 begin
   #Allows you to create history records of an Overpayment
@@ -2499,7 +2064,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **overpayment_id** | [**String**](.md)| Unique identifier for a Overpayment | 
- **history_records** | [**HistoryRecords**](HistoryRecords.md)|  | 
+ **history_records** | [**HistoryRecords**](HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request | 
 
 ### Return type
 
@@ -2519,7 +2084,7 @@ Name | Type | Description  | Notes
 
 > Payments create_payment(xero_tenant_id, payment)
 
-Allows you to create payments for invoices and credit notes
+Allows you to create a single payment for invoices or credit notes
 
 ### Example
 
@@ -2533,12 +2098,11 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-payment = { "Payments":[ { "Invoice":{ "LineItems":[
-], "InvoiceID":"c7c37b83-ac95-45ea-88ba-8ad83a5f22fe" }, "Account":{ "Code":"970" }, "Date":"2019-03-12", "Amount":1.0 } ] } # Payment | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+payment = { invoice:{ invoiceID:"00000000-0000-0000-000-000000000000", lineItems:[], contact: {}, type: Invoice.TypeEnum.ACCPAY }, account:{ code:"970" }, date:"2019-03-12", amount:1.0 } # Payment | Request body with a single Payment object
 
 begin
-  #Allows you to create payments for invoices and credit notes
+  #Allows you to create a single payment for invoices or credit notes
   result = api_instance.create_payment(xero_tenant_id, payment)
   p result
 rescue XeroRuby::ApiError => e
@@ -2552,7 +2116,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **payment** | [**Payment**](Payment.md)|  | 
+ **payment** | [**Payment**](Payment.md)| Request body with a single Payment object | 
 
 ### Return type
 
@@ -2586,9 +2150,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-payment_id = 'payment_id_example' # String | Unique identifier for a Payment
-history_records = { "HistoryRecords":[ { "Details":"Hello World" } ] } # HistoryRecords | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+payment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Payment
+history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 begin
   #Allows you to create a history record for a payment
@@ -2606,7 +2170,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **payment_id** | [**String**](.md)| Unique identifier for a Payment | 
- **history_records** | [**HistoryRecords**](HistoryRecords.md)|  | 
+ **history_records** | [**HistoryRecords**](HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request | 
 
 ### Return type
 
@@ -2640,8 +2204,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-payment_services = { "PaymentServices":[ { "PaymentServiceName":"PayUpNow", "PaymentServiceUrl":"https://www.payupnow.com/", "PayNowText":"Time To Pay" } ] } # PaymentServices | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+payment_services = { paymentServices:[ { paymentServiceName:"PayUpNow", paymentServiceUrl:"https://www.payupnow.com/", payNowText:"Time To Pay" } ] } # PaymentServices | PaymentServices array with PaymentService object in body of request
 
 begin
   #Allows you to create payment services
@@ -2658,7 +2222,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **payment_services** | [**PaymentServices**](PaymentServices.md)|  | 
+ **payment_services** | [**PaymentServices**](PaymentServices.md)| PaymentServices array with PaymentService object in body of request | 
 
 ### Return type
 
@@ -2678,7 +2242,7 @@ Name | Type | Description  | Notes
 
 > Payments create_payments(xero_tenant_id, payments)
 
-Allows you to create payments for invoices and credit notes
+Allows you to create multiple payments for invoices or credit notes
 
 ### Example
 
@@ -2692,12 +2256,11 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-payments = { "Payments":[ { "Invoice":{ "LineItems":[
-], "InvoiceID":"c7c37b83-ac95-45ea-88ba-8ad83a5f22fe" }, "Account":{ "Code":"970" }, "Date":"2019-03-12", "Amount":1.0 } ] } # Payments | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+payments = { payments:[ { invoice:{ invoiceID:"00000000-0000-0000-000-000000000000", lineItems:[], contact: {}, type: Invoice.TypeEnum.ACCPAY }, account:{ code:"970" }, date:"2019-03-12", amount:1.0 } ] } # Payments | Payments array with Payment object in body of request
 
 begin
-  #Allows you to create payments for invoices and credit notes
+  #Allows you to create multiple payments for invoices or credit notes
   result = api_instance.create_payments(xero_tenant_id, payments)
   p result
 rescue XeroRuby::ApiError => e
@@ -2711,7 +2274,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **payments** | [**Payments**](Payments.md)|  | 
+ **payments** | [**Payments**](Payments.md)| Payments array with Payment object in body of request | 
 
 ### Return type
 
@@ -2727,9 +2290,9 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## create_prepayment_allocation
+## create_prepayment_allocations
 
-> Allocations create_prepayment_allocation(xero_tenant_id, prepayment_id, allocations)
+> Allocations create_prepayment_allocations(xero_tenant_id, prepayment_id, allocations, opts)
 
 Allows you to create an Allocation for prepayments
 
@@ -2745,17 +2308,19 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-prepayment_id = 'prepayment_id_example' # String | 
-allocations = { "Allocations":[ { "Invoice":{ "LineItems":[
-], "InvoiceID":"c7c37b83-ac95-45ea-88ba-8ad83a5f22fe" }, "Amount":1.0, "Date":"2019-03-13" } ] } # Allocations | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+prepayment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Prepayment
+allocations = { allocations:[ { invoice:{ invoiceID:"00000000-0000-0000-000-000000000000", lineItems:[], contact: {}, type: null }, amount:1.0, date:"2019-03-13" } ] } # Allocations | Allocations with an array of Allocation object in body of request
+opts = {
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+}
 
 begin
   #Allows you to create an Allocation for prepayments
-  result = api_instance.create_prepayment_allocation(xero_tenant_id, prepayment_id, allocations)
+  result = api_instance.create_prepayment_allocations(xero_tenant_id, prepayment_id, allocations, opts)
   p result
 rescue XeroRuby::ApiError => e
-  puts "Exception when calling AccountingApi->create_prepayment_allocation: #{e}"
+  puts "Exception when calling AccountingApi->create_prepayment_allocations: #{e}"
 end
 ```
 
@@ -2765,8 +2330,9 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **prepayment_id** | [**String**](.md)|  | 
- **allocations** | [**Allocations**](Allocations.md)|  | 
+ **prepayment_id** | [**String**](.md)| Unique identifier for Prepayment | 
+ **allocations** | [**Allocations**](Allocations.md)| Allocations with an array of Allocation object in body of request | 
+ **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -2800,9 +2366,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-prepayment_id = 'prepayment_id_example' # String | Unique identifier for a PrePayment
-history_records = XeroRuby::HistoryRecords.new # HistoryRecords | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+prepayment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a PrePayment
+history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 begin
   #Allows you to create a history record for an Prepayment
@@ -2820,63 +2386,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **prepayment_id** | [**String**](.md)| Unique identifier for a PrePayment | 
- **history_records** | [**HistoryRecords**](HistoryRecords.md)|  | 
+ **history_records** | [**HistoryRecords**](HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request | 
 
 ### Return type
 
 [**HistoryRecords**](HistoryRecords.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## create_purchase_order
-
-> PurchaseOrders create_purchase_order(xero_tenant_id, purchase_order)
-
-Allows you to create purchase orders
-
-### Example
-
-```ruby
-# load the gem
-require 'xero-ruby'
-# setup authorization
-XeroRuby.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
-
-api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-purchase_order = { "PurchaseOrders":[ { "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "LineItems":[ { "Description":"Foobar", "Quantity":1.0, "UnitAmount":20.0, "AccountCode":"710" } ], "Date":"2019-03-13" } ] } # PurchaseOrder | 
-
-begin
-  #Allows you to create purchase orders
-  result = api_instance.create_purchase_order(xero_tenant_id, purchase_order)
-  p result
-rescue XeroRuby::ApiError => e
-  puts "Exception when calling AccountingApi->create_purchase_order: #{e}"
-end
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **purchase_order** | [**PurchaseOrder**](PurchaseOrder.md)|  | 
-
-### Return type
-
-[**PurchaseOrders**](PurchaseOrders.md)
 
 ### Authorization
 
@@ -2906,9 +2420,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-purchase_order_id = 'purchase_order_id_example' # String | Unique identifier for a PurchaseOrder
-history_records = { "HistoryRecords":[ { "Details":"Hello World" } ] } # HistoryRecords | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+purchase_order_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a PurchaseOrder
+history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 begin
   #Allows you to create HistoryRecord for purchase orders
@@ -2926,7 +2440,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **purchase_order_id** | [**String**](.md)| Unique identifier for a PurchaseOrder | 
- **history_records** | [**HistoryRecords**](HistoryRecords.md)|  | 
+ **history_records** | [**HistoryRecords**](HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request | 
 
 ### Return type
 
@@ -2946,7 +2460,7 @@ Name | Type | Description  | Notes
 
 > PurchaseOrders create_purchase_orders(xero_tenant_id, purchase_orders, opts)
 
-Allows you to create purchase orders
+Allows you to create one or more purchase orders
 
 ### Example
 
@@ -2960,14 +2474,14 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-purchase_orders = { "PurchaseOrders":[ { "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "LineItems":[ { "Description":"Foobar", "Quantity":1.0, "UnitAmount":20.0, "AccountCode":"710" } ], "Date":"2019-03-13" } ] } # PurchaseOrders | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+purchase_orders = { purchaseOrders:[ { contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity:1.0, unitAmount:20.0, accountCode:"710" } ], date:"2019-03-13" } ] } # PurchaseOrders | PurchaseOrders with an array of PurchaseOrder object in body of request
 opts = {
-  summarize_errors: true # Boolean | shows validation errors for each purchase order.
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 }
 
 begin
-  #Allows you to create purchase orders
+  #Allows you to create one or more purchase orders
   result = api_instance.create_purchase_orders(xero_tenant_id, purchase_orders, opts)
   p result
 rescue XeroRuby::ApiError => e
@@ -2981,8 +2495,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **purchase_orders** | [**PurchaseOrders**](PurchaseOrders.md)|  | 
- **summarize_errors** | **Boolean**| shows validation errors for each purchase order. | [optional] [default to true]
+ **purchase_orders** | [**PurchaseOrders**](PurchaseOrders.md)| PurchaseOrders with an array of PurchaseOrder object in body of request | 
+ **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -2998,9 +2512,119 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## create_quote_history
+
+> HistoryRecords create_quote_history(xero_tenant_id, quote_id, history_records)
+
+Allows you to retrieve a history records of an quote
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+# setup authorization
+XeroRuby.configure do |config|
+  # Configure OAuth2 access token for authorization: OAuth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = XeroRuby::AccountingApi.new
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+quote_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Quote
+history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+
+begin
+  #Allows you to retrieve a history records of an quote
+  result = api_instance.create_quote_history(xero_tenant_id, quote_id, history_records)
+  p result
+rescue XeroRuby::ApiError => e
+  puts "Exception when calling AccountingApi->create_quote_history: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **quote_id** | [**String**](.md)| Unique identifier for an Quote | 
+ **history_records** | [**HistoryRecords**](HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request | 
+
+### Return type
+
+[**HistoryRecords**](HistoryRecords.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## create_quotes
+
+> Quotes create_quotes(xero_tenant_id, quotes, opts)
+
+Allows you to create one or more quotes
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+# setup authorization
+XeroRuby.configure do |config|
+  # Configure OAuth2 access token for authorization: OAuth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = XeroRuby::AccountingApi.new
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+quotes = { quotes:[ { contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity:1.0, unitAmount:20.0, accountCode:"12775" } ], date:"2020-02-01" } ] } # Quotes | Quotes with an array of Quote object in body of request
+opts = {
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+}
+
+begin
+  #Allows you to create one or more quotes
+  result = api_instance.create_quotes(xero_tenant_id, quotes, opts)
+  p result
+rescue XeroRuby::ApiError => e
+  puts "Exception when calling AccountingApi->create_quotes: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **quotes** | [**Quotes**](Quotes.md)| Quotes with an array of Quote object in body of request | 
+ **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+
+### Return type
+
+[**Quotes**](Quotes.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## create_receipt
 
-> Receipts create_receipt(xero_tenant_id, receipts)
+> Receipts create_receipt(xero_tenant_id, receipts, opts)
 
 Allows you to create draft expense claim receipts for any user
 
@@ -3016,12 +2640,15 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-receipts = { "Receipts":[ { "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "LineItems":[ { "Description":"Foobar", "Quantity":2.0, "UnitAmount":20.0, "AccountCode":"400", "TaxType":"NONE", "LineAmount":40.0 } ], "User":{ "UserID":"d1164823-0ac1-41ad-987b-b4e30fe0b273" }, "LineAmountTypes":"NoTax", "Status":"DRAFT" } ] } # Receipts | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+receipts = { receipts:[ { contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity:2.0, unitAmount:20.0, accountCode:"400", taxType:"NONE", lineAmount:40.0 } ], user:{ userID:"00000000-0000-0000-000-000000000000" }, lineAmountTypes: LineAmountTypes.Inclusive, status: Receipt.StatusEnum.DRAFT , date: null} ] } # Receipts | Receipts with an array of Receipt object in body of request
+opts = {
+  unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+}
 
 begin
   #Allows you to create draft expense claim receipts for any user
-  result = api_instance.create_receipt(xero_tenant_id, receipts)
+  result = api_instance.create_receipt(xero_tenant_id, receipts, opts)
   p result
 rescue XeroRuby::ApiError => e
   puts "Exception when calling AccountingApi->create_receipt: #{e}"
@@ -3034,7 +2661,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **receipts** | [**Receipts**](Receipts.md)|  | 
+ **receipts** | [**Receipts**](Receipts.md)| Receipts with an array of Receipt object in body of request | 
+ **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
 
 ### Return type
 
@@ -3068,9 +2696,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-receipt_id = 'receipt_id_example' # String | Unique identifier for a Receipt
-file_name = 'file_name_example' # String | The name of the file being attached to the Receipt
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+receipt_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Receipt
+file_name = 'xero-dev.jpg' # String | The name of the file being attached to the Receipt
 body = 'body_example' # String | Byte array of file in body of request
 
 begin
@@ -3124,9 +2752,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-receipt_id = 'receipt_id_example' # String | Unique identifier for a Receipt
-history_records = XeroRuby::HistoryRecords.new # HistoryRecords | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+receipt_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Receipt
+history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 begin
   #Allows you to retrieve a history records of an Receipt
@@ -3144,7 +2772,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **receipt_id** | [**String**](.md)| Unique identifier for a Receipt | 
- **history_records** | [**HistoryRecords**](HistoryRecords.md)|  | 
+ **history_records** | [**HistoryRecords**](HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request | 
 
 ### Return type
 
@@ -3178,9 +2806,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-repeating_invoice_id = 'repeating_invoice_id_example' # String | Unique identifier for a Repeating Invoice
-file_name = 'file_name_example' # String | The name of the file being attached to a Repeating Invoice
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+repeating_invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Repeating Invoice
+file_name = 'xero-dev.jpg' # String | The name of the file being attached to a Repeating Invoice
 body = 'body_example' # String | Byte array of file in body of request
 
 begin
@@ -3234,9 +2862,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-repeating_invoice_id = 'repeating_invoice_id_example' # String | Unique identifier for a Repeating Invoice
-history_records = XeroRuby::HistoryRecords.new # HistoryRecords | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+repeating_invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Repeating Invoice
+history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 begin
   #Allows you to create history for a repeating invoice
@@ -3254,7 +2882,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **repeating_invoice_id** | [**String**](.md)| Unique identifier for a Repeating Invoice | 
- **history_records** | [**HistoryRecords**](HistoryRecords.md)|  | 
+ **history_records** | [**HistoryRecords**](HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request | 
 
 ### Return type
 
@@ -3270,63 +2898,11 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## create_tax_rate
-
-> TaxRates create_tax_rate(xero_tenant_id, tax_rate)
-
-Allows you to create Tax Rates
-
-### Example
-
-```ruby
-# load the gem
-require 'xero-ruby'
-# setup authorization
-XeroRuby.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
-
-api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-tax_rate = { "TaxRates":[ { "Name":"SDKTax29067", "TaxComponents":[ { "Name":"State Tax", "Rate":2.25 } ], "ReportTaxType":"INPUT" } ] } # TaxRate | 
-
-begin
-  #Allows you to create Tax Rates
-  result = api_instance.create_tax_rate(xero_tenant_id, tax_rate)
-  p result
-rescue XeroRuby::ApiError => e
-  puts "Exception when calling AccountingApi->create_tax_rate: #{e}"
-end
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **tax_rate** | [**TaxRate**](TaxRate.md)|  | 
-
-### Return type
-
-[**TaxRates**](TaxRates.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
 ## create_tax_rates
 
 > TaxRates create_tax_rates(xero_tenant_id, tax_rates)
 
-Allows you to create Tax Rates
+Allows you to create one or more Tax Rates
 
 ### Example
 
@@ -3340,11 +2916,11 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-tax_rates = { "TaxRates":[ { "Name":"SDKTax29067", "TaxComponents":[ { "Name":"State Tax", "Rate":2.25 } ], "ReportTaxType":"INPUT" } ] } # TaxRates | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+tax_rates = { taxRates:[ { name:"CA State Tax", taxComponents:[ { name:"State Tax", rate:2.25 } ] } ] } # TaxRates | TaxRates array with TaxRate object in body of request
 
 begin
-  #Allows you to create Tax Rates
+  #Allows you to create one or more Tax Rates
   result = api_instance.create_tax_rates(xero_tenant_id, tax_rates)
   p result
 rescue XeroRuby::ApiError => e
@@ -3358,7 +2934,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **tax_rates** | [**TaxRates**](TaxRates.md)|  | 
+ **tax_rates** | [**TaxRates**](TaxRates.md)| TaxRates array with TaxRate object in body of request | 
 
 ### Return type
 
@@ -3392,8 +2968,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-tracking_category = { "Name":"FooBar" } # TrackingCategory | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+tracking_category = { name:"FooBar" } # TrackingCategory | TrackingCategory object in body of request
 
 begin
   #Allows you to create tracking categories
@@ -3410,7 +2986,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **tracking_category** | [**TrackingCategory**](TrackingCategory.md)|  | 
+ **tracking_category** | [**TrackingCategory**](TrackingCategory.md)| TrackingCategory object in body of request | 
 
 ### Return type
 
@@ -3444,9 +3020,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-tracking_category_id = 'tracking_category_id_example' # String | Unique identifier for a TrackingCategory
-tracking_option = { "Name":"Bar40423" } # TrackingOption | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+tracking_category_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a TrackingCategory
+tracking_option = { name:"Bar" } # TrackingOption | TrackingOption object in body of request
 
 begin
   #Allows you to create options for a specified tracking category
@@ -3464,7 +3040,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **tracking_category_id** | [**String**](.md)| Unique identifier for a TrackingCategory | 
- **tracking_option** | [**TrackingOption**](TrackingOption.md)|  | 
+ **tracking_option** | [**TrackingOption**](TrackingOption.md)| TrackingOption object in body of request | 
 
 ### Return type
 
@@ -3498,8 +3074,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-account_id = 'account_id_example' # String | Unique identifier for retrieving single object
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+account_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for retrieving single object
 
 begin
   #Allows you to delete a chart of accounts
@@ -3550,9 +3126,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-contact_group_id = 'contact_group_id_example' # String | Unique identifier for a Contact Group
-contact_id = 'contact_id_example' # String | Unique identifier for a Contact
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contact_group_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact Group
+contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
 
 begin
   #Allows you to delete a specific Contact from a Contract Group
@@ -3603,8 +3179,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-contact_group_id = 'contact_group_id_example' # String | Unique identifier for a Contact Group
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contact_group_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact Group
 
 begin
   #Allows you to delete  all Contacts from a Contract Group
@@ -3654,8 +3230,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-item_id = 'item_id_example' # String | Unique identifier for an Item
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+item_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Item
 
 begin
   #Allows you to delete a specified item
@@ -3705,8 +3281,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-linked_transaction_id = 'linked_transaction_id_example' # String | Unique identifier for a LinkedTransaction
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+linked_transaction_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a LinkedTransaction
 
 begin
   #Allows you to delete a specified linked transactions (billable expenses)
@@ -3756,9 +3332,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-payment_id = 'payment_id_example' # String | Unique identifier for a Payment
-payments = { "Payments":[ { "Status":"DELETED" } ] } # Payments | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+payment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Payment
+payments = { payments:[ { status:"DELETED" } ] } # Payments | 
 
 begin
   #Allows you to update a specified payment for invoices and credit notes
@@ -3810,8 +3386,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-tracking_category_id = 'tracking_category_id_example' # String | Unique identifier for a TrackingCategory
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+tracking_category_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a TrackingCategory
 
 begin
   #Allows you to delete tracking categories
@@ -3862,9 +3438,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-tracking_category_id = 'tracking_category_id_example' # String | Unique identifier for a TrackingCategory
-tracking_option_id = 'tracking_option_id_example' # String | Unique identifier for a Tracking Option
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+tracking_category_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a TrackingCategory
+tracking_option_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Tracking Option
 
 begin
   #Allows you to delete a specified option for a specified tracking category
@@ -3916,9 +3492,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-invoice_id = 'invoice_id_example' # String | Unique identifier for an Invoice
-request_empty = XeroRuby::RequestEmpty.new # RequestEmpty | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoice
+request_empty = {} # RequestEmpty | 
 
 begin
   #Allows you to email a copy of invoice to related Contact
@@ -3969,8 +3545,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-account_id = 'account_id_example' # String | Unique identifier for retrieving single object
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+account_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for retrieving single object
 
 begin
   #Allows you to retrieve a single chart of accounts
@@ -4021,10 +3597,10 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-account_id = 'account_id_example' # String | Unique identifier for Account object
-file_name = 'file_name_example' # String | Name of the attachment
-content_type = 'content_type_example' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+account_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Account object
+file_name = 'xero-dev.jpg' # String | Name of the attachment
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 begin
   #Allows you to retrieve Attachment on Account by Filename
@@ -4077,10 +3653,10 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-account_id = 'account_id_example' # String | Unique identifier for Account object
-attachment_id = 'attachment_id_example' # String | Unique identifier for Attachment object
-content_type = 'content_type_example' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+account_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Account object
+attachment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Attachment object
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 begin
   #Allows you to retrieve specific Attachment on Account
@@ -4133,8 +3709,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-account_id = 'account_id_example' # String | Unique identifier for Account object
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+account_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Account object
 
 begin
   #Allows you to retrieve Attachments for accounts
@@ -4185,11 +3761,11 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | Only records created or modified since this timestamp will be returned
-  where: 'where_example', # String | Filter by an any element
-  order: 'order_example' # String | Order by an any element
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
+  where: 'Status==\"' + Account.StatusEnum.ACTIVE + '\" AND Type==\"' + Account.BankAccountTypeEnum.BANK + '\"', # String | Filter by an any element
+  order: 'Name ASC' # String | Order by an any element
 }
 
 begin
@@ -4227,7 +3803,7 @@ Name | Type | Description  | Notes
 
 ## get_bank_transaction
 
-> BankTransactions get_bank_transaction(xero_tenant_id, bank_transaction_id)
+> BankTransactions get_bank_transaction(xero_tenant_id, bank_transaction_id, opts)
 
 Allows you to retrieve a single spend or receive money transaction
 
@@ -4243,12 +3819,15 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-bank_transaction_id = 'bank_transaction_id_example' # String | Xero generated unique identifier for a bank transaction
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transaction_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transaction
+opts = {
+  unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+}
 
 begin
   #Allows you to retrieve a single spend or receive money transaction
-  result = api_instance.get_bank_transaction(xero_tenant_id, bank_transaction_id)
+  result = api_instance.get_bank_transaction(xero_tenant_id, bank_transaction_id, opts)
   p result
 rescue XeroRuby::ApiError => e
   puts "Exception when calling AccountingApi->get_bank_transaction: #{e}"
@@ -4262,6 +3841,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **bank_transaction_id** | [**String**](.md)| Xero generated unique identifier for a bank transaction | 
+ **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
 
 ### Return type
 
@@ -4295,10 +3875,10 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-bank_transaction_id = 'bank_transaction_id_example' # String | Xero generated unique identifier for a bank transaction
-file_name = 'file_name_example' # String | The name of the file being attached
-content_type = 'content_type_example' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transaction_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transaction
+file_name = 'xero-dev.jpg' # String | The name of the file being attached
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 begin
   #Allows you to retrieve Attachments on BankTransaction by Filename
@@ -4351,10 +3931,10 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-bank_transaction_id = 'bank_transaction_id_example' # String | Xero generated unique identifier for a bank transaction
-attachment_id = 'attachment_id_example' # String | Xero generated unique identifier for an attachment
-content_type = 'content_type_example' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transaction_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transaction
+attachment_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for an attachment
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 begin
   #Allows you to retrieve Attachments on a specific BankTransaction
@@ -4407,8 +3987,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-bank_transaction_id = 'bank_transaction_id_example' # String | Xero generated unique identifier for a bank transaction
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transaction_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transaction
 
 begin
   #Allows you to retrieve any attachments to bank transactions
@@ -4459,13 +4039,13 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | Only records created or modified since this timestamp will be returned
-  where: 'where_example', # String | Filter by an any element
-  order: 'order_example', # String | Order by an any element
-  page: 56, # Integer | e.g. page=1 – Up to 100 bank transactions will be returned in a single API call with line items shown for each bank transaction
-  unitdp: 56 # Integer | e.g. unitdp=4 – You can opt in to use four decimal places for unit amounts
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
+  where: 'Status==\"' + BankTransaction.StatusEnum.ACTIVE + '\"', # String | Filter by an any element
+  order: 'Type ASC', # String | Order by an any element
+  page: 1, # Integer | Up to 100 bank transactions will be returned in a single API call with line items details
+  unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
 
 begin
@@ -4486,8 +4066,8 @@ Name | Type | Description  | Notes
  **if_modified_since** | **DateTime**| Only records created or modified since this timestamp will be returned | [optional] 
  **where** | **String**| Filter by an any element | [optional] 
  **order** | **String**| Order by an any element | [optional] 
- **page** | **Integer**| e.g. page&#x3D;1 – Up to 100 bank transactions will be returned in a single API call with line items shown for each bank transaction | [optional] 
- **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts | [optional] 
+ **page** | **Integer**| Up to 100 bank transactions will be returned in a single API call with line items details | [optional] 
+ **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
 
 ### Return type
 
@@ -4521,8 +4101,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-bank_transaction_id = 'bank_transaction_id_example' # String | Xero generated unique identifier for a bank transaction
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transaction_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transaction
 
 begin
   #Allows you to retrieve history from a bank transactions
@@ -4573,8 +4153,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-bank_transfer_id = 'bank_transfer_id_example' # String | Xero generated unique identifier for a bank transfer
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transfer_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transfer
 
 begin
   #Allows you to retrieve any bank transfers
@@ -4625,10 +4205,10 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-bank_transfer_id = 'bank_transfer_id_example' # String | Xero generated unique identifier for a bank transfer
-file_name = 'file_name_example' # String | The name of the file being attached to a Bank Transfer
-content_type = 'content_type_example' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transfer_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transfer
+file_name = 'xero-dev.jpg' # String | The name of the file being attached to a Bank Transfer
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 begin
   #Allows you to retrieve Attachments on BankTransfer by file name
@@ -4681,10 +4261,10 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-bank_transfer_id = 'bank_transfer_id_example' # String | Xero generated unique identifier for a bank transfer
-attachment_id = 'attachment_id_example' # String | Xero generated unique identifier for an Attachment to a bank transfer
-content_type = 'content_type_example' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transfer_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transfer
+attachment_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for an Attachment to a bank transfer
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 begin
   #Allows you to retrieve Attachments on BankTransfer
@@ -4737,8 +4317,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-bank_transfer_id = 'bank_transfer_id_example' # String | Xero generated unique identifier for a bank transfer
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transfer_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transfer
 
 begin
   #Allows you to retrieve Attachments from  bank transfers
@@ -4789,8 +4369,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-bank_transfer_id = 'bank_transfer_id_example' # String | Xero generated unique identifier for a bank transfer
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transfer_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transfer
 
 begin
   #Allows you to retrieve history from a bank transfers
@@ -4841,11 +4421,11 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | Only records created or modified since this timestamp will be returned
-  where: 'where_example', # String | Filter by an any element
-  order: 'order_example' # String | Order by an any element
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
+  where: 'Status==\"' + BankTransfer.StatusEnum.ACTIVE + '\"', # String | Filter by an any element
+  order: 'Amount ASC' # String | Order by an any element
 }
 
 begin
@@ -4899,8 +4479,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-batch_payment_id = 'batch_payment_id_example' # String | Unique identifier for BatchPayment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+batch_payment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for BatchPayment
 
 begin
   #Allows you to retrieve history from a Batch Payment
@@ -4951,11 +4531,11 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | Only records created or modified since this timestamp will be returned
-  where: 'where_example', # String | Filter by an any element
-  order: 'order_example' # String | Order by an any element
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
+  where: 'Status==\"' + BatchPayment.StatusEnum.ACTIVE + '\"', # String | Filter by an any element
+  order: 'Date ASC' # String | Order by an any element
 }
 
 begin
@@ -5009,8 +4589,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-branding_theme_id = 'branding_theme_id_example' # String | Unique identifier for a Branding Theme
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+branding_theme_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Branding Theme
 
 begin
   #Allows you to retrieve a specific BrandingThemes
@@ -5061,8 +4641,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-branding_theme_id = 'branding_theme_id_example' # String | Unique identifier for a Branding Theme
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+branding_theme_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Branding Theme
 
 begin
   #Allows you to retrieve the Payment services for a Branding Theme
@@ -5113,7 +4693,7 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 
 begin
   #Allows you to retrieve all the BrandingThemes
@@ -5163,8 +4743,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-contact_id = 'contact_id_example' # String | Unique identifier for a Contact
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
 
 begin
   #Allows you to retrieve, add and update contacts in a Xero organisation
@@ -5215,10 +4795,10 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-contact_id = 'contact_id_example' # String | Unique identifier for a Contact
-file_name = 'file_name_example' # String | Name for the file you are attaching
-content_type = 'content_type_example' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
+file_name = 'xero-dev.jpg' # String | Name for the file you are attaching
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 begin
   #Allows you to retrieve Attachments on Contacts by file name
@@ -5271,10 +4851,10 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-contact_id = 'contact_id_example' # String | Unique identifier for a Contact
-attachment_id = 'attachment_id_example' # String | Unique identifier for a Attachment
-content_type = 'content_type_example' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
+attachment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Attachment
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 begin
   #Allows you to retrieve Attachments on Contacts
@@ -5327,8 +4907,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-contact_id = 'contact_id_example' # String | Unique identifier for a Contact
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
 
 begin
   #Allows you to retrieve, add and update contacts in a Xero organisation
@@ -5379,8 +4959,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-contact_id = 'contact_id_example' # String | Unique identifier for a Contact
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
 
 begin
   #Allows you to retrieve CISSettings for a contact in a Xero organisation
@@ -5431,8 +5011,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-contact_group_id = 'contact_group_id_example' # String | Unique identifier for a Contact Group
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contact_group_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact Group
 
 begin
   #Allows you to retrieve a unique Contract Group by ID
@@ -5483,10 +5063,10 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  where: 'where_example', # String | Filter by an any element
-  order: 'order_example' # String | Order by an any element
+  where: 'Status==\"' + ContactGroup.StatusEnum.ACTIVE + '\"', # String | Filter by an any element
+  order: 'Name ASC' # String | Order by an any element
 }
 
 begin
@@ -5539,8 +5119,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-contact_id = 'contact_id_example' # String | Unique identifier for a Contact
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
 
 begin
   #Allows you to retrieve a history records of an Contact
@@ -5591,13 +5171,13 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | Only records created or modified since this timestamp will be returned
-  where: 'where_example', # String | Filter by an any element
-  order: 'order_example', # String | Order by an any element
-  i_ds: ['i_ds_example'], # Array<String> | Filter by a comma separated list of ContactIDs. Allows you to retrieve a specific set of contacts in a single call.
-  page: 56, # Integer | e.g. page=1 - Up to 100 contacts will be returned in a single API call.
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
+  where: 'Status==\"' + Contact.ContactStatusEnum.ACTIVE + '\"', # String | Filter by an any element
+  order: 'Name ASC', # String | Order by an any element
+  i_ds: ['00000000-0000-0000-000-000000000000,00000000-0000-0000-000-000000000000'], # Array<String> | Filter by a comma separated list of ContactIDs. Allows you to retrieve a specific set of contacts in a single call.
+  page: 1, # Integer | e.g. page=1 - Up to 100 contacts will be returned in a single API call.
   include_archived: true # Boolean | e.g. includeArchived=true - Contacts with a status of ARCHIVED will be included in the response
 }
 
@@ -5639,7 +5219,7 @@ Name | Type | Description  | Notes
 
 ## get_credit_note
 
-> CreditNotes get_credit_note(xero_tenant_id, credit_note_id)
+> CreditNotes get_credit_note(xero_tenant_id, credit_note_id, opts)
 
 Allows you to retrieve a specific credit note
 
@@ -5655,12 +5235,15 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-credit_note_id = 'credit_note_id_example' # String | Unique identifier for a Credit Note
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+credit_note_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Credit Note
+opts = {
+  unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+}
 
 begin
   #Allows you to retrieve a specific credit note
-  result = api_instance.get_credit_note(xero_tenant_id, credit_note_id)
+  result = api_instance.get_credit_note(xero_tenant_id, credit_note_id, opts)
   p result
 rescue XeroRuby::ApiError => e
   puts "Exception when calling AccountingApi->get_credit_note: #{e}"
@@ -5674,6 +5257,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **credit_note_id** | [**String**](.md)| Unique identifier for a Credit Note | 
+ **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
 
 ### Return type
 
@@ -5691,7 +5275,7 @@ Name | Type | Description  | Notes
 
 ## get_credit_note_as_pdf
 
-> File get_credit_note_as_pdf(xero_tenant_id, credit_note_id, content_type)
+> File get_credit_note_as_pdf(xero_tenant_id, credit_note_id)
 
 Allows you to retrieve Credit Note as PDF files
 
@@ -5707,13 +5291,12 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-credit_note_id = 'credit_note_id_example' # String | Unique identifier for a Credit Note
-content_type = 'content_type_example' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+credit_note_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Credit Note
 
 begin
   #Allows you to retrieve Credit Note as PDF files
-  result = api_instance.get_credit_note_as_pdf(xero_tenant_id, credit_note_id, content_type)
+  result = api_instance.get_credit_note_as_pdf(xero_tenant_id, credit_note_id)
   p result
 rescue XeroRuby::ApiError => e
   puts "Exception when calling AccountingApi->get_credit_note_as_pdf: #{e}"
@@ -5727,7 +5310,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **credit_note_id** | [**String**](.md)| Unique identifier for a Credit Note | 
- **content_type** | **String**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf | 
 
 ### Return type
 
@@ -5740,7 +5322,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/octet-stream
+- **Accept**: application/pdf
 
 
 ## get_credit_note_attachment_by_file_name
@@ -5761,10 +5343,10 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-credit_note_id = 'credit_note_id_example' # String | Unique identifier for a Credit Note
-file_name = 'file_name_example' # String | Name of the file you are attaching to Credit Note
-content_type = 'content_type_example' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+credit_note_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Credit Note
+file_name = 'xero-dev.jpg' # String | Name of the file you are attaching to Credit Note
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 begin
   #Allows you to retrieve Attachments on CreditNote by file name
@@ -5817,10 +5399,10 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-credit_note_id = 'credit_note_id_example' # String | Unique identifier for a Credit Note
-attachment_id = 'attachment_id_example' # String | Unique identifier for a Attachment
-content_type = 'content_type_example' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+credit_note_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Credit Note
+attachment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Attachment
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 begin
   #Allows you to retrieve Attachments on CreditNote
@@ -5873,8 +5455,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-credit_note_id = 'credit_note_id_example' # String | Unique identifier for a Credit Note
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+credit_note_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Credit Note
 
 begin
   #Allows you to retrieve Attachments for credit notes
@@ -5925,8 +5507,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-credit_note_id = 'credit_note_id_example' # String | Unique identifier for a Credit Note
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+credit_note_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Credit Note
 
 begin
   #Allows you to retrieve a history records of an CreditNote
@@ -5977,12 +5559,13 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | Only records created or modified since this timestamp will be returned
-  where: 'where_example', # String | Filter by an any element
-  order: 'order_example', # String | Order by an any element
-  page: 56 # Integer | e.g. page=1 – Up to 100 credit notes will be returned in a single API call with line items shown for each credit note
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
+  where: 'Status==\"' + CreditNote.StatusEnum.DRAFT + '\"', # String | Filter by an any element
+  order: 'CreditNoteNumber ASC', # String | Order by an any element
+  page: 1, # Integer | e.g. page=1 – Up to 100 credit notes will be returned in a single API call with line items shown for each credit note
+  unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
 
 begin
@@ -6004,6 +5587,7 @@ Name | Type | Description  | Notes
  **where** | **String**| Filter by an any element | [optional] 
  **order** | **String**| Order by an any element | [optional] 
  **page** | **Integer**| e.g. page&#x3D;1 – Up to 100 credit notes will be returned in a single API call with line items shown for each credit note | [optional] 
+ **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
 
 ### Return type
 
@@ -6037,10 +5621,10 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  where: 'where_example', # String | Filter by an any element
-  order: 'order_example' # String | Order by an any element
+  where: 'Status==\"' + Currency.StatusEnum.ACTIVE + '\"', # String | Filter by an any element
+  order: 'Code ASC' # String | Order by an any element
 }
 
 begin
@@ -6093,8 +5677,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-employee_id = 'employee_id_example' # String | Unique identifier for a Employee
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+employee_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Employee
 
 begin
   #Allows you to retrieve a specific employee used in Xero payrun
@@ -6145,11 +5729,11 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | Only records created or modified since this timestamp will be returned
-  where: 'where_example', # String | Filter by an any element
-  order: 'order_example' # String | Order by an any element
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
+  where: 'Status==\"' + Employee.StatusEnum.ACTIVE + '\"', # String | Filter by an any element
+  order: 'ASC' # String | Order by an any element
 }
 
 begin
@@ -6203,8 +5787,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-expense_claim_id = 'expense_claim_id_example' # String | Unique identifier for a ExpenseClaim
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+expense_claim_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ExpenseClaim
 
 begin
   #Allows you to retrieve a specified expense claim
@@ -6255,8 +5839,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-expense_claim_id = 'expense_claim_id_example' # String | Unique identifier for a ExpenseClaim
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+expense_claim_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ExpenseClaim
 
 begin
   #Allows you to retrieve a history records of an ExpenseClaim
@@ -6307,11 +5891,11 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | Only records created or modified since this timestamp will be returned
-  where: 'where_example', # String | Filter by an any element
-  order: 'order_example' # String | Order by an any element
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
+  where: 'Status==\"' + ExpenseClaim.StatusEnum.SUBMITTED + '\"', # String | Filter by an any element
+  order: 'Status ASC' # String | Order by an any element
 }
 
 begin
@@ -6349,7 +5933,7 @@ Name | Type | Description  | Notes
 
 ## get_invoice
 
-> Invoices get_invoice(xero_tenant_id, invoice_id)
+> Invoices get_invoice(xero_tenant_id, invoice_id, opts)
 
 Allows you to retrieve a specified sales invoice or purchase bill
 
@@ -6365,12 +5949,15 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-invoice_id = 'invoice_id_example' # String | Unique identifier for an Invoice
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoice
+opts = {
+  unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+}
 
 begin
   #Allows you to retrieve a specified sales invoice or purchase bill
-  result = api_instance.get_invoice(xero_tenant_id, invoice_id)
+  result = api_instance.get_invoice(xero_tenant_id, invoice_id, opts)
   p result
 rescue XeroRuby::ApiError => e
   puts "Exception when calling AccountingApi->get_invoice: #{e}"
@@ -6384,6 +5971,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **invoice_id** | [**String**](.md)| Unique identifier for an Invoice | 
+ **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
 
 ### Return type
 
@@ -6401,7 +5989,7 @@ Name | Type | Description  | Notes
 
 ## get_invoice_as_pdf
 
-> File get_invoice_as_pdf(xero_tenant_id, invoice_id, content_type)
+> File get_invoice_as_pdf(xero_tenant_id, invoice_id)
 
 Allows you to retrieve invoices or purchase bills as PDF files
 
@@ -6417,13 +6005,12 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-invoice_id = 'invoice_id_example' # String | Unique identifier for an Invoice
-content_type = 'content_type_example' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoice
 
 begin
   #Allows you to retrieve invoices or purchase bills as PDF files
-  result = api_instance.get_invoice_as_pdf(xero_tenant_id, invoice_id, content_type)
+  result = api_instance.get_invoice_as_pdf(xero_tenant_id, invoice_id)
   p result
 rescue XeroRuby::ApiError => e
   puts "Exception when calling AccountingApi->get_invoice_as_pdf: #{e}"
@@ -6437,7 +6024,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **invoice_id** | [**String**](.md)| Unique identifier for an Invoice | 
- **content_type** | **String**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf | 
 
 ### Return type
 
@@ -6450,7 +6036,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/octet-stream
+- **Accept**: application/pdf
 
 
 ## get_invoice_attachment_by_file_name
@@ -6471,10 +6057,10 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-invoice_id = 'invoice_id_example' # String | Unique identifier for an Invoice
-file_name = 'file_name_example' # String | Name of the file you are attaching
-content_type = 'content_type_example' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoice
+file_name = 'xero-dev.jpg' # String | Name of the file you are attaching
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 begin
   #Allows you to retrieve Attachment on invoices or purchase bills by it's filename
@@ -6527,10 +6113,10 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-invoice_id = 'invoice_id_example' # String | Unique identifier for an Invoice
-attachment_id = 'attachment_id_example' # String | Unique identifier for an Attachment
-content_type = 'content_type_example' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoice
+attachment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Attachment
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 begin
   #Allows you to retrieve a specified Attachment on invoices or purchase bills by it's ID
@@ -6583,8 +6169,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-invoice_id = 'invoice_id_example' # String | Unique identifier for an Invoice
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoice
 
 begin
   #Allows you to retrieve Attachments on invoices or purchase bills
@@ -6635,8 +6221,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-invoice_id = 'invoice_id_example' # String | Unique identifier for an Invoice
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoice
 
 begin
   #Allows you to retrieve a history records of an invoice
@@ -6687,7 +6273,7 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 
 begin
   #Allows you to retrieve invoice reminder settings
@@ -6737,19 +6323,19 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | Only records created or modified since this timestamp will be returned
-  where: 'where_example', # String | Filter by an any element
-  order: 'order_example', # String | Order by an any element
-  i_ds: ['i_ds_example'], # Array<String> | Filter by a comma-separated list of InvoicesIDs. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter.
-  invoice_numbers: ['invoice_numbers_example'], # Array<String> | Filter by a comma-separated list of InvoiceNumbers. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter.
-  contact_i_ds: ['contact_i_ds_example'], # Array<String> | Filter by a comma-separated list of ContactIDs. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter.
-  statuses: ['statuses_example'], # Array<String> | Filter by a comma-separated list Statuses. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter.
-  page: 56, # Integer | e.g. page=1 – Up to 100 invoices will be returned in a single API call with line items shown for each invoice
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
+  where: 'Status==\"' + Invoice.StatusEnum.DRAFT + '\"', # String | Filter by an any element
+  order: 'InvoiceNumber ASC', # String | Order by an any element
+  i_ds: ['00000000-0000-0000-000-000000000000,00000000-0000-0000-000-000000000000'], # Array<String> | Filter by a comma-separated list of InvoicesIDs.
+  invoice_numbers: ['null'], # Array<String> | Filter by a comma-separated list of InvoiceNumbers.
+  contact_i_ds: ['00000000-0000-0000-000-000000000000,00000000-0000-0000-000-000000000000'], # Array<String> | Filter by a comma-separated list of ContactIDs.
+  statuses: ['null'], # Array<String> | Filter by a comma-separated list Statuses. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter.
+  page: 1, # Integer | e.g. page=1 – Up to 100 invoices will be returned in a single API call with line items shown for each invoice
   include_archived: true, # Boolean | e.g. includeArchived=true - Contacts with a status of ARCHIVED will be included in the response
-  created_by_my_app: true, # Boolean | When set to true you'll only retrieve Invoices created by your app
-  unitdp: 56 # Integer | e.g. unitdp=4 – You can opt in to use four decimal places for unit amounts
+  created_by_my_app: false, # Boolean | When set to true you'll only retrieve Invoices created by your app
+  unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
 
 begin
@@ -6770,14 +6356,14 @@ Name | Type | Description  | Notes
  **if_modified_since** | **DateTime**| Only records created or modified since this timestamp will be returned | [optional] 
  **where** | **String**| Filter by an any element | [optional] 
  **order** | **String**| Order by an any element | [optional] 
- **i_ds** | [**Array&lt;String&gt;**](String.md)| Filter by a comma-separated list of InvoicesIDs. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. | [optional] 
- **invoice_numbers** | [**Array&lt;String&gt;**](String.md)| Filter by a comma-separated list of InvoiceNumbers. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. | [optional] 
- **contact_i_ds** | [**Array&lt;String&gt;**](String.md)| Filter by a comma-separated list of ContactIDs. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. | [optional] 
+ **i_ds** | [**Array&lt;String&gt;**](String.md)| Filter by a comma-separated list of InvoicesIDs. | [optional] 
+ **invoice_numbers** | [**Array&lt;String&gt;**](String.md)| Filter by a comma-separated list of InvoiceNumbers. | [optional] 
+ **contact_i_ds** | [**Array&lt;String&gt;**](String.md)| Filter by a comma-separated list of ContactIDs. | [optional] 
  **statuses** | [**Array&lt;String&gt;**](String.md)| Filter by a comma-separated list Statuses. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. | [optional] 
  **page** | **Integer**| e.g. page&#x3D;1 – Up to 100 invoices will be returned in a single API call with line items shown for each invoice | [optional] 
  **include_archived** | **Boolean**| e.g. includeArchived&#x3D;true - Contacts with a status of ARCHIVED will be included in the response | [optional] 
  **created_by_my_app** | **Boolean**| When set to true you&#39;ll only retrieve Invoices created by your app | [optional] 
- **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts | [optional] 
+ **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
 
 ### Return type
 
@@ -6795,7 +6381,7 @@ Name | Type | Description  | Notes
 
 ## get_item
 
-> Items get_item(xero_tenant_id, item_id)
+> Items get_item(xero_tenant_id, item_id, opts)
 
 Allows you to retrieve a specified item
 
@@ -6811,12 +6397,15 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-item_id = 'item_id_example' # String | Unique identifier for an Item
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+item_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Item
+opts = {
+  unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+}
 
 begin
   #Allows you to retrieve a specified item
-  result = api_instance.get_item(xero_tenant_id, item_id)
+  result = api_instance.get_item(xero_tenant_id, item_id, opts)
   p result
 rescue XeroRuby::ApiError => e
   puts "Exception when calling AccountingApi->get_item: #{e}"
@@ -6830,6 +6419,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **item_id** | [**String**](.md)| Unique identifier for an Item | 
+ **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
 
 ### Return type
 
@@ -6863,8 +6453,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-item_id = 'item_id_example' # String | Unique identifier for an Item
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+item_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Item
 
 begin
   #Allows you to retrieve history for items
@@ -6915,12 +6505,12 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | Only records created or modified since this timestamp will be returned
-  where: 'where_example', # String | Filter by an any element
-  order: 'order_example', # String | Order by an any element
-  unitdp: 56 # Integer | e.g. unitdp=4 – You can opt in to use four decimal places for unit amounts
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
+  where: 'IsSold==true', # String | Filter by an any element
+  order: 'Code ASC', # String | Order by an any element
+  unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
 
 begin
@@ -6941,7 +6531,7 @@ Name | Type | Description  | Notes
  **if_modified_since** | **DateTime**| Only records created or modified since this timestamp will be returned | [optional] 
  **where** | **String**| Filter by an any element | [optional] 
  **order** | **String**| Order by an any element | [optional] 
- **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts | [optional] 
+ **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
 
 ### Return type
 
@@ -6975,8 +6565,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-journal_id = 'journal_id_example' # String | Unique identifier for a Journal
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+journal_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Journal
 
 begin
   #Allows you to retrieve a specified journals.
@@ -7027,10 +6617,10 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | Only records created or modified since this timestamp will be returned
-  offset: 56, # Integer | Offset by a specified journal number. e.g. journals with a JournalNumber greater than the offset will be returned
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
+  offset: 10, # Integer | Offset by a specified journal number. e.g. journals with a JournalNumber greater than the offset will be returned
   payments_only: true # Boolean | Filter to retrieve journals on a cash basis. Journals are returned on an accrual basis by default.
 }
 
@@ -7085,8 +6675,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-linked_transaction_id = 'linked_transaction_id_example' # String | Unique identifier for a LinkedTransaction
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+linked_transaction_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a LinkedTransaction
 
 begin
   #Allows you to retrieve a specified linked transactions (billable expenses)
@@ -7137,14 +6727,14 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  page: 56, # Integer | Up to 100 linked transactions will be returned in a single API call. Use the page parameter to specify the page to be returned e.g. page=1.
-  linked_transaction_id: 'linked_transaction_id_example', # String | The Xero identifier for an Linked Transaction
-  source_transaction_id: 'source_transaction_id_example', # String | Filter by the SourceTransactionID. Get all the linked transactions created from a particular ACCPAY invoice
-  contact_id: 'contact_id_example', # String | Filter by the ContactID. Get all the linked transactions that have been assigned to a particular customer.
-  status: 'status_example', # String | Filter by the combination of ContactID and Status. Get all the linked transactions that have been assigned to a particular customer and have a particular status e.g. GET /LinkedTransactions?ContactID=4bb34b03-3378-4bb2-a0ed-6345abf3224e&Status=APPROVED.
-  target_transaction_id: 'target_transaction_id_example' # String | Filter by the TargetTransactionID. Get all the linked transactions allocated to a particular ACCREC invoice
+  page: 1, # Integer | Up to 100 linked transactions will be returned in a single API call. Use the page parameter to specify the page to be returned e.g. page=1.
+  linked_transaction_id: '00000000-0000-0000-000-000000000000', # String | The Xero identifier for an Linked Transaction
+  source_transaction_id: '00000000-0000-0000-000-000000000000', # String | Filter by the SourceTransactionID. Get the linked transactions created from a particular ACCPAY invoice
+  contact_id: '00000000-0000-0000-000-000000000000', # String | Filter by the ContactID. Get all the linked transactions that have been assigned to a particular customer.
+  status: 'APPROVED', # String | Filter by the combination of ContactID and Status. Get  the linked transactions associaed to a  customer and with a status
+  target_transaction_id: '00000000-0000-0000-000-000000000000' # String | Filter by the TargetTransactionID. Get all the linked transactions allocated to a particular ACCREC invoice
 }
 
 begin
@@ -7164,9 +6754,9 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **page** | **Integer**| Up to 100 linked transactions will be returned in a single API call. Use the page parameter to specify the page to be returned e.g. page&#x3D;1. | [optional] 
  **linked_transaction_id** | **String**| The Xero identifier for an Linked Transaction | [optional] 
- **source_transaction_id** | **String**| Filter by the SourceTransactionID. Get all the linked transactions created from a particular ACCPAY invoice | [optional] 
+ **source_transaction_id** | **String**| Filter by the SourceTransactionID. Get the linked transactions created from a particular ACCPAY invoice | [optional] 
  **contact_id** | **String**| Filter by the ContactID. Get all the linked transactions that have been assigned to a particular customer. | [optional] 
- **status** | **String**| Filter by the combination of ContactID and Status. Get all the linked transactions that have been assigned to a particular customer and have a particular status e.g. GET /LinkedTransactions?ContactID&#x3D;4bb34b03-3378-4bb2-a0ed-6345abf3224e&amp;Status&#x3D;APPROVED. | [optional] 
+ **status** | **String**| Filter by the combination of ContactID and Status. Get  the linked transactions associaed to a  customer and with a status | [optional] 
  **target_transaction_id** | **String**| Filter by the TargetTransactionID. Get all the linked transactions allocated to a particular ACCREC invoice | [optional] 
 
 ### Return type
@@ -7201,8 +6791,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-manual_journal_id = 'manual_journal_id_example' # String | Unique identifier for a ManualJournal
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+manual_journal_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ManualJournal
 
 begin
   #Allows you to retrieve a specified manual journals
@@ -7253,10 +6843,10 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-manual_journal_id = 'manual_journal_id_example' # String | Unique identifier for a ManualJournal
-file_name = 'file_name_example' # String | The name of the file being attached to a ManualJournal
-content_type = 'content_type_example' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+manual_journal_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ManualJournal
+file_name = 'xero-dev.jpg' # String | The name of the file being attached to a ManualJournal
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 begin
   #Allows you to retrieve specified Attachment on ManualJournal by file name
@@ -7309,10 +6899,10 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-manual_journal_id = 'manual_journal_id_example' # String | Unique identifier for a ManualJournal
-attachment_id = 'attachment_id_example' # String | Unique identifier for a Attachment
-content_type = 'content_type_example' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+manual_journal_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ManualJournal
+attachment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Attachment
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 begin
   #Allows you to retrieve specified Attachment on ManualJournals
@@ -7365,8 +6955,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-manual_journal_id = 'manual_journal_id_example' # String | Unique identifier for a ManualJournal
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+manual_journal_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ManualJournal
 
 begin
   #Allows you to retrieve Attachment for manual journals
@@ -7417,12 +7007,12 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | Only records created or modified since this timestamp will be returned
-  where: 'where_example', # String | Filter by an any element
-  order: 'order_example', # String | Order by an any element
-  page: 56 # Integer | e.g. page=1 – Up to 100 manual journals will be returned in a single API call with line items shown for each overpayment
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
+  where: 'Status==\"' + ManualJournal.StatusEnum.DRAFT + '\"', # String | Filter by an any element
+  order: 'Date ASC', # String | Order by an any element
+  page: 1 # Integer | e.g. page=1 – Up to 100 manual journals will be returned in a single API call with line items shown for each overpayment
 }
 
 begin
@@ -7477,8 +7067,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-invoice_id = 'invoice_id_example' # String | Unique identifier for an Invoice
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoice
 
 begin
   #Allows you to retrieve a URL to an online invoice
@@ -7529,8 +7119,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-organisation_id = 'organisation_id_example' # String | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+organisation_id = '00000000-0000-0000-000-000000000000' # String | The unique Xero identifier for an organisation
 
 begin
   #Allows you To verify if an organisation is using contruction industry scheme, you can retrieve the CIS settings for the organistaion.
@@ -7547,7 +7137,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **organisation_id** | [**String**](.md)|  | 
+ **organisation_id** | [**String**](.md)| The unique Xero identifier for an organisation | 
 
 ### Return type
 
@@ -7581,7 +7171,7 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 
 begin
   #Allows you to retrieve Organisation details
@@ -7631,8 +7221,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-overpayment_id = 'overpayment_id_example' # String | Unique identifier for a Overpayment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+overpayment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Overpayment
 
 begin
   #Allows you to retrieve a specified overpayments
@@ -7683,8 +7273,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-overpayment_id = 'overpayment_id_example' # String | Unique identifier for a Overpayment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+overpayment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Overpayment
 
 begin
   #Allows you to retrieve a history records of an Overpayment
@@ -7735,13 +7325,13 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | Only records created or modified since this timestamp will be returned
-  where: 'where_example', # String | Filter by an any element
-  order: 'order_example', # String | Order by an any element
-  page: 56, # Integer | e.g. page=1 – Up to 100 overpayments will be returned in a single API call with line items shown for each overpayment
-  unitdp: 56 # Integer | e.g. unitdp=4 – You can opt in to use four decimal places for unit amounts
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
+  where: 'Status==\"' + Overpayment.StatusEnum.AUTHORISED + '\"', # String | Filter by an any element
+  order: 'RemainingCredit ASC', # String | Order by an any element
+  page: 1, # Integer | e.g. page=1 – Up to 100 overpayments will be returned in a single API call with line items shown for each overpayment
+  unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
 
 begin
@@ -7763,7 +7353,7 @@ Name | Type | Description  | Notes
  **where** | **String**| Filter by an any element | [optional] 
  **order** | **String**| Order by an any element | [optional] 
  **page** | **Integer**| e.g. page&#x3D;1 – Up to 100 overpayments will be returned in a single API call with line items shown for each overpayment | [optional] 
- **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts | [optional] 
+ **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
 
 ### Return type
 
@@ -7797,8 +7387,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-payment_id = 'payment_id_example' # String | Unique identifier for a Payment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+payment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Payment
 
 begin
   #Allows you to retrieve a specified payment for invoices and credit notes
@@ -7849,8 +7439,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-payment_id = 'payment_id_example' # String | Unique identifier for a Payment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+payment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Payment
 
 begin
   #Allows you to retrieve history records of a payment
@@ -7901,7 +7491,7 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 
 begin
   #Allows you to retrieve payment services
@@ -7951,11 +7541,11 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | Only records created or modified since this timestamp will be returned
-  where: 'where_example', # String | Filter by an any element
-  order: 'order_example' # String | Order by an any element
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
+  where: 'Status==\"' + Payment.StatusEnum.AUTHORISED + '\"', # String | Filter by an any element
+  order: 'Amount ASC' # String | Order by an any element
 }
 
 begin
@@ -8009,8 +7599,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-prepayment_id = 'prepayment_id_example' # String | Unique identifier for a PrePayment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+prepayment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a PrePayment
 
 begin
   #Allows you to retrieve a specified prepayments
@@ -8061,8 +7651,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-prepayment_id = 'prepayment_id_example' # String | Unique identifier for a PrePayment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+prepayment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a PrePayment
 
 begin
   #Allows you to retrieve a history records of an Prepayment
@@ -8113,13 +7703,13 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | Only records created or modified since this timestamp will be returned
-  where: 'where_example', # String | Filter by an any element
-  order: 'order_example', # String | Order by an any element
-  page: 56, # Integer | e.g. page=1 – Up to 100 prepayments will be returned in a single API call with line items shown for each overpayment
-  unitdp: 56 # Integer | e.g. unitdp=4 – You can opt in to use four decimal places for unit amounts
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
+  where: 'Status==\"' + Prepayment.StatusEnum.AUTHORISED + '\"', # String | Filter by an any element
+  order: 'Reference ASC', # String | Order by an any element
+  page: 1, # Integer | e.g. page=1 – Up to 100 prepayments will be returned in a single API call with line items shown for each overpayment
+  unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
 
 begin
@@ -8141,7 +7731,7 @@ Name | Type | Description  | Notes
  **where** | **String**| Filter by an any element | [optional] 
  **order** | **String**| Order by an any element | [optional] 
  **page** | **Integer**| e.g. page&#x3D;1 – Up to 100 prepayments will be returned in a single API call with line items shown for each overpayment | [optional] 
- **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts | [optional] 
+ **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
 
 ### Return type
 
@@ -8175,8 +7765,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-purchase_order_id = 'purchase_order_id_example' # String | Unique identifier for a PurchaseOrder
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+purchase_order_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a PurchaseOrder
 
 begin
   #Allows you to retrieve a specified purchase orders
@@ -8227,8 +7817,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-purchase_order_id = 'purchase_order_id_example' # String | Unique identifier for a PurchaseOrder
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+purchase_order_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a PurchaseOrder
 
 begin
   #Allows you to retrieve history for PurchaseOrder
@@ -8279,14 +7869,14 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | Only records created or modified since this timestamp will be returned
-  status: 'status_example', # String | Filter by purchase order status
-  date_from: 'date_from_example', # String | Filter by purchase order date (e.g. GET https://.../PurchaseOrders?DateFrom=2015-12-01&DateTo=2015-12-31
-  date_to: 'date_to_example', # String | Filter by purchase order date (e.g. GET https://.../PurchaseOrders?DateFrom=2015-12-01&DateTo=2015-12-31
-  order: 'order_example', # String | Order by an any element
-  page: 56 # Integer | To specify a page, append the page parameter to the URL e.g. ?page=1. If there are 100 records in the response you will need to check if there is any more data by fetching the next page e.g ?page=2 and continuing this process until no more results are returned.
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
+  status: 'SUBMITTED', # String | Filter by purchase order status
+  date_from: '2019-12-01', # String | Filter by purchase order date (e.g. GET https://.../PurchaseOrders?DateFrom=2015-12-01&DateTo=2015-12-31
+  date_to: '2019-12-31', # String | Filter by purchase order date (e.g. GET https://.../PurchaseOrders?DateFrom=2015-12-01&DateTo=2015-12-31
+  order: 'PurchaseOrderNumber ASC', # String | Order by an any element
+  page: 1 # Integer | To specify a page, append the page parameter to the URL e.g. ?page=1. If there are 100 records in the response you will need to check if there is any more data by fetching the next page e.g ?page=2 and continuing this process until no more results are returned.
 }
 
 begin
@@ -8325,9 +7915,183 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## get_quote
+
+> Quotes get_quote(xero_tenant_id, quote_id)
+
+Allows you to retrieve a specified quote
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+# setup authorization
+XeroRuby.configure do |config|
+  # Configure OAuth2 access token for authorization: OAuth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = XeroRuby::AccountingApi.new
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+quote_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Quote
+
+begin
+  #Allows you to retrieve a specified quote
+  result = api_instance.get_quote(xero_tenant_id, quote_id)
+  p result
+rescue XeroRuby::ApiError => e
+  puts "Exception when calling AccountingApi->get_quote: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **quote_id** | [**String**](.md)| Unique identifier for an Quote | 
+
+### Return type
+
+[**Quotes**](Quotes.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_quote_history
+
+> HistoryRecords get_quote_history(xero_tenant_id, quote_id)
+
+Allows you to retrieve a history records of an quote
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+# setup authorization
+XeroRuby.configure do |config|
+  # Configure OAuth2 access token for authorization: OAuth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = XeroRuby::AccountingApi.new
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+quote_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Quote
+
+begin
+  #Allows you to retrieve a history records of an quote
+  result = api_instance.get_quote_history(xero_tenant_id, quote_id)
+  p result
+rescue XeroRuby::ApiError => e
+  puts "Exception when calling AccountingApi->get_quote_history: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **quote_id** | [**String**](.md)| Unique identifier for an Quote | 
+
+### Return type
+
+[**HistoryRecords**](HistoryRecords.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_quotes
+
+> Quotes get_quotes(xero_tenant_id, opts)
+
+Allows you to retrieve any sales quotes
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+# setup authorization
+XeroRuby.configure do |config|
+  # Configure OAuth2 access token for authorization: OAuth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = XeroRuby::AccountingApi.new
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+opts = {
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
+  date_from: Date.parse('2013-10-20'), # Date | Filter for quotes after a particular date
+  date_to: Date.parse('2013-10-20'), # Date | Filter for quotes before a particular date
+  expiry_date_from: Date.parse('2013-10-20'), # Date | Filter for quotes expiring after a particular date
+  expiry_date_to: Date.parse('2013-10-20'), # Date | Filter for quotes before a particular date
+  contact_id: '00000000-0000-0000-000-000000000000', # String | Filter for quotes belonging to a particular contact
+  status: 'status_example', # String | Filter for quotes of a particular Status
+  page: 1, # Integer | e.g. page=1 – Up to 100 Quotes will be returned in a single API call with line items shown for each quote
+  order: 'ASC' # String | Order by an any element
+}
+
+begin
+  #Allows you to retrieve any sales quotes
+  result = api_instance.get_quotes(xero_tenant_id, opts)
+  p result
+rescue XeroRuby::ApiError => e
+  puts "Exception when calling AccountingApi->get_quotes: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **if_modified_since** | **DateTime**| Only records created or modified since this timestamp will be returned | [optional] 
+ **date_from** | **Date**| Filter for quotes after a particular date | [optional] 
+ **date_to** | **Date**| Filter for quotes before a particular date | [optional] 
+ **expiry_date_from** | **Date**| Filter for quotes expiring after a particular date | [optional] 
+ **expiry_date_to** | **Date**| Filter for quotes before a particular date | [optional] 
+ **contact_id** | [**String**](.md)| Filter for quotes belonging to a particular contact | [optional] 
+ **status** | **String**| Filter for quotes of a particular Status | [optional] 
+ **page** | **Integer**| e.g. page&#x3D;1 – Up to 100 Quotes will be returned in a single API call with line items shown for each quote | [optional] 
+ **order** | **String**| Order by an any element | [optional] 
+
+### Return type
+
+[**Quotes**](Quotes.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## get_receipt
 
-> Receipts get_receipt(xero_tenant_id, receipt_id)
+> Receipts get_receipt(xero_tenant_id, receipt_id, opts)
 
 Allows you to retrieve a specified draft expense claim receipts
 
@@ -8343,12 +8107,15 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-receipt_id = 'receipt_id_example' # String | Unique identifier for a Receipt
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+receipt_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Receipt
+opts = {
+  unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+}
 
 begin
   #Allows you to retrieve a specified draft expense claim receipts
-  result = api_instance.get_receipt(xero_tenant_id, receipt_id)
+  result = api_instance.get_receipt(xero_tenant_id, receipt_id, opts)
   p result
 rescue XeroRuby::ApiError => e
   puts "Exception when calling AccountingApi->get_receipt: #{e}"
@@ -8362,6 +8129,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **receipt_id** | [**String**](.md)| Unique identifier for a Receipt | 
+ **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
 
 ### Return type
 
@@ -8395,10 +8163,10 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-receipt_id = 'receipt_id_example' # String | Unique identifier for a Receipt
-file_name = 'file_name_example' # String | The name of the file being attached to the Receipt
-content_type = 'content_type_example' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+receipt_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Receipt
+file_name = 'xero-dev.jpg' # String | The name of the file being attached to the Receipt
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 begin
   #Allows you to retrieve Attachments on expense claim receipts by file name
@@ -8451,10 +8219,10 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-receipt_id = 'receipt_id_example' # String | Unique identifier for a Receipt
-attachment_id = 'attachment_id_example' # String | Unique identifier for a Attachment
-content_type = 'content_type_example' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+receipt_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Receipt
+attachment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Attachment
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 begin
   #Allows you to retrieve Attachments on expense claim receipts by ID
@@ -8507,8 +8275,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-receipt_id = 'receipt_id_example' # String | Unique identifier for a Receipt
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+receipt_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Receipt
 
 begin
   #Allows you to retrieve Attachments for expense claim receipts
@@ -8559,8 +8327,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-receipt_id = 'receipt_id_example' # String | Unique identifier for a Receipt
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+receipt_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Receipt
 
 begin
   #Allows you to retrieve a history records of an Receipt
@@ -8611,12 +8379,12 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | Only records created or modified since this timestamp will be returned
-  where: 'where_example', # String | Filter by an any element
-  order: 'order_example', # String | Order by an any element
-  unitdp: 56 # Integer | e.g. unitdp=4 – You can opt in to use four decimal places for unit amounts
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
+  where: 'Status==\"' + Receipt.StatusEnum.DRAFT + '\"', # String | Filter by an any element
+  order: 'ReceiptNumber ASC', # String | Order by an any element
+  unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
 
 begin
@@ -8637,7 +8405,7 @@ Name | Type | Description  | Notes
  **if_modified_since** | **DateTime**| Only records created or modified since this timestamp will be returned | [optional] 
  **where** | **String**| Filter by an any element | [optional] 
  **order** | **String**| Order by an any element | [optional] 
- **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts | [optional] 
+ **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
 
 ### Return type
 
@@ -8671,8 +8439,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-repeating_invoice_id = 'repeating_invoice_id_example' # String | Unique identifier for a Repeating Invoice
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+repeating_invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Repeating Invoice
 
 begin
   #Allows you to retrieve a specified repeating invoice
@@ -8723,10 +8491,10 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-repeating_invoice_id = 'repeating_invoice_id_example' # String | Unique identifier for a Repeating Invoice
-file_name = 'file_name_example' # String | The name of the file being attached to a Repeating Invoice
-content_type = 'content_type_example' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+repeating_invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Repeating Invoice
+file_name = 'xero-dev.jpg' # String | The name of the file being attached to a Repeating Invoice
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 begin
   #Allows you to retrieve specified attachment on repeating invoices by file name
@@ -8779,10 +8547,10 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-repeating_invoice_id = 'repeating_invoice_id_example' # String | Unique identifier for a Repeating Invoice
-attachment_id = 'attachment_id_example' # String | Unique identifier for a Attachment
-content_type = 'content_type_example' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+repeating_invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Repeating Invoice
+attachment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Attachment
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 begin
   #Allows you to retrieve a specified Attachments on repeating invoices
@@ -8835,8 +8603,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-repeating_invoice_id = 'repeating_invoice_id_example' # String | Unique identifier for a Repeating Invoice
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+repeating_invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Repeating Invoice
 
 begin
   #Allows you to retrieve Attachments on repeating invoice
@@ -8887,8 +8655,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-repeating_invoice_id = 'repeating_invoice_id_example' # String | Unique identifier for a Repeating Invoice
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+repeating_invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Repeating Invoice
 
 begin
   #Allows you to retrieve history for a repeating invoice
@@ -8939,10 +8707,10 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  where: 'where_example', # String | Filter by an any element
-  order: 'order_example' # String | Order by an any element
+  where: 'Status==\"' + RepeatingInvoice.StatusEnum.DRAFT + '\"', # String | Filter by an any element
+  order: 'Total ASC' # String | Order by an any element
 }
 
 begin
@@ -8995,8 +8763,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-contact_id = 'contact_id_example' # String | Unique identifier for a Contact
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
 opts = {
   date: Date.parse('2013-10-20'), # Date | The date of the Aged Payables By Contact report
   from_date: Date.parse('2013-10-20'), # Date | The from date of the Aged Payables By Contact report
@@ -9055,8 +8823,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-contact_id = 'contact_id_example' # String | Unique identifier for a Contact
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
 opts = {
   date: Date.parse('2013-10-20'), # Date | The date of the Aged Receivables By Contact report
   from_date: Date.parse('2013-10-20'), # Date | The from date of the Aged Receivables By Contact report
@@ -9115,8 +8883,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-report_id = 'report_id_example' # String | Unique identifier for a Report
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+report_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Report
 
 begin
   #Allows you to retrieve report for BAS only valid for AU orgs
@@ -9167,7 +8935,7 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 
 begin
   #Allows you to retrieve report for BAS only valid for AU orgs
@@ -9217,15 +8985,15 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  date: 'date_example', # String | The date of the Balance Sheet report
-  periods: 56, # Integer | The number of periods for the Balance Sheet report
-  timeframe: 'timeframe_example', # String | The period size to compare to (MONTH, QUARTER, YEAR)
-  tracking_option_id1: 'tracking_option_id1_example', # String | The tracking option 1 for the Balance Sheet report
-  tracking_option_id2: 'tracking_option_id2_example', # String | The tracking option 2 for the Balance Sheet report
+  date: '2019-11-01', # String | The date of the Balance Sheet report
+  periods: 3, # Integer | The number of periods for the Balance Sheet report
+  timeframe: 'MONTH', # String | The period size to compare to (MONTH, QUARTER, YEAR)
+  tracking_option_id1: '00000000-0000-0000-000-000000000000', # String | The tracking option 1 for the Balance Sheet report
+  tracking_option_id2: '00000000-0000-0000-000-000000000000', # String | The tracking option 2 for the Balance Sheet report
   standard_layout: true, # Boolean | The standard layout boolean for the Balance Sheet report
-  payments_only: true # Boolean | return a cash basis for the Balance Sheet report
+  payments_only: false # Boolean | return a cash basis for the Balance Sheet report
 }
 
 begin
@@ -9283,11 +9051,10 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  date: Date.parse('2013-10-20'), # Date | The date for the Bank Summary report e.g. 2018-03-31
-  period: 56, # Integer | The number of periods to compare (integer between 1 and 12)
-  timeframe: 56 # Integer | The period size to compare to (1=month, 3=quarter, 12=year)
+  from_date: Date.parse('2019-11-01'), # Date | The from date for the Bank Summary report e.g. 2018-03-31
+  to_date: Date.parse('2019-11-30') # Date | The to date for the Bank Summary report e.g. 2018-03-31
 }
 
 begin
@@ -9305,9 +9072,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **date** | **Date**| The date for the Bank Summary report e.g. 2018-03-31 | [optional] 
- **period** | **Integer**| The number of periods to compare (integer between 1 and 12) | [optional] 
- **timeframe** | **Integer**| The period size to compare to (1&#x3D;month, 3&#x3D;quarter, 12&#x3D;year) | [optional] 
+ **from_date** | **Date**| The from date for the Bank Summary report e.g. 2018-03-31 | [optional] 
+ **to_date** | **Date**| The to date for the Bank Summary report e.g. 2018-03-31 | [optional] 
 
 ### Return type
 
@@ -9341,11 +9107,11 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  date: Date.parse('2013-10-20'), # Date | The date for the Bank Summary report e.g. 2018-03-31
-  period: 56, # Integer | The number of periods to compare (integer between 1 and 12)
-  timeframe: 56 # Integer | The period size to compare to (1=month, 3=quarter, 12=year)
+  date: Date.parse('2019-03-31'), # Date | The date for the Bank Summary report e.g. 2018-03-31
+  period: 2, # Integer | The number of periods to compare (integer between 1 and 12)
+  timeframe: 3 # Integer | The period size to compare to (1=month, 3=quarter, 12=year)
 }
 
 begin
@@ -9399,9 +9165,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  date: Date.parse('2013-10-20') # Date | The date for the Bank Summary report e.g. 2018-03-31
+  date: Date.parse('2019-03-31') # Date | The date for the Bank Summary report e.g. 2018-03-31
 }
 
 begin
@@ -9453,18 +9219,18 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  from_date: Date.parse('2013-10-20'), # Date | The from date for the ProfitAndLoss report e.g. 2018-03-31
-  to_date: Date.parse('2013-10-20'), # Date | The to date for the ProfitAndLoss report e.g. 2018-03-31
-  periods: 56, # Integer | The number of periods to compare (integer between 1 and 12)
-  timeframe: 'timeframe_example', # String | The period size to compare to (MONTH, QUARTER, YEAR)
-  tracking_category_id: 'tracking_category_id_example', # String | The trackingCategory 1 for the ProfitAndLoss report
-  tracking_category_id2: 'tracking_category_id2_example', # String | The trackingCategory 2 for the ProfitAndLoss report
-  tracking_option_id: 'tracking_option_id_example', # String | The tracking option 1 for the ProfitAndLoss report
-  tracking_option_id2: 'tracking_option_id2_example', # String | The tracking option 2 for the ProfitAndLoss report
+  from_date: Date.parse('2019-03-01'), # Date | The from date for the ProfitAndLoss report e.g. 2018-03-31
+  to_date: Date.parse('2019-03-31'), # Date | The to date for the ProfitAndLoss report e.g. 2018-03-31
+  periods: 3, # Integer | The number of periods to compare (integer between 1 and 12)
+  timeframe: 'MONTH', # String | The period size to compare to (MONTH, QUARTER, YEAR)
+  tracking_category_id: '00000000-0000-0000-000-000000000000', # String | The trackingCategory 1 for the ProfitAndLoss report
+  tracking_category_id2: '00000000-0000-0000-000-000000000000', # String | The trackingCategory 2 for the ProfitAndLoss report
+  tracking_option_id: '00000000-0000-0000-000-000000000000', # String | The tracking option 1 for the ProfitAndLoss report
+  tracking_option_id2: '00000000-0000-0000-000-000000000000', # String | The tracking option 2 for the ProfitAndLoss report
   standard_layout: true, # Boolean | Return the standard layout for the ProfitAndLoss report
-  payments_only: true # Boolean | Return cash only basis for the ProfitAndLoss report
+  payments_only: false # Boolean | Return cash only basis for the ProfitAndLoss report
 }
 
 begin
@@ -9525,9 +9291,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  report_year: 'report_year_example' # String | The year of the 1099 report
+  report_year: '2019' # String | The year of the 1099 report
 }
 
 begin
@@ -9579,9 +9345,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  date: Date.parse('2013-10-20'), # Date | The date for the Trial Balance report e.g. 2018-03-31
+  date: Date.parse('2019-10-31'), # Date | The date for the Trial Balance report e.g. 2018-03-31
   payments_only: true # Boolean | Return cash only basis for the Trial Balance report
 }
 
@@ -9635,11 +9401,11 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  where: 'where_example', # String | Filter by an any element
-  order: 'order_example', # String | Order by an any element
-  tax_type: 'tax_type_example' # String | Filter by tax type
+  where: 'Status==\"' + TaxRate.StatusEnum.ACTIVE + '\"', # String | Filter by an any element
+  order: 'Name ASC', # String | Order by an any element
+  tax_type: 'INPUT' # String | Filter by tax type
 }
 
 begin
@@ -9693,10 +9459,10 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  where: 'where_example', # String | Filter by an any element
-  order: 'order_example', # String | Order by an any element
+  where: 'Status==\"' + TrackingCategory.StatusEnum.ACTIVE + '\"', # String | Filter by an any element
+  order: 'Name ASC', # String | Order by an any element
   include_archived: true # Boolean | e.g. includeArchived=true - Categories and options with a status of ARCHIVED will be included in the response
 }
 
@@ -9751,8 +9517,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-tracking_category_id = 'tracking_category_id_example' # String | Unique identifier for a TrackingCategory
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+tracking_category_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a TrackingCategory
 
 begin
   #Allows you to retrieve tracking categories and options for specified category
@@ -9803,8 +9569,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-user_id = 'user_id_example' # String | Unique identifier for a User
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+user_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a User
 
 begin
   #Allows you to retrieve a specified user
@@ -9855,11 +9621,11 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | Only records created or modified since this timestamp will be returned
-  where: 'where_example', # String | Filter by an any element
-  order: 'order_example' # String | Order by an any element
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
+  where: 'IsSubscriber==true', # String | Filter by an any element
+  order: 'LastName ASC' # String | Order by an any element
 }
 
 begin
@@ -9913,9 +9679,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-account_id = 'account_id_example' # String | Unique identifier for retrieving single object
-accounts = { "Accounts":[ { "Code":"123456", "Name":"BarFoo", "AccountID":"99ce6032-0678-4aa0-8148-240c75fee33a", "Type":"EXPENSE", "Description":"GoodBye World", "TaxType":"INPUT", "EnablePaymentsToAccount":false, "ShowInExpenseClaims":false, "Class":"EXPENSE", "ReportingCode":"EXP", "ReportingCodeName":"Expense", "UpdatedDateUTC":"2019-02-21T16:29:47.96-08:00" } ] } # Accounts | Request of type Accounts array with one Account
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+account_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for retrieving single object
+accounts = { accounts:[ { code:"123456", name:"BarFoo", accountID:"00000000-0000-0000-000-000000000000", type:AccountType.EXPENSE, description:"GoodBye World", taxType:"INPUT" } ] } # Accounts | Request of type Accounts array with one Account
 
 begin
   #Allows you to update a chart of accounts
@@ -9967,9 +9733,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-account_id = 'account_id_example' # String | Unique identifier for Account object
-file_name = 'file_name_example' # String | Name of the attachment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+account_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Account object
+file_name = 'xero-dev.jpg' # String | Name of the attachment
 body = 'body_example' # String | Byte array of file in body of request
 
 begin
@@ -10007,7 +9773,7 @@ Name | Type | Description  | Notes
 
 ## update_bank_transaction
 
-> BankTransactions update_bank_transaction(xero_tenant_id, bank_transaction_id, bank_transactions)
+> BankTransactions update_bank_transaction(xero_tenant_id, bank_transaction_id, bank_transactions, opts)
 
 Allows you to update a single spend or receive money transaction
 
@@ -10023,16 +9789,16 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-bank_transaction_id = 'bank_transaction_id_example' # String | Xero generated unique identifier for a bank transaction
-bank_transactions = { "BankTransactions":[ { "Type":"SPEND", "Contact":{ "ContactID":"5cc8cf28-567e-4d43-b287-687cfcaec47c", "ContactStatus":"ACTIVE", "Name":"Katherine Warren", "FirstName":"Katherine", "LastName":"Warren", "EmailAddress":"kat.warren@clampett.com", "ContactPersons":[
-], "BankAccountDetails":"", "Addresses":[ { "AddressType":"STREET", "City":"", "Region":"", "PostalCode":"", "Country":"" }, { "AddressType":"POBOX", "AddressLine1":"", "AddressLine2":"", "AddressLine3":"", "AddressLine4":"", "City":"Palo Alto", "Region":"CA", "PostalCode":"94020", "Country":"United States" } ], "Phones":[ { "PhoneType":"DEFAULT", "PhoneNumber":"847-1294", "PhoneAreaCode":"(626)", "PhoneCountryCode":"" }, { "PhoneType":"DDI", "PhoneNumber":"", "PhoneAreaCode":"", "PhoneCountryCode":"" }, { "PhoneType":"FAX", "PhoneNumber":"", "PhoneAreaCode":"", "PhoneCountryCode":"" }, { "PhoneType":"MOBILE", "PhoneNumber":"", "PhoneAreaCode":"", "PhoneCountryCode":"" } ], "UpdatedDateUTC":"2017-08-21T13:49:04.227-07:00", "ContactGroups":[
-] }, "LineItems":[
-], "BankAccount":{ "Code":"088", "Name":"Business Wells Fargo", "AccountID":"6f7594f2-f059-4d56-9e67-47ac9733bfe9" }, "IsReconciled":false, "Date":"2019-02-25", "Reference":"You just updated", "CurrencyCode":"USD", "CurrencyRate":1.0, "Status":"AUTHORISED", "LineAmountTypes":"Inclusive", "TotalTax":1.74, "BankTransactionID":"1289c190-e46d-434b-9628-463ffdb52f00", "UpdatedDateUTC":"2019-02-26T12:39:27.813-08:00" } ] } # BankTransactions | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transaction_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transaction
+bank_transactions = { bankTransactions:[ { type: BankTransaction.TypeEnum.SPEND, date:"2019-02-25", reference:"You just updated", status:BankTransaction.StatusEnum.AUTHORISED, bankTransactionID:"00000000-0000-0000-000-000000000000", lineItems: [],contact: {}, bankAccount: {accountID: "00000000-0000-0000-000-000000000000"} } ] } # BankTransactions | 
+opts = {
+  unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+}
 
 begin
   #Allows you to update a single spend or receive money transaction
-  result = api_instance.update_bank_transaction(xero_tenant_id, bank_transaction_id, bank_transactions)
+  result = api_instance.update_bank_transaction(xero_tenant_id, bank_transaction_id, bank_transactions, opts)
   p result
 rescue XeroRuby::ApiError => e
   puts "Exception when calling AccountingApi->update_bank_transaction: #{e}"
@@ -10047,6 +9813,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **bank_transaction_id** | [**String**](.md)| Xero generated unique identifier for a bank transaction | 
  **bank_transactions** | [**BankTransactions**](BankTransactions.md)|  | 
+ **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
 
 ### Return type
 
@@ -10080,9 +9847,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-bank_transaction_id = 'bank_transaction_id_example' # String | Xero generated unique identifier for a bank transaction
-file_name = 'file_name_example' # String | The name of the file being attached
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transaction_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transaction
+file_name = 'xero-dev.jpg' # String | The name of the file being attached
 body = 'body_example' # String | Byte array of file in body of request
 
 begin
@@ -10136,9 +9903,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-bank_transfer_id = 'bank_transfer_id_example' # String | Xero generated unique identifier for a bank transfer
-file_name = 'file_name_example' # String | The name of the file being attached to a Bank Transfer
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transfer_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transfer
+file_name = 'xero-dev.jpg' # String | The name of the file being attached to a Bank Transfer
 body = 'body_example' # String | Byte array of file in body of request
 
 begin
@@ -10191,9 +9958,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-contact_id = 'contact_id_example' # String | Unique identifier for a Contact
-contacts = { "Contacts":[ { "ContactID":"d5be01fb-b09f-4c3a-9c67-e10c2a03412c", "Name":"FooBar" } ] } # Contacts | an array of Contacts containing single Contact object with properties to update
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
+contacts = { contacts:[ { contactID:"00000000-0000-0000-000-000000000000", name:"Thanos" } ] } # Contacts | an array of Contacts containing single Contact object with properties to update
 
 begin
   result = api_instance.update_contact(xero_tenant_id, contact_id, contacts)
@@ -10244,9 +10011,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-contact_id = 'contact_id_example' # String | Unique identifier for a Contact
-file_name = 'file_name_example' # String | Name for the file you are attaching
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
+file_name = 'xero-dev.jpg' # String | Name for the file you are attaching
 body = 'body_example' # String | Byte array of file in body of request
 
 begin
@@ -10299,9 +10066,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-contact_group_id = 'contact_group_id_example' # String | Unique identifier for a Contact Group
-contact_groups = { "ContactGroups":[ { "Name":"Vendor" } ] } # ContactGroups | an array of Contact groups with Name of specific group to update
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contact_group_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact Group
+contact_groups = { contactGroups:[ { name:"Vendor" } ] } # ContactGroups | an array of Contact groups with Name of specific group to update
 
 begin
   #Allows you to update a Contract Group
@@ -10337,7 +10104,7 @@ Name | Type | Description  | Notes
 
 ## update_credit_note
 
-> CreditNotes update_credit_note(xero_tenant_id, credit_note_id, credit_notes)
+> CreditNotes update_credit_note(xero_tenant_id, credit_note_id, credit_notes, opts)
 
 Allows you to update a specific credit note
 
@@ -10353,13 +10120,16 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-credit_note_id = 'credit_note_id_example' # String | Unique identifier for a Credit Note
-credit_notes = { "CreditNotes":[ { "Type":"ACCPAYCREDIT", "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "Date":"2019-01-05", "Status":"AUTHORISED", "Reference": "HelloWorld", "LineItems":[ { "Description":"Foobar", "Quantity":2.0, "UnitAmount":20.0, "AccountCode":"400" } ] } ] } # CreditNotes | an array of Credit Notes containing credit note details to update
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+credit_note_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Credit Note
+credit_notes = { creditNotes:[ { type:CreditNote.TypeEnum.ACCPAYCREDIT, contact:{ contactID:"00000000-0000-0000-000-000000000000" }, date:"2019-01-05", status: CreditNote.StatusEnum.AUTHORISED, reference: "Mind stone", lineItems:[ { description:"Infinity Stones", quantity:1.0, unitAmount:100.0, accountCode:"400" } ] } ] } # CreditNotes | an array of Credit Notes containing credit note details to update
+opts = {
+  unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+}
 
 begin
   #Allows you to update a specific credit note
-  result = api_instance.update_credit_note(xero_tenant_id, credit_note_id, credit_notes)
+  result = api_instance.update_credit_note(xero_tenant_id, credit_note_id, credit_notes, opts)
   p result
 rescue XeroRuby::ApiError => e
   puts "Exception when calling AccountingApi->update_credit_note: #{e}"
@@ -10374,6 +10144,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **credit_note_id** | [**String**](.md)| Unique identifier for a Credit Note | 
  **credit_notes** | [**CreditNotes**](CreditNotes.md)| an array of Credit Notes containing credit note details to update | 
+ **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
 
 ### Return type
 
@@ -10407,9 +10178,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-credit_note_id = 'credit_note_id_example' # String | Unique identifier for a Credit Note
-file_name = 'file_name_example' # String | Name of the file you are attaching to Credit Note
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+credit_note_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Credit Note
+file_name = 'xero-dev.jpg' # String | Name of the file you are attaching to Credit Note
 body = 'body_example' # String | Byte array of file in body of request
 
 begin
@@ -10463,9 +10234,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-employee_id = 'employee_id_example' # String | Unique identifier for a Employee
-employees = { "Employees":[ { "EmployeeID":"ad3db144-6362-459c-8c36-5d31d196e629", "FirstName":"Bruce", "LastName":"Banner" } ] } # Employees | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+employee_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Employee
+employees = { employees:[ { employeeID:"00000000-0000-0000-000-000000000000", firstName:"Natasha", lastName:"Romanoff" } ] } # Employees | 
 
 begin
   #Allows you to update a specific employee used in Xero payrun
@@ -10517,10 +10288,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-expense_claim_id = 'expense_claim_id_example' # String | Unique identifier for a ExpenseClaim
-expense_claims = { "ExpenseClaims":[ { "Status":"AUTHORISED", "User":{ "UserID":"d1164823-0ac1-41ad-987b-b4e30fe0b273" }, "Receipts":[ { "LineItems":[
-], "ReceiptID":"dc1c7f6d-0a4c-402f-acac-551d62ce5816" } ] } ] } # ExpenseClaims | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+expense_claim_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ExpenseClaim
+expense_claims = { expenseClaims:[ { status:ExpenseClaim.StatusEnum.AUTHORISED, user:{ userID:"00000000-0000-0000-000-000000000000" }, receipts:[ { receiptID:"00000000-0000-0000-000-000000000000", lineItems: [], contact: {}, date:"2020-01-01", user:{} } ] } ] } # ExpenseClaims | 
 
 begin
   #Allows you to update specified expense claims
@@ -10556,7 +10326,7 @@ Name | Type | Description  | Notes
 
 ## update_invoice
 
-> Invoices update_invoice(xero_tenant_id, invoice_id, invoices)
+> Invoices update_invoice(xero_tenant_id, invoice_id, invoices, opts)
 
 Allows you to update a specified sales invoices or purchase bills
 
@@ -10572,14 +10342,16 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-invoice_id = 'invoice_id_example' # String | Unique identifier for an Invoice
-invoices = { "Invoices":[ { "LineItems":[
-], "Reference":"My the Force be With You", "InvoiceID":"4074292c-09b3-456d-84e7-add864c6c39b" } ] } # Invoices | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoice
+invoices = { invoices:[ { reference:"I am Iron Man", invoiceID:"00000000-0000-0000-000-000000000000", lineItems: [],contact: {},type: Invoice.TypeEnum.ACCPAY } ] } # Invoices | 
+opts = {
+  unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+}
 
 begin
   #Allows you to update a specified sales invoices or purchase bills
-  result = api_instance.update_invoice(xero_tenant_id, invoice_id, invoices)
+  result = api_instance.update_invoice(xero_tenant_id, invoice_id, invoices, opts)
   p result
 rescue XeroRuby::ApiError => e
   puts "Exception when calling AccountingApi->update_invoice: #{e}"
@@ -10594,6 +10366,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **invoice_id** | [**String**](.md)| Unique identifier for an Invoice | 
  **invoices** | [**Invoices**](Invoices.md)|  | 
+ **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
 
 ### Return type
 
@@ -10627,9 +10400,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-invoice_id = 'invoice_id_example' # String | Unique identifier for an Invoice
-file_name = 'file_name_example' # String | Name of the file you are attaching
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoice
+file_name = 'xero-dev.jpg' # String | Name of the file you are attaching
 body = 'body_example' # String | Byte array of file in body of request
 
 begin
@@ -10667,9 +10440,9 @@ Name | Type | Description  | Notes
 
 ## update_item
 
-> Items update_item(xero_tenant_id, item_id, items)
+> Items update_item(xero_tenant_id, item_id, items, opts)
 
-Allows you to udpate a specified item
+Allows you to update a specified item
 
 ### Example
 
@@ -10683,13 +10456,16 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-item_id = 'item_id_example' # String | Unique identifier for an Item
-items = { "Items":[ { "Code":"abc38306", "Description":"Hello Xero" } ] } # Items | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+item_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Item
+items = { items:[ { code:"abc123", description:"Hello Xero" } ] } # Items | 
+opts = {
+  unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+}
 
 begin
-  #Allows you to udpate a specified item
-  result = api_instance.update_item(xero_tenant_id, item_id, items)
+  #Allows you to update a specified item
+  result = api_instance.update_item(xero_tenant_id, item_id, items, opts)
   p result
 rescue XeroRuby::ApiError => e
   puts "Exception when calling AccountingApi->update_item: #{e}"
@@ -10704,6 +10480,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **item_id** | [**String**](.md)| Unique identifier for an Item | 
  **items** | [**Items**](Items.md)|  | 
+ **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
 
 ### Return type
 
@@ -10737,9 +10514,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-linked_transaction_id = 'linked_transaction_id_example' # String | Unique identifier for a LinkedTransaction
-linked_transactions = { "LinkedTransactions":[ { "ContactID":"4e1753b9-018a-4775-b6aa-1bc7871cfee3" } ] } # LinkedTransactions | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+linked_transaction_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a LinkedTransaction
+linked_transactions = { linkedTransactions:[ {sourceLineItemID:"00000000-0000-0000-000-000000000000", contactID:"00000000-0000-0000-000-000000000000" } ] } # LinkedTransactions | 
 
 begin
   #Allows you to update a specified linked transactions (billable expenses)
@@ -10791,10 +10568,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-manual_journal_id = 'manual_journal_id_example' # String | Unique identifier for a ManualJournal
-manual_journals = { "ManualJournals":[ { "Narration":"Hello Xero", "JournalLines":[
-], "ManualJournalID":"07eac261-78ef-47a0-a0eb-a57b74137877" } ] } # ManualJournals | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+manual_journal_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ManualJournal
+manual_journals = { manualJournals:[ { narration:"Hello Xero", manualJournalID:"00000000-0000-0000-000-000000000000",journalLines:[] } ] } # ManualJournals | 
 
 begin
   #Allows you to update a specified manual journal
@@ -10846,9 +10622,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-manual_journal_id = 'manual_journal_id_example' # String | Unique identifier for a ManualJournal
-file_name = 'file_name_example' # String | The name of the file being attached to a ManualJournal
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+manual_journal_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ManualJournal
+file_name = 'xero-dev.jpg' # String | The name of the file being attached to a ManualJournal
 body = 'body_example' # String | Byte array of file in body of request
 
 begin
@@ -10884,6 +10660,518 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## update_or_create_bank_transactions
+
+> BankTransactions update_or_create_bank_transactions(xero_tenant_id, bank_transactions, opts)
+
+Allows you to update or create one or more spend or receive money transaction
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+# setup authorization
+XeroRuby.configure do |config|
+  # Configure OAuth2 access token for authorization: OAuth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = XeroRuby::AccountingApi.new
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transactions = { bankTransactions:[ { type: BankTransaction.TypeEnum.SPEND, contact: { contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity: 1.0, unitAmount:20.0, accountCode:"000" } ], bankAccount:{ code:"000" } } ] } # BankTransactions | 
+opts = {
+  summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+  unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+}
+
+begin
+  #Allows you to update or create one or more spend or receive money transaction
+  result = api_instance.update_or_create_bank_transactions(xero_tenant_id, bank_transactions, opts)
+  p result
+rescue XeroRuby::ApiError => e
+  puts "Exception when calling AccountingApi->update_or_create_bank_transactions: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **bank_transactions** | [**BankTransactions**](BankTransactions.md)|  | 
+ **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
+
+### Return type
+
+[**BankTransactions**](BankTransactions.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## update_or_create_contacts
+
+> Contacts update_or_create_contacts(xero_tenant_id, contacts, opts)
+
+Allows you to update OR create one or more contacts in a Xero organisation
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+# setup authorization
+XeroRuby.configure do |config|
+  # Configure OAuth2 access token for authorization: OAuth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = XeroRuby::AccountingApi.new
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contacts = {contacts: [{ name:"Bruce Banner", emailAddress:"hulk@avengers.com", phones:[ { phoneType: Phone.PhoneTypeEnum.MOBILE, phoneNumber:"555-1212", phoneAreaCode:"415" } ], paymentTerms:{ bills:{ day:15, type: PaymentTermType.OFCURRENTMONTH }, sales:{ day:10, type: PaymentTermType.DAYSAFTERBILLMONTH } } } ] } # Contacts | 
+opts = {
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+}
+
+begin
+  #Allows you to update OR create one or more contacts in a Xero organisation
+  result = api_instance.update_or_create_contacts(xero_tenant_id, contacts, opts)
+  p result
+rescue XeroRuby::ApiError => e
+  puts "Exception when calling AccountingApi->update_or_create_contacts: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **contacts** | [**Contacts**](Contacts.md)|  | 
+ **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+
+### Return type
+
+[**Contacts**](Contacts.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## update_or_create_credit_notes
+
+> CreditNotes update_or_create_credit_notes(xero_tenant_id, credit_notes, opts)
+
+Allows you to update OR create one or more credit notes
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+# setup authorization
+XeroRuby.configure do |config|
+  # Configure OAuth2 access token for authorization: OAuth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = XeroRuby::AccountingApi.new
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+credit_notes = { creditNotes:[ { type: CreditNote.TypeEnum.ACCPAYCREDIT, contact:{ contactID:"00000000-0000-0000-000-000000000000" }, date:"2019-01-05", lineItems:[ { description:"Foobar", quantity:2.0, unitAmount:20.0, accountCode:"400" } ] } ] } # CreditNotes | an array of Credit Notes with a single CreditNote object.
+opts = {
+  summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+  unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+}
+
+begin
+  #Allows you to update OR create one or more credit notes
+  result = api_instance.update_or_create_credit_notes(xero_tenant_id, credit_notes, opts)
+  p result
+rescue XeroRuby::ApiError => e
+  puts "Exception when calling AccountingApi->update_or_create_credit_notes: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **credit_notes** | [**CreditNotes**](CreditNotes.md)| an array of Credit Notes with a single CreditNote object. | 
+ **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
+
+### Return type
+
+[**CreditNotes**](CreditNotes.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## update_or_create_employees
+
+> Employees update_or_create_employees(xero_tenant_id, employees, opts)
+
+Allows you to create a single new employees used in Xero payrun
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+# setup authorization
+XeroRuby.configure do |config|
+  # Configure OAuth2 access token for authorization: OAuth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = XeroRuby::AccountingApi.new
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+employees = { employees:[ { firstName:"Nick", lastName:"Fury", externalLink:{ url:"http://twitter.com/#!/search/Nick+Fury" } } ] } # Employees | Employees with array of Employee object in body of request
+opts = {
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+}
+
+begin
+  #Allows you to create a single new employees used in Xero payrun
+  result = api_instance.update_or_create_employees(xero_tenant_id, employees, opts)
+  p result
+rescue XeroRuby::ApiError => e
+  puts "Exception when calling AccountingApi->update_or_create_employees: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **employees** | [**Employees**](Employees.md)| Employees with array of Employee object in body of request | 
+ **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+
+### Return type
+
+[**Employees**](Employees.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## update_or_create_invoices
+
+> Invoices update_or_create_invoices(xero_tenant_id, invoices, opts)
+
+Allows you to update OR create one or more sales invoices or purchase bills
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+# setup authorization
+XeroRuby.configure do |config|
+  # Configure OAuth2 access token for authorization: OAuth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = XeroRuby::AccountingApi.new
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+invoices = { invoices:[ { type: Invoice.TypeEnum.ACCREC, contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Acme Tires", quantity:2.0, unitAmount:20.0, accountCode:"200", taxType:"NONE", lineAmount:40.0 } ], date:"2019-03-11", dueDate:"2018-12-10", reference:"Website Design", status: Invoice.StatusEnum.AUTHORISED } ] } # Invoices | 
+opts = {
+  summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+  unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+}
+
+begin
+  #Allows you to update OR create one or more sales invoices or purchase bills
+  result = api_instance.update_or_create_invoices(xero_tenant_id, invoices, opts)
+  p result
+rescue XeroRuby::ApiError => e
+  puts "Exception when calling AccountingApi->update_or_create_invoices: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **invoices** | [**Invoices**](Invoices.md)|  | 
+ **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
+
+### Return type
+
+[**Invoices**](Invoices.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## update_or_create_items
+
+> Items update_or_create_items(xero_tenant_id, items, opts)
+
+Allows you to update or create one or more items
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+# setup authorization
+XeroRuby.configure do |config|
+  # Configure OAuth2 access token for authorization: OAuth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = XeroRuby::AccountingApi.new
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+items = { items:[ { code:"abcXYZ", name:"HelloWorld", description:"Foobar" } ] } # Items | 
+opts = {
+  summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+  unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+}
+
+begin
+  #Allows you to update or create one or more items
+  result = api_instance.update_or_create_items(xero_tenant_id, items, opts)
+  p result
+rescue XeroRuby::ApiError => e
+  puts "Exception when calling AccountingApi->update_or_create_items: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **items** | [**Items**](Items.md)|  | 
+ **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
+
+### Return type
+
+[**Items**](Items.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## update_or_create_manual_journals
+
+> ManualJournals update_or_create_manual_journals(xero_tenant_id, manual_journals, opts)
+
+Allows you to create a single manual journal
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+# setup authorization
+XeroRuby.configure do |config|
+  # Configure OAuth2 access token for authorization: OAuth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = XeroRuby::AccountingApi.new
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+manual_journals = { manualJournals:[ { narration:"Foo bar", journalLines:[ { lineAmount:100.0, accountCode:"400", description:"Hello there" }, { lineAmount:-100.0, accountCode:"400", description:"Goodbye", tracking:[ { name:"Simpsons", option:"Bart" } ] } ], date:"2019-03-14" } ] } # ManualJournals | ManualJournals array with ManualJournal object in body of request
+opts = {
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+}
+
+begin
+  #Allows you to create a single manual journal
+  result = api_instance.update_or_create_manual_journals(xero_tenant_id, manual_journals, opts)
+  p result
+rescue XeroRuby::ApiError => e
+  puts "Exception when calling AccountingApi->update_or_create_manual_journals: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **manual_journals** | [**ManualJournals**](ManualJournals.md)| ManualJournals array with ManualJournal object in body of request | 
+ **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+
+### Return type
+
+[**ManualJournals**](ManualJournals.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## update_or_create_purchase_orders
+
+> PurchaseOrders update_or_create_purchase_orders(xero_tenant_id, purchase_orders, opts)
+
+Allows you to update or create one or more purchase orders
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+# setup authorization
+XeroRuby.configure do |config|
+  # Configure OAuth2 access token for authorization: OAuth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = XeroRuby::AccountingApi.new
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+purchase_orders = { purchaseOrders:[ { contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity:1.0, unitAmount:20.0, accountCode:"710" } ], date:"2019-03-13" } ] } # PurchaseOrders | 
+opts = {
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+}
+
+begin
+  #Allows you to update or create one or more purchase orders
+  result = api_instance.update_or_create_purchase_orders(xero_tenant_id, purchase_orders, opts)
+  p result
+rescue XeroRuby::ApiError => e
+  puts "Exception when calling AccountingApi->update_or_create_purchase_orders: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **purchase_orders** | [**PurchaseOrders**](PurchaseOrders.md)|  | 
+ **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+
+### Return type
+
+[**PurchaseOrders**](PurchaseOrders.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## update_or_create_quotes
+
+> Quotes update_or_create_quotes(xero_tenant_id, quotes, opts)
+
+Allows you to update OR create one or more quotes
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+# setup authorization
+XeroRuby.configure do |config|
+  # Configure OAuth2 access token for authorization: OAuth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = XeroRuby::AccountingApi.new
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+quotes = { quotes:[ { contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity:1.0, unitAmount:20.0, accountCode:"12775" } ], date:"2020-02-01" } ] } # Quotes | 
+opts = {
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+}
+
+begin
+  #Allows you to update OR create one or more quotes
+  result = api_instance.update_or_create_quotes(xero_tenant_id, quotes, opts)
+  p result
+rescue XeroRuby::ApiError => e
+  puts "Exception when calling AccountingApi->update_or_create_quotes: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **quotes** | [**Quotes**](Quotes.md)|  | 
+ **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+
+### Return type
+
+[**Quotes**](Quotes.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## update_purchase_order
 
 > PurchaseOrders update_purchase_order(xero_tenant_id, purchase_order_id, purchase_orders)
@@ -10902,10 +11190,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-purchase_order_id = 'purchase_order_id_example' # String | Unique identifier for a PurchaseOrder
-purchase_orders = { "PurchaseOrders":[ { "LineItems":[
-], "AttentionTo":"Jimmy" } ] } # PurchaseOrders | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+purchase_order_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a PurchaseOrder
+purchase_orders = { purchaseOrders:[ { attentionTo:"Peter Parker",lineItems: [],contact: {} } ] } # PurchaseOrders | 
 
 begin
   #Allows you to update a specified purchase order
@@ -10939,9 +11226,63 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## update_quote
+
+> Quotes update_quote(xero_tenant_id, quote_id, quotes)
+
+Allows you to update a specified quote
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+# setup authorization
+XeroRuby.configure do |config|
+  # Configure OAuth2 access token for authorization: OAuth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = XeroRuby::AccountingApi.new
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+quote_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Quote
+quotes = {quotes:[{reference:"I am an update",contact:{contactID:"00000000-0000-0000-000-000000000000"},date:"2020-02-01"}]} # Quotes | 
+
+begin
+  #Allows you to update a specified quote
+  result = api_instance.update_quote(xero_tenant_id, quote_id, quotes)
+  p result
+rescue XeroRuby::ApiError => e
+  puts "Exception when calling AccountingApi->update_quote: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **quote_id** | [**String**](.md)| Unique identifier for an Quote | 
+ **quotes** | [**Quotes**](Quotes.md)|  | 
+
+### Return type
+
+[**Quotes**](Quotes.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## update_receipt
 
-> Receipts update_receipt(xero_tenant_id, receipt_id, receipts)
+> Receipts update_receipt(xero_tenant_id, receipt_id, receipts, opts)
 
 Allows you to retrieve a specified draft expense claim receipts
 
@@ -10957,14 +11298,16 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-receipt_id = 'receipt_id_example' # String | Unique identifier for a Receipt
-receipts = { "Receipts":[ { "LineItems":[
-], "User":{ "UserID":"d1164823-0ac1-41ad-987b-b4e30fe0b273" }, "Reference":"Foobar" } ] } # Receipts | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+receipt_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Receipt
+receipts = { receipts:[ { user:{ userID:"00000000-0000-0000-000-000000000000" }, reference:"Foobar", date: "2020-01-01",contact: {},lineItems: []} ] } # Receipts | 
+opts = {
+  unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+}
 
 begin
   #Allows you to retrieve a specified draft expense claim receipts
-  result = api_instance.update_receipt(xero_tenant_id, receipt_id, receipts)
+  result = api_instance.update_receipt(xero_tenant_id, receipt_id, receipts, opts)
   p result
 rescue XeroRuby::ApiError => e
   puts "Exception when calling AccountingApi->update_receipt: #{e}"
@@ -10979,6 +11322,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **receipt_id** | [**String**](.md)| Unique identifier for a Receipt | 
  **receipts** | [**Receipts**](Receipts.md)|  | 
+ **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
 
 ### Return type
 
@@ -11012,9 +11356,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-receipt_id = 'receipt_id_example' # String | Unique identifier for a Receipt
-file_name = 'file_name_example' # String | The name of the file being attached to the Receipt
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+receipt_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Receipt
+file_name = 'xero-dev.jpg' # String | The name of the file being attached to the Receipt
 body = 'body_example' # String | Byte array of file in body of request
 
 begin
@@ -11068,9 +11412,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-repeating_invoice_id = 'repeating_invoice_id_example' # String | Unique identifier for a Repeating Invoice
-file_name = 'file_name_example' # String | The name of the file being attached to a Repeating Invoice
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+repeating_invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Repeating Invoice
+file_name = 'xero-dev.jpg' # String | The name of the file being attached to a Repeating Invoice
 body = 'body_example' # String | Byte array of file in body of request
 
 begin
@@ -11124,8 +11468,8 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-tax_rates = { "TaxRates":[ { "Name":"SDKTax29067", "TaxComponents":[ { "Name":"State Tax", "Rate":2.25 } ], "Status":"DELETED", "ReportTaxType":"INPUT" } ] } # TaxRates | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+tax_rates = { taxRates:[ { name:"State Tax NY", taxComponents:[ { name:"State Tax", rate:2.25 } ], status:"DELETED", reportTaxType:"INPUT" } ] } # TaxRates | 
 
 begin
   #Allows you to update Tax Rates
@@ -11176,9 +11520,9 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-tracking_category_id = 'tracking_category_id_example' # String | Unique identifier for a TrackingCategory
-tracking_category = { "Name":"BarFoo" } # TrackingCategory | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+tracking_category_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a TrackingCategory
+tracking_category = { name:"Avengers" } # TrackingCategory | 
 
 begin
   #Allows you to update tracking categories
@@ -11230,10 +11574,10 @@ XeroRuby.configure do |config|
 end
 
 api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-tracking_category_id = 'tracking_category_id_example' # String | Unique identifier for a TrackingCategory
-tracking_option_id = 'tracking_option_id_example' # String | Unique identifier for a Tracking Option
-tracking_option = { "Name":"Bar40423" } # TrackingOption | 
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+tracking_category_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a TrackingCategory
+tracking_option_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Tracking Option
+tracking_option = { name:"Vision" } # TrackingOption | 
 
 begin
   #Allows you to update options for a specified tracking category

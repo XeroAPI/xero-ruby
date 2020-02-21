@@ -16,8 +16,8 @@ Name | Type | Description | Notes
 ```ruby
 require 'XeroRuby'
 
-instance = XeroRuby::Attachment.new(attachment_id: 3fa85f64-5717-4562-b3fc-2c963f66afa6,
-                                 file_name: sample5.jpg,
+instance = XeroRuby::Attachment.new(attachment_id: 00000000-0000-0000-0000-000000000000,
+                                 file_name: xero-dev.jpg,
                                  url: https://api.xero.com/api.xro/2.0/Accounts/da962997-a8bd-4dff-9616-01cdc199283f/Attachments/sample5.jpg,
                                  mime_type: image/jpg,
                                  content_length: null,

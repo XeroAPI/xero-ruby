@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **narration** | **String** | Description of journal being posted | 
-**journal_lines** | [**Array&lt;ManualJournalLine&gt;**](ManualJournalLine.md) | See JournalLines | 
+**journal_lines** | [**Array&lt;ManualJournalLine&gt;**](ManualJournalLine.md) | See JournalLines | [optional] 
 **date** | **Date** | Date journal was posted – YYYY-MM-DD | [optional] 
 **line_amount_types** | [**LineAmountTypes**](LineAmountTypes.md) |  | [optional] 
 **status** | **String** | See Manual Journal Status Codes | [optional] 
@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **has_attachments** | **Boolean** | Boolean to indicate if a manual journal has an attachment | [optional] 
 **updated_date_utc** | **DateTime** | Last modified date UTC format | [optional] 
 **manual_journal_id** | **String** | The Xero identifier for a Manual Journal | [optional] 
+**status_attribute_string** | **String** | A string to indicate if a invoice status | [optional] 
 **warnings** | [**Array&lt;ValidationError&gt;**](ValidationError.md) | Displays array of warning messages from the API | [optional] 
 **validation_errors** | [**Array&lt;ValidationError&gt;**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
 **attachments** | [**Array&lt;Attachment&gt;**](Attachment.md) | Displays array of attachments from the API | [optional] 
@@ -33,6 +34,7 @@ instance = XeroRuby::ManualJournal.new(narration: null,
                                  has_attachments: null,
                                  updated_date_utc: null,
                                  manual_journal_id: null,
+                                 status_attribute_string: ERROR,
                                  warnings: null,
                                  validation_errors: null,
                                  attachments: null)

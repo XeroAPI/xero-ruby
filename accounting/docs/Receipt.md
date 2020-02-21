@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**date** | **Date** | Date of receipt – YYYY-MM-DD | 
-**contact** | [**Contact**](Contact.md) |  | 
-**line_items** | [**Array&lt;LineItem&gt;**](LineItem.md) |  | 
-**user** | [**User**](User.md) |  | 
+**date** | **Date** | Date of receipt – YYYY-MM-DD | [optional] 
+**contact** | [**Contact**](Contact.md) |  | [optional] 
+**line_items** | [**Array&lt;LineItem&gt;**](LineItem.md) |  | [optional] 
+**user** | [**User**](User.md) |  | [optional] 
 **reference** | **String** | Additional reference number | [optional] 
 **line_amount_types** | [**LineAmountTypes**](LineAmountTypes.md) |  | [optional] 
 **sub_total** | **Float** | Total of receipt excluding taxes | [optional] 
@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **has_attachments** | **Boolean** | boolean to indicate if a receipt has an attachment | [optional] 
 **url** | **String** | URL link to a source document – shown as “Go to [appName]” in the Xero app | [optional] 
 **validation_errors** | [**Array&lt;ValidationError&gt;**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
+**warnings** | [**Array&lt;ValidationError&gt;**](ValidationError.md) | Displays array of warning messages from the API | [optional] 
 **attachments** | [**Array&lt;Attachment&gt;**](Attachment.md) | Displays array of attachments from the API | [optional] 
 
 ## Code Sample
@@ -43,6 +44,7 @@ instance = XeroRuby::Receipt.new(date: null,
                                  has_attachments: null,
                                  url: null,
                                  validation_errors: null,
+                                 warnings: null,
                                  attachments: null)
 ```
 
