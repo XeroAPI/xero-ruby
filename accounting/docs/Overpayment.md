@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **currency_rate** | **Float** | The currency rate for a multicurrency overpayment. If no rate is specified, the XE.com day rate is used | [optional] 
 **remaining_credit** | **Float** | The remaining credit balance on the overpayment | [optional] 
 **allocations** | [**Array&lt;Allocation&gt;**](Allocation.md) | See Allocations | [optional] 
+**applied_amount** | **Float** | The amount of applied to an invoice | [optional] 
 **payments** | [**Array&lt;Payment&gt;**](Payment.md) | See Payments | [optional] 
 **has_attachments** | **Boolean** | boolean to indicate if a overpayment has an attachment | [optional] 
 **attachments** | [**Array&lt;Attachment&gt;**](Attachment.md) | See Attachments | [optional] 
@@ -43,6 +44,7 @@ instance = XeroRuby::Overpayment.new(type: null,
                                  currency_rate: null,
                                  remaining_credit: null,
                                  allocations: null,
+                                 applied_amount: 2.0,
                                  payments: null,
                                  has_attachments: null,
                                  attachments: null)

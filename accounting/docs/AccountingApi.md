@@ -17,7 +17,7 @@ Method | HTTP request | Description
 [**create_branding_theme_payment_services**](AccountingApi.md#create_branding_theme_payment_services) | **POST** /BrandingThemes/{BrandingThemeID}/PaymentServices | Allow for the creation of new custom payment service for specified Branding Theme
 [**create_contact_attachment_by_file_name**](AccountingApi.md#create_contact_attachment_by_file_name) | **PUT** /Contacts/{ContactID}/Attachments/{FileName} | 
 [**create_contact_group**](AccountingApi.md#create_contact_group) | **PUT** /ContactGroups | Allows you to create a contact group
-[**create_contact_group_contacts**](AccountingApi.md#create_contact_group_contacts) | **PUT** /ContactGroups/{ContactGroupID}/Contacts | Allows you to add Contacts to a Contract Group
+[**create_contact_group_contacts**](AccountingApi.md#create_contact_group_contacts) | **PUT** /ContactGroups/{ContactGroupID}/Contacts | Allows you to add Contacts to a Contact Group
 [**create_contact_history**](AccountingApi.md#create_contact_history) | **PUT** /Contacts/{ContactID}/History | Allows you to retrieve a history records of an Contact
 [**create_contacts**](AccountingApi.md#create_contacts) | **PUT** /Contacts | Allows you to create a multiple contacts (bulk) in a Xero organisation
 [**create_credit_note_allocation**](AccountingApi.md#create_credit_note_allocation) | **PUT** /CreditNotes/{CreditNoteID}/Allocations | Allows you to create Allocation on CreditNote
@@ -46,6 +46,7 @@ Method | HTTP request | Description
 [**create_prepayment_history**](AccountingApi.md#create_prepayment_history) | **PUT** /Prepayments/{PrepaymentID}/History | Allows you to create a history record for an Prepayment
 [**create_purchase_order_history**](AccountingApi.md#create_purchase_order_history) | **PUT** /PurchaseOrders/{PurchaseOrderID}/History | Allows you to create HistoryRecord for purchase orders
 [**create_purchase_orders**](AccountingApi.md#create_purchase_orders) | **PUT** /PurchaseOrders | Allows you to create one or more purchase orders
+[**create_quote_attachment_by_file_name**](AccountingApi.md#create_quote_attachment_by_file_name) | **PUT** /Quotes/{QuoteID}/Attachments/{FileName} | Allows you to create Attachment on Quote
 [**create_quote_history**](AccountingApi.md#create_quote_history) | **PUT** /Quotes/{QuoteID}/History | Allows you to retrieve a history records of an quote
 [**create_quotes**](AccountingApi.md#create_quotes) | **PUT** /Quotes | Allows you to create one or more quotes
 [**create_receipt**](AccountingApi.md#create_receipt) | **PUT** /Receipts | Allows you to create draft expense claim receipts for any user
@@ -57,8 +58,8 @@ Method | HTTP request | Description
 [**create_tracking_category**](AccountingApi.md#create_tracking_category) | **PUT** /TrackingCategories | Allows you to create tracking categories
 [**create_tracking_options**](AccountingApi.md#create_tracking_options) | **PUT** /TrackingCategories/{TrackingCategoryID}/Options | Allows you to create options for a specified tracking category
 [**delete_account**](AccountingApi.md#delete_account) | **DELETE** /Accounts/{AccountID} | Allows you to delete a chart of accounts
-[**delete_contact_group_contact**](AccountingApi.md#delete_contact_group_contact) | **DELETE** /ContactGroups/{ContactGroupID}/Contacts/{ContactID} | Allows you to delete a specific Contact from a Contract Group
-[**delete_contact_group_contacts**](AccountingApi.md#delete_contact_group_contacts) | **DELETE** /ContactGroups/{ContactGroupID}/Contacts | Allows you to delete  all Contacts from a Contract Group
+[**delete_contact_group_contact**](AccountingApi.md#delete_contact_group_contact) | **DELETE** /ContactGroups/{ContactGroupID}/Contacts/{ContactID} | Allows you to delete a specific Contact from a Contact Group
+[**delete_contact_group_contacts**](AccountingApi.md#delete_contact_group_contacts) | **DELETE** /ContactGroups/{ContactGroupID}/Contacts | Allows you to delete  all Contacts from a Contact Group
 [**delete_item**](AccountingApi.md#delete_item) | **DELETE** /Items/{ItemID} | Allows you to delete a specified item
 [**delete_linked_transaction**](AccountingApi.md#delete_linked_transaction) | **DELETE** /LinkedTransactions/{LinkedTransactionID} | Allows you to delete a specified linked transactions (billable expenses)
 [**delete_payment**](AccountingApi.md#delete_payment) | **POST** /Payments/{PaymentID} | Allows you to update a specified payment for invoices and credit notes
@@ -92,7 +93,7 @@ Method | HTTP request | Description
 [**get_contact_attachment_by_id**](AccountingApi.md#get_contact_attachment_by_id) | **GET** /Contacts/{ContactID}/Attachments/{AttachmentID} | Allows you to retrieve Attachments on Contacts
 [**get_contact_attachments**](AccountingApi.md#get_contact_attachments) | **GET** /Contacts/{ContactID}/Attachments | Allows you to retrieve, add and update contacts in a Xero organisation
 [**get_contact_cis_settings**](AccountingApi.md#get_contact_cis_settings) | **GET** /Contacts/{ContactID}/CISSettings | Allows you to retrieve CISSettings for a contact in a Xero organisation
-[**get_contact_group**](AccountingApi.md#get_contact_group) | **GET** /ContactGroups/{ContactGroupID} | Allows you to retrieve a unique Contract Group by ID
+[**get_contact_group**](AccountingApi.md#get_contact_group) | **GET** /ContactGroups/{ContactGroupID} | Allows you to retrieve a unique Contact Group by ID
 [**get_contact_groups**](AccountingApi.md#get_contact_groups) | **GET** /ContactGroups | Allows you to retrieve the ContactID and Name of all the contacts in a contact group
 [**get_contact_history**](AccountingApi.md#get_contact_history) | **GET** /Contacts/{ContactID}/History | Allows you to retrieve a history records of an Contact
 [**get_contacts**](AccountingApi.md#get_contacts) | **GET** /Contacts | Allows you to retrieve, add and update contacts in a Xero organisation
@@ -143,9 +144,13 @@ Method | HTTP request | Description
 [**get_prepayment_history**](AccountingApi.md#get_prepayment_history) | **GET** /Prepayments/{PrepaymentID}/History | Allows you to retrieve a history records of an Prepayment
 [**get_prepayments**](AccountingApi.md#get_prepayments) | **GET** /Prepayments | Allows you to retrieve prepayments
 [**get_purchase_order**](AccountingApi.md#get_purchase_order) | **GET** /PurchaseOrders/{PurchaseOrderID} | Allows you to retrieve a specified purchase orders
+[**get_purchase_order_by_number**](AccountingApi.md#get_purchase_order_by_number) | **GET** /PurchaseOrders/{PurchaseOrderNumber} | Allows you to retrieve a specified purchase orders
 [**get_purchase_order_history**](AccountingApi.md#get_purchase_order_history) | **GET** /PurchaseOrders/{PurchaseOrderID}/History | Allows you to retrieve history for PurchaseOrder
 [**get_purchase_orders**](AccountingApi.md#get_purchase_orders) | **GET** /PurchaseOrders | Allows you to retrieve purchase orders
 [**get_quote**](AccountingApi.md#get_quote) | **GET** /Quotes/{QuoteID} | Allows you to retrieve a specified quote
+[**get_quote_attachment_by_file_name**](AccountingApi.md#get_quote_attachment_by_file_name) | **GET** /Quotes/{QuoteID}/Attachments/{FileName} | Allows you to retrieve Attachment on Quote by Filename
+[**get_quote_attachment_by_id**](AccountingApi.md#get_quote_attachment_by_id) | **GET** /Quotes/{QuoteID}/Attachments/{AttachmentID} | Allows you to retrieve specific Attachment on Quote
+[**get_quote_attachments**](AccountingApi.md#get_quote_attachments) | **GET** /Quotes/{QuoteID}/Attachments | Allows you to retrieve Attachments for Quotes
 [**get_quote_history**](AccountingApi.md#get_quote_history) | **GET** /Quotes/{QuoteID}/History | Allows you to retrieve a history records of an quote
 [**get_quotes**](AccountingApi.md#get_quotes) | **GET** /Quotes | Allows you to retrieve any sales quotes
 [**get_receipt**](AccountingApi.md#get_receipt) | **GET** /Receipts/{ReceiptID} | Allows you to retrieve a specified draft expense claim receipts
@@ -183,7 +188,7 @@ Method | HTTP request | Description
 [**update_bank_transfer_attachment_by_file_name**](AccountingApi.md#update_bank_transfer_attachment_by_file_name) | **POST** /BankTransfers/{BankTransferID}/Attachments/{FileName} | 
 [**update_contact**](AccountingApi.md#update_contact) | **POST** /Contacts/{ContactID} | 
 [**update_contact_attachment_by_file_name**](AccountingApi.md#update_contact_attachment_by_file_name) | **POST** /Contacts/{ContactID}/Attachments/{FileName} | 
-[**update_contact_group**](AccountingApi.md#update_contact_group) | **POST** /ContactGroups/{ContactGroupID} | Allows you to update a Contract Group
+[**update_contact_group**](AccountingApi.md#update_contact_group) | **POST** /ContactGroups/{ContactGroupID} | Allows you to update a Contact Group
 [**update_credit_note**](AccountingApi.md#update_credit_note) | **POST** /CreditNotes/{CreditNoteID} | Allows you to update a specific credit note
 [**update_credit_note_attachment_by_file_name**](AccountingApi.md#update_credit_note_attachment_by_file_name) | **POST** /CreditNotes/{CreditNoteID}/Attachments/{FileName} | Allows you to update Attachments on CreditNote by file name
 [**update_employee**](AccountingApi.md#update_employee) | **POST** /Employees/{EmployeeID} | Allows you to update a specific employee used in Xero payrun
@@ -205,6 +210,7 @@ Method | HTTP request | Description
 [**update_or_create_quotes**](AccountingApi.md#update_or_create_quotes) | **POST** /Quotes | Allows you to update OR create one or more quotes
 [**update_purchase_order**](AccountingApi.md#update_purchase_order) | **POST** /PurchaseOrders/{PurchaseOrderID} | Allows you to update a specified purchase order
 [**update_quote**](AccountingApi.md#update_quote) | **POST** /Quotes/{QuoteID} | Allows you to update a specified quote
+[**update_quote_attachment_by_file_name**](AccountingApi.md#update_quote_attachment_by_file_name) | **POST** /Quotes/{QuoteID}/Attachments/{FileName} | Allows you to update Attachment on Quote by Filename
 [**update_receipt**](AccountingApi.md#update_receipt) | **POST** /Receipts/{ReceiptID} | Allows you to retrieve a specified draft expense claim receipts
 [**update_receipt_attachment_by_file_name**](AccountingApi.md#update_receipt_attachment_by_file_name) | **POST** /Receipts/{ReceiptID}/Attachments/{FileName} | Allows you to update Attachment on expense claim receipts by file name
 [**update_repeating_invoice_attachment_by_file_name**](AccountingApi.md#update_repeating_invoice_attachment_by_file_name) | **POST** /RepeatingInvoices/{RepeatingInvoiceID}/Attachments/{FileName} | Allows you to update specified attachment on repeating invoices by file name
@@ -925,7 +931,7 @@ Name | Type | Description  | Notes
 
 > Contacts create_contact_group_contacts(xero_tenant_id, contact_group_id, contacts)
 
-Allows you to add Contacts to a Contract Group
+Allows you to add Contacts to a Contact Group
 
 ### Example
 
@@ -944,7 +950,7 @@ contact_group_id = '00000000-0000-0000-000-000000000000' # String | Unique ident
 contacts = { contacts:[ { contactID:"a3675fc4-f8dd-4f03-ba5b-f1870566bcd7" }, { contactID:"4e1753b9-018a-4775-b6aa-1bc7871cfee3" } ] } # Contacts | Contacts with array of contacts specifiying the ContactID to be added to ContactGroup in body of request
 
 begin
-  #Allows you to add Contacts to a Contract Group
+  #Allows you to add Contacts to a Contact Group
   result = api_instance.create_contact_group_contacts(xero_tenant_id, contact_group_id, contacts)
   p result
 rescue XeroRuby::ApiError => e
@@ -2512,6 +2518,62 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## create_quote_attachment_by_file_name
+
+> Attachments create_quote_attachment_by_file_name(xero_tenant_id, quote_id, file_name, body)
+
+Allows you to create Attachment on Quote
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+# setup authorization
+XeroRuby.configure do |config|
+  # Configure OAuth2 access token for authorization: OAuth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = XeroRuby::AccountingApi.new
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+quote_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Quote object
+file_name = 'xero-dev.jpg' # String | Name of the attachment
+body = 'body_example' # String | Byte array of file in body of request
+
+begin
+  #Allows you to create Attachment on Quote
+  result = api_instance.create_quote_attachment_by_file_name(xero_tenant_id, quote_id, file_name, body)
+  p result
+rescue XeroRuby::ApiError => e
+  puts "Exception when calling AccountingApi->create_quote_attachment_by_file_name: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **quote_id** | [**String**](.md)| Unique identifier for Quote object | 
+ **file_name** | **String**| Name of the attachment | 
+ **body** | **String**| Byte array of file in body of request | 
+
+### Return type
+
+[**Attachments**](Attachments.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/octet-stream
+- **Accept**: application/json
+
+
 ## create_quote_history
 
 > HistoryRecords create_quote_history(xero_tenant_id, quote_id, history_records)
@@ -3112,7 +3174,7 @@ Name | Type | Description  | Notes
 
 > delete_contact_group_contact(xero_tenant_id, contact_group_id, contact_id)
 
-Allows you to delete a specific Contact from a Contract Group
+Allows you to delete a specific Contact from a Contact Group
 
 ### Example
 
@@ -3131,7 +3193,7 @@ contact_group_id = '00000000-0000-0000-000-000000000000' # String | Unique ident
 contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
 
 begin
-  #Allows you to delete a specific Contact from a Contract Group
+  #Allows you to delete a specific Contact from a Contact Group
   api_instance.delete_contact_group_contact(xero_tenant_id, contact_group_id, contact_id)
 rescue XeroRuby::ApiError => e
   puts "Exception when calling AccountingApi->delete_contact_group_contact: #{e}"
@@ -3165,7 +3227,7 @@ nil (empty response body)
 
 > delete_contact_group_contacts(xero_tenant_id, contact_group_id)
 
-Allows you to delete  all Contacts from a Contract Group
+Allows you to delete  all Contacts from a Contact Group
 
 ### Example
 
@@ -3183,7 +3245,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_group_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact Group
 
 begin
-  #Allows you to delete  all Contacts from a Contract Group
+  #Allows you to delete  all Contacts from a Contact Group
   api_instance.delete_contact_group_contacts(xero_tenant_id, contact_group_id)
 rescue XeroRuby::ApiError => e
   puts "Exception when calling AccountingApi->delete_contact_group_contacts: #{e}"
@@ -4997,7 +5059,7 @@ Name | Type | Description  | Notes
 
 > ContactGroups get_contact_group(xero_tenant_id, contact_group_id)
 
-Allows you to retrieve a unique Contract Group by ID
+Allows you to retrieve a unique Contact Group by ID
 
 ### Example
 
@@ -5015,7 +5077,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_group_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact Group
 
 begin
-  #Allows you to retrieve a unique Contract Group by ID
+  #Allows you to retrieve a unique Contact Group by ID
   result = api_instance.get_contact_group(xero_tenant_id, contact_group_id)
   p result
 rescue XeroRuby::ApiError => e
@@ -7799,6 +7861,58 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## get_purchase_order_by_number
+
+> PurchaseOrders get_purchase_order_by_number(xero_tenant_id, purchase_order_number)
+
+Allows you to retrieve a specified purchase orders
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+# setup authorization
+XeroRuby.configure do |config|
+  # Configure OAuth2 access token for authorization: OAuth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = XeroRuby::AccountingApi.new
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+purchase_order_number = 'PO1234' # String | Unique identifier for a PurchaseOrder
+
+begin
+  #Allows you to retrieve a specified purchase orders
+  result = api_instance.get_purchase_order_by_number(xero_tenant_id, purchase_order_number)
+  p result
+rescue XeroRuby::ApiError => e
+  puts "Exception when calling AccountingApi->get_purchase_order_by_number: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **purchase_order_number** | **String**| Unique identifier for a PurchaseOrder | 
+
+### Return type
+
+[**PurchaseOrders**](PurchaseOrders.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## get_purchase_order_history
 
 > HistoryRecords get_purchase_order_history(xero_tenant_id, purchase_order_id)
@@ -7956,6 +8070,170 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Quotes**](Quotes.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_quote_attachment_by_file_name
+
+> File get_quote_attachment_by_file_name(xero_tenant_id, quote_id, file_name, content_type)
+
+Allows you to retrieve Attachment on Quote by Filename
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+# setup authorization
+XeroRuby.configure do |config|
+  # Configure OAuth2 access token for authorization: OAuth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = XeroRuby::AccountingApi.new
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+quote_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Quote object
+file_name = 'xero-dev.jpg' # String | Name of the attachment
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+
+begin
+  #Allows you to retrieve Attachment on Quote by Filename
+  result = api_instance.get_quote_attachment_by_file_name(xero_tenant_id, quote_id, file_name, content_type)
+  p result
+rescue XeroRuby::ApiError => e
+  puts "Exception when calling AccountingApi->get_quote_attachment_by_file_name: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **quote_id** | [**String**](.md)| Unique identifier for Quote object | 
+ **file_name** | **String**| Name of the attachment | 
+ **content_type** | **String**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf | 
+
+### Return type
+
+**File**
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/octet-stream
+
+
+## get_quote_attachment_by_id
+
+> File get_quote_attachment_by_id(xero_tenant_id, quote_id, attachment_id, content_type)
+
+Allows you to retrieve specific Attachment on Quote
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+# setup authorization
+XeroRuby.configure do |config|
+  # Configure OAuth2 access token for authorization: OAuth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = XeroRuby::AccountingApi.new
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+quote_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Quote object
+attachment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Attachment object
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+
+begin
+  #Allows you to retrieve specific Attachment on Quote
+  result = api_instance.get_quote_attachment_by_id(xero_tenant_id, quote_id, attachment_id, content_type)
+  p result
+rescue XeroRuby::ApiError => e
+  puts "Exception when calling AccountingApi->get_quote_attachment_by_id: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **quote_id** | [**String**](.md)| Unique identifier for Quote object | 
+ **attachment_id** | [**String**](.md)| Unique identifier for Attachment object | 
+ **content_type** | **String**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf | 
+
+### Return type
+
+**File**
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/octet-stream
+
+
+## get_quote_attachments
+
+> Attachments get_quote_attachments(xero_tenant_id, quote_id)
+
+Allows you to retrieve Attachments for Quotes
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+# setup authorization
+XeroRuby.configure do |config|
+  # Configure OAuth2 access token for authorization: OAuth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = XeroRuby::AccountingApi.new
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+quote_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Quote object
+
+begin
+  #Allows you to retrieve Attachments for Quotes
+  result = api_instance.get_quote_attachments(xero_tenant_id, quote_id)
+  p result
+rescue XeroRuby::ApiError => e
+  puts "Exception when calling AccountingApi->get_quote_attachments: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **quote_id** | [**String**](.md)| Unique identifier for Quote object | 
+
+### Return type
+
+[**Attachments**](Attachments.md)
 
 ### Authorization
 
@@ -10052,7 +10330,7 @@ Name | Type | Description  | Notes
 
 > ContactGroups update_contact_group(xero_tenant_id, contact_group_id, contact_groups)
 
-Allows you to update a Contract Group
+Allows you to update a Contact Group
 
 ### Example
 
@@ -10071,7 +10349,7 @@ contact_group_id = '00000000-0000-0000-000-000000000000' # String | Unique ident
 contact_groups = { contactGroups:[ { name:"Vendor" } ] } # ContactGroups | an array of Contact groups with Name of specific group to update
 
 begin
-  #Allows you to update a Contract Group
+  #Allows you to update a Contact Group
   result = api_instance.update_contact_group(xero_tenant_id, contact_group_id, contact_groups)
   p result
 rescue XeroRuby::ApiError => e
@@ -11277,6 +11555,62 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## update_quote_attachment_by_file_name
+
+> Attachments update_quote_attachment_by_file_name(xero_tenant_id, quote_id, file_name, body)
+
+Allows you to update Attachment on Quote by Filename
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+# setup authorization
+XeroRuby.configure do |config|
+  # Configure OAuth2 access token for authorization: OAuth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = XeroRuby::AccountingApi.new
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+quote_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Quote object
+file_name = 'xero-dev.jpg' # String | Name of the attachment
+body = 'body_example' # String | Byte array of file in body of request
+
+begin
+  #Allows you to update Attachment on Quote by Filename
+  result = api_instance.update_quote_attachment_by_file_name(xero_tenant_id, quote_id, file_name, body)
+  p result
+rescue XeroRuby::ApiError => e
+  puts "Exception when calling AccountingApi->update_quote_attachment_by_file_name: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **quote_id** | [**String**](.md)| Unique identifier for Quote object | 
+ **file_name** | **String**| Name of the attachment | 
+ **body** | **String**| Byte array of file in body of request | 
+
+### Return type
+
+[**Attachments**](Attachments.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/octet-stream
 - **Accept**: application/json
 
 
