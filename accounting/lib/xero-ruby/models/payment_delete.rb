@@ -14,20 +14,21 @@ require 'time'
 require 'date'
 
 module XeroRuby
-  class PurchaseOrders
-    attr_accessor :purchase_orders
+  class PaymentDelete
+    # The status of the payment.
+    attr_accessor :status
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'purchase_orders' => :'PurchaseOrders'
+        :'status' => :'Status'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'purchase_orders' => :'Array<PurchaseOrder>'
+        :'status' => :'String'
       }
     end
 
@@ -35,21 +36,21 @@ module XeroRuby
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `XeroRuby::PurchaseOrders` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `XeroRuby::PaymentDelete` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `XeroRuby::PurchaseOrders`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `XeroRuby::PaymentDelete`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'purchase_orders')
-        if (value = attributes[:'purchase_orders']).is_a?(Array)
-          self.purchase_orders = value
-        end
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
+      else
+        self.status = 'DELETED'
       end
     end
 
@@ -57,12 +58,17 @@ module XeroRuby
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @status.nil?
+        invalid_properties.push('invalid value for "status", status cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @status.nil?
       true
     end
 
@@ -71,7 +77,7 @@ module XeroRuby
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          purchase_orders == o.purchase_orders
+          status == o.status
     end
 
     # @see the `==` method
@@ -83,7 +89,7 @@ module XeroRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [purchase_orders].hash
+      [status].hash
     end
 
     # Builds the object from hash

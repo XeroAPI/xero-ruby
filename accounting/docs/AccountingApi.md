@@ -148,6 +148,7 @@ Method | HTTP request | Description
 [**get_purchase_order_history**](AccountingApi.md#get_purchase_order_history) | **GET** /PurchaseOrders/{PurchaseOrderID}/History | Allows you to retrieve history for PurchaseOrder
 [**get_purchase_orders**](AccountingApi.md#get_purchase_orders) | **GET** /PurchaseOrders | Allows you to retrieve purchase orders
 [**get_quote**](AccountingApi.md#get_quote) | **GET** /Quotes/{QuoteID} | Allows you to retrieve a specified quote
+[**get_quote_as_pdf**](AccountingApi.md#get_quote_as_pdf) | **GET** /Quotes/{QuotesID}/pdf | Allows you to retrieve quotes as PDF files
 [**get_quote_attachment_by_file_name**](AccountingApi.md#get_quote_attachment_by_file_name) | **GET** /Quotes/{QuoteID}/Attachments/{FileName} | Allows you to retrieve Attachment on Quote by Filename
 [**get_quote_attachment_by_id**](AccountingApi.md#get_quote_attachment_by_id) | **GET** /Quotes/{QuoteID}/Attachments/{AttachmentID} | Allows you to retrieve specific Attachment on Quote
 [**get_quote_attachments**](AccountingApi.md#get_quote_attachments) | **GET** /Quotes/{QuoteID}/Attachments | Allows you to retrieve Attachments for Quotes
@@ -191,7 +192,6 @@ Method | HTTP request | Description
 [**update_contact_group**](AccountingApi.md#update_contact_group) | **POST** /ContactGroups/{ContactGroupID} | Allows you to update a Contact Group
 [**update_credit_note**](AccountingApi.md#update_credit_note) | **POST** /CreditNotes/{CreditNoteID} | Allows you to update a specific credit note
 [**update_credit_note_attachment_by_file_name**](AccountingApi.md#update_credit_note_attachment_by_file_name) | **POST** /CreditNotes/{CreditNoteID}/Attachments/{FileName} | Allows you to update Attachments on CreditNote by file name
-[**update_employee**](AccountingApi.md#update_employee) | **POST** /Employees/{EmployeeID} | Allows you to update a specific employee used in Xero payrun
 [**update_expense_claim**](AccountingApi.md#update_expense_claim) | **POST** /ExpenseClaims/{ExpenseClaimID} | Allows you to update specified expense claims
 [**update_invoice**](AccountingApi.md#update_invoice) | **POST** /Invoices/{InvoiceID} | Allows you to update a specified sales invoices or purchase bills
 [**update_invoice_attachment_by_file_name**](AccountingApi.md#update_invoice_attachment_by_file_name) | **POST** /Invoices/{InvoiceID}/Attachments/{FileName} | Allows you to update Attachment on invoices or purchase bills by it&#39;s filename
@@ -3378,7 +3378,7 @@ nil (empty response body)
 
 ## delete_payment
 
-> Payments delete_payment(xero_tenant_id, payment_id, payments)
+> Payments delete_payment(xero_tenant_id, payment_id, payment_delete)
 
 Allows you to update a specified payment for invoices and credit notes
 
@@ -3396,11 +3396,11 @@ end
 api_instance = XeroRuby::AccountingApi.new
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 payment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Payment
-payments = { payments:[ { status:"DELETED" } ] } # Payments | 
+payment_delete = { status:"DELETED" } # PaymentDelete | 
 
 begin
   #Allows you to update a specified payment for invoices and credit notes
-  result = api_instance.delete_payment(xero_tenant_id, payment_id, payments)
+  result = api_instance.delete_payment(xero_tenant_id, payment_id, payment_delete)
   p result
 rescue XeroRuby::ApiError => e
   puts "Exception when calling AccountingApi->delete_payment: #{e}"
@@ -3414,7 +3414,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **payment_id** | [**String**](.md)| Unique identifier for a Payment | 
- **payments** | [**Payments**](Payments.md)|  | 
+ **payment_delete** | [**PaymentDelete**](PaymentDelete.md)|  | 
 
 ### Return type
 
@@ -8081,6 +8081,58 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## get_quote_as_pdf
+
+> File get_quote_as_pdf(xero_tenant_id, quote_id)
+
+Allows you to retrieve quotes as PDF files
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+# setup authorization
+XeroRuby.configure do |config|
+  # Configure OAuth2 access token for authorization: OAuth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = XeroRuby::AccountingApi.new
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+quote_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Quote
+
+begin
+  #Allows you to retrieve quotes as PDF files
+  result = api_instance.get_quote_as_pdf(xero_tenant_id, quote_id)
+  p result
+rescue XeroRuby::ApiError => e
+  puts "Exception when calling AccountingApi->get_quote_as_pdf: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **quote_id** | [**String**](.md)| Unique identifier for an Quote | 
+
+### Return type
+
+**File**
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/pdf
+
+
 ## get_quote_attachment_by_file_name
 
 > File get_quote_attachment_by_file_name(xero_tenant_id, quote_id, file_name, content_type)
@@ -10491,60 +10543,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/octet-stream
-- **Accept**: application/json
-
-
-## update_employee
-
-> Employees update_employee(xero_tenant_id, employee_id, employees)
-
-Allows you to update a specific employee used in Xero payrun
-
-### Example
-
-```ruby
-# load the gem
-require 'xero-ruby'
-# setup authorization
-XeroRuby.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
-
-api_instance = XeroRuby::AccountingApi.new
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-employee_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Employee
-employees = { employees:[ { employeeID:"00000000-0000-0000-000-000000000000", firstName:"Natasha", lastName:"Romanoff" } ] } # Employees | 
-
-begin
-  #Allows you to update a specific employee used in Xero payrun
-  result = api_instance.update_employee(xero_tenant_id, employee_id, employees)
-  p result
-rescue XeroRuby::ApiError => e
-  puts "Exception when calling AccountingApi->update_employee: #{e}"
-end
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **employee_id** | [**String**](.md)| Unique identifier for a Employee | 
- **employees** | [**Employees**](Employees.md)|  | 
-
-### Return type
-
-[**Employees**](Employees.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
 - **Accept**: application/json
 
 
