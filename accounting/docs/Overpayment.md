@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **sub_total** | **Float** | The subtotal of the overpayment excluding taxes | [optional] 
 **total_tax** | **Float** | The total tax on the overpayment | [optional] 
 **total** | **Float** | The total of the overpayment (subtotal + total tax) | [optional] 
-**updated_date_utc** | **DateTime** | UTC timestamp of last update to the overpayment | [optional] 
+**updated_date_utc** | **DateTime** | UTC timestamp of last update to the overpayment | [optional] [readonly] 
 **currency_code** | [**CurrencyCode**](CurrencyCode.md) |  | [optional] 
 **overpayment_id** | **String** | Xero generated unique identifier | [optional] 
 **currency_rate** | **Float** | The currency rate for a multicurrency overpayment. If no rate is specified, the XE.com day rate is used | [optional] 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **allocations** | [**Array&lt;Allocation&gt;**](Allocation.md) | See Allocations | [optional] 
 **applied_amount** | **Float** | The amount of applied to an invoice | [optional] 
 **payments** | [**Array&lt;Payment&gt;**](Payment.md) | See Payments | [optional] 
-**has_attachments** | **Boolean** | boolean to indicate if a overpayment has an attachment | [optional] 
+**has_attachments** | **Boolean** | boolean to indicate if a overpayment has an attachment | [optional] [readonly] [default to false]
 **attachments** | [**Array&lt;Attachment&gt;**](Attachment.md) | See Attachments | [optional] 
 
 ## Code Sample
@@ -46,7 +46,7 @@ instance = XeroRuby::Overpayment.new(type: null,
                                  allocations: null,
                                  applied_amount: 2.0,
                                  payments: null,
-                                 has_attachments: null,
+                                 has_attachments: false,
                                  attachments: null)
 ```
 

@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **is_tracked_as_inventory** | **Boolean** | True for items that are tracked as inventory. An item will be tracked as inventory if the InventoryAssetAccountCode and COGSAccountCode are set. | [optional] 
 **total_cost_pool** | **Float** | The value of the item on hand. Calculated using average cost accounting. | [optional] 
 **quantity_on_hand** | **Float** | The quantity of the item on hand | [optional] 
-**updated_date_utc** | **DateTime** | Last modified date in UTC format | [optional] 
+**updated_date_utc** | **DateTime** | Last modified date in UTC format | [optional] [readonly] 
 **item_id** | **String** | The Xero identifier for an Item | [optional] 
 **status_attribute_string** | **String** | Status of object | [optional] 
 **validation_errors** | [**Array&lt;ValidationError&gt;**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 

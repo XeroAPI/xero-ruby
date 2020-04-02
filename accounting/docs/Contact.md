@@ -31,15 +31,15 @@ Name | Type | Description | Notes
 **tracking_category_name** | **String** | The name of the Tracking Category assigned to the contact under SalesTrackingCategories and PurchasesTrackingCategories | [optional] 
 **tracking_category_option** | **String** | The name of the Tracking Option assigned to the contact under SalesTrackingCategories and PurchasesTrackingCategories | [optional] 
 **payment_terms** | [**PaymentTerm**](PaymentTerm.md) |  | [optional] 
-**updated_date_utc** | **DateTime** | UTC timestamp of last update to contact | [optional] 
+**updated_date_utc** | **DateTime** | UTC timestamp of last update to contact | [optional] [readonly] 
 **contact_groups** | [**Array&lt;ContactGroup&gt;**](ContactGroup.md) | Displays which contact groups a contact is included in | [optional] 
-**website** | **String** | Website address for contact (read only) | [optional] 
+**website** | **String** | Website address for contact (read only) | [optional] [readonly] 
 **branding_theme** | [**BrandingTheme**](BrandingTheme.md) |  | [optional] 
 **batch_payments** | [**BatchPaymentDetails**](BatchPaymentDetails.md) |  | [optional] 
-**discount** | **Float** | The default discount rate for the contact (read only) | [optional] 
+**discount** | **Float** | The default discount rate for the contact (read only) | [optional] [readonly] 
 **balances** | [**Balances**](Balances.md) |  | [optional] 
 **attachments** | [**Array&lt;Attachment&gt;**](Attachment.md) | Displays array of attachments from the API | [optional] 
-**has_attachments** | **Boolean** | A boolean to indicate if a contact has an attachment | [optional] 
+**has_attachments** | **Boolean** | A boolean to indicate if a contact has an attachment | [optional] [default to false]
 **validation_errors** | [**Array&lt;ValidationError&gt;**](ValidationError.md) | Displays validation errors returned from the API | [optional] 
 **has_validation_errors** | **Boolean** | A boolean to indicate if a contact has an validation errors | [optional] 
 **status_attribute_string** | **String** | Status of object | [optional] 
@@ -84,7 +84,7 @@ instance = XeroRuby::Contact.new(contact_id: null,
                                  discount: null,
                                  balances: null,
                                  attachments: null,
-                                 has_attachments: null,
+                                 has_attachments: false,
                                  validation_errors: null,
                                  has_validation_errors: null,
                                  status_attribute_string: null)

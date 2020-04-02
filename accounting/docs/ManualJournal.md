@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **status** | **String** | See Manual Journal Status Codes | [optional] 
 **url** | **String** | Url link to a source document – shown as “Go to [appName]” in the Xero app | [optional] 
 **show_on_cash_basis_reports** | **Boolean** | Boolean – default is true if not specified | [optional] 
-**has_attachments** | **Boolean** | Boolean to indicate if a manual journal has an attachment | [optional] 
-**updated_date_utc** | **DateTime** | Last modified date UTC format | [optional] 
+**has_attachments** | **Boolean** | Boolean to indicate if a manual journal has an attachment | [optional] [readonly] [default to false]
+**updated_date_utc** | **DateTime** | Last modified date UTC format | [optional] [readonly] 
 **manual_journal_id** | **String** | The Xero identifier for a Manual Journal | [optional] 
 **status_attribute_string** | **String** | A string to indicate if a invoice status | [optional] 
 **warnings** | [**Array&lt;ValidationError&gt;**](ValidationError.md) | Displays array of warning messages from the API | [optional] 
@@ -31,7 +31,7 @@ instance = XeroRuby::ManualJournal.new(narration: null,
                                  status: null,
                                  url: null,
                                  show_on_cash_basis_reports: null,
-                                 has_attachments: null,
+                                 has_attachments: false,
                                  updated_date_utc: null,
                                  manual_journal_id: null,
                                  status_attribute_string: ERROR,

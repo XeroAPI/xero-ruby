@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **email_address** | **String** | Email address of user | [optional] 
 **first_name** | **String** | First name of user | [optional] 
 **last_name** | **String** | Last name of user | [optional] 
-**updated_date_utc** | **DateTime** | Timestamp of last change to user | [optional] 
+**updated_date_utc** | **DateTime** | Timestamp of last change to user | [optional] [readonly] 
 **is_subscriber** | **Boolean** | Boolean to indicate if user is the subscriber | [optional] 
 **organisation_role** | **String** | User role that defines permissions in Xero and via API (READONLY, INVOICEONLY, STANDARD, FINANCIALADVISER, etc) | [optional] 
 

@@ -17,14 +17,14 @@ Name | Type | Description | Notes
 **status** | [**QuoteStatusCodes**](QuoteStatusCodes.md) |  | [optional] 
 **currency_code** | [**CurrencyCode**](CurrencyCode.md) |  | [optional] 
 **currency_rate** | **Float** | The currency rate for a multicurrency quote | [optional] 
-**sub_total** | **Float** | Total of quote excluding taxes. | [optional] 
-**total_tax** | **Float** | Total tax on quote | [optional] 
-**total** | **Float** | Total of Quote tax inclusive (i.e. SubTotal + TotalTax). This will be ignored if it doesn’t equal the sum of the LineAmounts | [optional] 
-**total_discount** | **Float** | Total of discounts applied on the quote line items | [optional] 
+**sub_total** | **Float** | Total of quote excluding taxes. | [optional] [readonly] 
+**total_tax** | **Float** | Total tax on quote | [optional] [readonly] 
+**total** | **Float** | Total of Quote tax inclusive (i.e. SubTotal + TotalTax). This will be ignored if it doesn’t equal the sum of the LineAmounts | [optional] [readonly] 
+**total_discount** | **Float** | Total of discounts applied on the quote line items | [optional] [readonly] 
 **title** | **String** | Title text for the quote | [optional] 
 **summary** | **String** | Summary text for the quote | [optional] 
 **branding_theme_id** | **String** | See BrandingThemes | [optional] 
-**updated_date_utc** | **DateTime** | Last modified date UTC format | [optional] 
+**updated_date_utc** | **String** | Last modified date UTC format | [optional] [readonly] 
 **line_amount_types** | [**QuoteLineAmountTypes**](QuoteLineAmountTypes.md) |  | [optional] 
 
 ## Code Sample
@@ -52,7 +52,7 @@ instance = XeroRuby::Quote.new(quote_id: null,
                                  title: null,
                                  summary: null,
                                  branding_theme_id: null,
-                                 updated_date_utc: null,
+                                 updated_date_utc: /Date(1573755038314)/,
                                  line_amount_types: null)
 ```
 
