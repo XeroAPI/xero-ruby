@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **prepayment_id** | **String** | Xero generated unique identifier for a Prepayment. This will be returned on BankTransactions with a Type of SPEND-PREPAYMENT or RECEIVE-PREPAYMENT | [optional] 
 **overpayment_id** | **String** | Xero generated unique identifier for an Overpayment. This will be returned on BankTransactions with a Type of SPEND-OVERPAYMENT or RECEIVE-OVERPAYMENT | [optional] 
 **updated_date_utc** | **DateTime** | Last modified date UTC format | [optional] 
-**has_attachments** | **Boolean** | Boolean to indicate if a bank transaction has an attachment | [optional] 
+**has_attachments** | **Boolean** | Boolean to indicate if a bank transaction has an attachment | [optional] [default to false]
 **status_attribute_string** | **String** | A string to indicate if a invoice status | [optional] 
 **validation_errors** | [**Array&lt;ValidationError&gt;**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
 
@@ -51,7 +51,7 @@ instance = XeroRuby::BankTransaction.new(type: null,
                                  prepayment_id: 00000000-0000-0000-0000-000000000000,
                                  overpayment_id: 00000000-0000-0000-0000-000000000000,
                                  updated_date_utc: null,
-                                 has_attachments: null,
+                                 has_attachments: false,
                                  status_attribute_string: null,
                                  validation_errors: null)
 ```

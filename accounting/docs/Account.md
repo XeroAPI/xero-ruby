@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **system_account** | **String** | If this is a system account then this element is returned. See System Account types. Note that non-system accounts may have this element set as either “” or null. | [optional] 
 **reporting_code** | **String** | Shown if set | [optional] 
 **reporting_code_name** | **String** | Shown if set | [optional] 
-**has_attachments** | **Boolean** | boolean to indicate if an account has an attachment (read only) | [optional] 
+**has_attachments** | **Boolean** | boolean to indicate if an account has an attachment (read only) | [optional] [default to false]
 **updated_date_utc** | **DateTime** | Last modified date UTC format | [optional] 
 **add_to_watchlist** | **Boolean** | Boolean – describes whether the account is shown in the watchlist widget on the dashboard | [optional] 
 **validation_errors** | [**Array&lt;ValidationError&gt;**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
@@ -46,7 +46,7 @@ instance = XeroRuby::Account.new(code: 4400,
                                  system_account: null,
                                  reporting_code: null,
                                  reporting_code_name: null,
-                                 has_attachments: null,
+                                 has_attachments: false,
                                  updated_date_utc: null,
                                  add_to_watchlist: null,
                                  validation_errors: null)

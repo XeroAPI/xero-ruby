@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **remaining_credit** | **Float** | The remaining credit balance on the prepayment | [optional] 
 **allocations** | [**Array&lt;Allocation&gt;**](Allocation.md) | See Allocations | [optional] 
 **applied_amount** | **Float** | The amount of applied to an invoice | [optional] 
-**has_attachments** | **Boolean** | boolean to indicate if a prepayment has an attachment | [optional] 
+**has_attachments** | **Boolean** | boolean to indicate if a prepayment has an attachment | [optional] [default to false]
 **attachments** | [**Array&lt;Attachment&gt;**](Attachment.md) | See Attachments | [optional] 
 
 ## Code Sample
@@ -46,7 +46,7 @@ instance = XeroRuby::Prepayment.new(type: null,
                                  remaining_credit: null,
                                  allocations: null,
                                  applied_amount: 2.0,
-                                 has_attachments: null,
+                                 has_attachments: false,
                                  attachments: null)
 ```
 
