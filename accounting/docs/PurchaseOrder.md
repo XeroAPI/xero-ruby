@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 **total_tax** | **Float** | Total tax on purchase order | [optional] 
 **total** | **Float** | Total of Purchase Order tax inclusive (i.e. SubTotal + TotalTax) | [optional] 
 **total_discount** | **Float** | Total of discounts applied on the purchase order line items | [optional] 
-**has_attachments** | **Boolean** | boolean to indicate if a purchase order has an attachment | [optional] 
+**has_attachments** | **Boolean** | boolean to indicate if a purchase order has an attachment | [optional] [default to false]
 **updated_date_utc** | **DateTime** | Last modified date UTC format | [optional] 
 **status_attribute_string** | **String** | A string to indicate if a invoice status | [optional] 
 **validation_errors** | [**Array&lt;ValidationError&gt;**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
@@ -60,7 +60,7 @@ instance = XeroRuby::PurchaseOrder.new(contact: null,
                                  total_tax: null,
                                  total: null,
                                  total_discount: null,
-                                 has_attachments: null,
+                                 has_attachments: false,
                                  updated_date_utc: null,
                                  status_attribute_string: null,
                                  validation_errors: null,

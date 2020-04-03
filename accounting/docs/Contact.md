@@ -39,7 +39,7 @@ Name | Type | Description | Notes
 **discount** | **Float** | The default discount rate for the contact (read only) | [optional] 
 **balances** | [**Balances**](Balances.md) |  | [optional] 
 **attachments** | [**Array&lt;Attachment&gt;**](Attachment.md) | Displays array of attachments from the API | [optional] 
-**has_attachments** | **Boolean** | A boolean to indicate if a contact has an attachment | [optional] 
+**has_attachments** | **Boolean** | A boolean to indicate if a contact has an attachment | [optional] [default to false]
 **validation_errors** | [**Array&lt;ValidationError&gt;**](ValidationError.md) | Displays validation errors returned from the API | [optional] 
 **has_validation_errors** | **Boolean** | A boolean to indicate if a contact has an validation errors | [optional] 
 **status_attribute_string** | **String** | Status of object | [optional] 
@@ -84,7 +84,7 @@ instance = XeroRuby::Contact.new(contact_id: null,
                                  discount: null,
                                  balances: null,
                                  attachments: null,
-                                 has_attachments: null,
+                                 has_attachments: false,
                                  validation_errors: null,
                                  has_validation_errors: null,
                                  status_attribute_string: null)

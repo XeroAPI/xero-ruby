@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 **total** | **Float** | Total of Invoice tax inclusive (i.e. SubTotal + TotalTax). This will be ignored if it doesn’t equal the sum of the LineAmounts | [optional] 
 **total_discount** | **Float** | Total of discounts applied on the invoice line items | [optional] 
 **invoice_id** | **String** | Xero generated unique identifier for invoice | [optional] 
-**has_attachments** | **Boolean** | boolean to indicate if an invoice has an attachment | [optional] 
+**has_attachments** | **Boolean** | boolean to indicate if an invoice has an attachment | [optional] [default to false]
 **is_discounted** | **Boolean** | boolean to indicate if an invoice has a discount | [optional] 
 **payments** | [**Array&lt;Payment&gt;**](Payment.md) | See Payments | [optional] 
 **prepayments** | [**Array&lt;Prepayment&gt;**](Prepayment.md) | See Prepayments | [optional] 
@@ -70,7 +70,7 @@ instance = XeroRuby::Invoice.new(type: null,
                                  total: null,
                                  total_discount: null,
                                  invoice_id: null,
-                                 has_attachments: null,
+                                 has_attachments: false,
                                  is_discounted: null,
                                  payments: null,
                                  prepayments: null,
