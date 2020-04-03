@@ -29,12 +29,40 @@ module XeroRuby
     # Initializes the ApiClient
     # @option config [Configuration] Configuration for initializing the object, default to Configuration.default
     def initialize(config = Configuration.default)
+      @client_id = "902DD32276574ED199639D9226A425B1"
+      @client_secret = 'PeNYDifbqi4Q3l9mG_kTg3LdLZ7RIUFpOOas-16sqkPV_e5C'
+      @redirect_uri = 'http://localhost:5000/callback'
+      @token_url = 'https://identity.xero.com/connect/token'
+      @login_url = 'https://login.xero.com/identity/connect/authorize'
+
       @config = config
-      @user_agent = "OpenAPI-Generator/#{VERSION}/ruby"
+      @user_agent = "xero-ruby-#{VERSION}"
       @default_headers = {
         'Content-Type' => 'application/json',
         'User-Agent' => @user_agent
       }
+    end
+
+    def authorization_url
+      scopes = "openid profile email accounting.settings accounting.reports.read accounting.journals.read accounting.contacts accounting.attachments accounting.transactions assets assets.read projects projects.read offline_access";
+      url = "#{@login_url}?response_type=code&client_id=#{@config[:client_id]}&redirect_uri=#{@config[:redirect_uri]}&scope=#{scopes}"
+      return url
+    end
+
+    def get_token_set_from_callback(params)
+      data = {
+        grant_type: 'authorization_code',
+        code: params['code'],
+        redirect_uri: @redirect_uri
+      }
+      response = Faraday.post(@token_url) do |req|
+        req.headers['Authorization'] = "Basic " + Base64.strict_encode64("#{@client_id}:#{@client_secret}")
+        req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+        req.body = URI.encode_www_form(data)
+      end
+      body = JSON.parse(response.body)
+      XeroRuby.configure.access_token = body['access_token']
+      return body
     end
 
     def self.default
@@ -285,13 +313,11 @@ module XeroRuby
         tempfile.write(chunk)
       end
       request.on_complete do |response|
-        if tempfile
-          tempfile.close
-          @config.logger.info "Temp file written to #{tempfile.path}, please copy the file to a proper folder "\
-                              "with e.g. `FileUtils.cp(tempfile.path, '/new/file/path')` otherwise the temp file "\
-                              "will be deleted automatically with GC. It's also recommended to delete the temp file "\
-                              "explicitly with `tempfile.delete`"
-        end
+        tempfile.close if tempfile
+        @config.logger.info "Temp file written to #{tempfile.path}, please copy the file to a proper folder "\
+                            "with e.g. `FileUtils.cp(tempfile.path, '/new/file/path')` otherwise the temp file "\
+                            "will be deleted automatically with GC. It's also recommended to delete the temp file "\
+                            "explicitly with `tempfile.delete`"
       end
     end
 

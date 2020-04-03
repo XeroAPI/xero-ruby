@@ -10,16 +10,16 @@ Name | Type | Description | Notes
 **code** | **String** | (NZ Only) Optional references for the batch payment transaction. It will also show with the batch payment transaction in the bank reconciliation Find &amp; Match screen. Depending on your individual bank, the detail may also show on the bank statement you import into Xero. | [optional] 
 **details** | **String** | (Non-NZ Only) These details are sent to the org’s bank as a reference for the batch payment transaction. They will also show with the batch payment transaction in the bank reconciliation Find &amp; Match screen. Depending on your individual bank, the detail may also show on the bank statement imported into Xero. Maximum field length &#x3D; 18 | [optional] 
 **narrative** | **String** | (UK Only) Only shows on the statement line in Xero. Max length &#x3D;18 | [optional] 
-**batch_payment_id** | **String** | The Xero generated unique identifier for the bank transaction (read-only) | [optional] [readonly] 
+**batch_payment_id** | **String** | The Xero generated unique identifier for the bank transaction (read-only) | [optional] 
 **date_string** | **String** | Date the payment is being made (YYYY-MM-DD) e.g. 2009-09-06 | [optional] 
 **date** | **Date** | Date the payment is being made (YYYY-MM-DD) e.g. 2009-09-06 | [optional] 
 **amount** | **Float** | The amount of the payment. Must be less than or equal to the outstanding amount owing on the invoice e.g. 200.00 | [optional] 
 **payments** | [**Array&lt;Payment&gt;**](Payment.md) |  | [optional] 
-**type** | **String** | PAYBATCH for bill payments or RECBATCH for sales invoice payments (read-only) | [optional] [readonly] 
-**status** | **String** | AUTHORISED or DELETED (read-only). New batch payments will have a status of AUTHORISED. It is not possible to delete batch payments via the API. | [optional] [readonly] 
-**total_amount** | **String** | The total of the payments that make up the batch (read-only) | [optional] [readonly] 
-**updated_date_utc** | **DateTime** | UTC timestamp of last update to the payment | [optional] [readonly] 
-**is_reconciled** | **String** | Booelan that tells you if the batch payment has been reconciled (read-only) | [optional] [readonly] 
+**type** | **String** | PAYBATCH for bill payments or RECBATCH for sales invoice payments (read-only) | [optional] 
+**status** | **String** | AUTHORISED or DELETED (read-only). New batch payments will have a status of AUTHORISED. It is not possible to delete batch payments via the API. | [optional] 
+**total_amount** | **String** | The total of the payments that make up the batch (read-only) | [optional] 
+**updated_date_utc** | **DateTime** | UTC timestamp of last update to the payment | [optional] 
+**is_reconciled** | **String** | Booelan that tells you if the batch payment has been reconciled (read-only) | [optional] 
 
 ## Code Sample
 

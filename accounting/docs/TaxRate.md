@@ -9,13 +9,13 @@ Name | Type | Description | Notes
 **tax_components** | [**Array&lt;TaxComponent&gt;**](TaxComponent.md) | See TaxComponents | [optional] 
 **status** | **String** | See Status Codes | [optional] 
 **report_tax_type** | **String** | See ReportTaxTypes | [optional] 
-**can_apply_to_assets** | **Boolean** | Boolean to describe if tax rate can be used for asset accounts i.e.  true,false | [optional] [readonly] 
-**can_apply_to_equity** | **Boolean** | Boolean to describe if tax rate can be used for equity accounts i.e true,false | [optional] [readonly] 
-**can_apply_to_expenses** | **Boolean** | Boolean to describe if tax rate can be used for expense accounts  i.e. true,false | [optional] [readonly] 
-**can_apply_to_liabilities** | **Boolean** | Boolean to describe if tax rate can be used for liability accounts  i.e. true,false | [optional] [readonly] 
-**can_apply_to_revenue** | **Boolean** | Boolean to describe if tax rate can be used for revenue accounts i.e. true,false | [optional] [readonly] 
-**display_tax_rate** | **Float** | Tax Rate (decimal to 4dp) e.g 12.5000 | [optional] [readonly] 
-**effective_rate** | **Float** | Effective Tax Rate (decimal to 4dp) e.g 12.5000 | [optional] [readonly] 
+**can_apply_to_assets** | **Boolean** | Boolean to describe if tax rate can be used for asset accounts i.e.  true,false | [optional] 
+**can_apply_to_equity** | **Boolean** | Boolean to describe if tax rate can be used for equity accounts i.e true,false | [optional] 
+**can_apply_to_expenses** | **Boolean** | Boolean to describe if tax rate can be used for expense accounts  i.e. true,false | [optional] 
+**can_apply_to_liabilities** | **Boolean** | Boolean to describe if tax rate can be used for liability accounts  i.e. true,false | [optional] 
+**can_apply_to_revenue** | **Boolean** | Boolean to describe if tax rate can be used for revenue accounts i.e. true,false | [optional] 
+**display_tax_rate** | **Float** | Tax Rate (decimal to 4dp) e.g 12.5000 | [optional] 
+**effective_rate** | **Float** | Effective Tax Rate (decimal to 4dp) e.g 12.5000 | [optional] 
 
 ## Code Sample
 

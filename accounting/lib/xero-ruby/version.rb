@@ -11,5 +11,5 @@ OpenAPI Generator version: 4.3.0
 =end
 
 module XeroRuby
-  VERSION = '0.2.2'
+  VERSION = '0.3.4'
 end

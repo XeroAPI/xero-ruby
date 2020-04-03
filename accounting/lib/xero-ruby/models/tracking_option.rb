@@ -10,6 +10,7 @@ OpenAPI Generator version: 4.3.0
 
 =end
 
+require 'time'
 require 'date'
 
 module XeroRuby
@@ -66,12 +67,6 @@ module XeroRuby
         :'status' => :'String',
         :'tracking_category_id' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object
@@ -203,9 +198,9 @@ module XeroRuby
     def _deserialize(type, value)
       case type.to_sym
       when :DateTime
-        DateTime.parse(value)
+        DateTime.parse(parse_date(value))
       when :Date
-        Date.parse(value)
+        Date.parse(parse_date(value))
       when :String
         value.to_s
       when :Integer
@@ -255,11 +250,7 @@ module XeroRuby
       hash = {}
       self.class.attribute_map.each_pair do |attr, param|
         value = self.send(attr)
-        if value.nil?
-          is_nullable = self.class.openapi_nullable.include?(attr)
-          next if !is_nullable || (is_nullable && !instance_variable_defined?(:"@#{attr}"))
-        end
-        
+        next if value.nil?
         hash[param] = _to_hash(value)
       end
       hash
@@ -281,6 +272,12 @@ module XeroRuby
       else
         value
       end
+    end
+
+    # customized data_parser
+    def parse_date(datestring)
+      seconds_since_epoch = datestring.scan(/[0-9]+/)[0].to_i / 1000.0
+      return Time.at(seconds_since_epoch).to_s
     end
   end
 end

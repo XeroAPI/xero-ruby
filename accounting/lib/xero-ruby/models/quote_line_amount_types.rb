@@ -10,6 +10,7 @@ OpenAPI Generator version: 4.3.0
 
 =end
 
+require 'time'
 require 'date'
 
 module XeroRuby

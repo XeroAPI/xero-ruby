@@ -9,12 +9,12 @@ Name | Type | Description | Notes
 **payments** | [**Array&lt;Payment&gt;**](Payment.md) | See Payments | [optional] 
 **user** | [**User**](User.md) |  | [optional] 
 **receipts** | [**Array&lt;Receipt&gt;**](Receipt.md) |  | [optional] 
-**updated_date_utc** | **DateTime** | Last modified date UTC format | [optional] [readonly] 
-**total** | **Float** | The total of an expense claim being paid | [optional] [readonly] 
-**amount_due** | **Float** | The amount due to be paid for an expense claim | [optional] [readonly] 
-**amount_paid** | **Float** | The amount still to pay for an expense claim | [optional] [readonly] 
-**payment_due_date** | **Date** | The date when the expense claim is due to be paid YYYY-MM-DD | [optional] [readonly] 
-**reporting_date** | **Date** | The date the expense claim will be reported in Xero YYYY-MM-DD | [optional] [readonly] 
+**updated_date_utc** | **DateTime** | Last modified date UTC format | [optional] 
+**total** | **Float** | The total of an expense claim being paid | [optional] 
+**amount_due** | **Float** | The amount due to be paid for an expense claim | [optional] 
+**amount_paid** | **Float** | The amount still to pay for an expense claim | [optional] 
+**payment_due_date** | **Date** | The date when the expense claim is due to be paid YYYY-MM-DD | [optional] 
+**reporting_date** | **Date** | The date the expense claim will be reported in Xero YYYY-MM-DD | [optional] 
 **receipt_id** | **String** | The Xero identifier for the Receipt e.g.  e59a2c7f-1306-4078-a0f3-73537afcbba9 | [optional] 
 
 ## Code Sample

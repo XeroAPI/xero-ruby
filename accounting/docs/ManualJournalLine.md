@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **description** | **String** | Description for journal line | [optional] 
 **tax_type** | **String** | The tax type from TaxRates | [optional] 
 **tracking** | [**Array&lt;TrackingCategory&gt;**](TrackingCategory.md) | Optional Tracking Category – see Tracking. Any JournalLine can have a maximum of 2 &lt;TrackingCategory&gt; elements. | [optional] 
-**tax_amount** | **Float** | The calculated tax amount based on the TaxType and LineAmount | [optional] [readonly] 
+**tax_amount** | **Float** | The calculated tax amount based on the TaxType and LineAmount | [optional] 
 **is_blank** | **Boolean** | is the line blank | [optional] 
 
 ## Code Sample

@@ -8,12 +8,12 @@ Name | Type | Description | Notes
 **to_bank_account** | [**Account**](Account.md) |  | 
 **amount** | **String** | amount of the transaction | 
 **date** | **Date** | The date of the Transfer YYYY-MM-DD | [optional] 
-**bank_transfer_id** | **String** | The identifier of the Bank Transfer | [optional] [readonly] 
-**currency_rate** | **Float** | The currency rate | [optional] [readonly] 
-**from_bank_transaction_id** | **String** | The Bank Transaction ID for the source account | [optional] [readonly] 
-**to_bank_transaction_id** | **String** | The Bank Transaction ID for the destination account | [optional] [readonly] 
-**has_attachments** | **Boolean** | Boolean to indicate if a Bank Transfer has an attachment | [optional] [readonly] [default to false]
-**created_date_utc** | **DateTime** | UTC timestamp of creation date of bank transfer | [optional] [readonly] 
+**bank_transfer_id** | **String** | The identifier of the Bank Transfer | [optional] 
+**currency_rate** | **Float** | The currency rate | [optional] 
+**from_bank_transaction_id** | **String** | The Bank Transaction ID for the source account | [optional] 
+**to_bank_transaction_id** | **String** | The Bank Transaction ID for the destination account | [optional] 
+**has_attachments** | **Boolean** | Boolean to indicate if a Bank Transfer has an attachment | [optional] [default to false]
+**created_date_utc** | **DateTime** | UTC timestamp of creation date of bank transfer | [optional] 
 **validation_errors** | [**Array&lt;ValidationError&gt;**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
 
 ## Code Sample

@@ -13,15 +13,15 @@ Name | Type | Description | Notes
 **sub_total** | **Float** | The subtotal of the prepayment excluding taxes | [optional] 
 **total_tax** | **Float** | The total tax on the prepayment | [optional] 
 **total** | **Float** | The total of the prepayment(subtotal + total tax) | [optional] 
-**reference** | **String** | Returns Invoice number field. Reference field isn&#39;t available. | [optional] [readonly] 
-**updated_date_utc** | **DateTime** | UTC timestamp of last update to the prepayment | [optional] [readonly] 
+**reference** | **String** | Returns Invoice number field. Reference field isn&#39;t available. | [optional] 
+**updated_date_utc** | **DateTime** | UTC timestamp of last update to the prepayment | [optional] 
 **currency_code** | [**CurrencyCode**](CurrencyCode.md) |  | [optional] 
 **prepayment_id** | **String** | Xero generated unique identifier | [optional] 
 **currency_rate** | **Float** | The currency rate for a multicurrency prepayment. If no rate is specified, the XE.com day rate is used | [optional] 
 **remaining_credit** | **Float** | The remaining credit balance on the prepayment | [optional] 
 **allocations** | [**Array&lt;Allocation&gt;**](Allocation.md) | See Allocations | [optional] 
 **applied_amount** | **Float** | The amount of applied to an invoice | [optional] 
-**has_attachments** | **Boolean** | boolean to indicate if a prepayment has an attachment | [optional] [readonly] [default to false]
+**has_attachments** | **Boolean** | boolean to indicate if a prepayment has an attachment | [optional] [default to false]
 **attachments** | [**Array&lt;Attachment&gt;**](Attachment.md) | See Attachments | [optional] 
 
 ## Code Sample
