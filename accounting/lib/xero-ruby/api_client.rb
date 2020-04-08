@@ -50,8 +50,7 @@ module XeroRuby
       XeroRuby::AccountingApi.new(self)
     end
 
-    # TOKEN Helpers
-
+    # Token Helpers
     def token_set
       XeroRuby.configure.token_set
     end
