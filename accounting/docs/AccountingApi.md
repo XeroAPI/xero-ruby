@@ -144,6 +144,7 @@ Method | HTTP request | Description
 [**get_prepayment_history**](AccountingApi.md#get_prepayment_history) | **GET** /Prepayments/{PrepaymentID}/History | Allows you to retrieve a history records of an Prepayment
 [**get_prepayments**](AccountingApi.md#get_prepayments) | **GET** /Prepayments | Allows you to retrieve prepayments
 [**get_purchase_order**](AccountingApi.md#get_purchase_order) | **GET** /PurchaseOrders/{PurchaseOrderID} | Allows you to retrieve a specified purchase orders
+[**get_purchase_order_as_pdf**](AccountingApi.md#get_purchase_order_as_pdf) | **GET** /PurchaseOrders/{PurchaseOrderID}/pdf | Allows you to retrieve purchase orders as PDF files
 [**get_purchase_order_by_number**](AccountingApi.md#get_purchase_order_by_number) | **GET** /PurchaseOrders/{PurchaseOrderNumber} | Allows you to retrieve a specified purchase orders
 [**get_purchase_order_history**](AccountingApi.md#get_purchase_order_history) | **GET** /PurchaseOrders/{PurchaseOrderID}/History | Allows you to retrieve history for PurchaseOrder
 [**get_purchase_orders**](AccountingApi.md#get_purchase_orders) | **GET** /PurchaseOrders | Allows you to retrieve purchase orders
@@ -7859,6 +7860,58 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
+
+
+## get_purchase_order_as_pdf
+
+> File get_purchase_order_as_pdf(xero_tenant_id, purchase_order_id)
+
+Allows you to retrieve purchase orders as PDF files
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+# setup authorization
+XeroRuby.configure do |config|
+  # Configure OAuth2 access token for authorization: OAuth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = XeroRuby::AccountingApi.new
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+purchase_order_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Purchase Order
+
+begin
+  #Allows you to retrieve purchase orders as PDF files
+  result = api_instance.get_purchase_order_as_pdf(xero_tenant_id, purchase_order_id)
+  p result
+rescue XeroRuby::ApiError => e
+  puts "Exception when calling AccountingApi->get_purchase_order_as_pdf: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **purchase_order_id** | [**String**](.md)| Unique identifier for an Purchase Order | 
+
+### Return type
+
+**File**
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/pdf
 
 
 ## get_purchase_order_by_number
