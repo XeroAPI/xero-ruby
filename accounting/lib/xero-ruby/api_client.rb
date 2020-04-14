@@ -28,7 +28,7 @@ module XeroRuby
 
     # Initializes the ApiClient
     # @option config [Configuration] Configuration for initializing the object, default to Configuration.default
-    def initialize(config: Configuration.default, credentials:)
+    def initialize(config: Configuration.default, credentials: {})
       @client_id = credentials[:client_id]
       @client_secret = credentials[:client_secret]
       @redirect_uri = credentials[:redirect_uri]
