@@ -5,29 +5,25 @@ Xero Ruby SDK for OAuth 2.0 generated from [Xero API OpenAPI Spec](https://githu
 
 ## Current release of SDK with OAuth 2.0 support
 Version 0.x.x of Xero Ruby SDK only supports OAuth 2.0 authentication and the following API sets.
-* accounting
-* identity
+* [accounting](https://developer.xero.com/documentation/api/api-overview)
 
 Coming soon
 * bank feeds 
 * payroll au
-* fixed asset 
+* [assets](https://developer.xero.com/documentation/assets-api/overview)
 * payroll nz/uk
 * files 
 * projects
 * xero hq
 
-## How to handle OAuth 2.0 authentication & authorization?
-We have built an Omniauth strategy for Xero OAuth 2.0. Check out [omniauth-xero-oauth2](https://github.com/XeroAPI/xero-oauth2-omniauth-strategy)
 
 [![RubyGem](https://img.shields.io/badge/omniauth--xero--oauth2%20gem-v0.9.3-brightgreen)](https://rubygems.org/gems/omniauth-xero-oauth2)
 
 To learn more about how our OAuth 2.0 flow works and how to use our Omniauth strategy, check out our Xero developer blog post: [Xero OAuth 2.0 with Ruby](https://devblog.xero.com/xero-oauth-2-with-ruby-313a6ea37989)
 
-![image](https://user-images.githubusercontent.com/41350731/70225201-b2324080-17a2-11ea-8966-23efafa6df52.png)
 
 ## Looking for OAuth 1.0a support?
-Check out [Xeroizer](https://github.com/waynerobinson/xeroizer) gem built by Wayne Robinson and our community developers.
+Check out the [Xeroizer](https://github.com/waynerobinson/xeroizer) gem (maintained by community)
 
 ## Installation
 This SDK is published a gem on RubyGems.org as xero-ruby
