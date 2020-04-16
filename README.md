@@ -67,17 +67,10 @@ https://login.xero.com/identity/connect/authorize?response_type=code&client_id=<
 ```
 
 ```ruby
-def callback
-  token_set = @xero_client.get_token_set_from_callback(params)
-	
-  # token_set is now set on the client
-  token_set = @xero_client.token_set
-end
-
+# /callback
+token_set = @xero_client.get_token_set_from_callback(params)
+token_set = @xero_client.token_set
 ...
-
-# store the entire token set associated with the entity/user in your app
-current_user.token_set = token_set
 
 # make api calls
 accounting_api = XeroRuby::AccountingApi.new(@xero_client)
