@@ -37,17 +37,6 @@ We have an official [message board](https://community.xero.com/developer) where 
 
 You can contribute by reporting bugs, suggesting enhancements, improving documentation i.e. [README](https://github.com/XeroAPI/xero-ruby/README.md) or submitting a pull request.
 
-
-## Which version of the SDK are you using?
-
-As of Sept 2019, support for oAuth 2 will be generally available for developers.  During this transition period from oAuth 1.0a to oAuth 2, we will be supporting two versions of the SDK.  
-
-
-* 2.x code resides in `master` and supports oAuth 1.0a
-* 3.x code resides in the `oauth2` branch and supports oAuth 2
-
-Bugs and enhancements for version 3.x will be prioritized over 2.x.
-
 ## Reporting Bugs
 
 Bugs are tracked as issues in this repository.
@@ -76,29 +65,17 @@ When opening an issue for a feature request:
 
 ## Pull requests
 
-We welcome your feedback and pull requests. Be aware some code is generated and pull requests may not be the best solution -  see below.
+We welcome your feedback and pull requests. Be aware some code is generated and pull requests may not be the best solution - see below.
 
 ### We Use OpenAPI Generator
 The best way to propose changes to the codebase is to open an [issue](https://github.com/XeroAPI/xero-ruby/issues) and discuss with our team.  
 
-We are using [OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator) and [our OpenAPI specs](https://github.com/XeroAPI/Xero-OpenAPI), to create and update our models and client classes.  Improvements may require updates to our OAS or our customized mustache templates instead of modifying via pull request.
+We are using [OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator) and [our OpenAPI specs](https://github.com/XeroAPI/Xero-OpenAPI), to create and update our models and client classes. Improvements may require updates to our OAS or our customized mustache templates instead of modifying via pull request.
 
 ### Submit a pull request
 
-1. Fork and clone the repository
-1. Create a new branch: `git checkout -b my-branch-name`
-1. Make your change, add tests if needed
-1. Make sure the tests pass on your machine
-1. Push to your fork and submit a pull request
-1. Pat your self on the back and wait for your pull request to be reviewed and merged.
-
-Here are a few things you can do that will increase the likelihood of your pull request being accepted:
-
-- Follow the [style guide](#style-guide).
-- Write tests.
-- Keep your change as focused as possible. If there are multiple changes you would like to make that are not dependent upon each other, consider submitting them as separate pull requests.
-- Write a [good commit message](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html).
-
+Xero's supported SDK's are mostly auto-generated based on an [OpenAPISpec](https://github.com/XeroAPI/Xero-OpenAPI) that utilizes [openapi-generator](https://github.com/OpenAPITools/openapi-generator).
+> You can read more about our process here: https://devblog.xero.com/building-sdks-for-the-future-b79ff726dfd6
 ### Style Guide
 
 * 2 spaces for indentation rather than tabs
