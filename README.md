@@ -19,6 +19,7 @@ Coming soon
 ## Looking for OAuth 1.0a support?
 Check out the [Xeroizer](https://github.com/waynerobinson/xeroizer) gem (maintained by community)
 
+---
 ## Installation
 This SDK is published as a gem on RubyGems as [xero-ruby](https://rubygems.org/gems/xero-ruby)
 
@@ -135,6 +136,8 @@ The best resource to understanding how to best leverage this SDK is to clone dow
 * Refresh your token sets
 * how to decode your token_set and strategy around how/when to refresh
 * How to Disconnect from an org
+
+---
 
 ### Other Documentation
 We are working on a more consumable way to serve docs for this project. There is a /docs directory & other helpful [Documentation](https://github.com/XeroAPI/xero-ruby/blob/master/accounting/lib/xero-ruby/api/accounting_api.rb) can be found in each API's client file. Feedback welcome.
