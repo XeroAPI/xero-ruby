@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **title** | **String** | Title text for the quote | [optional] 
 **summary** | **String** | Summary text for the quote | [optional] 
 **branding_theme_id** | **String** | See BrandingThemes | [optional] 
-**updated_date_utc** | **String** | Last modified date UTC format | [optional] 
+**updated_date_utc** | **DateTime** | Last modified date UTC format | [optional] 
 **line_amount_types** | [**QuoteLineAmountTypes**](QuoteLineAmountTypes.md) |  | [optional] 
 
 ## Code Sample
@@ -52,7 +52,7 @@ instance = XeroRuby::Quote.new(quote_id: null,
                                  title: null,
                                  summary: null,
                                  branding_theme_id: null,
-                                 updated_date_utc: /Date(1573755038314)/,
+                                 updated_date_utc: null,
                                  line_amount_types: null)
 ```
 
