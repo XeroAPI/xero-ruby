@@ -26,13 +26,24 @@ Adds an asset to the system
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Assets.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Assets::AssetApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 asset = { "assetName":"Computer74863", "assetNumber":"123477544", "purchaseDate":"2020-01-01", "purchasePrice":100.0, "disposalPrice":23.23, "assetStatus":"Draft", "bookDepreciationSetting":{ "depreciationMethod":"StraightLine", "averagingMethod":"ActualDays", "depreciationRate":0.5, "depreciationCalculationMethod":"None" }, "bookDepreciationDetail":{ "currentCapitalGain":5.32, "currentGainLoss":3.88, "depreciationStartDate":"2020-01-02", "costLimit":100.0, "currentAccumDepreciationAmount":2.25 }, "AccountingBookValue":99.5 } # Asset | Fixed asset you are creating
 
@@ -80,13 +91,24 @@ Adds an fixed asset type to the system
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Assets.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Assets::AssetApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
   asset_type: { "assetTypeName":"Machinery11004", "fixedAssetAccountId":"3d8d063a-c148-4bb8-8b3c-a5e2ad3b1e82", "depreciationExpenseAccountId":"d1602f69-f900-4616-8d34-90af393fa368", "accumulatedDepreciationAccountId":"9195cadd-8645-41e6-9f67-7bcd421defe8", "bookDepreciationSetting":{ "depreciationMethod":"DiminishingValue100", "averagingMethod":"ActualDays", "depreciationRate":0.05, "depreciationCalculationMethod":"None" } } # AssetType | Asset type to add
@@ -136,13 +158,24 @@ By passing in the appropriate asset id, you can search for a specific fixed asse
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Assets.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Assets::AssetApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 id = '4f7bcdcb-5ec1-4258-9558-19f662fccdfe' # String | fixed asset id for single object
 
@@ -190,13 +223,24 @@ By passing in the appropriate options, you can search for available fixed asset 
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Assets.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Assets::AssetApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 
 begin
@@ -242,13 +286,24 @@ By passing in the appropriate options, you can search for available fixed asset 
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Assets.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Assets::AssetApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 
 begin
@@ -294,13 +349,24 @@ By passing in the appropriate options, you can search for available fixed asset 
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Assets.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Assets::AssetApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 status = XeroRuby::Assets::AssetStatusQueryParam.new # AssetStatusQueryParam | Required when retrieving a collection of assets. See Asset Status Codes
 opts = {

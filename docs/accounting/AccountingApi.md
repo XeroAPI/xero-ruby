@@ -232,13 +232,24 @@ Allows you to create a new chart of accounts
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 account = { code: "123456", name: "Foobar", type: AccountType.EXPENSE, description: "Hello World" } # Account | Account object in body of request
 
@@ -284,13 +295,24 @@ Allows you to create Attachment on Account
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 account_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Account object
 file_name = 'xero-dev.jpg' # String | Name of the attachment
@@ -340,13 +362,24 @@ Allows you to createa an Attachment on BankTransaction by Filename
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transaction_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transaction
 file_name = 'xero-dev.jpg' # String | The name of the file being attached
@@ -396,13 +429,24 @@ Allows you to create history record for a bank transactions
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transaction_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transaction
 history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
@@ -450,13 +494,24 @@ Allows you to create one or more spend or receive money transaction
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transactions = { bankTransactions:[ { type: BankTransaction.TypeEnum.SPEND, contact: { contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity: 1.0, unitAmount:20.0, accountCode:"000" } ], bankAccount:{ code:"000" } } ] } # BankTransactions | BankTransactions with an array of BankTransaction objects in body of request
 opts = {
@@ -508,13 +563,24 @@ Allows you to create a bank transfers
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transfers = { bankTransfers:[ { fromBankAccount: { code:"000", accountID:"00000000-0000-0000-000-000000000000"}, toBankAccount:{ code:"001", accountID:"00000000-0000-0000-000-000000000000"}, amount:"50.00" } ] } # BankTransfers | BankTransfers with array of BankTransfer objects in request body
 
@@ -560,13 +626,24 @@ Name | Type | Description  | Notes
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transfer_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transfer
 file_name = 'xero-dev.jpg' # String | The name of the file being attached to a Bank Transfer
@@ -615,13 +692,24 @@ Name | Type | Description  | Notes
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transfer_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transfer
 history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
@@ -668,13 +756,24 @@ Create one or many BatchPayments for invoices
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 batch_payments = { batchPayments: [ { account: { accountID: "00000000-0000-0000-000-000000000000" }, reference: "ref", date: "2018-08-01", payments: [ { account: { code: "001" }, date: "2019-12-31", amount: 500, invoice: { invoiceID: "00000000-0000-0000-000-000000000000", lineItems: [], contact: {}, type: Invoice.TypeEnum.ACCPAY } } ] } ] } # BatchPayments | BatchPayments with an array of Payments in body of request
 opts = {
@@ -724,13 +823,24 @@ Allows you to create a history record for a Batch Payment
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 batch_payment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for BatchPayment
 history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
@@ -778,13 +888,24 @@ Allow for the creation of new custom payment service for specified Branding Them
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 branding_theme_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Branding Theme
 payment_service = { paymentServiceID:"dede7858-14e3-4a46-bf95-4d4cc491e645", paymentServiceName:"ACME Payments", paymentServiceUrl:"https://www.payupnow.com/", payNowText:"Pay Now" } # PaymentService | PaymentService object in body of request
@@ -832,13 +953,24 @@ Name | Type | Description  | Notes
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
 file_name = 'xero-dev.jpg' # String | Name for the file you are attaching
@@ -887,13 +1019,24 @@ Allows you to create a contact group
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_groups = { contactGroups:[ { name:"VIPs" } ] } # ContactGroups | ContactGroups with an array of names in request body
 
@@ -939,13 +1082,24 @@ Allows you to add Contacts to a Contact Group
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_group_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact Group
 contacts = { contacts:[ { contactID:"a3675fc4-f8dd-4f03-ba5b-f1870566bcd7" }, { contactID:"4e1753b9-018a-4775-b6aa-1bc7871cfee3" } ] } # Contacts | Contacts with array of contacts specifiying the ContactID to be added to ContactGroup in body of request
@@ -993,13 +1147,24 @@ Allows you to retrieve a history records of an Contact
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
 history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
@@ -1047,13 +1212,24 @@ Allows you to create a multiple contacts (bulk) in a Xero organisation
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contacts = {contacts: [{ name:"Bruce Banner", emailAddress:"hulk@avengers.com", phones:[ { phoneType: Phone.PhoneTypeEnum.MOBILE, phoneNumber:"555-1212", phoneAreaCode:"415" } ], paymentTerms:{ bills:{ day:15, type: PaymentTermType.OFCURRENTMONTH }, sales:{ day:10, type: PaymentTermType.DAYSAFTERBILLMONTH } } } ] } # Contacts | Contacts with an array of Contact objects to create in body of request
 opts = {
@@ -1103,13 +1279,24 @@ Allows you to create Allocation on CreditNote
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 credit_note_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Credit Note
 allocations = { allocations:[ { amount:1.0, date:"2019-03-05", invoice:{ invoiceID:"c45720a1-ade3-4a38-a064-d15489be6841", lineItems:[], type: Invoice.TypeEnum.ACCPAY, contact:{} } } ] } # Allocations | Allocations with array of Allocation object in body of request.
@@ -1157,13 +1344,24 @@ Allows you to create Attachments on CreditNote by file name
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 credit_note_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Credit Note
 file_name = 'xero-dev.jpg' # String | Name of the file you are attaching to Credit Note
@@ -1217,13 +1415,24 @@ Allows you to retrieve a history records of an CreditNote
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 credit_note_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Credit Note
 history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
@@ -1271,13 +1480,24 @@ Allows you to create a credit note
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 credit_notes = { creditNotes:[ { type: CreditNote.TypeEnum.ACCPAYCREDIT, contact:{ contactID:"430fa14a-f945-44d3-9f97-5df5e28441b8" }, date:"2019-01-05", lineItems:[ { description:"Foobar", quantity:2.0, unitAmount:20.0, accountCode:"400" } ] } ] } # CreditNotes | Credit Notes with array of CreditNote object in body of request
 opts = {
@@ -1329,13 +1549,24 @@ Name | Type | Description  | Notes
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 currency = { code: CurrencyCode.USD, description:"United States Dollar" } # Currency | Currency obejct in the body of request
 
@@ -1380,13 +1611,24 @@ Allows you to create new employees used in Xero payrun
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 employees = { employees:[ { firstName:"Nick", lastName:"Fury", externalLink:{ url:"http://twitter.com/#!/search/Nick+Fury" } } ] } # Employees | Employees with array of Employee object in body of request
 opts = {
@@ -1436,13 +1678,24 @@ Allows you to create a history records of an ExpenseClaim
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 expense_claim_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ExpenseClaim
 history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
@@ -1490,13 +1743,24 @@ Allows you to retrieve expense claims
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 expense_claims = { expenseClaims:[ { status: ExpenseClaim.StatusEnum.SUBMITTED, user:{ userID:"d1164823-0ac1-41ad-987b-b4e30fe0b273" }, receipts:[ { receiptID:"dc1c7f6d-0a4c-402f-acac-551d62ce5816", lineItems:[], contact: {}, user: {}, date: "2018-01-01" } ] } ] } # ExpenseClaims | ExpenseClaims with array of ExpenseClaim object in body of request
 
@@ -1542,13 +1806,24 @@ Allows you to create an Attachment on invoices or purchase bills by it's filenam
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoice
 file_name = 'xero-dev.jpg' # String | Name of the file you are attaching
@@ -1602,13 +1877,24 @@ Allows you to retrieve a history records of an invoice
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoice
 history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
@@ -1656,13 +1942,24 @@ Allows you to create one or more sales invoices or purchase bills
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 invoices = { invoices:[ { type: Invoice.TypeEnum.ACCREC, contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Acme Tires", quantity:2.0, unitAmount:20.0, accountCode:"000", taxType:"NONE", lineAmount:40.0 } ], date:"2019-03-11", dueDate:"2018-12-10", reference:"Website Design", status: Invoice.StatusEnum.DRAFT } ] } # Invoices | Invoices with an array of invoice objects in body of request
 opts = {
@@ -1714,13 +2011,24 @@ Allows you to create a history record for items
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 item_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Item
 history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
@@ -1768,13 +2076,24 @@ Allows you to create one or more items
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 items = { items:[ { code:"abcXYZ123", name:"HelloWorld11", description:"Foobar", inventoryAssetAccountCode:"140", purchaseDetails: {cOGSAccountCode:"500"} } ] } # Items | Items with an array of Item objects in body of request
 opts = {
@@ -1826,13 +2145,24 @@ Allows you to create linked transactions (billable expenses)
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 linked_transaction = { sourceTransactionID:"00000000-0000-0000-000-000000000000", sourceLineItemID:"00000000-0000-0000-000-000000000000"} # LinkedTransaction | LinkedTransaction object in body of request
 
@@ -1878,13 +2208,24 @@ Allows you to create a specified Attachment on ManualJournal by file name
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 manual_journal_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ManualJournal
 file_name = 'xero-dev.jpg' # String | The name of the file being attached to a ManualJournal
@@ -1934,13 +2275,24 @@ Allows you to create one or more manual journals
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 manual_journals = { manualJournals:[ { narration:"Foo bar", journalLines:[ { lineAmount:100.0, accountCode:"400", description:"Hello there" }, { lineAmount:-100.0, accountCode:"400", description:"Goodbye", tracking:[ { name:"Simpsons", option:"Bart" } ] } ], date:"2019-03-14" } ] } # ManualJournals | ManualJournals array with ManualJournal object in body of request
 opts = {
@@ -1990,13 +2342,24 @@ Allows you to create a single allocation for an overpayment
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 overpayment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Overpayment
 allocations = { allocations:[ { invoice:{ invoiceID:"00000000-0000-0000-000-000000000000", lineItems:[], contact: {}, type: Invoice.TypeEnum.ACCPAY }, amount:1.0, date:"2019-03-12" } ] } # Allocations | Allocations array with Allocation object in body of request
@@ -2048,13 +2411,24 @@ Allows you to create history records of an Overpayment
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 overpayment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Overpayment
 history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
@@ -2102,13 +2476,24 @@ Allows you to create a single payment for invoices or credit notes
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 payment = { invoice:{ invoiceID:"00000000-0000-0000-000-000000000000", lineItems:[], contact: {}, type: Invoice.TypeEnum.ACCPAY }, account:{ code:"970" }, date:"2019-03-12", amount:1.0 } # Payment | Request body with a single Payment object
 
@@ -2154,13 +2539,24 @@ Allows you to create a history record for a payment
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 payment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Payment
 history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
@@ -2208,13 +2604,24 @@ Allows you to create payment services
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 payment_services = { paymentServices:[ { paymentServiceName:"PayUpNow", paymentServiceUrl:"https://www.payupnow.com/", payNowText:"Time To Pay" } ] } # PaymentServices | PaymentServices array with PaymentService object in body of request
 
@@ -2260,13 +2667,24 @@ Allows you to create multiple payments for invoices or credit notes
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 payments = { payments:[ { invoice:{ invoiceID:"00000000-0000-0000-000-000000000000", lineItems:[], contact: {}, type: Invoice.TypeEnum.ACCPAY }, account:{ code:"970" }, date:"2019-03-12", amount:1.0 } ] } # Payments | Payments array with Payment object in body of request
 
@@ -2312,13 +2730,24 @@ Allows you to create an Allocation for prepayments
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 prepayment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Prepayment
 allocations = { allocations:[ { invoice:{ invoiceID:"00000000-0000-0000-000-000000000000", lineItems:[], contact: {}, type: null }, amount:1.0, date:"2019-03-13" } ] } # Allocations | Allocations with an array of Allocation object in body of request
@@ -2370,13 +2799,24 @@ Allows you to create a history record for an Prepayment
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 prepayment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a PrePayment
 history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
@@ -2424,13 +2864,24 @@ Allows you to create HistoryRecord for purchase orders
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 purchase_order_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a PurchaseOrder
 history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
@@ -2478,13 +2929,24 @@ Allows you to create one or more purchase orders
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 purchase_orders = { purchaseOrders:[ { contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity:1.0, unitAmount:20.0, accountCode:"710" } ], date:"2019-03-13" } ] } # PurchaseOrders | PurchaseOrders with an array of PurchaseOrder object in body of request
 opts = {
@@ -2534,13 +2996,24 @@ Allows you to create Attachment on Quote
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 quote_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Quote object
 file_name = 'xero-dev.jpg' # String | Name of the attachment
@@ -2590,13 +3063,24 @@ Allows you to retrieve a history records of an quote
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 quote_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Quote
 history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
@@ -2644,13 +3128,24 @@ Allows you to create one or more quotes
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 quotes = { quotes:[ { contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity:1.0, unitAmount:20.0, accountCode:"12775" } ], date:"2020-02-01" } ] } # Quotes | Quotes with an array of Quote object in body of request
 opts = {
@@ -2700,13 +3195,24 @@ Allows you to create draft expense claim receipts for any user
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 receipts = { receipts:[ { contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity:2.0, unitAmount:20.0, accountCode:"400", taxType:"NONE", lineAmount:40.0 } ], user:{ userID:"00000000-0000-0000-000-000000000000" }, lineAmountTypes: LineAmountTypes.Inclusive, status: Receipt.StatusEnum.DRAFT , date: null} ] } # Receipts | Receipts with an array of Receipt object in body of request
 opts = {
@@ -2756,13 +3262,24 @@ Allows you to create Attachment on expense claim receipts by file name
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 receipt_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Receipt
 file_name = 'xero-dev.jpg' # String | The name of the file being attached to the Receipt
@@ -2812,13 +3329,24 @@ Allows you to retrieve a history records of an Receipt
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 receipt_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Receipt
 history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
@@ -2866,13 +3394,24 @@ Allows you to create attachment on repeating invoices by file name
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 repeating_invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Repeating Invoice
 file_name = 'xero-dev.jpg' # String | The name of the file being attached to a Repeating Invoice
@@ -2922,13 +3461,24 @@ Allows you to create history for a repeating invoice
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 repeating_invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Repeating Invoice
 history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
@@ -2976,13 +3526,24 @@ Allows you to create one or more Tax Rates
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 tax_rates = { taxRates:[ { name:"CA State Tax", taxComponents:[ { name:"State Tax", rate:2.25 } ] } ] } # TaxRates | TaxRates array with TaxRate object in body of request
 
@@ -3028,13 +3589,24 @@ Allows you to create tracking categories
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 tracking_category = { name:"FooBar" } # TrackingCategory | TrackingCategory object in body of request
 
@@ -3080,13 +3652,24 @@ Allows you to create options for a specified tracking category
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 tracking_category_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a TrackingCategory
 tracking_option = { name:"Bar" } # TrackingOption | TrackingOption object in body of request
@@ -3134,13 +3717,24 @@ Allows you to delete a chart of accounts
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 account_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for retrieving single object
 
@@ -3186,13 +3780,24 @@ Allows you to delete a specific Contact from a Contact Group
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_group_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact Group
 contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
@@ -3239,13 +3844,24 @@ Allows you to delete  all Contacts from a Contact Group
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_group_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact Group
 
@@ -3290,13 +3906,24 @@ Allows you to delete a specified item
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 item_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Item
 
@@ -3341,13 +3968,24 @@ Allows you to delete a specified linked transactions (billable expenses)
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 linked_transaction_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a LinkedTransaction
 
@@ -3392,13 +4030,24 @@ Allows you to update a specified payment for invoices and credit notes
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 payment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Payment
 payment_delete = { status:"DELETED" } # PaymentDelete | 
@@ -3446,13 +4095,24 @@ Allows you to delete tracking categories
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 tracking_category_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a TrackingCategory
 
@@ -3498,13 +4158,24 @@ Allows you to delete a specified option for a specified tracking category
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 tracking_category_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a TrackingCategory
 tracking_option_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Tracking Option
@@ -3552,13 +4223,24 @@ Allows you to email a copy of invoice to related Contact
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoice
 request_empty = {} # RequestEmpty | 
@@ -3605,13 +4287,24 @@ Allows you to retrieve a single chart of accounts
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 account_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for retrieving single object
 
@@ -3657,13 +4350,24 @@ Allows you to retrieve Attachment on Account by Filename
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 account_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Account object
 file_name = 'xero-dev.jpg' # String | Name of the attachment
@@ -3713,13 +4417,24 @@ Allows you to retrieve specific Attachment on Account
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 account_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Account object
 attachment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Attachment object
@@ -3769,13 +4484,24 @@ Allows you to retrieve Attachments for accounts
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 account_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Account object
 
@@ -3821,13 +4547,24 @@ Allows you to retrieve the full chart of accounts
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
@@ -3879,13 +4616,24 @@ Allows you to retrieve a single spend or receive money transaction
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transaction_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transaction
 opts = {
@@ -3935,13 +4683,24 @@ Allows you to retrieve Attachments on BankTransaction by Filename
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transaction_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transaction
 file_name = 'xero-dev.jpg' # String | The name of the file being attached
@@ -3991,13 +4750,24 @@ Allows you to retrieve Attachments on a specific BankTransaction
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transaction_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transaction
 attachment_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for an attachment
@@ -4047,13 +4817,24 @@ Allows you to retrieve any attachments to bank transactions
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transaction_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transaction
 
@@ -4099,13 +4880,24 @@ Allows you to retrieve any spend or receive money transactions
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
@@ -4161,13 +4953,24 @@ Allows you to retrieve history from a bank transactions
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transaction_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transaction
 
@@ -4213,13 +5016,24 @@ Allows you to retrieve any bank transfers
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transfer_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transfer
 
@@ -4265,13 +5079,24 @@ Allows you to retrieve Attachments on BankTransfer by file name
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transfer_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transfer
 file_name = 'xero-dev.jpg' # String | The name of the file being attached to a Bank Transfer
@@ -4321,13 +5146,24 @@ Allows you to retrieve Attachments on BankTransfer
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transfer_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transfer
 attachment_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for an Attachment to a bank transfer
@@ -4377,13 +5213,24 @@ Allows you to retrieve Attachments from  bank transfers
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transfer_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transfer
 
@@ -4429,13 +5276,24 @@ Allows you to retrieve history from a bank transfers
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transfer_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transfer
 
@@ -4481,13 +5339,24 @@ Allows you to retrieve all bank transfers
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
@@ -4539,13 +5408,24 @@ Allows you to retrieve history from a Batch Payment
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 batch_payment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for BatchPayment
 
@@ -4591,13 +5471,24 @@ Retrieve either one or many BatchPayments for invoices
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
@@ -4649,13 +5540,24 @@ Allows you to retrieve a specific BrandingThemes
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 branding_theme_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Branding Theme
 
@@ -4701,13 +5603,24 @@ Allows you to retrieve the Payment services for a Branding Theme
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 branding_theme_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Branding Theme
 
@@ -4753,13 +5666,24 @@ Allows you to retrieve all the BrandingThemes
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 
 begin
@@ -4803,13 +5727,24 @@ Allows you to retrieve, add and update contacts in a Xero organisation
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
 
@@ -4855,13 +5790,24 @@ Allows you to retrieve Attachments on Contacts by file name
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
 file_name = 'xero-dev.jpg' # String | Name for the file you are attaching
@@ -4911,13 +5857,24 @@ Allows you to retrieve Attachments on Contacts
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
 attachment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Attachment
@@ -4967,13 +5924,24 @@ Allows you to retrieve, add and update contacts in a Xero organisation
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
 
@@ -5019,13 +5987,24 @@ Allows you to retrieve CISSettings for a contact in a Xero organisation
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
 
@@ -5071,13 +6050,24 @@ Allows you to retrieve a unique Contact Group by ID
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_group_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact Group
 
@@ -5123,13 +6113,24 @@ Allows you to retrieve the ContactID and Name of all the contacts in a contact g
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   where: 'Status==\"' + ContactGroup.StatusEnum.ACTIVE + '\"', # String | Filter by an any element
@@ -5179,13 +6180,24 @@ Allows you to retrieve a history records of an Contact
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
 
@@ -5231,13 +6243,24 @@ Allows you to retrieve, add and update contacts in a Xero organisation
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
@@ -5295,13 +6318,24 @@ Allows you to retrieve a specific credit note
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 credit_note_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Credit Note
 opts = {
@@ -5351,13 +6385,24 @@ Allows you to retrieve Credit Note as PDF files
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 credit_note_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Credit Note
 
@@ -5403,13 +6448,24 @@ Allows you to retrieve Attachments on CreditNote by file name
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 credit_note_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Credit Note
 file_name = 'xero-dev.jpg' # String | Name of the file you are attaching to Credit Note
@@ -5459,13 +6515,24 @@ Allows you to retrieve Attachments on CreditNote
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 credit_note_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Credit Note
 attachment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Attachment
@@ -5515,13 +6582,24 @@ Allows you to retrieve Attachments for credit notes
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 credit_note_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Credit Note
 
@@ -5567,13 +6645,24 @@ Allows you to retrieve a history records of an CreditNote
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 credit_note_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Credit Note
 
@@ -5619,13 +6708,24 @@ Allows you to retrieve any credit notes
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
@@ -5681,13 +6781,24 @@ Allows you to retrieve currencies for your organisation
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   where: 'Status==\"' + Currency.StatusEnum.ACTIVE + '\"', # String | Filter by an any element
@@ -5737,13 +6848,24 @@ Allows you to retrieve a specific employee used in Xero payrun
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 employee_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Employee
 
@@ -5789,13 +6911,24 @@ Allows you to retrieve employees used in Xero payrun
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
@@ -5847,13 +6980,24 @@ Allows you to retrieve a specified expense claim
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 expense_claim_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ExpenseClaim
 
@@ -5899,13 +7043,24 @@ Allows you to retrieve a history records of an ExpenseClaim
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 expense_claim_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ExpenseClaim
 
@@ -5951,13 +7106,24 @@ Allows you to retrieve expense claims
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
@@ -6009,13 +7175,24 @@ Allows you to retrieve a specified sales invoice or purchase bill
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoice
 opts = {
@@ -6065,13 +7242,24 @@ Allows you to retrieve invoices or purchase bills as PDF files
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoice
 
@@ -6117,13 +7305,24 @@ Allows you to retrieve Attachment on invoices or purchase bills by it's filename
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoice
 file_name = 'xero-dev.jpg' # String | Name of the file you are attaching
@@ -6173,13 +7372,24 @@ Allows you to retrieve a specified Attachment on invoices or purchase bills by i
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoice
 attachment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Attachment
@@ -6229,13 +7439,24 @@ Allows you to retrieve Attachments on invoices or purchase bills
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoice
 
@@ -6281,13 +7502,24 @@ Allows you to retrieve a history records of an invoice
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoice
 
@@ -6333,13 +7565,24 @@ Allows you to retrieve invoice reminder settings
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 
 begin
@@ -6383,13 +7626,24 @@ Allows you to retrieve any sales invoices or purchase bills
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
@@ -6457,13 +7711,24 @@ Allows you to retrieve a specified item
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 item_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Item
 opts = {
@@ -6513,13 +7778,24 @@ Allows you to retrieve history for items
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 item_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Item
 
@@ -6565,13 +7841,24 @@ Allows you to retrieve any items
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
@@ -6625,13 +7912,24 @@ Allows you to retrieve a specified journals.
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 journal_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Journal
 
@@ -6677,13 +7975,24 @@ Allows you to retrieve any journals.
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
@@ -6735,13 +8044,24 @@ Allows you to retrieve a specified linked transactions (billable expenses)
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 linked_transaction_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a LinkedTransaction
 
@@ -6787,13 +8107,24 @@ Retrieve linked transactions (billable expenses)
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   page: 1, # Integer | Up to 100 linked transactions will be returned in a single API call. Use the page parameter to specify the page to be returned e.g. page=1.
@@ -6851,13 +8182,24 @@ Allows you to retrieve a specified manual journals
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 manual_journal_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ManualJournal
 
@@ -6903,13 +8245,24 @@ Allows you to retrieve specified Attachment on ManualJournal by file name
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 manual_journal_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ManualJournal
 file_name = 'xero-dev.jpg' # String | The name of the file being attached to a ManualJournal
@@ -6959,13 +8312,24 @@ Allows you to retrieve specified Attachment on ManualJournals
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 manual_journal_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ManualJournal
 attachment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Attachment
@@ -7015,13 +8379,24 @@ Allows you to retrieve Attachment for manual journals
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 manual_journal_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ManualJournal
 
@@ -7067,13 +8442,24 @@ Allows you to retrieve any manual journals
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
@@ -7127,13 +8513,24 @@ Allows you to retrieve a URL to an online invoice
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoice
 
@@ -7179,13 +8576,24 @@ Allows you To verify if an organisation is using contruction industry scheme, yo
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 organisation_id = '00000000-0000-0000-000-000000000000' # String | The unique Xero identifier for an organisation
 
@@ -7231,13 +8639,24 @@ Allows you to retrieve Organisation details
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 
 begin
@@ -7281,13 +8700,24 @@ Allows you to retrieve a specified overpayments
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 overpayment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Overpayment
 
@@ -7333,13 +8763,24 @@ Allows you to retrieve a history records of an Overpayment
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 overpayment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Overpayment
 
@@ -7385,13 +8826,24 @@ Allows you to retrieve overpayments
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
@@ -7447,13 +8899,24 @@ Allows you to retrieve a specified payment for invoices and credit notes
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 payment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Payment
 
@@ -7499,13 +8962,24 @@ Allows you to retrieve history records of a payment
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 payment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Payment
 
@@ -7551,13 +9025,24 @@ Allows you to retrieve payment services
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 
 begin
@@ -7601,13 +9086,24 @@ Allows you to retrieve payments for invoices and credit notes
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
@@ -7659,13 +9155,24 @@ Allows you to retrieve a specified prepayments
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 prepayment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a PrePayment
 
@@ -7711,13 +9218,24 @@ Allows you to retrieve a history records of an Prepayment
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 prepayment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a PrePayment
 
@@ -7763,13 +9281,24 @@ Allows you to retrieve prepayments
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
@@ -7825,13 +9354,24 @@ Allows you to retrieve a specified purchase orders
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 purchase_order_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a PurchaseOrder
 
@@ -7877,13 +9417,24 @@ Allows you to retrieve purchase orders as PDF files
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 purchase_order_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Purchase Order
 
@@ -7929,13 +9480,24 @@ Allows you to retrieve a specified purchase orders
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 purchase_order_number = 'PO1234' # String | Unique identifier for a PurchaseOrder
 
@@ -7981,13 +9543,24 @@ Allows you to retrieve history for PurchaseOrder
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 purchase_order_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a PurchaseOrder
 
@@ -8033,13 +9606,24 @@ Allows you to retrieve purchase orders
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
@@ -8097,13 +9681,24 @@ Allows you to retrieve a specified quote
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 quote_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Quote
 
@@ -8149,13 +9744,24 @@ Allows you to retrieve quotes as PDF files
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 quote_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Quote
 
@@ -8201,13 +9807,24 @@ Allows you to retrieve Attachment on Quote by Filename
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 quote_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Quote object
 file_name = 'xero-dev.jpg' # String | Name of the attachment
@@ -8257,13 +9874,24 @@ Allows you to retrieve specific Attachment on Quote
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 quote_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Quote object
 attachment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Attachment object
@@ -8313,13 +9941,24 @@ Allows you to retrieve Attachments for Quotes
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 quote_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Quote object
 
@@ -8365,13 +10004,24 @@ Allows you to retrieve a history records of an quote
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 quote_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Quote
 
@@ -8417,13 +10067,24 @@ Allows you to retrieve any sales quotes
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
@@ -8487,13 +10148,24 @@ Allows you to retrieve a specified draft expense claim receipts
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 receipt_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Receipt
 opts = {
@@ -8543,13 +10215,24 @@ Allows you to retrieve Attachments on expense claim receipts by file name
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 receipt_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Receipt
 file_name = 'xero-dev.jpg' # String | The name of the file being attached to the Receipt
@@ -8599,13 +10282,24 @@ Allows you to retrieve Attachments on expense claim receipts by ID
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 receipt_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Receipt
 attachment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Attachment
@@ -8655,13 +10349,24 @@ Allows you to retrieve Attachments for expense claim receipts
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 receipt_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Receipt
 
@@ -8707,13 +10412,24 @@ Allows you to retrieve a history records of an Receipt
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 receipt_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Receipt
 
@@ -8759,13 +10475,24 @@ Allows you to retrieve draft expense claim receipts for any user
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
@@ -8819,13 +10546,24 @@ Allows you to retrieve a specified repeating invoice
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 repeating_invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Repeating Invoice
 
@@ -8871,13 +10609,24 @@ Allows you to retrieve specified attachment on repeating invoices by file name
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 repeating_invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Repeating Invoice
 file_name = 'xero-dev.jpg' # String | The name of the file being attached to a Repeating Invoice
@@ -8927,13 +10676,24 @@ Allows you to retrieve a specified Attachments on repeating invoices
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 repeating_invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Repeating Invoice
 attachment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Attachment
@@ -8983,13 +10743,24 @@ Allows you to retrieve Attachments on repeating invoice
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 repeating_invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Repeating Invoice
 
@@ -9035,13 +10806,24 @@ Allows you to retrieve history for a repeating invoice
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 repeating_invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Repeating Invoice
 
@@ -9087,13 +10869,24 @@ Allows you to retrieve any repeating invoices
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   where: 'Status==\"' + RepeatingInvoice.StatusEnum.DRAFT + '\"', # String | Filter by an any element
@@ -9143,13 +10936,24 @@ Allows you to retrieve report for AgedPayablesByContact
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
 opts = {
@@ -9203,13 +11007,24 @@ Allows you to retrieve report for AgedReceivablesByContact
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
 opts = {
@@ -9263,13 +11078,24 @@ Allows you to retrieve report for BAS only valid for AU orgs
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 report_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Report
 
@@ -9315,13 +11141,24 @@ Allows you to retrieve report for BAS only valid for AU orgs
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 
 begin
@@ -9365,13 +11202,24 @@ Allows you to retrieve report for BalanceSheet
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   date: '2019-11-01', # String | The date of the Balance Sheet report
@@ -9431,13 +11279,24 @@ Allows you to retrieve report for BankSummary
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   from_date: Date.parse('2019-11-01'), # Date | The from date for the Bank Summary report e.g. 2018-03-31
@@ -9487,13 +11346,24 @@ Allows you to retrieve report for Budget Summary
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   date: Date.parse('2019-03-31'), # Date | The date for the Bank Summary report e.g. 2018-03-31
@@ -9545,13 +11415,24 @@ Allows you to retrieve report for ExecutiveSummary
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   date: Date.parse('2019-03-31') # Date | The date for the Bank Summary report e.g. 2018-03-31
@@ -9599,13 +11480,24 @@ Allows you to retrieve report for ProfitAndLoss
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   from_date: Date.parse('2019-03-01'), # Date | The from date for the ProfitAndLoss report e.g. 2018-03-31
@@ -9671,13 +11563,24 @@ Allows you to retrieve report for TenNinetyNine
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   report_year: '2019' # String | The year of the 1099 report
@@ -9725,13 +11628,24 @@ Allows you to retrieve report for TrialBalance
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   date: Date.parse('2019-10-31'), # Date | The date for the Trial Balance report e.g. 2018-03-31
@@ -9781,13 +11695,24 @@ Allows you to retrieve Tax Rates
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   where: 'Status==\"' + TaxRate.StatusEnum.ACTIVE + '\"', # String | Filter by an any element
@@ -9839,13 +11764,24 @@ Allows you to retrieve tracking categories and options
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   where: 'Status==\"' + TrackingCategory.StatusEnum.ACTIVE + '\"', # String | Filter by an any element
@@ -9897,13 +11833,24 @@ Allows you to retrieve tracking categories and options for specified category
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 tracking_category_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a TrackingCategory
 
@@ -9949,13 +11896,24 @@ Allows you to retrieve a specified user
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 user_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a User
 
@@ -10001,13 +11959,24 @@ Allows you to retrieve users
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
@@ -10059,13 +12028,24 @@ Allows you to update a chart of accounts
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 account_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for retrieving single object
 accounts = { accounts:[ { code:"123456", name:"BarFoo", accountID:"00000000-0000-0000-000-000000000000", type:AccountType.EXPENSE, description:"GoodBye World", taxType:"INPUT" } ] } # Accounts | Request of type Accounts array with one Account
@@ -10113,13 +12093,24 @@ Allows you to update Attachment on Account by Filename
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 account_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Account object
 file_name = 'xero-dev.jpg' # String | Name of the attachment
@@ -10169,13 +12160,24 @@ Allows you to update a single spend or receive money transaction
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transaction_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transaction
 bank_transactions = { bankTransactions:[ { type: BankTransaction.TypeEnum.SPEND, date:"2019-02-25", reference:"You just updated", status:BankTransaction.StatusEnum.AUTHORISED, bankTransactionID:"00000000-0000-0000-000-000000000000", lineItems: [],contact: {}, bankAccount: {accountID: "00000000-0000-0000-000-000000000000"} } ] } # BankTransactions | 
@@ -10227,13 +12229,24 @@ Allows you to update an Attachment on BankTransaction by Filename
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transaction_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transaction
 file_name = 'xero-dev.jpg' # String | The name of the file being attached
@@ -10283,13 +12296,24 @@ Name | Type | Description  | Notes
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transfer_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transfer
 file_name = 'xero-dev.jpg' # String | The name of the file being attached to a Bank Transfer
@@ -10338,13 +12362,24 @@ Name | Type | Description  | Notes
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
 contacts = { contacts:[ { contactID:"00000000-0000-0000-000-000000000000", name:"Thanos" } ] } # Contacts | an array of Contacts containing single Contact object with properties to update
@@ -10391,13 +12426,24 @@ Name | Type | Description  | Notes
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
 file_name = 'xero-dev.jpg' # String | Name for the file you are attaching
@@ -10446,13 +12492,24 @@ Allows you to update a Contact Group
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_group_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact Group
 contact_groups = { contactGroups:[ { name:"Vendor" } ] } # ContactGroups | an array of Contact groups with Name of specific group to update
@@ -10500,13 +12557,24 @@ Allows you to update a specific credit note
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 credit_note_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Credit Note
 credit_notes = { creditNotes:[ { type:CreditNote.TypeEnum.ACCPAYCREDIT, contact:{ contactID:"00000000-0000-0000-000-000000000000" }, date:"2019-01-05", status: CreditNote.StatusEnum.AUTHORISED, reference: "Mind stone", lineItems:[ { description:"Infinity Stones", quantity:1.0, unitAmount:100.0, accountCode:"400" } ] } ] } # CreditNotes | an array of Credit Notes containing credit note details to update
@@ -10558,13 +12626,24 @@ Allows you to update Attachments on CreditNote by file name
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 credit_note_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Credit Note
 file_name = 'xero-dev.jpg' # String | Name of the file you are attaching to Credit Note
@@ -10614,13 +12693,24 @@ Allows you to update specified expense claims
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 expense_claim_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ExpenseClaim
 expense_claims = { expenseClaims:[ { status:ExpenseClaim.StatusEnum.AUTHORISED, user:{ userID:"00000000-0000-0000-000-000000000000" }, receipts:[ { receiptID:"00000000-0000-0000-000-000000000000", lineItems: [], contact: {}, date:"2020-01-01", user:{} } ] } ] } # ExpenseClaims | 
@@ -10668,13 +12758,24 @@ Allows you to update a specified sales invoices or purchase bills
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoice
 invoices = { invoices:[ { reference:"I am Iron Man", invoiceID:"00000000-0000-0000-000-000000000000", lineItems: [],contact: {},type: Invoice.TypeEnum.ACCPAY } ] } # Invoices | 
@@ -10726,13 +12827,24 @@ Allows you to update Attachment on invoices or purchase bills by it's filename
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoice
 file_name = 'xero-dev.jpg' # String | Name of the file you are attaching
@@ -10782,13 +12894,24 @@ Allows you to update a specified item
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 item_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Item
 items = { items:[ { code:"abc123", description:"Hello Xero" } ] } # Items | 
@@ -10840,13 +12963,24 @@ Allows you to update a specified linked transactions (billable expenses)
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 linked_transaction_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a LinkedTransaction
 linked_transactions = { linkedTransactions:[ {sourceLineItemID:"00000000-0000-0000-000-000000000000", contactID:"00000000-0000-0000-000-000000000000" } ] } # LinkedTransactions | 
@@ -10894,13 +13028,24 @@ Allows you to update a specified manual journal
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 manual_journal_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ManualJournal
 manual_journals = { manualJournals:[ { narration:"Hello Xero", manualJournalID:"00000000-0000-0000-000-000000000000",journalLines:[] } ] } # ManualJournals | 
@@ -10948,13 +13093,24 @@ Allows you to update a specified Attachment on ManualJournal by file name
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 manual_journal_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ManualJournal
 file_name = 'xero-dev.jpg' # String | The name of the file being attached to a ManualJournal
@@ -11004,13 +13160,24 @@ Allows you to update or create one or more spend or receive money transaction
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transactions = { bankTransactions:[ { type: BankTransaction.TypeEnum.SPEND, contact: { contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity: 1.0, unitAmount:20.0, accountCode:"000" } ], bankAccount:{ code:"000" } } ] } # BankTransactions | 
 opts = {
@@ -11062,13 +13229,24 @@ Allows you to update OR create one or more contacts in a Xero organisation
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contacts = {contacts: [{ name:"Bruce Banner", emailAddress:"hulk@avengers.com", phones:[ { phoneType: Phone.PhoneTypeEnum.MOBILE, phoneNumber:"555-1212", phoneAreaCode:"415" } ], paymentTerms:{ bills:{ day:15, type: PaymentTermType.OFCURRENTMONTH }, sales:{ day:10, type: PaymentTermType.DAYSAFTERBILLMONTH } } } ] } # Contacts | 
 opts = {
@@ -11118,13 +13296,24 @@ Allows you to update OR create one or more credit notes
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 credit_notes = { creditNotes:[ { type: CreditNote.TypeEnum.ACCPAYCREDIT, contact:{ contactID:"00000000-0000-0000-000-000000000000" }, date:"2019-01-05", lineItems:[ { description:"Foobar", quantity:2.0, unitAmount:20.0, accountCode:"400" } ] } ] } # CreditNotes | an array of Credit Notes with a single CreditNote object.
 opts = {
@@ -11176,13 +13365,24 @@ Allows you to create a single new employees used in Xero payrun
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 employees = { employees:[ { firstName:"Nick", lastName:"Fury", externalLink:{ url:"http://twitter.com/#!/search/Nick+Fury" } } ] } # Employees | Employees with array of Employee object in body of request
 opts = {
@@ -11232,13 +13432,24 @@ Allows you to update OR create one or more sales invoices or purchase bills
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 invoices = { invoices:[ { type: Invoice.TypeEnum.ACCREC, contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Acme Tires", quantity:2.0, unitAmount:20.0, accountCode:"200", taxType:"NONE", lineAmount:40.0 } ], date:"2019-03-11", dueDate:"2018-12-10", reference:"Website Design", status: Invoice.StatusEnum.AUTHORISED } ] } # Invoices | 
 opts = {
@@ -11290,13 +13501,24 @@ Allows you to update or create one or more items
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 items = { items:[ { code:"abcXYZ", name:"HelloWorld", description:"Foobar" } ] } # Items | 
 opts = {
@@ -11348,13 +13570,24 @@ Allows you to create a single manual journal
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 manual_journals = { manualJournals:[ { narration:"Foo bar", journalLines:[ { lineAmount:100.0, accountCode:"400", description:"Hello there" }, { lineAmount:-100.0, accountCode:"400", description:"Goodbye", tracking:[ { name:"Simpsons", option:"Bart" } ] } ], date:"2019-03-14" } ] } # ManualJournals | ManualJournals array with ManualJournal object in body of request
 opts = {
@@ -11404,13 +13637,24 @@ Allows you to update or create one or more purchase orders
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 purchase_orders = { purchaseOrders:[ { contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity:1.0, unitAmount:20.0, accountCode:"710" } ], date:"2019-03-13" } ] } # PurchaseOrders | 
 opts = {
@@ -11460,13 +13704,24 @@ Allows you to update OR create one or more quotes
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 quotes = { quotes:[ { contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity:1.0, unitAmount:20.0, accountCode:"12775" } ], date:"2020-02-01" } ] } # Quotes | 
 opts = {
@@ -11516,13 +13771,24 @@ Allows you to update a specified purchase order
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 purchase_order_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a PurchaseOrder
 purchase_orders = { purchaseOrders:[ { attentionTo:"Peter Parker",lineItems: [],contact: {} } ] } # PurchaseOrders | 
@@ -11570,13 +13836,24 @@ Allows you to update a specified quote
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 quote_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Quote
 quotes = {quotes:[{reference:"I am an update",contact:{contactID:"00000000-0000-0000-000-000000000000"},date:"2020-02-01"}]} # Quotes | 
@@ -11624,13 +13901,24 @@ Allows you to update Attachment on Quote by Filename
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 quote_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Quote object
 file_name = 'xero-dev.jpg' # String | Name of the attachment
@@ -11680,13 +13968,24 @@ Allows you to retrieve a specified draft expense claim receipts
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 receipt_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Receipt
 receipts = { receipts:[ { user:{ userID:"00000000-0000-0000-000-000000000000" }, reference:"Foobar", date: "2020-01-01",contact: {},lineItems: []} ] } # Receipts | 
@@ -11738,13 +14037,24 @@ Allows you to update Attachment on expense claim receipts by file name
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 receipt_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Receipt
 file_name = 'xero-dev.jpg' # String | The name of the file being attached to the Receipt
@@ -11794,13 +14104,24 @@ Allows you to update specified attachment on repeating invoices by file name
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 repeating_invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Repeating Invoice
 file_name = 'xero-dev.jpg' # String | The name of the file being attached to a Repeating Invoice
@@ -11850,13 +14171,24 @@ Allows you to update Tax Rates
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 tax_rates = { taxRates:[ { name:"State Tax NY", taxComponents:[ { name:"State Tax", rate:2.25 } ], status:"DELETED", reportTaxType:"INPUT" } ] } # TaxRates | 
 
@@ -11902,13 +14234,24 @@ Allows you to update tracking categories
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 tracking_category_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a TrackingCategory
 tracking_category = { name:"Avengers" } # TrackingCategory | 
@@ -11956,13 +14299,24 @@ Allows you to update options for a specified tracking category
 ```ruby
 # load the gem
 require 'xero-ruby'
-# setup authorization
-XeroRuby::Accounting.configure do |config|
-  # Configure OAuth2 access token for authorization: OAuth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
-api_instance = XeroRuby::Accounting::AccountingApi.new
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 tracking_category_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a TrackingCategory
 tracking_option_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Tracking Option
