@@ -24,7 +24,6 @@ Please note that this project is released with a [Contributor Code of Conduct](h
 ## I don't want to read this whole thing I just have a question!!!
 
 > **Note:** Please don't file an issue to ask a question. You'll get faster results by using the resources below.
-
 We have an official [message board](https://community.xero.com/developer) where Xero API support and the community chimes in with helpful advice if you have questions.
 
 * [API Documentation](https://developer.xero.com/documentation/)
@@ -77,7 +76,6 @@ We are using [OpenAPI Generator](https://github.com/OpenAPITools/openapi-generat
 Xero's supported SDK's are mostly auto-generated based on an [OpenAPISpec](https://github.com/XeroAPI/Xero-OpenAPI) that utilizes [openapi-generator](https://github.com/OpenAPITools/openapi-generator).
 > You can read more about our process here: https://devblog.xero.com/building-sdks-for-the-future-b79ff726dfd6
 ### Style Guide
-
 * 2 spaces for indentation rather than tabs
 
 ## License
