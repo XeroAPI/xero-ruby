@@ -88,7 +88,7 @@ Method | HTTP request | Description
 [**get_branding_theme**](AccountingApi.md#get_branding_theme) | **GET** /BrandingThemes/{BrandingThemeID} | Allows you to retrieve a specific BrandingThemes
 [**get_branding_theme_payment_services**](AccountingApi.md#get_branding_theme_payment_services) | **GET** /BrandingThemes/{BrandingThemeID}/PaymentServices | Allows you to retrieve the Payment services for a Branding Theme
 [**get_branding_themes**](AccountingApi.md#get_branding_themes) | **GET** /BrandingThemes | Allows you to retrieve all the BrandingThemes
-[**get_contact**](AccountingApi.md#get_contact) | **GET** /Contacts/{ContactID} | Allows you to retrieve, add and update contacts in a Xero organisation
+[**get_contact**](AccountingApi.md#get_contact) | **GET** /Contacts/{ContactID} | Allows you to retrieve a single contacts in a Xero organisation
 [**get_contact_attachment_by_file_name**](AccountingApi.md#get_contact_attachment_by_file_name) | **GET** /Contacts/{ContactID}/Attachments/{FileName} | Allows you to retrieve Attachments on Contacts by file name
 [**get_contact_attachment_by_id**](AccountingApi.md#get_contact_attachment_by_id) | **GET** /Contacts/{ContactID}/Attachments/{AttachmentID} | Allows you to retrieve Attachments on Contacts
 [**get_contact_attachments**](AccountingApi.md#get_contact_attachments) | **GET** /Contacts/{ContactID}/Attachments | Allows you to retrieve, add and update contacts in a Xero organisation
@@ -96,7 +96,7 @@ Method | HTTP request | Description
 [**get_contact_group**](AccountingApi.md#get_contact_group) | **GET** /ContactGroups/{ContactGroupID} | Allows you to retrieve a unique Contact Group by ID
 [**get_contact_groups**](AccountingApi.md#get_contact_groups) | **GET** /ContactGroups | Allows you to retrieve the ContactID and Name of all the contacts in a contact group
 [**get_contact_history**](AccountingApi.md#get_contact_history) | **GET** /Contacts/{ContactID}/History | Allows you to retrieve a history records of an Contact
-[**get_contacts**](AccountingApi.md#get_contacts) | **GET** /Contacts | Allows you to retrieve, add and update contacts in a Xero organisation
+[**get_contacts**](AccountingApi.md#get_contacts) | **GET** /Contacts | Allows you to retrieve all contacts in a Xero organisation
 [**get_credit_note**](AccountingApi.md#get_credit_note) | **GET** /CreditNotes/{CreditNoteID} | Allows you to retrieve a specific credit note
 [**get_credit_note_as_pdf**](AccountingApi.md#get_credit_note_as_pdf) | **GET** /CreditNotes/{CreditNoteID}/pdf | Allows you to retrieve Credit Note as PDF files
 [**get_credit_note_attachment_by_file_name**](AccountingApi.md#get_credit_note_attachment_by_file_name) | **GET** /CreditNotes/{CreditNoteID}/Attachments/{FileName} | Allows you to retrieve Attachments on CreditNote by file name
@@ -141,6 +141,7 @@ Method | HTTP request | Description
 [**get_payment_services**](AccountingApi.md#get_payment_services) | **GET** /PaymentServices | Allows you to retrieve payment services
 [**get_payments**](AccountingApi.md#get_payments) | **GET** /Payments | Allows you to retrieve payments for invoices and credit notes
 [**get_prepayment**](AccountingApi.md#get_prepayment) | **GET** /Prepayments/{PrepaymentID} | Allows you to retrieve a specified prepayments
+[**get_prepayment_as_pdf**](AccountingApi.md#get_prepayment_as_pdf) | **GET** /Prepayments/{PrepaymentID}/pdf | Allows you to retrieve prepayments as PDF files
 [**get_prepayment_history**](AccountingApi.md#get_prepayment_history) | **GET** /Prepayments/{PrepaymentID}/History | Allows you to retrieve a history records of an Prepayment
 [**get_prepayments**](AccountingApi.md#get_prepayments) | **GET** /Prepayments | Allows you to retrieve prepayments
 [**get_purchase_order**](AccountingApi.md#get_purchase_order) | **GET** /PurchaseOrders/{PurchaseOrderID} | Allows you to retrieve a specified purchase orders
@@ -2658,7 +2659,7 @@ Name | Type | Description  | Notes
 
 ## create_payments
 
-> Payments create_payments(xero_tenant_id, payments)
+> Payments create_payments(xero_tenant_id, payments, opts)
 
 Allows you to create multiple payments for invoices or credit notes
 
@@ -2687,10 +2688,13 @@ api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 payments = { payments:[ { invoice:{ invoiceID:"00000000-0000-0000-000-000000000000", lineItems:[], contact: {}, type: Invoice.TypeEnum.ACCPAY }, account:{ code:"970" }, date:"2019-03-12", amount:1.0 } ] } # Payments | Payments array with Payment object in body of request
+opts = {
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+}
 
 begin
   #Allows you to create multiple payments for invoices or credit notes
-  result = api_instance.create_payments(xero_tenant_id, payments)
+  result = api_instance.create_payments(xero_tenant_id, payments, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
   puts "Exception when calling AccountingApi->create_payments: #{e}"
@@ -2704,6 +2708,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **payments** | [**Payments**](Payments.md)| Payments array with Payment object in body of request | 
+ **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -5720,7 +5725,7 @@ Name | Type | Description  | Notes
 
 > Contacts get_contact(xero_tenant_id, contact_id)
 
-Allows you to retrieve, add and update contacts in a Xero organisation
+Allows you to retrieve a single contacts in a Xero organisation
 
 ### Example
 
@@ -5749,7 +5754,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
 
 begin
-  #Allows you to retrieve, add and update contacts in a Xero organisation
+  #Allows you to retrieve a single contacts in a Xero organisation
   result = api_instance.get_contact(xero_tenant_id, contact_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -6236,7 +6241,7 @@ Name | Type | Description  | Notes
 
 > Contacts get_contacts(xero_tenant_id, opts)
 
-Allows you to retrieve, add and update contacts in a Xero organisation
+Allows you to retrieve all contacts in a Xero organisation
 
 ### Example
 
@@ -6272,7 +6277,7 @@ opts = {
 }
 
 begin
-  #Allows you to retrieve, add and update contacts in a Xero organisation
+  #Allows you to retrieve all contacts in a Xero organisation
   result = api_instance.get_contacts(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -9205,6 +9210,69 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
+
+
+## get_prepayment_as_pdf
+
+> File get_prepayment_as_pdf(xero_tenant_id, prepayment_id)
+
+Allows you to retrieve prepayments as PDF files
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# If using the Accounting API
+api_instance = xero_client.accounting_api
+# Or for methods in the Assets API
+api_instance = xero_client.asset_api
+
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+prepayment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a PrePayment
+
+begin
+  #Allows you to retrieve prepayments as PDF files
+  result = api_instance.get_prepayment_as_pdf(xero_tenant_id, prepayment_id)
+  p result
+rescue XeroRuby::Accounting::ApiError => e
+  puts "Exception when calling AccountingApi->get_prepayment_as_pdf: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **prepayment_id** | [**String**](.md)| Unique identifier for a PrePayment | 
+
+### Return type
+
+**File**
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/pdf
 
 
 ## get_prepayment_history

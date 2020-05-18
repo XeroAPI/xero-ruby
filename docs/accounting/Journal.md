@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **journal_id** | **String** | Xero identifier | [optional] 
 **journal_date** | **Date** | Date the journal was posted | [optional] 
-**journal_number** | **String** | Xero generated journal number | [optional] 
+**journal_number** | **Integer** | Xero generated journal number | [optional] 
 **created_date_utc** | **DateTime** | Created date UTC format | [optional] 
 **reference** | **String** | reference field for additional indetifying information | [optional] 
 **source_id** | **String** | The identifier for the source transaction (e.g. InvoiceID) | [optional] 
