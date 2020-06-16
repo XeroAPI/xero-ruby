@@ -165,7 +165,4 @@ The best resource to understanding how to best leverage this SDK is to clone dow
 
 
 ## Testing 
-
-* clone repo
-* cd lib
-* `bundle exec rspec spec/`
+* `rspec spec/`
