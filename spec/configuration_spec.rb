@@ -12,8 +12,8 @@ OpenAPI Generator version: 4.3.0
 
 require 'spec_helper'
 
-describe XeroRuby::Accounting::Configuration do
-  let(:config) { XeroRuby::Accounting::Configuration.default }
+describe XeroRuby::Configuration do
+  let(:config) { XeroRuby::Configuration.default }
 
   before(:each) do
     # uncomment below to setup host and base_path

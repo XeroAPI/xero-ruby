@@ -10,42 +10,42 @@ OpenAPI Generator version: 4.3.0
 
 =end
 
-require 'spec_helper'
+require './spec_helper'
 
-describe XeroRuby::Accounting::ApiClient do
+describe XeroRuby::ApiClient do
   context 'initialization' do
     context 'URL stuff' do
       context 'host' do
         it 'removes http from host' do
-          XeroRuby::Accounting.configure { |c| c.host = 'http://example.com' }
-          expect(XeroRuby::Accounting::Configuration.default.host).to eq('example.com')
+          XeroRuby.configure { |c| c.host = 'http://example.com' }
+          expect(XeroRuby::Configuration.default.host).to eq('example.com')
         end
 
         it 'removes https from host' do
-          XeroRuby::Accounting.configure { |c| c.host = 'https://wookiee.com' }
-          expect(XeroRuby::Accounting::ApiClient.default.config.host).to eq('wookiee.com')
+          XeroRuby.configure { |c| c.host = 'https://wookiee.com' }
+          expect(XeroRuby::Configuration.default.host).to eq('wookiee.com')
         end
 
         it 'removes trailing path from host' do
-          XeroRuby::Accounting.configure { |c| c.host = 'hobo.com/v4' }
-          expect(XeroRuby::Accounting::Configuration.default.host).to eq('hobo.com')
+          XeroRuby.configure { |c| c.host = 'hobo.com/v4' }
+          expect(XeroRuby::Configuration.default.host).to eq('hobo.com')
         end
       end
 
       context 'base_path' do
         it "prepends a slash to base_path" do
-          XeroRuby::Accounting.configure { |c| c.base_path = 'v4/dog' }
-          expect(XeroRuby::Accounting::Configuration.default.base_path).to eq('/v4/dog')
+          XeroRuby.configure { |c| c.base_path = 'v4/dog' }
+          expect(XeroRuby::Configuration.default.base_path).to eq('/v4/dog')
         end
 
         it "doesn't prepend a slash if one is already there" do
-          XeroRuby::Accounting.configure { |c| c.base_path = '/v4/dog' }
-          expect(XeroRuby::Accounting::Configuration.default.base_path).to eq('/v4/dog')
+          XeroRuby.configure { |c| c.base_path = '/v4/dog' }
+          expect(XeroRuby::Configuration.default.base_path).to eq('/v4/dog')
         end
 
         it "ends up as a blank string if nil" do
-          XeroRuby::Accounting.configure { |c| c.base_path = nil }
-          expect(XeroRuby::Accounting::Configuration.default.base_path).to eq('')
+          XeroRuby.configure { |c| c.base_path = nil }
+          expect(XeroRuby::Configuration.default.base_path).to eq('')
         end
       end
     end
@@ -53,7 +53,7 @@ describe XeroRuby::Accounting::ApiClient do
 
   describe '#deserialize' do
     it "handles Array<Integer>" do
-      api_client = XeroRuby::Accounting::ApiClient.new
+      api_client = XeroRuby::ApiClient.new
       headers = { 'Content-Type' => 'application/json' }
       response = double('response', headers: headers, body: '[12, 34]')
       data = api_client.deserialize(response, 'Array<Integer>')
@@ -62,7 +62,7 @@ describe XeroRuby::Accounting::ApiClient do
     end
 
     it 'handles Array<Array<Integer>>' do
-      api_client = XeroRuby::Accounting::ApiClient.new
+      api_client = XeroRuby::ApiClient.new
       headers = { 'Content-Type' => 'application/json' }
       response = double('response', headers: headers, body: '[[12, 34], [56]]')
       data = api_client.deserialize(response, 'Array<Array<Integer>>')
@@ -71,7 +71,7 @@ describe XeroRuby::Accounting::ApiClient do
     end
 
     it 'handles Hash<String, String>' do
-      api_client = XeroRuby::Accounting::ApiClient.new
+      api_client = XeroRuby::ApiClient.new
       headers = { 'Content-Type' => 'application/json' }
       response = double('response', headers: headers, body: '{"message": "Hello"}')
       data = api_client.deserialize(response, 'Hash<String, String>')
@@ -83,7 +83,7 @@ describe XeroRuby::Accounting::ApiClient do
   describe "#object_to_hash" do
     it 'ignores nils and includes empty arrays' do
       # uncomment below to test object_to_hash for model
-      # api_client = XeroRuby::Accounting::ApiClient.new
+      # api_client = XeroRuby::ApiClient.new
       # _model = XeroRuby::Accounting::ModelName.new
       # update the model attribute below
       # _model.id = 1
@@ -95,7 +95,7 @@ describe XeroRuby::Accounting::ApiClient do
 
   describe '#build_collection_param' do
     let(:param) { ['aa', 'bb', 'cc'] }
-    let(:api_client) { XeroRuby::Accounting::ApiClient.new }
+    let(:api_client) { XeroRuby::ApiClient.new }
 
     it 'works for csv' do
       expect(api_client.build_collection_param(param, :csv)).to eq('aa,bb,cc')
@@ -123,7 +123,7 @@ describe XeroRuby::Accounting::ApiClient do
   end
 
   describe '#json_mime?' do
-    let(:api_client) { XeroRuby::Accounting::ApiClient.new }
+    let(:api_client) { XeroRuby::ApiClient.new }
 
     it 'works' do
       expect(api_client.json_mime?(nil)).to eq false
@@ -140,7 +140,7 @@ describe XeroRuby::Accounting::ApiClient do
   end
 
   describe '#select_header_accept' do
-    let(:api_client) { XeroRuby::Accounting::ApiClient.new }
+    let(:api_client) { XeroRuby::ApiClient.new }
 
     it 'works' do
       expect(api_client.select_header_accept(nil)).to be_nil
@@ -156,7 +156,7 @@ describe XeroRuby::Accounting::ApiClient do
   end
 
   describe '#select_header_content_type' do
-    let(:api_client) { XeroRuby::Accounting::ApiClient.new }
+    let(:api_client) { XeroRuby::ApiClient.new }
 
     it 'works' do
       expect(api_client.select_header_content_type(nil)).to eq('application/json')
@@ -171,7 +171,7 @@ describe XeroRuby::Accounting::ApiClient do
   end
 
   describe '#sanitize_filename' do
-    let(:api_client) { XeroRuby::Accounting::ApiClient.new }
+    let(:api_client) { XeroRuby::ApiClient.new }
 
     it 'works' do
       expect(api_client.sanitize_filename('sun')).to eq('sun')
