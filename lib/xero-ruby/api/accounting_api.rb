@@ -16,7 +16,7 @@ module XeroRuby
   class AccountingApi
     attr_accessor :api_client
 
-    def initialize(api_client = XeroRuby::Configuration.default)
+    def initialize(api_client = ApiClient.new)
       @api_client = api_client
     end
     # Allows you to create a new chart of accounts
