@@ -1,6 +1,6 @@
 name: test-hook
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
   build:
@@ -15,4 +15,4 @@ jobs:
         run: |
           gem install bundler
           bundle install
-          bundle exec rspec spec/
+          rspec spec/
