@@ -162,7 +162,3 @@ The best resource to understanding how to best leverage this SDK is to clone dow
 ## Models
 * [Accounting Models Docs](/docs/accounting/)
 * [Asset Models Docs](/docs/assets/)
-
-
-## Testing 
-* `rspec spec/`
