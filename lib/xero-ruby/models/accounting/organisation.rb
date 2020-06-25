@@ -134,18 +134,6 @@ module XeroRuby::Accounting
     
     # Organisation Type
     attr_accessor :organisation_entity_type
-    ACCOUNTING_PRACTICE = "ACCOUNTING_PRACTICE".freeze
-    COMPANY = "COMPANY".freeze
-    CHARITY = "CHARITY".freeze
-    CLUB_OR_SOCIETY = "CLUB_OR_SOCIETY".freeze
-    LOOK_THROUGH_COMPANY = "LOOK_THROUGH_COMPANY".freeze
-    NOT_FOR_PROFIT = "NOT_FOR_PROFIT".freeze
-    PARTNERSHIP = "PARTNERSHIP".freeze
-    S_CORPORATION = "S_CORPORATION".freeze
-    SELF_MANAGED_SUPERANNUATION_FUND = "SELF_MANAGED_SUPERANNUATION_FUND".freeze
-    SOLE_TRADER = "SOLE_TRADER".freeze
-    SUPERANNUATION_FUND = "SUPERANNUATION_FUND".freeze
-    TRUST = "TRUST".freeze
     
     # A unique identifier for the organisation. Potential uses.
     attr_accessor :short_code
@@ -456,8 +444,6 @@ module XeroRuby::Accounting
       return false unless sales_tax_basis_validator.valid?(@sales_tax_basis)
       sales_tax_period_validator = EnumAttributeValidator.new('String', ["MONTHLY", "QUARTERLY1", "QUARTERLY2", "QUARTERLY3", "ANNUALLY", "ONEMONTHS", "TWOMONTHS", "SIXMONTHS", "1MONTHLY", "2MONTHLY", "3MONTHLY", "6MONTHLY", "QUARTERLY", "YEARLY", "NONE"])
       return false unless sales_tax_period_validator.valid?(@sales_tax_period)
-      organisation_entity_type_validator = EnumAttributeValidator.new('String', ["ACCOUNTING_PRACTICE", "COMPANY", "CHARITY", "CLUB_OR_SOCIETY", "LOOK_THROUGH_COMPANY", "NOT_FOR_PROFIT", "PARTNERSHIP", "S_CORPORATION", "SELF_MANAGED_SUPERANNUATION_FUND", "SOLE_TRADER", "SUPERANNUATION_FUND", "TRUST"])
-      return false unless organisation_entity_type_validator.valid?(@organisation_entity_type)
       _class_validator = EnumAttributeValidator.new('String', ["DEMO", "TRIAL", "STARTER", "STANDARD", "PREMIUM", "PREMIUM_20", "PREMIUM_50", "PREMIUM_100", "LEDGER", "GST_CASHBOOK", "NON_GST_CASHBOOK"])
       return false unless _class_validator.valid?(@_class)
       edition_validator = EnumAttributeValidator.new('String', ["BUSINESS", "PARTNER"])
@@ -503,16 +489,6 @@ module XeroRuby::Accounting
         fail ArgumentError, "invalid value for \"sales_tax_period\", must be one of #{validator.allowable_values}."
       end
       @sales_tax_period = sales_tax_period
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] organisation_entity_type Object to be assigned
-    def organisation_entity_type=(organisation_entity_type)
-      validator = EnumAttributeValidator.new('String', ["ACCOUNTING_PRACTICE", "COMPANY", "CHARITY", "CLUB_OR_SOCIETY", "LOOK_THROUGH_COMPANY", "NOT_FOR_PROFIT", "PARTNERSHIP", "S_CORPORATION", "SELF_MANAGED_SUPERANNUATION_FUND", "SOLE_TRADER", "SUPERANNUATION_FUND", "TRUST"])
-      unless validator.valid?(organisation_entity_type)
-        fail ArgumentError, "invalid value for \"organisation_entity_type\", must be one of #{validator.allowable_values}."
-      end
-      @organisation_entity_type = organisation_entity_type
     end
 
     # Custom attribute writer method checking allowed values (enum).
