@@ -39,15 +39,20 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# doc assumes you are 
+# depending on the methods you need to use
+# accounting_api
 api_instance = xero_client.accounting_api
-# Or for methods in the Assets API
+# :assets_api
 api_instance = xero_client.asset_api
+# :projects_api
+api_instance = xero_client.projects_api
+
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 asset = { "assetName":"Computer74863", "assetNumber":"123477544", "purchaseDate":"2020-01-01", "purchasePrice":100.0, "disposalPrice":23.23, "assetStatus":"Draft", "bookDepreciationSetting":{ "depreciationMethod":"StraightLine", "averagingMethod":"ActualDays", "depreciationRate":0.5, "depreciationCalculationMethod":"None" }, "bookDepreciationDetail":{ "currentCapitalGain":5.32, "currentGainLoss":3.88, "depreciationStartDate":"2020-01-02", "costLimit":100.0, "currentAccumDepreciationAmount":2.25 }, "AccountingBookValue":99.5 } # Asset | Fixed asset you are creatingbegin
   # adds a fixed asset
   result = api_instance.create_asset(xero_tenant_id, asset)
+
   p result
 rescue XeroRuby::Assets::ApiError => e
   puts "Exception when calling AssetApi->create_asset: #{e}"
@@ -102,10 +107,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# doc assumes you are 
+# depending on the methods you need to use
+# accounting_api
 api_instance = xero_client.accounting_api
-# Or for methods in the Assets API
+# :assets_api
 api_instance = xero_client.asset_api
+# :projects_api
+api_instance = xero_client.projects_api
+
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
@@ -114,6 +123,7 @@ opts = {
 begin
   # adds a fixed asset type
   result = api_instance.create_asset_type(xero_tenant_id, opts)
+
   p result
 rescue XeroRuby::Assets::ApiError => e
   puts "Exception when calling AssetApi->create_asset_type: #{e}"
@@ -168,15 +178,20 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# doc assumes you are 
+# depending on the methods you need to use
+# accounting_api
 api_instance = xero_client.accounting_api
-# Or for methods in the Assets API
+# :assets_api
 api_instance = xero_client.asset_api
+# :projects_api
+api_instance = xero_client.projects_api
+
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 id = '4f7bcdcb-5ec1-4258-9558-19f662fccdfe' # String | fixed asset id for single objectbegin
   # retrieves fixed asset by id
   result = api_instance.get_asset_by_id(xero_tenant_id, id)
+
   p result
 rescue XeroRuby::Assets::ApiError => e
   puts "Exception when calling AssetApi->get_asset_by_id: #{e}"
@@ -231,14 +246,19 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# doc assumes you are 
+# depending on the methods you need to use
+# accounting_api
 api_instance = xero_client.accounting_api
-# Or for methods in the Assets API
+# :assets_api
 api_instance = xero_client.asset_api
+# :projects_api
+api_instance = xero_client.projects_api
+
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenantbegin
   # searches fixed asset settings
   result = api_instance.get_asset_settings(xero_tenant_id)
+
   p result
 rescue XeroRuby::Assets::ApiError => e
   puts "Exception when calling AssetApi->get_asset_settings: #{e}"
@@ -292,14 +312,19 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# doc assumes you are 
+# depending on the methods you need to use
+# accounting_api
 api_instance = xero_client.accounting_api
-# Or for methods in the Assets API
+# :assets_api
 api_instance = xero_client.asset_api
+# :projects_api
+api_instance = xero_client.projects_api
+
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenantbegin
   # searches fixed asset types
   result = api_instance.get_asset_types(xero_tenant_id)
+
   p result
 rescue XeroRuby::Assets::ApiError => e
   puts "Exception when calling AssetApi->get_asset_types: #{e}"
@@ -353,10 +378,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# doc assumes you are 
+# depending on the methods you need to use
+# accounting_api
 api_instance = xero_client.accounting_api
-# Or for methods in the Assets API
+# :assets_api
 api_instance = xero_client.asset_api
+# :projects_api
+api_instance = xero_client.projects_api
+
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 status = XeroRuby::Assets::AssetStatusQueryParam.new # AssetStatusQueryParam | Required when retrieving a collection of assets. See Asset Status Codes
@@ -374,6 +403,7 @@ opts = {
 begin
   # searches fixed asset
   result = api_instance.get_assets(xero_tenant_id, status, opts)
+
   p result
 rescue XeroRuby::Assets::ApiError => e
   puts "Exception when calling AssetApi->get_assets: #{e}"
