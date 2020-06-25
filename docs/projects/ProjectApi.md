@@ -44,16 +44,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-project_create_or_update = { "contactId":"00000000-0000-0000-000-000000000000", "name":"New Kitchen", "deadlineUtc":"2019-12-10T12:59:59Z", "estimateAmount":"99.99" } # ProjectCreateOrUpdate | Create a new project with ProjectCreateOrUpdate object
-
-begin
-  #create one or more new projects
+project_create_or_update = { "contactId":"00000000-0000-0000-000-000000000000", "name":"New Kitchen", "deadlineUtc":"2019-12-10T12:59:59Z", "estimateAmount":"99.99" } # ProjectCreateOrUpdate | Create a new project with ProjectCreateOrUpdate objectbegin
+  # create one or more new projects
   result = api_instance.create_project(xero_tenant_id, project_create_or_update)
   p result
 rescue XeroRuby::Projects::ApiError => e
@@ -109,17 +107,15 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 project_id = 'project_id_example' # String | You can specify an individual project by appending the projectId to the endpoint
-time_entry_create_or_update = { "userId":"740add2a-a703-4b8a-a670-1093919c2040", "taskId":"7be77337-feec-4458-bb1b-dbaa5a4aafce", "dateUtc":"2020-02-26T15:00:00Z", "duration":30, "description":"My description" } # TimeEntryCreateOrUpdate | The time entry object you are creating
-
-begin
-  #Allows you to create a task
+time_entry_create_or_update = { "userId":"740add2a-a703-4b8a-a670-1093919c2040", "taskId":"7be77337-feec-4458-bb1b-dbaa5a4aafce", "dateUtc":"2020-02-26T15:00:00Z", "duration":30, "description":"My description" } # TimeEntryCreateOrUpdate | The time entry object you are creatingbegin
+  # Allows you to create a task
   result = api_instance.create_time_entry(xero_tenant_id, project_id, time_entry_create_or_update)
   p result
 rescue XeroRuby::Projects::ApiError => e
@@ -176,17 +172,15 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 project_id = 'project_id_example' # String | You can specify an individual project by appending the projectId to the endpoint
-time_entry_id = 'time_entry_id_example' # String | You can specify an individual task by appending the id to the endpoint
-
-begin
-  #Allows you to delete a time entry
+time_entry_id = 'time_entry_id_example' # String | You can specify an individual task by appending the id to the endpointbegin
+  # Allows you to delete a time entry
   api_instance.delete_time_entry(xero_tenant_id, project_id, time_entry_id)
 rescue XeroRuby::Projects::ApiError => e
   puts "Exception when calling ProjectApi->delete_time_entry: #{e}"
@@ -242,16 +236,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-project_id = 'project_id_example' # String | You can specify an individual project by appending the projectId to the endpoint
-
-begin
-  #Allows you to retrieve a single project
+project_id = 'project_id_example' # String | You can specify an individual project by appending the projectId to the endpointbegin
+  # Allows you to retrieve a single project
   result = api_instance.get_project(xero_tenant_id, project_id)
   p result
 rescue XeroRuby::Projects::ApiError => e
@@ -307,7 +299,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -315,11 +307,11 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
   page: 1, # Integer | set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0.
+
   page_size: 50 # Integer | Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500.
 }
-
 begin
-  #list all project users
+  # list all project users
   result = api_instance.get_project_users(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Projects::ApiError => e
@@ -376,7 +368,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -384,14 +376,17 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
   project_ids: ['project_ids_example'], # Array<String> | Search for all projects that match a comma separated list of projectIds
+
   contact_id: 'contact_id_example', # String | Filter for projects for a specific contact
+
   states: 'states_example', # String | Filter for projects in a particular state (INPROGRESS or CLOSED)
+
   page: 1, # Integer | set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0.
+
   page_size: 50 # Integer | Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500.
 }
-
 begin
-  #list all projects
+  # list all projects
   result = api_instance.get_projects(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Projects::ApiError => e
@@ -451,17 +446,15 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 project_id = 'project_id_example' # String | You can specify an individual project by appending the projectId to the endpoint
-task_id = 'task_id_example' # String | You can specify an individual task by appending the taskId to the endpoint, i.e. GET https://.../tasks/{taskId}
-
-begin
-  #Allows you to retrieve a single project
+task_id = 'task_id_example' # String | You can specify an individual task by appending the taskId to the endpoint, i.e. GET https://.../tasks/{taskId}begin
+  # Allows you to retrieve a single project
   result = api_instance.get_task(xero_tenant_id, project_id, task_id)
   p result
 rescue XeroRuby::Projects::ApiError => e
@@ -518,7 +511,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -527,12 +520,13 @@ xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 project_id = 'project_id_example' # String | You can specify an individual project by appending the projectId to the endpoint
 opts = {
   page: 1, # Integer | Set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0.
+
   page_size: 10, # Integer | Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500.
+
   task_ids: 'task_ids_example' # String | taskIdsSearch for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds={taskId},{taskId}
 }
-
 begin
-  #Allows you to retrieve a single project
+  # Allows you to retrieve a single project
   result = api_instance.get_tasks(xero_tenant_id, project_id, opts)
   p result
 rescue XeroRuby::Projects::ApiError => e
@@ -591,7 +585,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -600,19 +594,27 @@ xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 project_id = 'project_id_example' # String | Identifier of the project, that the task (which the time entry is logged against) belongs to.
 opts = {
   user_id: 'user_id_example', # String | The xero user identifier of the person who logged time.
+
   task_id: 'task_id_example', # String | Identifier of the task that time entry is logged against.
+
   invoice_id: 'invoice_id_example', # String | Finds all time entries for this invoice.
+
   contact_id: 'contact_id_example', # String | Finds all time entries for this contact identifier.
+
   page: 1, # Integer | Set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0.
+
   page_size: 10, # Integer | Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500.
+
   states: ['states_example'], # Array<String> | Comma-separated list of states to find. Will find all time entries that are in the status of whatever’s specified.
+
   is_chargeable: true, # Boolean | Finds all time entries which relate to tasks with the charge type `TIME` or `FIXED`.
+
   date_after_utc: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | ISO 8601 UTC date. Finds all time entries on or after this date filtered on the `dateUtc` field.
+
   date_before_utc: DateTime.parse('2013-10-20T19:20:30+01:00') # DateTime | ISO 8601 UTC date. Finds all time entries on or before this date filtered on the `dateUtc` field.
 }
-
 begin
-  #Allows you to retrieve the time entries associated with a specific project
+  # Allows you to retrieve the time entries associated with a specific project
   result = api_instance.get_time_entries(xero_tenant_id, project_id, opts)
   p result
 rescue XeroRuby::Projects::ApiError => e
@@ -678,17 +680,15 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 project_id = 'project_id_example' # String | You can specify an individual project by appending the projectId to the endpoint
-time_entry_id = 'time_entry_id_example' # String | You can specify an individual time entry by appending the id to the endpoint
-
-begin
-  #Allows you to get a single time entry in a project
+time_entry_id = 'time_entry_id_example' # String | You can specify an individual time entry by appending the id to the endpointbegin
+  # Allows you to get a single time entry in a project
   result = api_instance.get_time_entry(xero_tenant_id, project_id, time_entry_id)
   p result
 rescue XeroRuby::Projects::ApiError => e
@@ -745,17 +745,15 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 project_id = 'project_id_example' # String | You can specify an individual project by appending the projectId to the endpoint
-project_patch = { "status": "INPROGRESS" } # ProjectPatch | Update the status of an existing Project
-
-begin
-  #creates a project for the specified contact
+project_patch = { "status": "INPROGRESS" } # ProjectPatch | Update the status of an existing Projectbegin
+  # creates a project for the specified contact
   api_instance.patch_project(xero_tenant_id, project_id, project_patch)
 rescue XeroRuby::Projects::ApiError => e
   puts "Exception when calling ProjectApi->patch_project: #{e}"
@@ -811,17 +809,15 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 project_id = 'project_id_example' # String | You can specify an individual project by appending the projectId to the endpoint
-project_create_or_update = { "name": "New Kitchen", "deadlineUtc": "2017-04-23T18:25:43.511Z", "estimateAmount": 99.99 } # ProjectCreateOrUpdate | Request of type ProjectCreateOrUpdate
-
-begin
-  #update a specific project
+project_create_or_update = { "name": "New Kitchen", "deadlineUtc": "2017-04-23T18:25:43.511Z", "estimateAmount": 99.99 } # ProjectCreateOrUpdate | Request of type ProjectCreateOrUpdatebegin
+  # update a specific project
   api_instance.update_project(xero_tenant_id, project_id, project_create_or_update)
 rescue XeroRuby::Projects::ApiError => e
   puts "Exception when calling ProjectApi->update_project: #{e}"
@@ -877,7 +873,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -885,10 +881,8 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 project_id = 'project_id_example' # String | You can specify an individual project by appending the projectId to the endpoint
 time_entry_id = 'time_entry_id_example' # String | You can specify an individual time entry by appending the id to the endpoint
-time_entry_create_or_update = { "userId":"740add2a-a703-4b8a-a670-1093919c2040", "taskId":"7be77337-feec-4458-bb1b-dbaa5a4aafce", "dateUtc":"2020-02-27T15:00:00Z", "duration":45, "description":"My UPDATED description" } # TimeEntryCreateOrUpdate | The time entry object you are updating
-
-begin
-  #Allows you to update time entry in a project
+time_entry_create_or_update = { "userId":"740add2a-a703-4b8a-a670-1093919c2040", "taskId":"7be77337-feec-4458-bb1b-dbaa5a4aafce", "dateUtc":"2020-02-27T15:00:00Z", "duration":45, "description":"My UPDATED description" } # TimeEntryCreateOrUpdate | The time entry object you are updatingbegin
+  # Allows you to update time entry in a project
   api_instance.update_time_entry(xero_tenant_id, project_id, time_entry_id, time_entry_create_or_update)
 rescue XeroRuby::Projects::ApiError => e
   puts "Exception when calling ProjectApi->update_time_entry: #{e}"

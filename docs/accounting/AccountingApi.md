@@ -150,7 +150,7 @@ Method | HTTP request | Description
 [**get_purchase_order_history**](AccountingApi.md#get_purchase_order_history) | **GET** /PurchaseOrders/{PurchaseOrderID}/History | Allows you to retrieve history for PurchaseOrder
 [**get_purchase_orders**](AccountingApi.md#get_purchase_orders) | **GET** /PurchaseOrders | Allows you to retrieve purchase orders
 [**get_quote**](AccountingApi.md#get_quote) | **GET** /Quotes/{QuoteID} | Allows you to retrieve a specified quote
-[**get_quote_as_pdf**](AccountingApi.md#get_quote_as_pdf) | **GET** /Quotes/{QuotesID}/pdf | Allows you to retrieve quotes as PDF files
+[**get_quote_as_pdf**](AccountingApi.md#get_quote_as_pdf) | **GET** /Quotes/{QuoteID}/pdf | Allows you to retrieve quotes as PDF files
 [**get_quote_attachment_by_file_name**](AccountingApi.md#get_quote_attachment_by_file_name) | **GET** /Quotes/{QuoteID}/Attachments/{FileName} | Allows you to retrieve Attachment on Quote by Filename
 [**get_quote_attachment_by_id**](AccountingApi.md#get_quote_attachment_by_id) | **GET** /Quotes/{QuoteID}/Attachments/{AttachmentID} | Allows you to retrieve specific Attachment on Quote
 [**get_quote_attachments**](AccountingApi.md#get_quote_attachments) | **GET** /Quotes/{QuoteID}/Attachments | Allows you to retrieve Attachments for Quotes
@@ -186,7 +186,7 @@ Method | HTTP request | Description
 [**get_users**](AccountingApi.md#get_users) | **GET** /Users | Allows you to retrieve users
 [**update_account**](AccountingApi.md#update_account) | **POST** /Accounts/{AccountID} | Allows you to update a chart of accounts
 [**update_account_attachment_by_file_name**](AccountingApi.md#update_account_attachment_by_file_name) | **POST** /Accounts/{AccountID}/Attachments/{FileName} | Allows you to update Attachment on Account by Filename
-[**update_bank_transaction**](AccountingApi.md#update_bank_transaction) | **POST** /BankTransactions/{BankTransactionID} | Allows you to update a single spend or receive money transaction
+[**update_bank_transaction**](AccountingApi.md#update_bank_transaction) | **POST** /BankTransactions/{BankTransactionID} | 
 [**update_bank_transaction_attachment_by_file_name**](AccountingApi.md#update_bank_transaction_attachment_by_file_name) | **POST** /BankTransactions/{BankTransactionID}/Attachments/{FileName} | Allows you to update an Attachment on BankTransaction by Filename
 [**update_bank_transfer_attachment_by_file_name**](AccountingApi.md#update_bank_transfer_attachment_by_file_name) | **POST** /BankTransfers/{BankTransferID}/Attachments/{FileName} | 
 [**update_contact**](AccountingApi.md#update_contact) | **POST** /Contacts/{ContactID} | 
@@ -246,16 +246,12 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
-
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-account = { code: "123456", name: "Foobar", type: AccountType.EXPENSE, description: "Hello World" } # Account | Account object in body of request
-
+api_instance = xero_client.asset_apiaccount = { code: "123456", name: "Foobar", type: XeroRuby::Accounting::AccountType::EXPENSE, description: "Hello World" }
 begin
-  #Allows you to create a new chart of accounts
+  # Allows you to create a new chart of accounts
   result = api_instance.create_account(xero_tenant_id, account)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -309,7 +305,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -317,10 +313,8 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 account_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Account object
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = 'body_example' # String | Byte array of file in body of request
-
-begin
-  #Allows you to create Attachment on Account
+body = 'body_example' # String | Byte array of file in body of requestbegin
+  # Allows you to create Attachment on Account
   result = api_instance.create_account_attachment_by_file_name(xero_tenant_id, account_id, file_name, body)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -376,7 +370,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -384,10 +378,8 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transaction_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transaction
 file_name = 'xero-dev.jpg' # String | The name of the file being attached
-body = 'body_example' # String | Byte array of file in body of request
-
-begin
-  #Allows you to createa an Attachment on BankTransaction by Filename
+body = 'body_example' # String | Byte array of file in body of requestbegin
+  # Allows you to createa an Attachment on BankTransaction by Filename
   result = api_instance.create_bank_transaction_attachment_by_file_name(xero_tenant_id, bank_transaction_id, file_name, body)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -443,17 +435,15 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transaction_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transaction
-history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
-
-begin
-  #Allows you to create history record for a bank transactions
+history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of requestbegin
+  # Allows you to create history record for a bank transactions
   result = api_instance.create_bank_transaction_history_record(xero_tenant_id, bank_transaction_id, history_records)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -508,20 +498,18 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
+api_instance = xero_client.asset_apibank_transactions = { bank_transactions: [{ type: XeroRuby::Accounting::BankTransaction::SPEND, contact: { contact_id: "00000000-0000-0000-000-000000000000" }, line_items: [{ description: "Foobar", quantity: 1.0, unit_amount: 20.0, account_code: "000" } ], bank_account: { code: "000" }}]}
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-bank_transactions = { bankTransactions:[ { type: BankTransaction.TypeEnum.SPEND, contact: { contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity: 1.0, unitAmount:20.0, accountCode:"000" } ], bankAccount:{ code:"000" } } ] } # BankTransactions | BankTransactions with an array of BankTransaction objects in body of request
 opts = {
   summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
-
 begin
-  #Allows you to create one or more spend or receive money transaction
+  # Allows you to create one or more spend or receive money transaction
   result = api_instance.create_bank_transactions(xero_tenant_id, bank_transactions, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -577,16 +565,12 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
-
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-bank_transfers = { bankTransfers:[ { fromBankAccount: { code:"000", accountID:"00000000-0000-0000-000-000000000000"}, toBankAccount:{ code:"001", accountID:"00000000-0000-0000-000-000000000000"}, amount:"50.00" } ] } # BankTransfers | BankTransfers with array of BankTransfer objects in request body
-
+api_instance = xero_client.asset_apibank_transfers = { bank_transfers: [{ from_bank_account: { code: "000", account_id: "00000000-0000-0000-000-000000000000" }, to_bank_account: { code: "001", account_id: "00000000-0000-0000-000-000000000000" }, amount: "50.00" }]}
 begin
-  #Allows you to create a bank transfers
+  # Allows you to create a bank transfers
   result = api_instance.create_bank_transfer(xero_tenant_id, bank_transfers)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -640,7 +624,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -648,9 +632,7 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transfer_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transfer
 file_name = 'xero-dev.jpg' # String | The name of the file being attached to a Bank Transfer
-body = 'body_example' # String | Byte array of file in body of request
-
-begin
+body = 'body_example' # String | Byte array of file in body of requestbegin
   result = api_instance.create_bank_transfer_attachment_by_file_name(xero_tenant_id, bank_transfer_id, file_name, body)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -706,16 +688,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transfer_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transfer
-history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
-
-begin
+history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of requestbegin
   result = api_instance.create_bank_transfer_history_record(xero_tenant_id, bank_transfer_id, history_records)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -770,19 +750,16 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
+api_instance = xero_client.asset_apibatch_payments = { batch_payments: [{ account: { account_id: "00000000-0000-0000-000-000000000000" }, reference: "ref", date: "2018-08-01", payments: [{  account: { code: "001" }, date: "2019-12-31", amount: 500, invoice: { invoice_id: "00000000-0000-0000-000-000000000000", line_items: [], contact: {}, type: XeroRuby::Accounting::Invoice::ACCPAY }}]}]}
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-batch_payments = { batchPayments: [ { account: { accountID: "00000000-0000-0000-000-000000000000" }, reference: "ref", date: "2018-08-01", payments: [ { account: { code: "001" }, date: "2019-12-31", amount: 500, invoice: { invoiceID: "00000000-0000-0000-000-000000000000", lineItems: [], contact: {}, type: Invoice.TypeEnum.ACCPAY } } ] } ] } # BatchPayments | BatchPayments with an array of Payments in body of request
 opts = {
   summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 }
-
 begin
-  #Create one or many BatchPayments for invoices
+  # Create one or many BatchPayments for invoices
   result = api_instance.create_batch_payment(xero_tenant_id, batch_payments, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -837,17 +814,15 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 batch_payment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for BatchPayment
-history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
-
-begin
-  #Allows you to create a history record for a Batch Payment
+history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of requestbegin
+  # Allows you to create a history record for a Batch Payment
   result = api_instance.create_batch_payment_history_record(xero_tenant_id, batch_payment_id, history_records)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -902,17 +877,12 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
-
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-branding_theme_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Branding Theme
-payment_service = { paymentServiceID:"dede7858-14e3-4a46-bf95-4d4cc491e645", paymentServiceName:"ACME Payments", paymentServiceUrl:"https://www.payupnow.com/", payNowText:"Pay Now" } # PaymentService | PaymentService object in body of request
-
+api_instance = xero_client.asset_apipayment_service = { payment_service_id: "dede7858-14e3-4a46-bf95-4d4cc491e645", payment_service_name: "ACME Payments", payment_service_url: "https://www.payupnow.com/", pay_now_text: "Pay Now" }
 begin
-  #Allow for the creation of new custom payment service for specified Branding Theme
+  # Allow for the creation of new custom payment service for specified Branding Theme
   result = api_instance.create_branding_theme_payment_services(xero_tenant_id, branding_theme_id, payment_service)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -967,7 +937,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -975,9 +945,7 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
 file_name = 'xero-dev.jpg' # String | Name for the file you are attaching
-body = 'body_example' # String | Byte array of file in body of request
-
-begin
+body = 'body_example' # String | Byte array of file in body of requestbegin
   result = api_instance.create_contact_attachment_by_file_name(xero_tenant_id, contact_id, file_name, body)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -1033,16 +1001,12 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
-
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-contact_groups = { contactGroups:[ { name:"VIPs" } ] } # ContactGroups | ContactGroups with an array of names in request body
-
+api_instance = xero_client.asset_apicontact_groups = { contact_groups: [{ name: "VIPs" }]}
 begin
-  #Allows you to create a contact group
+  # Allows you to create a contact group
   result = api_instance.create_contact_group(xero_tenant_id, contact_groups)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -1096,17 +1060,12 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
-
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-contact_group_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact Group
-contacts = { contacts:[ { contactID:"a3675fc4-f8dd-4f03-ba5b-f1870566bcd7" }, { contactID:"4e1753b9-018a-4775-b6aa-1bc7871cfee3" } ] } # Contacts | Contacts with array of contacts specifiying the ContactID to be added to ContactGroup in body of request
-
+api_instance = xero_client.asset_apicontacts = { contacts: [{ contactID: "a3675fc4-f8dd-4f03-ba5b-f1870566bcd7" }, { contactID: "4e1753b9-018a-4775-b6aa-1bc7871cfee3" }]}
 begin
-  #Allows you to add Contacts to a Contact Group
+  # Allows you to add Contacts to a Contact Group
   result = api_instance.create_contact_group_contacts(xero_tenant_id, contact_group_id, contacts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -1161,17 +1120,15 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
-history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
-
-begin
-  #Allows you to retrieve a history records of an Contact
+history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of requestbegin
+  # Allows you to retrieve a history records of an Contact
   result = api_instance.create_contact_history(xero_tenant_id, contact_id, history_records)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -1226,19 +1183,16 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
+api_instance = xero_client.asset_apicontacts = { contacts: [{ name: "Bruce Banner", email_address: "hulk@avengers.com", phones: [{ phone_type: XeroRuby::Accounting::Phone::MOBILE, phone_number: "555-1212", phone_area_code: "415" }], payment_terms: { bills: { day: 15, type: XeroRuby::Accounting::PaymentTermType::OFCURRENTMONTH }, sales: { day: 10, type: XeroRuby::Accounting::PaymentTermType::DAYSAFTERBILLMONTH }}}]}
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-contacts = {contacts: [{ name:"Bruce Banner", emailAddress:"hulk@avengers.com", phones:[ { phoneType: Phone.PhoneTypeEnum.MOBILE, phoneNumber:"555-1212", phoneAreaCode:"415" } ], paymentTerms:{ bills:{ day:15, type: PaymentTermType.OFCURRENTMONTH }, sales:{ day:10, type: PaymentTermType.DAYSAFTERBILLMONTH } } } ] } # Contacts | Contacts with an array of Contact objects to create in body of request
 opts = {
   summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 }
-
 begin
-  #Allows you to create a multiple contacts (bulk) in a Xero organisation
+  # Allows you to create a multiple contacts (bulk) in a Xero organisation
   result = api_instance.create_contacts(xero_tenant_id, contacts, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -1293,17 +1247,12 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
-
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-credit_note_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Credit Note
-allocations = { allocations:[ { amount:1.0, date:"2019-03-05", invoice:{ invoiceID:"c45720a1-ade3-4a38-a064-d15489be6841", lineItems:[], type: Invoice.TypeEnum.ACCPAY, contact:{} } } ] } # Allocations | Allocations with array of Allocation object in body of request.
-
+api_instance = xero_client.asset_apiallocations = { allocations: [{ amount: 1.0, date: "2019-03-05", invoice: { invoice_id: "c45720a1-ade3-4a38-a064-d15489be6841", line_items: [], type: XeroRuby::Accounting::Invoice::ACCPAY, contact: {} }}]}
 begin
-  #Allows you to create Allocation on CreditNote
+  # Allows you to create Allocation on CreditNote
   result = api_instance.create_credit_note_allocation(xero_tenant_id, credit_note_id, allocations)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -1358,7 +1307,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -1370,9 +1319,8 @@ body = 'body_example' # String | Byte array of file in body of request
 opts = {
   include_online: false # Boolean | Allows an attachment to be seen by the end customer within their online invoice
 }
-
 begin
-  #Allows you to create Attachments on CreditNote by file name
+  # Allows you to create Attachments on CreditNote by file name
   result = api_instance.create_credit_note_attachment_by_file_name(xero_tenant_id, credit_note_id, file_name, body, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -1429,17 +1377,15 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 credit_note_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Credit Note
-history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
-
-begin
-  #Allows you to retrieve a history records of an CreditNote
+history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of requestbegin
+  # Allows you to retrieve a history records of an CreditNote
   result = api_instance.create_credit_note_history(xero_tenant_id, credit_note_id, history_records)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -1494,20 +1440,18 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
+api_instance = xero_client.asset_apicredit_notes = { credit_notes: [{ type: XeroRuby::Accounting::CreditNote::ACCPAYCREDIT, contact: { contact_id: "430fa14a-f945-44d3-9f97-5df5e28441b8" }, date: "2019-01-05", line_items: [{ description: "Foobar", quantity: 2.0, unit_amount: 20.0, account_code: "400" }]}]}
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-credit_notes = { creditNotes:[ { type: CreditNote.TypeEnum.ACCPAYCREDIT, contact:{ contactID:"430fa14a-f945-44d3-9f97-5df5e28441b8" }, date:"2019-01-05", lineItems:[ { description:"Foobar", quantity:2.0, unitAmount:20.0, accountCode:"400" } ] } ] } # CreditNotes | Credit Notes with array of CreditNote object in body of request
 opts = {
   summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
-
 begin
-  #Allows you to create a credit note
+  # Allows you to create a credit note
   result = api_instance.create_credit_notes(xero_tenant_id, credit_notes, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -1563,14 +1507,10 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
-
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-currency = { code: CurrencyCode.USD, description:"United States Dollar" } # Currency | Currency obejct in the body of request
-
+api_instance = xero_client.asset_apicurrency = { code: XeroRuby::Accounting::CurrencyCode::USD, description: "United States Dollar" }
 begin
   result = api_instance.create_currency(xero_tenant_id, currency)
   p result
@@ -1625,19 +1565,16 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
+api_instance = xero_client.asset_apiemployees = { employees: [{ first_name: "Nick", last_name: "Fury", externalink: { url: "http://twitter.com/#!/search/Nick+Fury" }}]}
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-employees = { employees:[ { firstName:"Nick", lastName:"Fury", externalLink:{ url:"http://twitter.com/#!/search/Nick+Fury" } } ] } # Employees | Employees with array of Employee object in body of request
 opts = {
   summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 }
-
 begin
-  #Allows you to create new employees used in Xero payrun
+  # Allows you to create new employees used in Xero payrun
   result = api_instance.create_employees(xero_tenant_id, employees, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -1692,17 +1629,15 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 expense_claim_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ExpenseClaim
-history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
-
-begin
-  #Allows you to create a history records of an ExpenseClaim
+history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of requestbegin
+  # Allows you to create a history records of an ExpenseClaim
   result = api_instance.create_expense_claim_history(xero_tenant_id, expense_claim_id, history_records)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -1757,16 +1692,12 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
-
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-expense_claims = { expenseClaims:[ { status: ExpenseClaim.StatusEnum.SUBMITTED, user:{ userID:"d1164823-0ac1-41ad-987b-b4e30fe0b273" }, receipts:[ { receiptID:"dc1c7f6d-0a4c-402f-acac-551d62ce5816", lineItems:[], contact: {}, user: {}, date: "2018-01-01" } ] } ] } # ExpenseClaims | ExpenseClaims with array of ExpenseClaim object in body of request
-
+api_instance = xero_client.asset_apiexpense_claims = { expense_claims: [{ status: XeroRuby::Accounting::ExpenseClaim::SUBMITTED, user: { user_id: "d1164823-0ac1-41ad-987b-b4e30fe0b273" }, receipts: [{ receipt_id: "dc1c7f6d-0a4c-402f-acac-551d62ce5816", line_items: [], contact: {}, user: {}, date: "2018-01-01" }]}]}
 begin
-  #Allows you to retrieve expense claims
+  # Allows you to retrieve expense claims
   result = api_instance.create_expense_claims(xero_tenant_id, expense_claims)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -1820,7 +1751,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -1832,9 +1763,8 @@ body = 'body_example' # String | Byte array of file in body of request
 opts = {
   include_online: false # Boolean | Allows an attachment to be seen by the end customer within their online invoice
 }
-
 begin
-  #Allows you to create an Attachment on invoices or purchase bills by it's filename
+  # Allows you to create an Attachment on invoices or purchase bills by it's filename
   result = api_instance.create_invoice_attachment_by_file_name(xero_tenant_id, invoice_id, file_name, body, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -1891,17 +1821,15 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoice
-history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
-
-begin
-  #Allows you to retrieve a history records of an invoice
+history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of requestbegin
+  # Allows you to retrieve a history records of an invoice
   result = api_instance.create_invoice_history(xero_tenant_id, invoice_id, history_records)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -1956,20 +1884,18 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
+api_instance = xero_client.asset_apiinvoices = { invoices: [{ type: XeroRuby::Accounting::Invoice::ACCREC, contact: { contact_id: "00000000-0000-0000-000-000000000000" }, line_items: [{ description: "Acme Tires", quantity: 2.0, unit_amount: 20.0, account_code: "000", tax_type: TaxType.NONE, line_amount: 40.0 }], date: "2019-03-11", due_date: "2018-12-10", reference: "Website Design", status: XeroRuby::Accounting::Invoice::DRAFT }]}
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-invoices = { invoices:[ { type: Invoice.TypeEnum.ACCREC, contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Acme Tires", quantity:2.0, unitAmount:20.0, accountCode:"000", taxType:"NONE", lineAmount:40.0 } ], date:"2019-03-11", dueDate:"2018-12-10", reference:"Website Design", status: Invoice.StatusEnum.DRAFT } ] } # Invoices | Invoices with an array of invoice objects in body of request
 opts = {
   summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
-
 begin
-  #Allows you to create one or more sales invoices or purchase bills
+  # Allows you to create one or more sales invoices or purchase bills
   result = api_instance.create_invoices(xero_tenant_id, invoices, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -2025,17 +1951,15 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 item_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Item
-history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
-
-begin
-  #Allows you to create a history record for items
+history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of requestbegin
+  # Allows you to create a history record for items
   result = api_instance.create_item_history(xero_tenant_id, item_id, history_records)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -2090,20 +2014,18 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
+api_instance = xero_client.asset_apiitems = { items: [{ code: "abcXYZ123", name: "HelloWorld11", description: "Foobar", inventory_asset_account_code: "140", purchase_details: { cogs_account_code: "500" }}]}
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-items = { items:[ { code:"abcXYZ123", name:"HelloWorld11", description:"Foobar", inventoryAssetAccountCode:"140", purchaseDetails: {cOGSAccountCode:"500"} } ] } # Items | Items with an array of Item objects in body of request
 opts = {
   summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
-
 begin
-  #Allows you to create one or more items
+  # Allows you to create one or more items
   result = api_instance.create_items(xero_tenant_id, items, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -2159,16 +2081,12 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
-
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-linked_transaction = { sourceTransactionID:"00000000-0000-0000-000-000000000000", sourceLineItemID:"00000000-0000-0000-000-000000000000"} # LinkedTransaction | LinkedTransaction object in body of request
-
+api_instance = xero_client.asset_apilinked_transaction = { source_transaction_id: "00000000-0000-0000-000-000000000000", source_line_item_id: "00000000-0000-0000-000-000000000000" }
 begin
-  #Allows you to create linked transactions (billable expenses)
+  # Allows you to create linked transactions (billable expenses)
   result = api_instance.create_linked_transaction(xero_tenant_id, linked_transaction)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -2222,7 +2140,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -2230,10 +2148,8 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 manual_journal_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ManualJournal
 file_name = 'xero-dev.jpg' # String | The name of the file being attached to a ManualJournal
-body = 'body_example' # String | Byte array of file in body of request
-
-begin
-  #Allows you to create a specified Attachment on ManualJournal by file name
+body = 'body_example' # String | Byte array of file in body of requestbegin
+  # Allows you to create a specified Attachment on ManualJournal by file name
   result = api_instance.create_manual_journal_attachment_by_file_name(xero_tenant_id, manual_journal_id, file_name, body)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -2289,19 +2205,16 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
+api_instance = xero_client.asset_apimanual_journals = { manual_journals: [{ narration: "Foo bar", date: "2019-03-14", journal_lines: [{ line_amount: 100.0, account_code: "400", description: "Hello there" }, { line_amount: -100.0, account_code: "400", description: "Goodbye", tracking: [{ name: "Simpson", option: "Bart" }] }]}]}
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-manual_journals = { manualJournals:[ { narration:"Foo bar", journalLines:[ { lineAmount:100.0, accountCode:"400", description:"Hello there" }, { lineAmount:-100.0, accountCode:"400", description:"Goodbye", tracking:[ { name:"Simpsons", option:"Bart" } ] } ], date:"2019-03-14" } ] } # ManualJournals | ManualJournals array with ManualJournal object in body of request
 opts = {
   summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 }
-
 begin
-  #Allows you to create one or more manual journals
+  # Allows you to create one or more manual journals
   result = api_instance.create_manual_journals(xero_tenant_id, manual_journals, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -2356,20 +2269,16 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
+api_instance = xero_client.asset_apiallocations = { allocations: [{ invoice: { invoice_id: "00000000-0000-0000-000-000000000000", line_items: [], contact: {}, type: XeroRuby::Accounting::Invoice::ACCPAY }, amount: 1.0, date: "2019-03-12" }]}
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-overpayment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Overpayment
-allocations = { allocations:[ { invoice:{ invoiceID:"00000000-0000-0000-000-000000000000", lineItems:[], contact: {}, type: Invoice.TypeEnum.ACCPAY }, amount:1.0, date:"2019-03-12" } ] } # Allocations | Allocations array with Allocation object in body of request
 opts = {
   summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 }
-
 begin
-  #Allows you to create a single allocation for an overpayment
+  # Allows you to create a single allocation for an overpayment
   result = api_instance.create_overpayment_allocations(xero_tenant_id, overpayment_id, allocations, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -2425,17 +2334,15 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 overpayment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Overpayment
-history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
-
-begin
-  #Allows you to create history records of an Overpayment
+history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of requestbegin
+  # Allows you to create history records of an Overpayment
   result = api_instance.create_overpayment_history(xero_tenant_id, overpayment_id, history_records)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -2490,16 +2397,12 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
-
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-payment = { invoice:{ invoiceID:"00000000-0000-0000-000-000000000000", lineItems:[], contact: {}, type: Invoice.TypeEnum.ACCPAY }, account:{ code:"970" }, date:"2019-03-12", amount:1.0 } # Payment | Request body with a single Payment object
-
+api_instance = xero_client.asset_apiinvoice = { invoice: { invoice_id: "00000000-0000-0000-000-000000000000", line_items: [], contact: {}, type: XeroRuby::Accounting::Invoice::ACCPAY }, account: { code: "970" }, date: "2019-03-12", amount: 1.0 }
 begin
-  #Allows you to create a single payment for invoices or credit notes
+  # Allows you to create a single payment for invoices or credit notes
   result = api_instance.create_payment(xero_tenant_id, payment)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -2553,17 +2456,15 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 payment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Payment
-history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
-
-begin
-  #Allows you to create a history record for a payment
+history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of requestbegin
+  # Allows you to create a history record for a payment
   result = api_instance.create_payment_history(xero_tenant_id, payment_id, history_records)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -2618,16 +2519,12 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
-
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-payment_services = { paymentServices:[ { paymentServiceName:"PayUpNow", paymentServiceUrl:"https://www.payupnow.com/", payNowText:"Time To Pay" } ] } # PaymentServices | PaymentServices array with PaymentService object in body of request
-
+api_instance = xero_client.asset_apipayment_services = { payment_services: [{ payment_service_name: "PayUpNow", payment_service_url: "https://www.payupnow.com/", pay_now_text: "Time To Pay" }]}
 begin
-  #Allows you to create payment services
+  # Allows you to create payment services
   result = api_instance.create_payment_service(xero_tenant_id, payment_services)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -2681,19 +2578,16 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
+api_instance = xero_client.asset_apipayments = { payments: [{ invoice: { invoice_id: "00000000-0000-0000-000-000000000000", line_items: [], contact: {}, type: XeroRuby::Accounting::Invoice::ACCPAY }, account: { code: "970" }, date: "2019-03-12", amount: 1.0 }]}
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-payments = { payments:[ { invoice:{ invoiceID:"00000000-0000-0000-000-000000000000", lineItems:[], contact: {}, type: Invoice.TypeEnum.ACCPAY }, account:{ code:"970" }, date:"2019-03-12", amount:1.0 } ] } # Payments | Payments array with Payment object in body of request
 opts = {
   summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 }
-
 begin
-  #Allows you to create multiple payments for invoices or credit notes
+  # Allows you to create multiple payments for invoices or credit notes
   result = api_instance.create_payments(xero_tenant_id, payments, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -2748,20 +2642,16 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
+api_instance = xero_client.asset_apiallocations = { allocations: [{ invoice: { invoice_id: "00000000-0000-0000-000-000000000000", line_items: [], contact: {}, type: null }, amount: 1.0, date: "2019-03-13" }]}
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-prepayment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Prepayment
-allocations = { allocations:[ { invoice:{ invoiceID:"00000000-0000-0000-000-000000000000", lineItems:[], contact: {}, type: null }, amount:1.0, date:"2019-03-13" } ] } # Allocations | Allocations with an array of Allocation object in body of request
 opts = {
   summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 }
-
 begin
-  #Allows you to create an Allocation for prepayments
+  # Allows you to create an Allocation for prepayments
   result = api_instance.create_prepayment_allocations(xero_tenant_id, prepayment_id, allocations, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -2817,17 +2707,15 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 prepayment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a PrePayment
-history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
-
-begin
-  #Allows you to create a history record for an Prepayment
+history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of requestbegin
+  # Allows you to create a history record for an Prepayment
   result = api_instance.create_prepayment_history(xero_tenant_id, prepayment_id, history_records)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -2882,17 +2770,15 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 purchase_order_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a PurchaseOrder
-history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
-
-begin
-  #Allows you to create HistoryRecord for purchase orders
+history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of requestbegin
+  # Allows you to create HistoryRecord for purchase orders
   result = api_instance.create_purchase_order_history(xero_tenant_id, purchase_order_id, history_records)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -2947,19 +2833,16 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
+api_instance = xero_client.asset_apipurchase_orders = { purchase_orders: [{ contact: { contact_id: "00000000-0000-0000-000-000000000000" }, line_items: [{ description: "Foobar", quantity: 1.0, unitAmount: 20.0, account_code: "710" }], date: "2019-03-13" }]}
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-purchase_orders = { purchaseOrders:[ { contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity:1.0, unitAmount:20.0, accountCode:"710" } ], date:"2019-03-13" } ] } # PurchaseOrders | PurchaseOrders with an array of PurchaseOrder object in body of request
 opts = {
   summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 }
-
 begin
-  #Allows you to create one or more purchase orders
+  # Allows you to create one or more purchase orders
   result = api_instance.create_purchase_orders(xero_tenant_id, purchase_orders, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -3014,7 +2897,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -3022,10 +2905,8 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 quote_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Quote object
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = 'body_example' # String | Byte array of file in body of request
-
-begin
-  #Allows you to create Attachment on Quote
+body = 'body_example' # String | Byte array of file in body of requestbegin
+  # Allows you to create Attachment on Quote
   result = api_instance.create_quote_attachment_by_file_name(xero_tenant_id, quote_id, file_name, body)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -3081,17 +2962,15 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 quote_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Quote
-history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
-
-begin
-  #Allows you to retrieve a history records of an quote
+history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of requestbegin
+  # Allows you to retrieve a history records of an quote
   result = api_instance.create_quote_history(xero_tenant_id, quote_id, history_records)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -3146,19 +3025,16 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
+api_instance = xero_client.asset_apiquotes = { quotes: [{ contact: { contact_id: "00000000-0000-0000-000-000000000000" }, line_items: [{ description: "Foobar", quantity: 1.0, unit_amount: 20.0, account_code: "12775" }], date:"2020-02-01" }]}
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-quotes = { quotes:[ { contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity:1.0, unitAmount:20.0, accountCode:"12775" } ], date:"2020-02-01" } ] } # Quotes | Quotes with an array of Quote object in body of request
 opts = {
   summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 }
-
 begin
-  #Allows you to create one or more quotes
+  # Allows you to create one or more quotes
   result = api_instance.create_quotes(xero_tenant_id, quotes, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -3213,19 +3089,16 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
+api_instance = xero_client.asset_apireceipts = { receipts: [ { contact: { contact_id: "00000000-0000-0000-000-000000000000" }, line_items: [{ description: "Foobar", quantity: 2.0, unit_amount: 20.0, account_code: "400", tax_type: XeroRuby::Accounting::TaxType::NONE, line_amount: 40.0 }], user: { user_id: "00000000-0000-0000-000-000000000000" }, line_amount_types: XeroRuby::Accounting::INCLUSIVE, status: XeroRuby::Accounting::Receipt::DRAFT, date: nil }]}
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-receipts = { receipts:[ { contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity:2.0, unitAmount:20.0, accountCode:"400", taxType:"NONE", lineAmount:40.0 } ], user:{ userID:"00000000-0000-0000-000-000000000000" }, lineAmountTypes: LineAmountTypes.Inclusive, status: Receipt.StatusEnum.DRAFT , date: null} ] } # Receipts | Receipts with an array of Receipt object in body of request
 opts = {
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
-
 begin
-  #Allows you to create draft expense claim receipts for any user
+  # Allows you to create draft expense claim receipts for any user
   result = api_instance.create_receipt(xero_tenant_id, receipts, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -3280,7 +3153,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -3288,10 +3161,8 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 receipt_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Receipt
 file_name = 'xero-dev.jpg' # String | The name of the file being attached to the Receipt
-body = 'body_example' # String | Byte array of file in body of request
-
-begin
-  #Allows you to create Attachment on expense claim receipts by file name
+body = 'body_example' # String | Byte array of file in body of requestbegin
+  # Allows you to create Attachment on expense claim receipts by file name
   result = api_instance.create_receipt_attachment_by_file_name(xero_tenant_id, receipt_id, file_name, body)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -3347,17 +3218,15 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 receipt_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Receipt
-history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
-
-begin
-  #Allows you to retrieve a history records of an Receipt
+history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of requestbegin
+  # Allows you to retrieve a history records of an Receipt
   result = api_instance.create_receipt_history(xero_tenant_id, receipt_id, history_records)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -3412,7 +3281,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -3420,10 +3289,8 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 repeating_invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Repeating Invoice
 file_name = 'xero-dev.jpg' # String | The name of the file being attached to a Repeating Invoice
-body = 'body_example' # String | Byte array of file in body of request
-
-begin
-  #Allows you to create attachment on repeating invoices by file name
+body = 'body_example' # String | Byte array of file in body of requestbegin
+  # Allows you to create attachment on repeating invoices by file name
   result = api_instance.create_repeating_invoice_attachment_by_file_name(xero_tenant_id, repeating_invoice_id, file_name, body)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -3479,17 +3346,15 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 repeating_invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Repeating Invoice
-history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
-
-begin
-  #Allows you to create history for a repeating invoice
+history_records = { historyRecords:[ { details :"Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of requestbegin
+  # Allows you to create history for a repeating invoice
   result = api_instance.create_repeating_invoice_history(xero_tenant_id, repeating_invoice_id, history_records)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -3544,16 +3409,12 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
-
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-tax_rates = { taxRates:[ { name:"CA State Tax", taxComponents:[ { name:"State Tax", rate:2.25 } ] } ] } # TaxRates | TaxRates array with TaxRate object in body of request
-
+api_instance = xero_client.asset_apitax_rates = { tax_rates: [{ name: "CA State Tax", tax_components: [{ name: "State Tax", rate: 2.25 }]}]}
 begin
-  #Allows you to create one or more Tax Rates
+  # Allows you to create one or more Tax Rates
   result = api_instance.create_tax_rates(xero_tenant_id, tax_rates)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -3607,16 +3468,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-tracking_category = { name:"FooBar" } # TrackingCategory | TrackingCategory object in body of request
-
-begin
-  #Allows you to create tracking categories
+tracking_category = { name: "FooBar" } # TrackingCategory | TrackingCategory object in body of requestbegin
+  # Allows you to create tracking categories
   result = api_instance.create_tracking_category(xero_tenant_id, tracking_category)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -3670,17 +3529,15 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 tracking_category_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a TrackingCategory
-tracking_option = { name:"Bar" } # TrackingOption | TrackingOption object in body of request
-
-begin
-  #Allows you to create options for a specified tracking category
+tracking_option = { name: " Bar" } # TrackingOption | TrackingOption object in body of requestbegin
+  # Allows you to create options for a specified tracking category
   result = api_instance.create_tracking_options(xero_tenant_id, tracking_category_id, tracking_option)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -3735,16 +3592,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-account_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for retrieving single object
-
-begin
-  #Allows you to delete a chart of accounts
+account_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for retrieving single objectbegin
+  # Allows you to delete a chart of accounts
   result = api_instance.delete_account(xero_tenant_id, account_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -3798,17 +3653,15 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_group_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact Group
-contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
-
-begin
-  #Allows you to delete a specific Contact from a Contact Group
+contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contactbegin
+  # Allows you to delete a specific Contact from a Contact Group
   api_instance.delete_contact_group_contact(xero_tenant_id, contact_group_id, contact_id)
 rescue XeroRuby::Accounting::ApiError => e
   puts "Exception when calling AccountingApi->delete_contact_group_contact: #{e}"
@@ -3862,16 +3715,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-contact_group_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact Group
-
-begin
-  #Allows you to delete  all Contacts from a Contact Group
+contact_group_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact Groupbegin
+  # Allows you to delete  all Contacts from a Contact Group
   api_instance.delete_contact_group_contacts(xero_tenant_id, contact_group_id)
 rescue XeroRuby::Accounting::ApiError => e
   puts "Exception when calling AccountingApi->delete_contact_group_contacts: #{e}"
@@ -3924,16 +3775,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-item_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Item
-
-begin
-  #Allows you to delete a specified item
+item_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Itembegin
+  # Allows you to delete a specified item
   api_instance.delete_item(xero_tenant_id, item_id)
 rescue XeroRuby::Accounting::ApiError => e
   puts "Exception when calling AccountingApi->delete_item: #{e}"
@@ -3986,16 +3835,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-linked_transaction_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a LinkedTransaction
-
-begin
-  #Allows you to delete a specified linked transactions (billable expenses)
+linked_transaction_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a LinkedTransactionbegin
+  # Allows you to delete a specified linked transactions (billable expenses)
   api_instance.delete_linked_transaction(xero_tenant_id, linked_transaction_id)
 rescue XeroRuby::Accounting::ApiError => e
   puts "Exception when calling AccountingApi->delete_linked_transaction: #{e}"
@@ -4048,17 +3895,15 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 payment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Payment
-payment_delete = { status:"DELETED" } # PaymentDelete | 
-
-begin
-  #Allows you to update a specified payment for invoices and credit notes
+payment_delete = { status: "DELETED" } # PaymentDelete | begin
+  # Allows you to update a specified payment for invoices and credit notes
   result = api_instance.delete_payment(xero_tenant_id, payment_id, payment_delete)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -4113,16 +3958,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-tracking_category_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a TrackingCategory
-
-begin
-  #Allows you to delete tracking categories
+tracking_category_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a TrackingCategorybegin
+  # Allows you to delete tracking categories
   result = api_instance.delete_tracking_category(xero_tenant_id, tracking_category_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -4176,17 +4019,15 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 tracking_category_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a TrackingCategory
-tracking_option_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Tracking Option
-
-begin
-  #Allows you to delete a specified option for a specified tracking category
+tracking_option_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Tracking Optionbegin
+  # Allows you to delete a specified option for a specified tracking category
   result = api_instance.delete_tracking_options(xero_tenant_id, tracking_category_id, tracking_option_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -4241,17 +4082,15 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoice
-request_empty = {} # RequestEmpty | 
-
-begin
-  #Allows you to email a copy of invoice to related Contact
+request_empty = {} # RequestEmpty | begin
+  # Allows you to email a copy of invoice to related Contact
   api_instance.email_invoice(xero_tenant_id, invoice_id, request_empty)
 rescue XeroRuby::Accounting::ApiError => e
   puts "Exception when calling AccountingApi->email_invoice: #{e}"
@@ -4305,16 +4144,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-account_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for retrieving single object
-
-begin
-  #Allows you to retrieve a single chart of accounts
+account_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for retrieving single objectbegin
+  # Allows you to retrieve a single chart of accounts
   result = api_instance.get_account(xero_tenant_id, account_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -4368,7 +4205,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -4376,10 +4213,8 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 account_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Account object
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
-
-begin
-  #Allows you to retrieve Attachment on Account by Filename
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdfbegin
+  # Allows you to retrieve Attachment on Account by Filename
   result = api_instance.get_account_attachment_by_file_name(xero_tenant_id, account_id, file_name, content_type)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -4435,7 +4270,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -4443,10 +4278,8 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 account_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Account object
 attachment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Attachment object
-content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
-
-begin
-  #Allows you to retrieve specific Attachment on Account
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdfbegin
+  # Allows you to retrieve specific Attachment on Account
   result = api_instance.get_account_attachment_by_id(xero_tenant_id, account_id, attachment_id, content_type)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -4502,16 +4335,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-account_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Account object
-
-begin
-  #Allows you to retrieve Attachments for accounts
+account_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Account objectbegin
+  # Allows you to retrieve Attachments for accounts
   result = api_instance.get_account_attachments(xero_tenant_id, account_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -4565,7 +4396,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -4573,12 +4404,13 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
-  where: 'Status==\"' + Account.StatusEnum.ACTIVE + '\" AND Type==\"' + Account.BankAccountTypeEnum.BANK + '\"', # String | Filter by an any element
+
+  where: "Status==#{XeroRuby::Accounting::Account::ACTIVE}", # String | Filter by an any element
+
   order: 'Name ASC' # String | Order by an any element
 }
-
 begin
-  #Allows you to retrieve the full chart of accounts
+  # Allows you to retrieve the full chart of accounts
   result = api_instance.get_accounts(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -4634,7 +4466,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -4644,9 +4476,8 @@ bank_transaction_id = '00000000-0000-0000-000-000000000000' # String | Xero gene
 opts = {
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
-
 begin
-  #Allows you to retrieve a single spend or receive money transaction
+  # Allows you to retrieve a single spend or receive money transaction
   result = api_instance.get_bank_transaction(xero_tenant_id, bank_transaction_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -4701,7 +4532,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -4709,10 +4540,8 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transaction_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transaction
 file_name = 'xero-dev.jpg' # String | The name of the file being attached
-content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
-
-begin
-  #Allows you to retrieve Attachments on BankTransaction by Filename
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdfbegin
+  # Allows you to retrieve Attachments on BankTransaction by Filename
   result = api_instance.get_bank_transaction_attachment_by_file_name(xero_tenant_id, bank_transaction_id, file_name, content_type)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -4768,7 +4597,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -4776,10 +4605,8 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transaction_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transaction
 attachment_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for an attachment
-content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
-
-begin
-  #Allows you to retrieve Attachments on a specific BankTransaction
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdfbegin
+  # Allows you to retrieve Attachments on a specific BankTransaction
   result = api_instance.get_bank_transaction_attachment_by_id(xero_tenant_id, bank_transaction_id, attachment_id, content_type)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -4835,16 +4662,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-bank_transaction_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transaction
-
-begin
-  #Allows you to retrieve any attachments to bank transactions
+bank_transaction_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transactionbegin
+  # Allows you to retrieve any attachments to bank transactions
   result = api_instance.get_bank_transaction_attachments(xero_tenant_id, bank_transaction_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -4898,7 +4723,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -4906,14 +4731,17 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
-  where: 'Status==\"' + BankTransaction.StatusEnum.ACTIVE + '\"', # String | Filter by an any element
+
+  where: "Status==#{XeroRuby::Accounting::BankTransaction::AUTHORISED}", # String | Filter by an any element
+
   order: 'Type ASC', # String | Order by an any element
+
   page: 1, # Integer | Up to 100 bank transactions will be returned in a single API call with line items details
+
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
-
 begin
-  #Allows you to retrieve any spend or receive money transactions
+  # Allows you to retrieve any spend or receive money transactions
   result = api_instance.get_bank_transactions(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -4971,16 +4799,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-bank_transaction_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transaction
-
-begin
-  #Allows you to retrieve history from a bank transactions
+bank_transaction_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transactionbegin
+  # Allows you to retrieve history from a bank transactions
   result = api_instance.get_bank_transactions_history(xero_tenant_id, bank_transaction_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -5034,16 +4860,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-bank_transfer_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transfer
-
-begin
-  #Allows you to retrieve any bank transfers
+bank_transfer_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transferbegin
+  # Allows you to retrieve any bank transfers
   result = api_instance.get_bank_transfer(xero_tenant_id, bank_transfer_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -5097,7 +4921,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -5105,10 +4929,8 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transfer_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transfer
 file_name = 'xero-dev.jpg' # String | The name of the file being attached to a Bank Transfer
-content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
-
-begin
-  #Allows you to retrieve Attachments on BankTransfer by file name
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdfbegin
+  # Allows you to retrieve Attachments on BankTransfer by file name
   result = api_instance.get_bank_transfer_attachment_by_file_name(xero_tenant_id, bank_transfer_id, file_name, content_type)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -5164,7 +4986,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -5172,10 +4994,8 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transfer_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transfer
 attachment_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for an Attachment to a bank transfer
-content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
-
-begin
-  #Allows you to retrieve Attachments on BankTransfer
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdfbegin
+  # Allows you to retrieve Attachments on BankTransfer
   result = api_instance.get_bank_transfer_attachment_by_id(xero_tenant_id, bank_transfer_id, attachment_id, content_type)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -5231,16 +5051,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-bank_transfer_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transfer
-
-begin
-  #Allows you to retrieve Attachments from  bank transfers
+bank_transfer_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transferbegin
+  # Allows you to retrieve Attachments from  bank transfers
   result = api_instance.get_bank_transfer_attachments(xero_tenant_id, bank_transfer_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -5294,16 +5112,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-bank_transfer_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transfer
-
-begin
-  #Allows you to retrieve history from a bank transfers
+bank_transfer_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transferbegin
+  # Allows you to retrieve history from a bank transfers
   result = api_instance.get_bank_transfer_history(xero_tenant_id, bank_transfer_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -5357,7 +5173,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -5365,12 +5181,13 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
-  where: 'Status==\"' + BankTransfer.StatusEnum.ACTIVE + '\"', # String | Filter by an any element
+
+  where: 'HasAttachments==true', # String | Filter by an any element
+
   order: 'Amount ASC' # String | Order by an any element
 }
-
 begin
-  #Allows you to retrieve all bank transfers
+  # Allows you to retrieve all bank transfers
   result = api_instance.get_bank_transfers(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -5426,16 +5243,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-batch_payment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for BatchPayment
-
-begin
-  #Allows you to retrieve history from a Batch Payment
+batch_payment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for BatchPaymentbegin
+  # Allows you to retrieve history from a Batch Payment
   result = api_instance.get_batch_payment_history(xero_tenant_id, batch_payment_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -5489,7 +5304,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -5497,12 +5312,13 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
-  where: 'Status==\"' + BatchPayment.StatusEnum.ACTIVE + '\"', # String | Filter by an any element
+
+  where: "Status==#{XeroRuby::Accounting::BatchPayment::AUTHORISED}", # String | Filter by an any element
+
   order: 'Date ASC' # String | Order by an any element
 }
-
 begin
-  #Retrieve either one or many BatchPayments for invoices
+  # Retrieve either one or many BatchPayments for invoices
   result = api_instance.get_batch_payments(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -5558,16 +5374,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-branding_theme_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Branding Theme
-
-begin
-  #Allows you to retrieve a specific BrandingThemes
+branding_theme_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Branding Themebegin
+  # Allows you to retrieve a specific BrandingThemes
   result = api_instance.get_branding_theme(xero_tenant_id, branding_theme_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -5621,16 +5435,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-branding_theme_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Branding Theme
-
-begin
-  #Allows you to retrieve the Payment services for a Branding Theme
+branding_theme_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Branding Themebegin
+  # Allows you to retrieve the Payment services for a Branding Theme
   result = api_instance.get_branding_theme_payment_services(xero_tenant_id, branding_theme_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -5684,15 +5496,13 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-
-begin
-  #Allows you to retrieve all the BrandingThemes
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenantbegin
+  # Allows you to retrieve all the BrandingThemes
   result = api_instance.get_branding_themes(xero_tenant_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -5745,16 +5555,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
-
-begin
-  #Allows you to retrieve a single contacts in a Xero organisation
+contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contactbegin
+  # Allows you to retrieve a single contacts in a Xero organisation
   result = api_instance.get_contact(xero_tenant_id, contact_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -5808,7 +5616,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -5816,10 +5624,8 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
 file_name = 'xero-dev.jpg' # String | Name for the file you are attaching
-content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
-
-begin
-  #Allows you to retrieve Attachments on Contacts by file name
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdfbegin
+  # Allows you to retrieve Attachments on Contacts by file name
   result = api_instance.get_contact_attachment_by_file_name(xero_tenant_id, contact_id, file_name, content_type)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -5875,7 +5681,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -5883,10 +5689,8 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
 attachment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Attachment
-content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
-
-begin
-  #Allows you to retrieve Attachments on Contacts
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdfbegin
+  # Allows you to retrieve Attachments on Contacts
   result = api_instance.get_contact_attachment_by_id(xero_tenant_id, contact_id, attachment_id, content_type)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -5942,16 +5746,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
-
-begin
-  #Allows you to retrieve, add and update contacts in a Xero organisation
+contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contactbegin
+  # Allows you to retrieve, add and update contacts in a Xero organisation
   result = api_instance.get_contact_attachments(xero_tenant_id, contact_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -6005,16 +5807,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-contact_number = 'SB2' # String | This field is read only on the Xero contact screen, used to identify contacts in external systems (max length = 50).
-
-begin
-  #Allows you to retrieve a single contact by Contact Number in a Xero organisation
+contact_number = 'SB2' # String | This field is read only on the Xero contact screen, used to identify contacts in external systems (max length = 50).begin
+  # Allows you to retrieve a single contact by Contact Number in a Xero organisation
   result = api_instance.get_contact_by_contact_number(xero_tenant_id, contact_number)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -6068,16 +5868,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
-
-begin
-  #Allows you to retrieve CISSettings for a contact in a Xero organisation
+contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contactbegin
+  # Allows you to retrieve CISSettings for a contact in a Xero organisation
   result = api_instance.get_contact_cis_settings(xero_tenant_id, contact_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -6131,16 +5929,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-contact_group_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact Group
-
-begin
-  #Allows you to retrieve a unique Contact Group by ID
+contact_group_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact Groupbegin
+  # Allows you to retrieve a unique Contact Group by ID
   result = api_instance.get_contact_group(xero_tenant_id, contact_group_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -6194,19 +5990,19 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  where: 'Status==\"' + ContactGroup.StatusEnum.ACTIVE + '\"', # String | Filter by an any element
+  where: "Status==#{XeroRuby::Accounting::ContactGroup::ACTIVE}", # String | Filter by an any element
+
   order: 'Name ASC' # String | Order by an any element
 }
-
 begin
-  #Allows you to retrieve the ContactID and Name of all the contacts in a contact group
+  # Allows you to retrieve the ContactID and Name of all the contacts in a contact group
   result = api_instance.get_contact_groups(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -6261,16 +6057,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
-
-begin
-  #Allows you to retrieve a history records of an Contact
+contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contactbegin
+  # Allows you to retrieve a history records of an Contact
   result = api_instance.get_contact_history(xero_tenant_id, contact_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -6324,7 +6118,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -6332,15 +6126,19 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
-  where: 'Status==\"' + Contact.ContactStatusEnum.ACTIVE + '\"', # String | Filter by an any element
+
+  where: "ContactStatus==#{XeroRuby::Accounting::Contact::ACTIVE}", # String | Filter by an any element
+
   order: 'Name ASC', # String | Order by an any element
+
   i_ds: ['00000000-0000-0000-000-000000000000,00000000-0000-0000-000-000000000000'], # Array<String> | Filter by a comma separated list of ContactIDs. Allows you to retrieve a specific set of contacts in a single call.
+
   page: 1, # Integer | e.g. page=1 - Up to 100 contacts will be returned in a single API call.
+
   include_archived: true # Boolean | e.g. includeArchived=true - Contacts with a status of ARCHIVED will be included in the response
 }
-
 begin
-  #Allows you to retrieve all contacts in a Xero organisation
+  # Allows you to retrieve all contacts in a Xero organisation
   result = api_instance.get_contacts(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -6399,7 +6197,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -6409,9 +6207,8 @@ credit_note_id = '00000000-0000-0000-000-000000000000' # String | Unique identif
 opts = {
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
-
 begin
-  #Allows you to retrieve a specific credit note
+  # Allows you to retrieve a specific credit note
   result = api_instance.get_credit_note(xero_tenant_id, credit_note_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -6466,16 +6263,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-credit_note_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Credit Note
-
-begin
-  #Allows you to retrieve Credit Note as PDF files
+credit_note_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Credit Notebegin
+  # Allows you to retrieve Credit Note as PDF files
   result = api_instance.get_credit_note_as_pdf(xero_tenant_id, credit_note_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -6529,7 +6324,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -6537,10 +6332,8 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 credit_note_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Credit Note
 file_name = 'xero-dev.jpg' # String | Name of the file you are attaching to Credit Note
-content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
-
-begin
-  #Allows you to retrieve Attachments on CreditNote by file name
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdfbegin
+  # Allows you to retrieve Attachments on CreditNote by file name
   result = api_instance.get_credit_note_attachment_by_file_name(xero_tenant_id, credit_note_id, file_name, content_type)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -6596,7 +6389,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -6604,10 +6397,8 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 credit_note_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Credit Note
 attachment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Attachment
-content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
-
-begin
-  #Allows you to retrieve Attachments on CreditNote
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdfbegin
+  # Allows you to retrieve Attachments on CreditNote
   result = api_instance.get_credit_note_attachment_by_id(xero_tenant_id, credit_note_id, attachment_id, content_type)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -6663,16 +6454,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-credit_note_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Credit Note
-
-begin
-  #Allows you to retrieve Attachments for credit notes
+credit_note_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Credit Notebegin
+  # Allows you to retrieve Attachments for credit notes
   result = api_instance.get_credit_note_attachments(xero_tenant_id, credit_note_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -6726,16 +6515,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-credit_note_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Credit Note
-
-begin
-  #Allows you to retrieve a history records of an CreditNote
+credit_note_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Credit Notebegin
+  # Allows you to retrieve a history records of an CreditNote
   result = api_instance.get_credit_note_history(xero_tenant_id, credit_note_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -6789,7 +6576,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -6797,14 +6584,17 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
-  where: 'Status==\"' + CreditNote.StatusEnum.DRAFT + '\"', # String | Filter by an any element
+
+  where: "Status==#{XeroRuby::Accounting::CreditNote::DRAFT}", # String | Filter by an any element
+
   order: 'CreditNoteNumber ASC', # String | Order by an any element
+
   page: 1, # Integer | e.g. page=1 – Up to 100 credit notes will be returned in a single API call with line items shown for each credit note
+
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
-
 begin
-  #Allows you to retrieve any credit notes
+  # Allows you to retrieve any credit notes
   result = api_instance.get_credit_notes(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -6862,19 +6652,19 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  where: 'Status==\"' + Currency.StatusEnum.ACTIVE + '\"', # String | Filter by an any element
+  where: "Status==#{XeroRuby::Accounting::Currency::ACTIVE}", # String | Filter by an any element
+
   order: 'Code ASC' # String | Order by an any element
 }
-
 begin
-  #Allows you to retrieve currencies for your organisation
+  # Allows you to retrieve currencies for your organisation
   result = api_instance.get_currencies(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -6929,16 +6719,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-employee_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Employee
-
-begin
-  #Allows you to retrieve a specific employee used in Xero payrun
+employee_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Employeebegin
+  # Allows you to retrieve a specific employee used in Xero payrun
   result = api_instance.get_employee(xero_tenant_id, employee_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -6992,7 +6780,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -7000,12 +6788,13 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
-  where: 'Status==\"' + Employee.StatusEnum.ACTIVE + '\"', # String | Filter by an any element
+
+  where: "Status==#{XeroRuby::Accounting::Employee::ACTIVE}", # String | Filter by an any element
+
   order: 'ASC' # String | Order by an any element
 }
-
 begin
-  #Allows you to retrieve employees used in Xero payrun
+  # Allows you to retrieve employees used in Xero payrun
   result = api_instance.get_employees(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -7061,16 +6850,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-expense_claim_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ExpenseClaim
-
-begin
-  #Allows you to retrieve a specified expense claim
+expense_claim_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ExpenseClaimbegin
+  # Allows you to retrieve a specified expense claim
   result = api_instance.get_expense_claim(xero_tenant_id, expense_claim_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -7124,16 +6911,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-expense_claim_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ExpenseClaim
-
-begin
-  #Allows you to retrieve a history records of an ExpenseClaim
+expense_claim_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ExpenseClaimbegin
+  # Allows you to retrieve a history records of an ExpenseClaim
   result = api_instance.get_expense_claim_history(xero_tenant_id, expense_claim_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -7187,7 +6972,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -7195,12 +6980,13 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
-  where: 'Status==\"' + ExpenseClaim.StatusEnum.SUBMITTED + '\"', # String | Filter by an any element
+
+  where: "Status==#{XeroRuby::Accounting::ExpenseClaim::SUBMITTED}", # String | Filter by an any element
+
   order: 'Status ASC' # String | Order by an any element
 }
-
 begin
-  #Allows you to retrieve expense claims
+  # Allows you to retrieve expense claims
   result = api_instance.get_expense_claims(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -7256,7 +7042,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -7266,9 +7052,8 @@ invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier 
 opts = {
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
-
 begin
-  #Allows you to retrieve a specified sales invoice or purchase bill
+  # Allows you to retrieve a specified sales invoice or purchase bill
   result = api_instance.get_invoice(xero_tenant_id, invoice_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -7323,16 +7108,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoice
-
-begin
-  #Allows you to retrieve invoices or purchase bills as PDF files
+invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoicebegin
+  # Allows you to retrieve invoices or purchase bills as PDF files
   result = api_instance.get_invoice_as_pdf(xero_tenant_id, invoice_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -7386,7 +7169,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -7394,10 +7177,8 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoice
 file_name = 'xero-dev.jpg' # String | Name of the file you are attaching
-content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
-
-begin
-  #Allows you to retrieve Attachment on invoices or purchase bills by it's filename
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdfbegin
+  # Allows you to retrieve Attachment on invoices or purchase bills by it's filename
   result = api_instance.get_invoice_attachment_by_file_name(xero_tenant_id, invoice_id, file_name, content_type)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -7453,7 +7234,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -7461,10 +7242,8 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoice
 attachment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Attachment
-content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
-
-begin
-  #Allows you to retrieve a specified Attachment on invoices or purchase bills by it's ID
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdfbegin
+  # Allows you to retrieve a specified Attachment on invoices or purchase bills by it's ID
   result = api_instance.get_invoice_attachment_by_id(xero_tenant_id, invoice_id, attachment_id, content_type)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -7520,16 +7299,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoice
-
-begin
-  #Allows you to retrieve Attachments on invoices or purchase bills
+invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoicebegin
+  # Allows you to retrieve Attachments on invoices or purchase bills
   result = api_instance.get_invoice_attachments(xero_tenant_id, invoice_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -7583,16 +7360,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoice
-
-begin
-  #Allows you to retrieve a history records of an invoice
+invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoicebegin
+  # Allows you to retrieve a history records of an invoice
   result = api_instance.get_invoice_history(xero_tenant_id, invoice_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -7646,15 +7421,13 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-
-begin
-  #Allows you to retrieve invoice reminder settings
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenantbegin
+  # Allows you to retrieve invoice reminder settings
   result = api_instance.get_invoice_reminders(xero_tenant_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -7707,7 +7480,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -7715,20 +7488,29 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
-  where: 'Status==\"' + Invoice.StatusEnum.DRAFT + '\"', # String | Filter by an any element
+
+  where: "Status==#{XeroRuby::Accounting::Invoice::DRAFT}", # String | Filter by an any element
+
   order: 'InvoiceNumber ASC', # String | Order by an any element
+
   i_ds: ['00000000-0000-0000-000-000000000000,00000000-0000-0000-000-000000000000'], # Array<String> | Filter by a comma-separated list of InvoicesIDs.
+
   invoice_numbers: ['null'], # Array<String> | Filter by a comma-separated list of InvoiceNumbers.
+
   contact_i_ds: ['00000000-0000-0000-000-000000000000,00000000-0000-0000-000-000000000000'], # Array<String> | Filter by a comma-separated list of ContactIDs.
+
   statuses: ['null'], # Array<String> | Filter by a comma-separated list Statuses. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter.
+
   page: 1, # Integer | e.g. page=1 – Up to 100 invoices will be returned in a single API call with line items shown for each invoice
+
   include_archived: true, # Boolean | e.g. includeArchived=true - Contacts with a status of ARCHIVED will be included in the response
+
   created_by_my_app: false, # Boolean | When set to true you'll only retrieve Invoices created by your app
+
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
-
 begin
-  #Allows you to retrieve any sales invoices or purchase bills
+  # Allows you to retrieve any sales invoices or purchase bills
   result = api_instance.get_invoices(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -7792,7 +7574,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -7802,9 +7584,8 @@ item_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for
 opts = {
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
-
 begin
-  #Allows you to retrieve a specified item
+  # Allows you to retrieve a specified item
   result = api_instance.get_item(xero_tenant_id, item_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -7859,16 +7640,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-item_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Item
-
-begin
-  #Allows you to retrieve history for items
+item_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Itembegin
+  # Allows you to retrieve history for items
   result = api_instance.get_item_history(xero_tenant_id, item_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -7922,7 +7701,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -7930,13 +7709,15 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
+
   where: 'IsSold==true', # String | Filter by an any element
+
   order: 'Code ASC', # String | Order by an any element
+
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
-
 begin
-  #Allows you to retrieve any items
+  # Allows you to retrieve any items
   result = api_instance.get_items(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -7993,16 +7774,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-journal_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Journal
-
-begin
-  #Allows you to retrieve a specified journals.
+journal_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Journalbegin
+  # Allows you to retrieve a specified journals.
   result = api_instance.get_journal(xero_tenant_id, journal_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -8056,7 +7835,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -8064,12 +7843,13 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
+
   offset: 10, # Integer | Offset by a specified journal number. e.g. journals with a JournalNumber greater than the offset will be returned
+
   payments_only: true # Boolean | Filter to retrieve journals on a cash basis. Journals are returned on an accrual basis by default.
 }
-
 begin
-  #Allows you to retrieve any journals.
+  # Allows you to retrieve any journals.
   result = api_instance.get_journals(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -8125,16 +7905,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-linked_transaction_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a LinkedTransaction
-
-begin
-  #Allows you to retrieve a specified linked transactions (billable expenses)
+linked_transaction_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a LinkedTransactionbegin
+  # Allows you to retrieve a specified linked transactions (billable expenses)
   result = api_instance.get_linked_transaction(xero_tenant_id, linked_transaction_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -8188,7 +7966,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -8196,15 +7974,19 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   page: 1, # Integer | Up to 100 linked transactions will be returned in a single API call. Use the page parameter to specify the page to be returned e.g. page=1.
+
   linked_transaction_id: '00000000-0000-0000-000-000000000000', # String | The Xero identifier for an Linked Transaction
+
   source_transaction_id: '00000000-0000-0000-000-000000000000', # String | Filter by the SourceTransactionID. Get the linked transactions created from a particular ACCPAY invoice
+
   contact_id: '00000000-0000-0000-000-000000000000', # String | Filter by the ContactID. Get all the linked transactions that have been assigned to a particular customer.
+
   status: 'APPROVED', # String | Filter by the combination of ContactID and Status. Get  the linked transactions associaed to a  customer and with a status
+
   target_transaction_id: '00000000-0000-0000-000-000000000000' # String | Filter by the TargetTransactionID. Get all the linked transactions allocated to a particular ACCREC invoice
 }
-
 begin
-  #Retrieve linked transactions (billable expenses)
+  # Retrieve linked transactions (billable expenses)
   result = api_instance.get_linked_transactions(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -8263,16 +8045,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-manual_journal_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ManualJournal
-
-begin
-  #Allows you to retrieve a specified manual journals
+manual_journal_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ManualJournalbegin
+  # Allows you to retrieve a specified manual journals
   result = api_instance.get_manual_journal(xero_tenant_id, manual_journal_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -8326,7 +8106,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -8334,10 +8114,8 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 manual_journal_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ManualJournal
 file_name = 'xero-dev.jpg' # String | The name of the file being attached to a ManualJournal
-content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
-
-begin
-  #Allows you to retrieve specified Attachment on ManualJournal by file name
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdfbegin
+  # Allows you to retrieve specified Attachment on ManualJournal by file name
   result = api_instance.get_manual_journal_attachment_by_file_name(xero_tenant_id, manual_journal_id, file_name, content_type)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -8393,7 +8171,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -8401,10 +8179,8 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 manual_journal_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ManualJournal
 attachment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Attachment
-content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
-
-begin
-  #Allows you to retrieve specified Attachment on ManualJournals
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdfbegin
+  # Allows you to retrieve specified Attachment on ManualJournals
   result = api_instance.get_manual_journal_attachment_by_id(xero_tenant_id, manual_journal_id, attachment_id, content_type)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -8460,16 +8236,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-manual_journal_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ManualJournal
-
-begin
-  #Allows you to retrieve Attachment for manual journals
+manual_journal_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ManualJournalbegin
+  # Allows you to retrieve Attachment for manual journals
   result = api_instance.get_manual_journal_attachments(xero_tenant_id, manual_journal_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -8523,7 +8297,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -8531,13 +8305,15 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
-  where: 'Status==\"' + ManualJournal.StatusEnum.DRAFT + '\"', # String | Filter by an any element
+
+  where: "Status==#{XeroRuby::Accounting::ManualJournal::DRAFT}", # String | Filter by an any element
+
   order: 'Date ASC', # String | Order by an any element
+
   page: 1 # Integer | e.g. page=1 – Up to 100 manual journals will be returned in a single API call with line items shown for each overpayment
 }
-
 begin
-  #Allows you to retrieve any manual journals
+  # Allows you to retrieve any manual journals
   result = api_instance.get_manual_journals(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -8594,16 +8370,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoice
-
-begin
-  #Allows you to retrieve a URL to an online invoice
+invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoicebegin
+  # Allows you to retrieve a URL to an online invoice
   result = api_instance.get_online_invoice(xero_tenant_id, invoice_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -8657,16 +8431,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-organisation_id = '00000000-0000-0000-000-000000000000' # String | The unique Xero identifier for an organisation
-
-begin
-  #Allows you To verify if an organisation is using contruction industry scheme, you can retrieve the CIS settings for the organistaion.
+organisation_id = '00000000-0000-0000-000-000000000000' # String | The unique Xero identifier for an organisationbegin
+  # Allows you To verify if an organisation is using contruction industry scheme, you can retrieve the CIS settings for the organistaion.
   result = api_instance.get_organisation_cis_settings(xero_tenant_id, organisation_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -8720,15 +8492,13 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-
-begin
-  #Allows you to retrieve Organisation details
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenantbegin
+  # Allows you to retrieve Organisation details
   result = api_instance.get_organisations(xero_tenant_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -8781,16 +8551,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-overpayment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Overpayment
-
-begin
-  #Allows you to retrieve a specified overpayments
+overpayment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Overpaymentbegin
+  # Allows you to retrieve a specified overpayments
   result = api_instance.get_overpayment(xero_tenant_id, overpayment_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -8844,16 +8612,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-overpayment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Overpayment
-
-begin
-  #Allows you to retrieve a history records of an Overpayment
+overpayment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Overpaymentbegin
+  # Allows you to retrieve a history records of an Overpayment
   result = api_instance.get_overpayment_history(xero_tenant_id, overpayment_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -8907,7 +8673,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -8915,14 +8681,17 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
-  where: 'Status==\"' + Overpayment.StatusEnum.AUTHORISED + '\"', # String | Filter by an any element
+
+  where: "Status==#{XeroRuby::Accounting::Overpayment::AUTHORISED}", # String | Filter by an any element
+
   order: 'RemainingCredit ASC', # String | Order by an any element
+
   page: 1, # Integer | e.g. page=1 – Up to 100 overpayments will be returned in a single API call with line items shown for each overpayment
+
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
-
 begin
-  #Allows you to retrieve overpayments
+  # Allows you to retrieve overpayments
   result = api_instance.get_overpayments(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -8980,16 +8749,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-payment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Payment
-
-begin
-  #Allows you to retrieve a specified payment for invoices and credit notes
+payment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Paymentbegin
+  # Allows you to retrieve a specified payment for invoices and credit notes
   result = api_instance.get_payment(xero_tenant_id, payment_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -9043,16 +8810,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-payment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Payment
-
-begin
-  #Allows you to retrieve history records of a payment
+payment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Paymentbegin
+  # Allows you to retrieve history records of a payment
   result = api_instance.get_payment_history(xero_tenant_id, payment_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -9106,15 +8871,13 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-
-begin
-  #Allows you to retrieve payment services
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenantbegin
+  # Allows you to retrieve payment services
   result = api_instance.get_payment_services(xero_tenant_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -9167,7 +8930,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -9175,13 +8938,15 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
-  where: 'Status==\"' + Payment.StatusEnum.AUTHORISED + '\"', # String | Filter by an any element
+
+  where: "Status==#{XeroRuby::Accounting::Payment::AUTHORISED}", # String | Filter by an any element
+
   order: 'Amount ASC', # String | Order by an any element
+
   page: 1 # Integer | Up to 100 payments will be returned in a single API call
 }
-
 begin
-  #Allows you to retrieve payments for invoices and credit notes
+  # Allows you to retrieve payments for invoices and credit notes
   result = api_instance.get_payments(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -9238,16 +9003,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-prepayment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a PrePayment
-
-begin
-  #Allows you to retrieve a specified prepayments
+prepayment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a PrePaymentbegin
+  # Allows you to retrieve a specified prepayments
   result = api_instance.get_prepayment(xero_tenant_id, prepayment_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -9301,16 +9064,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-prepayment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a PrePayment
-
-begin
-  #Allows you to retrieve a history records of an Prepayment
+prepayment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a PrePaymentbegin
+  # Allows you to retrieve a history records of an Prepayment
   result = api_instance.get_prepayment_history(xero_tenant_id, prepayment_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -9364,7 +9125,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -9372,14 +9133,17 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
-  where: 'Status==\"' + Prepayment.StatusEnum.AUTHORISED + '\"', # String | Filter by an any element
+
+  where: "Status==#{XeroRuby::Accounting::Prepayment::AUTHORISED}", # String | Filter by an any element
+
   order: 'Reference ASC', # String | Order by an any element
+
   page: 1, # Integer | e.g. page=1 – Up to 100 prepayments will be returned in a single API call with line items shown for each overpayment
+
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
-
 begin
-  #Allows you to retrieve prepayments
+  # Allows you to retrieve prepayments
   result = api_instance.get_prepayments(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -9437,16 +9201,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-purchase_order_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a PurchaseOrder
-
-begin
-  #Allows you to retrieve a specified purchase orders
+purchase_order_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a PurchaseOrderbegin
+  # Allows you to retrieve a specified purchase orders
   result = api_instance.get_purchase_order(xero_tenant_id, purchase_order_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -9500,16 +9262,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-purchase_order_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Purchase Order
-
-begin
-  #Allows you to retrieve purchase orders as PDF files
+purchase_order_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Purchase Orderbegin
+  # Allows you to retrieve purchase orders as PDF files
   result = api_instance.get_purchase_order_as_pdf(xero_tenant_id, purchase_order_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -9563,16 +9323,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-purchase_order_number = 'PO1234' # String | Unique identifier for a PurchaseOrder
-
-begin
-  #Allows you to retrieve a specified purchase orders
+purchase_order_number = 'PO1234' # String | Unique identifier for a PurchaseOrderbegin
+  # Allows you to retrieve a specified purchase orders
   result = api_instance.get_purchase_order_by_number(xero_tenant_id, purchase_order_number)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -9626,16 +9384,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-purchase_order_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a PurchaseOrder
-
-begin
-  #Allows you to retrieve history for PurchaseOrder
+purchase_order_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a PurchaseOrderbegin
+  # Allows you to retrieve history for PurchaseOrder
   result = api_instance.get_purchase_order_history(xero_tenant_id, purchase_order_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -9689,7 +9445,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -9697,15 +9453,19 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
+
   status: 'SUBMITTED', # String | Filter by purchase order status
+
   date_from: '2019-12-01', # String | Filter by purchase order date (e.g. GET https://.../PurchaseOrders?DateFrom=2015-12-01&DateTo=2015-12-31
+
   date_to: '2019-12-31', # String | Filter by purchase order date (e.g. GET https://.../PurchaseOrders?DateFrom=2015-12-01&DateTo=2015-12-31
+
   order: 'PurchaseOrderNumber ASC', # String | Order by an any element
+
   page: 1 # Integer | To specify a page, append the page parameter to the URL e.g. ?page=1. If there are 100 records in the response you will need to check if there is any more data by fetching the next page e.g ?page=2 and continuing this process until no more results are returned.
 }
-
 begin
-  #Allows you to retrieve purchase orders
+  # Allows you to retrieve purchase orders
   result = api_instance.get_purchase_orders(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -9764,16 +9524,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-quote_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Quote
-
-begin
-  #Allows you to retrieve a specified quote
+quote_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Quotebegin
+  # Allows you to retrieve a specified quote
   result = api_instance.get_quote(xero_tenant_id, quote_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -9827,16 +9585,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-quote_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Quote
-
-begin
-  #Allows you to retrieve quotes as PDF files
+quote_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Quotebegin
+  # Allows you to retrieve quotes as PDF files
   result = api_instance.get_quote_as_pdf(xero_tenant_id, quote_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -9890,7 +9646,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -9898,10 +9654,8 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 quote_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Quote object
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
-
-begin
-  #Allows you to retrieve Attachment on Quote by Filename
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdfbegin
+  # Allows you to retrieve Attachment on Quote by Filename
   result = api_instance.get_quote_attachment_by_file_name(xero_tenant_id, quote_id, file_name, content_type)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -9957,7 +9711,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -9965,10 +9719,8 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 quote_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Quote object
 attachment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Attachment object
-content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
-
-begin
-  #Allows you to retrieve specific Attachment on Quote
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdfbegin
+  # Allows you to retrieve specific Attachment on Quote
   result = api_instance.get_quote_attachment_by_id(xero_tenant_id, quote_id, attachment_id, content_type)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -10024,16 +9776,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-quote_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Quote object
-
-begin
-  #Allows you to retrieve Attachments for Quotes
+quote_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Quote objectbegin
+  # Allows you to retrieve Attachments for Quotes
   result = api_instance.get_quote_attachments(xero_tenant_id, quote_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -10087,16 +9837,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-quote_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Quote
-
-begin
-  #Allows you to retrieve a history records of an quote
+quote_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Quotebegin
+  # Allows you to retrieve a history records of an quote
   result = api_instance.get_quote_history(xero_tenant_id, quote_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -10150,7 +9898,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -10158,18 +9906,25 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
+
   date_from: Date.parse('2013-10-20'), # Date | Filter for quotes after a particular date
+
   date_to: Date.parse('2013-10-20'), # Date | Filter for quotes before a particular date
+
   expiry_date_from: Date.parse('2013-10-20'), # Date | Filter for quotes expiring after a particular date
+
   expiry_date_to: Date.parse('2013-10-20'), # Date | Filter for quotes before a particular date
+
   contact_id: '00000000-0000-0000-000-000000000000', # String | Filter for quotes belonging to a particular contact
+
   status: 'status_example', # String | Filter for quotes of a particular Status
+
   page: 1, # Integer | e.g. page=1 – Up to 100 Quotes will be returned in a single API call with line items shown for each quote
+
   order: 'ASC' # String | Order by an any element
 }
-
 begin
-  #Allows you to retrieve any sales quotes
+  # Allows you to retrieve any sales quotes
   result = api_instance.get_quotes(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -10231,7 +9986,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -10241,9 +9996,8 @@ receipt_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier 
 opts = {
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
-
 begin
-  #Allows you to retrieve a specified draft expense claim receipts
+  # Allows you to retrieve a specified draft expense claim receipts
   result = api_instance.get_receipt(xero_tenant_id, receipt_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -10298,7 +10052,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -10306,10 +10060,8 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 receipt_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Receipt
 file_name = 'xero-dev.jpg' # String | The name of the file being attached to the Receipt
-content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
-
-begin
-  #Allows you to retrieve Attachments on expense claim receipts by file name
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdfbegin
+  # Allows you to retrieve Attachments on expense claim receipts by file name
   result = api_instance.get_receipt_attachment_by_file_name(xero_tenant_id, receipt_id, file_name, content_type)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -10365,7 +10117,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -10373,10 +10125,8 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 receipt_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Receipt
 attachment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Attachment
-content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
-
-begin
-  #Allows you to retrieve Attachments on expense claim receipts by ID
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdfbegin
+  # Allows you to retrieve Attachments on expense claim receipts by ID
   result = api_instance.get_receipt_attachment_by_id(xero_tenant_id, receipt_id, attachment_id, content_type)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -10432,16 +10182,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-receipt_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Receipt
-
-begin
-  #Allows you to retrieve Attachments for expense claim receipts
+receipt_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Receiptbegin
+  # Allows you to retrieve Attachments for expense claim receipts
   result = api_instance.get_receipt_attachments(xero_tenant_id, receipt_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -10495,16 +10243,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-receipt_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Receipt
-
-begin
-  #Allows you to retrieve a history records of an Receipt
+receipt_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Receiptbegin
+  # Allows you to retrieve a history records of an Receipt
   result = api_instance.get_receipt_history(xero_tenant_id, receipt_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -10558,7 +10304,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -10566,13 +10312,15 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
-  where: 'Status==\"' + Receipt.StatusEnum.DRAFT + '\"', # String | Filter by an any element
+
+  where: "Status==#{XeroRuby::Accounting::Receipt::DRAFT}", # String | Filter by an any element
+
   order: 'ReceiptNumber ASC', # String | Order by an any element
+
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
-
 begin
-  #Allows you to retrieve draft expense claim receipts for any user
+  # Allows you to retrieve draft expense claim receipts for any user
   result = api_instance.get_receipts(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -10629,16 +10377,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-repeating_invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Repeating Invoice
-
-begin
-  #Allows you to retrieve a specified repeating invoice
+repeating_invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Repeating Invoicebegin
+  # Allows you to retrieve a specified repeating invoice
   result = api_instance.get_repeating_invoice(xero_tenant_id, repeating_invoice_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -10692,7 +10438,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -10700,10 +10446,8 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 repeating_invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Repeating Invoice
 file_name = 'xero-dev.jpg' # String | The name of the file being attached to a Repeating Invoice
-content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
-
-begin
-  #Allows you to retrieve specified attachment on repeating invoices by file name
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdfbegin
+  # Allows you to retrieve specified attachment on repeating invoices by file name
   result = api_instance.get_repeating_invoice_attachment_by_file_name(xero_tenant_id, repeating_invoice_id, file_name, content_type)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -10759,7 +10503,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -10767,10 +10511,8 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 repeating_invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Repeating Invoice
 attachment_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Attachment
-content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
-
-begin
-  #Allows you to retrieve a specified Attachments on repeating invoices
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdfbegin
+  # Allows you to retrieve a specified Attachments on repeating invoices
   result = api_instance.get_repeating_invoice_attachment_by_id(xero_tenant_id, repeating_invoice_id, attachment_id, content_type)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -10826,16 +10568,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-repeating_invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Repeating Invoice
-
-begin
-  #Allows you to retrieve Attachments on repeating invoice
+repeating_invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Repeating Invoicebegin
+  # Allows you to retrieve Attachments on repeating invoice
   result = api_instance.get_repeating_invoice_attachments(xero_tenant_id, repeating_invoice_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -10889,16 +10629,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-repeating_invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Repeating Invoice
-
-begin
-  #Allows you to retrieve history for a repeating invoice
+repeating_invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Repeating Invoicebegin
+  # Allows you to retrieve history for a repeating invoice
   result = api_instance.get_repeating_invoice_history(xero_tenant_id, repeating_invoice_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -10952,19 +10690,19 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  where: 'Status==\"' + RepeatingInvoice.StatusEnum.DRAFT + '\"', # String | Filter by an any element
+  where: "Status==#{XeroRuby::Accounting::RepeatingInvoice::DRAFT}", # String | Filter by an any element
+
   order: 'Total ASC' # String | Order by an any element
 }
-
 begin
-  #Allows you to retrieve any repeating invoices
+  # Allows you to retrieve any repeating invoices
   result = api_instance.get_repeating_invoices(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -11019,7 +10757,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -11028,12 +10766,13 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
 opts = {
   date: Date.parse('2013-10-20'), # Date | The date of the Aged Payables By Contact report
+
   from_date: Date.parse('2013-10-20'), # Date | The from date of the Aged Payables By Contact report
+
   to_date: Date.parse('2013-10-20') # Date | The to date of the Aged Payables By Contact report
 }
-
 begin
-  #Allows you to retrieve report for AgedPayablesByContact
+  # Allows you to retrieve report for AgedPayablesByContact
   result = api_instance.get_report_aged_payables_by_contact(xero_tenant_id, contact_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -11090,7 +10829,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -11099,12 +10838,13 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
 opts = {
   date: Date.parse('2013-10-20'), # Date | The date of the Aged Receivables By Contact report
+
   from_date: Date.parse('2013-10-20'), # Date | The from date of the Aged Receivables By Contact report
+
   to_date: Date.parse('2013-10-20') # Date | The to date of the Aged Receivables By Contact report
 }
-
 begin
-  #Allows you to retrieve report for AgedReceivablesByContact
+  # Allows you to retrieve report for AgedReceivablesByContact
   result = api_instance.get_report_aged_receivables_by_contact(xero_tenant_id, contact_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -11161,16 +10901,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-report_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Report
-
-begin
-  #Allows you to retrieve report for BAS only valid for AU orgs
+report_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Reportbegin
+  # Allows you to retrieve report for BAS only valid for AU orgs
   result = api_instance.get_report_ba_sor_gst(xero_tenant_id, report_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -11224,15 +10962,13 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-
-begin
-  #Allows you to retrieve report for BAS only valid for AU orgs
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenantbegin
+  # Allows you to retrieve report for BAS only valid for AU orgs
   result = api_instance.get_report_ba_sor_gst_list(xero_tenant_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -11285,7 +11021,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -11293,16 +11029,21 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   date: '2019-11-01', # String | The date of the Balance Sheet report
+
   periods: 3, # Integer | The number of periods for the Balance Sheet report
+
   timeframe: 'MONTH', # String | The period size to compare to (MONTH, QUARTER, YEAR)
+
   tracking_option_id1: '00000000-0000-0000-000-000000000000', # String | The tracking option 1 for the Balance Sheet report
+
   tracking_option_id2: '00000000-0000-0000-000-000000000000', # String | The tracking option 2 for the Balance Sheet report
+
   standard_layout: true, # Boolean | The standard layout boolean for the Balance Sheet report
+
   payments_only: false # Boolean | return a cash basis for the Balance Sheet report
 }
-
 begin
-  #Allows you to retrieve report for BalanceSheet
+  # Allows you to retrieve report for BalanceSheet
   result = api_instance.get_report_balance_sheet(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -11362,7 +11103,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -11370,11 +11111,11 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   from_date: Date.parse('2019-11-01'), # Date | The from date for the Bank Summary report e.g. 2018-03-31
+
   to_date: Date.parse('2019-11-30') # Date | The to date for the Bank Summary report e.g. 2018-03-31
 }
-
 begin
-  #Allows you to retrieve report for BankSummary
+  # Allows you to retrieve report for BankSummary
   result = api_instance.get_report_bank_summary(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -11429,7 +11170,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -11437,12 +11178,13 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   date: Date.parse('2019-03-31'), # Date | The date for the Bank Summary report e.g. 2018-03-31
+
   period: 2, # Integer | The number of periods to compare (integer between 1 and 12)
+
   timeframe: 3 # Integer | The period size to compare to (1=month, 3=quarter, 12=year)
 }
-
 begin
-  #Allows you to retrieve report for Budget Summary
+  # Allows you to retrieve report for Budget Summary
   result = api_instance.get_report_budget_summary(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -11498,7 +11240,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -11507,9 +11249,8 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   date: Date.parse('2019-03-31') # Date | The date for the Bank Summary report e.g. 2018-03-31
 }
-
 begin
-  #Allows you to retrieve report for ExecutiveSummary
+  # Allows you to retrieve report for ExecutiveSummary
   result = api_instance.get_report_executive_summary(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -11563,7 +11304,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -11571,19 +11312,27 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   from_date: Date.parse('2019-03-01'), # Date | The from date for the ProfitAndLoss report e.g. 2018-03-31
+
   to_date: Date.parse('2019-03-31'), # Date | The to date for the ProfitAndLoss report e.g. 2018-03-31
+
   periods: 3, # Integer | The number of periods to compare (integer between 1 and 12)
+
   timeframe: 'MONTH', # String | The period size to compare to (MONTH, QUARTER, YEAR)
+
   tracking_category_id: '00000000-0000-0000-000-000000000000', # String | The trackingCategory 1 for the ProfitAndLoss report
+
   tracking_category_id2: '00000000-0000-0000-000-000000000000', # String | The trackingCategory 2 for the ProfitAndLoss report
+
   tracking_option_id: '00000000-0000-0000-000-000000000000', # String | The tracking option 1 for the ProfitAndLoss report
+
   tracking_option_id2: '00000000-0000-0000-000-000000000000', # String | The tracking option 2 for the ProfitAndLoss report
+
   standard_layout: true, # Boolean | Return the standard layout for the ProfitAndLoss report
+
   payments_only: false # Boolean | Return cash only basis for the ProfitAndLoss report
 }
-
 begin
-  #Allows you to retrieve report for ProfitAndLoss
+  # Allows you to retrieve report for ProfitAndLoss
   result = api_instance.get_report_profit_and_loss(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -11646,7 +11395,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -11655,9 +11404,8 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   report_year: '2019' # String | The year of the 1099 report
 }
-
 begin
-  #Allows you to retrieve report for TenNinetyNine
+  # Allows you to retrieve report for TenNinetyNine
   result = api_instance.get_report_ten_ninety_nine(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -11711,7 +11459,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -11719,11 +11467,11 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   date: Date.parse('2019-10-31'), # Date | The date for the Trial Balance report e.g. 2018-03-31
+
   payments_only: true # Boolean | Return cash only basis for the Trial Balance report
 }
-
 begin
-  #Allows you to retrieve report for TrialBalance
+  # Allows you to retrieve report for TrialBalance
   result = api_instance.get_report_trial_balance(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -11778,20 +11526,21 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  where: 'Status==\"' + TaxRate.StatusEnum.ACTIVE + '\"', # String | Filter by an any element
+  where: "Status==#{XeroRuby::Accounting::TaxRate::ACTIVE}", # String | Filter by an any element
+
   order: 'Name ASC', # String | Order by an any element
+
   tax_type: 'INPUT' # String | Filter by tax type
 }
-
 begin
-  #Allows you to retrieve Tax Rates
+  # Allows you to retrieve Tax Rates
   result = api_instance.get_tax_rates(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -11847,20 +11596,21 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  where: 'Status==\"' + TrackingCategory.StatusEnum.ACTIVE + '\"', # String | Filter by an any element
+  where: "Status==#{XeroRuby::Accounting::TrackingCategory::ACTIVE}", # String | Filter by an any element
+
   order: 'Name ASC', # String | Order by an any element
+
   include_archived: true # Boolean | e.g. includeArchived=true - Categories and options with a status of ARCHIVED will be included in the response
 }
-
 begin
-  #Allows you to retrieve tracking categories and options
+  # Allows you to retrieve tracking categories and options
   result = api_instance.get_tracking_categories(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -11916,16 +11666,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-tracking_category_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a TrackingCategory
-
-begin
-  #Allows you to retrieve tracking categories and options for specified category
+tracking_category_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a TrackingCategorybegin
+  # Allows you to retrieve tracking categories and options for specified category
   result = api_instance.get_tracking_category(xero_tenant_id, tracking_category_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -11979,16 +11727,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-user_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a User
-
-begin
-  #Allows you to retrieve a specified user
+user_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Userbegin
+  # Allows you to retrieve a specified user
   result = api_instance.get_user(xero_tenant_id, user_id)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -12042,7 +11788,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -12050,12 +11796,13 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
+
   where: 'IsSubscriber==true', # String | Filter by an any element
+
   order: 'LastName ASC' # String | Order by an any element
 }
-
 begin
-  #Allows you to retrieve users
+  # Allows you to retrieve users
   result = api_instance.get_users(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -12111,17 +11858,15 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 account_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for retrieving single object
-accounts = { accounts:[ { code:"123456", name:"BarFoo", accountID:"00000000-0000-0000-000-000000000000", type:AccountType.EXPENSE, description:"GoodBye World", taxType:"INPUT" } ] } # Accounts | Request of type Accounts array with one Account
-
-begin
-  #Allows you to update a chart of accounts
+accounts = { accounts: [{ code: "123456", name: "BarFoo", accountID: "00000000-0000-0000-000-000000000000", type: AccountType.EXPENSE, description: "GoodBye World", taxType: TaxType.INPUT }]} # Accounts | Request of type Accounts array with one Accountbegin
+  # Allows you to update a chart of accounts
   result = api_instance.update_account(xero_tenant_id, account_id, accounts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -12176,7 +11921,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -12184,10 +11929,8 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 account_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Account object
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = 'body_example' # String | Byte array of file in body of request
-
-begin
-  #Allows you to update Attachment on Account by Filename
+body = 'body_example' # String | Byte array of file in body of requestbegin
+  # Allows you to update Attachment on Account by Filename
   result = api_instance.update_account_attachment_by_file_name(xero_tenant_id, account_id, file_name, body)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -12221,9 +11964,9 @@ Name | Type | Description  | Notes
 
 ## update_bank_transaction
 
-> BankTransactions update_bank_transaction(xero_tenant_id, bank_transaction_id, bank_transactions, opts)
+> BankTransactions update_bank_transaction(xero_tenant_id, bank_transactions)
 
-Allows you to update a single spend or receive money transaction
+
 
 ### Example
 
@@ -12243,21 +11986,12 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
-
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-bank_transaction_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transaction
-bank_transactions = { bankTransactions:[ { type: BankTransaction.TypeEnum.SPEND, date:"2019-02-25", reference:"You just updated", status:BankTransaction.StatusEnum.AUTHORISED, bankTransactionID:"00000000-0000-0000-000-000000000000", lineItems: [],contact: {}, bankAccount: {accountID: "00000000-0000-0000-000-000000000000"} } ] } # BankTransactions | 
-opts = {
-  unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
-}
-
+api_instance = xero_client.asset_api{ bank_transactions: [{ type: XeroRuby::Accounting::BankTransaction::SPEND, date: "2019-02-25", reference: "You just updated", status: XeroRuby::Accounting::BankTransaction::AUTHORISED, bank_transaction_id: "00000000-0000-0000-000-000000000000", line_items: [], contact: {}, bank_account: { account_id: "00000000-0000-0000-000-000000000000" }}]} summary: Allows you to update a single spend or receive money transaction parameters: - required: true in: path name: BankTransactionID description: Xero generated unique identifier for a bank transaction example: "00000000-0000-0000-000-000000000000" schema: type: string format: uuid - $ref: 
 begin
-  #Allows you to update a single spend or receive money transaction
-  result = api_instance.update_bank_transaction(xero_tenant_id, bank_transaction_id, bank_transactions, opts)
+  result = api_instance.update_bank_transaction(xero_tenant_id, bank_transactions)
   p result
 rescue XeroRuby::Accounting::ApiError => e
   puts "Exception when calling AccountingApi->update_bank_transaction: #{e}"
@@ -12270,9 +12004,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **bank_transaction_id** | [**String**](.md)| Xero generated unique identifier for a bank transaction | 
  **bank_transactions** | [**BankTransactions**](BankTransactions.md)|  | 
- **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
 
 ### Return type
 
@@ -12312,7 +12044,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -12320,10 +12052,8 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transaction_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transaction
 file_name = 'xero-dev.jpg' # String | The name of the file being attached
-body = 'body_example' # String | Byte array of file in body of request
-
-begin
-  #Allows you to update an Attachment on BankTransaction by Filename
+body = 'body_example' # String | Byte array of file in body of requestbegin
+  # Allows you to update an Attachment on BankTransaction by Filename
   result = api_instance.update_bank_transaction_attachment_by_file_name(xero_tenant_id, bank_transaction_id, file_name, body)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -12379,7 +12109,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -12387,9 +12117,7 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transfer_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transfer
 file_name = 'xero-dev.jpg' # String | The name of the file being attached to a Bank Transfer
-body = 'body_example' # String | Byte array of file in body of request
-
-begin
+body = 'body_example' # String | Byte array of file in body of requestbegin
   result = api_instance.update_bank_transfer_attachment_by_file_name(xero_tenant_id, bank_transfer_id, file_name, body)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -12445,15 +12173,10 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
-
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
-contacts = { contacts:[ { contactID:"00000000-0000-0000-000-000000000000", name:"Thanos" } ] } # Contacts | an array of Contacts containing single Contact object with properties to update
-
+api_instance = xero_client.asset_apicontacts = { contacts: [{ contact_id: "00000000-0000-0000-000-000000000000", name: "Thanos" }]}
 begin
   result = api_instance.update_contact(xero_tenant_id, contact_id, contacts)
   p result
@@ -12509,7 +12232,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -12517,9 +12240,7 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact
 file_name = 'xero-dev.jpg' # String | Name for the file you are attaching
-body = 'body_example' # String | Byte array of file in body of request
-
-begin
+body = 'body_example' # String | Byte array of file in body of requestbegin
   result = api_instance.update_contact_attachment_by_file_name(xero_tenant_id, contact_id, file_name, body)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -12575,17 +12296,12 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
-
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-contact_group_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact Group
-contact_groups = { contactGroups:[ { name:"Vendor" } ] } # ContactGroups | an array of Contact groups with Name of specific group to update
-
+api_instance = xero_client.asset_apicontact_groups = { contact_groups: [{ name: "Vendor" }]}
 begin
-  #Allows you to update a Contact Group
+  # Allows you to update a Contact Group
   result = api_instance.update_contact_group(xero_tenant_id, contact_group_id, contact_groups)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -12640,20 +12356,16 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
+api_instance = xero_client.asset_apicredit_notes = { credit_notes: [{ type: XeroRuby::Accounting::CreditNote::ACCPAYCREDIT, contact: { contact_id: "00000000-0000-0000-000-000000000000" }, date: "2019-01-05", status: XeroRuby::Accounting::CreditNote::AUTHORISED, reference: "Mind stone", line_items: [{ description: "Infinity Stones", quantity: 1.0, unit_amount: 100.0, account_code: "400" } ]}]}
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-credit_note_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Credit Note
-credit_notes = { creditNotes:[ { type:CreditNote.TypeEnum.ACCPAYCREDIT, contact:{ contactID:"00000000-0000-0000-000-000000000000" }, date:"2019-01-05", status: CreditNote.StatusEnum.AUTHORISED, reference: "Mind stone", lineItems:[ { description:"Infinity Stones", quantity:1.0, unitAmount:100.0, accountCode:"400" } ] } ] } # CreditNotes | an array of Credit Notes containing credit note details to update
 opts = {
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
-
 begin
-  #Allows you to update a specific credit note
+  # Allows you to update a specific credit note
   result = api_instance.update_credit_note(xero_tenant_id, credit_note_id, credit_notes, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -12709,7 +12421,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -12717,10 +12429,8 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 credit_note_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Credit Note
 file_name = 'xero-dev.jpg' # String | Name of the file you are attaching to Credit Note
-body = 'body_example' # String | Byte array of file in body of request
-
-begin
-  #Allows you to update Attachments on CreditNote by file name
+body = 'body_example' # String | Byte array of file in body of requestbegin
+  # Allows you to update Attachments on CreditNote by file name
   result = api_instance.update_credit_note_attachment_by_file_name(xero_tenant_id, credit_note_id, file_name, body)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -12776,17 +12486,12 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
-
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-expense_claim_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ExpenseClaim
-expense_claims = { expenseClaims:[ { status:ExpenseClaim.StatusEnum.AUTHORISED, user:{ userID:"00000000-0000-0000-000-000000000000" }, receipts:[ { receiptID:"00000000-0000-0000-000-000000000000", lineItems: [], contact: {}, date:"2020-01-01", user:{} } ] } ] } # ExpenseClaims | 
-
+api_instance = xero_client.asset_apiexpense_claims = { expense_claims: [{ status: XeroRuby::Accounting::ExpenseClaim::AUTHORISED, user: { user_id: "00000000-0000-0000-000-000000000000" }, receipts: [{ receipt_id: "00000000-0000-0000-000-000000000000", line_items: [], contact: {}, date:"2020-01-01", user: {} }]}]}
 begin
-  #Allows you to update specified expense claims
+  # Allows you to update specified expense claims
   result = api_instance.update_expense_claim(xero_tenant_id, expense_claim_id, expense_claims)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -12841,20 +12546,16 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
+api_instance = xero_client.asset_apiinvoices = { invoices: [{ reference: "I am Iron Man", invoice_id: "00000000-0000-0000-000-000000000000", line_items: [], contact: {}, type: XeroRuby::Accounting::Invoice::ACCPAY }]}
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoice
-invoices = { invoices:[ { reference:"I am Iron Man", invoiceID:"00000000-0000-0000-000-000000000000", lineItems: [],contact: {},type: Invoice.TypeEnum.ACCPAY } ] } # Invoices | 
 opts = {
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
-
 begin
-  #Allows you to update a specified sales invoices or purchase bills
+  # Allows you to update a specified sales invoices or purchase bills
   result = api_instance.update_invoice(xero_tenant_id, invoice_id, invoices, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -12910,7 +12611,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -12918,10 +12619,8 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Invoice
 file_name = 'xero-dev.jpg' # String | Name of the file you are attaching
-body = 'body_example' # String | Byte array of file in body of request
-
-begin
-  #Allows you to update Attachment on invoices or purchase bills by it's filename
+body = 'body_example' # String | Byte array of file in body of requestbegin
+  # Allows you to update Attachment on invoices or purchase bills by it's filename
   result = api_instance.update_invoice_attachment_by_file_name(xero_tenant_id, invoice_id, file_name, body)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -12977,7 +12676,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -12988,9 +12687,8 @@ items = { items:[ { code:"abc123", description:"Hello Xero" } ] } # Items |
 opts = {
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
-
 begin
-  #Allows you to update a specified item
+  # Allows you to update a specified item
   result = api_instance.update_item(xero_tenant_id, item_id, items, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -13046,17 +12744,12 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
-
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-linked_transaction_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a LinkedTransaction
-linked_transactions = { linkedTransactions:[ {sourceLineItemID:"00000000-0000-0000-000-000000000000", contactID:"00000000-0000-0000-000-000000000000" } ] } # LinkedTransactions | 
-
+api_instance = xero_client.asset_apilinked_transactions = { linked_transactions: [{ source_line_item_id: "00000000-0000-0000-000-000000000000", contact_id: "00000000-0000-0000-000-000000000000" }]}
 begin
-  #Allows you to update a specified linked transactions (billable expenses)
+  # Allows you to update a specified linked transactions (billable expenses)
   result = api_instance.update_linked_transaction(xero_tenant_id, linked_transaction_id, linked_transactions)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -13111,17 +12804,12 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
-
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-manual_journal_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ManualJournal
-manual_journals = { manualJournals:[ { narration:"Hello Xero", manualJournalID:"00000000-0000-0000-000-000000000000",journalLines:[] } ] } # ManualJournals | 
-
+api_instance = xero_client.asset_apimanual_journals = { manual_journals: [{ narration: "Hello Xero", manual_journal_id: "00000000-0000-0000-000-000000000000", journal_ines: [] }]}
 begin
-  #Allows you to update a specified manual journal
+  # Allows you to update a specified manual journal
   result = api_instance.update_manual_journal(xero_tenant_id, manual_journal_id, manual_journals)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -13176,7 +12864,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -13184,10 +12872,8 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 manual_journal_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a ManualJournal
 file_name = 'xero-dev.jpg' # String | The name of the file being attached to a ManualJournal
-body = 'body_example' # String | Byte array of file in body of request
-
-begin
-  #Allows you to update a specified Attachment on ManualJournal by file name
+body = 'body_example' # String | Byte array of file in body of requestbegin
+  # Allows you to update a specified Attachment on ManualJournal by file name
   result = api_instance.update_manual_journal_attachment_by_file_name(xero_tenant_id, manual_journal_id, file_name, body)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -13243,20 +12929,18 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
+api_instance = xero_client.asset_apibank_transactions = { bank_transactions: [{ type: XeroRuby::Accounting::BankTransaction::SPEND, contact: { contact_id: "00000000-0000-0000-000-000000000000" }, line_items: [{ description: "Foobar", quantity: 1.0, unit_amount: 20.0, account_code: "000" }], bank_account: { code: "000" }}]}
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-bank_transactions = { bankTransactions:[ { type: BankTransaction.TypeEnum.SPEND, contact: { contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity: 1.0, unitAmount:20.0, accountCode:"000" } ], bankAccount:{ code:"000" } } ] } # BankTransactions | 
 opts = {
   summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
-
 begin
-  #Allows you to update or create one or more spend or receive money transaction
+  # Allows you to update or create one or more spend or receive money transaction
   result = api_instance.update_or_create_bank_transactions(xero_tenant_id, bank_transactions, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -13312,19 +12996,16 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
+api_instance = xero_client.asset_api{ contacts: [{ name: "Bruce Banner", email_address: "hulk@avengers.com", phones: [{ phone_type: XeroRuby::Accounting::Phone::MOBILE, phone_number: "555-1212", phone_area_code: "415" }], payment_terms: { bills: { day: 15, type: XeroRuby::Accounting::PaymentTermType::OFCURRENTMONTH }, sales: { day: 10, type: XeroRuby::Accounting::PaymentTermType::OFCURRENTMONTHDAYSAFTERBILLMONTH }}}]}
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-contacts = {contacts: [{ name:"Bruce Banner", emailAddress:"hulk@avengers.com", phones:[ { phoneType: Phone.PhoneTypeEnum.MOBILE, phoneNumber:"555-1212", phoneAreaCode:"415" } ], paymentTerms:{ bills:{ day:15, type: PaymentTermType.OFCURRENTMONTH }, sales:{ day:10, type: PaymentTermType.DAYSAFTERBILLMONTH } } } ] } # Contacts | 
 opts = {
   summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 }
-
 begin
-  #Allows you to update OR create one or more contacts in a Xero organisation
+  # Allows you to update OR create one or more contacts in a Xero organisation
   result = api_instance.update_or_create_contacts(xero_tenant_id, contacts, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -13379,20 +13060,18 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
+api_instance = xero_client.asset_apicredit_notes = { credit_notes: [{ type: XeroRuby::Accounting::CreditNote::ACCPAYCREDIT, contact: { contact_id: "00000000-0000-0000-000-000000000000" }, date: "2019-01-05", line_items: [{ description: "Foobar", quantity: 2.0, unit_amount: 20.0, account_code: "400" }]}]}
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-credit_notes = { creditNotes:[ { type: CreditNote.TypeEnum.ACCPAYCREDIT, contact:{ contactID:"00000000-0000-0000-000-000000000000" }, date:"2019-01-05", lineItems:[ { description:"Foobar", quantity:2.0, unitAmount:20.0, accountCode:"400" } ] } ] } # CreditNotes | an array of Credit Notes with a single CreditNote object.
 opts = {
   summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
-
 begin
-  #Allows you to update OR create one or more credit notes
+  # Allows you to update OR create one or more credit notes
   result = api_instance.update_or_create_credit_notes(xero_tenant_id, credit_notes, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -13448,19 +13127,16 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
+api_instance = xero_client.asset_apiemployees = { employees: [{ first_name: "Nick", last_name: "Fury", external_link: { url: "http://twitter.com/#!/search/Nick+Fury" }}]}
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-employees = { employees:[ { firstName:"Nick", lastName:"Fury", externalLink:{ url:"http://twitter.com/#!/search/Nick+Fury" } } ] } # Employees | Employees with array of Employee object in body of request
 opts = {
   summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 }
-
 begin
-  #Allows you to create a single new employees used in Xero payrun
+  # Allows you to create a single new employees used in Xero payrun
   result = api_instance.update_or_create_employees(xero_tenant_id, employees, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -13515,20 +13191,18 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
+api_instance = xero_client.asset_apiinvoices = { invoices: [{ type: XeroRuby::Accounting::Invoice::ACCREC, contact: { contact_id: "00000000-0000-0000-000-000000000000" }, line_items: [{ description: "Acme Tires", quantity: 2.0, unit_amount: 20.0, account_code: "000", tax_type: TaxType.NONE, line_amount: 40.0 }], date: "2019-03-11", due_date: "2018-12-10", reference: "Website Design", status: XeroRuby::Accounting::Invoice::DRAFT }]}
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-invoices = { invoices:[ { type: Invoice.TypeEnum.ACCREC, contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Acme Tires", quantity:2.0, unitAmount:20.0, accountCode:"200", taxType:"NONE", lineAmount:40.0 } ], date:"2019-03-11", dueDate:"2018-12-10", reference:"Website Design", status: Invoice.StatusEnum.AUTHORISED } ] } # Invoices | 
 opts = {
   summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
-
 begin
-  #Allows you to update OR create one or more sales invoices or purchase bills
+  # Allows you to update OR create one or more sales invoices or purchase bills
   result = api_instance.update_or_create_invoices(xero_tenant_id, invoices, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -13584,20 +13258,18 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
+api_instance = xero_client.asset_apiitems = { items: [{ code: "abcXYZ", name: "HelloWorld", description: "Foobar" }]}
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-items = { items:[ { code:"abcXYZ", name:"HelloWorld", description:"Foobar" } ] } # Items | 
 opts = {
   summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
-
 begin
-  #Allows you to update or create one or more items
+  # Allows you to update or create one or more items
   result = api_instance.update_or_create_items(xero_tenant_id, items, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -13653,19 +13325,16 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
+api_instance = xero_client.asset_apimanual_journals = { manual_journals: [{ narration: "Foo bar", date: "2019-03-14", journal_lines: [{ line_amount: 100.0, account_code: "400", description: "Hello there" },{ line_amount: -100.0, account_code: "400", description: "Goodbye", tracking: [{ name: "Simpsons", option: "Bart" }]}] }]}
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-manual_journals = { manualJournals:[ { narration:"Foo bar", journalLines:[ { lineAmount:100.0, accountCode:"400", description:"Hello there" }, { lineAmount:-100.0, accountCode:"400", description:"Goodbye", tracking:[ { name:"Simpsons", option:"Bart" } ] } ], date:"2019-03-14" } ] } # ManualJournals | ManualJournals array with ManualJournal object in body of request
 opts = {
   summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 }
-
 begin
-  #Allows you to create a single manual journal
+  # Allows you to create a single manual journal
   result = api_instance.update_or_create_manual_journals(xero_tenant_id, manual_journals, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -13720,19 +13389,16 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
+api_instance = xero_client.asset_apipurchase_orders = { purchase_orders: [{ contact: { contact_id: "00000000-0000-0000-000-000000000000" }, line_items: [{ description: "Foobar", quantity: 1.0, unitAmount: 20.0, accountCode: "710" }], date: "2019-03-13" }]}
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-purchase_orders = { purchaseOrders:[ { contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity:1.0, unitAmount:20.0, accountCode:"710" } ], date:"2019-03-13" } ] } # PurchaseOrders | 
 opts = {
   summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 }
-
 begin
-  #Allows you to update or create one or more purchase orders
+  # Allows you to update or create one or more purchase orders
   result = api_instance.update_or_create_purchase_orders(xero_tenant_id, purchase_orders, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -13787,19 +13453,16 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
+api_instance = xero_client.asset_apiquotes = { quotes: [{ contact: { contact_id: "00000000-0000-0000-000-000000000000" }, line_items: [{ description: "Foobar", quantity: 1.0, unit_amount: 20.0, account_code: "12775" }], date: "2020-02-01" }]}
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-quotes = { quotes:[ { contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity:1.0, unitAmount:20.0, accountCode:"12775" } ], date:"2020-02-01" } ] } # Quotes | 
 opts = {
   summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 }
-
 begin
-  #Allows you to update OR create one or more quotes
+  # Allows you to update OR create one or more quotes
   result = api_instance.update_or_create_quotes(xero_tenant_id, quotes, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -13854,17 +13517,12 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
-
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-purchase_order_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a PurchaseOrder
-purchase_orders = { purchaseOrders:[ { attentionTo:"Peter Parker",lineItems: [],contact: {} } ] } # PurchaseOrders | 
-
+api_instance = xero_client.asset_apipurchase_orders = { purchase_orders: [ { attention_to: "Peter Parker", line_items: [], contact: {} }]}
 begin
-  #Allows you to update a specified purchase order
+  # Allows you to update a specified purchase order
   result = api_instance.update_purchase_order(xero_tenant_id, purchase_order_id, purchase_orders)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -13919,17 +13577,12 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
-
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-quote_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Quote
-quotes = {quotes:[{reference:"I am an update",contact:{contactID:"00000000-0000-0000-000-000000000000"},date:"2020-02-01"}]} # Quotes | 
-
+api_instance = xero_client.asset_apiquotes = { quotes: [{ reference: "I am an update", contact: { contact_id: "00000000-0000-0000-000-000000000000" }, date: "2020-02-01" }]}
 begin
-  #Allows you to update a specified quote
+  # Allows you to update a specified quote
   result = api_instance.update_quote(xero_tenant_id, quote_id, quotes)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -13984,7 +13637,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -13992,10 +13645,8 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 quote_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for Quote object
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = 'body_example' # String | Byte array of file in body of request
-
-begin
-  #Allows you to update Attachment on Quote by Filename
+body = 'body_example' # String | Byte array of file in body of requestbegin
+  # Allows you to update Attachment on Quote by Filename
   result = api_instance.update_quote_attachment_by_file_name(xero_tenant_id, quote_id, file_name, body)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -14051,20 +13702,16 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
+api_instance = xero_client.asset_apireceipts = { receipts: [{ user: { user_id: "00000000-0000-0000-000-000000000000" }, reference: "Foobar", date: "2020-01-01", contact: {}, line_items: [] }]}
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-receipt_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Receipt
-receipts = { receipts:[ { user:{ userID:"00000000-0000-0000-000-000000000000" }, reference:"Foobar", date: "2020-01-01",contact: {},lineItems: []} ] } # Receipts | 
 opts = {
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
-
 begin
-  #Allows you to retrieve a specified draft expense claim receipts
+  # Allows you to retrieve a specified draft expense claim receipts
   result = api_instance.update_receipt(xero_tenant_id, receipt_id, receipts, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -14120,7 +13767,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -14128,10 +13775,8 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 receipt_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Receipt
 file_name = 'xero-dev.jpg' # String | The name of the file being attached to the Receipt
-body = 'body_example' # String | Byte array of file in body of request
-
-begin
-  #Allows you to update Attachment on expense claim receipts by file name
+body = 'body_example' # String | Byte array of file in body of requestbegin
+  # Allows you to update Attachment on expense claim receipts by file name
   result = api_instance.update_receipt_attachment_by_file_name(xero_tenant_id, receipt_id, file_name, body)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -14187,7 +13832,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -14195,10 +13840,8 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 repeating_invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Repeating Invoice
 file_name = 'xero-dev.jpg' # String | The name of the file being attached to a Repeating Invoice
-body = 'body_example' # String | Byte array of file in body of request
-
-begin
-  #Allows you to update specified attachment on repeating invoices by file name
+body = 'body_example' # String | Byte array of file in body of requestbegin
+  # Allows you to update specified attachment on repeating invoices by file name
   result = api_instance.update_repeating_invoice_attachment_by_file_name(xero_tenant_id, repeating_invoice_id, file_name, body)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -14254,16 +13897,12 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
-api_instance = xero_client.asset_api
-
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-tax_rates = { taxRates:[ { name:"State Tax NY", taxComponents:[ { name:"State Tax", rate:2.25 } ], status:"DELETED", reportTaxType:"INPUT" } ] } # TaxRates | 
-
+api_instance = xero_client.asset_apitax_rates = { tax_rates: [{ name: "State Tax NY", tax_components: [{ name: "State Tax", rate: 2.25 }], status: XeroRuby::Accounting::TaxRate::Deleted, report_tax_type: XeroRuby::Accounting::TaxRate::INPUT }]}
 begin
-  #Allows you to update Tax Rates
+  # Allows you to update Tax Rates
   result = api_instance.update_tax_rate(xero_tenant_id, tax_rates)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -14317,17 +13956,15 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 tracking_category_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a TrackingCategory
-tracking_category = { name:"Avengers" } # TrackingCategory | 
-
-begin
-  #Allows you to update tracking categories
+tracking_category = { name: "Avengers" } # TrackingCategory | begin
+  # Allows you to update tracking categories
   result = api_instance.update_tracking_category(xero_tenant_id, tracking_category_id, tracking_category)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -14382,7 +14019,7 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# doc assumes you are 
 api_instance = xero_client.accounting_api
 # Or for methods in the Assets API
 api_instance = xero_client.asset_api
@@ -14390,10 +14027,8 @@ api_instance = xero_client.asset_api
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 tracking_category_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a TrackingCategory
 tracking_option_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Tracking Option
-tracking_option = { name:"Vision" } # TrackingOption | 
-
-begin
-  #Allows you to update options for a specified tracking category
+tracking_option = { name: "Vision" } # TrackingOption | begin
+  # Allows you to update options for a specified tracking category
   result = api_instance.update_tracking_options(xero_tenant_id, tracking_category_id, tracking_option_id, tracking_option)
   p result
 rescue XeroRuby::Accounting::ApiError => e
