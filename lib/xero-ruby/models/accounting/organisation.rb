@@ -112,7 +112,7 @@ module XeroRuby::Accounting
     N6_MONTHLY = "6MONTHLY".freeze
     QUARTERLY = "QUARTERLY".freeze
     YEARLY = "YEARLY".freeze
-    NONE = "NONE".freeze
+    # NONE = "NONE".freeze -> duplicate generation #TODO
     
     # The default for LineAmountTypes on sales transactions
     attr_accessor :default_sales_tax
