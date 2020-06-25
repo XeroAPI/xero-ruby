@@ -182,6 +182,7 @@ project_id = 'project_id_example' # String | You can specify an individual proje
 time_entry_id = 'time_entry_id_example' # String | You can specify an individual task by appending the id to the endpointbegin
   # Allows you to delete a time entry
   api_instance.delete_time_entry(xero_tenant_id, project_id, time_entry_id)
+
 rescue XeroRuby::Projects::ApiError => e
   puts "Exception when calling ProjectApi->delete_time_entry: #{e}"
 end
@@ -755,6 +756,7 @@ project_id = 'project_id_example' # String | You can specify an individual proje
 project_patch = { "status": "INPROGRESS" } # ProjectPatch | Update the status of an existing Projectbegin
   # creates a project for the specified contact
   api_instance.patch_project(xero_tenant_id, project_id, project_patch)
+
 rescue XeroRuby::Projects::ApiError => e
   puts "Exception when calling ProjectApi->patch_project: #{e}"
 end
@@ -819,6 +821,7 @@ project_id = 'project_id_example' # String | You can specify an individual proje
 project_create_or_update = { "name": "New Kitchen", "deadlineUtc": "2017-04-23T18:25:43.511Z", "estimateAmount": 99.99 } # ProjectCreateOrUpdate | Request of type ProjectCreateOrUpdatebegin
   # update a specific project
   api_instance.update_project(xero_tenant_id, project_id, project_create_or_update)
+
 rescue XeroRuby::Projects::ApiError => e
   puts "Exception when calling ProjectApi->update_project: #{e}"
 end
@@ -884,6 +887,7 @@ time_entry_id = 'time_entry_id_example' # String | You can specify an individual
 time_entry_create_or_update = { "userId":"740add2a-a703-4b8a-a670-1093919c2040", "taskId":"7be77337-feec-4458-bb1b-dbaa5a4aafce", "dateUtc":"2020-02-27T15:00:00Z", "duration":45, "description":"My UPDATED description" } # TimeEntryCreateOrUpdate | The time entry object you are updatingbegin
   # Allows you to update time entry in a project
   api_instance.update_time_entry(xero_tenant_id, project_id, time_entry_id, time_entry_create_or_update)
+
 rescue XeroRuby::Projects::ApiError => e
   puts "Exception when calling ProjectApi->update_time_entry: #{e}"
 end

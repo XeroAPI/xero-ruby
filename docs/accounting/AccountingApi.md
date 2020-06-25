@@ -3663,6 +3663,7 @@ contact_group_id = '00000000-0000-0000-000-000000000000' # String | Unique ident
 contact_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contactbegin
   # Allows you to delete a specific Contact from a Contact Group
   api_instance.delete_contact_group_contact(xero_tenant_id, contact_group_id, contact_id)
+
 rescue XeroRuby::Accounting::ApiError => e
   puts "Exception when calling AccountingApi->delete_contact_group_contact: #{e}"
 end
@@ -3724,6 +3725,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_group_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a Contact Groupbegin
   # Allows you to delete  all Contacts from a Contact Group
   api_instance.delete_contact_group_contacts(xero_tenant_id, contact_group_id)
+
 rescue XeroRuby::Accounting::ApiError => e
   puts "Exception when calling AccountingApi->delete_contact_group_contacts: #{e}"
 end
@@ -3784,6 +3786,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 item_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for an Itembegin
   # Allows you to delete a specified item
   api_instance.delete_item(xero_tenant_id, item_id)
+
 rescue XeroRuby::Accounting::ApiError => e
   puts "Exception when calling AccountingApi->delete_item: #{e}"
 end
@@ -3844,6 +3847,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 linked_transaction_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier for a LinkedTransactionbegin
   # Allows you to delete a specified linked transactions (billable expenses)
   api_instance.delete_linked_transaction(xero_tenant_id, linked_transaction_id)
+
 rescue XeroRuby::Accounting::ApiError => e
   puts "Exception when calling AccountingApi->delete_linked_transaction: #{e}"
 end
@@ -4092,6 +4096,7 @@ invoice_id = '00000000-0000-0000-000-000000000000' # String | Unique identifier 
 request_empty = {} # RequestEmpty | begin
   # Allows you to email a copy of invoice to related Contact
   api_instance.email_invoice(xero_tenant_id, invoice_id, request_empty)
+
 rescue XeroRuby::Accounting::ApiError => e
   puts "Exception when calling AccountingApi->email_invoice: #{e}"
 end
