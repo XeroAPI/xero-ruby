@@ -56,6 +56,11 @@ module XeroRuby
       XeroRuby::AssetApi.new(self)
     end
 
+    def project_api
+      @config.base_url = @config.project_url
+      XeroRuby::ProjectApi.new(self)
+    end
+
     # Token Helpers
     def token_set
       XeroRuby.configure.token_set

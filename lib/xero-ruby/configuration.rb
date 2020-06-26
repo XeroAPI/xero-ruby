@@ -29,6 +29,7 @@ module XeroRuby
     # Defines base paths for seperate API's
     attr_accessor :accounting_url
     attr_accessor :asset_url
+    attr_accessor :project_url
 
     # Defines API keys used with API Key authentications.
     #
@@ -140,6 +141,7 @@ module XeroRuby
       @token_url = 'https://identity.xero.com/connect/token'
       @accounting_url = 'https://api.xero.com/api.xro/2.0'
       @asset_url = 'https://api.xero.com/assets.xro/1.0'
+      @project_url = 'https://api.xero.com/projects.xro/2.0/'
       @api_key = {}
       @api_key_prefix = {}
       @timeout = 0
