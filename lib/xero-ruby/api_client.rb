@@ -342,6 +342,8 @@ module XeroRuby
           XeroRuby::Accounting.const_get(return_type).build_from_hash(data)
         rescue
           XeroRuby::Assets.const_get(return_type).build_from_hash(data)
+        rescue
+          XeroRuby::Projects.const_get(return_type).build_from_hash(data)
         # rescue
           # XeroRuby::<NewAPISet>.const_get(return_type).build_from_hash(data)
         end
