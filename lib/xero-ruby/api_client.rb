@@ -14,6 +14,7 @@ require 'date'
 require 'json'
 require 'logger'
 require 'tempfile'
+require 'find'
 require 'faraday'
 
 module XeroRuby
@@ -298,9 +299,9 @@ module XeroRuby
         else
           raise e
         end
-      end
+      end 
 
-      convert_to_type data, return_type
+      convert_to_type(data, return_type)
     end
 
     # Convert data to the given return type.
@@ -338,16 +339,34 @@ module XeroRuby
           data.each { |k, v| hash[k] = convert_to_type(v, sub_type) }
         end
       else
-        begin
+        api_set = api_set_prefix(return_type)
+        case api_set
+        when 'accounting'
           XeroRuby::Accounting.const_get(return_type).build_from_hash(data)
-        rescue
+        when 'assets'
           XeroRuby::Assets.const_get(return_type).build_from_hash(data)
-        rescue
+        when 'projects'
           XeroRuby::Projects.const_get(return_type).build_from_hash(data)
-        # rescue
+        # when 'newapiset' # add new namespace
           # XeroRuby::<NewAPISet>.const_get(return_type).build_from_hash(data)
+        else
+          XeroRuby::Accounting.const_get(return_type).build_from_hash(data)
         end
       end
+    end
+
+    # Traverses the model tree to find the model's namespacing
+    # based on the deserializing model/return_type name
+    def api_set_prefix(return_type)
+      api_set = ''
+      Find.find("#{File.dirname(__FILE__)}/models/") do |path|
+        model_path = path.split('/')
+        matching_name = model_path.last.gsub('.rb','').gsub("_",'')
+        if return_type.downcase === matching_name
+          api_set = path.split('/')[-2]
+        end
+      end
+      return api_set
     end
 
     # Save response body into a file in (the defined) temporary folder, using the filename
