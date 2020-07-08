@@ -24,8 +24,8 @@ Name | Type | Description | Notes
 **bank_account_number** | **String** | The suppliers bank account number the payment is being made to | [optional] 
 **particulars** | **String** | The suppliers bank account number the payment is being made to | [optional] 
 **details** | **String** | The information to appear on the supplier&#39;s bank account | [optional] 
-**has_account** | **Boolean** | A boolean to indicate if a contact has an validation errors | [optional] 
-**has_validation_errors** | **Boolean** | A boolean to indicate if a contact has an validation errors | [optional] 
+**has_account** | **Boolean** | A boolean to indicate if a contact has an validation errors | [optional] [default to false]
+**has_validation_errors** | **Boolean** | A boolean to indicate if a contact has an validation errors | [optional] [default to false]
 **status_attribute_string** | **String** | A string to indicate if a invoice status | [optional] 
 **validation_errors** | [**Array&lt;ValidationError&gt;**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
 
@@ -54,8 +54,8 @@ instance = XeroRuby::Accounting::Payment.new(invoice: null,
                                  bank_account_number: null,
                                  particulars: null,
                                  details: null,
-                                 has_account: null,
-                                 has_validation_errors: null,
+                                 has_account: false,
+                                 has_validation_errors: false,
                                  status_attribute_string: null,
                                  validation_errors: null)
 ```

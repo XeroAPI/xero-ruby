@@ -26,6 +26,8 @@ Name | Type | Description | Notes
 **branding_theme_id** | **String** | See BrandingThemes | [optional] 
 **updated_date_utc** | **DateTime** | Last modified date UTC format | [optional] 
 **line_amount_types** | [**QuoteLineAmountTypes**](QuoteLineAmountTypes.md) |  | [optional] 
+**status_attribute_string** | **String** | A string to indicate if a invoice status | [optional] 
+**validation_errors** | [**Array&lt;ValidationError&gt;**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
 
 ## Code Sample
 
@@ -53,7 +55,9 @@ instance = XeroRuby::Accounting::Quote.new(quote_id: null,
                                  summary: null,
                                  branding_theme_id: null,
                                  updated_date_utc: null,
-                                 line_amount_types: null)
+                                 line_amount_types: null,
+                                 status_attribute_string: null,
+                                 validation_errors: null)
 ```
 
 

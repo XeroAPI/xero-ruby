@@ -41,7 +41,7 @@ Name | Type | Description | Notes
 **attachments** | [**Array&lt;Attachment&gt;**](Attachment.md) | Displays array of attachments from the API | [optional] 
 **has_attachments** | **Boolean** | A boolean to indicate if a contact has an attachment | [optional] [default to false]
 **validation_errors** | [**Array&lt;ValidationError&gt;**](ValidationError.md) | Displays validation errors returned from the API | [optional] 
-**has_validation_errors** | **Boolean** | A boolean to indicate if a contact has an validation errors | [optional] 
+**has_validation_errors** | **Boolean** | A boolean to indicate if a contact has an validation errors | [optional] [default to false]
 **status_attribute_string** | **String** | Status of object | [optional] 
 
 ## Code Sample
@@ -86,7 +86,7 @@ instance = XeroRuby::Accounting::Contact.new(contact_id: null,
                                  attachments: null,
                                  has_attachments: false,
                                  validation_errors: null,
-                                 has_validation_errors: null,
+                                 has_validation_errors: false,
                                  status_attribute_string: null)
 ```
 

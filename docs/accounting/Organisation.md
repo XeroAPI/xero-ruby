@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **is_demo_company** | **Boolean** | Boolean to describe if organisation is a demo company. | [optional] 
 **organisation_status** | **String** | Will be set to ACTIVE if you can connect to organisation via the Xero API | [optional] 
 **registration_number** | **String** | Shows for New Zealand, Australian and UK organisations | [optional] 
+**employer_identification_number** | **String** | Shown if set. US Only. | [optional] 
 **tax_number** | **String** | Shown if set. Displays in the Xero UI as Tax File Number (AU), GST Number (NZ), VAT Number (UK) and Tax ID Number (US &amp; Global). | [optional] 
 **financial_year_end_day** | **Integer** | Calendar day e.g. 0-31 | [optional] 
 **financial_year_end_month** | **Integer** | Calendar Month e.g. 1-12 | [optional] 
@@ -54,6 +55,7 @@ instance = XeroRuby::Accounting::Organisation.new(organisation_id: 8be9db36-3598
                                  is_demo_company: null,
                                  organisation_status: null,
                                  registration_number: null,
+                                 employer_identification_number: null,
                                  tax_number: null,
                                  financial_year_end_day: null,
                                  financial_year_end_month: null,

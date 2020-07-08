@@ -12,31 +12,15 @@ OpenAPI Generator version: 4.3.0
 
 require 'spec_helper'
 
-describe XeroRuby::Accounting::Configuration do
-  let(:config) { XeroRuby::Accounting::Configuration.default }
+describe XeroRuby::Configuration do
+  let(:config) { XeroRuby::Configuration.default }
 
-  before(:each) do
-    # uncomment below to setup host and base_path
-    # require 'URI'
-    # uri = URI.parse("https://api.xero.com/api.xro/2.0")
-    # XeroRuby::Accounting.configure do |c|
-    #   c.host = uri.host
-    #   c.base_path = uri.path
-    # end
-  end
-
-  describe '#base_url' do
+  describe 'urls' do
     it 'should have the default value' do
-      # uncomment below to test default value of the base path
-      # expect(config.base_url).to eq("https://api.xero.com/api.xro/2.0")
-    end
-
-    it 'should remove trailing slashes' do
-      [nil, '', '/', '//'].each do |base_path|
-        config.base_path = base_path
-        # uncomment below to test trailing slashes
-        # expect(config.base_url).to eq("https://api.xero.com/api.xro/2.0")
-      end
+      expect(config.login_url).to eq("https://login.xero.com/identity/connect/authorize")
+      expect(config.token_url).to eq("https://identity.xero.com/connect/token")
+      expect(config.accounting_url).to eq("https://api.xero.com/api.xro/2.0")
+      expect(config.asset_url).to eq("https://api.xero.com/assets.xro/1.0")
     end
   end
 end

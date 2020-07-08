@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **from_bank_account** | [**Account**](Account.md) |  | 
 **to_bank_account** | [**Account**](Account.md) |  | 
-**amount** | **String** | amount of the transaction | 
+**amount** | **Float** | amount of the transaction | 
 **date** | **Date** | The date of the Transfer YYYY-MM-DD | [optional] 
 **bank_transfer_id** | **String** | The identifier of the Bank Transfer | [optional] 
 **currency_rate** | **Float** | The currency rate | [optional] 

@@ -39,14 +39,17 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# depending on the methods you need to use
+# accounting_api
 api_instance = xero_client.accounting_api
-# Or for methods in the Assets API
+# :assets_api
 api_instance = xero_client.asset_api
+# :projects_api
+api_instance = xero_client.projects_api
+
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 asset = { "assetName":"Computer74863", "assetNumber":"123477544", "purchaseDate":"2020-01-01", "purchasePrice":100.0, "disposalPrice":23.23, "assetStatus":"Draft", "bookDepreciationSetting":{ "depreciationMethod":"StraightLine", "averagingMethod":"ActualDays", "depreciationRate":0.5, "depreciationCalculationMethod":"None" }, "bookDepreciationDetail":{ "currentCapitalGain":5.32, "currentGainLoss":3.88, "depreciationStartDate":"2020-01-02", "costLimit":100.0, "currentAccumDepreciationAmount":2.25 }, "AccountingBookValue":99.5 } # Asset | Fixed asset you are creating
-
 begin
   #adds a fixed asset
   result = api_instance.create_asset(xero_tenant_id, asset)
@@ -104,10 +107,14 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# depending on the methods you need to use
+# accounting_api
 api_instance = xero_client.accounting_api
-# Or for methods in the Assets API
+# :assets_api
 api_instance = xero_client.asset_api
+# :projects_api
+api_instance = xero_client.projects_api
+
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
@@ -171,14 +178,17 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# depending on the methods you need to use
+# accounting_api
 api_instance = xero_client.accounting_api
-# Or for methods in the Assets API
+# :assets_api
 api_instance = xero_client.asset_api
+# :projects_api
+api_instance = xero_client.projects_api
+
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 id = '4f7bcdcb-5ec1-4258-9558-19f662fccdfe' # String | fixed asset id for single object
-
 begin
   #retrieves fixed asset by id
   result = api_instance.get_asset_by_id(xero_tenant_id, id)
@@ -236,13 +246,16 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# depending on the methods you need to use
+# accounting_api
 api_instance = xero_client.accounting_api
-# Or for methods in the Assets API
+# :assets_api
 api_instance = xero_client.asset_api
+# :projects_api
+api_instance = xero_client.projects_api
+
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-
 begin
   #searches fixed asset settings
   result = api_instance.get_asset_settings(xero_tenant_id)
@@ -299,13 +312,16 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# depending on the methods you need to use
+# accounting_api
 api_instance = xero_client.accounting_api
-# Or for methods in the Assets API
+# :assets_api
 api_instance = xero_client.asset_api
+# :projects_api
+api_instance = xero_client.projects_api
+
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-
 begin
   #searches fixed asset types
   result = api_instance.get_asset_types(xero_tenant_id)
@@ -362,18 +378,26 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# If using the Accounting API
+# depending on the methods you need to use
+# accounting_api
 api_instance = xero_client.accounting_api
-# Or for methods in the Assets API
+# :assets_api
 api_instance = xero_client.asset_api
+# :projects_api
+api_instance = xero_client.projects_api
+
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 status = XeroRuby::Assets::AssetStatusQueryParam.new # AssetStatusQueryParam | Required when retrieving a collection of assets. See Asset Status Codes
 opts = {
   page: 1, # Integer | Results are paged. This specifies which page of the results to return. The default page is 1.
+
   page_size: 5, # Integer | The number of records returned per page. By default the number of records returned is 10.
+
   order_by: 'AssetName', # String | Requests can be ordered by AssetType, AssetName, AssetNumber, PurchaseDate and PurchasePrice. If the asset status is DISPOSED it also allows DisposalDate and DisposalPrice.
+
   sort_direction: 'ASC', # String | ASC or DESC
+
   filter_by: 'Draft' # String | A string that can be used to filter the list to only return assets containing the text. Checks it against the AssetName, AssetNumber, Description and AssetTypeName fields.
 }
 

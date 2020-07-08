@@ -38,7 +38,7 @@ Name | Type | Description | Notes
 **updated_date_utc** | **DateTime** | Last modified date UTC format | [optional] 
 **credit_notes** | [**Array&lt;CreditNote&gt;**](CreditNote.md) | Details of credit notes that have been applied to an invoice | [optional] 
 **attachments** | [**Array&lt;Attachment&gt;**](Attachment.md) | Displays array of attachments from the API | [optional] 
-**has_errors** | **Boolean** | A boolean to indicate if a invoice has an validation errors | [optional] 
+**has_errors** | **Boolean** | A boolean to indicate if a invoice has an validation errors | [optional] [default to false]
 **status_attribute_string** | **String** | A string to indicate if a invoice status | [optional] 
 **validation_errors** | [**Array&lt;ValidationError&gt;**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
 **warnings** | [**Array&lt;ValidationError&gt;**](ValidationError.md) | Displays array of warning messages from the API | [optional] 
@@ -82,7 +82,7 @@ instance = XeroRuby::Accounting::Invoice.new(type: null,
                                  updated_date_utc: null,
                                  credit_notes: null,
                                  attachments: null,
-                                 has_errors: null,
+                                 has_errors: false,
                                  status_attribute_string: null,
                                  validation_errors: null,
                                  warnings: null)
