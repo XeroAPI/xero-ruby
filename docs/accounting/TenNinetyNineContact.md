@@ -1,4 +1,4 @@
-# XeroRuby::Accounting::TenNinteyNineContact
+# XeroRuby::Accounting::TenNinetyNineContact
 
 ## Properties
 
@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 ```ruby
 require 'XeroRuby::Accounting'
 
-instance = XeroRuby::Accounting::TenNinteyNineContact.new(box1: null,
+instance = XeroRuby::Accounting::TenNinetyNineContact.new(box1: null,
                                  box2: null,
                                  box3: null,
                                  box4: null,
