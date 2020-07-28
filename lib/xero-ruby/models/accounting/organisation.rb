@@ -112,7 +112,7 @@ module XeroRuby::Accounting
     N6_MONTHLY = "6MONTHLY".freeze
     QUARTERLY = "QUARTERLY".freeze
     YEARLY = "YEARLY".freeze
-    NONE = "NONE".freeze
+    # NONE = "NONE".freeze # duplicate definition in XeroAPI/Xero-OpenAPI
     
     # The default for LineAmountTypes on sales transactions
     attr_accessor :default_sales_tax
@@ -134,18 +134,18 @@ module XeroRuby::Accounting
     
     # Organisation Entity Type
     attr_accessor :organisation_entity_type
-    ACCOUNTING_PRACTICE = "ACCOUNTING_PRACTICE".freeze
-    COMPANY = "COMPANY".freeze
-    CHARITY = "CHARITY".freeze
-    CLUB_OR_SOCIETY = "CLUB_OR_SOCIETY".freeze
-    LOOK_THROUGH_COMPANY = "LOOK_THROUGH_COMPANY".freeze
-    NOT_FOR_PROFIT = "NOT_FOR_PROFIT".freeze
-    PARTNERSHIP = "PARTNERSHIP".freeze
-    S_CORPORATION = "S_CORPORATION".freeze
-    SELF_MANAGED_SUPERANNUATION_FUND = "SELF_MANAGED_SUPERANNUATION_FUND".freeze
-    SOLE_TRADER = "SOLE_TRADER".freeze
-    SUPERANNUATION_FUND = "SUPERANNUATION_FUND".freeze
-    TRUST = "TRUST".freeze
+    # ACCOUNTING_PRACTICE = "ACCOUNTING_PRACTICE".freeze # duplicate definition in XeroAPI/Xero-OpenAPI
+    # COMPANY = "COMPANY".freeze # duplicate definition in XeroAPI/Xero-OpenAPI
+    # CHARITY = "CHARITY".freeze  # duplicate definition in XeroAPI/Xero-OpenAPI
+    # CLUB_OR_SOCIETY = "CLUB_OR_SOCIETY".freeze  # duplicate definition in XeroAPI/Xero-OpenAPI
+    # LOOK_THROUGH_COMPANY = "LOOK_THROUGH_COMPANY".freeze  # duplicate definition in XeroAPI/Xero-OpenAPI
+    # NOT_FOR_PROFIT = "NOT_FOR_PROFIT".freeze  # duplicate definition in XeroAPI/Xero-OpenAPI
+    # PARTNERSHIP = "PARTNERSHIP".freeze  # duplicate definition in XeroAPI/Xero-OpenAPI
+    # S_CORPORATION = "S_CORPORATION".freeze  # duplicate definition in XeroAPI/Xero-OpenAPI
+    # SELF_MANAGED_SUPERANNUATION_FUND = "SELF_MANAGED_SUPERANNUATION_FUND".freeze  # duplicate definition in XeroAPI/Xero-OpenAPI
+    # SOLE_TRADER = "SOLE_TRADER".freeze  # duplicate definition in XeroAPI/Xero-OpenAPI
+    # SUPERANNUATION_FUND = "SUPERANNUATION_FUND".freeze  # duplicate definition in XeroAPI/Xero-OpenAPI
+    # TRUST = "TRUST".freeze  # duplicate definition in XeroAPI/Xero-OpenAPI
     
     # A unique identifier for the organisation. Potential uses.
     attr_accessor :short_code
