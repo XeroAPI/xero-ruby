@@ -26,7 +26,7 @@ module XeroRuby
     #
     # @return [Hash]
     attr_accessor :default_headers
-
+ 
     # Initializes the ApiClient
     # @option config [Configuration] Configuration for initializing the object, default to Configuration.default
     def initialize(config: Configuration.default, credentials: {})
@@ -473,9 +473,15 @@ module XeroRuby
       return model if model.nil? || model.is_a?(String)
       local_body = nil
       if model.is_a?(Array)
+        puts "model: #{model}"
+        puts '******'
+        puts "model.map { |m| puts #{m}} }"
         local_body = model.map { |m| object_to_hash(m) }
+        puts "model object_to_hash: #{local_body}"
       else
+        puts "model lower: #{model}"
         local_body = object_to_hash(model)
+        puts "model object_to_hash: #{local_body}"
       end
       local_body.to_json
     end
@@ -485,10 +491,52 @@ module XeroRuby
     # @return [String] JSON string representation of the object
     def object_to_hash(obj)
       if obj.respond_to?(:to_hash)
-        obj.to_hash
+        to_camel_keys(obj).to_hash
       else
-        obj
+        to_camel_keys(obj)
       end
+    end
+
+    def to_camel_keys(value = self)
+      case value
+      when Array
+        value.map { |v| to_camel_keys(v) }
+      when Hash
+        Hash[value.map { |k, v| [camelize_key(k), to_camel_keys(v)] }]
+      else
+        value
+      end
+    end
+
+    def camelize_key(key, first_upper = true)
+      if key.is_a? Symbol
+        camelize(key.to_s, first_upper).to_sym
+      elsif key.is_a? String
+        camelize(key, first_upper)
+      else
+        key # Awrence can't camelize anything except strings and symbols
+      end
+    end
+
+    def camelize(snake_word, first_upper = true)
+      if first_upper
+        str = snake_word.to_s
+        str = gsubbed(str, /(?:^|_)([^_\s]+)/)
+        str = gsubbed(str, %r{/([^/]*)}, "::")
+        str
+      else
+        parts = snake_word.split("_", 2)
+        parts[0] << camelize(parts[1]) if parts.size > 1
+        parts[0] || ""
+      end
+    end
+
+    def gsubbed(str, pattern, extra = "")
+      key_map_scronyms = { "id" => "ID" }
+      str = str.gsub(pattern) do
+        extra + (key_map_scronyms[Regexp.last_match(1)] || Regexp.last_match(1).capitalize)
+      end
+      str
     end
 
     # Build parameter value according to the given collection format.

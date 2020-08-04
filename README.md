@@ -162,3 +162,8 @@ The best resource to understanding how to best leverage this SDK is to clone dow
 ## Models
 * [Accounting Models Docs](/docs/accounting/)
 * [Asset Models Docs](/docs/assets/)
+
+# Contributing
+The majority of this project is generated based on the most current [Xero-OpenAPI](https://github.com/XeroAPI/Xero-OpenAPI) Spec.
+
+Contributions in the form of PR's will be reviewed and re-implemented as part of the core repo generation that is managed by Xero's staff.

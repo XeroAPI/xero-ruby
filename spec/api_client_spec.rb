@@ -80,17 +80,15 @@ describe XeroRuby::ApiClient do
     end
   end
 
-  describe "#object_to_hash" do
-    it 'ignores nils and includes empty arrays' do
-      # uncomment below to test object_to_hash for model
-      # api_client = XeroRuby::ApiClient.new
-      # _model = XeroRuby::Accounting::ModelName.new
-      # update the model attribute below
-      # _model.id = 1
-      # update the expected value (hash) below
-      # expected = {id: 1, name: '', tags: []}
-      # expect(api_client.object_to_hash(_model)).to eq(expected)
+  describe "#object_to_hash modifies a hash from snake_case to PascalCase" do
+    it 'Maniuplates a contact object correctly' do
+      contact_before = {:contacts=>[{:name=>"Bruce Banner", :email_address=>"hulk@avengers.com", :phones=>[{:phone_type=>"MOBILE", :phone_number=>"555-1212", :phone_area_code=>"415"}], :payment_terms=>{:bills=>{:day=>15, :type=>"OFCURRENTMONTH"}, :sales=>{:day=>10, :type=>"DAYSAFTERBILLMONTH"}}}]}
+      contact_after = {:Contacts=>[{:Name=>"Bruce Banner", :EmailAddress=>"hulk@avengers.com", :Phones=>[{:PhoneType=>"MOBILE", :PhoneNumber=>"555-1212", :PhoneAreaCode=>"415"}], :PaymentTerms=>{:Bills=>{:Day=>15, :Type=>"OFCURRENTMONTH"}, :Sales=>{:Day=>10, :Type=>"DAYSAFTERBILLMONTH"}}}]}
+      api_client = XeroRuby::ApiClient.new
+      expect(api_client.object_to_hash(contact_before)).to eq(contact_after)
     end
+
+    # todo - insert every model PascalCase conversion as they are added as sample app examples
   end
 
   describe '#build_collection_param' do
