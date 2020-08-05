@@ -223,7 +223,6 @@ module XeroRuby
       request.body = req_body
       request.url url
       request.params = query_params
-      download_file(request) if opts[:return_type] == 'File'
       request
     end
 
@@ -540,7 +539,7 @@ module XeroRuby
       when :pipes
         param.join('|')
       when :multi
-        # return the array directly as typhoeus will handle it as expected
+        # return the array directly as http client will handle it as expected
         param
       else
         fail "unknown collection format: #{collection_format.inspect}"

@@ -124,9 +124,6 @@ module XeroRuby
 
     # Set this to customize parameters encoding of array parameter with multi collectionFormat.
     # Default to nil.
-    #
-    # @see The params_encoding option of Ethon. Related source code:
-    # https://github.com/typhoeus/ethon/blob/master/lib/ethon/easy/queryable.rb#L96
     attr_accessor :params_encoding
 
     attr_accessor :inject_format
