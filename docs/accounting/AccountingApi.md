@@ -186,7 +186,7 @@ Method | HTTP request | Description
 [**get_users**](AccountingApi.md#get_users) | **GET** /Users | Allows you to retrieve users
 [**update_account**](AccountingApi.md#update_account) | **POST** /Accounts/{AccountID} | Allows you to update a chart of accounts
 [**update_account_attachment_by_file_name**](AccountingApi.md#update_account_attachment_by_file_name) | **POST** /Accounts/{AccountID}/Attachments/{FileName} | Allows you to update Attachment on Account by Filename
-[**update_bank_transaction**](AccountingApi.md#update_bank_transaction) | **POST** /BankTransactions/{BankTransactionID} | 
+[**update_bank_transaction**](AccountingApi.md#update_bank_transaction) | **POST** /BankTransactions/{BankTransactionID} | Allows you to update a single spend or receive money transaction
 [**update_bank_transaction_attachment_by_file_name**](AccountingApi.md#update_bank_transaction_attachment_by_file_name) | **POST** /BankTransactions/{BankTransactionID}/Attachments/{FileName} | Allows you to update an Attachment on BankTransaction by Filename
 [**update_bank_transfer_attachment_by_file_name**](AccountingApi.md#update_bank_transfer_attachment_by_file_name) | **POST** /BankTransfers/{BankTransferID}/Attachments/{FileName} | 
 [**update_contact**](AccountingApi.md#update_contact) | **POST** /Contacts/{ContactID} | 
@@ -12879,9 +12879,9 @@ Name | Type | Description  | Notes
 
 ## update_bank_transaction
 
-> BankTransactions update_bank_transaction(xero_tenant_id, bank_transactions)
+> BankTransactions update_bank_transaction(xero_tenant_id, bank_transaction_id, bank_transactions, opts)
 
-
+Allows you to update a single spend or receive money transaction
 
 ### Example
 
@@ -12908,10 +12908,15 @@ api_instance = xero_client.accounting_api
 api_instance = xero_client.asset_api
 # :projects_api
 api_instance = xero_client.projects_api
-{ bank_transactions: [{ type: XeroRuby::Accounting::BankTransaction::SPEND, date: "2019-02-25", reference: "You just updated", status: XeroRuby::Accounting::BankTransaction::AUTHORISED, bank_transaction_id: "00000000-0000-0000-000-000000000000", line_items: [], contact: {}, bank_account: { account_id: "00000000-0000-0000-000-000000000000" }}]} summary: Allows you to update a single spend or receive money transaction parameters: - required: true in: path name: BankTransactionID description: Xero generated unique identifier for a bank transaction example: "00000000-0000-0000-000-000000000000" schema: type: string format: uuid - $ref: 
+{ bank_transactions: [{ type: XeroRuby::Accounting::BankTransaction::SPEND, date: "2019-02-25", reference: "You just updated", status: XeroRuby::Accounting::BankTransaction::AUTHORISED, bank_transaction_id: "00000000-0000-0000-000-000000000000", line_items: [], contact: {}, bank_account: { account_id: "00000000-0000-0000-000-000000000000" }}]}
+
+opts = {
+  unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+}
 
 begin
-  result = api_instance.update_bank_transaction(xero_tenant_id, bank_transactions)
+  #Allows you to update a single spend or receive money transaction
+  result = api_instance.update_bank_transaction(xero_tenant_id, bank_transaction_id, bank_transactions, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
   puts "Exception when calling AccountingApi->update_bank_transaction: #{e}"
@@ -12924,7 +12929,9 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **bank_transaction_id** | [**String**](.md)| Xero generated unique identifier for a bank transaction | 
  **bank_transactions** | [**BankTransactions**](BankTransactions.md)|  | 
+ **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
 
 ### Return type
 

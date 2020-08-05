@@ -7,13 +7,13 @@ Xero Ruby SDK for OAuth 2.0 generated from [Xero API OpenAPI Spec](https://githu
 Xero Ruby SDK supports Xero's OAuth2.0 authentication (token generation & refresh) and supports the following Xero API sets.
 * [accounting](https://developer.xero.com/documentation/api/api-overview)
 * [assets](https://developer.xero.com/documentation/assets-api/overview)
+* [projects](https://developer.xero.com/documentation/projects/overview-projects)
 
 Coming soon
 * bank feeds
 * payroll (AU))
 * payroll (NZ/UK)
 * files
-* projects
 * xero hq
 
 ## Looking for OAuth 1.0a support?
@@ -116,6 +116,11 @@ token_set = xero_client.set_token_set(user.token_set)
 
 # access token_set
 token_set = xero_client.token_set
+
+# All monetary related fields are serialized as BigDecimal. Using rails you can display by doing:
+ActiveSupport::NumberHelper.number_to_currency(invoice.amount, precision: 2)
+# without rails you can display BigDecimal properly like:
+invoice.amount.to_s("F")
 ```
 
 ## API Usage
@@ -162,8 +167,3 @@ The best resource to understanding how to best leverage this SDK is to clone dow
 ## Models
 * [Accounting Models Docs](/docs/accounting/)
 * [Asset Models Docs](/docs/assets/)
-
-# Contributing
-The majority of this project is generated based on the most current [Xero-OpenAPI](https://github.com/XeroAPI/Xero-OpenAPI) Spec.
-
-Contributions in the form of PR's will be reviewed and re-implemented as part of the core repo generation that is managed by Xero's staff.
