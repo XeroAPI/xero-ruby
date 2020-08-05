@@ -136,6 +136,10 @@ Here is the basic workflow of using SDK once you have a valid `access_token` (an
   accounts = xero_client.accounting_api.get_accounts(user.active_tenant_id).accounts
   contacts = xero_client.accounting_api.get_contacts(user.active_tenant_id).contacts
 
+  contacts = xero_client.accounting_api.get_contacts(current_user.active_tenant_id).contacts
+  invoices = { invoices: [{ type: XeroRuby::Accounting::Invoice::ACCREC, contact: { contact_id: contacts[0].contact_id }, line_items: [{ description: "Acme Tires", quantity: BigDecimal("2.0"), unit_amount: BigDecimal("20.99"), account_code: "600", tax_type: XeroRuby::Accounting::TaxType::NONE }], date: "2019-03-11", due_date: "2018-12-10", reference: "Website Design", status: XeroRuby::Accounting::Invoice::DRAFT }]}
+  invoice = xero_client.accounting_api.create_invoices(current_user.active_tenant_id, invoices).invoices.first
+
   payment = xero_client.accounting_api.get_payments(current_user.active_tenant_id).payments.first
   history_records = { history_records:[ { details: "This payment now has some History #{rand(10000)}" } ]}
   payment_history = xero_client.accounting_api.create_payment_history(user.active_tenant_id, payment.payment_id, history_records)
