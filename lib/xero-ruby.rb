@@ -176,12 +176,5 @@ module XeroRuby
         Configuration.default
       end
     end
-
-    def format_money(amount)
-      if amount.class == BigDecimal
-        return amount.to_s("F")
-      end
-      return amount
-    end
   end
 end

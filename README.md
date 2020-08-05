@@ -116,14 +116,13 @@ token_set = xero_client.set_token_set(user.token_set)
 
 # access token_set
 token_set = xero_client.token_set
-
-# All monetary related fields are serialized as BigDecimal. Using rails you can display by doing:
-ActiveSupport::NumberHelper.number_to_currency(invoice.amount, precision: 2)
-# without rails you can display BigDecimal properly like:
-invoice.amount.to_s("F")
 ```
 
 ## API Usage
+>  Comprehensive xero-ruby API usage is showcased here: https://github.com/XeroAPI/xero-ruby-oauth2-app
+
+Here is the basic workflow of using SDK once you have a valid `access_token` (and `token_set`) stored on an instance of the `xero_client`
+
 ```ruby
   require 'xero-ruby'
 
@@ -131,9 +130,23 @@ invoice.amount.to_s("F")
   xero_client.refresh_token_set(user.token_set)
 
   # Accounting API set (https://github.com/XeroAPI/xero-ruby/blob/master/accounting/lib/xero-ruby/api/accounting_api.rb)
+
+  # Examples
   invoices = xero_client.accounting_api.get_invoices(user.active_tenant_id).invoices
   accounts = xero_client.accounting_api.get_accounts(user.active_tenant_id).accounts
   contacts = xero_client.accounting_api.get_contacts(user.active_tenant_id).contacts
+
+  payment = xero_client.accounting_api.get_payments(current_user.active_tenant_id).payments.first
+  history_records = { history_records:[ { details: "This payment now has some History #{rand(10000)}" } ]}
+  payment_history = xero_client.accounting_api.create_payment_history(user.active_tenant_id, payment.payment_id, history_records)
+
+  account = xero_client.accounting_api.get_accounts(current_user.active_tenant_id).accounts.first
+  file_name = "an-account-filename.png"
+  opts = {
+    include_online: true # Boolean | Allows an attachment to be seen by the end customer within their online invoice
+  }
+  file = File.read(Rails.root.join('app/assets/images/xero-api.png'))
+  attachment = xero_client.accounting_api.create_account_attachment_by_file_name(current_user.active_tenant_id, @account.account_id, file_name, file, opts)
 
   # Asset API set (https://github.com/XeroAPI/xero-ruby/blob/master/accounting/lib/xero-ruby/api/asset_api.rb)
   asset = {
@@ -142,6 +155,9 @@ invoice.amount.to_s("F")
     "assetStatus": "DRAFT"
   }
   asset = xero_client.asset_api.create_asset(current_user.active_tenant_id, asset)
+
+  # Project API set (https://github.com/XeroAPI/xero-ruby/blob/master/docs/projects/ProjectApi.md)
+  projects = xero_client.project_api.get_projects(current_user.active_tenant_id).items
 ```
 
 If you have use cases outside of these examples or this readmy, please let us know!

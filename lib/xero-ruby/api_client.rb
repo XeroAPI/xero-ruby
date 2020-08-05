@@ -176,6 +176,7 @@ module XeroRuby
       end
 
       if opts[:return_type]
+        prepare_file(response) if opts[:return_type] == 'File'
         data = deserialize(response, opts[:return_type])
       else
         data = nil
@@ -376,33 +377,24 @@ module XeroRuby
     # process can use.
     #
     # @see Configuration#temp_folder_path
-    def download_file(request)
-      tempfile = nil
-      encoding = nil
-      request.on_headers do |response|
-        content_disposition = response.headers['Content-Disposition']
-        if content_disposition && content_disposition =~ /filename=/i
-          filename = content_disposition[/filename=['"]?([^'"\s]+)['"]?/, 1]
-          prefix = sanitize_filename(filename)
-        else
-          prefix = 'download-'
-        end
-        prefix = prefix + '-' unless prefix.end_with?('-')
-        encoding = response.body.encoding
-        tempfile = Tempfile.open(prefix, @config.temp_folder_path, encoding: encoding)
-        @tempfile = tempfile
+    def prepare_file(response)
+      content_disposition = response.headers['Content-Disposition']
+      if content_disposition && content_disposition =~ /filename=/i
+        filename = content_disposition[/filename=['"]?([^'"\s]+)['"]?/, 1]
+        prefix = sanitize_filename(filename)
+      else
+        prefix = 'download-'
       end
-      request.on_body do |chunk|
-        chunk.force_encoding(encoding)
-        tempfile.write(chunk)
-      end
-      request.on_complete do |response|
-        tempfile.close if tempfile
-        @config.logger.info "Temp file written to #{tempfile.path}, please copy the file to a proper folder "\
-                            "with e.g. `FileUtils.cp(tempfile.path, '/new/file/path')` otherwise the temp file "\
-                            "will be deleted automatically with GC. It's also recommended to delete the temp file "\
-                            "explicitly with `tempfile.delete`"
-      end
+      prefix = prefix + '-' unless prefix.end_with?('-')
+      encoding = response.body.encoding
+      tempfile = Tempfile.open(prefix, @config.temp_folder_path, encoding: encoding)
+      @tempfile = tempfile
+      tempfile.write(response.body)
+      tempfile.close if tempfile
+      @config.logger.info "Temp file written to #{tempfile.path}, please copy the file to a proper folder "\
+                          "with e.g. `FileUtils.cp(tempfile.path, '/new/file/path')` otherwise the temp file "\
+                          "will be deleted automatically with GC. It's also recommended to delete the temp file "\
+                          "explicitly with `tempfile.delete`"
     end
 
     # Sanitize filename by removing path.
