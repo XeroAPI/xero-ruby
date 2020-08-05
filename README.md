@@ -129,7 +129,7 @@ Here is the basic workflow of using SDK once you have a valid `access_token` (an
   # reference `Authorization & Callback` to first store a valid token_set on the `xero_client`
   xero_client.refresh_token_set(user.token_set)
 
-  # Accounting API set (https://github.com/XeroAPI/xero-ruby/blob/master/accounting/lib/xero-ruby/api/accounting_api.rb)
+  # Using the Accounting API set (https://github.com/XeroAPI/xero-ruby/blob/master/accounting/lib/xero-ruby/api/accounting_api.rb)
 
   # Examples
   invoices = xero_client.accounting_api.get_invoices(user.active_tenant_id).invoices
@@ -140,10 +140,25 @@ Here is the basic workflow of using SDK once you have a valid `access_token` (an
   invoices = { invoices: [{ type: XeroRuby::Accounting::Invoice::ACCREC, contact: { contact_id: contacts[0].contact_id }, line_items: [{ description: "Acme Tires", quantity: BigDecimal("2.0"), unit_amount: BigDecimal("20.99"), account_code: "600", tax_type: XeroRuby::Accounting::TaxType::NONE }], date: "2019-03-11", due_date: "2018-12-10", reference: "Website Design", status: XeroRuby::Accounting::Invoice::DRAFT }]}
   invoice = xero_client.accounting_api.create_invoices(current_user.active_tenant_id, invoices).invoices.first
 
+  # all money and fields requiring advanced precision utilize BigDecimal
+  puts invoice.unit_amount
+  => 0.2099e2
+  
+  puts invoice.unit_amount.class 
+  => BigDecimal
+
+  puts invoice.unit_amount.to_s("F")
+  => "20.99"
+
+  # or if using Rails https://api.rubyonrails.org/classes/ActionView/Helpers/NumberHelper.html#method-i-number_to_currency
+  number_to_currency(invoice.unit_amount, :unit => "$")
+
+  # creating an object History record
   payment = xero_client.accounting_api.get_payments(current_user.active_tenant_id).payments.first
   history_records = { history_records:[ { details: "This payment now has some History #{rand(10000)}" } ]}
   payment_history = xero_client.accounting_api.create_payment_history(user.active_tenant_id, payment.payment_id, history_records)
 
+  # creating an object Attachment record
   account = xero_client.accounting_api.get_accounts(current_user.active_tenant_id).accounts.first
   file_name = "an-account-filename.png"
   opts = {
@@ -152,7 +167,7 @@ Here is the basic workflow of using SDK once you have a valid `access_token` (an
   file = File.read(Rails.root.join('app/assets/images/xero-api.png'))
   attachment = xero_client.accounting_api.create_account_attachment_by_file_name(current_user.active_tenant_id, @account.account_id, file_name, file, opts)
 
-  # Asset API set (https://github.com/XeroAPI/xero-ruby/blob/master/accounting/lib/xero-ruby/api/asset_api.rb)
+  # Using the Asset API set (https://github.com/XeroAPI/xero-ruby/blob/master/accounting/lib/xero-ruby/api/asset_api.rb)
   asset = {
     "assetName": "AssetName: #{rand(10000)}",
     "assetNumber": "Asset: #{rand(10000)}",
@@ -160,7 +175,7 @@ Here is the basic workflow of using SDK once you have a valid `access_token` (an
   }
   asset = xero_client.asset_api.create_asset(current_user.active_tenant_id, asset)
 
-  # Project API set (https://github.com/XeroAPI/xero-ruby/blob/master/docs/projects/ProjectApi.md)
+  # Using the Project API set (https://github.com/XeroAPI/xero-ruby/blob/master/docs/projects/ProjectApi.md)
   projects = xero_client.project_api.get_projects(current_user.active_tenant_id).items
 ```
 
