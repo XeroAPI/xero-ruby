@@ -81,14 +81,103 @@ describe XeroRuby::ApiClient do
   end
 
   describe "#object_to_hash modifies a hash from snake_case to PascalCase" do
-    it 'Maniuplates a contact object correctly' do
+    contact_after = {:Contacts=>[{:Name=>"Bruce Banner", :EmailAddress=>"hulk@avengers.com", :Phones=>[{:PhoneType=>"MOBILE", :PhoneNumber=>"555-1212", :PhoneAreaCode=>"415"}], :PaymentTerms=>{:Bills=>{:Day=>15, :Type=>"OFCURRENTMONTH"}, :Sales=>{:Day=>10, :Type=>"DAYSAFTERBILLMONTH"}}}]}
+
+    it 'Serializes snake_case object correctly' do
       contact_before = {:contacts=>[{:name=>"Bruce Banner", :email_address=>"hulk@avengers.com", :phones=>[{:phone_type=>"MOBILE", :phone_number=>"555-1212", :phone_area_code=>"415"}], :payment_terms=>{:bills=>{:day=>15, :type=>"OFCURRENTMONTH"}, :sales=>{:day=>10, :type=>"DAYSAFTERBILLMONTH"}}}]}
-      contact_after = {:Contacts=>[{:Name=>"Bruce Banner", :EmailAddress=>"hulk@avengers.com", :Phones=>[{:PhoneType=>"MOBILE", :PhoneNumber=>"555-1212", :PhoneAreaCode=>"415"}], :PaymentTerms=>{:Bills=>{:Day=>15, :Type=>"OFCURRENTMONTH"}, :Sales=>{:Day=>10, :Type=>"DAYSAFTERBILLMONTH"}}}]}
       api_client = XeroRuby::ApiClient.new
       expect(api_client.object_to_hash(contact_before)).to eq(contact_after)
     end
 
-    # todo - insert every model PascalCase conversion as they are added as sample app examples
+    it 'Serializes camelCase object correctly' do
+      json_before = {
+        type: "ACCREC",
+        invoiceNumber: "INV-01",
+        dueDate: "2020-01-01",
+        lineItems: [
+          { quantity: 1.0, unitAmount: 20 }
+        ]
+      }
+      json_after = {
+        Type: "ACCREC",
+        InvoiceNumber: "INV-01",
+        DueDate: "2020-01-01",
+        LineItems: [
+          { Quantity: 1.0, UnitAmount: 20 }
+        ]
+      }
+      api_client = XeroRuby::ApiClient.new
+      expect(api_client.object_to_hash(json_before)).to eq(json_after)
+    end
+
+    it 'Serializes json with multiple nested objects correctly' do
+      json_before = {
+        "line_Items":[
+          {
+            "quantity":1.0,
+            "unit_amount":20,
+            "sub_Items":[
+              {
+                "quantity":1.0,
+                "unit_amount":20
+              },
+              {
+                "quantity":1.0,
+                "Unit_amount":20,
+                "Deep_Items":[
+                  {
+                    "quantity":1.0,
+                    "unit_amount":20
+                  },
+                  {
+                    "quantity":1.0,
+                    "unit_Amount":20
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+       
+      json_after = {
+        "LineItems":[
+          {
+            "UnitAmount":20,
+            "Quantity":1.0,
+            "SubItems":[
+              {
+                "UnitAmount":20,
+                "Quantity":1.0
+              },
+              {
+                "UnitAmount":20,
+                "Quantity":1.0,
+                "DeepItems":[
+                  {
+                    "UnitAmount":20,
+                    "Quantity":1.0
+                  },
+                  {
+                    "UnitAmount":20,
+                    "Quantity":1.0
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+      api_client = XeroRuby::ApiClient.new
+      expect(api_client.object_to_hash(json_before)).to eq(json_after)
+    end
+
+    it 'Serializes mixed cased keys correctly' do
+      contact_after = { :Contacts=>[{:Name=>"Bruce Banner", :EmailAddress=>"hulk@avengers.com", :Phones=>[{:PhoneType=>"MOBILE", :PhoneNumber=>"555-1212", :PhoneAreaCode=>"415"}], :PaymentTerms=>{:Bills=>{:Day=>15, :Type=>"OFCURRENTMONTH"}, :Sales=>{:Day=>10, :Type=>"DAYSAFTERBILLMONTH"}}}]}
+      contact_before = {:contacts=>[{:name=>"Bruce Banner", :emailAddress=>"hulk@avengers.com", :phones=>[{:phoneType=>"MOBILE", :phone_number=>"555-1212", :phone_areaCode=>"415"}], :Payment_terms=>{:bills=>{:day=>15, :type=>"OFCURRENTMONTH"}, :sales=>{:day=>10, :type=>"DAYSAFTERBILLMONTH"}}}]}
+      api_client = XeroRuby::ApiClient.new
+      expect(api_client.object_to_hash(contact_before)).to eq(contact_after)
+    end
   end
 
   describe '#build_collection_param' do

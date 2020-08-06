@@ -500,29 +500,34 @@ module XeroRuby
       elsif key.is_a? String
         camelize(key, first_upper)
       else
-        key # Awrence can't camelize anything except strings and symbols
+        key # can't camelize anything except strings and symbols
       end
     end
 
-    def camelize(snake_word, first_upper = true)
+    def camelize(word, first_upper = true)
       if first_upper
-        str = snake_word.to_s
+        str = word.to_s
         str = gsubbed(str, /(?:^|_)([^_\s]+)/)
         str = gsubbed(str, %r{/([^/]*)}, "::")
         str
       else
-        parts = snake_word.split("_", 2)
+        parts = word.split("_", 2)
         parts[0] << camelize(parts[1]) if parts.size > 1
         parts[0] || ""
       end
     end
 
     def gsubbed(str, pattern, extra = "")
-      key_map_scronyms = { "id" => "ID" }
+      key_map_scronyms = { "id": "ID" }
       str = str.gsub(pattern) do
-        extra + (key_map_scronyms[Regexp.last_match(1)] || Regexp.last_match(1).capitalize)
+        extra + (key_map_scronyms[Regexp.last_match(1)] || capitalize_first(Regexp.last_match(1)))
       end
       str
+    end
+
+    def capitalize_first(word)
+      split = word.split('')
+      "#{split[0].capitalize}#{split[1..-1].join}"
     end
     # END - Re-serializes snake_cased params to PascalCase required by XeroAPI
 
