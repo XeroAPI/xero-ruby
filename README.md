@@ -75,7 +75,7 @@ To generate a valid token_set with this SDK from Xero, have your user follow the
 # https://login.xero.com/identity/connect/authorize?response_type=code&client_id=<xxx>&redirect_uri=<redirect_uri>&scope=<scopes>
 ```
 
-> The `get_token_set_from_callback` method will set the `token_set` on the client, however you can also initialize a client and set the `token_set` explicitely using `set_token_set` or `refresh_token_set`.
+> The `get_token_set_from_callback` method will set the `token_set` on the client, however you can also initialize a client and set the `token_set` explicitly using `set_token_set` or `refresh_token_set`.
 
 ```ruby
 # /my-redirect-uri
