@@ -35,6 +35,10 @@ gem 'xero-ruby'
 * Create a [free Xero user account](https://www.xero.com/us/signup/api/)
 * Login to your Xero developer [/myapps](https://developer.xero.com/myapps) dashboard & create an API application and note your API app's credentials.
 
+We also have two sample apps (Sinatra & Rails) showing practival SDK usage
+> https://github.com/XeroAPI/xero-ruby-oauth2-starter
+> https://github.com/XeroAPI/xero-ruby-oauth2-app
+
 ### Creating a Client
 Require the gem:
 ```
@@ -91,9 +95,24 @@ xero_client.refresh_token_set(user.token_set)
 
 ## Token & SDK Helpers
 
-Token Sets contain information about your API connection, but most important are the access_token, refresh_token, and the expiry:
+Token Sets contain other metadata about your API connection. Most importantly the access_token, refresh_token.
 * An `access_token` is valid 30 minutes and a `refresh_token` is valid for 60 days
 
+Example token expiry helper
+```ruby
+require 'jwt'
+def token_expired
+  token_expiry = Time.at(access_token['exp'])
+  exp_text = time_ago_in_words(token_expiry)
+  token_expiry > Time.now ? "in #{exp_text}" : "#{exp_text} ago" 
+end
+
+def access_token
+  JWT.decode(current_user.token_set['access_token'], nil, false)[0] if current_user && current_user.token_set
+end
+```
+
+Example built-in refresh/connection helpers
 ```ruby
 @token_set = xero_client.refresh_token_set(user.token_set)
 
@@ -111,18 +130,17 @@ connections = xero_client.connections
 # disconnect an org from a user's connections. Pass the connection ['id'] not ['tenantId'].
 remaining_connections = xero_client.disconnect(connections[0]['id'])
 
-# set token_set
+# setting the token_set from the database
 token_set = xero_client.set_token_set(user.token_set)
 
-# access token_set
+# accessing token_set on the client
 token_set = xero_client.token_set
 ```
 
 ## API Usage
 >  Comprehensive xero-ruby API usage is showcased here: https://github.com/XeroAPI/xero-ruby-oauth2-app
 
-Here is the basic workflow of using SDK once you have a valid `access_token` (and `token_set`) stored on an instance of the `xero_client`
-
+Basic workflow of SDK once you have a valid `token_set` stored on the `xero_client`
 ```ruby
   require 'xero-ruby'
 
@@ -131,16 +149,17 @@ Here is the basic workflow of using SDK once you have a valid `access_token` (an
 
   # Using the Accounting API set (https://github.com/XeroAPI/xero-ruby/blob/master/accounting/lib/xero-ruby/api/accounting_api.rb)
 
-  # Examples
+  # Getting Objects
   invoices = xero_client.accounting_api.get_invoices(user.active_tenant_id).invoices
   accounts = xero_client.accounting_api.get_accounts(user.active_tenant_id).accounts
   contacts = xero_client.accounting_api.get_contacts(user.active_tenant_id).contacts
 
+  # Creating Objects
   contacts = xero_client.accounting_api.get_contacts(current_user.active_tenant_id).contacts
   invoices = { invoices: [{ type: XeroRuby::Accounting::Invoice::ACCREC, contact: { contact_id: contacts[0].contact_id }, line_items: [{ description: "Acme Tires", quantity: BigDecimal("2.0"), unit_amount: BigDecimal("20.99"), account_code: "600", tax_type: XeroRuby::Accounting::TaxType::NONE }], date: "2019-03-11", due_date: "2018-12-10", reference: "Website Design", status: XeroRuby::Accounting::Invoice::DRAFT }]}
   invoice = xero_client.accounting_api.create_invoices(current_user.active_tenant_id, invoices).invoices.first
 
-  # all money and fields requiring advanced precision utilize BigDecimal
+  # money related fields utilize BigDecimal
   puts invoice.unit_amount
   => 0.2099e2
   
@@ -150,7 +169,7 @@ Here is the basic workflow of using SDK once you have a valid `access_token` (an
   puts invoice.unit_amount.to_s("F")
   => "20.99"
 
-  # or if using Rails https://api.rubyonrails.org/classes/ActionView/Helpers/NumberHelper.html#method-i-number_to_currency
+  # * if using Rails https://api.rubyonrails.org/classes/ActionView/Helpers/NumberHelper.html#method-i-number_to_currency
   number_to_currency(invoice.unit_amount, :unit => "$")
 
   # creating an object History record
@@ -182,7 +201,10 @@ Here is the basic workflow of using SDK once you have a valid `access_token` (an
 If you have use cases outside of these examples or this readmy, please let us know!
 
 ## Sample App
-The best resource to understanding how to best leverage this SDK is to clone down our Sample Rails application which showcases all the features of this project. The sample app can help you quickly understand how to:
+We have a simple Sinatra application that shows the quickest 'Getting Started' path for the `xero-ruby` SDK:
+> https://github.com/XeroAPI/xero-ruby-oauth2-starter
+
+The most robust resource to see practical SDK usage is our sample Rails application which showcases tons of `xero-ruby` SDK features:
 > https://github.com/XeroAPI/xero-ruby-oauth2-app
 
 * Complete the OAuth2.0 Authorization flow
