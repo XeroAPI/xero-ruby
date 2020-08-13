@@ -198,6 +198,29 @@ Basic workflow of SDK once you have a valid `token_set` stored on the `xero_clie
   projects = xero_client.project_api.get_projects(current_user.active_tenant_id).items
 ```
 
+
+## Querying & Filtering
+
+```ruby
+
+if_modified_since
+
+where
+
+
+Where
+order
+IDs
+InvoiceNumbers
+ContactIDs
+Statuses
+page
+includeArchived
+createdByMyApp
+unitdp
+
+```
+
 If you have use cases outside of these examples or this readmy, please let us know!
 
 ## Sample App

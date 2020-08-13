@@ -133,6 +133,7 @@ module XeroRuby
     # @return [Array<(Object, Integer, Hash)>] an array of 3 elements:
     #   the data deserialized from response body (could be nil), response status code and response headers.
     def call_api(http_method, path, opts = {})
+      puts "opts: #{opts}"
       ssl_options = {
         :ca_file => @config.ssl_ca_file,
         :verify => @config.ssl_verify,
@@ -196,6 +197,8 @@ module XeroRuby
     def build_request(http_method, path, request, opts = {})
       url = build_request_url(path)
       http_method = http_method.to_sym.downcase
+
+      puts "opts: #{opts}"
 
       header_params = @default_headers.merge(opts[:header_params] || {})
       query_params = opts[:query_params] || {}
