@@ -203,22 +203,21 @@ Basic workflow of SDK once you have a valid `token_set` stored on the `xero_clie
 
 ```ruby
 
-if_modified_since
+# PAID Invoices with no amount due, updated within the hour
+opts = { 
+  statuses: [XeroRuby::Accounting::Invoice::PAID],
+  where: { amount_due: '=0' },
+  if_modified_since: (DateTime.now - 1.hour).to_s
+}
+xero_client.accounting_api.get_invoices(tenant_id, opts).invoices
 
-where
-
-
-Where
-order
-IDs
-InvoiceNumbers
-ContactIDs
-Statuses
-page
-includeArchived
-createdByMyApp
-unitdp
-
+# DRAFT Invoices with > 400 due, updated within the month
+opts = { 
+  statuses: [XeroRuby::Accounting::Invoice::DRAFT],
+  where: { amount_due: '>400' },
+  if_modified_since: (DateTime.now - 1.month).to_s
+}
+xero_client.accounting_api.get_invoices(tenant_id, opts).invoices
 ```
 
 If you have use cases outside of these examples or this readmy, please let us know!
