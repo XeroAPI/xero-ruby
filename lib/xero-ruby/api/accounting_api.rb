@@ -5007,13 +5007,7 @@ module XeroRuby
       query_params[:'unitdp'] = opts[:'unitdp'] if !opts[:'unitdp'].nil?
 
       
-      puts "*********************************"
-      puts "opts made it here: #{opts}"
-      puts "*********************************"
 
-      puts "*********************************"
-      puts "opts[:'where']: #{opts[:'where']}"
-      puts "*********************************"
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -5311,13 +5305,7 @@ module XeroRuby
       local_var_path = '/BankTransactions'
 
 
-      puts "*********************************"
-      puts "opts made it here: #{opts}"
-      puts "*********************************"
 
-      puts "*********************************"
-      puts "opts[:'where']: #{opts[:'where']}"
-      puts "*********************************"
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -8353,20 +8341,7 @@ module XeroRuby
       local_var_path = '/Invoices'
 
       # query parameters
-      puts "*********************************"
-      puts "opts made it here: #{opts}"
-      puts "*********************************"
-
-      puts "*********************************"
-      puts "opts[:'where'].map{|k,v|.join('&'): #{opts[:'where'].map{|k,v| "#{k}#{v}"}.join('&')}"
-      puts "*********************************"
-
       opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
-
-      puts "*********************************"
-      puts "opts[:'where']: #{opts[:'where']}"
-      puts "*********************************"
-
       query_params = opts[:query_params] || {}
       query_params[:'Where'] = opts[:'where'] if !opts[:'where'].nil?
       query_params[:'order'] = opts[:'order'] if !opts[:'order'].nil?
@@ -8379,12 +8354,8 @@ module XeroRuby
       query_params[:'createdByMyApp'] = opts[:'created_by_my_app'] if !opts[:'created_by_my_app'].nil?
       query_params[:'unitdp'] = opts[:'unitdp'] if !opts[:'unitdp'].nil?
 
-      puts "*********************************"
-      puts "query_params #{query_params}"
-      puts "*********************************"
 
       camel_params = @api_client.to_camel_keys(query_params)
-      puts "camel_params:  #{camel_params}"
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -14392,13 +14363,7 @@ module XeroRuby
       # resource path
       local_var_path = '/BankTransactions'
 
-      puts "*********************************"
-      puts "opts made it here: #{opts}"
-      puts "*********************************"
 
-      puts "*********************************"
-      puts "opts[:'where']: #{opts[:'where']}"
-      puts "*********************************"
 
       # query parameters
       query_params = opts[:query_params] || {}
