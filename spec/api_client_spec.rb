@@ -181,27 +181,27 @@ describe XeroRuby::ApiClient do
   end
 
   describe '#build_collection_param' do
-    let(:param) { ['aa', 'bb', 'cc'] }
+    let(:param) { ['contact_ids', 'order', 'where'] }
     let(:api_client) { XeroRuby::ApiClient.new }
 
     it 'works for csv' do
-      expect(api_client.build_collection_param(param, :csv)).to eq('aa,bb,cc')
+      expect(api_client.build_collection_param(param, :csv)).to eq('contact_ids,order,where')
     end
 
     it 'works for ssv' do
-      expect(api_client.build_collection_param(param, :ssv)).to eq('aa bb cc')
+      expect(api_client.build_collection_param(param, :ssv)).to eq('contact_ids order where')
     end
 
     it 'works for tsv' do
-      expect(api_client.build_collection_param(param, :tsv)).to eq("aa\tbb\tcc")
+      expect(api_client.build_collection_param(param, :tsv)).to eq("contact_ids\torder\twhere")
     end
 
     it 'works for pipes' do
-      expect(api_client.build_collection_param(param, :pipes)).to eq('aa|bb|cc')
+      expect(api_client.build_collection_param(param, :pipes)).to eq('contact_ids|order|where')
     end
 
     it 'works for multi' do
-      expect(api_client.build_collection_param(param, :multi)).to eq(['aa', 'bb', 'cc'])
+      expect(api_client.build_collection_param(param, :multi)).to eq(['contact_ids', 'order', 'where'])
     end
 
     it 'fails for invalid collection format' do

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **file_name** | **String** | Name of the file | [optional] 
 **url** | **String** | URL to the file on xero.com | [optional] 
 **mime_type** | **String** | Type of file | [optional] 
-**content_length** | **Float** | Length of the file content | [optional] 
+**content_length** | **Integer** | Length of the file content | [optional] 
 **include_online** | **Boolean** | Include the file with the online invoice | [optional] 
 
 ## Code Sample
