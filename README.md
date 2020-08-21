@@ -35,6 +35,10 @@ gem 'xero-ruby'
 * Create a [free Xero user account](https://www.xero.com/us/signup/api/)
 * Login to your Xero developer [/myapps](https://developer.xero.com/myapps) dashboard & create an API application and note your API app's credentials.
 
+We also have two sample apps (Sinatra & Rails) showing practival SDK usage
+> https://github.com/XeroAPI/xero-ruby-oauth2-starter (Sinatra - simple getting started)
+> https://github.com/XeroAPI/xero-ruby-oauth2-app (Rails - many examples)
+
 ### Creating a Client
 Require the gem:
 ```
@@ -94,6 +98,22 @@ xero_client.refresh_token_set(user.token_set)
 Token Sets contain information about your API connection, but most important are the access_token, refresh_token, and the expiry:
 * An `access_token` is valid 30 minutes and a `refresh_token` is valid for 60 days
 
+Example token expiry helper
+```ruby
+# you will need to include your own jwt decoding library - following methods are an example
+require 'jwt'
+def token_expired
+  token_expiry = Time.at(access_token['exp'])
+  exp_text = time_ago_in_words(token_expiry)
+  token_expiry > Time.now ? "in #{exp_text}" : "#{exp_text} ago" 
+end
+
+def access_token
+  JWT.decode(current_user.token_set['access_token'], nil, false)[0] if current_user && current_user.token_set
+end
+```
+
+Gem's Refresh/connection helpers
 ```ruby
 @token_set = xero_client.refresh_token_set(user.token_set)
 
@@ -119,8 +139,6 @@ token_set = xero_client.token_set
 ```
 
 ## API Usage
->  Comprehensive xero-ruby API usage is showcased here: https://github.com/XeroAPI/xero-ruby-oauth2-app
-
 Here is the basic workflow of using SDK once you have a valid `access_token` (and `token_set`) stored on an instance of the `xero_client`
 
 ```ruby
@@ -189,6 +207,7 @@ opts = {
   if_modified_since: (DateTime.now - 1.hour).to_s
 }
 xero_client.accounting_api.get_invoices(tenant_id, opts).invoices
+
 # DRAFT Invoices with > 400 due, updated within the month
 opts = { 
   statuses: [XeroRuby::Accounting::Invoice::DRAFT],
@@ -196,7 +215,6 @@ opts = {
   if_modified_since: (DateTime.now - 1.month).to_s
 }
 xero_client.accounting_api.get_invoices(tenant_id, opts).invoices
-
 
 opts = {
   if_modified_since: (DateTime.now - 1.weeks).to_s,
@@ -208,8 +226,9 @@ opts = {
 If you have use cases outside of these examples or this readmy, please let us know!
 
 ## Sample App
-The best resource to understanding how to best leverage this SDK is to clone down our Sample Rails application which showcases all the features of this project. The sample app can help you quickly understand how to:
-> https://github.com/XeroAPI/xero-ruby-oauth2-app
+The best resource to understanding how to best leverage this SDK is the sample applications showing all the features of the gem.
+> https://github.com/XeroAPI/xero-ruby-oauth2-starter (Sinatra - simple getting started)
+> https://github.com/XeroAPI/xero-ruby-oauth2-app (Rails - full featured examples)
 
 * Complete the OAuth2.0 Authorization flow
 * Store token_sets against a user object in a DB

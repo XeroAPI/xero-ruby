@@ -192,7 +192,7 @@ module XeroRuby
     # @option opts [Hash] :query_params Query parameters
     # @option opts [Hash] :form_params Query parameters
     # @option opts [Object] :body HTTP body (JSON/XML)
-    # @return A Farada Request
+    # @return A Faraday Request
     def build_request(http_method, path, request, opts = {})
       url = build_request_url(path)
       http_method = http_method.to_sym.downcase
@@ -518,7 +518,7 @@ module XeroRuby
     end
 
     def gsubbed(str, pattern, extra = "")
-      key_map_scronyms = { "i_ds": "ID" }
+      key_map_scronyms = {}
       str = str.gsub(pattern) do
         extra + (key_map_scronyms[Regexp.last_match(1)] || capitalize_first(Regexp.last_match(1)))
       end
