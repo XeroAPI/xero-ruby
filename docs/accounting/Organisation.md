@@ -24,9 +24,9 @@ Name | Type | Description | Notes
 **sales_tax_period** | **String** | The frequency with which tax returns are processed. See Sales Tax Period | [optional] 
 **default_sales_tax** | **String** | The default for LineAmountTypes on sales transactions | [optional] 
 **default_purchases_tax** | **String** | The default for LineAmountTypes on purchase transactions | [optional] 
-**period_lock_date** | **Date** | Shown if set. See lock dates | [optional] 
-**end_of_year_lock_date** | **Date** | Shown if set. See lock dates | [optional] 
-**created_date_utc** | **DateTime** | Timestamp when the organisation was created in Xero | [optional] 
+**period_lock_date** | **String** | Shown if set. See lock dates | [optional] 
+**end_of_year_lock_date** | **String** | Shown if set. See lock dates | [optional] 
+**created_date_utc** | **String** | Timestamp when the organisation was created in Xero | [optional] 
 **timezone** | [**TimeZone**](TimeZone.md) |  | [optional] 
 **organisation_entity_type** | **String** | Organisation Entity Type | [optional] 
 **short_code** | **String** | A unique identifier for the organisation. Potential uses. | [optional] 
@@ -65,7 +65,7 @@ instance = XeroRuby::Accounting::Organisation.new(organisation_id: 8be9db36-3598
                                  default_purchases_tax: null,
                                  period_lock_date: null,
                                  end_of_year_lock_date: null,
-                                 created_date_utc: null,
+                                 created_date_utc: /Date(1573755038314)/,
                                  timezone: null,
                                  organisation_entity_type: null,
                                  short_code: null,

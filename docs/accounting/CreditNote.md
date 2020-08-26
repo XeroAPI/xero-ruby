@@ -6,16 +6,16 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **String** | See Credit Note Types | [optional] 
 **contact** | [**Contact**](Contact.md) |  | [optional] 
-**date** | **Date** | The date the credit note is issued YYYY-MM-DD. If the Date element is not specified then it will default to the current date based on the timezone setting of the organisation | [optional] 
+**date** | **String** | The date the credit note is issued YYYY-MM-DD. If the Date element is not specified then it will default to the current date based on the timezone setting of the organisation | [optional] 
 **status** | **String** | See Credit Note Status Codes | [optional] 
 **line_amount_types** | [**LineAmountTypes**](LineAmountTypes.md) |  | [optional] 
 **line_items** | [**Array&lt;LineItem&gt;**](LineItem.md) | See Invoice Line Items | [optional] 
 **sub_total** | **Float** | The subtotal of the credit note excluding taxes | [optional] 
 **total_tax** | **Float** | The total tax on the credit note | [optional] 
 **total** | **Float** | The total of the Credit Note(subtotal + total tax) | [optional] 
-**updated_date_utc** | **DateTime** | UTC timestamp of last update to the credit note | [optional] 
+**updated_date_utc** | **String** | UTC timestamp of last update to the credit note | [optional] 
 **currency_code** | [**CurrencyCode**](CurrencyCode.md) |  | [optional] 
-**fully_paid_on_date** | **Date** | Date when credit note was fully paid(UTC format) | [optional] 
+**fully_paid_on_date** | **String** | Date when credit note was fully paid(UTC format) | [optional] 
 **credit_note_id** | **String** | Xero generated unique identifier | [optional] 
 **credit_note_number** | **String** | ACCRECCREDIT – Unique alpha numeric code identifying credit note (when missing will auto-generate from your Organisation Invoice Settings) | [optional] 
 **reference** | **String** | ACCRECCREDIT only – additional reference number | [optional] 
@@ -45,7 +45,7 @@ instance = XeroRuby::Accounting::CreditNote.new(type: null,
                                  sub_total: null,
                                  total_tax: null,
                                  total: null,
-                                 updated_date_utc: null,
+                                 updated_date_utc: /Date(1573755038314)/,
                                  currency_code: null,
                                  fully_paid_on_date: null,
                                  credit_note_id: null,

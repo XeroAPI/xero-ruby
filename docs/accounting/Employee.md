@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **first_name** | **String** | First name of an employee (max length &#x3D; 255) | [optional] 
 **last_name** | **String** | Last name of an employee (max length &#x3D; 255) | [optional] 
 **external_link** | [**ExternalLink**](ExternalLink.md) |  | [optional] 
-**updated_date_utc** | **DateTime** |  | [optional] 
+**updated_date_utc** | **String** |  | [optional] 
 **status_attribute_string** | **String** | A string to indicate if a invoice status | [optional] 
 **validation_errors** | [**Array&lt;ValidationError&gt;**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
 
@@ -23,7 +23,7 @@ instance = XeroRuby::Accounting::Employee.new(employee_id: null,
                                  first_name: null,
                                  last_name: null,
                                  external_link: null,
-                                 updated_date_utc: null,
+                                 updated_date_utc: /Date(1573755038314)/,
                                  status_attribute_string: ERROR,
                                  validation_errors: null)
 ```

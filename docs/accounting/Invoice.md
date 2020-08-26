@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **type** | **String** | See Invoice Types | [optional] 
 **contact** | [**Contact**](Contact.md) |  | [optional] 
 **line_items** | [**Array&lt;LineItem&gt;**](LineItem.md) | See LineItems | [optional] 
-**date** | **Date** | Date invoice was issued – YYYY-MM-DD. If the Date element is not specified it will default to the current date based on the timezone setting of the organisation | [optional] 
-**due_date** | **Date** | Date invoice is due – YYYY-MM-DD | [optional] 
+**date** | **String** | Date invoice was issued – YYYY-MM-DD. If the Date element is not specified it will default to the current date based on the timezone setting of the organisation | [optional] 
+**due_date** | **String** | Date invoice is due – YYYY-MM-DD | [optional] 
 **line_amount_types** | [**LineAmountTypes**](LineAmountTypes.md) |  | [optional] 
 **invoice_number** | **String** | ACCREC – Unique alpha numeric code identifying invoice (when missing will auto-generate from your Organisation Invoice Settings) (max length &#x3D; 255) | [optional] 
 **reference** | **String** | ACCREC only – additional reference number (max length &#x3D; 255) | [optional] 
@@ -18,8 +18,8 @@ Name | Type | Description | Notes
 **currency_rate** | **Float** | The currency rate for a multicurrency invoice. If no rate is specified, the XE.com day rate is used. (max length &#x3D; [18].[6]) | [optional] 
 **status** | **String** | See Invoice Status Codes | [optional] 
 **sent_to_contact** | **Boolean** | Boolean to set whether the invoice in the Xero app should be marked as “sent”. This can be set only on invoices that have been approved | [optional] 
-**expected_payment_date** | **Date** | Shown on sales invoices (Accounts Receivable) when this has been set | [optional] 
-**planned_payment_date** | **Date** | Shown on bills (Accounts Payable) when this has been set | [optional] 
+**expected_payment_date** | **String** | Shown on sales invoices (Accounts Receivable) when this has been set | [optional] 
+**planned_payment_date** | **String** | Shown on bills (Accounts Payable) when this has been set | [optional] 
 **cis_deduction** | **Float** | CIS deduction for UK contractors | [optional] 
 **sub_total** | **Float** | Total of invoice excluding taxes | [optional] 
 **total_tax** | **Float** | Total tax on invoice | [optional] 
@@ -33,9 +33,9 @@ Name | Type | Description | Notes
 **overpayments** | [**Array&lt;Overpayment&gt;**](Overpayment.md) | See Overpayments | [optional] 
 **amount_due** | **Float** | Amount remaining to be paid on invoice | [optional] 
 **amount_paid** | **Float** | Sum of payments received for invoice | [optional] 
-**fully_paid_on_date** | **Date** | The date the invoice was fully paid. Only returned on fully paid invoices | [optional] 
+**fully_paid_on_date** | **String** | The date the invoice was fully paid. Only returned on fully paid invoices | [optional] 
 **amount_credited** | **Float** | Sum of all credit notes, over-payments and pre-payments applied to invoice | [optional] 
-**updated_date_utc** | **DateTime** | Last modified date UTC format | [optional] 
+**updated_date_utc** | **String** | Last modified date UTC format | [optional] 
 **credit_notes** | [**Array&lt;CreditNote&gt;**](CreditNote.md) | Details of credit notes that have been applied to an invoice | [optional] 
 **attachments** | [**Array&lt;Attachment&gt;**](Attachment.md) | Displays array of attachments from the API | [optional] 
 **has_errors** | **Boolean** | A boolean to indicate if a invoice has an validation errors | [optional] [default to false]
@@ -79,7 +79,7 @@ instance = XeroRuby::Accounting::Invoice.new(type: null,
                                  amount_paid: null,
                                  fully_paid_on_date: null,
                                  amount_credited: null,
-                                 updated_date_utc: null,
+                                 updated_date_utc: /Date(1573755038314)/,
                                  credit_notes: null,
                                  attachments: null,
                                  has_errors: false,

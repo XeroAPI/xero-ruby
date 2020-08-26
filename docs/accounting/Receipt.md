@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**date** | **Date** | Date of receipt – YYYY-MM-DD | [optional] 
+**date** | **String** | Date of receipt – YYYY-MM-DD | [optional] 
 **contact** | [**Contact**](Contact.md) |  | [optional] 
 **line_items** | [**Array&lt;LineItem&gt;**](LineItem.md) |  | [optional] 
 **user** | [**User**](User.md) |  | [optional] 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **receipt_id** | **String** | Xero generated unique identifier for receipt | [optional] 
 **status** | **String** | Current status of receipt – see status types | [optional] 
 **receipt_number** | **String** | Xero generated sequence number for receipt in current claim for a given user | [optional] 
-**updated_date_utc** | **DateTime** | Last modified date UTC format | [optional] 
+**updated_date_utc** | **String** | Last modified date UTC format | [optional] 
 **has_attachments** | **Boolean** | boolean to indicate if a receipt has an attachment | [optional] [default to false]
 **url** | **String** | URL link to a source document – shown as “Go to [appName]” in the Xero app | [optional] 
 **validation_errors** | [**Array&lt;ValidationError&gt;**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
@@ -40,7 +40,7 @@ instance = XeroRuby::Accounting::Receipt.new(date: null,
                                  receipt_id: null,
                                  status: null,
                                  receipt_number: null,
-                                 updated_date_utc: null,
+                                 updated_date_utc: /Date(1573755038314)/,
                                  has_attachments: false,
                                  url: null,
                                  validation_errors: null,

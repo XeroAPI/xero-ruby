@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **linked_transaction_id** | **String** | The Xero identifier for an Linked Transaction e.g./LinkedTransactions/297c2dc5-cc47-4afd-8ec8-74990b8761e9 | [optional] 
 **status** | **String** | Filter by the combination of ContactID and Status. Get all the linked transactions that have been assigned to a particular customer and have a particular status e.g. GET /LinkedTransactions?ContactID&#x3D;4bb34b03-3378-4bb2-a0ed-6345abf3224e&amp;Status&#x3D;APPROVED. | [optional] 
 **type** | **String** | This will always be BILLABLEEXPENSE. More types may be added in future. | [optional] 
-**updated_date_utc** | **DateTime** | The last modified date in UTC format | [optional] 
+**updated_date_utc** | **String** | The last modified date in UTC format | [optional] 
 **source_transaction_type_code** | **String** | The Type of the source tranasction. This will be ACCPAY if the linked transaction was created from an invoice and SPEND if it was created from a bank transaction. | [optional] 
 **validation_errors** | [**Array&lt;ValidationError&gt;**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
 
@@ -29,7 +29,7 @@ instance = XeroRuby::Accounting::LinkedTransaction.new(source_transaction_id: nu
                                  linked_transaction_id: null,
                                  status: null,
                                  type: null,
-                                 updated_date_utc: null,
+                                 updated_date_utc: /Date(1573755038314)/,
                                  source_transaction_type_code: null,
                                  validation_errors: null)
 ```

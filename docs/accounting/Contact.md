@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 **tracking_category_name** | **String** | The name of the Tracking Category assigned to the contact under SalesTrackingCategories and PurchasesTrackingCategories | [optional] 
 **tracking_category_option** | **String** | The name of the Tracking Option assigned to the contact under SalesTrackingCategories and PurchasesTrackingCategories | [optional] 
 **payment_terms** | [**PaymentTerm**](PaymentTerm.md) |  | [optional] 
-**updated_date_utc** | **DateTime** | UTC timestamp of last update to contact | [optional] 
+**updated_date_utc** | **String** | UTC timestamp of last update to contact | [optional] 
 **contact_groups** | [**Array&lt;ContactGroup&gt;**](ContactGroup.md) | Displays which contact groups a contact is included in | [optional] 
 **website** | **String** | Website address for contact (read only) | [optional] 
 **branding_theme** | [**BrandingTheme**](BrandingTheme.md) |  | [optional] 
@@ -76,7 +76,7 @@ instance = XeroRuby::Accounting::Contact.new(contact_id: null,
                                  tracking_category_name: null,
                                  tracking_category_option: null,
                                  payment_terms: null,
-                                 updated_date_utc: null,
+                                 updated_date_utc: /Date(1573755038314)/,
                                  contact_groups: null,
                                  website: null,
                                  branding_theme: null,

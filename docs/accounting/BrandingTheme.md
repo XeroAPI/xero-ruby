@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **logo_url** | **String** | The location of the image file used as the logo on this branding theme | [optional] 
 **type** | **String** | Always INVOICE | [optional] 
 **sort_order** | **Integer** | Integer – ranked order of branding theme. The default branding theme has a value of 0 | [optional] 
-**created_date_utc** | **DateTime** | UTC timestamp of creation date of branding theme | [optional] 
+**created_date_utc** | **String** | UTC timestamp of creation date of branding theme | [optional] 
 
 ## Code Sample
 
@@ -21,7 +21,7 @@ instance = XeroRuby::Accounting::BrandingTheme.new(branding_theme_id: null,
                                  logo_url: null,
                                  type: null,
                                  sort_order: null,
-                                 created_date_utc: null)
+                                 created_date_utc: /Date(1573755038314)/)
 ```
 
 

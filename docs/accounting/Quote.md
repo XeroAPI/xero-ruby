@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 **terms** | **String** | Terms of the quote | [optional] 
 **contact** | [**Contact**](Contact.md) |  | [optional] 
 **line_items** | [**Array&lt;LineItem&gt;**](LineItem.md) | See LineItems | [optional] 
-**date** | **Date** | Date quote was issued – YYYY-MM-DD. If the Date element is not specified it will default to the current date based on the timezone setting of the organisation | [optional] 
+**date** | **String** | Date quote was issued – YYYY-MM-DD. If the Date element is not specified it will default to the current date based on the timezone setting of the organisation | [optional] 
 **date_string** | **String** | Date the quote was issued (YYYY-MM-DD) | [optional] 
-**expiry_date** | **Date** | Date the quote expires – YYYY-MM-DD. | [optional] 
+**expiry_date** | **String** | Date the quote expires – YYYY-MM-DD. | [optional] 
 **expiry_date_string** | **String** | Date the quote expires – YYYY-MM-DD. | [optional] 
 **status** | [**QuoteStatusCodes**](QuoteStatusCodes.md) |  | [optional] 
 **currency_code** | [**CurrencyCode**](CurrencyCode.md) |  | [optional] 
@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **title** | **String** | Title text for the quote | [optional] 
 **summary** | **String** | Summary text for the quote | [optional] 
 **branding_theme_id** | **String** | See BrandingThemes | [optional] 
-**updated_date_utc** | **DateTime** | Last modified date UTC format | [optional] 
+**updated_date_utc** | **String** | Last modified date UTC format | [optional] 
 **line_amount_types** | [**QuoteLineAmountTypes**](QuoteLineAmountTypes.md) |  | [optional] 
 **status_attribute_string** | **String** | A string to indicate if a invoice status | [optional] 
 **validation_errors** | [**Array&lt;ValidationError&gt;**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
@@ -54,7 +54,7 @@ instance = XeroRuby::Accounting::Quote.new(quote_id: null,
                                  title: null,
                                  summary: null,
                                  branding_theme_id: null,
-                                 updated_date_utc: null,
+                                 updated_date_utc: /Date(1573755038314)/,
                                  line_amount_types: null,
                                  status_attribute_string: null,
                                  validation_errors: null)
