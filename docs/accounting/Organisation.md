@@ -65,7 +65,7 @@ instance = XeroRuby::Accounting::Organisation.new(organisation_id: 8be9db36-3598
                                  default_purchases_tax: null,
                                  period_lock_date: null,
                                  end_of_year_lock_date: null,
-                                 created_date_utc: null,
+                                 created_date_utc: /Date(1573755038314)/,
                                  timezone: null,
                                  organisation_entity_type: null,
                                  short_code: null,

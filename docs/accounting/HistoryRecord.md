@@ -17,7 +17,7 @@ require 'XeroRuby::Accounting'
 instance = XeroRuby::Accounting::HistoryRecord.new(details: null,
                                  changes: null,
                                  user: null,
-                                 date_utc: null)
+                                 date_utc: /Date(1573755038314)/)
 ```
 
 

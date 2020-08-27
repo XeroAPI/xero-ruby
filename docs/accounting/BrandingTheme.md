@@ -21,7 +21,7 @@ instance = XeroRuby::Accounting::BrandingTheme.new(branding_theme_id: null,
                                  logo_url: null,
                                  type: null,
                                  sort_order: null,
-                                 created_date_utc: null)
+                                 created_date_utc: /Date(1573755038314)/)
 ```
 
 

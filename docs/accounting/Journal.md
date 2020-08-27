@@ -21,7 +21,7 @@ require 'XeroRuby::Accounting'
 instance = XeroRuby::Accounting::Journal.new(journal_id: null,
                                  journal_date: null,
                                  journal_number: null,
-                                 created_date_utc: null,
+                                 created_date_utc: /Date(1573755038314)/,
                                  reference: null,
                                  source_id: null,
                                  source_type: null,

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**outstanding** | **Float** |  | [optional] 
-**overdue** | **Float** |  | [optional] 
+**outstanding** | **BigDecimal** |  | [optional] 
+**overdue** | **BigDecimal** |  | [optional] 
 
 ## Code Sample
 

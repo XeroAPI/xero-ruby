@@ -29,7 +29,7 @@ instance = XeroRuby::Accounting::LinkedTransaction.new(source_transaction_id: nu
                                  linked_transaction_id: null,
                                  status: null,
                                  type: null,
-                                 updated_date_utc: null,
+                                 updated_date_utc: /Date(1573755038314)/,
                                  source_transaction_type_code: null,
                                  validation_errors: null)
 ```
