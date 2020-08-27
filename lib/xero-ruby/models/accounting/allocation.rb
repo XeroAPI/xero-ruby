@@ -63,7 +63,7 @@ module XeroRuby::Accounting
         :'prepayment' => :'Prepayment',
         :'credit_note' => :'CreditNote',
         :'amount' => :'BigDecimal',
-        :'date' => :'String',
+        :'date' => :'Date',
         :'status_attribute_string' => :'String',
         :'validation_errors' => :'Array<ValidationError>'
       }

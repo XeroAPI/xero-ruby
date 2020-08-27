@@ -89,7 +89,7 @@ module XeroRuby::Accounting
         :'first_name' => :'String',
         :'last_name' => :'String',
         :'external_link' => :'ExternalLink',
-        :'updated_date_utc' => :'String',
+        :'updated_date_utc' => :'DateTime',
         :'status_attribute_string' => :'String',
         :'validation_errors' => :'Array<ValidationError>'
       }

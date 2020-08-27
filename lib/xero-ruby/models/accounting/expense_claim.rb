@@ -106,12 +106,12 @@ module XeroRuby::Accounting
         :'payments' => :'Array<Payment>',
         :'user' => :'User',
         :'receipts' => :'Array<Receipt>',
-        :'updated_date_utc' => :'String',
+        :'updated_date_utc' => :'DateTime',
         :'total' => :'BigDecimal',
         :'amount_due' => :'BigDecimal',
         :'amount_paid' => :'BigDecimal',
-        :'payment_due_date' => :'String',
-        :'reporting_date' => :'String',
+        :'payment_due_date' => :'Date',
+        :'reporting_date' => :'Date',
         :'receipt_id' => :'String'
       }
     end

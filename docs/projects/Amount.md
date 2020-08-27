@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **currency** | [**CurrencyCode**](CurrencyCode.md) |  | [optional] 
-**value** | **Float** |  | [optional] 
+**value** | **BigDecimal** |  | [optional] 
 
 ## Code Sample
 

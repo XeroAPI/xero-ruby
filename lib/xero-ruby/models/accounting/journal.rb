@@ -106,9 +106,9 @@ module XeroRuby::Accounting
     def self.openapi_types
       {
         :'journal_id' => :'String',
-        :'journal_date' => :'String',
+        :'journal_date' => :'Date',
         :'journal_number' => :'Integer',
-        :'created_date_utc' => :'String',
+        :'created_date_utc' => :'DateTime',
         :'reference' => :'String',
         :'source_id' => :'String',
         :'source_type' => :'String',

@@ -73,13 +73,13 @@ module XeroRuby::Accounting
         :'from_bank_account' => :'Account',
         :'to_bank_account' => :'Account',
         :'amount' => :'BigDecimal',
-        :'date' => :'String',
+        :'date' => :'Date',
         :'bank_transfer_id' => :'String',
         :'currency_rate' => :'BigDecimal',
         :'from_bank_transaction_id' => :'String',
         :'to_bank_transaction_id' => :'String',
         :'has_attachments' => :'Boolean',
-        :'created_date_utc' => :'String',
+        :'created_date_utc' => :'DateTime',
         :'validation_errors' => :'Array<ValidationError>'
       }
     end

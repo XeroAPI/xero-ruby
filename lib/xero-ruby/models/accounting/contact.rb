@@ -234,7 +234,7 @@ module XeroRuby::Accounting
         :'tracking_category_name' => :'String',
         :'tracking_category_option' => :'String',
         :'payment_terms' => :'PaymentTerm',
-        :'updated_date_utc' => :'String',
+        :'updated_date_utc' => :'DateTime',
         :'contact_groups' => :'Array<ContactGroup>',
         :'website' => :'String',
         :'branding_theme' => :'BrandingTheme',

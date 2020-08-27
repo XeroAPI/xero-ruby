@@ -88,9 +88,9 @@ module XeroRuby::Accounting
         :'unit' => :'String',
         :'due_date' => :'Integer',
         :'due_date_type' => :'String',
-        :'start_date' => :'String',
-        :'next_scheduled_date' => :'String',
-        :'end_date' => :'String'
+        :'start_date' => :'Date',
+        :'next_scheduled_date' => :'Date',
+        :'end_date' => :'Date'
       }
     end
 

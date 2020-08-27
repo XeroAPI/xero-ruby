@@ -87,7 +87,7 @@ module XeroRuby::Accounting
         :'email_address' => :'String',
         :'first_name' => :'String',
         :'last_name' => :'String',
-        :'updated_date_utc' => :'String',
+        :'updated_date_utc' => :'DateTime',
         :'is_subscriber' => :'Boolean',
         :'organisation_role' => :'String'
       }

@@ -152,7 +152,7 @@ module XeroRuby::Accounting
         :'line_items' => :'Array<LineItem>',
         :'bank_account' => :'Account',
         :'is_reconciled' => :'Boolean',
-        :'date' => :'String',
+        :'date' => :'Date',
         :'reference' => :'String',
         :'currency_code' => :'CurrencyCode',
         :'currency_rate' => :'BigDecimal',
@@ -165,7 +165,7 @@ module XeroRuby::Accounting
         :'bank_transaction_id' => :'String',
         :'prepayment_id' => :'String',
         :'overpayment_id' => :'String',
-        :'updated_date_utc' => :'String',
+        :'updated_date_utc' => :'DateTime',
         :'has_attachments' => :'Boolean',
         :'status_attribute_string' => :'String',
         :'validation_errors' => :'Array<ValidationError>'

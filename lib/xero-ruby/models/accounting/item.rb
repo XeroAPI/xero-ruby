@@ -102,7 +102,7 @@ module XeroRuby::Accounting
         :'is_tracked_as_inventory' => :'Boolean',
         :'total_cost_pool' => :'BigDecimal',
         :'quantity_on_hand' => :'BigDecimal',
-        :'updated_date_utc' => :'String',
+        :'updated_date_utc' => :'DateTime',
         :'item_id' => :'String',
         :'status_attribute_string' => :'String',
         :'validation_errors' => :'Array<ValidationError>'

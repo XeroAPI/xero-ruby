@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **unit** | **String** | One of the following - WEEKLY or MONTHLY | [optional] 
 **due_date** | **Integer** | Integer used with due date type e.g 20 (of following month), 31 (of current month) | [optional] 
 **due_date_type** | **String** | the payment terms | [optional] 
-**start_date** | **String** | Date the first invoice of the current version of the repeating schedule was generated (changes when repeating invoice is edited) | [optional] 
-**next_scheduled_date** | **String** | The calendar date of the next invoice in the schedule to be generated | [optional] 
-**end_date** | **String** | Invoice end date – only returned if the template has an end date set | [optional] 
+**start_date** | **Date** | Date the first invoice of the current version of the repeating schedule was generated (changes when repeating invoice is edited) | [optional] 
+**next_scheduled_date** | **Date** | The calendar date of the next invoice in the schedule to be generated | [optional] 
+**end_date** | **Date** | Invoice end date – only returned if the template has an end date set | [optional] 
 
 ## Code Sample
 

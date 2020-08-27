@@ -69,7 +69,7 @@ module XeroRuby::Accounting
         :'report_titles' => :'Array<String>',
         :'report_date' => :'String',
         :'rows' => :'Array<ReportRows>',
-        :'updated_date_utc' => :'String',
+        :'updated_date_utc' => :'DateTime',
         :'fields' => :'Array<ReportFields>'
       }
     end

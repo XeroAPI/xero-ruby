@@ -133,7 +133,7 @@ module XeroRuby::Accounting
       {
         :'type' => :'String',
         :'contact' => :'Contact',
-        :'date' => :'String',
+        :'date' => :'Date',
         :'status' => :'String',
         :'line_amount_types' => :'LineAmountTypes',
         :'line_items' => :'Array<LineItem>',
@@ -141,7 +141,7 @@ module XeroRuby::Accounting
         :'total_tax' => :'BigDecimal',
         :'total' => :'BigDecimal',
         :'reference' => :'String',
-        :'updated_date_utc' => :'String',
+        :'updated_date_utc' => :'DateTime',
         :'currency_code' => :'CurrencyCode',
         :'prepayment_id' => :'String',
         :'currency_rate' => :'BigDecimal',

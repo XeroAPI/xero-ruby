@@ -179,7 +179,7 @@ module XeroRuby::Accounting
         :'reporting_code' => :'String',
         :'reporting_code_name' => :'String',
         :'has_attachments' => :'Boolean',
-        :'updated_date_utc' => :'String',
+        :'updated_date_utc' => :'DateTime',
         :'add_to_watchlist' => :'Boolean',
         :'validation_errors' => :'Array<ValidationError>'
       }

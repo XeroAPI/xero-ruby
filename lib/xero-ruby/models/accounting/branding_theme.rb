@@ -78,7 +78,7 @@ module XeroRuby::Accounting
         :'logo_url' => :'String',
         :'type' => :'String',
         :'sort_order' => :'Integer',
-        :'created_date_utc' => :'String'
+        :'created_date_utc' => :'DateTime'
       }
     end
 

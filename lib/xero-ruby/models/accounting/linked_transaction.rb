@@ -108,7 +108,7 @@ module XeroRuby::Accounting
         :'linked_transaction_id' => :'String',
         :'status' => :'String',
         :'type' => :'String',
-        :'updated_date_utc' => :'String',
+        :'updated_date_utc' => :'DateTime',
         :'source_transaction_type_code' => :'String',
         :'validation_errors' => :'Array<ValidationError>'
       }

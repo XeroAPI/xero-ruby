@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **reporting_code** | **String** | Shown if set | [optional] 
 **reporting_code_name** | **String** | Shown if set | [optional] 
 **has_attachments** | **Boolean** | boolean to indicate if an account has an attachment (read only) | [optional] [default to false]
-**updated_date_utc** | **String** | Last modified date UTC format | [optional] 
+**updated_date_utc** | **DateTime** | Last modified date UTC format | [optional] 
 **add_to_watchlist** | **Boolean** | Boolean – describes whether the account is shown in the watchlist widget on the dashboard | [optional] 
 **validation_errors** | [**Array&lt;ValidationError&gt;**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
 

@@ -124,13 +124,13 @@ module XeroRuby::Accounting
         :'narrative' => :'String',
         :'batch_payment_id' => :'String',
         :'date_string' => :'String',
-        :'date' => :'String',
+        :'date' => :'Date',
         :'amount' => :'BigDecimal',
         :'payments' => :'Array<Payment>',
         :'type' => :'String',
         :'status' => :'String',
         :'total_amount' => :'String',
-        :'updated_date_utc' => :'String',
+        :'updated_date_utc' => :'DateTime',
         :'is_reconciled' => :'String'
       }
     end

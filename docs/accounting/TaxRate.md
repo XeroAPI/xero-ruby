@@ -14,8 +14,8 @@ Name | Type | Description | Notes
 **can_apply_to_expenses** | **Boolean** | Boolean to describe if tax rate can be used for expense accounts  i.e. true,false | [optional] 
 **can_apply_to_liabilities** | **Boolean** | Boolean to describe if tax rate can be used for liability accounts  i.e. true,false | [optional] 
 **can_apply_to_revenue** | **Boolean** | Boolean to describe if tax rate can be used for revenue accounts i.e. true,false | [optional] 
-**display_tax_rate** | **Float** | Tax Rate (decimal to 4dp) e.g 12.5000 | [optional] 
-**effective_rate** | **Float** | Effective Tax Rate (decimal to 4dp) e.g 12.5000 | [optional] 
+**display_tax_rate** | **BigDecimal** | Tax Rate (decimal to 4dp) e.g 12.5000 | [optional] 
+**effective_rate** | **BigDecimal** | Effective Tax Rate (decimal to 4dp) e.g 12.5000 | [optional] 
 
 ## Code Sample
 

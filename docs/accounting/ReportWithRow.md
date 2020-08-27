@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **report_titles** | **Array&lt;String&gt;** | Report titles array (3 to 4 strings with the report name, orgnisation name and time frame of report) | [optional] 
 **report_date** | **String** | Date of report | [optional] 
 **rows** | [**Array&lt;ReportRows&gt;**](ReportRows.md) |  | [optional] 
-**updated_date_utc** | **String** | Updated Date | [optional] 
+**updated_date_utc** | **DateTime** | Updated Date | [optional] 
 **fields** | [**Array&lt;ReportFields&gt;**](ReportFields.md) |  | [optional] 
 
 ## Code Sample

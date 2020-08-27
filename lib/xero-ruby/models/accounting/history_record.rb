@@ -45,7 +45,7 @@ module XeroRuby::Accounting
         :'details' => :'String',
         :'changes' => :'String',
         :'user' => :'String',
-        :'date_utc' => :'String'
+        :'date_utc' => :'DateTime'
       }
     end
 

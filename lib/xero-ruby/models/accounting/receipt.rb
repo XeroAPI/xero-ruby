@@ -125,7 +125,7 @@ module XeroRuby::Accounting
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'date' => :'String',
+        :'date' => :'Date',
         :'contact' => :'Contact',
         :'line_items' => :'Array<LineItem>',
         :'user' => :'User',
@@ -137,7 +137,7 @@ module XeroRuby::Accounting
         :'receipt_id' => :'String',
         :'status' => :'String',
         :'receipt_number' => :'String',
-        :'updated_date_utc' => :'String',
+        :'updated_date_utc' => :'DateTime',
         :'has_attachments' => :'Boolean',
         :'url' => :'String',
         :'validation_errors' => :'Array<ValidationError>',
