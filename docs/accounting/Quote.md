@@ -17,10 +17,10 @@ Name | Type | Description | Notes
 **status** | [**QuoteStatusCodes**](QuoteStatusCodes.md) |  | [optional] 
 **currency_code** | [**CurrencyCode**](CurrencyCode.md) |  | [optional] 
 **currency_rate** | **Float** | The currency rate for a multicurrency quote | [optional] 
-**sub_total** | **Float** | Total of quote excluding taxes. | [optional] 
-**total_tax** | **Float** | Total tax on quote | [optional] 
-**total** | **Float** | Total of Quote tax inclusive (i.e. SubTotal + TotalTax). This will be ignored if it doesn’t equal the sum of the LineAmounts | [optional] 
-**total_discount** | **Float** | Total of discounts applied on the quote line items | [optional] 
+**sub_total** | **BigDecimal** | Total of quote excluding taxes. | [optional] 
+**total_tax** | **BigDecimal** | Total tax on quote | [optional] 
+**total** | **BigDecimal** | Total of Quote tax inclusive (i.e. SubTotal + TotalTax). This will be ignored if it doesn’t equal the sum of the LineAmounts | [optional] 
+**total_discount** | **BigDecimal** | Total of discounts applied on the quote line items | [optional] 
 **title** | **String** | Title text for the quote | [optional] 
 **summary** | **String** | Summary text for the quote | [optional] 
 **branding_theme_id** | **String** | See BrandingThemes | [optional] 
@@ -54,7 +54,7 @@ instance = XeroRuby::Accounting::Quote.new(quote_id: null,
                                  title: null,
                                  summary: null,
                                  branding_theme_id: null,
-                                 updated_date_utc: null,
+                                 updated_date_utc: /Date(1573755038314)/,
                                  line_amount_types: null,
                                  status_attribute_string: null,
                                  validation_errors: null)

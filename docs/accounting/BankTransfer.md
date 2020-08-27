@@ -6,10 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **from_bank_account** | [**Account**](Account.md) |  | 
 **to_bank_account** | [**Account**](Account.md) |  | 
-**amount** | **Float** | amount of the transaction | 
+**amount** | **BigDecimal** | amount of the transaction | 
 **date** | **Date** | The date of the Transfer YYYY-MM-DD | [optional] 
 **bank_transfer_id** | **String** | The identifier of the Bank Transfer | [optional] 
-**currency_rate** | **Float** | The currency rate | [optional] 
+**currency_rate** | **BigDecimal** | The currency rate | [optional] 
 **from_bank_transaction_id** | **String** | The Bank Transaction ID for the source account | [optional] 
 **to_bank_transaction_id** | **String** | The Bank Transaction ID for the destination account | [optional] 
 **has_attachments** | **Boolean** | Boolean to indicate if a Bank Transfer has an attachment | [optional] [default to false]
@@ -30,7 +30,7 @@ instance = XeroRuby::Accounting::BankTransfer.new(from_bank_account: null,
                                  from_bank_transaction_id: null,
                                  to_bank_transaction_id: null,
                                  has_attachments: false,
-                                 created_date_utc: null,
+                                 created_date_utc: /Date(1573755038314)/,
                                  validation_errors: null)
 ```
 

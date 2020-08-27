@@ -21,11 +21,11 @@ Name | Type | Description | Notes
 **delivery_instructions** | **String** | A free text feild for instructions (500 characters max) | [optional] 
 **expected_arrival_date** | **Date** | The date the goods are expected to arrive. | [optional] 
 **purchase_order_id** | **String** | Xero generated unique identifier for purchase order | [optional] 
-**currency_rate** | **Float** | The currency rate for a multicurrency purchase order. If no rate is specified, the XE.com day rate is used. | [optional] 
-**sub_total** | **Float** | Total of purchase order excluding taxes | [optional] 
-**total_tax** | **Float** | Total tax on purchase order | [optional] 
-**total** | **Float** | Total of Purchase Order tax inclusive (i.e. SubTotal + TotalTax) | [optional] 
-**total_discount** | **Float** | Total of discounts applied on the purchase order line items | [optional] 
+**currency_rate** | **BigDecimal** | The currency rate for a multicurrency purchase order. If no rate is specified, the XE.com day rate is used. | [optional] 
+**sub_total** | **BigDecimal** | Total of purchase order excluding taxes | [optional] 
+**total_tax** | **BigDecimal** | Total tax on purchase order | [optional] 
+**total** | **BigDecimal** | Total of Purchase Order tax inclusive (i.e. SubTotal + TotalTax) | [optional] 
+**total_discount** | **BigDecimal** | Total of discounts applied on the purchase order line items | [optional] 
 **has_attachments** | **Boolean** | boolean to indicate if a purchase order has an attachment | [optional] [default to false]
 **updated_date_utc** | **DateTime** | Last modified date UTC format | [optional] 
 **status_attribute_string** | **String** | A string to indicate if a invoice status | [optional] 
@@ -61,7 +61,7 @@ instance = XeroRuby::Accounting::PurchaseOrder.new(contact: null,
                                  total: null,
                                  total_discount: null,
                                  has_attachments: false,
-                                 updated_date_utc: null,
+                                 updated_date_utc: /Date(1573755038314)/,
                                  status_attribute_string: null,
                                  validation_errors: null,
                                  warnings: null,

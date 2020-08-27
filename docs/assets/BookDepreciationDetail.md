@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**current_capital_gain** | **Float** | When an asset is disposed, this will be the sell price minus the purchase price if a profit was made. | [optional] 
-**current_gain_loss** | **Float** | When an asset is disposed, this will be the lowest one of sell price or purchase price, minus the current book value. | [optional] 
+**current_capital_gain** | **BigDecimal** | When an asset is disposed, this will be the sell price minus the purchase price if a profit was made. | [optional] 
+**current_gain_loss** | **BigDecimal** | When an asset is disposed, this will be the lowest one of sell price or purchase price, minus the current book value. | [optional] 
 **depreciation_start_date** | **Date** | YYYY-MM-DD | [optional] 
-**cost_limit** | **Float** | The value of the asset you want to depreciate, if this is less than the cost of the asset. | [optional] 
-**residual_value** | **Float** | The value of the asset remaining when you&#39;ve fully depreciated it. | [optional] 
-**prior_accum_depreciation_amount** | **Float** | All depreciation prior to the current financial year. | [optional] 
-**current_accum_depreciation_amount** | **Float** | All depreciation occurring in the current financial year. | [optional] 
+**cost_limit** | **BigDecimal** | The value of the asset you want to depreciate, if this is less than the cost of the asset. | [optional] 
+**residual_value** | **BigDecimal** | The value of the asset remaining when you&#39;ve fully depreciated it. | [optional] 
+**prior_accum_depreciation_amount** | **BigDecimal** | All depreciation prior to the current financial year. | [optional] 
+**current_accum_depreciation_amount** | **BigDecimal** | All depreciation occurring in the current financial year. | [optional] 
 
 ## Code Sample
 

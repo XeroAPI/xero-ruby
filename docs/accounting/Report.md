@@ -22,7 +22,7 @@ instance = XeroRuby::Accounting::Report.new(report_id: null,
                                  report_type: null,
                                  report_title: null,
                                  report_date: null,
-                                 updated_date_utc: null,
+                                 updated_date_utc: /Date(1573755038314)/,
                                  contacts: null)
 ```
 

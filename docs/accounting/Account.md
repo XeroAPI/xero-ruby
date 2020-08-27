@@ -47,7 +47,7 @@ instance = XeroRuby::Accounting::Account.new(code: 4400,
                                  reporting_code: null,
                                  reporting_code_name: null,
                                  has_attachments: false,
-                                 updated_date_utc: null,
+                                 updated_date_utc: /Date(1573755038314)/,
                                  add_to_watchlist: null,
                                  validation_errors: null)
 ```

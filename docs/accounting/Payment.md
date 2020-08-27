@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **account** | [**Account**](Account.md) |  | [optional] 
 **code** | **String** | Code of account you are using to make the payment e.g. 001 (note- not all accounts have a code value) | [optional] 
 **date** | **Date** | Date the payment is being made (YYYY-MM-DD) e.g. 2009-09-06 | [optional] 
-**currency_rate** | **Float** | Exchange rate when payment is received. Only used for non base currency invoices and credit notes e.g. 0.7500 | [optional] 
-**amount** | **Float** | The amount of the payment. Must be less than or equal to the outstanding amount owing on the invoice e.g. 200.00 | [optional] 
+**currency_rate** | **BigDecimal** | Exchange rate when payment is received. Only used for non base currency invoices and credit notes e.g. 0.7500 | [optional] 
+**amount** | **BigDecimal** | The amount of the payment. Must be less than or equal to the outstanding amount owing on the invoice e.g. 200.00 | [optional] 
 **reference** | **String** | An optional description for the payment e.g. Direct Debit | [optional] 
 **is_reconciled** | **Boolean** | An optional parameter for the payment. A boolean indicating whether you would like the payment to be created as reconciled when using PUT, or whether a payment has been reconciled when using GET | [optional] 
 **status** | **String** | The status of the payment. | [optional] 
@@ -49,7 +49,7 @@ instance = XeroRuby::Accounting::Payment.new(invoice: null,
                                  is_reconciled: null,
                                  status: null,
                                  payment_type: null,
-                                 updated_date_utc: null,
+                                 updated_date_utc: /Date(1573755038314)/,
                                  payment_id: null,
                                  bank_account_number: null,
                                  particulars: null,
