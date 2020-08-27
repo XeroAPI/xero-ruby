@@ -14,8 +14,8 @@ Name | Type | Description | Notes
 **purchase_details** | [**Purchase**](Purchase.md) |  | [optional] 
 **sales_details** | [**Purchase**](Purchase.md) |  | [optional] 
 **is_tracked_as_inventory** | **Boolean** | True for items that are tracked as inventory. An item will be tracked as inventory if the InventoryAssetAccountCode and COGSAccountCode are set. | [optional] 
-**total_cost_pool** | **Float** | The value of the item on hand. Calculated using average cost accounting. | [optional] 
-**quantity_on_hand** | **Float** | The quantity of the item on hand | [optional] 
+**total_cost_pool** | **BigDecimal** | The value of the item on hand. Calculated using average cost accounting. | [optional] 
+**quantity_on_hand** | **BigDecimal** | The quantity of the item on hand | [optional] 
 **updated_date_utc** | **DateTime** | Last modified date in UTC format | [optional] 
 **item_id** | **String** | The Xero identifier for an Item | [optional] 
 **status_attribute_string** | **String** | Status of object | [optional] 
@@ -38,7 +38,7 @@ instance = XeroRuby::Accounting::Item.new(code: null,
                                  is_tracked_as_inventory: null,
                                  total_cost_pool: null,
                                  quantity_on_hand: null,
-                                 updated_date_utc: null,
+                                 updated_date_utc: /Date(1573755038314)/,
                                  item_id: null,
                                  status_attribute_string: null,
                                  validation_errors: null)

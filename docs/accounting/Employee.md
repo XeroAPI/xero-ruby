@@ -23,7 +23,7 @@ instance = XeroRuby::Accounting::Employee.new(employee_id: null,
                                  first_name: null,
                                  last_name: null,
                                  external_link: null,
-                                 updated_date_utc: null,
+                                 updated_date_utc: /Date(1573755038314)/,
                                  status_attribute_string: ERROR,
                                  validation_errors: null)
 ```

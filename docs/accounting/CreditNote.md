@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 **status** | **String** | See Credit Note Status Codes | [optional] 
 **line_amount_types** | [**LineAmountTypes**](LineAmountTypes.md) |  | [optional] 
 **line_items** | [**Array&lt;LineItem&gt;**](LineItem.md) | See Invoice Line Items | [optional] 
-**sub_total** | **Float** | The subtotal of the credit note excluding taxes | [optional] 
-**total_tax** | **Float** | The total tax on the credit note | [optional] 
-**total** | **Float** | The total of the Credit Note(subtotal + total tax) | [optional] 
+**sub_total** | **BigDecimal** | The subtotal of the credit note excluding taxes | [optional] 
+**total_tax** | **BigDecimal** | The total tax on the credit note | [optional] 
+**total** | **BigDecimal** | The total of the Credit Note(subtotal + total tax) | [optional] 
 **updated_date_utc** | **DateTime** | UTC timestamp of last update to the credit note | [optional] 
 **currency_code** | [**CurrencyCode**](CurrencyCode.md) |  | [optional] 
 **fully_paid_on_date** | **Date** | Date when credit note was fully paid(UTC format) | [optional] 
@@ -20,8 +20,8 @@ Name | Type | Description | Notes
 **credit_note_number** | **String** | ACCRECCREDIT – Unique alpha numeric code identifying credit note (when missing will auto-generate from your Organisation Invoice Settings) | [optional] 
 **reference** | **String** | ACCRECCREDIT only – additional reference number | [optional] 
 **sent_to_contact** | **Boolean** | boolean to indicate if a credit note has been sent to a contact via  the Xero app (currently read only) | [optional] 
-**currency_rate** | **Float** | The currency rate for a multicurrency invoice. If no rate is specified, the XE.com day rate is used | [optional] 
-**remaining_credit** | **Float** | The remaining credit balance on the Credit Note | [optional] 
+**currency_rate** | **BigDecimal** | The currency rate for a multicurrency invoice. If no rate is specified, the XE.com day rate is used | [optional] 
+**remaining_credit** | **BigDecimal** | The remaining credit balance on the Credit Note | [optional] 
 **allocations** | [**Array&lt;Allocation&gt;**](Allocation.md) | See Allocations | [optional] 
 **applied_amount** | **Float** | The amount of applied to an invoice | [optional] 
 **payments** | [**Array&lt;Payment&gt;**](Payment.md) | See Payments | [optional] 
@@ -45,7 +45,7 @@ instance = XeroRuby::Accounting::CreditNote.new(type: null,
                                  sub_total: null,
                                  total_tax: null,
                                  total: null,
-                                 updated_date_utc: null,
+                                 updated_date_utc: /Date(1573755038314)/,
                                  currency_code: null,
                                  fully_paid_on_date: null,
                                  credit_note_id: null,

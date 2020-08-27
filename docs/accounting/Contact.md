@@ -36,7 +36,7 @@ Name | Type | Description | Notes
 **website** | **String** | Website address for contact (read only) | [optional] 
 **branding_theme** | [**BrandingTheme**](BrandingTheme.md) |  | [optional] 
 **batch_payments** | [**BatchPaymentDetails**](BatchPaymentDetails.md) |  | [optional] 
-**discount** | **Float** | The default discount rate for the contact (read only) | [optional] 
+**discount** | **BigDecimal** | The default discount rate for the contact (read only) | [optional] 
 **balances** | [**Balances**](Balances.md) |  | [optional] 
 **attachments** | [**Array&lt;Attachment&gt;**](Attachment.md) | Displays array of attachments from the API | [optional] 
 **has_attachments** | **Boolean** | A boolean to indicate if a contact has an attachment | [optional] [default to false]
@@ -76,7 +76,7 @@ instance = XeroRuby::Accounting::Contact.new(contact_id: null,
                                  tracking_category_name: null,
                                  tracking_category_option: null,
                                  payment_terms: null,
-                                 updated_date_utc: null,
+                                 updated_date_utc: /Date(1573755038314)/,
                                  contact_groups: null,
                                  website: null,
                                  branding_theme: null,

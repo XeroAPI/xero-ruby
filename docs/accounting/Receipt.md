@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 **user** | [**User**](User.md) |  | [optional] 
 **reference** | **String** | Additional reference number | [optional] 
 **line_amount_types** | [**LineAmountTypes**](LineAmountTypes.md) |  | [optional] 
-**sub_total** | **Float** | Total of receipt excluding taxes | [optional] 
-**total_tax** | **Float** | Total tax on receipt | [optional] 
-**total** | **Float** | Total of receipt tax inclusive (i.e. SubTotal + TotalTax) | [optional] 
+**sub_total** | **BigDecimal** | Total of receipt excluding taxes | [optional] 
+**total_tax** | **BigDecimal** | Total tax on receipt | [optional] 
+**total** | **BigDecimal** | Total of receipt tax inclusive (i.e. SubTotal + TotalTax) | [optional] 
 **receipt_id** | **String** | Xero generated unique identifier for receipt | [optional] 
 **status** | **String** | Current status of receipt – see status types | [optional] 
 **receipt_number** | **String** | Xero generated sequence number for receipt in current claim for a given user | [optional] 
@@ -40,7 +40,7 @@ instance = XeroRuby::Accounting::Receipt.new(date: null,
                                  receipt_id: null,
                                  status: null,
                                  receipt_number: null,
-                                 updated_date_utc: null,
+                                 updated_date_utc: /Date(1573755038314)/,
                                  has_attachments: false,
                                  url: null,
                                  validation_errors: null,

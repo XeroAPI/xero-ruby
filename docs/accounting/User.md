@@ -21,7 +21,7 @@ instance = XeroRuby::Accounting::User.new(user_id: null,
                                  email_address: null,
                                  first_name: null,
                                  last_name: null,
-                                 updated_date_utc: null,
+                                 updated_date_utc: /Date(1573755038314)/,
                                  is_subscriber: null,
                                  organisation_role: null)
 ```

@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **batch_payment_id** | **String** | The Xero generated unique identifier for the bank transaction (read-only) | [optional] 
 **date_string** | **String** | Date the payment is being made (YYYY-MM-DD) e.g. 2009-09-06 | [optional] 
 **date** | **Date** | Date the payment is being made (YYYY-MM-DD) e.g. 2009-09-06 | [optional] 
-**amount** | **Float** | The amount of the payment. Must be less than or equal to the outstanding amount owing on the invoice e.g. 200.00 | [optional] 
+**amount** | **BigDecimal** | The amount of the payment. Must be less than or equal to the outstanding amount owing on the invoice e.g. 200.00 | [optional] 
 **payments** | [**Array&lt;Payment&gt;**](Payment.md) | An array of payments | [optional] 
 **type** | **String** | PAYBATCH for bill payments or RECBATCH for sales invoice payments (read-only) | [optional] 
 **status** | **String** | AUTHORISED or DELETED (read-only). New batch payments will have a status of AUTHORISED. It is not possible to delete batch payments via the API. | [optional] 
@@ -40,7 +40,7 @@ instance = XeroRuby::Accounting::BatchPayment.new(account: null,
                                  type: null,
                                  status: null,
                                  total_amount: null,
-                                 updated_date_utc: null,
+                                 updated_date_utc: /Date(1573755038314)/,
                                  is_reconciled: null)
 ```
 
