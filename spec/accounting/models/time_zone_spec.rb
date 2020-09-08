@@ -32,4 +32,28 @@ describe 'TimeZone' do
       expect(@instance).to be_instance_of(XeroRuby::Accounting::TimeZone)
     end
   end
+
+  describe 'validating constants' do
+    it 'accepts valid constant values' do
+      expect(@instance.build_from_hash('PACIFICSTANDARDTIME')).to eql('PACIFICSTANDARDTIME')
+    end
+
+    it 'prohibits invalid constant values' do
+      expect { @instance.build_from_hash('invalid') }.to raise_error(RuntimeError, 'Invalid value "invalid" for class #TimeZone')
+    end
+  end
+
+  describe 'validating UTC+/-...' do
+    it 'accepts valid UTC offsets' do
+      ['UTC', 'UTC-01', 'UTC+14', 'UTC-12', 'UTC+06', 'UTC-05:30', 'UTC+12:45'].each do |value|
+        expect(@instance.build_from_hash(value)).to eql(value)
+      end
+    end
+
+    it 'rejects invalid UTC offsets' do
+      ['UTC+', 'UTC+1', 'UTC+20', 'UTC-20', 'UTC+06:', 'UTC-05:0', 'UTC+12:60'].each do |value|
+        expect { @instance.build_from_hash(value) }.to raise_error(RuntimeError, "Invalid value #{value.inspect} for class #TimeZone")
+      end
+    end
+  end
 end

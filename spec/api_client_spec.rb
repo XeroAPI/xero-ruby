@@ -10,7 +10,7 @@ OpenAPI Generator version: 4.3.0
 
 =end
 
-require './spec_helper'
+require 'spec_helper'
 
 describe XeroRuby::ApiClient do
   context 'initialization' do
@@ -139,7 +139,7 @@ describe XeroRuby::ApiClient do
           }
         ]
       }
-       
+
       json_after = {
         "LineItems":[
           {

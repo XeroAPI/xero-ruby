@@ -15,6 +15,8 @@ require 'date'
 
 module XeroRuby::Accounting
   class TimeZone
+    SIMPLISTIC_UTC_REGEXP = /UTC[+-][0-1][0-9]($|\:[0-5][0-9])/
+
     MOROCCOSTANDARDTIME = "MOROCCOSTANDARDTIME".freeze
     UTC = "UTC".freeze
     GMTSTANDARDTIME = "GMTSTANDARDTIME".freeze
@@ -83,7 +85,6 @@ module XeroRuby::Accounting
     CENTRALPACIFICSTANDARDTIME = "CENTRALPACIFICSTANDARDTIME".freeze
     RUSSIATIMEZONE11 = "RUSSIATIMEZONE11".freeze
     NEWZEALANDSTANDARDTIME = "NEWZEALANDSTANDARDTIME".freeze
-    UTC12 = "UTC+12".freeze
     FIJISTANDARDTIME = "FIJISTANDARDTIME".freeze
     KAMCHATKASTANDARDTIME = "KAMCHATKASTANDARDTIME".freeze
     TONGASTANDARDTIME = "TONGASTANDARDTIME".freeze
@@ -134,8 +135,10 @@ module XeroRuby::Accounting
     # @param [String] The enum value in the form of the string
     # @return [String] The enum value
     def build_from_hash(value)
-      constantValues = TimeZone.constants.select { |c| TimeZone::const_get(c) == value }
-      raise "Invalid ENUM value #{value} for class #TimeZone" if constantValues.empty?
+      regexp_match = SIMPLISTIC_UTC_REGEXP.match?(value)
+      valid_value  = regexp_match || TimeZone.constants.any? { |c| TimeZone::const_get(c) == value }
+
+      raise "Invalid value #{value.inspect} for class #TimeZone" unless valid_value
       value
     end
   end
