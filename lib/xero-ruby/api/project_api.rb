@@ -50,7 +50,19 @@ module XeroRuby
       local_var_path = '/projects'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -133,7 +145,19 @@ module XeroRuby
       local_var_path = '/projects/{projectId}/time'.sub('{' + 'projectId' + '}', project_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -216,7 +240,19 @@ module XeroRuby
       local_var_path = '/projects/{projectId}/time/{timeEntryId}'.sub('{' + 'projectId' + '}', project_id.to_s).sub('{' + 'timeEntryId' + '}', time_entry_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -289,7 +325,19 @@ module XeroRuby
       local_var_path = '/projects/{projectId}'.sub('{' + 'projectId' + '}', project_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -370,7 +418,19 @@ module XeroRuby
       local_var_path = '/projectsusers'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
@@ -459,7 +519,19 @@ module XeroRuby
       local_var_path = '/projects'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'projectIds'] = @api_client.build_collection_param(opts[:'project_ids'], :multi) if !opts[:'project_ids'].nil?
@@ -545,7 +617,19 @@ module XeroRuby
       local_var_path = '/projects/{projectId}/tasks/{taskId}'.sub('{' + 'projectId' + '}', project_id.to_s).sub('{' + 'taskId' + '}', task_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -626,7 +710,19 @@ module XeroRuby
       local_var_path = '/projects/{projectId}/tasks'.sub('{' + 'projectId' + '}', project_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
@@ -724,7 +820,19 @@ module XeroRuby
       local_var_path = '/projects/{projectId}/time'.sub('{' + 'projectId' + '}', project_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'userId'] = opts[:'user_id'] if !opts[:'user_id'].nil?
@@ -815,7 +923,19 @@ module XeroRuby
       local_var_path = '/projects/{projectId}/time/{timeEntryId}'.sub('{' + 'projectId' + '}', project_id.to_s).sub('{' + 'timeEntryId' + '}', time_entry_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -896,7 +1016,19 @@ module XeroRuby
       local_var_path = '/projects/{projectId}'.sub('{' + 'projectId' + '}', project_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -979,7 +1111,19 @@ module XeroRuby
       local_var_path = '/projects/{projectId}'.sub('{' + 'projectId' + '}', project_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -1068,7 +1212,19 @@ module XeroRuby
       local_var_path = '/projects/{projectId}/time/{timeEntryId}'.sub('{' + 'projectId' + '}', project_id.to_s).sub('{' + 'timeEntryId' + '}', time_entry_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       

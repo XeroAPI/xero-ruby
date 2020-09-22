@@ -50,7 +50,19 @@ module XeroRuby
       local_var_path = '/Accounts'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -137,7 +149,19 @@ module XeroRuby
       local_var_path = '/Accounts/{AccountID}/Attachments/{FileName}'.sub('{' + 'AccountID' + '}', account_id.to_s).sub('{' + 'FileName' + '}', file_name.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -224,7 +248,19 @@ module XeroRuby
       local_var_path = '/BankTransactions/{BankTransactionID}/Attachments/{FileName}'.sub('{' + 'BankTransactionID' + '}', bank_transaction_id.to_s).sub('{' + 'FileName' + '}', file_name.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -305,7 +341,19 @@ module XeroRuby
       local_var_path = '/BankTransactions/{BankTransactionID}/History'.sub('{' + 'BankTransactionID' + '}', bank_transaction_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -384,7 +432,19 @@ module XeroRuby
       local_var_path = '/BankTransactions'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
@@ -461,7 +521,19 @@ module XeroRuby
       local_var_path = '/BankTransfers'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -546,7 +618,19 @@ module XeroRuby
       local_var_path = '/BankTransfers/{BankTransferID}/Attachments/{FileName}'.sub('{' + 'BankTransferID' + '}', bank_transfer_id.to_s).sub('{' + 'FileName' + '}', file_name.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -625,7 +709,19 @@ module XeroRuby
       local_var_path = '/BankTransfers/{BankTransferID}/History'.sub('{' + 'BankTransferID' + '}', bank_transfer_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -702,7 +798,19 @@ module XeroRuby
       local_var_path = '/BatchPayments'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
@@ -784,7 +892,19 @@ module XeroRuby
       local_var_path = '/BatchPayments/{BatchPaymentID}/History'.sub('{' + 'BatchPaymentID' + '}', batch_payment_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -865,7 +985,19 @@ module XeroRuby
       local_var_path = '/BrandingThemes/{BrandingThemeID}/PaymentServices'.sub('{' + 'BrandingThemeID' + '}', branding_theme_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -950,7 +1082,19 @@ module XeroRuby
       local_var_path = '/Contacts/{ContactID}/Attachments/{FileName}'.sub('{' + 'ContactID' + '}', contact_id.to_s).sub('{' + 'FileName' + '}', file_name.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -1025,7 +1169,19 @@ module XeroRuby
       local_var_path = '/ContactGroups'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -1106,7 +1262,19 @@ module XeroRuby
       local_var_path = '/ContactGroups/{ContactGroupID}/Contacts'.sub('{' + 'ContactGroupID' + '}', contact_group_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -1187,7 +1355,19 @@ module XeroRuby
       local_var_path = '/Contacts/{ContactID}/History'.sub('{' + 'ContactID' + '}', contact_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -1264,7 +1444,19 @@ module XeroRuby
       local_var_path = '/Contacts'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
@@ -1348,7 +1540,19 @@ module XeroRuby
       local_var_path = '/CreditNotes/{CreditNoteID}/Allocations'.sub('{' + 'CreditNoteID' + '}', credit_note_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
@@ -1438,7 +1642,19 @@ module XeroRuby
       local_var_path = '/CreditNotes/{CreditNoteID}/Attachments/{FileName}'.sub('{' + 'CreditNoteID' + '}', credit_note_id.to_s).sub('{' + 'FileName' + '}', file_name.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'IncludeOnline'] = opts[:'include_online'] if !opts[:'include_online'].nil?
@@ -1520,7 +1736,19 @@ module XeroRuby
       local_var_path = '/CreditNotes/{CreditNoteID}/History'.sub('{' + 'CreditNoteID' + '}', credit_note_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -1599,7 +1827,19 @@ module XeroRuby
       local_var_path = '/CreditNotes'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
@@ -1674,7 +1914,19 @@ module XeroRuby
       local_var_path = '/Currencies'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -1751,7 +2003,19 @@ module XeroRuby
       local_var_path = '/Employees'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
@@ -1833,7 +2097,19 @@ module XeroRuby
       local_var_path = '/ExpenseClaims/{ExpenseClaimID}/History'.sub('{' + 'ExpenseClaimID' + '}', expense_claim_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -1908,7 +2184,19 @@ module XeroRuby
       local_var_path = '/ExpenseClaims'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -1997,7 +2285,19 @@ module XeroRuby
       local_var_path = '/Invoices/{InvoiceID}/Attachments/{FileName}'.sub('{' + 'InvoiceID' + '}', invoice_id.to_s).sub('{' + 'FileName' + '}', file_name.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'IncludeOnline'] = opts[:'include_online'] if !opts[:'include_online'].nil?
@@ -2079,7 +2379,19 @@ module XeroRuby
       local_var_path = '/Invoices/{InvoiceID}/History'.sub('{' + 'InvoiceID' + '}', invoice_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -2158,7 +2470,19 @@ module XeroRuby
       local_var_path = '/Invoices'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
@@ -2241,7 +2565,19 @@ module XeroRuby
       local_var_path = '/Items/{ItemID}/History'.sub('{' + 'ItemID' + '}', item_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -2320,7 +2656,19 @@ module XeroRuby
       local_var_path = '/Items'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
@@ -2397,7 +2745,19 @@ module XeroRuby
       local_var_path = '/LinkedTransactions'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -2484,7 +2844,19 @@ module XeroRuby
       local_var_path = '/ManualJournals/{ManualJournalID}/Attachments/{FileName}'.sub('{' + 'ManualJournalID' + '}', manual_journal_id.to_s).sub('{' + 'FileName' + '}', file_name.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -2561,7 +2933,19 @@ module XeroRuby
       local_var_path = '/ManualJournals'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
@@ -2645,7 +3029,19 @@ module XeroRuby
       local_var_path = '/Overpayments/{OverpaymentID}/Allocations'.sub('{' + 'OverpaymentID' + '}', overpayment_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
@@ -2727,7 +3123,19 @@ module XeroRuby
       local_var_path = '/Overpayments/{OverpaymentID}/History'.sub('{' + 'OverpaymentID' + '}', overpayment_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -2802,7 +3210,19 @@ module XeroRuby
       local_var_path = '/Payments'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -2883,7 +3303,19 @@ module XeroRuby
       local_var_path = '/Payments/{PaymentID}/History'.sub('{' + 'PaymentID' + '}', payment_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -2958,7 +3390,19 @@ module XeroRuby
       local_var_path = '/PaymentServices'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -3035,7 +3479,19 @@ module XeroRuby
       local_var_path = '/Payments'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
@@ -3119,7 +3575,19 @@ module XeroRuby
       local_var_path = '/Prepayments/{PrepaymentID}/Allocations'.sub('{' + 'PrepaymentID' + '}', prepayment_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
@@ -3201,7 +3669,19 @@ module XeroRuby
       local_var_path = '/Prepayments/{PrepaymentID}/History'.sub('{' + 'PrepaymentID' + '}', prepayment_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -3282,7 +3762,19 @@ module XeroRuby
       local_var_path = '/PurchaseOrders/{PurchaseOrderID}/History'.sub('{' + 'PurchaseOrderID' + '}', purchase_order_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -3359,7 +3851,19 @@ module XeroRuby
       local_var_path = '/PurchaseOrders'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
@@ -3447,7 +3951,19 @@ module XeroRuby
       local_var_path = '/Quotes/{QuoteID}/Attachments/{FileName}'.sub('{' + 'QuoteID' + '}', quote_id.to_s).sub('{' + 'FileName' + '}', file_name.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -3528,7 +4044,19 @@ module XeroRuby
       local_var_path = '/Quotes/{QuoteID}/History'.sub('{' + 'QuoteID' + '}', quote_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -3605,7 +4133,19 @@ module XeroRuby
       local_var_path = '/Quotes'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
@@ -3683,7 +4223,19 @@ module XeroRuby
       local_var_path = '/Receipts'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'unitdp'] = opts[:'unitdp'] if !opts[:'unitdp'].nil?
@@ -3771,7 +4323,19 @@ module XeroRuby
       local_var_path = '/Receipts/{ReceiptID}/Attachments/{FileName}'.sub('{' + 'ReceiptID' + '}', receipt_id.to_s).sub('{' + 'FileName' + '}', file_name.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -3852,7 +4416,19 @@ module XeroRuby
       local_var_path = '/Receipts/{ReceiptID}/History'.sub('{' + 'ReceiptID' + '}', receipt_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -3939,7 +4515,19 @@ module XeroRuby
       local_var_path = '/RepeatingInvoices/{RepeatingInvoiceID}/Attachments/{FileName}'.sub('{' + 'RepeatingInvoiceID' + '}', repeating_invoice_id.to_s).sub('{' + 'FileName' + '}', file_name.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -4020,7 +4608,19 @@ module XeroRuby
       local_var_path = '/RepeatingInvoices/{RepeatingInvoiceID}/History'.sub('{' + 'RepeatingInvoiceID' + '}', repeating_invoice_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -4095,7 +4695,19 @@ module XeroRuby
       local_var_path = '/TaxRates'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -4170,7 +4782,19 @@ module XeroRuby
       local_var_path = '/TrackingCategories'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -4251,7 +4875,19 @@ module XeroRuby
       local_var_path = '/TrackingCategories/{TrackingCategoryID}/Options'.sub('{' + 'TrackingCategoryID' + '}', tracking_category_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -4326,7 +4962,19 @@ module XeroRuby
       local_var_path = '/Accounts/{AccountID}'.sub('{' + 'AccountID' + '}', account_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -4405,7 +5053,19 @@ module XeroRuby
       local_var_path = '/ContactGroups/{ContactGroupID}/Contacts/{ContactID}'.sub('{' + 'ContactGroupID' + '}', contact_group_id.to_s).sub('{' + 'ContactID' + '}', contact_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -4478,7 +5138,19 @@ module XeroRuby
       local_var_path = '/ContactGroups/{ContactGroupID}/Contacts'.sub('{' + 'ContactGroupID' + '}', contact_group_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -4549,7 +5221,19 @@ module XeroRuby
       local_var_path = '/Items/{ItemID}'.sub('{' + 'ItemID' + '}', item_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -4622,7 +5306,19 @@ module XeroRuby
       local_var_path = '/LinkedTransactions/{LinkedTransactionID}'.sub('{' + 'LinkedTransactionID' + '}', linked_transaction_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -4701,7 +5397,19 @@ module XeroRuby
       local_var_path = '/Payments/{PaymentID}'.sub('{' + 'PaymentID' + '}', payment_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -4776,7 +5484,19 @@ module XeroRuby
       local_var_path = '/TrackingCategories/{TrackingCategoryID}'.sub('{' + 'TrackingCategoryID' + '}', tracking_category_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -4855,7 +5575,19 @@ module XeroRuby
       local_var_path = '/TrackingCategories/{TrackingCategoryID}/Options/{TrackingOptionID}'.sub('{' + 'TrackingCategoryID' + '}', tracking_category_id.to_s).sub('{' + 'TrackingOptionID' + '}', tracking_option_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -4934,7 +5666,19 @@ module XeroRuby
       local_var_path = '/Invoices/{InvoiceID}/Email'.sub('{' + 'InvoiceID' + '}', invoice_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -5009,7 +5753,19 @@ module XeroRuby
       local_var_path = '/Accounts/{AccountID}'.sub('{' + 'AccountID' + '}', account_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -5094,7 +5850,19 @@ module XeroRuby
       local_var_path = '/Accounts/{AccountID}/Attachments/{FileName}'.sub('{' + 'AccountID' + '}', account_id.to_s).sub('{' + 'FileName' + '}', file_name.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -5180,7 +5948,19 @@ module XeroRuby
       local_var_path = '/Accounts/{AccountID}/Attachments/{AttachmentID}'.sub('{' + 'AccountID' + '}', account_id.to_s).sub('{' + 'AttachmentID' + '}', attachment_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -5254,7 +6034,19 @@ module XeroRuby
       local_var_path = '/Accounts/{AccountID}/Attachments'.sub('{' + 'AccountID' + '}', account_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -5327,7 +6119,19 @@ module XeroRuby
       local_var_path = '/Accounts'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'where'] = opts[:'where'] if !opts[:'where'].nil?
@@ -5405,7 +6209,19 @@ module XeroRuby
       local_var_path = '/BankTransactions/{BankTransactionID}'.sub('{' + 'BankTransactionID' + '}', bank_transaction_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'unitdp'] = opts[:'unitdp'] if !opts[:'unitdp'].nil?
@@ -5491,7 +6307,19 @@ module XeroRuby
       local_var_path = '/BankTransactions/{BankTransactionID}/Attachments/{FileName}'.sub('{' + 'BankTransactionID' + '}', bank_transaction_id.to_s).sub('{' + 'FileName' + '}', file_name.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -5577,7 +6405,19 @@ module XeroRuby
       local_var_path = '/BankTransactions/{BankTransactionID}/Attachments/{AttachmentID}'.sub('{' + 'BankTransactionID' + '}', bank_transaction_id.to_s).sub('{' + 'AttachmentID' + '}', attachment_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -5651,7 +6491,19 @@ module XeroRuby
       local_var_path = '/BankTransactions/{BankTransactionID}/Attachments'.sub('{' + 'BankTransactionID' + '}', bank_transaction_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -5728,7 +6580,19 @@ module XeroRuby
       local_var_path = '/BankTransactions'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'where'] = opts[:'where'] if !opts[:'where'].nil?
@@ -5806,7 +6670,19 @@ module XeroRuby
       local_var_path = '/BankTransactions/{BankTransactionID}/History'.sub('{' + 'BankTransactionID' + '}', bank_transaction_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -5879,7 +6755,19 @@ module XeroRuby
       local_var_path = '/BankTransfers/{BankTransferID}'.sub('{' + 'BankTransferID' + '}', bank_transfer_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -5964,7 +6852,19 @@ module XeroRuby
       local_var_path = '/BankTransfers/{BankTransferID}/Attachments/{FileName}'.sub('{' + 'BankTransferID' + '}', bank_transfer_id.to_s).sub('{' + 'FileName' + '}', file_name.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -6050,7 +6950,19 @@ module XeroRuby
       local_var_path = '/BankTransfers/{BankTransferID}/Attachments/{AttachmentID}'.sub('{' + 'BankTransferID' + '}', bank_transfer_id.to_s).sub('{' + 'AttachmentID' + '}', attachment_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -6124,7 +7036,19 @@ module XeroRuby
       local_var_path = '/BankTransfers/{BankTransferID}/Attachments'.sub('{' + 'BankTransferID' + '}', bank_transfer_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -6197,7 +7121,19 @@ module XeroRuby
       local_var_path = '/BankTransfers/{BankTransferID}/History'.sub('{' + 'BankTransferID' + '}', bank_transfer_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -6270,7 +7206,19 @@ module XeroRuby
       local_var_path = '/BankTransfers'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'where'] = opts[:'where'] if !opts[:'where'].nil?
@@ -6346,7 +7294,19 @@ module XeroRuby
       local_var_path = '/BatchPayments/{BatchPaymentID}/History'.sub('{' + 'BatchPaymentID' + '}', batch_payment_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -6419,7 +7379,19 @@ module XeroRuby
       local_var_path = '/BatchPayments'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'where'] = opts[:'where'] if !opts[:'where'].nil?
@@ -6495,7 +7467,19 @@ module XeroRuby
       local_var_path = '/BrandingThemes/{BrandingThemeID}'.sub('{' + 'BrandingThemeID' + '}', branding_theme_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -6568,7 +7552,19 @@ module XeroRuby
       local_var_path = '/BrandingThemes/{BrandingThemeID}/PaymentServices'.sub('{' + 'BrandingThemeID' + '}', branding_theme_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -6635,7 +7631,19 @@ module XeroRuby
       local_var_path = '/BrandingThemes'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -6708,7 +7716,19 @@ module XeroRuby
       local_var_path = '/Contacts/{ContactID}'.sub('{' + 'ContactID' + '}', contact_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -6793,7 +7813,19 @@ module XeroRuby
       local_var_path = '/Contacts/{ContactID}/Attachments/{FileName}'.sub('{' + 'ContactID' + '}', contact_id.to_s).sub('{' + 'FileName' + '}', file_name.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -6879,7 +7911,19 @@ module XeroRuby
       local_var_path = '/Contacts/{ContactID}/Attachments/{AttachmentID}'.sub('{' + 'ContactID' + '}', contact_id.to_s).sub('{' + 'AttachmentID' + '}', attachment_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -6953,7 +7997,19 @@ module XeroRuby
       local_var_path = '/Contacts/{ContactID}/Attachments'.sub('{' + 'ContactID' + '}', contact_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -7026,7 +8082,19 @@ module XeroRuby
       local_var_path = '/Contacts/{ContactNumber}'.sub('{' + 'ContactNumber' + '}', contact_number.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -7099,7 +8167,19 @@ module XeroRuby
       local_var_path = '/Contacts/{ContactID}/CISSettings'.sub('{' + 'ContactID' + '}', contact_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -7172,7 +8252,19 @@ module XeroRuby
       local_var_path = '/ContactGroups/{ContactGroupID}'.sub('{' + 'ContactGroupID' + '}', contact_group_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -7243,7 +8335,19 @@ module XeroRuby
       local_var_path = '/ContactGroups'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'where'] = opts[:'where'] if !opts[:'where'].nil?
@@ -7318,7 +8422,19 @@ module XeroRuby
       local_var_path = '/Contacts/{ContactID}/History'.sub('{' + 'ContactID' + '}', contact_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -7397,7 +8513,19 @@ module XeroRuby
       local_var_path = '/Contacts'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'where'] = opts[:'where'] if !opts[:'where'].nil?
@@ -7478,7 +8606,19 @@ module XeroRuby
       local_var_path = '/CreditNotes/{CreditNoteID}'.sub('{' + 'CreditNoteID' + '}', credit_note_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'unitdp'] = opts[:'unitdp'] if !opts[:'unitdp'].nil?
@@ -7552,7 +8692,19 @@ module XeroRuby
       local_var_path = '/CreditNotes/{CreditNoteID}'.sub('{' + 'CreditNoteID' + '}', credit_note_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -7637,7 +8789,19 @@ module XeroRuby
       local_var_path = '/CreditNotes/{CreditNoteID}/Attachments/{FileName}'.sub('{' + 'CreditNoteID' + '}', credit_note_id.to_s).sub('{' + 'FileName' + '}', file_name.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -7723,7 +8887,19 @@ module XeroRuby
       local_var_path = '/CreditNotes/{CreditNoteID}/Attachments/{AttachmentID}'.sub('{' + 'CreditNoteID' + '}', credit_note_id.to_s).sub('{' + 'AttachmentID' + '}', attachment_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -7797,7 +8973,19 @@ module XeroRuby
       local_var_path = '/CreditNotes/{CreditNoteID}/Attachments'.sub('{' + 'CreditNoteID' + '}', credit_note_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -7870,7 +9058,19 @@ module XeroRuby
       local_var_path = '/CreditNotes/{CreditNoteID}/History'.sub('{' + 'CreditNoteID' + '}', credit_note_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -7947,7 +9147,19 @@ module XeroRuby
       local_var_path = '/CreditNotes'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'where'] = opts[:'where'] if !opts[:'where'].nil?
@@ -8023,7 +9235,19 @@ module XeroRuby
       local_var_path = '/Currencies'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'where'] = opts[:'where'] if !opts[:'where'].nil?
@@ -8098,7 +9322,19 @@ module XeroRuby
       local_var_path = '/Employees/{EmployeeID}'.sub('{' + 'EmployeeID' + '}', employee_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -8171,7 +9407,19 @@ module XeroRuby
       local_var_path = '/Employees'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'where'] = opts[:'where'] if !opts[:'where'].nil?
@@ -8247,7 +9495,19 @@ module XeroRuby
       local_var_path = '/ExpenseClaims/{ExpenseClaimID}'.sub('{' + 'ExpenseClaimID' + '}', expense_claim_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -8320,7 +9580,19 @@ module XeroRuby
       local_var_path = '/ExpenseClaims/{ExpenseClaimID}/History'.sub('{' + 'ExpenseClaimID' + '}', expense_claim_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -8393,7 +9665,19 @@ module XeroRuby
       local_var_path = '/ExpenseClaims'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'where'] = opts[:'where'] if !opts[:'where'].nil?
@@ -8471,7 +9755,19 @@ module XeroRuby
       local_var_path = '/Invoices/{InvoiceID}'.sub('{' + 'InvoiceID' + '}', invoice_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'unitdp'] = opts[:'unitdp'] if !opts[:'unitdp'].nil?
@@ -8545,7 +9841,19 @@ module XeroRuby
       local_var_path = '/Invoices/{InvoiceID}'.sub('{' + 'InvoiceID' + '}', invoice_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -8630,7 +9938,19 @@ module XeroRuby
       local_var_path = '/Invoices/{InvoiceID}/Attachments/{FileName}'.sub('{' + 'InvoiceID' + '}', invoice_id.to_s).sub('{' + 'FileName' + '}', file_name.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -8716,7 +10036,19 @@ module XeroRuby
       local_var_path = '/Invoices/{InvoiceID}/Attachments/{AttachmentID}'.sub('{' + 'InvoiceID' + '}', invoice_id.to_s).sub('{' + 'AttachmentID' + '}', attachment_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -8790,7 +10122,19 @@ module XeroRuby
       local_var_path = '/Invoices/{InvoiceID}/Attachments'.sub('{' + 'InvoiceID' + '}', invoice_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -8863,7 +10207,19 @@ module XeroRuby
       local_var_path = '/Invoices/{InvoiceID}/History'.sub('{' + 'InvoiceID' + '}', invoice_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -8930,7 +10286,19 @@ module XeroRuby
       local_var_path = '/InvoiceReminders/Settings'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -9019,7 +10387,19 @@ module XeroRuby
       local_var_path = '/Invoices'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'where'] = opts[:'where'] if !opts[:'where'].nil?
@@ -9105,7 +10485,19 @@ module XeroRuby
       local_var_path = '/Items/{ItemID}'.sub('{' + 'ItemID' + '}', item_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'unitdp'] = opts[:'unitdp'] if !opts[:'unitdp'].nil?
@@ -9179,7 +10571,19 @@ module XeroRuby
       local_var_path = '/Items/{ItemID}/History'.sub('{' + 'ItemID' + '}', item_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -9254,7 +10658,19 @@ module XeroRuby
       local_var_path = '/Items'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'where'] = opts[:'where'] if !opts[:'where'].nil?
@@ -9331,7 +10747,19 @@ module XeroRuby
       local_var_path = '/Journals/{JournalID}'.sub('{' + 'JournalID' + '}', journal_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -9404,7 +10832,19 @@ module XeroRuby
       local_var_path = '/Journals'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
@@ -9480,7 +10920,19 @@ module XeroRuby
       local_var_path = '/LinkedTransactions/{LinkedTransactionID}'.sub('{' + 'LinkedTransactionID' + '}', linked_transaction_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -9559,7 +11011,19 @@ module XeroRuby
       local_var_path = '/LinkedTransactions'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
@@ -9638,7 +11102,19 @@ module XeroRuby
       local_var_path = '/ManualJournals/{ManualJournalID}'.sub('{' + 'ManualJournalID' + '}', manual_journal_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -9723,7 +11199,19 @@ module XeroRuby
       local_var_path = '/ManualJournals/{ManualJournalID}/Attachments/{FileName}'.sub('{' + 'ManualJournalID' + '}', manual_journal_id.to_s).sub('{' + 'FileName' + '}', file_name.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -9809,7 +11297,19 @@ module XeroRuby
       local_var_path = '/ManualJournals/{ManualJournalID}/Attachments/{AttachmentID}'.sub('{' + 'ManualJournalID' + '}', manual_journal_id.to_s).sub('{' + 'AttachmentID' + '}', attachment_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -9883,7 +11383,19 @@ module XeroRuby
       local_var_path = '/ManualJournals/{ManualJournalID}/Attachments'.sub('{' + 'ManualJournalID' + '}', manual_journal_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -9958,7 +11470,19 @@ module XeroRuby
       local_var_path = '/ManualJournals'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'where'] = opts[:'where'] if !opts[:'where'].nil?
@@ -10035,7 +11559,19 @@ module XeroRuby
       local_var_path = '/Invoices/{InvoiceID}/OnlineInvoice'.sub('{' + 'InvoiceID' + '}', invoice_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -10108,7 +11644,19 @@ module XeroRuby
       local_var_path = '/Organisation/{OrganisationID}/CISSettings'.sub('{' + 'OrganisationID' + '}', organisation_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -10175,7 +11723,19 @@ module XeroRuby
       local_var_path = '/Organisation'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -10248,7 +11808,19 @@ module XeroRuby
       local_var_path = '/Overpayments/{OverpaymentID}'.sub('{' + 'OverpaymentID' + '}', overpayment_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -10321,7 +11893,19 @@ module XeroRuby
       local_var_path = '/Overpayments/{OverpaymentID}/History'.sub('{' + 'OverpaymentID' + '}', overpayment_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -10398,7 +11982,19 @@ module XeroRuby
       local_var_path = '/Overpayments'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'where'] = opts[:'where'] if !opts[:'where'].nil?
@@ -10476,7 +12072,19 @@ module XeroRuby
       local_var_path = '/Payments/{PaymentID}'.sub('{' + 'PaymentID' + '}', payment_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -10549,7 +12157,19 @@ module XeroRuby
       local_var_path = '/Payments/{PaymentID}/History'.sub('{' + 'PaymentID' + '}', payment_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -10616,7 +12236,19 @@ module XeroRuby
       local_var_path = '/PaymentServices'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -10691,7 +12323,19 @@ module XeroRuby
       local_var_path = '/Payments'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'where'] = opts[:'where'] if !opts[:'where'].nil?
@@ -10768,7 +12412,19 @@ module XeroRuby
       local_var_path = '/Prepayments/{PrepaymentID}'.sub('{' + 'PrepaymentID' + '}', prepayment_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -10841,7 +12497,19 @@ module XeroRuby
       local_var_path = '/Prepayments/{PrepaymentID}/History'.sub('{' + 'PrepaymentID' + '}', prepayment_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -10918,7 +12586,19 @@ module XeroRuby
       local_var_path = '/Prepayments'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'where'] = opts[:'where'] if !opts[:'where'].nil?
@@ -10996,7 +12676,19 @@ module XeroRuby
       local_var_path = '/PurchaseOrders/{PurchaseOrderID}'.sub('{' + 'PurchaseOrderID' + '}', purchase_order_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -11069,7 +12761,19 @@ module XeroRuby
       local_var_path = '/PurchaseOrders/{PurchaseOrderID}'.sub('{' + 'PurchaseOrderID' + '}', purchase_order_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -11142,7 +12846,19 @@ module XeroRuby
       local_var_path = '/PurchaseOrders/{PurchaseOrderNumber}'.sub('{' + 'PurchaseOrderNumber' + '}', purchase_order_number.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -11215,7 +12931,19 @@ module XeroRuby
       local_var_path = '/PurchaseOrders/{PurchaseOrderID}/History'.sub('{' + 'PurchaseOrderID' + '}', purchase_order_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -11298,7 +13026,19 @@ module XeroRuby
       local_var_path = '/PurchaseOrders'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'Status'] = opts[:'status'] if !opts[:'status'].nil?
@@ -11377,7 +13117,19 @@ module XeroRuby
       local_var_path = '/Quotes/{QuoteID}'.sub('{' + 'QuoteID' + '}', quote_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -11450,7 +13202,19 @@ module XeroRuby
       local_var_path = '/Quotes/{QuoteID}'.sub('{' + 'QuoteID' + '}', quote_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -11535,7 +13299,19 @@ module XeroRuby
       local_var_path = '/Quotes/{QuoteID}/Attachments/{FileName}'.sub('{' + 'QuoteID' + '}', quote_id.to_s).sub('{' + 'FileName' + '}', file_name.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -11621,7 +13397,19 @@ module XeroRuby
       local_var_path = '/Quotes/{QuoteID}/Attachments/{AttachmentID}'.sub('{' + 'QuoteID' + '}', quote_id.to_s).sub('{' + 'AttachmentID' + '}', attachment_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -11695,7 +13483,19 @@ module XeroRuby
       local_var_path = '/Quotes/{QuoteID}/Attachments'.sub('{' + 'QuoteID' + '}', quote_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -11768,7 +13568,19 @@ module XeroRuby
       local_var_path = '/Quotes/{QuoteID}/History'.sub('{' + 'QuoteID' + '}', quote_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -11853,7 +13665,19 @@ module XeroRuby
       local_var_path = '/Quotes'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'DateFrom'] = opts[:'date_from'] if !opts[:'date_from'].nil?
@@ -11937,7 +13761,19 @@ module XeroRuby
       local_var_path = '/Receipts/{ReceiptID}'.sub('{' + 'ReceiptID' + '}', receipt_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'unitdp'] = opts[:'unitdp'] if !opts[:'unitdp'].nil?
@@ -12023,7 +13859,19 @@ module XeroRuby
       local_var_path = '/Receipts/{ReceiptID}/Attachments/{FileName}'.sub('{' + 'ReceiptID' + '}', receipt_id.to_s).sub('{' + 'FileName' + '}', file_name.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -12109,7 +13957,19 @@ module XeroRuby
       local_var_path = '/Receipts/{ReceiptID}/Attachments/{AttachmentID}'.sub('{' + 'ReceiptID' + '}', receipt_id.to_s).sub('{' + 'AttachmentID' + '}', attachment_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -12183,7 +14043,19 @@ module XeroRuby
       local_var_path = '/Receipts/{ReceiptID}/Attachments'.sub('{' + 'ReceiptID' + '}', receipt_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -12256,7 +14128,19 @@ module XeroRuby
       local_var_path = '/Receipts/{ReceiptID}/History'.sub('{' + 'ReceiptID' + '}', receipt_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -12331,7 +14215,19 @@ module XeroRuby
       local_var_path = '/Receipts'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'where'] = opts[:'where'] if !opts[:'where'].nil?
@@ -12408,7 +14304,19 @@ module XeroRuby
       local_var_path = '/RepeatingInvoices/{RepeatingInvoiceID}'.sub('{' + 'RepeatingInvoiceID' + '}', repeating_invoice_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -12493,7 +14401,19 @@ module XeroRuby
       local_var_path = '/RepeatingInvoices/{RepeatingInvoiceID}/Attachments/{FileName}'.sub('{' + 'RepeatingInvoiceID' + '}', repeating_invoice_id.to_s).sub('{' + 'FileName' + '}', file_name.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -12579,7 +14499,19 @@ module XeroRuby
       local_var_path = '/RepeatingInvoices/{RepeatingInvoiceID}/Attachments/{AttachmentID}'.sub('{' + 'RepeatingInvoiceID' + '}', repeating_invoice_id.to_s).sub('{' + 'AttachmentID' + '}', attachment_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -12653,7 +14585,19 @@ module XeroRuby
       local_var_path = '/RepeatingInvoices/{RepeatingInvoiceID}/Attachments'.sub('{' + 'RepeatingInvoiceID' + '}', repeating_invoice_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -12726,7 +14670,19 @@ module XeroRuby
       local_var_path = '/RepeatingInvoices/{RepeatingInvoiceID}/History'.sub('{' + 'RepeatingInvoiceID' + '}', repeating_invoice_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -12797,7 +14753,19 @@ module XeroRuby
       local_var_path = '/RepeatingInvoices'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'where'] = opts[:'where'] if !opts[:'where'].nil?
@@ -12878,7 +14846,19 @@ module XeroRuby
       local_var_path = '/Reports/AgedPayablesByContact'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'contactId'] = contact_id
@@ -12961,7 +14941,19 @@ module XeroRuby
       local_var_path = '/Reports/AgedReceivablesByContact'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'contactId'] = contact_id
@@ -13038,7 +15030,19 @@ module XeroRuby
       local_var_path = '/Reports/{ReportID}'.sub('{' + 'ReportID' + '}', report_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -13105,7 +15109,19 @@ module XeroRuby
       local_var_path = '/Reports'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -13190,7 +15206,19 @@ module XeroRuby
       local_var_path = '/Reports/BalanceSheet'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'date'] = opts[:'date'] if !opts[:'date'].nil?
@@ -13268,7 +15296,19 @@ module XeroRuby
       local_var_path = '/Reports/BankSummary'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'fromDate'] = opts[:'from_date'] if !opts[:'from_date'].nil?
@@ -13343,7 +15383,19 @@ module XeroRuby
       local_var_path = '/Reports/BudgetSummary'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'date'] = opts[:'date'] if !opts[:'date'].nil?
@@ -13415,7 +15467,19 @@ module XeroRuby
       local_var_path = '/Reports/ExecutiveSummary'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'date'] = opts[:'date'] if !opts[:'date'].nil?
@@ -13507,7 +15571,19 @@ module XeroRuby
       local_var_path = '/Reports/ProfitAndLoss'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'fromDate'] = opts[:'from_date'] if !opts[:'from_date'].nil?
@@ -13586,7 +15662,19 @@ module XeroRuby
       local_var_path = '/Reports/TenNinetyNine'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'reportYear'] = opts[:'report_year'] if !opts[:'report_year'].nil?
@@ -13658,7 +15746,19 @@ module XeroRuby
       local_var_path = '/Reports/TrialBalance'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'date'] = opts[:'date'] if !opts[:'date'].nil?
@@ -13733,7 +15833,19 @@ module XeroRuby
       local_var_path = '/TaxRates'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'where'] = opts[:'where'] if !opts[:'where'].nil?
@@ -13809,7 +15921,19 @@ module XeroRuby
       local_var_path = '/TrackingCategories'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'where'] = opts[:'where'] if !opts[:'where'].nil?
@@ -13885,7 +16009,19 @@ module XeroRuby
       local_var_path = '/TrackingCategories/{TrackingCategoryID}'.sub('{' + 'TrackingCategoryID' + '}', tracking_category_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -13958,7 +16094,19 @@ module XeroRuby
       local_var_path = '/Users/{UserID}'.sub('{' + 'UserID' + '}', user_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -14031,7 +16179,19 @@ module XeroRuby
       local_var_path = '/Users'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'where'] = opts[:'where'] if !opts[:'where'].nil?
@@ -14113,7 +16273,19 @@ module XeroRuby
       local_var_path = '/Accounts/{AccountID}'.sub('{' + 'AccountID' + '}', account_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -14200,7 +16372,19 @@ module XeroRuby
       local_var_path = '/Accounts/{AccountID}/Attachments/{FileName}'.sub('{' + 'AccountID' + '}', account_id.to_s).sub('{' + 'FileName' + '}', file_name.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -14283,7 +16467,19 @@ module XeroRuby
       local_var_path = '/BankTransactions/{BankTransactionID}'.sub('{' + 'BankTransactionID' + '}', bank_transaction_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'unitdp'] = opts[:'unitdp'] if !opts[:'unitdp'].nil?
@@ -14371,7 +16567,19 @@ module XeroRuby
       local_var_path = '/BankTransactions/{BankTransactionID}/Attachments/{FileName}'.sub('{' + 'BankTransactionID' + '}', bank_transaction_id.to_s).sub('{' + 'FileName' + '}', file_name.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -14456,7 +16664,19 @@ module XeroRuby
       local_var_path = '/BankTransfers/{BankTransferID}/Attachments/{FileName}'.sub('{' + 'BankTransferID' + '}', bank_transfer_id.to_s).sub('{' + 'FileName' + '}', file_name.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -14535,7 +16755,19 @@ module XeroRuby
       local_var_path = '/Contacts/{ContactID}'.sub('{' + 'ContactID' + '}', contact_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -14620,7 +16852,19 @@ module XeroRuby
       local_var_path = '/Contacts/{ContactID}/Attachments/{FileName}'.sub('{' + 'ContactID' + '}', contact_id.to_s).sub('{' + 'FileName' + '}', file_name.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -14701,7 +16945,19 @@ module XeroRuby
       local_var_path = '/ContactGroups/{ContactGroupID}'.sub('{' + 'ContactGroupID' + '}', contact_group_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -14784,7 +17040,19 @@ module XeroRuby
       local_var_path = '/CreditNotes/{CreditNoteID}'.sub('{' + 'CreditNoteID' + '}', credit_note_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'unitdp'] = opts[:'unitdp'] if !opts[:'unitdp'].nil?
@@ -14872,7 +17140,19 @@ module XeroRuby
       local_var_path = '/CreditNotes/{CreditNoteID}/Attachments/{FileName}'.sub('{' + 'CreditNoteID' + '}', credit_note_id.to_s).sub('{' + 'FileName' + '}', file_name.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -14953,7 +17233,19 @@ module XeroRuby
       local_var_path = '/ExpenseClaims/{ExpenseClaimID}'.sub('{' + 'ExpenseClaimID' + '}', expense_claim_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -15036,7 +17328,19 @@ module XeroRuby
       local_var_path = '/Invoices/{InvoiceID}'.sub('{' + 'InvoiceID' + '}', invoice_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'unitdp'] = opts[:'unitdp'] if !opts[:'unitdp'].nil?
@@ -15124,7 +17428,19 @@ module XeroRuby
       local_var_path = '/Invoices/{InvoiceID}/Attachments/{FileName}'.sub('{' + 'InvoiceID' + '}', invoice_id.to_s).sub('{' + 'FileName' + '}', file_name.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -15207,7 +17523,19 @@ module XeroRuby
       local_var_path = '/Items/{ItemID}'.sub('{' + 'ItemID' + '}', item_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'unitdp'] = opts[:'unitdp'] if !opts[:'unitdp'].nil?
@@ -15289,7 +17617,19 @@ module XeroRuby
       local_var_path = '/LinkedTransactions/{LinkedTransactionID}'.sub('{' + 'LinkedTransactionID' + '}', linked_transaction_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -15370,7 +17710,19 @@ module XeroRuby
       local_var_path = '/ManualJournals/{ManualJournalID}'.sub('{' + 'ManualJournalID' + '}', manual_journal_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -15457,7 +17809,19 @@ module XeroRuby
       local_var_path = '/ManualJournals/{ManualJournalID}/Attachments/{FileName}'.sub('{' + 'ManualJournalID' + '}', manual_journal_id.to_s).sub('{' + 'FileName' + '}', file_name.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -15536,7 +17900,19 @@ module XeroRuby
       local_var_path = '/BankTransactions'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
@@ -15615,7 +17991,19 @@ module XeroRuby
       local_var_path = '/Contacts'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
@@ -15695,7 +18083,19 @@ module XeroRuby
       local_var_path = '/CreditNotes'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
@@ -15774,7 +18174,19 @@ module XeroRuby
       local_var_path = '/Employees'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
@@ -15854,7 +18266,19 @@ module XeroRuby
       local_var_path = '/Invoices'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
@@ -15935,7 +18359,19 @@ module XeroRuby
       local_var_path = '/Items'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
@@ -16014,7 +18450,19 @@ module XeroRuby
       local_var_path = '/ManualJournals'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
@@ -16092,7 +18540,19 @@ module XeroRuby
       local_var_path = '/PurchaseOrders'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
@@ -16170,7 +18630,19 @@ module XeroRuby
       local_var_path = '/Quotes'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
@@ -16252,7 +18724,19 @@ module XeroRuby
       local_var_path = '/PurchaseOrders/{PurchaseOrderID}'.sub('{' + 'PurchaseOrderID' + '}', purchase_order_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -16333,7 +18817,19 @@ module XeroRuby
       local_var_path = '/Quotes/{QuoteID}'.sub('{' + 'QuoteID' + '}', quote_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -16420,7 +18916,19 @@ module XeroRuby
       local_var_path = '/Quotes/{QuoteID}/Attachments/{FileName}'.sub('{' + 'QuoteID' + '}', quote_id.to_s).sub('{' + 'FileName' + '}', file_name.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -16503,7 +19011,19 @@ module XeroRuby
       local_var_path = '/Receipts/{ReceiptID}'.sub('{' + 'ReceiptID' + '}', receipt_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'unitdp'] = opts[:'unitdp'] if !opts[:'unitdp'].nil?
@@ -16591,7 +19111,19 @@ module XeroRuby
       local_var_path = '/Receipts/{ReceiptID}/Attachments/{FileName}'.sub('{' + 'ReceiptID' + '}', receipt_id.to_s).sub('{' + 'FileName' + '}', file_name.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -16678,7 +19210,19 @@ module XeroRuby
       local_var_path = '/RepeatingInvoices/{RepeatingInvoiceID}/Attachments/{FileName}'.sub('{' + 'RepeatingInvoiceID' + '}', repeating_invoice_id.to_s).sub('{' + 'FileName' + '}', file_name.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -16753,7 +19297,19 @@ module XeroRuby
       local_var_path = '/TaxRates'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -16834,7 +19390,19 @@ module XeroRuby
       local_var_path = '/TrackingCategories/{TrackingCategoryID}'.sub('{' + 'TrackingCategoryID' + '}', tracking_category_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -16921,7 +19489,19 @@ module XeroRuby
       local_var_path = '/TrackingCategories/{TrackingCategoryID}/Options/{TrackingOptionID}'.sub('{' + 'TrackingCategoryID' + '}', tracking_category_id.to_s).sub('{' + 'TrackingOptionID' + '}', tracking_option_id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      if !opts[:'where'].nil?
+        all_wheres = opts[:'where'].map do |k,v|
+          if v.is_a?(Array)
+            v.map do |val|
+              "#{@api_client.camelize_key(k)}#{val}"
+            end
+          else
+            "#{@api_client.camelize_key(k)}#{v}"
+          end
+        end
+        opts[:'where'] = all_wheres.join(' AND ')
+      end
+
       # query parameters
       query_params = opts[:query_params] || {}
       
