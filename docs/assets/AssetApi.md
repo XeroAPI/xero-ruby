@@ -48,7 +48,7 @@ api_instance = xero_client.asset_api
 api_instance = xero_client.projects_api
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 asset = { "assetName":"Computer74863", "assetNumber":"123477544", "purchaseDate":"2020-01-01", "purchasePrice":100.0, "disposalPrice":23.23, "assetStatus":"Draft", "bookDepreciationSetting":{ "depreciationMethod":"StraightLine", "averagingMethod":"ActualDays", "depreciationRate":0.5, "depreciationCalculationMethod":"None" }, "bookDepreciationDetail":{ "currentCapitalGain":5.32, "currentGainLoss":3.88, "depreciationStartDate":"2020-01-02", "costLimit":100.0, "currentAccumDepreciationAmount":2.25 }, "AccountingBookValue":99.5 } # Asset | Fixed asset you are creating
 begin
   #adds a fixed asset
@@ -116,7 +116,7 @@ api_instance = xero_client.asset_api
 api_instance = xero_client.projects_api
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   asset_type: { "assetTypeName":"Machinery11004", "fixedAssetAccountId":"3d8d063a-c148-4bb8-8b3c-a5e2ad3b1e82", "depreciationExpenseAccountId":"d1602f69-f900-4616-8d34-90af393fa368", "accumulatedDepreciationAccountId":"9195cadd-8645-41e6-9f67-7bcd421defe8", "bookDepreciationSetting":{ "depreciationMethod":"DiminishingValue100", "averagingMethod":"ActualDays", "depreciationRate":0.05, "depreciationCalculationMethod":"None" } } # AssetType | Asset type to add
 }
@@ -187,7 +187,7 @@ api_instance = xero_client.asset_api
 api_instance = xero_client.projects_api
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 id = '4f7bcdcb-5ec1-4258-9558-19f662fccdfe' # String | fixed asset id for single object
 begin
   #retrieves fixed asset by id
@@ -255,7 +255,7 @@ api_instance = xero_client.asset_api
 api_instance = xero_client.projects_api
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 begin
   #searches fixed asset settings
   result = api_instance.get_asset_settings(xero_tenant_id)
@@ -321,7 +321,7 @@ api_instance = xero_client.asset_api
 api_instance = xero_client.projects_api
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 begin
   #searches fixed asset types
   result = api_instance.get_asset_types(xero_tenant_id)
@@ -387,7 +387,7 @@ api_instance = xero_client.asset_api
 api_instance = xero_client.projects_api
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 status = XeroRuby::Assets::AssetStatusQueryParam.new # AssetStatusQueryParam | Required when retrieving a collection of assets. See Asset Status Codes
 opts = {
   page: 1, # Integer | Results are paged. This specifies which page of the results to return. The default page is 1.
