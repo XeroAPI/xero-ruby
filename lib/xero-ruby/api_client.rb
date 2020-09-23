@@ -550,5 +550,17 @@ module XeroRuby
         fail "unknown collection format: #{collection_format.inspect}"
       end
     end
+
+    def parameterize_where(where_opts)
+      where_opts.map do |k,v|
+        if v.is_a?(Array)
+          v.map do |val|
+            "#{@api_client.camelize_key(k)}#{val}"
+          end
+        else
+          "#{@api_client.camelize_key(k)}#{v}"
+        end
+      end.join(' AND ')
+    end
   end
 end

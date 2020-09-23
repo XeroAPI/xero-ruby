@@ -52,18 +52,7 @@ module XeroRuby
       local_var_path = '/Assets'
 
       # camelize keys of incoming `where` opts
-      if !opts[:'where'].nil?
-        all_wheres = opts[:'where'].map do |k,v|
-          if v.is_a?(Array)
-            v.map do |val|
-              "#{@api_client.camelize_key(k)}#{val}"
-            end
-          else
-            "#{@api_client.camelize_key(k)}#{v}"
-          end
-        end
-        opts[:'where'] = all_wheres.join(' AND ')
-      end
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -137,18 +126,7 @@ module XeroRuby
       local_var_path = '/AssetTypes'
 
       # camelize keys of incoming `where` opts
-      if !opts[:'where'].nil?
-        all_wheres = opts[:'where'].map do |k,v|
-          if v.is_a?(Array)
-            v.map do |val|
-              "#{@api_client.camelize_key(k)}#{val}"
-            end
-          else
-            "#{@api_client.camelize_key(k)}#{v}"
-          end
-        end
-        opts[:'where'] = all_wheres.join(' AND ')
-      end
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -226,18 +204,7 @@ module XeroRuby
       local_var_path = '/Assets/{id}'.sub('{' + 'id' + '}', id.to_s)
 
       # camelize keys of incoming `where` opts
-      if !opts[:'where'].nil?
-        all_wheres = opts[:'where'].map do |k,v|
-          if v.is_a?(Array)
-            v.map do |val|
-              "#{@api_client.camelize_key(k)}#{val}"
-            end
-          else
-            "#{@api_client.camelize_key(k)}#{v}"
-          end
-        end
-        opts[:'where'] = all_wheres.join(' AND ')
-      end
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -307,18 +274,7 @@ module XeroRuby
       local_var_path = '/Settings'
 
       # camelize keys of incoming `where` opts
-      if !opts[:'where'].nil?
-        all_wheres = opts[:'where'].map do |k,v|
-          if v.is_a?(Array)
-            v.map do |val|
-              "#{@api_client.camelize_key(k)}#{val}"
-            end
-          else
-            "#{@api_client.camelize_key(k)}#{v}"
-          end
-        end
-        opts[:'where'] = all_wheres.join(' AND ')
-      end
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -388,18 +344,7 @@ module XeroRuby
       local_var_path = '/AssetTypes'
 
       # camelize keys of incoming `where` opts
-      if !opts[:'where'].nil?
-        all_wheres = opts[:'where'].map do |k,v|
-          if v.is_a?(Array)
-            v.map do |val|
-              "#{@api_client.camelize_key(k)}#{val}"
-            end
-          else
-            "#{@api_client.camelize_key(k)}#{v}"
-          end
-        end
-        opts[:'where'] = all_wheres.join(' AND ')
-      end
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -497,18 +442,7 @@ module XeroRuby
       local_var_path = '/Assets'
 
       # camelize keys of incoming `where` opts
-      if !opts[:'where'].nil?
-        all_wheres = opts[:'where'].map do |k,v|
-          if v.is_a?(Array)
-            v.map do |val|
-              "#{@api_client.camelize_key(k)}#{val}"
-            end
-          else
-            "#{@api_client.camelize_key(k)}#{v}"
-          end
-        end
-        opts[:'where'] = all_wheres.join(' AND ')
-      end
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
 
       # query parameters
       query_params = opts[:query_params] || {}
