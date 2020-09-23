@@ -219,23 +219,35 @@ All monetary and fields and a couple quantity fields utilize BigDecimal
 ```
 
 ## Querying & Filtering
-Examples for the `opts` (_options_) parameters most endpoints support.
+Examples for the `opts` (_options_) parameters most endpoints support. This is an area of focus and improvement. If you have a complex filering/sorting/where usage that is not supported please [open an issue](https://github.com/XeroAPI/xero-ruby/issues).
 ```ruby
 # Invoices
-opts = { 
-  statuses: [XeroRuby::Accounting::Invoice::PAID],
-  where: { amount_due: '=0' },
-  if_modified_since: (DateTime.now - 1.hour).to_s
+ opts = {
+  page: 1,
+  where: {
+    type: ['=', XeroRuby::Accounting::Invoice::ACCREC],
+    fully_paid_on_date: (DateTime.now - 6.month)..DateTime.now,
+    amount_due: ['>=', 0],
+    reference: ['=', "Website Design"],
+    invoice_number: ['=', "INV-0001"],
+    contact_id: ['=', 'contact-uuid-xxxx-xxx-xxxxxxx'],
+    contact_number: ['=', "the-contact-number"],
+    # date: (DateTime.now - 2.year)..DateTime.now
+    # ▲ you can pass a range ▼ or a date & operator
+    date: ['>=', DateTime.now - 2.year],
+    status: ['=', XeroRuby::Accounting::Invoice::PAID]
+  }
 }
 xero_client.accounting_api.get_invoices(tenant_id, opts).invoices
 
 # Contacts 
 opts = {
   if_modified_since: (DateTime.now - 1.weeks).to_s,
+  # ▼ ordering by strings needs PascalCase convention
   order: 'UpdatedDateUtc DESC',
   where: {
-    is_customer: '==true',
-    is_supplier: '==true',
+    is_customer: ['==', true],
+    is_supplier: ['==', true]
   }
 }
 xero_client.accounting_api.get_contacts(tenant_id, opts).contacts
@@ -243,7 +255,7 @@ xero_client.accounting_api.get_contacts(tenant_id, opts).contacts
 # Bank Transactions
 opts = {
   if_modified_since: (DateTime.now - 1.year).to_s,
-  where: { type: %{=="#{XeroRuby::Accounting::BankTransaction::SPEND}"}},
+  where: { type: ['==', XeroRuby::Accounting::BankTransaction::SPEND] },
   order: 'UpdatedDateUtc DESC',
   page: 2,
   unitdp: 4 # (Unit Decimal Places)
@@ -252,8 +264,9 @@ xero_client.accounting_api.get_bank_transactions(tenant_id, opts).bank_transacti
 
 # Bank Transfers
 opts = {
+  if_modified_since: (DateTime.now - 1.month).to_s,
   where: {
-    amount: "> 999.99"
+    amount: [">=" , 999.99]
   },
   order: 'Amount ASC'
 }

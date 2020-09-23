@@ -553,12 +553,33 @@ module XeroRuby
 
     def parameterize_where(where_opts)
       where_opts.map do |k,v|
-        if v.is_a?(Array)
-          v.map do |val|
-            "#{@api_client.camelize_key(k)}#{val}"
+        case v
+        when Array
+          operator = v.first
+          query = v.last
+          if query.is_a?(Date)
+            "#{camelize_key(k)} #{operator} DateTime(#{query.strftime("%Y,%m,%d")})"
+          elsif [Float, Integer].member?(query.class)
+            %{#{camelize_key(k)} #{operator} #{query}}
+          elsif [true, false].member?(query)
+            %{#{camelize_key(k)} #{operator} #{query}}
+          else
+            if k == :contact_id
+              %{Contact.ContactID #{operator} guid("#{query}")}
+            elsif k == :contact_number
+              %{Contact.ContactNumber #{operator} "#{query}"}
+            else
+              %{#{camelize_key(k)} #{operator} "#{query}"}
+            end
+          end
+        when Range
+          if v.first.is_a?(DateTime) || v.first.is_a?(Date) || v.first.is_a?(Time)
+            "#{camelize_key(k)} >= DateTime(#{v.first.strftime("%Y,%m,%d")}) AND #{camelize_key(k)} <= DateTime(#{v.last.strftime("%Y,%m,%d")})" 
+          else
+            "#{camelize_key(k)} >= #{v.first} AND #{camelize_key(k)} <= #{v.last}"
           end
         else
-          "#{@api_client.camelize_key(k)}#{v}"
+          %{#{camelize_key(k)} #{v}}
         end
       end.join(' AND ')
     end
