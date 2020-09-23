@@ -114,7 +114,6 @@ module XeroRuby::Accounting
     N6_MONTHLY = "6MONTHLY".freeze
     QUARTERLY = "QUARTERLY".freeze
     YEARLY = "YEARLY".freeze
-    # duplicate definitions generated: https://github.com/XeroAPI/xero-ruby/issues/53#issuecomment-668893305
     # NONE = "NONE".freeze
     
     # The default for LineAmountTypes on sales transactions
@@ -137,7 +136,6 @@ module XeroRuby::Accounting
     
     # Organisation Entity Type
     attr_accessor :organisation_entity_type
-    # duplicate definitions generated: https://github.com/XeroAPI/xero-ruby/issues/53#issuecomment-668893305
     # ACCOUNTING_PRACTICE = "ACCOUNTING_PRACTICE".freeze
     # COMPANY = "COMPANY".freeze
     # CHARITY = "CHARITY".freeze

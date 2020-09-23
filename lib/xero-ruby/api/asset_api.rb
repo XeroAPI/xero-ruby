@@ -52,7 +52,8 @@ module XeroRuby
       local_var_path = '/Assets'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -66,7 +67,7 @@ module XeroRuby
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
-      header_params[:'Xero-Tenant-Id'] = xero_tenant_id
+      header_params[:'xero-tenant-id'] = xero_tenant_id
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -125,7 +126,8 @@ module XeroRuby
       local_var_path = '/AssetTypes'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -139,7 +141,7 @@ module XeroRuby
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
-      header_params[:'Xero-Tenant-Id'] = xero_tenant_id
+      header_params[:'xero-tenant-id'] = xero_tenant_id
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -202,7 +204,8 @@ module XeroRuby
       local_var_path = '/Assets/{id}'.sub('{' + 'id' + '}', id.to_s)
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -214,7 +217,7 @@ module XeroRuby
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      header_params[:'Xero-Tenant-Id'] = xero_tenant_id
+      header_params[:'xero-tenant-id'] = xero_tenant_id
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -271,7 +274,8 @@ module XeroRuby
       local_var_path = '/Settings'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -283,7 +287,7 @@ module XeroRuby
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      header_params[:'Xero-Tenant-Id'] = xero_tenant_id
+      header_params[:'xero-tenant-id'] = xero_tenant_id
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -340,7 +344,8 @@ module XeroRuby
       local_var_path = '/AssetTypes'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
+
       # query parameters
       query_params = opts[:query_params] || {}
       
@@ -352,7 +357,7 @@ module XeroRuby
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      header_params[:'Xero-Tenant-Id'] = xero_tenant_id
+      header_params[:'xero-tenant-id'] = xero_tenant_id
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -437,7 +442,8 @@ module XeroRuby
       local_var_path = '/Assets'
 
       # camelize keys of incoming `where` opts
-      opts[:'where'] = opts[:'where'].map{|k,v| "#{@api_client.camelize_key(k)}#{v}"}.join(' AND ') if !opts[:'where'].nil?
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
+
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'status'] = status
@@ -455,7 +461,7 @@ module XeroRuby
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      header_params[:'Xero-Tenant-Id'] = xero_tenant_id
+      header_params[:'xero-tenant-id'] = xero_tenant_id
 
       # form parameters
       form_params = opts[:form_params] || {}
