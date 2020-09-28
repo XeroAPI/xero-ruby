@@ -10685,7 +10685,9 @@ opts = {
 
   page: 1, # Integer | e.g. page=1 – Up to 100 Quotes will be returned in a single API call with line items shown for each quote
 
-  order: 'ASC' # String | Order by an any element
+  order: 'ASC', # String | Order by an any element
+
+  quote_number: 'quote_number_example' # String | Filter by quote number (e.g. GET https://.../Quotes?QuoteNumber=QU-0001)
 }
 
 begin
@@ -10712,6 +10714,7 @@ Name | Type | Description  | Notes
  **status** | **String**| Filter for quotes of a particular Status | [optional] 
  **page** | **Integer**| e.g. page&#x3D;1 – Up to 100 Quotes will be returned in a single API call with line items shown for each quote | [optional] 
  **order** | **String**| Order by an any element | [optional] 
+ **quote_number** | **String**| Filter by quote number (e.g. GET https://.../Quotes?QuoteNumber&#x3D;QU-0001) | [optional] 
 
 ### Return type
 
