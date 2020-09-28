@@ -31,6 +31,7 @@ module XeroRuby
           instance_variable_set "@#{k}", v
         end
       else
+        @message = arg
         super arg
       end
     end
