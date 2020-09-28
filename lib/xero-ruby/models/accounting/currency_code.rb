@@ -39,7 +39,6 @@ module XeroRuby::Accounting
     BTN = "BTN".freeze
     BWP = "BWP".freeze
     BYN = "BYN".freeze
-    BYR = "BYR".freeze
     BZD = "BZD".freeze
     CAD = "CAD".freeze
     CDF = "CDF".freeze
@@ -101,7 +100,6 @@ module XeroRuby::Accounting
     LKR = "LKR".freeze
     LRD = "LRD".freeze
     LSL = "LSL".freeze
-    LTL = "LTL".freeze
     LYD = "LYD".freeze
     MAD = "MAD".freeze
     MDL = "MDL".freeze
@@ -156,7 +154,7 @@ module XeroRuby::Accounting
     TMT = "TMT".freeze
     TND = "TND".freeze
     TOP = "TOP".freeze
-    TRY = "TRY".freeze
+    _TRY = "TRY".freeze
     TTD = "TTD".freeze
     TVD = "TVD".freeze
     TWD = "TWD".freeze
@@ -180,7 +178,7 @@ module XeroRuby::Accounting
     ZMW = "ZMW".freeze
     ZMK = "ZMK".freeze
     ZWD = "ZWD".freeze
-    EMPTY = "".freeze
+    _EMPTY = "".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

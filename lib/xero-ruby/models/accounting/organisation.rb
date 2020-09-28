@@ -114,7 +114,7 @@ module XeroRuby::Accounting
     N6_MONTHLY = "6MONTHLY".freeze
     QUARTERLY = "QUARTERLY".freeze
     YEARLY = "YEARLY".freeze
-    # NONE = "NONE".freeze
+    NONE = "NONE".freeze
     
     # The default for LineAmountTypes on sales transactions
     attr_accessor :default_sales_tax
@@ -136,18 +136,18 @@ module XeroRuby::Accounting
     
     # Organisation Entity Type
     attr_accessor :organisation_entity_type
-    # ACCOUNTING_PRACTICE = "ACCOUNTING_PRACTICE".freeze
-    # COMPANY = "COMPANY".freeze
-    # CHARITY = "CHARITY".freeze
-    # CLUB_OR_SOCIETY = "CLUB_OR_SOCIETY".freeze
-    # LOOK_THROUGH_COMPANY = "LOOK_THROUGH_COMPANY".freeze
-    # NOT_FOR_PROFIT = "NOT_FOR_PROFIT".freeze
-    # PARTNERSHIP = "PARTNERSHIP".freeze
-    # S_CORPORATION = "S_CORPORATION".freeze
-    # SELF_MANAGED_SUPERANNUATION_FUND = "SELF_MANAGED_SUPERANNUATION_FUND".freeze
-    # SOLE_TRADER = "SOLE_TRADER".freeze
-    # SUPERANNUATION_FUND = "SUPERANNUATION_FUND".freeze
-    # TRUST = "TRUST".freeze
+    ACCOUNTING_PRACTICE = "ACCOUNTING_PRACTICE".freeze
+    COMPANY = "COMPANY".freeze
+    CHARITY = "CHARITY".freeze
+    CLUB_OR_SOCIETY = "CLUB_OR_SOCIETY".freeze
+    LOOK_THROUGH_COMPANY = "LOOK_THROUGH_COMPANY".freeze
+    NOT_FOR_PROFIT = "NOT_FOR_PROFIT".freeze
+    PARTNERSHIP = "PARTNERSHIP".freeze
+    S_CORPORATION = "S_CORPORATION".freeze
+    SELF_MANAGED_SUPERANNUATION_FUND = "SELF_MANAGED_SUPERANNUATION_FUND".freeze
+    SOLE_TRADER = "SOLE_TRADER".freeze
+    SUPERANNUATION_FUND = "SUPERANNUATION_FUND".freeze
+    TRUST = "TRUST".freeze
     
     # A unique identifier for the organisation. Potential uses.
     attr_accessor :short_code
@@ -704,7 +704,7 @@ module XeroRuby::Accounting
     # customized data_parser
     def parse_date(datestring)
       seconds_since_epoch = datestring.scan(/[0-9]+/)[0].to_i / 1000.0
-      return Time.at(seconds_since_epoch).to_s
+      return Time.at(seconds_since_epoch).strftime('%Y-%m-%dT%l:%M:%S%z').to_s
     end
   end
 end
