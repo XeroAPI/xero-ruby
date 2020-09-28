@@ -224,7 +224,7 @@ module XeroRuby::Accounting
     # customized data_parser
     def parse_date(datestring)
       seconds_since_epoch = datestring.scan(/[0-9]+/)[0].to_i / 1000.0
-      return Time.at(seconds_since_epoch).to_s
+      return Time.at(seconds_since_epoch).strftime('%Y-%m-%dT%l:%M:%S%z').to_s
     end
   end
 end
