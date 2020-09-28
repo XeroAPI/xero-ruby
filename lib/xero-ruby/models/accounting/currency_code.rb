@@ -39,6 +39,7 @@ module XeroRuby::Accounting
     BTN = "BTN".freeze
     BWP = "BWP".freeze
     BYN = "BYN".freeze
+    BYR = "BYR".freeze
     BZD = "BZD".freeze
     CAD = "CAD".freeze
     CDF = "CDF".freeze
@@ -100,6 +101,7 @@ module XeroRuby::Accounting
     LKR = "LKR".freeze
     LRD = "LRD".freeze
     LSL = "LSL".freeze
+    LTL = "LTL".freeze
     LYD = "LYD".freeze
     MAD = "MAD".freeze
     MDL = "MDL".freeze
