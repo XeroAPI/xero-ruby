@@ -17,10 +17,10 @@ module XeroRuby::Accounting
   require 'bigdecimal'
 
   class TrackingOption
-    # The Xero identifier for a tracking optione.g. ae777a87-5ef3-4fa0-a4f0-d10e1f13073a
+    # The Xero identifier for a tracking option e.g. ae777a87-5ef3-4fa0-a4f0-d10e1f13073a
     attr_accessor :tracking_option_id
     
-    # The name of the tracking option e.g. Marketing, East (max length = 50)
+    # The name of the tracking option e.g. Marketing, East (max length = 100)
     attr_accessor :name
     
     # The status of a tracking option
@@ -29,7 +29,7 @@ module XeroRuby::Accounting
     ARCHIVED = "ARCHIVED".freeze
     DELETED = "DELETED".freeze
     
-    # Filter by a tracking categorye.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9
+    # Filter by a tracking category e.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9
     attr_accessor :tracking_category_id
     
     class EnumAttributeValidator
@@ -110,8 +110,8 @@ module XeroRuby::Accounting
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if !@name.nil? && @name.to_s.length > 50
-        invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 50.')
+      if !@name.nil? && @name.to_s.length > 100
+        invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 100.')
       end
 
       invalid_properties
@@ -120,7 +120,7 @@ module XeroRuby::Accounting
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if !@name.nil? && @name.to_s.length > 50
+      return false if !@name.nil? && @name.to_s.length > 100
       status_validator = EnumAttributeValidator.new('String', ["ACTIVE", "ARCHIVED", "DELETED"])
       return false unless status_validator.valid?(@status)
       true
@@ -129,8 +129,8 @@ module XeroRuby::Accounting
     # Custom attribute writer method with validation
     # @param [Object] name Value to be assigned
     def name=(name)
-      if !name.nil? && name.to_s.length > 50
-        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 50.'
+      if !name.nil? && name.to_s.length > 100
+        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 100.'
       end
 
       @name = name
