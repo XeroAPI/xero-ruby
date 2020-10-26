@@ -39,13 +39,11 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# depending on the methods you need to use
-# accounting_api
-api_instance = xero_client.accounting_api
-# :assets_api
-api_instance = xero_client.asset_api
-# :projects_api
-api_instance = xero_client.projects_api
+# You need to namespace your api method call to one of the following api sets
+# [:accounting_api, :assets_api, :projects_api, :files_api, :payroll_au_api, :payroll_nz_api, :payroll_uk_api]
+
+api_instance = xero_client.<api_set>
+
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
@@ -107,13 +105,11 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# depending on the methods you need to use
-# accounting_api
-api_instance = xero_client.accounting_api
-# :assets_api
-api_instance = xero_client.asset_api
-# :projects_api
-api_instance = xero_client.projects_api
+# You need to namespace your api method call to one of the following api sets
+# [:accounting_api, :assets_api, :projects_api, :files_api, :payroll_au_api, :payroll_nz_api, :payroll_uk_api]
+
+api_instance = xero_client.<api_set>
+
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
@@ -178,13 +174,11 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# depending on the methods you need to use
-# accounting_api
-api_instance = xero_client.accounting_api
-# :assets_api
-api_instance = xero_client.asset_api
-# :projects_api
-api_instance = xero_client.projects_api
+# You need to namespace your api method call to one of the following api sets
+# [:accounting_api, :assets_api, :projects_api, :files_api, :payroll_au_api, :payroll_nz_api, :payroll_uk_api]
+
+api_instance = xero_client.<api_set>
+
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
@@ -246,13 +240,11 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# depending on the methods you need to use
-# accounting_api
-api_instance = xero_client.accounting_api
-# :assets_api
-api_instance = xero_client.asset_api
-# :projects_api
-api_instance = xero_client.projects_api
+# You need to namespace your api method call to one of the following api sets
+# [:accounting_api, :assets_api, :projects_api, :files_api, :payroll_au_api, :payroll_nz_api, :payroll_uk_api]
+
+api_instance = xero_client.<api_set>
+
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
@@ -312,13 +304,11 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# depending on the methods you need to use
-# accounting_api
-api_instance = xero_client.accounting_api
-# :assets_api
-api_instance = xero_client.asset_api
-# :projects_api
-api_instance = xero_client.projects_api
+# You need to namespace your api method call to one of the following api sets
+# [:accounting_api, :assets_api, :projects_api, :files_api, :payroll_au_api, :payroll_nz_api, :payroll_uk_api]
+
+api_instance = xero_client.<api_set>
+
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
@@ -378,13 +368,11 @@ token_set = fetch_valid_token_set(user) # example
 
 xero_client.refresh_token_set(token_set)
 
-# depending on the methods you need to use
-# accounting_api
-api_instance = xero_client.accounting_api
-# :assets_api
-api_instance = xero_client.asset_api
-# :projects_api
-api_instance = xero_client.projects_api
+# You need to namespace your api method call to one of the following api sets
+# [:accounting_api, :assets_api, :projects_api, :files_api, :payroll_au_api, :payroll_nz_api, :payroll_uk_api]
+
+api_instance = xero_client.<api_set>
+
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
