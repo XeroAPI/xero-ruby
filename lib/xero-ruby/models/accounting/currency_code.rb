@@ -156,7 +156,7 @@ module XeroRuby::Accounting
     TMT = "TMT".freeze
     TND = "TND".freeze
     TOP = "TOP".freeze
-    _TRY = "TRY".freeze
+    TRY = "TRY".freeze
     TTD = "TTD".freeze
     TVD = "TVD".freeze
     TWD = "TWD".freeze
@@ -180,7 +180,7 @@ module XeroRuby::Accounting
     ZMW = "ZMW".freeze
     ZMK = "ZMK".freeze
     ZWD = "ZWD".freeze
-    _EMPTY = "".freeze
+    EMPTY = "".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
