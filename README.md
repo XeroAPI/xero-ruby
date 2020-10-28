@@ -161,35 +161,35 @@ end
 
 ### Accounting API
 ```ruby
-  require 'xero-ruby'
+require 'xero-ruby'
 
-  xero_client.refresh_token_set(user.token_set)
+xero_client.refresh_token_set(user.token_set)
 
-  tenant_id = user.active_tenant_id
-  # example of how to store the `tenantId` of the specific tenant (aka organisation)
+tenant_id = user.active_tenant_id
+# example of how to store the `tenantId` of the specific tenant (aka organisation)
 
-  # https://github.com/XeroAPI/xero-ruby/blob/master/accounting/lib/xero-ruby/api/accounting_api.rb
-  
-  # Get Accounts
-  accounts = xero_client.accounting_api.get_accounts(tenant_id).accounts
+# https://github.com/XeroAPI/xero-ruby/blob/master/accounting/lib/xero-ruby/api/accounting_api.rb
 
-  # Create Invoice
-  invoices = { invoices: [{ type: XeroRuby::Accounting::Invoice::ACCREC, contact: { contact_id: contacts[0].contact_id }, line_items: [{ description: "Big Agency", quantity: BigDecimal("2.0"), unit_amount: BigDecimal("50.99"), account_code: "600", tax_type: XeroRuby::Accounting::TaxType::NONE }], date: "2019-03-11", due_date: "2018-12-10", reference: "Website Design", status: XeroRuby::Accounting::Invoice::DRAFT }]}
-  invoice = xero_client.accounting_api.create_invoices(tenant_id, invoices).invoices.first
+# Get Accounts
+accounts = xero_client.accounting_api.get_accounts(tenant_id).accounts
 
-  # Create History
-  payment = xero_client.accounting_api.get_payments(tenant_id).payments.first
-  history_records = { history_records: [{ details: "This payment now has some History!" }]}
-  payment_history = xero_client.accounting_api.create_payment_history(tenant_id, payment.payment_id, history_records)
+# Create Invoice
+invoices = { invoices: [{ type: XeroRuby::Accounting::Invoice::ACCREC, contact: { contact_id: contacts[0].contact_id }, line_items: [{ description: "Big Agency", quantity: BigDecimal("2.0"), unit_amount: BigDecimal("50.99"), account_code: "600", tax_type: XeroRuby::Accounting::TaxType::NONE }], date: "2019-03-11", due_date: "2018-12-10", reference: "Website Design", status: XeroRuby::Accounting::Invoice::DRAFT }]}
+invoice = xero_client.accounting_api.create_invoices(tenant_id, invoices).invoices.first
 
-  # Create Attachment
-  account = xero_client.accounting_api.get_accounts(tenant_id).accounts.first
-  file_name = "an-account-filename.png"
-  opts = {
-    include_online: true
-  }
-  file = File.read(Rails.root.join('app/assets/images/xero-api.png'))
-  attachment = xero_client.accounting_api.create_account_attachment_by_file_name(tenant_id, @account.account_id, file_name, file, opts)
+# Create History
+payment = xero_client.accounting_api.get_payments(tenant_id).payments.first
+history_records = { history_records: [{ details: "This payment now has some History!" }]}
+payment_history = xero_client.accounting_api.create_payment_history(tenant_id, payment.payment_id, history_records)
+
+# Create Attachment
+account = xero_client.accounting_api.get_accounts(tenant_id).accounts.first
+file_name = "an-account-filename.png"
+opts = {
+  include_online: true
+}
+file = File.read(Rails.root.join('app/assets/images/xero-api.png'))
+attachment = xero_client.accounting_api.create_account_attachment_by_file_name(tenant_id, @account.account_id, file_name, file, opts)
 ```
 
 ### Assets API
