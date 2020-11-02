@@ -263,6 +263,7 @@ module XeroRuby
           when ::File, ::Tempfile
             data[form_params["name"]] = Faraday::UploadIO.new(value.path, form_params["mimeType"], value.path)
           when ::Array, nil
+            # let Faraday handle Array and nil parameters
             data[key] = value
           else
             data[key] = value.to_s
@@ -317,7 +318,7 @@ module XeroRuby
         else
           raise e
         end
-      end
+      end 
 
       convert_to_type(data, return_type, api_client)
     end
@@ -349,12 +350,12 @@ module XeroRuby
       when /\AArray<(.+)>\z/
         # e.g. Array<Pet>
         sub_type = $1
-        data.map { |item| convert_to_type(item, sub_type) }
+        data.map { |item| convert_to_type(item, sub_type, api_client) }
       when /\AHash\<String, (.+)\>\z/
         # e.g. Hash<String, Integer>
         sub_type = $1
         {}.tap do |hash|
-          data.each { |k, v| hash[k] = convert_to_type(v, sub_type) }
+          data.each { |k, v| hash[k] = convert_to_type(v, sub_type, api_client) }
         end
       else
         case api_client

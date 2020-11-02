@@ -16,11 +16,9 @@ require 'date'
 module XeroRuby::Files
   class ObjectType
     ACCOUNT = "ACCOUNT".freeze
-    ACCPAY = "ACCPAY".freeze
     ACCPAY = "Accpay".freeze
     ACCPAYCREDIT = "ACCPAYCREDIT".freeze
     ACCPAYPAYMENT = "ACCPAYPAYMENT".freeze
-    ACCREC = "ACCREC".freeze
     ACC_REC = "AccRec".freeze
     ACCRECCREDIT = "ACCRECCREDIT".freeze
     ACCRECPAYMENT = "ACCRECPAYMENT".freeze

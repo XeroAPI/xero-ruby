@@ -10,8 +10,6 @@ OpenAPI Generator version: 4.3.1
 
 =end
 
-require 'cgi'
-
 module XeroRuby
   class FilesApi
     attr_accessor :api_client
@@ -1263,10 +1261,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      puts "new_options: #{new_options}"
-
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, "FilesApi", new_options)
-
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FilesApi#upload_file\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

@@ -10,8 +10,6 @@ OpenAPI Generator version: 4.3.1
 
 =end
 
-require 'cgi'
-
 module XeroRuby
   class PayrollNzApi
     attr_accessor :api_client
