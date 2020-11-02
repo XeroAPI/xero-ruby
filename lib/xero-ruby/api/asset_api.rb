@@ -90,7 +90,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AssetApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AssetApi#create_asset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -164,7 +164,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AssetApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AssetApi#create_asset_type\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -240,7 +240,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AssetApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AssetApi#get_asset_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -310,7 +310,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AssetApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AssetApi#get_asset_settings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -380,7 +380,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AssetApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AssetApi#get_asset_types\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -484,7 +484,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AssetApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AssetApi#get_assets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

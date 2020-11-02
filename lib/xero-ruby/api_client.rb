@@ -69,17 +69,17 @@ module XeroRuby
 
     def payroll_au_api
       @config.base_url = @config.payroll_au_url
-      XeroRuby::PayrollAu.new(self)
+      XeroRuby::PayrollAuApi.new(self)
     end
 
     def payroll_nz_api
       @config.base_url = @config.payroll_nz_url
-      XeroRuby::PayrollNz.new(self)
+      XeroRuby::PayrollNzApi.new(self)
     end
     
     def payroll_uk_api
       @config.base_url = @config.payroll_uk_url
-      XeroRuby::PayrollUk.new(self)
+      XeroRuby::PayrollUkApi.new(self)
     end
 
     # Token Helpers
@@ -152,7 +152,7 @@ module XeroRuby
     #
     # @return [Array<(Object, Integer, Hash)>] an array of 3 elements:
     #   the data deserialized from response body (could be nil), response status code and response headers.
-    def call_api(http_method, path, opts = {})
+    def call_api(http_method, path, api_client, opts = {})
       ssl_options = {
         :ca_file => @config.ssl_ca_file,
         :verify => @config.ssl_verify,
@@ -197,7 +197,7 @@ module XeroRuby
 
       if opts[:return_type]
         prepare_file(response) if opts[:return_type] == 'File'
-        data = deserialize(response, opts[:return_type])
+        data = deserialize(response, opts[:return_type], api_client)
       else
         data = nil
       end
@@ -261,10 +261,8 @@ module XeroRuby
         form_params.each do |key, value|
           case value
           when ::File, ::Tempfile
-            # TODO hardcode to application/octet-stream, need better way to detect content type
-            data[key] = Faraday::UploadIO.new(value.path, 'application/octet-stream', value.path)
+            data[form_params["name"]] = Faraday::UploadIO.new(value.path, form_params["mimeType"], value.path)
           when ::Array, nil
-            # let Faraday handle Array and nil parameters
             data[key] = value
           else
             data[key] = value.to_s
@@ -294,7 +292,7 @@ module XeroRuby
     #
     # @param [Response] response HTTP response
     # @param [String] return_type some examples: "User", "Array<User>", "Hash<String, Integer>"
-    def deserialize(response, return_type)
+    def deserialize(response, return_type, api_client)
       body = response.body
 
       # handle file downloading - return the File instance processed in request callbacks
@@ -319,16 +317,16 @@ module XeroRuby
         else
           raise e
         end
-      end 
+      end
 
-      convert_to_type(data, return_type)
+      convert_to_type(data, return_type, api_client)
     end
 
     # Convert data to the given return type.
     # @param [Object] data Data to be converted
     # @param [String] return_type Return type
     # @return [Mixed] Data in a particular type
-    def convert_to_type(data, return_type)
+    def convert_to_type(data, return_type, api_client)
       return nil if data.nil?
       case return_type
       when 'String'
@@ -359,40 +357,25 @@ module XeroRuby
           data.each { |k, v| hash[k] = convert_to_type(v, sub_type) }
         end
       else
-        api_set = api_set_prefix(return_type)
-        case api_set
-        when 'accounting'
+        case api_client
+        when 'AccountingApi'
           XeroRuby::Accounting.const_get(return_type).build_from_hash(data)
-        when 'assets'
+        when 'AssetApi'
           XeroRuby::Assets.const_get(return_type).build_from_hash(data)
-        when 'projects'
+        when 'ProjectApi'
           XeroRuby::Projects.const_get(return_type).build_from_hash(data)
-        when 'files'
+        when 'FilesApi'
           XeroRuby::Files.const_get(return_type).build_from_hash(data)
-        when 'payroll_au'
+        when 'PayrollAuApi'
           XeroRuby::PayrollAu.const_get(return_type).build_from_hash(data)
-        when 'payroll_nz'
+        when 'PayrollNzApi'
           XeroRuby::PayrollNz.const_get(return_type).build_from_hash(data)
-        when 'payroll_uk'
+        when 'PayrollUkApi'
           XeroRuby::PayrollUk.const_get(return_type).build_from_hash(data)
         else
           XeroRuby::Accounting.const_get(return_type).build_from_hash(data)
         end
       end
-    end
-
-    # Traverses the model tree to find the model's namespacing
-    # based on the deserializing model/return_type name
-    def api_set_prefix(return_type)
-      api_set = ''
-      Find.find("#{File.dirname(__FILE__)}/models/") do |path|
-        model_path = path.split('/')
-        matching_name = model_path.last.gsub('.rb','').gsub("_",'')
-        if return_type.downcase === matching_name
-          api_set = path.split('/')[-2]
-        end
-      end
-      return api_set
     end
 
     # Save response body into a file in (the defined) temporary folder, using the filename

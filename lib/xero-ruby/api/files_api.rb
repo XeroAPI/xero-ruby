@@ -92,7 +92,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "FilesApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FilesApi#create_file_association\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -166,7 +166,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "FilesApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FilesApi#create_folder\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -242,7 +242,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, "FilesApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FilesApi#delete_file\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -324,7 +324,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, "FilesApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FilesApi#delete_file_association\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -400,7 +400,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, "FilesApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FilesApi#delete_folder\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -476,7 +476,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "FilesApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FilesApi#get_associations_by_object\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -550,7 +550,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "FilesApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FilesApi#get_file\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -626,7 +626,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "FilesApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FilesApi#get_file_associations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -702,7 +702,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "FilesApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FilesApi#get_file_content\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -791,7 +791,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "FilesApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FilesApi#get_files\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -867,7 +867,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "FilesApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FilesApi#get_folder\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -944,7 +944,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "FilesApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FilesApi#get_folders\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1014,7 +1014,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "FilesApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FilesApi#get_inbox\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1094,7 +1094,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "FilesApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FilesApi#update_file\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1178,7 +1178,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "FilesApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FilesApi#update_folder\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1263,7 +1263,10 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      puts "new_options: #{new_options}"
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "FilesApi", new_options)
+
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FilesApi#upload_file\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

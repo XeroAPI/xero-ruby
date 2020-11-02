@@ -88,7 +88,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "PayrollAuApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PayrollAuApi#create_employee\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -164,7 +164,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "PayrollAuApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PayrollAuApi#create_leave_application\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -240,7 +240,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "PayrollAuApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PayrollAuApi#create_pay_item\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -316,7 +316,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "PayrollAuApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PayrollAuApi#create_pay_run\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -392,7 +392,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "PayrollAuApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PayrollAuApi#create_payroll_calendar\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -468,7 +468,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "PayrollAuApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PayrollAuApi#create_superfund\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -544,7 +544,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "PayrollAuApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PayrollAuApi#create_timesheet\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -618,7 +618,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "PayrollAuApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PayrollAuApi#get_employee\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -698,7 +698,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "PayrollAuApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PayrollAuApi#get_employees\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -772,7 +772,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "PayrollAuApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PayrollAuApi#get_leave_application\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -852,7 +852,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "PayrollAuApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PayrollAuApi#get_leave_applications\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -932,7 +932,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "PayrollAuApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PayrollAuApi#get_pay_items\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1006,7 +1006,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "PayrollAuApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PayrollAuApi#get_pay_run\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1086,7 +1086,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "PayrollAuApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PayrollAuApi#get_pay_runs\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1160,7 +1160,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "PayrollAuApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PayrollAuApi#get_payroll_calendar\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1240,7 +1240,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "PayrollAuApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PayrollAuApi#get_payroll_calendars\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1314,7 +1314,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "PayrollAuApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PayrollAuApi#get_payslip\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1382,7 +1382,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "PayrollAuApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PayrollAuApi#get_settings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1456,7 +1456,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "PayrollAuApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PayrollAuApi#get_superfund\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1530,7 +1530,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "PayrollAuApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PayrollAuApi#get_superfund_products\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1610,7 +1610,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "PayrollAuApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PayrollAuApi#get_superfunds\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1684,7 +1684,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "PayrollAuApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PayrollAuApi#get_timesheet\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1764,7 +1764,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "PayrollAuApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PayrollAuApi#get_timesheets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1844,7 +1844,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "PayrollAuApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PayrollAuApi#update_employee\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1926,7 +1926,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "PayrollAuApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PayrollAuApi#update_leave_application\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -2006,7 +2006,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "PayrollAuApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PayrollAuApi#update_pay_run\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -2086,7 +2086,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "PayrollAuApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PayrollAuApi#update_payslip\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -2166,7 +2166,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "PayrollAuApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PayrollAuApi#update_superfund\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -2246,7 +2246,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "PayrollAuApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PayrollAuApi#update_timesheet\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

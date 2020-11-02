@@ -88,7 +88,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -176,7 +176,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_account_attachment_by_file_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -264,7 +264,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_bank_transaction_attachment_by_file_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -346,7 +346,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_bank_transaction_history_record\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -428,7 +428,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_bank_transactions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -504,7 +504,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_bank_transfer\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -590,7 +590,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_bank_transfer_attachment_by_file_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -670,7 +670,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_bank_transfer_history_record\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -749,7 +749,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_batch_payment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -831,7 +831,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_batch_payment_history_record\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -913,7 +913,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_branding_theme_payment_services\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -999,7 +999,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_contact_attachment_by_file_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1075,7 +1075,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_contact_group\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1157,7 +1157,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_contact_group_contacts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1239,7 +1239,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_contact_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1318,7 +1318,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_contacts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1403,7 +1403,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_credit_note_allocation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1494,7 +1494,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_credit_note_attachment_by_file_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1576,7 +1576,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_credit_note_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1658,7 +1658,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_credit_notes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1732,7 +1732,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_currency\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1811,7 +1811,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_employees\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1893,7 +1893,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_expense_claim_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1969,7 +1969,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_expense_claims\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -2060,7 +2060,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_invoice_attachment_by_file_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -2142,7 +2142,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_invoice_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -2224,7 +2224,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_invoices\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -2306,7 +2306,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_item_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -2388,7 +2388,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_items\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -2464,7 +2464,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_linked_transaction\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -2552,7 +2552,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_manual_journal_attachment_by_file_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -2634,7 +2634,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_manual_journal_history_record\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -2713,7 +2713,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_manual_journals\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -2798,7 +2798,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_overpayment_allocations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -2880,7 +2880,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_overpayment_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -2956,7 +2956,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_payment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -3038,7 +3038,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_payment_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -3114,7 +3114,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_payment_service\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -3193,7 +3193,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_payments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -3278,7 +3278,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_prepayment_allocations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -3360,7 +3360,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_prepayment_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -3448,7 +3448,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_purchase_order_attachment_by_file_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -3530,7 +3530,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_purchase_order_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -3609,7 +3609,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_purchase_orders\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -3697,7 +3697,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_quote_attachment_by_file_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -3779,7 +3779,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_quote_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -3858,7 +3858,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_quotes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -3937,7 +3937,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_receipt\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -4025,7 +4025,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_receipt_attachment_by_file_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -4107,7 +4107,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_receipt_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -4195,7 +4195,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_repeating_invoice_attachment_by_file_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -4277,7 +4277,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_repeating_invoice_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -4353,7 +4353,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_tax_rates\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -4429,7 +4429,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_tracking_category\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -4511,7 +4511,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#create_tracking_options\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -4585,7 +4585,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#delete_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -4665,7 +4665,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#delete_contact_group_contact\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -4737,7 +4737,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#delete_contact_group_contacts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -4811,7 +4811,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#delete_item\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -4885,7 +4885,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#delete_linked_transaction\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -4967,7 +4967,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#delete_payment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -5041,7 +5041,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#delete_tracking_category\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -5121,7 +5121,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#delete_tracking_options\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -5203,7 +5203,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#email_invoice\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -5277,7 +5277,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -5364,7 +5364,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_account_attachment_by_file_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -5451,7 +5451,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_account_attachment_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -5525,7 +5525,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_account_attachments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -5602,7 +5602,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_accounts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -5679,7 +5679,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_bank_transaction\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -5766,7 +5766,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_bank_transaction_attachment_by_file_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -5853,7 +5853,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_bank_transaction_attachment_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -5927,7 +5927,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_bank_transaction_attachments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -6010,7 +6010,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_bank_transactions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -6084,7 +6084,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_bank_transactions_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -6158,7 +6158,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_bank_transfer\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -6245,7 +6245,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_bank_transfer_attachment_by_file_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -6332,7 +6332,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_bank_transfer_attachment_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -6406,7 +6406,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_bank_transfer_attachments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -6480,7 +6480,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_bank_transfer_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -6557,7 +6557,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_bank_transfers\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -6631,7 +6631,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_batch_payment_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -6708,7 +6708,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_batch_payments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -6782,7 +6782,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_branding_theme\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -6856,7 +6856,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_branding_theme_payment_services\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -6924,7 +6924,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_branding_themes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -6998,7 +6998,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_contact\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -7085,7 +7085,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_contact_attachment_by_file_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -7172,7 +7172,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_contact_attachment_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -7246,7 +7246,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_contact_attachments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -7320,7 +7320,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_contact_by_contact_number\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -7394,7 +7394,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_contact_cis_settings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -7468,7 +7468,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_contact_group\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -7542,7 +7542,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_contact_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -7616,7 +7616,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_contact_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -7702,7 +7702,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_contacts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -7779,7 +7779,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_credit_note\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -7853,7 +7853,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_credit_note_as_pdf\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -7940,7 +7940,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_credit_note_attachment_by_file_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -8027,7 +8027,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_credit_note_attachment_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -8101,7 +8101,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_credit_note_attachments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -8175,7 +8175,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_credit_note_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -8258,7 +8258,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_credit_notes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -8332,7 +8332,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_currencies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -8406,7 +8406,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_employee\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -8483,7 +8483,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_employees\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -8557,7 +8557,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_expense_claim\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -8631,7 +8631,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_expense_claim_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -8708,7 +8708,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_expense_claims\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -8785,7 +8785,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_invoice\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -8859,7 +8859,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_invoice_as_pdf\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -8946,7 +8946,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_invoice_attachment_by_file_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -9033,7 +9033,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_invoice_attachment_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -9107,7 +9107,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_invoice_attachments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -9181,7 +9181,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_invoice_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -9249,7 +9249,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_invoice_reminders\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -9350,7 +9350,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_invoices\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -9427,7 +9427,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_item\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -9501,7 +9501,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_item_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -9581,7 +9581,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_items\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -9655,7 +9655,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_journal\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -9732,7 +9732,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_journals\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -9806,7 +9806,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_linked_transaction\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -9892,7 +9892,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_linked_transactions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -9966,7 +9966,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_manual_journal\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -10053,7 +10053,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_manual_journal_attachment_by_file_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -10140,7 +10140,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_manual_journal_attachment_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -10214,7 +10214,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_manual_journal_attachments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -10294,7 +10294,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_manual_journals\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -10368,7 +10368,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_manual_journals_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -10442,7 +10442,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_online_invoice\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -10510,7 +10510,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_organisation_actions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -10584,7 +10584,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_organisation_cis_settings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -10652,7 +10652,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_organisations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -10726,7 +10726,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_overpayment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -10800,7 +10800,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_overpayment_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -10883,7 +10883,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_overpayments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -10957,7 +10957,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_payment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -11031,7 +11031,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_payment_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -11099,7 +11099,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_payment_services\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -11179,7 +11179,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_payments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -11253,7 +11253,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_prepayment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -11327,7 +11327,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_prepayment_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -11410,7 +11410,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_prepayments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -11484,7 +11484,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_purchase_order\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -11558,7 +11558,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_purchase_order_as_pdf\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -11645,7 +11645,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_purchase_order_attachment_by_file_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -11732,7 +11732,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_purchase_order_attachment_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -11806,7 +11806,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_purchase_order_attachments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -11880,7 +11880,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_purchase_order_by_number\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -11954,7 +11954,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_purchase_order_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -12044,7 +12044,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_purchase_orders\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -12118,7 +12118,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_quote\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -12192,7 +12192,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_quote_as_pdf\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -12279,7 +12279,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_quote_attachment_by_file_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -12366,7 +12366,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_quote_attachment_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -12440,7 +12440,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_quote_attachments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -12514,7 +12514,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_quote_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -12612,7 +12612,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_quotes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -12689,7 +12689,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_receipt\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -12776,7 +12776,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_receipt_attachment_by_file_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -12863,7 +12863,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_receipt_attachment_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -12937,7 +12937,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_receipt_attachments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -13011,7 +13011,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_receipt_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -13091,7 +13091,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_receipts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -13165,7 +13165,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_repeating_invoice\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -13252,7 +13252,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_repeating_invoice_attachment_by_file_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -13339,7 +13339,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_repeating_invoice_attachment_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -13413,7 +13413,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_repeating_invoice_attachments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -13487,7 +13487,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_repeating_invoice_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -13561,7 +13561,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_repeating_invoices\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -13645,7 +13645,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_report_aged_payables_by_contact\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -13729,7 +13729,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_report_aged_receivables_by_contact\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -13803,7 +13803,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_report_ba_sor_gst\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -13871,7 +13871,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_report_ba_sor_gst_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -13964,7 +13964,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_report_balance_sheet\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -14038,7 +14038,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_report_bank_summary\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -14115,7 +14115,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_report_budget_summary\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -14186,7 +14186,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_report_executive_summary\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -14288,7 +14288,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_report_profit_and_loss\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -14359,7 +14359,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_report_ten_ninety_nine\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -14433,7 +14433,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_report_trial_balance\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -14510,7 +14510,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_tax_rates\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -14587,7 +14587,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_tracking_categories\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -14661,7 +14661,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_tracking_category\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -14735,7 +14735,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_user\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -14812,7 +14812,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_users\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -14894,7 +14894,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -14982,7 +14982,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_account_attachment_by_file_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -15067,7 +15067,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_bank_transaction\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -15155,7 +15155,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_bank_transaction_attachment_by_file_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -15241,7 +15241,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_bank_transfer_attachment_by_file_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -15321,7 +15321,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_contact\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -15407,7 +15407,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_contact_attachment_by_file_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -15489,7 +15489,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_contact_group\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -15574,7 +15574,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_credit_note\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -15662,7 +15662,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_credit_note_attachment_by_file_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -15744,7 +15744,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_expense_claim\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -15829,7 +15829,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_invoice\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -15917,7 +15917,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_invoice_attachment_by_file_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -16002,7 +16002,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_item\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -16084,7 +16084,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_linked_transaction\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -16166,7 +16166,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_manual_journal\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -16254,7 +16254,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_manual_journal_attachment_by_file_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -16336,7 +16336,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_or_create_bank_transactions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -16415,7 +16415,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_or_create_contacts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -16497,7 +16497,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_or_create_credit_notes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -16576,7 +16576,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_or_create_employees\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -16658,7 +16658,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_or_create_invoices\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -16740,7 +16740,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_or_create_items\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -16819,7 +16819,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_or_create_manual_journals\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -16898,7 +16898,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_or_create_purchase_orders\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -16977,7 +16977,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_or_create_quotes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -17059,7 +17059,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_purchase_order\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -17147,7 +17147,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_purchase_order_attachment_by_file_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -17229,7 +17229,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_quote\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -17317,7 +17317,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_quote_attachment_by_file_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -17402,7 +17402,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_receipt\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -17490,7 +17490,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_receipt_attachment_by_file_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -17578,7 +17578,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_repeating_invoice_attachment_by_file_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -17654,7 +17654,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_tax_rate\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -17736,7 +17736,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_tracking_category\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -17824,7 +17824,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_tracking_options\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

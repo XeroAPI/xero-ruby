@@ -88,7 +88,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "ProjectApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProjectApi#create_project\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -172,7 +172,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "ProjectApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProjectApi#create_time_entry\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -252,7 +252,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, "ProjectApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProjectApi#delete_time_entry\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -328,7 +328,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "ProjectApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProjectApi#get_project\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -412,7 +412,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "ProjectApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProjectApi#get_project_users\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -505,7 +505,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "ProjectApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProjectApi#get_projects\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -587,7 +587,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "ProjectApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProjectApi#get_task\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -672,7 +672,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "ProjectApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProjectApi#get_tasks\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -778,7 +778,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "ProjectApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProjectApi#get_time_entries\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -860,7 +860,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "ProjectApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProjectApi#get_time_entry\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -944,7 +944,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, "ProjectApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProjectApi#patch_project\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1028,7 +1028,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "ProjectApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProjectApi#update_project\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1116,7 +1116,7 @@ module XeroRuby
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "ProjectApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProjectApi#update_time_entry\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
