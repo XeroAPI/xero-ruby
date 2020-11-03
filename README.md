@@ -28,6 +28,7 @@ Xero Ruby SDK supports Xero's OAuth2.0 authentication and supports the following
 We have two apps showing SDK usage.
 * https://github.com/XeroAPI/xero-ruby-oauth2-starter (**Sinatra** - session based / getting started)
 * https://github.com/XeroAPI/xero-ruby-oauth2-app (**Rails** - token management / full examples)
+
 ![sample-app](https://i.imgur.com/OOEn55G.png)
 
 ## Looking for OAuth 1.0a support?
