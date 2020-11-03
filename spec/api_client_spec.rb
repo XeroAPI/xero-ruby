@@ -56,7 +56,7 @@ describe XeroRuby::ApiClient do
       api_client = XeroRuby::ApiClient.new
       headers = { 'Content-Type' => 'application/json' }
       response = double('response', headers: headers, body: '[12, 34]')
-      data = api_client.deserialize(response, 'Array<Integer>')
+      data = api_client.deserialize(response, 'Array<Integer>', 'AccountingApi')
       expect(data).to be_instance_of(Array)
       expect(data).to eq([12, 34])
     end
@@ -65,7 +65,7 @@ describe XeroRuby::ApiClient do
       api_client = XeroRuby::ApiClient.new
       headers = { 'Content-Type' => 'application/json' }
       response = double('response', headers: headers, body: '[[12, 34], [56]]')
-      data = api_client.deserialize(response, 'Array<Array<Integer>>')
+      data = api_client.deserialize(response, 'Array<Array<Integer>>', 'AccountingApi')
       expect(data).to be_instance_of(Array)
       expect(data).to eq([[12, 34], [56]])
     end
@@ -74,7 +74,7 @@ describe XeroRuby::ApiClient do
       api_client = XeroRuby::ApiClient.new
       headers = { 'Content-Type' => 'application/json' }
       response = double('response', headers: headers, body: '{"message": "Hello"}')
-      data = api_client.deserialize(response, 'Hash<String, String>')
+      data = api_client.deserialize(response, 'Hash<String, String>', 'AccountingApi')
       expect(data).to be_instance_of(Hash)
       expect(data).to eq(:message => 'Hello')
     end
