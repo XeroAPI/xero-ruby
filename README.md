@@ -29,7 +29,7 @@ We have two apps showing SDK usage.
 * https://github.com/XeroAPI/xero-ruby-oauth2-starter (**Sinatra** - session based / getting started)
 * https://github.com/XeroAPI/xero-ruby-oauth2-app (**Rails** - token management / full examples)
 
-![sample-app](https://i.imgur.com/OOEn55G.png)
+<a href="https://github.com/XeroAPI/xero-ruby-oauth2-app" rel="xero-ruby sample app">![xero-ruby sample app]https://i.imgur.com/OOEn55G.png)</a>
 
 ## Looking for OAuth 1.0a support?
 Check out the [Xeroizer](https://github.com/waynerobinson/xeroizer) gem (maintained by community).
