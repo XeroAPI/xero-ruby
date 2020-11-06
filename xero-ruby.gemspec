@@ -33,6 +33,7 @@ Gem::Specification.new do |s|
 
   s.files         = `find *`.split("\n").uniq.sort.select { |f| !f.empty? }
   s.test_files    = `find spec/*`.split("\n")
+  s.files         = Dir.glob("{lib}/**/*") + %w(README.md)
   s.executables   = []
   s.require_paths = ["lib"]
 end
