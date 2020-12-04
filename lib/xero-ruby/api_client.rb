@@ -296,17 +296,6 @@ module XeroRuby
     def deserialize(response, return_type, api_client)
       body = response.body
 
-
-      puts '*******************'
-      puts "response: #{response.body}"
-      puts "\n"
-      puts "return_type: #{return_type}"
-      puts "\n"
-      puts "api_client: #{api_client}"
-      puts "\n"
-      puts '*******************'
-
-      
       # handle file downloading - return the File instance processed in request callbacks
       # note that response body is empty when the file is written in chunks in request on_body callback
       return @tempfile if return_type == 'File'

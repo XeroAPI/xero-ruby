@@ -91,7 +91,8 @@ module XeroRuby::Accounting
     CISLABOURINCOME = "CISLABOURINCOME".freeze
     CISLIABILITY = "CISLIABILITY".freeze
     CISMATERIALS = "CISMATERIALS".freeze
-    EMPTY = "".freeze
+    # duplicate definitions generated: https://github.com/XeroAPI/xero-ruby/issues/53#issuecomment-668893305
+    # EMPTY = "".freeze
     
     # Shown if set
     attr_accessor :reporting_code
