@@ -151,6 +151,8 @@ module XeroRuby::Files
     # @param string value Value to be deserialized
     # @return [Object] Deserialized data
     def _deserialize(type, value)
+      puts "type: #{type}"
+      puts "value: #{value}"
       case type.to_sym
       when :DateTime
         DateTime.parse(parse_date(value))

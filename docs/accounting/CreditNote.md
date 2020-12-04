@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **type** | **String** | See Credit Note Types | [optional] 
 **contact** | [**Contact**](Contact.md) |  | [optional] 
 **date** | **Date** | The date the credit note is issued YYYY-MM-DD. If the Date element is not specified then it will default to the current date based on the timezone setting of the organisation | [optional] 
+**due_date** | **Date** | Date invoice is due – YYYY-MM-DD | [optional] 
 **status** | **String** | See Credit Note Status Codes | [optional] 
 **line_amount_types** | [**LineAmountTypes**](LineAmountTypes.md) |  | [optional] 
 **line_items** | [**Array&lt;LineItem&gt;**](LineItem.md) | See Invoice Line Items | [optional] 
@@ -39,6 +40,7 @@ require 'XeroRuby::Accounting'
 instance = XeroRuby::Accounting::CreditNote.new(type: null,
                                  contact: null,
                                  date: null,
+                                 due_date: null,
                                  status: null,
                                  line_amount_types: null,
                                  line_items: null,

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**payment_method** | **String** | The payment method code | 
+**payment_method** | **String** | The payment method code | [optional] 
 **bank_accounts** | [**Array&lt;BankAccount&gt;**](BankAccount.md) |  | [optional] 
 
 ## Code Sample

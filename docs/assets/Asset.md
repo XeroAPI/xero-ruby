@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **asset_number** | **String** | Must be unique. | [optional] 
 **purchase_date** | **Date** | The date the asset was purchased YYYY-MM-DD | [optional] 
 **purchase_price** | **BigDecimal** | The purchase price of the asset | [optional] 
+**disposal_date** | **Date** | The date the asset was disposed | [optional] 
 **disposal_price** | **BigDecimal** | The price the asset was disposed at | [optional] 
 **asset_status** | [**AssetStatus**](AssetStatus.md) |  | [optional] 
 **warranty_expiry_date** | **String** | The date the asset’s warranty expires (if needed) YYYY-MM-DD | [optional] 
@@ -31,6 +32,7 @@ instance = XeroRuby::Assets::Asset.new(asset_id: 3b5b3a38-5649-495f-87a1-14a4e59
                                  asset_number: FA-0013,
                                  purchase_date: null,
                                  purchase_price: 1000.0000,
+                                 disposal_date: null,
                                  disposal_price: 1.0000,
                                  asset_status: null,
                                  warranty_expiry_date: ca4c6b39-4f4f-43e8-98da-5e1f350a6694,
