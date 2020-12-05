@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **benefit_lines** | [**Array&lt;BenefitLine&gt;**](BenefitLine.md) |  | [optional] 
 **payment_lines** | [**Array&lt;PaymentLine&gt;**](PaymentLine.md) |  | [optional] 
 **employee_tax_lines** | [**Array&lt;TaxLine&gt;**](TaxLine.md) |  | [optional] 
+**employer_tax_lines** | [**Array&lt;TaxLine&gt;**](TaxLine.md) |  | [optional] 
 **court_order_lines** | [**Array&lt;CourtOrderLine&gt;**](CourtOrderLine.md) |  | [optional] 
 
 ## Code Sample
@@ -63,6 +64,7 @@ instance = XeroRuby::PayrollUk::Payslip.new(pay_slip_id: null,
                                  benefit_lines: null,
                                  payment_lines: null,
                                  employee_tax_lines: null,
+                                 employer_tax_lines: null,
                                  court_order_lines: null)
 ```
 

@@ -191,6 +191,7 @@ Method | HTTP request | Description
 [**get_tracking_category**](AccountingApi.md#get_tracking_category) | **GET** /TrackingCategories/{TrackingCategoryID} | Allows you to retrieve tracking categories and options for specified category
 [**get_user**](AccountingApi.md#get_user) | **GET** /Users/{UserID} | Allows you to retrieve a specified user
 [**get_users**](AccountingApi.md#get_users) | **GET** /Users | Allows you to retrieve users
+[**post_setup**](AccountingApi.md#post_setup) | **POST** /Setup | Allows you to set the chart of accounts, the conversion date and conversion balances
 [**update_account**](AccountingApi.md#update_account) | **POST** /Accounts/{AccountID} | Allows you to update a chart of accounts
 [**update_account_attachment_by_file_name**](AccountingApi.md#update_account_attachment_by_file_name) | **POST** /Accounts/{AccountID}/Attachments/{FileName} | Allows you to update Attachment on Account by Filename
 [**update_bank_transaction**](AccountingApi.md#update_bank_transaction) | **POST** /BankTransactions/{BankTransactionID} | Allows you to update a single spend or receive money transaction
@@ -12007,7 +12008,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  date: '2019-11-01', # String | The date of the Balance Sheet report
+  date: Date.parse('2019-11-01'), # Date | The date of the Balance Sheet report
 
   periods: 3, # Integer | The number of periods for the Balance Sheet report
 
@@ -12037,7 +12038,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **date** | **String**| The date of the Balance Sheet report | [optional] 
+ **date** | **Date**| The date of the Balance Sheet report | [optional] 
  **periods** | **Integer**| The number of periods for the Balance Sheet report | [optional] 
  **timeframe** | **String**| The period size to compare to (MONTH, QUARTER, YEAR) | [optional] 
  **tracking_option_id1** | **String**| The tracking option 1 for the Balance Sheet report | [optional] 
@@ -12844,6 +12845,70 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## post_setup
+
+> ImportSummaryObject post_setup(xero_tenant_id, setup)
+
+Allows you to set the chart of accounts, the conversion date and conversion balances
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# You need to namespace your api method call to one of the following api sets
+# [:accounting_api, :assets_api, :projects_api, :files_api, :payroll_au_api, :payroll_nz_api, :payroll_uk_api]
+
+api_instance = xero_client.<api_set>
+
+
+
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+setup = { "ConversionDate": {}, "ConversionBalances": [], "Accounts": [ { "Code": "200", "Name": "Sales", "Type": "SALES", "ReportingCode": "REV.TRA.GOO" }, { "Code": "400", "Name": "Advertising", "Type": "OVERHEADS", "ReportingCode": "EXP" }, { "Code": "610", "Name": "Accounts Receivable", "Type": "CURRENT", "SystemAccount": "DEBTORS", "ReportingCode": "ASS.CUR.REC.TRA" }, { "Code": "800", "Name": "Accounts Payable", "Type": "CURRLIAB", "SystemAccount": "CREDITORS", "ReportingCode": "LIA.CUR.PAY" } ] } # Setup | Object including an accounts array, a conversion balances array and a conversion date object in body of request
+begin
+  #Allows you to set the chart of accounts, the conversion date and conversion balances
+  result = api_instance.post_setup(xero_tenant_id, setup)
+  p result
+rescue XeroRuby::Accounting::ApiError => e
+  puts "Exception when calling AccountingApi->post_setup: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **setup** | [**Setup**](Setup.md)| Object including an accounts array, a conversion balances array and a conversion date object in body of request | 
+
+### Return type
+
+[**ImportSummaryObject**](ImportSummaryObject.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
