@@ -34,6 +34,7 @@ module XeroRuby
       @client_secret = credentials[:client_secret]
       @redirect_uri = credentials[:redirect_uri]
       @scopes = credentials[:scopes]
+      @state = credentials[:state]
       @config = config
       @user_agent = "xero-ruby-#{VERSION}"
       @default_headers = {
@@ -43,7 +44,7 @@ module XeroRuby
     end
 
     def authorization_url
-      url = "#{@config.login_url}?response_type=code&client_id=#{@client_id}&redirect_uri=#{@redirect_uri}&scope=#{@scopes}"
+      url = "#{@config.login_url}?response_type=code&client_id=#{@client_id}&redirect_uri=#{@redirect_uri}&scope=#{@scopes}&state=#{@state}"
       return url
     end
 
@@ -76,7 +77,7 @@ module XeroRuby
       @config.base_url = @config.payroll_nz_url
       XeroRuby::PayrollNzApi.new(self)
     end
-    
+
     def payroll_uk_api
       @config.base_url = @config.payroll_uk_url
       XeroRuby::PayrollUkApi.new(self)
