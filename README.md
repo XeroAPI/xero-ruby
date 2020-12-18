@@ -151,7 +151,7 @@ require 'jwt'
 
 def token_expired?
   token_expiry = Time.at(decoded_access_token['exp'])
-  token_expiry > Time.now
+  token_expiry < Time.now
 end
 
 def decoded_access_token
