@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **sub_total** | **BigDecimal** | The subtotal of the credit note excluding taxes | [optional] 
 **total_tax** | **BigDecimal** | The total tax on the credit note | [optional] 
 **total** | **BigDecimal** | The total of the Credit Note(subtotal + total tax) | [optional] 
+**cis_deduction** | **BigDecimal** | CIS deduction for UK contractors | [optional] 
+**cis_rate** | **BigDecimal** | CIS Deduction rate for the organisation | [optional] 
 **updated_date_utc** | **DateTime** | UTC timestamp of last update to the credit note | [optional] 
 **currency_code** | [**CurrencyCode**](CurrencyCode.md) |  | [optional] 
 **fully_paid_on_date** | **Date** | Date when credit note was fully paid(UTC format) | [optional] 
@@ -47,6 +49,8 @@ instance = XeroRuby::Accounting::CreditNote.new(type: null,
                                  sub_total: null,
                                  total_tax: null,
                                  total: null,
+                                 cis_deduction: null,
+                                 cis_rate: null,
                                  updated_date_utc: /Date(1573755038314)/,
                                  currency_code: null,
                                  fully_paid_on_date: null,
