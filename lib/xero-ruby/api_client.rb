@@ -174,6 +174,7 @@ module XeroRuby
         if @config.debugging
           @config.logger.debug "HTTP response body ~BEGIN~\n#{response.body}\n~END~\n"
         end
+
         return_error(response) unless response.success?
       rescue Faraday::TimeoutError
         fail ApiError.new('Connection timed out')
