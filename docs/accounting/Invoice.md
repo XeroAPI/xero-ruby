@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **due_date** | **Date** | Date invoice is due – YYYY-MM-DD | [optional] 
 **line_amount_types** | [**LineAmountTypes**](LineAmountTypes.md) |  | [optional] 
 **invoice_number** | **String** | ACCREC – Unique alpha numeric code identifying invoice (when missing will auto-generate from your Organisation Invoice Settings) (max length &#x3D; 255) | [optional] 
-**reference** | **String** | ACCREC only – additional reference number (max length &#x3D; 255) | [optional] 
+**reference** | **String** | ACCREC only – additional reference number | [optional] 
 **branding_theme_id** | **String** | See BrandingThemes | [optional] 
 **url** | **String** | URL link to a source document – shown as “Go to [appName]” in the Xero app | [optional] 
 **currency_code** | [**CurrencyCode**](CurrencyCode.md) |  | [optional] 
@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **expected_payment_date** | **Date** | Shown on sales invoices (Accounts Receivable) when this has been set | [optional] 
 **planned_payment_date** | **Date** | Shown on bills (Accounts Payable) when this has been set | [optional] 
 **cis_deduction** | **BigDecimal** | CIS deduction for UK contractors | [optional] 
+**cis_rate** | **BigDecimal** | CIS Deduction rate for the organisation | [optional] 
 **sub_total** | **BigDecimal** | Total of invoice excluding taxes | [optional] 
 **total_tax** | **BigDecimal** | Total tax on invoice | [optional] 
 **total** | **BigDecimal** | Total of Invoice tax inclusive (i.e. SubTotal + TotalTax). This will be ignored if it doesn’t equal the sum of the LineAmounts | [optional] 
@@ -66,6 +67,7 @@ instance = XeroRuby::Accounting::Invoice.new(type: null,
                                  expected_payment_date: null,
                                  planned_payment_date: null,
                                  cis_deduction: null,
+                                 cis_rate: null,
                                  sub_total: null,
                                  total_tax: null,
                                  total: null,

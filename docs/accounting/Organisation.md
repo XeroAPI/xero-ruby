@@ -33,7 +33,7 @@ Name | Type | Description | Notes
 **_class** | **String** | Organisation Classes describe which plan the Xero organisation is on (e.g. DEMO, TRIAL, PREMIUM) | [optional] 
 **edition** | **String** | BUSINESS or PARTNER. Partner edition organisations are sold exclusively through accounting partners and have restricted functionality (e.g. no access to invoicing) | [optional] 
 **line_of_business** | **String** | Description of business type as defined in Organisation settings | [optional] 
-**addresses** | [**Array&lt;Address&gt;**](Address.md) | Address details for organisation – see Addresses | [optional] 
+**addresses** | [**Array&lt;AddressForOrganisation&gt;**](AddressForOrganisation.md) | Address details for organisation – see Addresses | [optional] 
 **phones** | [**Array&lt;Phone&gt;**](Phone.md) | Phones details for organisation – see Phones | [optional] 
 **external_links** | [**Array&lt;ExternalLink&gt;**](ExternalLink.md) | Organisation profile links for popular services such as Facebook,Twitter, GooglePlus and LinkedIn. You can also add link to your website here. Shown if Organisation settings  is updated in Xero. See ExternalLinks below | [optional] 
 **payment_terms** | [**PaymentTerm**](PaymentTerm.md) |  | [optional] 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cis_enabled** | **Boolean** | Boolean that describes if the contact is a CIS Subcontractor | [optional] 
-**rate** | **Integer** | CIS Deduction rate for the contact if he is a subcontractor. If the contact is not CISEnabled, then the rate is not returned | [optional] 
+**rate** | **BigDecimal** | CIS Deduction rate for the contact if he is a subcontractor. If the contact is not CISEnabled, then the rate is not returned | [optional] 
 
 ## Code Sample
 
