@@ -61,7 +61,8 @@ creds = {
   client_id: ENV['CLIENT_ID'],
   client_secret: ENV['CLIENT_SECRET'],
   redirect_uri: ENV['REDIRECT_URI'],
-  scopes: ENV['SCOPES']
+  scopes: ENV['SCOPES'],
+  state: "this-can-be-a-custom-state-parameter" # optional
 }
 xero_client ||= XeroRuby::ApiClient.new(credentials: creds)
 ```
@@ -86,6 +87,9 @@ In your callback route catch, calling `get_token_set_from_callback` will exchang
 token_set = xero_client.get_token_set_from_callback(params)
 
 # save token_set JSON in a datastore in relation to the user authentication
+
+puts params['state']
+=> "this-can-be-a-custom-state-parameter"
 ```
 
 ## Making API calls once you have a token_set
