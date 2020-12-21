@@ -2,7 +2,7 @@ require './spec_helper'
 
 describe XeroRuby::ApiClient do
   context 'initialization' do
-    context 'URL stuff' do
+    context 'URL config' do
       context 'host' do
         it 'removes http from host' do
           XeroRuby.configure { |c| c.host = 'http://example.com' }
@@ -34,6 +34,20 @@ describe XeroRuby::ApiClient do
         it "ends up as a blank string if nil" do
           XeroRuby.configure { |c| c.base_path = nil }
           expect(XeroRuby::Configuration.default.base_path).to eq('')
+        end
+      end
+
+      context "creates a valid authorization_url" do
+        it "passes through attributes" do
+          creds = {
+            client_id: 'abc',
+            client_secret: '123',
+            redirect_uri: 'https://mydomain.com/callback',
+            scopes: 'openid profile email accounting.transactions accounting.settings',
+            state: 'i-am-customer-state'
+          }
+          api_client = XeroRuby::ApiClient.new(credentials: creds)
+          expect(api_client.authorization_url).to eq('https://login.xero.com/identity/connect/authorize?response_type=code&client_id=abc&redirect_uri=https://mydomain.com/callback&scope=openid profile email accounting.transactions accounting.settings&state=i-am-customer-state')
         end
       end
     end
