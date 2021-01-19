@@ -53,6 +53,49 @@ describe XeroRuby::ApiClient do
     end
   end
 
+  describe 'api_client helper functions' do
+    let(:api_client) { XeroRuby::ApiClient.new }
+    let(:token_set) { {access_token: 'eyx.jibberjabber', refresh_token: 'REFRESHMENTS'} }
+    let(:connections) {
+        [{
+        "id" => "xxx-yyy-zzz",
+        "tenantId" => "xxx-yyy-zzz",
+        "tenantType" => "ORGANISATION",
+        "tenantName" => "Demo Company (US)",
+        "createdDateUtc" => "2019-11-01T20:08:03.0766400",
+        "updatedDateUtc" => "2020-04-15T22:37:10.4943410"
+      }]
+    }
+
+    before do 
+      allow(api_client).to receive(:token_request).and_return(token_set)
+    end
+
+    it "#set_token_set" do
+      api_client.set_token_set(token_set)
+      expect(api_client.token_set).to eq(token_set)
+    end
+
+    it "#set_access_token" do
+      api_client.set_access_token(token_set[:access_token])
+      expect(api_client.access_token).to eq(token_set[:access_token])
+    end
+
+    it "#refresh_token_set" do
+      expect(api_client.refresh_token_set(token_set)).to eq(token_set)
+    end
+
+    it "#connections" do
+      expect(api_client).to receive(:connections).and_return(connections)
+      expect(api_client.connections).to eq(connections)
+    end
+
+    it "#disconnect" do
+      expect(api_client).to receive(:disconnect).with(connections[0]['id']).and_return(connections)
+      expect(api_client.disconnect(connections[0]['id'])).to eq(connections)
+    end
+  end
+
   describe '#deserialize' do
     it "handles Array<Integer>" do
       api_client = XeroRuby::ApiClient.new
