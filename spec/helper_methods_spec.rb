@@ -6,21 +6,35 @@ describe 'shared helper methdods' do
     let(:model_instance) {XeroRuby::Accounting::Account.new}
 
     it 'can parse from ms date with backslash' do
-      datestring = "\/Date(1401062400000+0000)\/"
+      datestring = "\/Date(1519851689297+0000)\/"
       date = model_instance.parse_date(datestring)
-      expect(date).to eq('2014-05-25T18:00:00-0600')
+      expect(date).to eq('2018-02-28T21:01:29+0000')
     end
     
     it 'can parse from a MS date without extra backslashes' do
       datestring = "/Date(1285721714157+0000)/"
       date = model_instance.parse_date(datestring)
-      expect(date).to eq('2010-09-28T18:55:14-0600')
+      expect(date).to eq('2010-09-29T00:55:14+0000')
     end
 
-    it 'can parse from a utc string' do
-      datestring = "2020-10-09T00:00:00"
-      date = model_instance.parse_date(datestring)
-      expect(date).to eq('2020-10-09T00:00:00+0000')
+    describe 'valid UTC strings (from some payroll apis)' do
+      it 'can parse from a utc string' do
+        datestring = "2020-05-08T17:44:30"
+        date = model_instance.parse_date(datestring)
+        expect(date).to eq('2020-05-08T17:44:30')
+      end
+
+      it 'can parse with a timezone to correct UTC day' do
+        datestring = "2020-11-05T19:14:49.4084255"
+        date = model_instance.parse_date(datestring)
+        expect(date).to eq('2020-11-05T19:14:49')
+      end
+
+      it 'valid utc strings drop timezone' do
+        datestring = "2020-06-02T18:47:26"
+        date = model_instance.parse_date(datestring)
+        expect(date).to eq(datestring)
+      end
     end
   end
 end

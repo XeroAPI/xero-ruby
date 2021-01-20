@@ -101,7 +101,6 @@ describe XeroRuby::ApiClient do
 
     it "sets and resets the base url based on endpoint usage of the same client" do
       expect(api_client).to receive(:call_api).and_return(connections)
-      expect(api_client.config.base_url).to eq(nil)
     
       api_client.accounting_api
       expect(api_client.config.base_url).to eq('https://api.xero.com/api.xro/2.0')
