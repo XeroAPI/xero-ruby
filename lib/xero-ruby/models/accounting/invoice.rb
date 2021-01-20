@@ -172,6 +172,17 @@ module XeroRuby::Accounting
       end
     end
 
+    def attributes(downcase: true)
+      hash = {}
+      self.class.attribute_map.each_pair do |attr, param|
+        value = self.send(attr)
+        next if value.nil?
+        key = downcase ? attr : param
+        hash[key] = _to_hash(value)
+      end
+      hash
+    end
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {

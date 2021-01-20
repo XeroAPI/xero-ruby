@@ -37,4 +37,19 @@ describe 'shared helper methdods' do
       end
     end
   end
+
+  describe '#attributes' do
+    let(:model_instance) {
+      XeroRuby::Accounting::Invoice.new(
+        type: 'ACCPAY',
+        total_discount: 100,
+        invoice_number: 'abc-123',
+        currency_code: 'USD'
+      )
+    }
+
+    it 'can serialize attributes into a snake_case hash' do
+      expect(model_instance.attributes).to eq({currency_code: "USD", has_attachments: false, has_errors: false, invoice_number: "abc-123", total_discount: 100, type: "ACCPAY"})
+    end
+  end
 end
