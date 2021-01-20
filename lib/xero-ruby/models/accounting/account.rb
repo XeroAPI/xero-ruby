@@ -90,7 +90,6 @@ module XeroRuby::Accounting
     CISLABOURINCOME = "CISLABOURINCOME".freeze
     CISLIABILITY = "CISLIABILITY".freeze
     CISMATERIALS = "CISMATERIALS".freeze
-    # duplicate definitions generated: https://github.com/XeroAPI/xero-ruby/issues/53#issuecomment-668893305
     # EMPTY = "".freeze
     
     # Shown if set
@@ -131,17 +130,6 @@ module XeroRuby::Accounting
       def valid?(value)
         !value || allowable_values.include?(value)
       end
-    end
-
-    def attributes(downcase: true)
-      hash = {}
-      self.class.attribute_map.each_pair do |attr, param|
-        value = self.send(attr)
-        next if value.nil?
-        key = downcase ? attr : param
-        hash[key] = _to_hash(value)
-      end
-      hash
     end
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -495,12 +483,13 @@ module XeroRuby::Accounting
 
     # Returns the object in the form of hash
     # @return [Hash] Returns the object in the form of hash
-    def to_hash
+    def to_hash(downcase: true)
       hash = {}
       self.class.attribute_map.each_pair do |attr, param|
         value = self.send(attr)
         next if value.nil?
-        hash[param] = _to_hash(value)
+        key = downcase ? attr : param
+        hash[key] = _to_hash(value)
       end
       hash
     end

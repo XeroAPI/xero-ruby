@@ -143,7 +143,7 @@ module XeroRuby
     def disconnect(connection_id)
       @config.base_url = 'https://api.xero.com'
       opts = { :header_params => {'Content-Type': 'application/json'}, :auth_names => ['OAuth2'] }
-      call_api(:DELETE, "/connections/#{connection_id}", nil, opts)
+      call_api(:DELETE, '/connections/#{connection_id}', nil, opts)
       connections
     end
 

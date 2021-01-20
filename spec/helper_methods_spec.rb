@@ -38,8 +38,8 @@ describe 'shared helper methdods' do
     end
   end
 
-  describe '#attributes' do
-    let(:model_instance) {
+  describe '#to_hash' do
+    let(:invoice) {
       XeroRuby::Accounting::Invoice.new(
         type: 'ACCPAY',
         total_discount: 100,
@@ -48,8 +48,23 @@ describe 'shared helper methdods' do
       )
     }
 
-    it 'can serialize attributes into a snake_case hash' do
-      expect(model_instance.attributes).to eq({currency_code: "USD", has_attachments: false, has_errors: false, invoice_number: "abc-123", total_discount: 100, type: "ACCPAY"})
+    let(:contact) {
+      XeroRuby::Accounting::Contact.new(
+        account_number: 'abc-123',
+        contact_status: XeroRuby::Accounting::Contact::ACTIVE,
+        name: 'Contact Name',
+        first_name: 'Contact',
+        last_name: 'Name',
+        email_address: 'email@gmail.com'
+      )
+    }
+
+    it 'can serialize invoice attributes into a snake_case hash' do
+      expect(invoice.to_hash).to eq({currency_code: "USD", has_attachments: false, has_errors: false, invoice_number: "abc-123", total_discount: 100, type: "ACCPAY"})
+    end
+
+    it 'can serialize contact attributes into a snake_case hash' do
+      expect(contact.to_hash).to eq({account_number: "abc-123", contact_status: "ACTIVE", email_address: "email@gmail.com", first_name: 'Contact', has_attachments: false, has_validation_errors: false, last_name: "Name", name: "Contact Name"})
     end
   end
 end
