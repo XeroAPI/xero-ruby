@@ -10,6 +10,8 @@ OpenAPI Generator version: 4.3.1
 =end
 
 # Common files
+require 'xero-ruby/string_serialization'
+require 'xero-ruby/where'
 require 'xero-ruby/api_client'
 require 'xero-ruby/api_error'
 require 'xero-ruby/version'

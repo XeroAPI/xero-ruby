@@ -18,6 +18,8 @@ require 'faraday'
 
 module XeroRuby
   class ApiClient
+    include StringSerialization
+
     # The Configuration object holding settings to be used in the API client.
     attr_accessor :config
 
@@ -499,55 +501,6 @@ module XeroRuby
       end
     end
 
-    # START - Re-serializes snake_cased params to PascalCase required by XeroAPI
-    def to_camel_keys(value = self)
-      case value
-      when Array
-        value.map { |v| to_camel_keys(v) }
-      when Hash
-        Hash[value.map { |k, v| [camelize_key(k), to_camel_keys(v)] }]
-      else
-        value
-      end
-    end
-
-    def camelize_key(key, first_upper = true)
-      if key.is_a? Symbol
-        camelize(key.to_s, first_upper).to_sym
-      elsif key.is_a? String
-        camelize(key, first_upper)
-      else
-        key # can't camelize anything except strings and symbols
-      end
-    end
-
-    def camelize(word, first_upper = true)
-      if first_upper
-        str = word.to_s
-        str = gsubbed(str, /(?:^|_)([^_\s]+)/)
-        str = gsubbed(str, %r{/([^/]*)}, "::")
-        str
-      else
-        parts = word.split("_", 2)
-        parts[0] << camelize(parts[1]) if parts.size > 1
-        parts[0] || ""
-      end
-    end
-
-    def gsubbed(str, pattern, extra = "")
-      key_map_scronyms = {}
-      str = str.gsub(pattern) do
-        extra + (key_map_scronyms[Regexp.last_match(1)] || capitalize_first(Regexp.last_match(1)))
-      end
-      str
-    end
-
-    def capitalize_first(word)
-      split = word.split('')
-      "#{split[0].capitalize}#{split[1..-1].join}"
-    end
-    # END - Re-serializes snake_cased params to PascalCase required by XeroAPI
-
     # Build parameter value according to the given collection format.
     # @param [String] collection_format one of :csv, :ssv, :tsv, :pipes and :multi
     def build_collection_param(param, collection_format)
@@ -569,36 +522,7 @@ module XeroRuby
     end
 
     def parameterize_where(where_opts)
-      where_opts.map do |k,v|
-        case v
-        when Array
-          operator = v.first
-          query = v.last
-          if query.is_a?(Date)
-            "#{camelize_key(k)} #{operator} DateTime(#{query.strftime("%Y,%m,%d")})"
-          elsif [Float, Integer].member?(query.class)
-            %{#{camelize_key(k)} #{operator} #{query}}
-          elsif [true, false].member?(query)
-            %{#{camelize_key(k)} #{operator} #{query}}
-          else
-            if k == :contact_id
-              %{Contact.ContactID #{operator} guid("#{query}")}
-            elsif k == :contact_number
-              %{Contact.ContactNumber #{operator} "#{query}"}
-            else
-              %{#{camelize_key(k)} #{operator} "#{query}"}
-            end
-          end
-        when Range
-          if v.first.is_a?(DateTime) || v.first.is_a?(Date) || v.first.is_a?(Time)
-            "#{camelize_key(k)} >= DateTime(#{v.first.strftime("%Y,%m,%d")}) AND #{camelize_key(k)} <= DateTime(#{v.last.strftime("%Y,%m,%d")})" 
-          else
-            "#{camelize_key(k)} >= #{v.first} AND #{camelize_key(k)} <= #{v.last}"
-          end
-        else
-          %{#{camelize_key(k)} #{v}}
-        end
-      end.join(' AND ')
+      Where.new(where_opts).to_param
     end
   end
 end
