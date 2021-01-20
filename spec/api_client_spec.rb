@@ -86,13 +86,46 @@ describe XeroRuby::ApiClient do
     end
 
     it "#connections" do
-      expect(api_client).to receive(:connections).and_return(connections)
-      expect(api_client.connections).to eq(connections)
+      expect(api_client).to receive(:call_api).and_return(connections)
+      expect(api_client.config.base_url).to eq(nil)
+      expect(api_client.connections).to eq(connections[0])
+      expect(api_client.config.base_url).to eq('https://api.xero.com')
     end
 
     it "#disconnect" do
-      expect(api_client).to receive(:disconnect).with(connections[0]['id']).and_return(connections)
-      expect(api_client.disconnect(connections[0]['id'])).to eq(connections)
+      expect(api_client).to receive(:call_api).and_return(connections)
+      expect(api_client).to receive(:connections).and_return(connections[0])
+      expect(api_client.disconnect(connections[0]['id'])).to eq(connections[0])
+      expect(api_client.config.base_url).to eq('https://api.xero.com')
+    end
+
+    it "sets and resets the base url based on endpoint usage of the same client" do
+      expect(api_client).to receive(:call_api).and_return(connections)
+      expect(api_client.config.base_url).to eq(nil)
+    
+      api_client.accounting_api
+      expect(api_client.config.base_url).to eq('https://api.xero.com/api.xro/2.0')
+      
+      api_client.asset_api
+      expect(api_client.config.base_url).to eq('https://api.xero.com/assets.xro/1.0')
+      
+      api_client.project_api
+      expect(api_client.config.base_url).to eq('https://api.xero.com/projects.xro/2.0/')
+      
+      api_client.files_api
+      expect(api_client.config.base_url).to eq('https://api.xero.com/files.xro/1.0/')
+      
+      api_client.payroll_au_api
+      expect(api_client.config.base_url).to eq('https://api.xero.com/payroll.xro/1.0/')
+      
+      api_client.payroll_nz_api
+      expect(api_client.config.base_url).to eq('https://api.xero.com/payroll.xro/2.0/')
+      
+      api_client.payroll_uk_api
+      expect(api_client.config.base_url).to eq('https://api.xero.com/payroll.xro/2.0/')
+      
+      api_client.connections
+      expect(api_client.config.base_url).to eq('https://api.xero.com')  
     end
   end
 
