@@ -133,16 +133,14 @@ module XeroRuby
 
     # Connection heplers
     def connections
-      @config.base_url = 'https://api.xero.com'
       opts = { :header_params => {'Content-Type': 'application/json'}, :auth_names => ['OAuth2'] }
-      response = call_api(:GET, '/connections/', nil, opts)
+      response = call_api(:GET, 'https://api.xero.com/connections/', nil, opts)
       response[0]
     end
 
     def disconnect(connection_id)
-      @config.base_url = 'https://api.xero.com'
       opts = { :header_params => {'Content-Type': 'application/json'}, :auth_names => ['OAuth2'] }
-      call_api(:DELETE, "/connections/#{connection_id}", nil, opts)
+      call_api(:DELETE, "https://api.xero.com/connections/#{connection_id}", nil, opts)
       connections
     end
 

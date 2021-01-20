@@ -332,3 +332,24 @@ xero_client.accounting_api.get_bank_transfers(tenant_id, opts).bank_transfers
 The best resource to understanding how to best leverage this SDK is the sample applications showing all the features of the gem.
 > https://github.com/XeroAPI/xero-ruby-oauth2-starter (Sinatra - simple getting started)
 > https://github.com/XeroAPI/xero-ruby-oauth2-app (Rails - full featured examples)
+
+## Contributing
+Most of the repo code is auto generated but PR's on issues you encounter are highly encouraged. Xero maintainers will re-incorporate them back into the core SDK build. To develop this gem locally against your project you can use the following development pattern:
+
+> xero-ruby
+```bash
+gem build
+mv xero-ruby-<vsn>.gem xero-ruby.gem
+pwd
+=> /Users/chris.knight/code/sdks/xero-ruby/
+```
+
+> xero-ruby-oauth2-app
+Replace gem file with local path:
+```bash
+gem 'xero-ruby', path: '/Users/chris.knight/code/sdks/xero-ruby/'
+bundle install
+```
+
+## Testing 
+* `rspec spec/`
