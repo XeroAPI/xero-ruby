@@ -1,10 +1,10 @@
 # xero-ruby
 Xero Ruby SDK for OAuth 2.0 generated from [Xero API OpenAPI Spec](https://github.com/XeroAPI/Xero-OpenAPI).
 
-[![RubyGem](https://img.shields.io/badge/xero--ruby%20gem-v0.2.4-brightgreen)](https://rubygems.org/gems/xero-ruby)
+[![RubyGem](https://img.shields.io/badge/xero--ruby%20gem-v2.6.0-brightgreen)](https://rubygems.org/gems/xero-ruby)
 
 # Documentation
-Xero Ruby SDK supports Xero's OAuth2.0 authentication and supports the following Xero API sets.
+Xero Ruby SDK supports Xero's OAuth2.0 authentication and the following Xero API sets.
 
 ## API Client Docs
 * [Accounting Api Docs](/docs/accounting/AccountingApi.md)
@@ -332,3 +332,24 @@ xero_client.accounting_api.get_bank_transfers(tenant_id, opts).bank_transfers
 The best resource to understanding how to best leverage this SDK is the sample applications showing all the features of the gem.
 > https://github.com/XeroAPI/xero-ruby-oauth2-starter (Sinatra - simple getting started)
 > https://github.com/XeroAPI/xero-ruby-oauth2-app (Rails - full featured examples)
+
+## Contributing
+Most of the repo code is auto generated but PR's on issues you encounter are highly encouraged. Xero maintainers will re-incorporate them back into the core SDK build. To develop this gem locally against your project you can use the following development pattern:
+
+> xero-ruby
+```bash
+gem build
+mv xero-ruby-<vsn>.gem xero-ruby.gem
+pwd
+=> /Users/chris.knight/code/sdks/xero-ruby/
+```
+
+> xero-ruby-oauth2-app
+Replace gem file with local path:
+```bash
+gem 'xero-ruby', path: '/Users/chris.knight/code/sdks/xero-ruby/'
+bundle install
+```
+
+## Testing 
+* `rspec spec/`

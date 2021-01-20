@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**create_bank_transactions**](AccountingApi.md#create_bank_transactions) | **PUT** /BankTransactions | Allows you to create one or more spend or receive money transaction
 [**create_bank_transfer**](AccountingApi.md#create_bank_transfer) | **PUT** /BankTransfers | Allows you to create a bank transfers
 [**create_bank_transfer_attachment_by_file_name**](AccountingApi.md#create_bank_transfer_attachment_by_file_name) | **PUT** /BankTransfers/{BankTransferID}/Attachments/{FileName} | 
-[**create_bank_transfer_history_record**](AccountingApi.md#create_bank_transfer_history_record) | **PUT** /BankTransfers/{BankTransferID}/History | 
+[**create_bank_transfer_history_record**](AccountingApi.md#create_bank_transfer_history_record) | **PUT** /BankTransfers/{BankTransferID}/History | Allows you to create history record for a bank transfers
 [**create_batch_payment**](AccountingApi.md#create_batch_payment) | **PUT** /BatchPayments | Create one or many BatchPayments for invoices
 [**create_batch_payment_history_record**](AccountingApi.md#create_batch_payment_history_record) | **PUT** /BatchPayments/{BatchPaymentID}/History | Allows you to create a history record for a Batch Payment
 [**create_branding_theme_payment_services**](AccountingApi.md#create_branding_theme_payment_services) | **POST** /BrandingThemes/{BrandingThemeID}/PaymentServices | Allow for the creation of new custom payment service for specified Branding Theme
@@ -24,7 +24,7 @@ Method | HTTP request | Description
 [**create_credit_note_attachment_by_file_name**](AccountingApi.md#create_credit_note_attachment_by_file_name) | **PUT** /CreditNotes/{CreditNoteID}/Attachments/{FileName} | Allows you to create Attachments on CreditNote by file name
 [**create_credit_note_history**](AccountingApi.md#create_credit_note_history) | **PUT** /CreditNotes/{CreditNoteID}/History | Allows you to retrieve a history records of an CreditNote
 [**create_credit_notes**](AccountingApi.md#create_credit_notes) | **PUT** /CreditNotes | Allows you to create a credit note
-[**create_currency**](AccountingApi.md#create_currency) | **PUT** /Currencies | 
+[**create_currency**](AccountingApi.md#create_currency) | **PUT** /Currencies | Allows you to create a new currency for an org
 [**create_employees**](AccountingApi.md#create_employees) | **PUT** /Employees | Allows you to create new employees used in Xero payrun
 [**create_expense_claim_history**](AccountingApi.md#create_expense_claim_history) | **PUT** /ExpenseClaims/{ExpenseClaimID}/History | Allows you to create a history records of an ExpenseClaim
 [**create_expense_claims**](AccountingApi.md#create_expense_claims) | **PUT** /ExpenseClaims | Allows you to retrieve expense claims
@@ -197,7 +197,7 @@ Method | HTTP request | Description
 [**update_bank_transaction**](AccountingApi.md#update_bank_transaction) | **POST** /BankTransactions/{BankTransactionID} | Allows you to update a single spend or receive money transaction
 [**update_bank_transaction_attachment_by_file_name**](AccountingApi.md#update_bank_transaction_attachment_by_file_name) | **POST** /BankTransactions/{BankTransactionID}/Attachments/{FileName} | Allows you to update an Attachment on BankTransaction by Filename
 [**update_bank_transfer_attachment_by_file_name**](AccountingApi.md#update_bank_transfer_attachment_by_file_name) | **POST** /BankTransfers/{BankTransferID}/Attachments/{FileName} | 
-[**update_contact**](AccountingApi.md#update_contact) | **POST** /Contacts/{ContactID} | 
+[**update_contact**](AccountingApi.md#update_contact) | **POST** /Contacts/{ContactID} | Allows you to update one contact in a Xero organisation
 [**update_contact_attachment_by_file_name**](AccountingApi.md#update_contact_attachment_by_file_name) | **POST** /Contacts/{ContactID}/Attachments/{FileName} | 
 [**update_contact_group**](AccountingApi.md#update_contact_group) | **POST** /ContactGroups/{ContactGroupID} | Allows you to update a Contact Group
 [**update_credit_note**](AccountingApi.md#update_credit_note) | **POST** /CreditNotes/{CreditNoteID} | Allows you to update a specific credit note
@@ -698,7 +698,7 @@ Name | Type | Description  | Notes
 
 > HistoryRecords create_bank_transfer_history_record(xero_tenant_id, bank_transfer_id, history_records)
 
-
+Allows you to create history record for a bank transfers
 
 ### Example
 
@@ -729,6 +729,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transfer_id = '00000000-0000-0000-000-000000000000' # String | Xero generated unique identifier for a bank transfer
 history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 begin
+  #Allows you to create history record for a bank transfers
   result = api_instance.create_bank_transfer_history_record(xero_tenant_id, bank_transfer_id, history_records)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -1561,7 +1562,7 @@ Name | Type | Description  | Notes
 
 > Currencies create_currency(xero_tenant_id, currency)
 
-
+Allows you to create a new currency for an org
 
 ### Example
 
@@ -1589,6 +1590,7 @@ api_instance = xero_client.<api_set>
 currency = { code: XeroRuby::Accounting::CurrencyCode::USD, description: "United States Dollar" }
 
 begin
+  #Allows you to create a new currency for an org
   result = api_instance.create_currency(xero_tenant_id, currency)
   p result
 rescue XeroRuby::Accounting::ApiError => e
@@ -6557,7 +6559,7 @@ opts = {
 
   order: 'Name ASC', # String | Order by an any element
 
-  i_ds: ['00000000-0000-0000-000-000000000000,00000000-0000-0000-000-000000000000'], # Array<String> | Filter by a comma separated list of ContactIDs. Allows you to retrieve a specific set of contacts in a single call.
+  i_ds: ['&quot;00000000-0000-0000-000-000000000000&quot;'], # Array<String> | Filter by a comma separated list of ContactIDs. Allows you to retrieve a specific set of contacts in a single call.
 
   page: 1, # Integer | e.g. page=1 - Up to 100 contacts will be returned in a single API call.
 
@@ -7109,7 +7111,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  where: "Status==#{XeroRuby::Accounting::Currency::ACTIVE}", # String | Filter by an any element
+  where: "Code==#{XeroRuby::Accounting::CurrencyCode::USD}", # String | Filter by an any element
 
   order: 'Code ASC' # String | Order by an any element
 }
@@ -7247,7 +7249,7 @@ opts = {
 
   where: "Status==#{XeroRuby::Accounting::Employee::ACTIVE}", # String | Filter by an any element
 
-  order: 'ASC' # String | Order by an any element
+  order: 'LastName ASC' # String | Order by an any element
 }
 
 begin
@@ -7982,13 +7984,13 @@ opts = {
 
   order: 'InvoiceNumber ASC', # String | Order by an any element
 
-  i_ds: ['00000000-0000-0000-000-000000000000,00000000-0000-0000-000-000000000000'], # Array<String> | Filter by a comma-separated list of InvoicesIDs.
+  i_ds: ['&quot;00000000-0000-0000-000-000000000000&quot;'], # Array<String> | Filter by a comma-separated list of InvoicesIDs.
 
-  invoice_numbers: ['null'], # Array<String> | Filter by a comma-separated list of InvoiceNumbers.
+  invoice_numbers: ['&quot;INV-001&quot;, &quot;INV-002&quot;'], # Array<String> | Filter by a comma-separated list of InvoiceNumbers.
 
-  contact_i_ds: ['00000000-0000-0000-000-000000000000,00000000-0000-0000-000-000000000000'], # Array<String> | Filter by a comma-separated list of ContactIDs.
+  contact_i_ds: ['&quot;00000000-0000-0000-000-000000000000&quot;'], # Array<String> | Filter by a comma-separated list of ContactIDs.
 
-  statuses: ['null'], # Array<String> | Filter by a comma-separated list Statuses. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter.
+  statuses: ['&quot;DRAFT&quot;, &quot;SUBMITTED&quot;'], # Array<String> | Filter by a comma-separated list Statuses. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter.
 
   page: 1, # Integer | e.g. page=1 – Up to 100 invoices will be returned in a single API call with line items shown for each invoice
 
@@ -9353,7 +9355,7 @@ opts = {
 
   where: "Status==#{XeroRuby::Accounting::Overpayment::AUTHORISED}", # String | Filter by an any element
 
-  order: 'RemainingCredit ASC', # String | Order by an any element
+  order: 'Status ASC', # String | Order by an any element
 
   page: 1, # Integer | e.g. page=1 – Up to 100 overpayments will be returned in a single API call with line items shown for each overpayment
 
@@ -10843,13 +10845,13 @@ opts = {
 
   contact_id: '00000000-0000-0000-000-000000000000', # String | Filter for quotes belonging to a particular contact
 
-  status: 'status_example', # String | Filter for quotes of a particular Status
+  status: 'DRAFT', # String | Filter for quotes of a particular Status
 
   page: 1, # Integer | e.g. page=1 – Up to 100 Quotes will be returned in a single API call with line items shown for each quote
 
-  order: 'ASC', # String | Order by an any element
+  order: 'Status ASC', # String | Order by an any element
 
-  quote_number: 'quote_number_example' # String | Filter by quote number (e.g. GET https://.../Quotes?QuoteNumber=QU-0001)
+  quote_number: 'QU-0001' # String | Filter by quote number (e.g. GET https://.../Quotes?QuoteNumber=QU-0001)
 }
 
 begin
@@ -13250,7 +13252,7 @@ Name | Type | Description  | Notes
 
 > Contacts update_contact(xero_tenant_id, contact_id, contacts)
 
-
+Allows you to update one contact in a Xero organisation
 
 ### Example
 
@@ -13278,6 +13280,7 @@ api_instance = xero_client.<api_set>
 contacts = { contacts: [{ contact_id: "00000000-0000-0000-000-000000000000", name: "Thanos" }]}
 
 begin
+  #Allows you to update one contact in a Xero organisation
   result = api_instance.update_contact(xero_tenant_id, contact_id, contacts)
   p result
 rescue XeroRuby::Accounting::ApiError => e

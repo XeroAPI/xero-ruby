@@ -49,7 +49,93 @@ describe XeroRuby::ApiClient do
           api_client = XeroRuby::ApiClient.new(credentials: creds)
           expect(api_client.authorization_url).to eq('https://login.xero.com/identity/connect/authorize?response_type=code&client_id=abc&redirect_uri=https://mydomain.com/callback&scope=openid profile email accounting.transactions accounting.settings&state=i-am-customer-state')
         end
+
+        it "Does not append state if it is not provided" do
+          creds = {
+            client_id: 'abc',
+            client_secret: '123',
+            redirect_uri: 'https://mydomain.com/callback',
+            scopes: 'openid profile email accounting.transactions accounting.settings'
+          }
+          api_client = XeroRuby::ApiClient.new(credentials: creds)
+          expect(api_client.authorization_url).to eq('https://login.xero.com/identity/connect/authorize?response_type=code&client_id=abc&redirect_uri=https://mydomain.com/callback&scope=openid profile email accounting.transactions accounting.settings')
+        end
       end
+    end
+  end
+
+  describe 'api_client helper functions' do
+    let(:api_client) { XeroRuby::ApiClient.new }
+    let(:token_set) { {access_token: 'eyx.jibberjabber', refresh_token: 'REFRESHMENTS'} }
+    let(:connections) {
+        [{
+        "id" => "xxx-yyy-zzz",
+        "tenantId" => "xxx-yyy-zzz",
+        "tenantType" => "ORGANISATION",
+        "tenantName" => "Demo Company (US)",
+        "createdDateUtc" => "2019-11-01T20:08:03.0766400",
+        "updatedDateUtc" => "2020-04-15T22:37:10.4943410"
+      }]
+    }
+
+    before do 
+      allow(api_client).to receive(:token_request).and_return(token_set)
+    end
+
+    it "#set_token_set" do
+      api_client.set_token_set(token_set)
+      expect(api_client.token_set).to eq(token_set)
+    end
+
+    it "#set_access_token" do
+      api_client.set_access_token(token_set[:access_token])
+      expect(api_client.access_token).to eq(token_set[:access_token])
+    end
+
+    it "#refresh_token_set" do
+      expect(api_client.refresh_token_set(token_set)).to eq(token_set)
+    end
+
+    it "#connections" do
+      expect(api_client).to receive(:call_api).and_return(connections)
+      expect(api_client.config.base_url).to eq(nil)
+      expect(api_client.connections).to eq(connections[0])
+      expect(api_client.config.base_url).to eq('https://api.xero.com')
+    end
+
+    it "#disconnect" do
+      expect(api_client).to receive(:call_api).and_return(connections)
+      expect(api_client).to receive(:connections).and_return(connections[0])
+      expect(api_client.disconnect(connections[0]['id'])).to eq(connections[0])
+      expect(api_client.config.base_url).to eq('https://api.xero.com')
+    end
+
+    it "sets and resets the base url based on endpoint usage of the same client" do
+      expect(api_client).to receive(:call_api).and_return(connections)
+    
+      api_client.accounting_api
+      expect(api_client.config.base_url).to eq('https://api.xero.com/api.xro/2.0')
+      
+      api_client.asset_api
+      expect(api_client.config.base_url).to eq('https://api.xero.com/assets.xro/1.0')
+      
+      api_client.project_api
+      expect(api_client.config.base_url).to eq('https://api.xero.com/projects.xro/2.0/')
+      
+      api_client.files_api
+      expect(api_client.config.base_url).to eq('https://api.xero.com/files.xro/1.0/')
+      
+      api_client.payroll_au_api
+      expect(api_client.config.base_url).to eq('https://api.xero.com/payroll.xro/1.0/')
+      
+      api_client.payroll_nz_api
+      expect(api_client.config.base_url).to eq('https://api.xero.com/payroll.xro/2.0/')
+      
+      api_client.payroll_uk_api
+      expect(api_client.config.base_url).to eq('https://api.xero.com/payroll.xro/2.0/')
+      
+      api_client.connections
+      expect(api_client.config.base_url).to eq('https://api.xero.com')  
     end
   end
 
