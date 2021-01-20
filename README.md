@@ -183,6 +183,10 @@ accounts = xero_client.accounting_api.get_accounts(tenant_id).accounts
 invoices = { invoices: [{ type: XeroRuby::Accounting::Invoice::ACCREC, contact: { contact_id: contacts[0].contact_id }, line_items: [{ description: "Big Agency", quantity: BigDecimal("2.0"), unit_amount: BigDecimal("50.99"), account_code: "600", tax_type: XeroRuby::Accounting::TaxType::NONE }], date: "2019-03-11", due_date: "2018-12-10", reference: "Website Design", status: XeroRuby::Accounting::Invoice::DRAFT }]}
 invoice = xero_client.accounting_api.create_invoices(tenant_id, invoices).invoices.first
 
+# display out all the serialized data as a hash
+puts invoices.to_hash
+=> {type: 'ACCREC', ...}
+
 # Create History
 payment = xero_client.accounting_api.get_payments(tenant_id).payments.first
 history_records = { history_records: [{ details: "This payment now has some History!" }]}
