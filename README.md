@@ -51,7 +51,7 @@ gem 'xero-ruby'
 
 ### Creating a Client
 * Get the credential values from an API application at https://developer.xero.com/myapps/.
-* Include [neccesary scopes](https://developer.xero.com/documentation/oauth2/scopes) as comma seperated list
+* Include [neccesary scopes](https://developer.xero.com/documentation/oauth2/scopes) as a space-separated list
     * example => "`openid profile email accounting.transactions accounting.settings`"
 ```
 require 'xero-ruby'
