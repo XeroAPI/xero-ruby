@@ -325,7 +325,7 @@ module XeroRuby::Assets
 
     # Returns the object in the form of hash
     # @return [Hash] Returns the object in the form of hash
-    def to_hash(downcase: true)
+    def to_hash(downcase: false)
       hash = {}
       self.class.attribute_map.each_pair do |attr, param|
         value = self.send(attr)
@@ -334,6 +334,11 @@ module XeroRuby::Assets
         hash[key] = _to_hash(value)
       end
       hash
+    end
+
+    # Returns the object in the form of hash with snake_case
+    def attributes
+      to_hash(downcase: true)
     end
 
     # Outputs non-array value in the form of hash
