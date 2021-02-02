@@ -24,6 +24,7 @@ module XeroRuby
     # Defines url for identity routes
     attr_accessor :login_url
     attr_accessor :token_url
+    attr_accessor :revoke_url
 
     # Defines base paths for seperate API's
     attr_accessor :accounting_url
