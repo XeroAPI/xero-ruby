@@ -132,6 +132,17 @@ module XeroRuby
       return body
     end
 
+    # Revoke token
+    def revoke_token(token_set)
+      response = Faraday.post('https://identity.xero.com/connect/revocation') do |req|
+        req.headers['Authorization'] = "Basic " + Base64.strict_encode64("#{@client_id}:#{@client_secret}")
+        req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+        req.body = URI.encode_www_form("token" => token_set['refresh_token'])
+      end
+      return_error(response) unless response.success?
+      return 
+    end
+
     # Connection heplers
     def connections
       @config.base_url = 'https://api.xero.com'

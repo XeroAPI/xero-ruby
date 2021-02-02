@@ -139,6 +139,7 @@ module XeroRuby
       @base_path = '/api.xro/2.0'
       @login_url = 'https://login.xero.com/identity/connect/authorize'
       @token_url = 'https://identity.xero.com/connect/token'
+      @revoke_url = 'https://identity.xero.com/connect/revocation'
       @accounting_url = 'https://api.xero.com/api.xro/2.0'
       @asset_url = 'https://api.xero.com/assets.xro/1.0'
       @project_url = 'https://api.xero.com/projects.xro/2.0/'
