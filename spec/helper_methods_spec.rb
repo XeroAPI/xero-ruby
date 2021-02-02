@@ -59,12 +59,24 @@ describe 'shared helper methdods' do
       )
     }
 
-    it 'can serialize invoice attributes into a snake_case hash' do
-      expect(invoice.to_hash).to eq({currency_code: "USD", has_attachments: false, has_errors: false, invoice_number: "abc-123", total_discount: 100, type: "ACCPAY"})
+    describe '#to_hash' do
+      it 'can serialize invoice attributes into a PascalCase hash' do
+        expect(invoice.to_hash).to eq(:CurrencyCode => "USD", :HasAttachments => false, :HasErrors => false, :InvoiceNumber => "abc-123", :TotalDiscount => 100, :Type => "ACCPAY")
+      end
+      
+      it 'can serialize contact attributes into a PascalCase hash' do
+        expect(contact.to_hash).to eq(:AccountNumber => "abc-123", :ContactStatus => "ACTIVE", :EmailAddress => "email@gmail.com", :FirstName => "Contact", :HasAttachments => false, :HasValidationErrors => false, :LastName => "Name", :Name => "Contact Name")
+      end
     end
 
-    it 'can serialize contact attributes into a snake_case hash' do
-      expect(contact.to_hash).to eq({account_number: "abc-123", contact_status: "ACTIVE", email_address: "email@gmail.com", first_name: 'Contact', has_attachments: false, has_validation_errors: false, last_name: "Name", name: "Contact Name"})
+    describe '#attributes' do
+      it 'can serialize invoice attributes into a snake_case hash' do
+        expect(invoice.attributes).to eq({currency_code: "USD", has_attachments: false, has_errors: false, invoice_number: "abc-123", total_discount: 100, type: "ACCPAY"})
+      end
+  
+      it 'can serialize contact attributes into a snake_case hash' do
+        expect(contact.attributes).to eq({account_number: "abc-123", contact_status: "ACTIVE", email_address: "email@gmail.com", first_name: 'Contact', has_attachments: false, has_validation_errors: false, last_name: "Name", name: "Contact Name"})
+      end
     end
   end
 end
