@@ -112,7 +112,7 @@ module XeroRuby::Accounting
         :'summary' => :'Summary',
         :'branding_theme_id' => :'BrandingThemeID',
         :'updated_date_utc' => :'UpdatedDateUTC',
-        :'line_amount_types' => :'LineAmountTypes',
+        :'line_amount_types' => :'QuoteLineAmountTypes',
         :'status_attribute_string' => :'StatusAttributeString',
         :'validation_errors' => :'ValidationErrors'
       }
