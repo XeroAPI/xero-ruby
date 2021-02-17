@@ -299,10 +299,20 @@ opts = {
   order: 'UpdatedDateUtc DESC',
   where: {
     is_customer: ['==', true],
-    is_supplier: ['==', true]
+    is_supplier: ['==', true],
+    name: ['StartsWith', 'Rick']
   }
 }
 xero_client.accounting_api.get_contacts(tenant_id, opts).contacts
+
+# for more complex where filtering that requires a null check, pass those in as a string
+# see https://developer.xero.com/documentation/api/requests-and-responses for more
+
+opts = {
+  where: {
+    email_address: '!=null&&EmailAddress.StartsWith("chris.knight@")'
+  }
+}
 
 # Bank Transactions
 opts = {
@@ -328,7 +338,7 @@ xero_client.accounting_api.get_bank_transfers(tenant_id, opts).bank_transfers
 1) Not all `opts` parameter combinations are available for all endpoints, and there are likely some undiscovered edge cases. If you encounter a filter / sort / where clause that seems buggy open an issue and we will dig.
 
 2) Some opts string values may need PascalCasing to match casing defined in our [core API docs](https://developer.xero.com/documentation/api/api-overview).
-    * `opts = { order: 'UpdatedDateUtc DESC'}`
+  * `opts = { order: 'UpdatedDateUtc DESC'}`
 
 3) If you have use cases outside of these examples let us know.
 
@@ -345,13 +355,13 @@ Most of the repo code is auto generated but PR's on issues you encounter are hig
 gem build
 mv xero-ruby-<vsn>.gem xero-ruby.gem
 pwd
-=> /Users/chris.knight/code/sdks/xero-ruby/
+=> /Users/your.user/code/sdks/xero-ruby/
 ```
 
-> xero-ruby-oauth2-app
+> https://github.com/XeroAPI/xero-ruby-oauth2-app
 Replace gem file with local path:
 ```bash
-gem 'xero-ruby', path: '/Users/chris.knight/code/sdks/xero-ruby/'
+gem 'xero-ruby', path: '/Users/your.user/code/sdks/xero-ruby/'
 bundle install
 ```
 
