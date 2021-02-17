@@ -1,5 +1,5 @@
 =begin
-#Xero Payroll AU
+#Xero Payroll AU API
 
 #This is the Xero Payroll API for orgs in Australia region.
 
@@ -25,7 +25,7 @@ module XeroRuby::PayrollAu
 
     attr_accessor :calculation_type
     
-    # amount of mimimum earnings
+    # amount of minimum earnings
     attr_accessor :minimum_monthly_earnings
     
     # expense account code

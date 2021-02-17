@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **status** | **String** | the type of statutory leave | [optional] 
 **work_pattern** | **Array&lt;String&gt;** | The days of the work week the employee is scheduled to work at the time the leave is taken | 
 **is_pregnancy_related** | **Boolean** | Whether the sick leave was pregnancy related | 
-**sufficient_notice** | **Boolean** | Whether the employee provided sufficent notice and documentation as required by the employer supporting the sick leave request | 
+**sufficient_notice** | **Boolean** | Whether the employee provided sufficient notice and documentation as required by the employer supporting the sick leave request | 
 **is_entitled** | **Boolean** | Whether the leave was entitled to receive payment | [optional] 
 **entitlement_weeks_requested** | **Float** | The amount of requested time (in weeks) | [optional] 
 **entitlement_weeks_qualified** | **Float** | The amount of statutory sick leave time off (in weeks) that is available to take at the time the leave was requested | [optional] 

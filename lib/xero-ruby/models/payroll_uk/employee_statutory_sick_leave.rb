@@ -43,7 +43,7 @@ module XeroRuby::PayrollUk
     # Whether the sick leave was pregnancy related
     attr_accessor :is_pregnancy_related
     
-    # Whether the employee provided sufficent notice and documentation as required by the employer supporting the sick leave request
+    # Whether the employee provided sufficient notice and documentation as required by the employer supporting the sick leave request
     attr_accessor :sufficient_notice
     
     # Whether the leave was entitled to receive payment

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **resource_name** | **String** | The field name of the erroneous field | [optional] 
-**localised_message** | **String** | Explaination of the resource validation error | [optional] 
+**localised_message** | **String** | Explanation of the resource validation error | [optional] 
 **type** | **String** | Internal type of the resource error message | [optional] 
 **title** | **String** | Title of the resource validation error | [optional] 
 **detail** | **String** | Detail of the resource validation error | [optional] 

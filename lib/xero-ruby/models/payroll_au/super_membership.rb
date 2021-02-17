@@ -1,5 +1,5 @@
 =begin
-#Xero Payroll AU
+#Xero Payroll AU API
 
 #This is the Xero Payroll API for orgs in Australia region.
 
@@ -22,7 +22,7 @@ module XeroRuby::PayrollAu
     # Xero identifier for super fund
     attr_accessor :super_fund_id
     
-    # The memberhsip number assigned to the employee by the super fund.
+    # The membership number assigned to the employee by the super fund.
     attr_accessor :employee_number
     
     # Attribute mapping from ruby-style variable name to JSON key.

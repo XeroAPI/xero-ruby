@@ -1,7 +1,7 @@
 # xero-ruby
 Xero Ruby SDK for OAuth 2.0 generated from [Xero API OpenAPI Spec](https://github.com/XeroAPI/Xero-OpenAPI).
 
-[![RubyGem](https://img.shields.io/badge/xero--ruby%20gem-v2.6.1-brightgreen)](https://rubygems.org/gems/xero-ruby)
+[![RubyGem](https://img.shields.io/badge/xero--ruby%20gem-v2.6.0-brightgreen)](https://rubygems.org/gems/xero-ruby)
 
 # Documentation
 Xero Ruby SDK supports Xero's OAuth2.0 authentication and the following Xero API sets.
@@ -51,7 +51,7 @@ gem 'xero-ruby'
 
 ### Creating a Client
 * Get the credential values from an API application at https://developer.xero.com/myapps/.
-* Include [neccesary scopes](https://developer.xero.com/documentation/oauth2/scopes) as a space-separated list
+* Include [neccesary scopes](https://developer.xero.com/documentation/oauth2/scopes) as comma seperated list
     * example => "`openid profile email accounting.transactions accounting.settings`"
 ```
 require 'xero-ruby'
@@ -184,8 +184,8 @@ invoices = { invoices: [{ type: XeroRuby::Accounting::Invoice::ACCREC, contact: 
 invoice = xero_client.accounting_api.create_invoices(tenant_id, invoices).invoices.first
 
 # display out all the serialized data as a hash
-puts invoices.attributes
-=> {type: 'ACCREC', line_items: [...]}
+puts invoices.to_hash
+=> {type: 'ACCREC', ...}
 
 # Create History
 payment = xero_client.accounting_api.get_payments(tenant_id).payments.first
