@@ -111,7 +111,7 @@ module XeroRuby
         code: params['code'],
         redirect_uri: @redirect_uri
       }
-      return token_request(data)
+      return token_request(data, '/token')
     end
 
     def refresh_token_set(token_set)
@@ -119,17 +119,24 @@ module XeroRuby
         grant_type: 'refresh_token',
         refresh_token: token_set['refresh_token']
       }
-      return token_request(data)
+      return token_request(data, '/token')
     end
 
-    def token_request(data)
-      response = Faraday.post(@config.token_url) do |req|
+    def revoke_token(token_set)
+      data = {
+        token: token_set['refresh_token']
+      }
+      return token_request(data, '/revocation')
+    end
+
+    def token_request(data, path)
+      response = Faraday.post("#{@config.token_url}#{path}") do |req|
         req.headers['Authorization'] = "Basic " + Base64.strict_encode64("#{@client_id}:#{@client_secret}")
         req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
         req.body = URI.encode_www_form(data)
       end
       return_error(response) unless response.success?
-      body = JSON.parse(response.body)
+      body = JSON.parse(response&.body || "{}")
       set_token_set(body)
       return body
     end
