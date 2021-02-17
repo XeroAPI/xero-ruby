@@ -95,7 +95,7 @@ module XeroRuby
     end
 
     def set_token_set(token_set)
-      # helper to set the token_set on a client once the user has y
+      # helper to set the token_set on a client once the user
       # has a valid token set ( access_token & refresh_token )
       XeroRuby.configure.token_set = token_set
       set_access_token(token_set['access_token'])
@@ -136,8 +136,12 @@ module XeroRuby
         req.body = URI.encode_www_form(data)
       end
       return_error(response) unless response.success?
-      body = JSON.parse(response&.body || "{}")
-      set_token_set(body)
+      if !response.body.blank?
+        body = JSON.parse(response.body)
+        set_token_set(body)
+      else
+        body = {}
+      end
       return body
     end
 
