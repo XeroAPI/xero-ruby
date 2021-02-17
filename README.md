@@ -51,7 +51,7 @@ gem 'xero-ruby'
 
 ### Creating a Client
 * Get the credential values from an API application at https://developer.xero.com/myapps/.
-* Include [neccesary scopes](https://developer.xero.com/documentation/oauth2/scopes) as comma seperated list
+* Include [neccesary scopes](https://developer.xero.com/documentation/oauth2/scopes) as a space-seperated list
     * example => "`openid profile email accounting.transactions accounting.settings`"
 ```
 require 'xero-ruby'
@@ -184,8 +184,8 @@ invoices = { invoices: [{ type: XeroRuby::Accounting::Invoice::ACCREC, contact: 
 invoice = xero_client.accounting_api.create_invoices(tenant_id, invoices).invoices.first
 
 # display out all the serialized data as a hash
-puts invoices.to_hash
-=> {type: 'ACCREC', ...}
+puts invoices.attributes
+=> {type: 'ACCREC', line_items: [...]}
 
 # Create History
 payment = xero_client.accounting_api.get_payments(tenant_id).payments.first
