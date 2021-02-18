@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **amount** | **BigDecimal** | The amount of the earnings line. | [optional] 
 **is_linked_to_timesheet** | **Boolean** | Identifies if the leave earnings is taken from the timesheet. False for leave earnings line | [optional] 
 **is_average_daily_pay_rate** | **Boolean** | Identifies if the earnings is using an average daily pay rate | [optional] 
-**is_system_generated** | **Boolean** | Flag to indentify whether the earnings line is system generated or not. | [optional] 
+**is_system_generated** | **Boolean** | Flag to identify whether the earnings line is system generated or not. | [optional] 
 
 ## Code Sample
 

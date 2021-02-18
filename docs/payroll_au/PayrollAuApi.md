@@ -4,35 +4,35 @@ All URIs are relative to *https://api.xero.com/payroll.xro/1.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_employee**](PayrollAuApi.md#create_employee) | **POST** /Employees | Use this method to create a payroll employee
-[**create_leave_application**](PayrollAuApi.md#create_leave_application) | **POST** /LeaveApplications | Use this method to create a Leave Application
-[**create_pay_item**](PayrollAuApi.md#create_pay_item) | **POST** /PayItems | Use this method to create a Pay Item
-[**create_pay_run**](PayrollAuApi.md#create_pay_run) | **POST** /PayRuns | Use this method to create a PayRun
-[**create_payroll_calendar**](PayrollAuApi.md#create_payroll_calendar) | **POST** /PayrollCalendars | Use this method to create a Payroll Calendars
-[**create_superfund**](PayrollAuApi.md#create_superfund) | **POST** /Superfunds | Use this method to create a super fund
-[**create_timesheet**](PayrollAuApi.md#create_timesheet) | **POST** /Timesheets | Use this method to create a timesheet
-[**get_employee**](PayrollAuApi.md#get_employee) | **GET** /Employees/{EmployeeId} | searches for an employee by unique id
-[**get_employees**](PayrollAuApi.md#get_employees) | **GET** /Employees | searches employees
-[**get_leave_application**](PayrollAuApi.md#get_leave_application) | **GET** /LeaveApplications/{LeaveApplicationId} | searches for an Leave Application by unique id
-[**get_leave_applications**](PayrollAuApi.md#get_leave_applications) | **GET** /LeaveApplications | searches Leave Applications
-[**get_pay_items**](PayrollAuApi.md#get_pay_items) | **GET** /PayItems | searches Pay Items
-[**get_pay_run**](PayrollAuApi.md#get_pay_run) | **GET** /PayRuns/{PayRunID} | searches for an payrun by unique id
-[**get_pay_runs**](PayrollAuApi.md#get_pay_runs) | **GET** /PayRuns | searches PayRuns
-[**get_payroll_calendar**](PayrollAuApi.md#get_payroll_calendar) | **GET** /PayrollCalendars/{PayrollCalendarID} | searches Payroll Calendars
-[**get_payroll_calendars**](PayrollAuApi.md#get_payroll_calendars) | **GET** /PayrollCalendars | searches Payroll Calendars
-[**get_payslip**](PayrollAuApi.md#get_payslip) | **GET** /Payslip/{PayslipID} | searches for an payslip by unique id
-[**get_settings**](PayrollAuApi.md#get_settings) | **GET** /Settings | retrieve settings
-[**get_superfund**](PayrollAuApi.md#get_superfund) | **GET** /Superfunds/{SuperFundID} | searches for an Superfund by unique id
-[**get_superfund_products**](PayrollAuApi.md#get_superfund_products) | **GET** /SuperfundProducts | searches SuperfundProducts
-[**get_superfunds**](PayrollAuApi.md#get_superfunds) | **GET** /Superfunds | searches SuperFunds
-[**get_timesheet**](PayrollAuApi.md#get_timesheet) | **GET** /Timesheets/{TimesheetID} | searches for an timesheet by unique id
-[**get_timesheets**](PayrollAuApi.md#get_timesheets) | **GET** /Timesheets | searches timesheets
-[**update_employee**](PayrollAuApi.md#update_employee) | **POST** /Employees/{EmployeeId} | Update an Employee
-[**update_leave_application**](PayrollAuApi.md#update_leave_application) | **POST** /LeaveApplications/{LeaveApplicationId} | Use this method to update a Leave Application
-[**update_pay_run**](PayrollAuApi.md#update_pay_run) | **POST** /PayRuns/{PayRunID} | Update a PayRun
-[**update_payslip**](PayrollAuApi.md#update_payslip) | **POST** /Payslip/{PayslipID} | Update a Payslip
-[**update_superfund**](PayrollAuApi.md#update_superfund) | **POST** /Superfunds/{SuperFundID} | Update a Superfund
-[**update_timesheet**](PayrollAuApi.md#update_timesheet) | **POST** /Timesheets/{TimesheetID} | Update a Timesheet
+[**create_employee**](PayrollAuApi.md#create_employee) | **POST** /Employees | Creates a payroll employee
+[**create_leave_application**](PayrollAuApi.md#create_leave_application) | **POST** /LeaveApplications | Creates a leave application
+[**create_pay_item**](PayrollAuApi.md#create_pay_item) | **POST** /PayItems | Creates a pay item
+[**create_pay_run**](PayrollAuApi.md#create_pay_run) | **POST** /PayRuns | Creates a pay run
+[**create_payroll_calendar**](PayrollAuApi.md#create_payroll_calendar) | **POST** /PayrollCalendars | Creates a Payroll Calendar
+[**create_superfund**](PayrollAuApi.md#create_superfund) | **POST** /Superfunds | Creates a superfund
+[**create_timesheet**](PayrollAuApi.md#create_timesheet) | **POST** /Timesheets | Creates a timesheet
+[**get_employee**](PayrollAuApi.md#get_employee) | **GET** /Employees/{EmployeeID} | Retrieves an employee&#39;s detail by unique employee id
+[**get_employees**](PayrollAuApi.md#get_employees) | **GET** /Employees | Searches payroll employees
+[**get_leave_application**](PayrollAuApi.md#get_leave_application) | **GET** /LeaveApplications/{LeaveApplicationID} | Retrieves a leave application by a unique leave application id
+[**get_leave_applications**](PayrollAuApi.md#get_leave_applications) | **GET** /LeaveApplications | Retrieves leave applications
+[**get_pay_items**](PayrollAuApi.md#get_pay_items) | **GET** /PayItems | Retrieves pay items
+[**get_pay_run**](PayrollAuApi.md#get_pay_run) | **GET** /PayRuns/{PayRunID} | Retrieves a pay run by using a unique pay run id
+[**get_pay_runs**](PayrollAuApi.md#get_pay_runs) | **GET** /PayRuns | Retrieves pay runs
+[**get_payroll_calendar**](PayrollAuApi.md#get_payroll_calendar) | **GET** /PayrollCalendars/{PayrollCalendarID} | Retrieves payroll calendar by using a unique payroll calendar ID
+[**get_payroll_calendars**](PayrollAuApi.md#get_payroll_calendars) | **GET** /PayrollCalendars | Retrieves payroll calendars
+[**get_payslip**](PayrollAuApi.md#get_payslip) | **GET** /Payslip/{PayslipID} | Retrieves for a payslip by a unique payslip id
+[**get_settings**](PayrollAuApi.md#get_settings) | **GET** /Settings | Retrieves payroll settings
+[**get_superfund**](PayrollAuApi.md#get_superfund) | **GET** /Superfunds/{SuperFundID} | Retrieves a superfund by using a unique superfund ID
+[**get_superfund_products**](PayrollAuApi.md#get_superfund_products) | **GET** /SuperfundProducts | Retrieves superfund products
+[**get_superfunds**](PayrollAuApi.md#get_superfunds) | **GET** /Superfunds | Retrieves superfunds
+[**get_timesheet**](PayrollAuApi.md#get_timesheet) | **GET** /Timesheets/{TimesheetID} | Retrieves a timesheet by using a unique timesheet id
+[**get_timesheets**](PayrollAuApi.md#get_timesheets) | **GET** /Timesheets | Retrieves timesheets
+[**update_employee**](PayrollAuApi.md#update_employee) | **POST** /Employees/{EmployeeID} | Updates an employee&#39;s detail
+[**update_leave_application**](PayrollAuApi.md#update_leave_application) | **POST** /LeaveApplications/{LeaveApplicationID} | Updates a specific leave application
+[**update_pay_run**](PayrollAuApi.md#update_pay_run) | **POST** /PayRuns/{PayRunID} | Updates a pay run
+[**update_payslip**](PayrollAuApi.md#update_payslip) | **POST** /Payslip/{PayslipID} | Updates a payslip
+[**update_superfund**](PayrollAuApi.md#update_superfund) | **POST** /Superfunds/{SuperFundID} | Updates a superfund
+[**update_timesheet**](PayrollAuApi.md#update_timesheet) | **POST** /Timesheets/{TimesheetID} | Updates a timesheet
 
 
 
@@ -40,7 +40,7 @@ Method | HTTP request | Description
 
 > Employees create_employee(xero_tenant_id, employee)
 
-Use this method to create a payroll employee
+Creates a payroll employee
 
 ### Example
 
@@ -70,7 +70,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 employee = [ { "FirstName": "Albus", "LastName": "Dumbledore", "DateOfBirth": "/Date(321523200000+0000)/", "HomeAddress": { "AddressLine1": "101 Green St", "City": "Island Bay", "Region": "NSW", "PostalCode": "6023", "Country": "AUSTRALIA" }, "StartDate": "/Date(321523200000+0000)/", "MiddleNames": "Percival", "Email": "albus39608@hogwarts.edu", "Gender": "M", "Phone": "444-2323", "Mobile": "555-1212", "IsAuthorisedToApproveLeave": true, "IsAuthorisedToApproveTimesheets": true, "JobTitle": "Regional Manager", "Classification": "corporate", "OrdinaryEarningsRateID": "ab874dfb-ab09-4c91-954e-43acf6fc23b4", "Status": "ACTIVE" } ] # Array<Employee> | 
 begin
-  #Use this method to create a payroll employee
+  #Creates a payroll employee
   result = api_instance.create_employee(xero_tenant_id, employee)
   p result
 rescue XeroRuby::PayrollAu::ApiError => e
@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
 
 > LeaveApplications create_leave_application(xero_tenant_id, leave_application)
 
-Use this method to create a Leave Application
+Creates a leave application
 
 ### Example
 
@@ -134,7 +134,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 leave_application = [ { "EmployeeID": "cdfb8371-0b21-4b8a-8903-1024df6c391e", "LeaveTypeID": "184ea8f7-d143-46dd-bef3-0c60e1aa6fca", "Title": "Hello World", "StartDate": "/Date(1572559200000+0000)/", "EndDate": "/Date(1572645600000+0000)/" } ] # Array<LeaveApplication> | 
 begin
-  #Use this method to create a Leave Application
+  #Creates a leave application
   result = api_instance.create_leave_application(xero_tenant_id, leave_application)
   p result
 rescue XeroRuby::PayrollAu::ApiError => e
@@ -168,7 +168,7 @@ Name | Type | Description  | Notes
 
 > PayItems create_pay_item(xero_tenant_id, pay_item)
 
-Use this method to create a Pay Item
+Creates a pay item
 
 ### Example
 
@@ -198,7 +198,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 pay_item = { "EarningsRates": [ { "Name": "MyRate", "AccountCode": "400", "TypeOfUnits": "4.00", "IsExemptFromTax": true, "IsExemptFromSuper": true, "IsReportableAsW1": false, "EarningsType": "ORDINARYTIMEEARNINGS", "EarningsRateID": "1fa4e226-b711-46ba-a8a7-4344c9c5fb87", "RateType": "MULTIPLE", "RatePerUnit": "10.0", "Multiplier": 1.5, "Amount": 5, "EmploymentTerminationPaymentType": "O" } ] } # PayItem | 
 begin
-  #Use this method to create a Pay Item
+  #Creates a pay item
   result = api_instance.create_pay_item(xero_tenant_id, pay_item)
   p result
 rescue XeroRuby::PayrollAu::ApiError => e
@@ -232,7 +232,7 @@ Name | Type | Description  | Notes
 
 > PayRuns create_pay_run(xero_tenant_id, pay_run)
 
-Use this method to create a PayRun
+Creates a pay run
 
 ### Example
 
@@ -262,7 +262,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 pay_run = [ { "PayrollCalendarID": "78bb86b9-e1ea-47ac-b75d-f087a81931de", "PayRunPeriodStartDate": "/Date(1572566400000+0000)/", "PayRunPeriodEndDate": "/Date(1573084800000+0000)/", "PayRunStatus": "DRAFT", "PaymentDate": "/Date(1573171200000+0000)/" } ] # Array<PayRun> | 
 begin
-  #Use this method to create a PayRun
+  #Creates a pay run
   result = api_instance.create_pay_run(xero_tenant_id, pay_run)
   p result
 rescue XeroRuby::PayrollAu::ApiError => e
@@ -296,7 +296,7 @@ Name | Type | Description  | Notes
 
 > PayrollCalendars create_payroll_calendar(xero_tenant_id, payroll_calendar)
 
-Use this method to create a Payroll Calendars
+Creates a Payroll Calendar
 
 ### Example
 
@@ -326,7 +326,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 payroll_calendar = [ { "PayrollCalendarID":"78bb86b9-e1ea-47ac-b75d-f087a81931de", "PayRunPeriodStartDate":"/Date(1572566400000+0000)/", "PayRunPeriodEndDate":"/Date(1573084800000+0000)/", "PayRunStatus":"DRAFT", "PaymentDate":"/Date(1573171200000+0000)/" } ] # Array<PayrollCalendar> | 
 begin
-  #Use this method to create a Payroll Calendars
+  #Creates a Payroll Calendar
   result = api_instance.create_payroll_calendar(xero_tenant_id, payroll_calendar)
   p result
 rescue XeroRuby::PayrollAu::ApiError => e
@@ -360,7 +360,7 @@ Name | Type | Description  | Notes
 
 > SuperFunds create_superfund(xero_tenant_id, super_fund)
 
-Use this method to create a super fund
+Creates a superfund
 
 ### Example
 
@@ -390,7 +390,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 super_fund = [ { "usi":"PTC0133AU", "Type":"REGULATED", "Name":"Bar99359", "AccountNumber":"FB36350", "AccountName":"Foo38428", "USI":"PTC0133AU" } ] # Array<SuperFund> | 
 begin
-  #Use this method to create a super fund
+  #Creates a superfund
   result = api_instance.create_superfund(xero_tenant_id, super_fund)
   p result
 rescue XeroRuby::PayrollAu::ApiError => e
@@ -424,7 +424,7 @@ Name | Type | Description  | Notes
 
 > Timesheets create_timesheet(xero_tenant_id, timesheet)
 
-Use this method to create a timesheet
+Creates a timesheet
 
 ### Example
 
@@ -454,7 +454,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 timesheet = [ { "EmployeeID":"b34e89ff-770d-4099-b7e5-f968767118bc", "StartDate":"/Date(1573171200000+0000)/", "EndDate":"/Date(1573689600000+0000)/", "Status":"DRAFT", "TimesheetLines":[ { "EarningsRateID":"ab874dfb-ab09-4c91-954e-43acf6fc23b4", "TrackingItemID":"af5e9ce2-2349-4136-be99-3561b189f473", "NumberOfUnits":[ 2.0, 10.0, 0.0, 0.0, 5.0, 0.0, 5.0 ] } ] } ] # Array<Timesheet> | 
 begin
-  #Use this method to create a timesheet
+  #Creates a timesheet
   result = api_instance.create_timesheet(xero_tenant_id, timesheet)
   p result
 rescue XeroRuby::PayrollAu::ApiError => e
@@ -488,7 +488,7 @@ Name | Type | Description  | Notes
 
 > Employees get_employee(xero_tenant_id, employee_id)
 
-searches for an employee by unique id
+Retrieves an employee's detail by unique employee id
 
 ### Example
 
@@ -518,7 +518,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
 begin
-  #searches for an employee by unique id
+  #Retrieves an employee's detail by unique employee id
   result = api_instance.get_employee(xero_tenant_id, employee_id)
   p result
 rescue XeroRuby::PayrollAu::ApiError => e
@@ -552,7 +552,7 @@ Name | Type | Description  | Notes
 
 > Employees get_employees(xero_tenant_id, opts)
 
-searches employees
+Searches payroll employees
 
 ### Example
 
@@ -591,7 +591,7 @@ opts = {
 }
 
 begin
-  #searches employees
+  #Searches payroll employees
   result = api_instance.get_employees(xero_tenant_id, opts)
   p result
 rescue XeroRuby::PayrollAu::ApiError => e
@@ -628,7 +628,7 @@ Name | Type | Description  | Notes
 
 > LeaveApplications get_leave_application(xero_tenant_id, leave_application_id)
 
-searches for an Leave Application by unique id
+Retrieves a leave application by a unique leave application id
 
 ### Example
 
@@ -658,7 +658,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 leave_application_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Leave Application id for single object
 begin
-  #searches for an Leave Application by unique id
+  #Retrieves a leave application by a unique leave application id
   result = api_instance.get_leave_application(xero_tenant_id, leave_application_id)
   p result
 rescue XeroRuby::PayrollAu::ApiError => e
@@ -692,7 +692,7 @@ Name | Type | Description  | Notes
 
 > LeaveApplications get_leave_applications(xero_tenant_id, opts)
 
-searches Leave Applications
+Retrieves leave applications
 
 ### Example
 
@@ -731,7 +731,7 @@ opts = {
 }
 
 begin
-  #searches Leave Applications
+  #Retrieves leave applications
   result = api_instance.get_leave_applications(xero_tenant_id, opts)
   p result
 rescue XeroRuby::PayrollAu::ApiError => e
@@ -768,7 +768,7 @@ Name | Type | Description  | Notes
 
 > PayItems get_pay_items(xero_tenant_id, opts)
 
-searches Pay Items
+Retrieves pay items
 
 ### Example
 
@@ -807,7 +807,7 @@ opts = {
 }
 
 begin
-  #searches Pay Items
+  #Retrieves pay items
   result = api_instance.get_pay_items(xero_tenant_id, opts)
   p result
 rescue XeroRuby::PayrollAu::ApiError => e
@@ -844,7 +844,7 @@ Name | Type | Description  | Notes
 
 > PayRuns get_pay_run(xero_tenant_id, pay_run_id)
 
-searches for an payrun by unique id
+Retrieves a pay run by using a unique pay run id
 
 ### Example
 
@@ -874,7 +874,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 pay_run_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | PayRun id for single object
 begin
-  #searches for an payrun by unique id
+  #Retrieves a pay run by using a unique pay run id
   result = api_instance.get_pay_run(xero_tenant_id, pay_run_id)
   p result
 rescue XeroRuby::PayrollAu::ApiError => e
@@ -908,7 +908,7 @@ Name | Type | Description  | Notes
 
 > PayRuns get_pay_runs(xero_tenant_id, opts)
 
-searches PayRuns
+Retrieves pay runs
 
 ### Example
 
@@ -947,7 +947,7 @@ opts = {
 }
 
 begin
-  #searches PayRuns
+  #Retrieves pay runs
   result = api_instance.get_pay_runs(xero_tenant_id, opts)
   p result
 rescue XeroRuby::PayrollAu::ApiError => e
@@ -984,7 +984,7 @@ Name | Type | Description  | Notes
 
 > PayrollCalendars get_payroll_calendar(xero_tenant_id, payroll_calendar_id)
 
-searches Payroll Calendars
+Retrieves payroll calendar by using a unique payroll calendar ID
 
 ### Example
 
@@ -1014,7 +1014,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 payroll_calendar_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Payroll Calendar id for single object
 begin
-  #searches Payroll Calendars
+  #Retrieves payroll calendar by using a unique payroll calendar ID
   result = api_instance.get_payroll_calendar(xero_tenant_id, payroll_calendar_id)
   p result
 rescue XeroRuby::PayrollAu::ApiError => e
@@ -1048,7 +1048,7 @@ Name | Type | Description  | Notes
 
 > PayrollCalendars get_payroll_calendars(xero_tenant_id, opts)
 
-searches Payroll Calendars
+Retrieves payroll calendars
 
 ### Example
 
@@ -1087,7 +1087,7 @@ opts = {
 }
 
 begin
-  #searches Payroll Calendars
+  #Retrieves payroll calendars
   result = api_instance.get_payroll_calendars(xero_tenant_id, opts)
   p result
 rescue XeroRuby::PayrollAu::ApiError => e
@@ -1124,7 +1124,7 @@ Name | Type | Description  | Notes
 
 > PayslipObject get_payslip(xero_tenant_id, payslip_id)
 
-searches for an payslip by unique id
+Retrieves for a payslip by a unique payslip id
 
 ### Example
 
@@ -1154,7 +1154,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 payslip_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Payslip id for single object
 begin
-  #searches for an payslip by unique id
+  #Retrieves for a payslip by a unique payslip id
   result = api_instance.get_payslip(xero_tenant_id, payslip_id)
   p result
 rescue XeroRuby::PayrollAu::ApiError => e
@@ -1188,7 +1188,7 @@ Name | Type | Description  | Notes
 
 > SettingsObject get_settings(xero_tenant_id)
 
-retrieve settings
+Retrieves payroll settings
 
 ### Example
 
@@ -1217,7 +1217,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 begin
-  #retrieve settings
+  #Retrieves payroll settings
   result = api_instance.get_settings(xero_tenant_id)
   p result
 rescue XeroRuby::PayrollAu::ApiError => e
@@ -1250,7 +1250,7 @@ Name | Type | Description  | Notes
 
 > SuperFunds get_superfund(xero_tenant_id, super_fund_id)
 
-searches for an Superfund by unique id
+Retrieves a superfund by using a unique superfund ID
 
 ### Example
 
@@ -1280,7 +1280,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 super_fund_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Superfund id for single object
 begin
-  #searches for an Superfund by unique id
+  #Retrieves a superfund by using a unique superfund ID
   result = api_instance.get_superfund(xero_tenant_id, super_fund_id)
   p result
 rescue XeroRuby::PayrollAu::ApiError => e
@@ -1314,7 +1314,7 @@ Name | Type | Description  | Notes
 
 > SuperFundProducts get_superfund_products(xero_tenant_id, opts)
 
-searches SuperfundProducts
+Retrieves superfund products
 
 ### Example
 
@@ -1349,7 +1349,7 @@ opts = {
 }
 
 begin
-  #searches SuperfundProducts
+  #Retrieves superfund products
   result = api_instance.get_superfund_products(xero_tenant_id, opts)
   p result
 rescue XeroRuby::PayrollAu::ApiError => e
@@ -1384,7 +1384,7 @@ Name | Type | Description  | Notes
 
 > SuperFunds get_superfunds(xero_tenant_id, opts)
 
-searches SuperFunds
+Retrieves superfunds
 
 ### Example
 
@@ -1423,7 +1423,7 @@ opts = {
 }
 
 begin
-  #searches SuperFunds
+  #Retrieves superfunds
   result = api_instance.get_superfunds(xero_tenant_id, opts)
   p result
 rescue XeroRuby::PayrollAu::ApiError => e
@@ -1460,7 +1460,7 @@ Name | Type | Description  | Notes
 
 > TimesheetObject get_timesheet(xero_tenant_id, timesheet_id)
 
-searches for an timesheet by unique id
+Retrieves a timesheet by using a unique timesheet id
 
 ### Example
 
@@ -1490,7 +1490,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 timesheet_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Timesheet id for single object
 begin
-  #searches for an timesheet by unique id
+  #Retrieves a timesheet by using a unique timesheet id
   result = api_instance.get_timesheet(xero_tenant_id, timesheet_id)
   p result
 rescue XeroRuby::PayrollAu::ApiError => e
@@ -1524,7 +1524,7 @@ Name | Type | Description  | Notes
 
 > Timesheets get_timesheets(xero_tenant_id, opts)
 
-searches timesheets
+Retrieves timesheets
 
 ### Example
 
@@ -1563,7 +1563,7 @@ opts = {
 }
 
 begin
-  #searches timesheets
+  #Retrieves timesheets
   result = api_instance.get_timesheets(xero_tenant_id, opts)
   p result
 rescue XeroRuby::PayrollAu::ApiError => e
@@ -1600,7 +1600,7 @@ Name | Type | Description  | Notes
 
 > Employees update_employee(xero_tenant_id, employee_id, opts)
 
-Update an Employee
+Updates an employee's detail
 
 Update properties on a single employee
 
@@ -1636,7 +1636,7 @@ opts = {
 }
 
 begin
-  #Update an Employee
+  #Updates an employee's detail
   result = api_instance.update_employee(xero_tenant_id, employee_id, opts)
   p result
 rescue XeroRuby::PayrollAu::ApiError => e
@@ -1671,7 +1671,7 @@ Name | Type | Description  | Notes
 
 > LeaveApplications update_leave_application(xero_tenant_id, leave_application_id, leave_application)
 
-Use this method to update a Leave Application
+Updates a specific leave application
 
 ### Example
 
@@ -1702,7 +1702,7 @@ xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 leave_application_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Leave Application id for single object
 leave_application = [ { "EmployeeID": "cdfb8371-0b21-4b8a-8903-1024df6c391e", "LeaveTypeID": "184ea8f7-d143-46dd-bef3-0c60e1aa6fca", "StartDate": "/Date(1572559200000+0000)/", "EndDate": "/Date(1572645600000+0000)/", "Description": "My updated Description" } ] # Array<LeaveApplication> | 
 begin
-  #Use this method to update a Leave Application
+  #Updates a specific leave application
   result = api_instance.update_leave_application(xero_tenant_id, leave_application_id, leave_application)
   p result
 rescue XeroRuby::PayrollAu::ApiError => e
@@ -1737,7 +1737,7 @@ Name | Type | Description  | Notes
 
 > PayRuns update_pay_run(xero_tenant_id, pay_run_id, opts)
 
-Update a PayRun
+Updates a pay run
 
 Update properties on a single PayRun
 
@@ -1773,7 +1773,7 @@ opts = {
 }
 
 begin
-  #Update a PayRun
+  #Updates a pay run
   result = api_instance.update_pay_run(xero_tenant_id, pay_run_id, opts)
   p result
 rescue XeroRuby::PayrollAu::ApiError => e
@@ -1808,7 +1808,7 @@ Name | Type | Description  | Notes
 
 > Payslips update_payslip(xero_tenant_id, payslip_id, opts)
 
-Update a Payslip
+Updates a payslip
 
 Update lines on a single payslips
 
@@ -1844,7 +1844,7 @@ opts = {
 }
 
 begin
-  #Update a Payslip
+  #Updates a payslip
   result = api_instance.update_payslip(xero_tenant_id, payslip_id, opts)
   p result
 rescue XeroRuby::PayrollAu::ApiError => e
@@ -1879,7 +1879,7 @@ Name | Type | Description  | Notes
 
 > SuperFunds update_superfund(xero_tenant_id, super_fund_id, opts)
 
-Update a Superfund
+Updates a superfund
 
 Update properties on a single Superfund
 
@@ -1915,7 +1915,7 @@ opts = {
 }
 
 begin
-  #Update a Superfund
+  #Updates a superfund
   result = api_instance.update_superfund(xero_tenant_id, super_fund_id, opts)
   p result
 rescue XeroRuby::PayrollAu::ApiError => e
@@ -1950,7 +1950,7 @@ Name | Type | Description  | Notes
 
 > Timesheets update_timesheet(xero_tenant_id, timesheet_id, opts)
 
-Update a Timesheet
+Updates a timesheet
 
 Update properties on a single timesheet
 
@@ -1986,7 +1986,7 @@ opts = {
 }
 
 begin
-  #Update a Timesheet
+  #Updates a timesheet
   result = api_instance.update_timesheet(xero_tenant_id, timesheet_id, opts)
   p result
 rescue XeroRuby::PayrollAu::ApiError => e

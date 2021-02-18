@@ -16,7 +16,7 @@ module XeroRuby
     def initialize(api_client = ApiClient.new)
       @api_client = api_client
     end
-    # approve a timesheet
+    # Approves a timesheet
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param timesheet_id [String] Identifier for the timesheet
     # @param [Hash] opts the optional parameters
@@ -26,7 +26,7 @@ module XeroRuby
       data
     end
 
-    # approve a timesheet
+    # Approves a timesheet
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param timesheet_id [String] Identifier for the timesheet
     # @param [Hash] opts the optional parameters
@@ -90,7 +90,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # create a new deduction
+    # Creates a new deduction for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param deduction [Deduction] 
     # @param [Hash] opts the optional parameters
@@ -100,7 +100,7 @@ module XeroRuby
       data
     end
 
-    # create a new deduction
+    # Creates a new deduction for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param deduction [Deduction] 
     # @param [Hash] opts the optional parameters
@@ -166,7 +166,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # create a new earnings rate
+    # Creates a new earnings rate
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param earnings_rate [EarningsRate] 
     # @param [Hash] opts the optional parameters
@@ -176,7 +176,7 @@ module XeroRuby
       data
     end
 
-    # create a new earnings rate
+    # Creates a new earnings rate
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param earnings_rate [EarningsRate] 
     # @param [Hash] opts the optional parameters
@@ -242,7 +242,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # creates employees
+    # Creates an employees
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee [Employee] 
     # @param [Hash] opts the optional parameters
@@ -252,7 +252,7 @@ module XeroRuby
       data
     end
 
-    # creates employees
+    # Creates an employees
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee [Employee] 
     # @param [Hash] opts the optional parameters
@@ -318,7 +318,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # creates employee earnings template records
+    # Creates earnings template records for an employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param earnings_template [EarningsTemplate] 
@@ -329,7 +329,7 @@ module XeroRuby
       data
     end
 
-    # creates employee earnings template records
+    # Creates earnings template records for an employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param earnings_template [EarningsTemplate] 
@@ -352,7 +352,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'earnings_template' when calling PayrollNzApi.create_employee_earnings_template"
       end
       # resource path
-      local_var_path = '/Employees/{EmployeeId}/PayTemplates/earnings'.sub('{' + 'EmployeeId' + '}', employee_id.to_s)
+      local_var_path = '/Employees/{EmployeeID}/PayTemplates/earnings'.sub('{' + 'EmployeeID' + '}', employee_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -400,7 +400,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # creates employee leave records
+    # Creates leave records for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param employee_leave [EmployeeLeave] 
@@ -411,7 +411,7 @@ module XeroRuby
       data
     end
 
-    # creates employee leave records
+    # Creates leave records for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param employee_leave [EmployeeLeave] 
@@ -434,7 +434,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'employee_leave' when calling PayrollNzApi.create_employee_leave"
       end
       # resource path
-      local_var_path = '/Employees/{EmployeeId}/Leave'.sub('{' + 'EmployeeId' + '}', employee_id.to_s)
+      local_var_path = '/Employees/{EmployeeID}/Leave'.sub('{' + 'EmployeeID' + '}', employee_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -482,7 +482,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # Allows you to set-up leave for a specific employee. This is required before viewing, configuring and requesting leave for an employee
+    # Creates a leave set-up for a specific employee. This is required before viewing, configuring and requesting leave for an employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param employee_leave_setup [EmployeeLeaveSetup] 
@@ -493,7 +493,7 @@ module XeroRuby
       data
     end
 
-    # Allows you to set-up leave for a specific employee. This is required before viewing, configuring and requesting leave for an employee
+    # Creates a leave set-up for a specific employee. This is required before viewing, configuring and requesting leave for an employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param employee_leave_setup [EmployeeLeaveSetup] 
@@ -516,7 +516,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'employee_leave_setup' when calling PayrollNzApi.create_employee_leave_setup"
       end
       # resource path
-      local_var_path = '/Employees/{EmployeeId}/leaveSetup'.sub('{' + 'EmployeeId' + '}', employee_id.to_s)
+      local_var_path = '/Employees/{EmployeeID}/leaveSetup'.sub('{' + 'EmployeeID' + '}', employee_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -564,7 +564,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # creates employee leave type records
+    # Creates leave type records for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param employee_leave_type [EmployeeLeaveType] 
@@ -575,7 +575,7 @@ module XeroRuby
       data
     end
 
-    # creates employee leave type records
+    # Creates leave type records for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param employee_leave_type [EmployeeLeaveType] 
@@ -598,7 +598,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'employee_leave_type' when calling PayrollNzApi.create_employee_leave_type"
       end
       # resource path
-      local_var_path = '/Employees/{EmployeeId}/LeaveTypes'.sub('{' + 'EmployeeId' + '}', employee_id.to_s)
+      local_var_path = '/Employees/{EmployeeID}/LeaveTypes'.sub('{' + 'EmployeeID' + '}', employee_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -646,7 +646,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # creates employee opening balances
+    # Creates opening balances for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param employee_opening_balance [Array<EmployeeOpeningBalance>] 
@@ -657,7 +657,7 @@ module XeroRuby
       data
     end
 
-    # creates employee opening balances
+    # Creates opening balances for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param employee_opening_balance [Array<EmployeeOpeningBalance>] 
@@ -680,7 +680,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'employee_opening_balance' when calling PayrollNzApi.create_employee_opening_balances"
       end
       # resource path
-      local_var_path = '/Employees/{EmployeeId}/openingBalances'.sub('{' + 'EmployeeId' + '}', employee_id.to_s)
+      local_var_path = '/Employees/{EmployeeID}/openingBalances'.sub('{' + 'EmployeeID' + '}', employee_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -728,7 +728,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # creates employee payment method
+    # Creates a payment method for an employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param payment_method [PaymentMethod] 
@@ -739,7 +739,7 @@ module XeroRuby
       data
     end
 
-    # creates employee payment method
+    # Creates a payment method for an employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param payment_method [PaymentMethod] 
@@ -762,7 +762,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'payment_method' when calling PayrollNzApi.create_employee_payment_method"
       end
       # resource path
-      local_var_path = '/Employees/{EmployeeId}/PaymentMethods'.sub('{' + 'EmployeeId' + '}', employee_id.to_s)
+      local_var_path = '/Employees/{EmployeeID}/PaymentMethods'.sub('{' + 'EmployeeID' + '}', employee_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -810,7 +810,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # creates employee salary and wage record
+    # Creates an employee salary and wage record
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param salary_and_wage [SalaryAndWage] 
@@ -821,7 +821,7 @@ module XeroRuby
       data
     end
 
-    # creates employee salary and wage record
+    # Creates an employee salary and wage record
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param salary_and_wage [SalaryAndWage] 
@@ -844,7 +844,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'salary_and_wage' when calling PayrollNzApi.create_employee_salary_and_wage"
       end
       # resource path
-      local_var_path = '/Employees/{EmployeeId}/SalaryAndWages'.sub('{' + 'EmployeeId' + '}', employee_id.to_s)
+      local_var_path = '/Employees/{EmployeeID}/SalaryAndWages'.sub('{' + 'EmployeeID' + '}', employee_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -892,7 +892,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # creates employment
+    # Creates an employment detail for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param employment [Employment] 
@@ -903,7 +903,7 @@ module XeroRuby
       data
     end
 
-    # creates employment
+    # Creates an employment detail for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param employment [Employment] 
@@ -926,7 +926,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'employment' when calling PayrollNzApi.create_employment"
       end
       # resource path
-      local_var_path = '/Employees/{EmployeeId}/Employment'.sub('{' + 'EmployeeId' + '}', employee_id.to_s)
+      local_var_path = '/Employees/{EmployeeID}/Employment'.sub('{' + 'EmployeeID' + '}', employee_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -974,7 +974,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # create a new leave type
+    # Creates a new leave type
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param leave_type [LeaveType] 
     # @param [Hash] opts the optional parameters
@@ -984,7 +984,7 @@ module XeroRuby
       data
     end
 
-    # create a new leave type
+    # Creates a new leave type
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param leave_type [LeaveType] 
     # @param [Hash] opts the optional parameters
@@ -1050,7 +1050,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # creates multiple employee earnings template records
+    # Creates multiple employee earnings template records for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param earnings_template [Array<EarningsTemplate>] 
@@ -1061,7 +1061,7 @@ module XeroRuby
       data
     end
 
-    # creates multiple employee earnings template records
+    # Creates multiple employee earnings template records for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param earnings_template [Array<EarningsTemplate>] 
@@ -1084,7 +1084,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'earnings_template' when calling PayrollNzApi.create_multiple_employee_earnings_template"
       end
       # resource path
-      local_var_path = '/Employees/{EmployeeId}/paytemplateearnings'.sub('{' + 'EmployeeId' + '}', employee_id.to_s)
+      local_var_path = '/Employees/{EmployeeID}/paytemplateearnings'.sub('{' + 'EmployeeID' + '}', employee_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -1132,7 +1132,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # create a pay run
+    # Creates a pay run
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param pay_run [PayRun] 
     # @param [Hash] opts the optional parameters
@@ -1142,7 +1142,7 @@ module XeroRuby
       data
     end
 
-    # create a pay run
+    # Creates a pay run
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param pay_run [PayRun] 
     # @param [Hash] opts the optional parameters
@@ -1208,7 +1208,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # create a new payrun calendar
+    # Creates a new payrun calendar
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param pay_run_calendar [PayRunCalendar] 
     # @param [Hash] opts the optional parameters
@@ -1218,7 +1218,7 @@ module XeroRuby
       data
     end
 
-    # create a new payrun calendar
+    # Creates a new payrun calendar
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param pay_run_calendar [PayRunCalendar] 
     # @param [Hash] opts the optional parameters
@@ -1284,7 +1284,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # create a new reimbursement
+    # Creates a new reimbursement
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param reimbursement [Reimbursement] 
     # @param [Hash] opts the optional parameters
@@ -1294,7 +1294,7 @@ module XeroRuby
       data
     end
 
-    # create a new reimbursement
+    # Creates a new reimbursement
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param reimbursement [Reimbursement] 
     # @param [Hash] opts the optional parameters
@@ -1360,7 +1360,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # create a new superannuation
+    # Creates a new superannuation
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param benefit [Benefit] 
     # @param [Hash] opts the optional parameters
@@ -1370,7 +1370,7 @@ module XeroRuby
       data
     end
 
-    # create a new superannuation
+    # Creates a new superannuation
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param benefit [Benefit] 
     # @param [Hash] opts the optional parameters
@@ -1388,7 +1388,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'benefit' when calling PayrollNzApi.create_superannuation"
       end
       # resource path
-      local_var_path = '/superannuations'
+      local_var_path = '/Superannuations'
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -1436,7 +1436,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # create a new timesheet
+    # Creates a new timesheet
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param timesheet [Timesheet] 
     # @param [Hash] opts the optional parameters
@@ -1446,7 +1446,7 @@ module XeroRuby
       data
     end
 
-    # create a new timesheet
+    # Creates a new timesheet
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param timesheet [Timesheet] 
     # @param [Hash] opts the optional parameters
@@ -1512,7 +1512,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # create a new timesheet line
+    # Create a new timesheet line for a specific time sheet
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param timesheet_id [String] Identifier for the timesheet
     # @param timesheet_line [TimesheetLine] 
@@ -1523,7 +1523,7 @@ module XeroRuby
       data
     end
 
-    # create a new timesheet line
+    # Create a new timesheet line for a specific time sheet
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param timesheet_id [String] Identifier for the timesheet
     # @param timesheet_line [TimesheetLine] 
@@ -1594,7 +1594,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # deletes an employee earnings template record
+    # Deletes an employee's earnings template record
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param pay_template_earning_id [String] Id for single pay template earnings object
@@ -1605,7 +1605,7 @@ module XeroRuby
       data
     end
 
-    # deletes an employee earnings template record
+    # Deletes an employee&#39;s earnings template record
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param pay_template_earning_id [String] Id for single pay template earnings object
@@ -1628,7 +1628,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'pay_template_earning_id' when calling PayrollNzApi.delete_employee_earnings_template"
       end
       # resource path
-      local_var_path = '/Employees/{EmployeeId}/PayTemplates/earnings/{PayTemplateEarningID}'.sub('{' + 'EmployeeId' + '}', employee_id.to_s).sub('{' + 'PayTemplateEarningID' + '}', pay_template_earning_id.to_s)
+      local_var_path = '/Employees/{EmployeeID}/PayTemplates/earnings/{PayTemplateEarningID}'.sub('{' + 'EmployeeID' + '}', employee_id.to_s).sub('{' + 'PayTemplateEarningID' + '}', pay_template_earning_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -1674,7 +1674,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # deletes an employee leave record
+    # Deletes a leave record for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param leave_id [String] Leave id for single object
@@ -1685,7 +1685,7 @@ module XeroRuby
       data
     end
 
-    # deletes an employee leave record
+    # Deletes a leave record for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param leave_id [String] Leave id for single object
@@ -1708,7 +1708,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'leave_id' when calling PayrollNzApi.delete_employee_leave"
       end
       # resource path
-      local_var_path = '/Employees/{EmployeeId}/Leave/{LeaveID}'.sub('{' + 'EmployeeId' + '}', employee_id.to_s).sub('{' + 'LeaveID' + '}', leave_id.to_s)
+      local_var_path = '/Employees/{EmployeeID}/Leave/{LeaveID}'.sub('{' + 'EmployeeID' + '}', employee_id.to_s).sub('{' + 'LeaveID' + '}', leave_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -1754,7 +1754,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # deletes an employee salary and wages record
+    # Deletes an employee's salary and wages record
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param salary_and_wages_id [String] Id for single salary and wages object
@@ -1765,7 +1765,7 @@ module XeroRuby
       data
     end
 
-    # deletes an employee salary and wages record
+    # Deletes an employee&#39;s salary and wages record
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param salary_and_wages_id [String] Id for single salary and wages object
@@ -1788,7 +1788,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'salary_and_wages_id' when calling PayrollNzApi.delete_employee_salary_and_wage"
       end
       # resource path
-      local_var_path = '/Employees/{EmployeeId}/SalaryAndWages/{SalaryAndWagesID}'.sub('{' + 'EmployeeId' + '}', employee_id.to_s).sub('{' + 'SalaryAndWagesID' + '}', salary_and_wages_id.to_s)
+      local_var_path = '/Employees/{EmployeeID}/SalaryAndWages/{SalaryAndWagesID}'.sub('{' + 'EmployeeID' + '}', employee_id.to_s).sub('{' + 'SalaryAndWagesID' + '}', salary_and_wages_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -1834,7 +1834,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # delete a timesheet
+    # Deletes a timesheet
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param timesheet_id [String] Identifier for the timesheet
     # @param [Hash] opts the optional parameters
@@ -1844,7 +1844,7 @@ module XeroRuby
       data
     end
 
-    # delete a timesheet
+    # Deletes a timesheet
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param timesheet_id [String] Identifier for the timesheet
     # @param [Hash] opts the optional parameters
@@ -1908,7 +1908,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # delete a timesheet line
+    # Deletes a timesheet line for a specific timesheet
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param timesheet_id [String] Identifier for the timesheet
     # @param timesheet_line_id [String] Identifier for the timesheet line
@@ -1919,7 +1919,7 @@ module XeroRuby
       data
     end
 
-    # delete a timesheet line
+    # Deletes a timesheet line for a specific timesheet
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param timesheet_id [String] Identifier for the timesheet
     # @param timesheet_line_id [String] Identifier for the timesheet line
@@ -1988,7 +1988,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # retrieve a single deduction by id
+    # Retrieves a single deduction by using a unique deduction ID
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param deduction_id [String] Identifier for the deduction
     # @param [Hash] opts the optional parameters
@@ -1998,7 +1998,7 @@ module XeroRuby
       data
     end
 
-    # retrieve a single deduction by id
+    # Retrieves a single deduction by using a unique deduction ID
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param deduction_id [String] Identifier for the deduction
     # @param [Hash] opts the optional parameters
@@ -2062,7 +2062,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # searches deductions
+    # Retrieves deductions for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
@@ -2072,7 +2072,7 @@ module XeroRuby
       data
     end
 
-    # searches deductions
+    # Retrieves deductions for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
@@ -2133,7 +2133,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # retrieve a single earnings rates by id
+    # Retrieves a specific earnings rates by using a unique earnings rate id
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param earnings_rate_id [String] Identifier for the earnings rate
     # @param [Hash] opts the optional parameters
@@ -2143,7 +2143,7 @@ module XeroRuby
       data
     end
 
-    # retrieve a single earnings rates by id
+    # Retrieves a specific earnings rates by using a unique earnings rate id
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param earnings_rate_id [String] Identifier for the earnings rate
     # @param [Hash] opts the optional parameters
@@ -2207,7 +2207,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # searches earnings rates
+    # Retrieves earnings rates
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
@@ -2217,7 +2217,7 @@ module XeroRuby
       data
     end
 
-    # searches earnings rates
+    # Retrieves earnings rates
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
@@ -2278,7 +2278,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # searches employees
+    # Retrieves an employees using a unique employee ID
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param [Hash] opts the optional parameters
@@ -2288,7 +2288,7 @@ module XeroRuby
       data
     end
 
-    # searches employees
+    # Retrieves an employees using a unique employee ID
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param [Hash] opts the optional parameters
@@ -2306,7 +2306,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'employee_id' when calling PayrollNzApi.get_employee"
       end
       # resource path
-      local_var_path = '/Employees/{EmployeeId}'.sub('{' + 'EmployeeId' + '}', employee_id.to_s)
+      local_var_path = '/Employees/{EmployeeID}'.sub('{' + 'EmployeeID' + '}', employee_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -2352,7 +2352,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # search employee leave balances
+    # Retrieves leave balances for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param [Hash] opts the optional parameters
@@ -2362,7 +2362,7 @@ module XeroRuby
       data
     end
 
-    # search employee leave balances
+    # Retrieves leave balances for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param [Hash] opts the optional parameters
@@ -2380,7 +2380,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'employee_id' when calling PayrollNzApi.get_employee_leave_balances"
       end
       # resource path
-      local_var_path = '/Employees/{EmployeeId}/LeaveBalances'.sub('{' + 'EmployeeId' + '}', employee_id.to_s)
+      local_var_path = '/Employees/{EmployeeID}/LeaveBalances'.sub('{' + 'EmployeeID' + '}', employee_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -2426,7 +2426,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # searches employee leave periods
+    # Retrieves leave periods for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param [Hash] opts the optional parameters
@@ -2438,7 +2438,7 @@ module XeroRuby
       data
     end
 
-    # searches employee leave periods
+    # Retrieves leave periods for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param [Hash] opts the optional parameters
@@ -2458,7 +2458,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'employee_id' when calling PayrollNzApi.get_employee_leave_periods"
       end
       # resource path
-      local_var_path = '/Employees/{EmployeeId}/LeavePeriods'.sub('{' + 'EmployeeId' + '}', employee_id.to_s)
+      local_var_path = '/Employees/{EmployeeID}/LeavePeriods'.sub('{' + 'EmployeeID' + '}', employee_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -2506,7 +2506,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # searches employee leave types
+    # Retrieves leave types for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param [Hash] opts the optional parameters
@@ -2516,7 +2516,7 @@ module XeroRuby
       data
     end
 
-    # searches employee leave types
+    # Retrieves leave types for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param [Hash] opts the optional parameters
@@ -2534,7 +2534,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'employee_id' when calling PayrollNzApi.get_employee_leave_types"
       end
       # resource path
-      local_var_path = '/Employees/{EmployeeId}/LeaveTypes'.sub('{' + 'EmployeeId' + '}', employee_id.to_s)
+      local_var_path = '/Employees/{EmployeeID}/LeaveTypes'.sub('{' + 'EmployeeID' + '}', employee_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -2580,7 +2580,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # search employee leave records
+    # Retrieves leave records for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param [Hash] opts the optional parameters
@@ -2590,7 +2590,7 @@ module XeroRuby
       data
     end
 
-    # search employee leave records
+    # Retrieves leave records for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param [Hash] opts the optional parameters
@@ -2608,7 +2608,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'employee_id' when calling PayrollNzApi.get_employee_leaves"
       end
       # resource path
-      local_var_path = '/Employees/{EmployeeId}/Leave'.sub('{' + 'EmployeeId' + '}', employee_id.to_s)
+      local_var_path = '/Employees/{EmployeeID}/Leave'.sub('{' + 'EmployeeID' + '}', employee_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -2654,7 +2654,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # retrieve employee openingbalances
+    # Retrieves the opening balance for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param [Hash] opts the optional parameters
@@ -2664,7 +2664,7 @@ module XeroRuby
       data
     end
 
-    # retrieve employee openingbalances
+    # Retrieves the opening balance for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param [Hash] opts the optional parameters
@@ -2682,7 +2682,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'employee_id' when calling PayrollNzApi.get_employee_opening_balances"
       end
       # resource path
-      local_var_path = '/Employees/{EmployeeId}/openingBalances'.sub('{' + 'EmployeeId' + '}', employee_id.to_s)
+      local_var_path = '/Employees/{EmployeeID}/openingBalances'.sub('{' + 'EmployeeID' + '}', employee_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -2728,7 +2728,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # searches employee pay templates
+    # Retrieves pay templates for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param [Hash] opts the optional parameters
@@ -2738,7 +2738,7 @@ module XeroRuby
       data
     end
 
-    # searches employee pay templates
+    # Retrieves pay templates for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param [Hash] opts the optional parameters
@@ -2756,7 +2756,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'employee_id' when calling PayrollNzApi.get_employee_pay_templates"
       end
       # resource path
-      local_var_path = '/Employees/{EmployeeId}/PayTemplates'.sub('{' + 'EmployeeId' + '}', employee_id.to_s)
+      local_var_path = '/Employees/{EmployeeID}/PayTemplates'.sub('{' + 'EmployeeID' + '}', employee_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -2802,7 +2802,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # retrieves an employee's payment method
+    # Retrieves available payment methods for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param [Hash] opts the optional parameters
@@ -2812,7 +2812,7 @@ module XeroRuby
       data
     end
 
-    # retrieves an employee&#39;s payment method
+    # Retrieves available payment methods for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param [Hash] opts the optional parameters
@@ -2830,7 +2830,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'employee_id' when calling PayrollNzApi.get_employee_payment_method"
       end
       # resource path
-      local_var_path = '/Employees/{EmployeeId}/PaymentMethods'.sub('{' + 'EmployeeId' + '}', employee_id.to_s)
+      local_var_path = '/Employees/{EmployeeID}/PaymentMethods'.sub('{' + 'EmployeeID' + '}', employee_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -2876,7 +2876,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # get employee salary and wages record by id
+    # Retrieves an employee's salary and wages record by using a unique salary and wage ID
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param salary_and_wages_id [String] Id for single pay template earnings object
@@ -2887,7 +2887,7 @@ module XeroRuby
       data
     end
 
-    # get employee salary and wages record by id
+    # Retrieves an employee&#39;s salary and wages record by using a unique salary and wage ID
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param salary_and_wages_id [String] Id for single pay template earnings object
@@ -2910,7 +2910,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'salary_and_wages_id' when calling PayrollNzApi.get_employee_salary_and_wage"
       end
       # resource path
-      local_var_path = '/Employees/{EmployeeId}/SalaryAndWages/{SalaryAndWagesID}'.sub('{' + 'EmployeeId' + '}', employee_id.to_s).sub('{' + 'SalaryAndWagesID' + '}', salary_and_wages_id.to_s)
+      local_var_path = '/Employees/{EmployeeID}/SalaryAndWages/{SalaryAndWagesID}'.sub('{' + 'EmployeeID' + '}', employee_id.to_s).sub('{' + 'SalaryAndWagesID' + '}', salary_and_wages_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -2956,7 +2956,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # retrieves an employee's salary and wages
+    # Retrieves an employee's salary and wages
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param [Hash] opts the optional parameters
@@ -2967,7 +2967,7 @@ module XeroRuby
       data
     end
 
-    # retrieves an employee&#39;s salary and wages
+    # Retrieves an employee&#39;s salary and wages
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param [Hash] opts the optional parameters
@@ -2986,7 +2986,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'employee_id' when calling PayrollNzApi.get_employee_salary_and_wages"
       end
       # resource path
-      local_var_path = '/Employees/{EmployeeId}/SalaryAndWages'.sub('{' + 'EmployeeId' + '}', employee_id.to_s)
+      local_var_path = '/Employees/{EmployeeID}/SalaryAndWages'.sub('{' + 'EmployeeID' + '}', employee_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -3033,7 +3033,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # searches tax records for an employee
+    # Retrieves tax records for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param [Hash] opts the optional parameters
@@ -3043,7 +3043,7 @@ module XeroRuby
       data
     end
 
-    # searches tax records for an employee
+    # Retrieves tax records for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param [Hash] opts the optional parameters
@@ -3061,7 +3061,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'employee_id' when calling PayrollNzApi.get_employee_tax"
       end
       # resource path
-      local_var_path = '/Employees/{EmployeeId}/Tax'.sub('{' + 'EmployeeId' + '}', employee_id.to_s)
+      local_var_path = '/Employees/{EmployeeID}/Tax'.sub('{' + 'EmployeeID' + '}', employee_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -3107,7 +3107,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # searches employees
+    # Retrieves employees
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @option opts [String] :first_name Filter by first name
@@ -3119,7 +3119,7 @@ module XeroRuby
       data
     end
 
-    # searches employees
+    # Retrieves employees
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @option opts [String] :first_name Filter by first name
@@ -3184,7 +3184,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # retrieve a single leave type by id
+    # Retrieves a specific leave type by using a unique leave type ID
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param leave_type_id [String] Identifier for the leave type
     # @param [Hash] opts the optional parameters
@@ -3194,7 +3194,7 @@ module XeroRuby
       data
     end
 
-    # retrieve a single leave type by id
+    # Retrieves a specific leave type by using a unique leave type ID
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param leave_type_id [String] Identifier for the leave type
     # @param [Hash] opts the optional parameters
@@ -3258,7 +3258,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # searches leave types
+    # Retrieves leave types
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
@@ -3269,7 +3269,7 @@ module XeroRuby
       data
     end
 
-    # searches leave types
+    # Retrieves leave types
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
@@ -3332,7 +3332,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # retrieve a single pay run by id
+    # Retrieves a specific pay run by using a unique pay run ID
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param pay_run_id [String] Identifier for the pay run
     # @param [Hash] opts the optional parameters
@@ -3342,7 +3342,7 @@ module XeroRuby
       data
     end
 
-    # retrieve a single pay run by id
+    # Retrieves a specific pay run by using a unique pay run ID
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param pay_run_id [String] Identifier for the pay run
     # @param [Hash] opts the optional parameters
@@ -3406,7 +3406,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # retrieve a single payrun calendar by id
+    # Retrieves a specific payrun calendar by using a unique payroll calendar ID
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param payroll_calendar_id [String] Identifier for the payrun calendars
     # @param [Hash] opts the optional parameters
@@ -3416,7 +3416,7 @@ module XeroRuby
       data
     end
 
-    # retrieve a single payrun calendar by id
+    # Retrieves a specific payrun calendar by using a unique payroll calendar ID
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param payroll_calendar_id [String] Identifier for the payrun calendars
     # @param [Hash] opts the optional parameters
@@ -3480,7 +3480,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # searches payrun calendars
+    # Retrieves payrun calendars
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
@@ -3490,7 +3490,7 @@ module XeroRuby
       data
     end
 
-    # searches payrun calendars
+    # Retrieves payrun calendars
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
@@ -3551,7 +3551,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # searches pay runs
+    # Retrieves pay runs
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
@@ -3562,7 +3562,7 @@ module XeroRuby
       data
     end
 
-    # searches pay runs
+    # Retrieves pay runs
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
@@ -3629,7 +3629,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # retrieve a single payslip by id
+    # Retrieves a specific payslip by a unique pay slip ID
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param pay_slip_id [String] Identifier for the payslip
     # @param [Hash] opts the optional parameters
@@ -3639,7 +3639,7 @@ module XeroRuby
       data
     end
 
-    # retrieve a single payslip by id
+    # Retrieves a specific payslip by a unique pay slip ID
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param pay_slip_id [String] Identifier for the payslip
     # @param [Hash] opts the optional parameters
@@ -3703,7 +3703,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # searches payslips
+    # Retrieves payslips
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param pay_run_id [String] PayrunID which specifies the containing payrun of payslips to retrieve. By default, the API does not group payslips by payrun.
     # @param [Hash] opts the optional parameters
@@ -3714,7 +3714,7 @@ module XeroRuby
       data
     end
 
-    # searches payslips
+    # Retrieves payslips
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param pay_run_id [String] PayrunID which specifies the containing payrun of payslips to retrieve. By default, the API does not group payslips by payrun.
     # @param [Hash] opts the optional parameters
@@ -3781,7 +3781,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # retrieve a single reimbursement by id
+    # Retrieves a specific reimbursement by using a unique reimbursement ID
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param reimbursement_id [String] Identifier for the reimbursement
     # @param [Hash] opts the optional parameters
@@ -3791,7 +3791,7 @@ module XeroRuby
       data
     end
 
-    # retrieve a single reimbursement by id
+    # Retrieves a specific reimbursement by using a unique reimbursement ID
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param reimbursement_id [String] Identifier for the reimbursement
     # @param [Hash] opts the optional parameters
@@ -3855,7 +3855,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # searches reimbursements
+    # Retrieves reimbursements
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
@@ -3865,7 +3865,7 @@ module XeroRuby
       data
     end
 
-    # searches reimbursements
+    # Retrieves reimbursements
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
@@ -3926,7 +3926,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # searches settings
+    # Retrieves settings
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @return [Settings]
@@ -3935,7 +3935,7 @@ module XeroRuby
       data
     end
 
-    # searches settings
+    # Retrieves settings
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @return [Array<(Settings, Integer, Hash)>] Settings data, response status code and response headers
@@ -3994,7 +3994,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # retrieve a single statutory deduction by id
+    # Retrieves a specific statutory deduction by using a unique statutory deductions id
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param id [String] Identifier for the statutory deduction
     # @param [Hash] opts the optional parameters
@@ -4004,7 +4004,7 @@ module XeroRuby
       data
     end
 
-    # retrieve a single statutory deduction by id
+    # Retrieves a specific statutory deduction by using a unique statutory deductions id
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param id [String] Identifier for the statutory deduction
     # @param [Hash] opts the optional parameters
@@ -4022,7 +4022,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'id' when calling PayrollNzApi.get_statutory_deduction"
       end
       # resource path
-      local_var_path = '/StatutoryDeductions/{Id}'.sub('{' + 'Id' + '}', id.to_s)
+      local_var_path = '/StatutoryDeductions/{id}'.sub('{' + 'id' + '}', id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -4068,7 +4068,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # searches statutory deductions
+    # Retrieves statutory deductions
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
@@ -4078,7 +4078,7 @@ module XeroRuby
       data
     end
 
-    # searches statutory deductions
+    # Retrieves statutory deductions
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
@@ -4139,7 +4139,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # searches for a unique superannuation
+    # Retrieves a specific superannuation using a unique superannuation ID
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param superannuation_id [String] Identifier for the superannuation
     # @param [Hash] opts the optional parameters
@@ -4149,7 +4149,7 @@ module XeroRuby
       data
     end
 
-    # searches for a unique superannuation
+    # Retrieves a specific superannuation using a unique superannuation ID
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param superannuation_id [String] Identifier for the superannuation
     # @param [Hash] opts the optional parameters
@@ -4167,7 +4167,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'superannuation_id' when calling PayrollNzApi.get_superannuation"
       end
       # resource path
-      local_var_path = '/superannuations/{SuperannuationID}'.sub('{' + 'SuperannuationID' + '}', superannuation_id.to_s)
+      local_var_path = '/Superannuations/{SuperannuationID}'.sub('{' + 'SuperannuationID' + '}', superannuation_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -4213,7 +4213,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # searches statutory deductions
+    # Retrieves superannuations
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
@@ -4223,7 +4223,7 @@ module XeroRuby
       data
     end
 
-    # searches statutory deductions
+    # Retrieves superannuations
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
@@ -4237,7 +4237,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'xero_tenant_id' when calling PayrollNzApi.get_superannuations"
       end
       # resource path
-      local_var_path = '/superannuations'
+      local_var_path = '/Superannuations'
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -4284,7 +4284,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # retrieve a single timesheet by id
+    # Retrieves a specific timesheet by using a unique timesheet ID
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param timesheet_id [String] Identifier for the timesheet
     # @param [Hash] opts the optional parameters
@@ -4294,7 +4294,7 @@ module XeroRuby
       data
     end
 
-    # retrieve a single timesheet by id
+    # Retrieves a specific timesheet by using a unique timesheet ID
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param timesheet_id [String] Identifier for the timesheet
     # @param [Hash] opts the optional parameters
@@ -4358,11 +4358,11 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # searches timesheets
+    # Retrieves timesheets
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
-    # @option opts [String] :employee_id By default get Timesheets will return the timesheets for all employees in an organization. You can add GET https://…/timesheets?filter&#x3D;employeeId&#x3D;&#x3D;{EmployeeId} to get only the timesheets of a particular employee.
+    # @option opts [String] :employee_id By default get Timesheets will return the timesheets for all employees in an organization. You can add GET https://…/timesheets?filter&#x3D;employeeId&#x3D;&#x3D;{EmployeeID} to get only the timesheets of a particular employee.
     # @option opts [String] :payroll_calendar_id By default get Timesheets will return all the timesheets for an organization. You can add GET https://…/timesheets?filter&#x3D;payrollCalendarId&#x3D;&#x3D;{PayrollCalendarID} to filter the timesheets by payroll calendar id
     # @return [Timesheets]
     def get_timesheets(xero_tenant_id, opts = {})
@@ -4370,11 +4370,11 @@ module XeroRuby
       data
     end
 
-    # searches timesheets
+    # Retrieves timesheets
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
-    # @option opts [String] :employee_id By default get Timesheets will return the timesheets for all employees in an organization. You can add GET https://…/timesheets?filter&#x3D;employeeId&#x3D;&#x3D;{EmployeeId} to get only the timesheets of a particular employee.
+    # @option opts [String] :employee_id By default get Timesheets will return the timesheets for all employees in an organization. You can add GET https://…/timesheets?filter&#x3D;employeeId&#x3D;&#x3D;{EmployeeID} to get only the timesheets of a particular employee.
     # @option opts [String] :payroll_calendar_id By default get Timesheets will return all the timesheets for an organization. You can add GET https://…/timesheets?filter&#x3D;payrollCalendarId&#x3D;&#x3D;{PayrollCalendarID} to filter the timesheets by payroll calendar id
     # @return [Array<(Timesheets, Integer, Hash)>] Timesheets data, response status code and response headers
     def get_timesheets_with_http_info(xero_tenant_id, opts = {})
@@ -4435,7 +4435,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # searches tracking categories
+    # Retrieves tracking categories
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @return [TrackingCategories]
@@ -4444,7 +4444,7 @@ module XeroRuby
       data
     end
 
-    # searches tracking categories
+    # Retrieves tracking categories
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @return [Array<(TrackingCategories, Integer, Hash)>] TrackingCategories data, response status code and response headers
@@ -4457,7 +4457,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'xero_tenant_id' when calling PayrollNzApi.get_tracking_categories"
       end
       # resource path
-      local_var_path = '/settings/trackingCategories'
+      local_var_path = '/Settings/TrackingCategories'
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -4503,7 +4503,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # revert a timesheet to draft
+    # Reverts a timesheet to draft
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param timesheet_id [String] Identifier for the timesheet
     # @param [Hash] opts the optional parameters
@@ -4513,7 +4513,7 @@ module XeroRuby
       data
     end
 
-    # revert a timesheet to draft
+    # Reverts a timesheet to draft
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param timesheet_id [String] Identifier for the timesheet
     # @param [Hash] opts the optional parameters
@@ -4577,7 +4577,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # updates employee
+    # Updates an existing employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param employee [Employee] 
@@ -4588,7 +4588,7 @@ module XeroRuby
       data
     end
 
-    # updates employee
+    # Updates an existing employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param employee [Employee] 
@@ -4611,7 +4611,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'employee' when calling PayrollNzApi.update_employee"
       end
       # resource path
-      local_var_path = '/Employees/{EmployeeId}'.sub('{' + 'EmployeeId' + '}', employee_id.to_s)
+      local_var_path = '/Employees/{EmployeeID}'.sub('{' + 'EmployeeID' + '}', employee_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -4659,7 +4659,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # updates employee earnings template records
+    # Updates an earnings template records for an employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param pay_template_earning_id [String] Id for single pay template earnings object
@@ -4671,7 +4671,7 @@ module XeroRuby
       data
     end
 
-    # updates employee earnings template records
+    # Updates an earnings template records for an employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param pay_template_earning_id [String] Id for single pay template earnings object
@@ -4699,7 +4699,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'earnings_template' when calling PayrollNzApi.update_employee_earnings_template"
       end
       # resource path
-      local_var_path = '/Employees/{EmployeeId}/PayTemplates/earnings/{PayTemplateEarningID}'.sub('{' + 'EmployeeId' + '}', employee_id.to_s).sub('{' + 'PayTemplateEarningID' + '}', pay_template_earning_id.to_s)
+      local_var_path = '/Employees/{EmployeeID}/PayTemplates/earnings/{PayTemplateEarningID}'.sub('{' + 'EmployeeID' + '}', employee_id.to_s).sub('{' + 'PayTemplateEarningID' + '}', pay_template_earning_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -4747,7 +4747,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # updates employee leave records
+    # Updates leave records for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param leave_id [String] Leave id for single object
@@ -4759,7 +4759,7 @@ module XeroRuby
       data
     end
 
-    # updates employee leave records
+    # Updates leave records for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param leave_id [String] Leave id for single object
@@ -4787,7 +4787,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'employee_leave' when calling PayrollNzApi.update_employee_leave"
       end
       # resource path
-      local_var_path = '/Employees/{EmployeeId}/Leave/{LeaveID}'.sub('{' + 'EmployeeId' + '}', employee_id.to_s).sub('{' + 'LeaveID' + '}', leave_id.to_s)
+      local_var_path = '/Employees/{EmployeeID}/Leave/{LeaveID}'.sub('{' + 'EmployeeID' + '}', employee_id.to_s).sub('{' + 'LeaveID' + '}', leave_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -4835,7 +4835,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # updates employee salary and wages record
+    # Updates an employee's salary and wages record
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param salary_and_wages_id [String] Id for single pay template earnings object
@@ -4847,7 +4847,7 @@ module XeroRuby
       data
     end
 
-    # updates employee salary and wages record
+    # Updates an employee&#39;s salary and wages record
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param salary_and_wages_id [String] Id for single pay template earnings object
@@ -4875,7 +4875,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'salary_and_wage' when calling PayrollNzApi.update_employee_salary_and_wage"
       end
       # resource path
-      local_var_path = '/Employees/{EmployeeId}/SalaryAndWages/{SalaryAndWagesID}'.sub('{' + 'EmployeeId' + '}', employee_id.to_s).sub('{' + 'SalaryAndWagesID' + '}', salary_and_wages_id.to_s)
+      local_var_path = '/Employees/{EmployeeID}/SalaryAndWages/{SalaryAndWagesID}'.sub('{' + 'EmployeeID' + '}', employee_id.to_s).sub('{' + 'SalaryAndWagesID' + '}', salary_and_wages_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -4923,7 +4923,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # updates the tax records for an employee
+    # Updates the tax records for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param employee_tax [EmployeeTax] 
@@ -4934,7 +4934,7 @@ module XeroRuby
       data
     end
 
-    # updates the tax records for an employee
+    # Updates the tax records for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param employee_tax [EmployeeTax] 
@@ -4957,7 +4957,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'employee_tax' when calling PayrollNzApi.update_employee_tax"
       end
       # resource path
-      local_var_path = '/Employees/{EmployeeId}/Tax'.sub('{' + 'EmployeeId' + '}', employee_id.to_s)
+      local_var_path = '/Employees/{EmployeeID}/Tax'.sub('{' + 'EmployeeID' + '}', employee_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -5005,7 +5005,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # update a pay run
+    # Updates a pay run
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param pay_run_id [String] Identifier for the pay run
     # @param pay_run [PayRun] 
@@ -5016,7 +5016,7 @@ module XeroRuby
       data
     end
 
-    # update a pay run
+    # Updates a pay run
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param pay_run_id [String] Identifier for the pay run
     # @param pay_run [PayRun] 
@@ -5087,7 +5087,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # creates employee pay slip
+    # Creates an employee pay slip
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param pay_slip_id [String] Identifier for the payslip
     # @param pay_slip [PaySlip] 
@@ -5098,7 +5098,7 @@ module XeroRuby
       data
     end
 
-    # creates employee pay slip
+    # Creates an employee pay slip
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param pay_slip_id [String] Identifier for the payslip
     # @param pay_slip [PaySlip] 
@@ -5169,7 +5169,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # update a timesheet line
+    # Updates a timesheet line for a specific timesheet
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param timesheet_id [String] Identifier for the timesheet
     # @param timesheet_line_id [String] Identifier for the timesheet line
@@ -5181,7 +5181,7 @@ module XeroRuby
       data
     end
 
-    # update a timesheet line
+    # Updates a timesheet line for a specific timesheet
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param timesheet_id [String] Identifier for the timesheet
     # @param timesheet_line_id [String] Identifier for the timesheet line

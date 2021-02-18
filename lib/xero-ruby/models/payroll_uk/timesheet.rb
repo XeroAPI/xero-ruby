@@ -19,7 +19,7 @@ module XeroRuby::PayrollUk
     # The Xero identifier for a Timesheet
     attr_accessor :timesheet_id
     
-    # The Xero identifier for the Payroll Calandar that the Timesheet applies to
+    # The Xero identifier for the Payroll Calendar that the Timesheet applies to
     attr_accessor :payroll_calendar_id
     
     # The Xero identifier for the Employee that the Timesheet is for

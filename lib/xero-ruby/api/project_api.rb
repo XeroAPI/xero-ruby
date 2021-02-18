@@ -16,7 +16,7 @@ module XeroRuby
     def initialize(api_client = ApiClient.new)
       @api_client = api_client
     end
-    # create one or more new projects
+    # Create one or more new projects
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param project_create_or_update [ProjectCreateOrUpdate] Create a new project with ProjectCreateOrUpdate object
     # @param [Hash] opts the optional parameters
@@ -26,7 +26,7 @@ module XeroRuby
       data
     end
 
-    # create one or more new projects
+    # Create one or more new projects
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param project_create_or_update [ProjectCreateOrUpdate] Create a new project with ProjectCreateOrUpdate object
     # @param [Hash] opts the optional parameters
@@ -44,7 +44,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'project_create_or_update' when calling ProjectApi.create_project"
       end
       # resource path
-      local_var_path = '/projects'
+      local_var_path = '/Projects'
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -92,7 +92,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # Allows you to create a task
+    # Creates a time entry for a specific project
     # Allows you to create a specific task
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param project_id [String] You can specify an individual project by appending the projectId to the endpoint
@@ -104,7 +104,7 @@ module XeroRuby
       data
     end
 
-    # Allows you to create a task
+    # Creates a time entry for a specific project
     # Allows you to create a specific task
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param project_id [String] You can specify an individual project by appending the projectId to the endpoint
@@ -128,7 +128,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'time_entry_create_or_update' when calling ProjectApi.create_time_entry"
       end
       # resource path
-      local_var_path = '/projects/{projectId}/time'.sub('{' + 'projectId' + '}', project_id.to_s)
+      local_var_path = '/Projects/{projectId}/Time'.sub('{' + 'projectId' + '}', project_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -176,7 +176,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # Allows you to delete a time entry
+    # Deletes a time entry for a specific project
     # Allows you to delete a specific time entry
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param project_id [String] You can specify an individual project by appending the projectId to the endpoint
@@ -188,7 +188,7 @@ module XeroRuby
       nil
     end
 
-    # Allows you to delete a time entry
+    # Deletes a time entry for a specific project
     # Allows you to delete a specific time entry
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param project_id [String] You can specify an individual project by appending the projectId to the endpoint
@@ -212,7 +212,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'time_entry_id' when calling ProjectApi.delete_time_entry"
       end
       # resource path
-      local_var_path = '/projects/{projectId}/time/{timeEntryId}'.sub('{' + 'projectId' + '}', project_id.to_s).sub('{' + 'timeEntryId' + '}', time_entry_id.to_s)
+      local_var_path = '/Projects/{projectId}/Time/{timeEntryId}'.sub('{' + 'projectId' + '}', project_id.to_s).sub('{' + 'timeEntryId' + '}', time_entry_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -256,8 +256,8 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # Allows you to retrieve a single project
-    # Allows you to retrieve a specific project
+    # Retrieves a single project
+    # Allows you to retrieve a specific project using the projectId
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param project_id [String] You can specify an individual project by appending the projectId to the endpoint
     # @param [Hash] opts the optional parameters
@@ -267,8 +267,8 @@ module XeroRuby
       data
     end
 
-    # Allows you to retrieve a single project
-    # Allows you to retrieve a specific project
+    # Retrieves a single project
+    # Allows you to retrieve a specific project using the projectId
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param project_id [String] You can specify an individual project by appending the projectId to the endpoint
     # @param [Hash] opts the optional parameters
@@ -286,7 +286,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'project_id' when calling ProjectApi.get_project"
       end
       # resource path
-      local_var_path = '/projects/{projectId}'.sub('{' + 'projectId' + '}', project_id.to_s)
+      local_var_path = '/Projects/{projectId}'.sub('{' + 'projectId' + '}', project_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -332,7 +332,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # list all project users
+    # Retrieves a list of all project users
     # Allows you to retrieve the users on a projects.
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
@@ -344,7 +344,7 @@ module XeroRuby
       data
     end
 
-    # list all project users
+    # Retrieves a list of all project users
     # Allows you to retrieve the users on a projects.
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
@@ -368,7 +368,7 @@ module XeroRuby
       end
 
       # resource path
-      local_var_path = '/projectsusers'
+      local_var_path = '/ProjectsUsers'
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -416,7 +416,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # list all projects
+    # Retrieves all projects
     # Allows you to retrieve, create and update projects.
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
@@ -431,7 +431,7 @@ module XeroRuby
       data
     end
 
-    # list all projects
+    # Retrieves all projects
     # Allows you to retrieve, create and update projects.
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
@@ -458,7 +458,7 @@ module XeroRuby
       end
 
       # resource path
-      local_var_path = '/projects'
+      local_var_path = '/Projects'
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -509,11 +509,11 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # Allows you to retrieve a single project
+    # Retrieves a single project task
     # Allows you to retrieve a specific project
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param project_id [String] You can specify an individual project by appending the projectId to the endpoint
-    # @param task_id [String] You can specify an individual task by appending the taskId to the endpoint, i.e. GET https://.../tasks/{taskId}
+    # @param task_id [String] You can specify an individual task by appending the taskId to the endpoint, i.e. GET https://.../tasks/{taskID}
     # @param [Hash] opts the optional parameters
     # @return [Task]
     def get_task(xero_tenant_id, project_id, task_id, opts = {})
@@ -521,11 +521,11 @@ module XeroRuby
       data
     end
 
-    # Allows you to retrieve a single project
+    # Retrieves a single project task
     # Allows you to retrieve a specific project
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param project_id [String] You can specify an individual project by appending the projectId to the endpoint
-    # @param task_id [String] You can specify an individual task by appending the taskId to the endpoint, i.e. GET https://.../tasks/{taskId}
+    # @param task_id [String] You can specify an individual task by appending the taskId to the endpoint, i.e. GET https://.../tasks/{taskID}
     # @param [Hash] opts the optional parameters
     # @return [Array<(Task, Integer, Hash)>] Task data, response status code and response headers
     def get_task_with_http_info(xero_tenant_id, project_id, task_id, opts = {})
@@ -545,7 +545,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'task_id' when calling ProjectApi.get_task"
       end
       # resource path
-      local_var_path = '/projects/{projectId}/tasks/{taskId}'.sub('{' + 'projectId' + '}', project_id.to_s).sub('{' + 'taskId' + '}', task_id.to_s)
+      local_var_path = '/Projects/{projectId}/Tasks/{taskId}'.sub('{' + 'projectId' + '}', project_id.to_s).sub('{' + 'taskId' + '}', task_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -591,14 +591,14 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # Allows you to retrieve a single project
+    # Retrieves all project tasks
     # Allows you to retrieve a specific project
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param project_id [String] You can specify an individual project by appending the projectId to the endpoint
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0.
     # @option opts [Integer] :page_size Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500.
-    # @option opts [String] :task_ids taskIdsSearch for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds&#x3D;{taskId},{taskId}
+    # @option opts [String] :task_ids taskIdsSearch for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds&#x3D;{taskID},{taskID}
     # @option opts [ChargeType] :charge_type 
     # @return [Tasks]
     def get_tasks(xero_tenant_id, project_id, opts = {})
@@ -606,14 +606,14 @@ module XeroRuby
       data
     end
 
-    # Allows you to retrieve a single project
+    # Retrieves all project tasks
     # Allows you to retrieve a specific project
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param project_id [String] You can specify an individual project by appending the projectId to the endpoint
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0.
     # @option opts [Integer] :page_size Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500.
-    # @option opts [String] :task_ids taskIdsSearch for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds&#x3D;{taskId},{taskId}
+    # @option opts [String] :task_ids taskIdsSearch for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds&#x3D;{taskID},{taskID}
     # @option opts [ChargeType] :charge_type 
     # @return [Array<(Tasks, Integer, Hash)>] Tasks data, response status code and response headers
     def get_tasks_with_http_info(xero_tenant_id, project_id, opts = {})
@@ -629,7 +629,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'project_id' when calling ProjectApi.get_tasks"
       end
       # resource path
-      local_var_path = '/projects/{projectId}/tasks'.sub('{' + 'projectId' + '}', project_id.to_s)
+      local_var_path = '/Projects/{projectId}/Tasks'.sub('{' + 'projectId' + '}', project_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -679,7 +679,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # Allows you to retrieve the time entries associated with a specific project
+    # Retrieves all time entries associated with a specific project
     # Allows you to retrieve the time entries associated with a specific project
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param project_id [String] Identifier of the project, that the task (which the time entry is logged against) belongs to.
@@ -690,7 +690,7 @@ module XeroRuby
     # @option opts [String] :contact_id Finds all time entries for this contact identifier.
     # @option opts [Integer] :page Set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0.
     # @option opts [Integer] :page_size Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500.
-    # @option opts [Array<String>] :states Comma-separated list of states to find. Will find all time entries that are in the status of whatever’s specified.
+    # @option opts [Array<String>] :states Comma-separated list of states to find. Will find all time entries that are in the status of whatever is specified.
     # @option opts [Boolean] :is_chargeable Finds all time entries which relate to tasks with the charge type &#x60;TIME&#x60; or &#x60;FIXED&#x60;.
     # @option opts [DateTime] :date_after_utc ISO 8601 UTC date. Finds all time entries on or after this date filtered on the &#x60;dateUtc&#x60; field.
     # @option opts [DateTime] :date_before_utc ISO 8601 UTC date. Finds all time entries on or before this date filtered on the &#x60;dateUtc&#x60; field.
@@ -700,7 +700,7 @@ module XeroRuby
       data
     end
 
-    # Allows you to retrieve the time entries associated with a specific project
+    # Retrieves all time entries associated with a specific project
     # Allows you to retrieve the time entries associated with a specific project
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param project_id [String] Identifier of the project, that the task (which the time entry is logged against) belongs to.
@@ -711,7 +711,7 @@ module XeroRuby
     # @option opts [String] :contact_id Finds all time entries for this contact identifier.
     # @option opts [Integer] :page Set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0.
     # @option opts [Integer] :page_size Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500.
-    # @option opts [Array<String>] :states Comma-separated list of states to find. Will find all time entries that are in the status of whatever’s specified.
+    # @option opts [Array<String>] :states Comma-separated list of states to find. Will find all time entries that are in the status of whatever is specified.
     # @option opts [Boolean] :is_chargeable Finds all time entries which relate to tasks with the charge type &#x60;TIME&#x60; or &#x60;FIXED&#x60;.
     # @option opts [DateTime] :date_after_utc ISO 8601 UTC date. Finds all time entries on or after this date filtered on the &#x60;dateUtc&#x60; field.
     # @option opts [DateTime] :date_before_utc ISO 8601 UTC date. Finds all time entries on or before this date filtered on the &#x60;dateUtc&#x60; field.
@@ -729,7 +729,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'project_id' when calling ProjectApi.get_time_entries"
       end
       # resource path
-      local_var_path = '/projects/{projectId}/time'.sub('{' + 'projectId' + '}', project_id.to_s)
+      local_var_path = '/Projects/{projectId}/Time'.sub('{' + 'projectId' + '}', project_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -785,8 +785,8 @@ module XeroRuby
       return data, status_code, headers
     end
 
+    # Retrieves a single time entry for a specific project
     # Allows you to get a single time entry in a project
-    # Allows you to upget a single time entry in a project
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param project_id [String] You can specify an individual project by appending the projectId to the endpoint
     # @param time_entry_id [String] You can specify an individual time entry by appending the id to the endpoint
@@ -797,8 +797,8 @@ module XeroRuby
       data
     end
 
+    # Retrieves a single time entry for a specific project
     # Allows you to get a single time entry in a project
-    # Allows you to upget a single time entry in a project
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param project_id [String] You can specify an individual project by appending the projectId to the endpoint
     # @param time_entry_id [String] You can specify an individual time entry by appending the id to the endpoint
@@ -821,7 +821,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'time_entry_id' when calling ProjectApi.get_time_entry"
       end
       # resource path
-      local_var_path = '/projects/{projectId}/time/{timeEntryId}'.sub('{' + 'projectId' + '}', project_id.to_s).sub('{' + 'timeEntryId' + '}', time_entry_id.to_s)
+      local_var_path = '/Projects/{projectId}/Time/{timeEntryId}'.sub('{' + 'projectId' + '}', project_id.to_s).sub('{' + 'timeEntryId' + '}', time_entry_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -903,7 +903,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'project_patch' when calling ProjectApi.patch_project"
       end
       # resource path
-      local_var_path = '/projects/{projectId}'.sub('{' + 'projectId' + '}', project_id.to_s)
+      local_var_path = '/Projects/{projectId}'.sub('{' + 'projectId' + '}', project_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -951,7 +951,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # update a specific project
+    # Updates a specific project
     # Allows you to update a specific projects.
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param project_id [String] You can specify an individual project by appending the projectId to the endpoint
@@ -963,7 +963,7 @@ module XeroRuby
       nil
     end
 
-    # update a specific project
+    # Updates a specific project
     # Allows you to update a specific projects.
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param project_id [String] You can specify an individual project by appending the projectId to the endpoint
@@ -987,7 +987,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'project_create_or_update' when calling ProjectApi.update_project"
       end
       # resource path
-      local_var_path = '/projects/{projectId}'.sub('{' + 'projectId' + '}', project_id.to_s)
+      local_var_path = '/Projects/{projectId}'.sub('{' + 'projectId' + '}', project_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -1035,7 +1035,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # Allows you to update time entry in a project
+    # Updates a time entry for a specific project
     # Allows you to update time entry in a project
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param project_id [String] You can specify an individual project by appending the projectId to the endpoint
@@ -1048,7 +1048,7 @@ module XeroRuby
       nil
     end
 
-    # Allows you to update time entry in a project
+    # Updates a time entry for a specific project
     # Allows you to update time entry in a project
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param project_id [String] You can specify an individual project by appending the projectId to the endpoint
@@ -1077,7 +1077,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'time_entry_create_or_update' when calling ProjectApi.update_time_entry"
       end
       # resource path
-      local_var_path = '/projects/{projectId}/time/{timeEntryId}'.sub('{' + 'projectId' + '}', project_id.to_s).sub('{' + 'timeEntryId' + '}', time_entry_id.to_s)
+      local_var_path = '/Projects/{projectId}/Time/{timeEntryId}'.sub('{' + 'projectId' + '}', project_id.to_s).sub('{' + 'timeEntryId' + '}', time_entry_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?

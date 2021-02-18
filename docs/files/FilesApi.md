@@ -4,22 +4,22 @@ All URIs are relative to *https://api.xero.com/files.xro/1.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_file_association**](FilesApi.md#create_file_association) | **POST** /Files/{FileId}/Associations | create a new association
-[**create_folder**](FilesApi.md#create_folder) | **POST** /Folders | create a new folder
-[**delete_file**](FilesApi.md#delete_file) | **DELETE** /Files/{FileId} | delete a file
-[**delete_file_association**](FilesApi.md#delete_file_association) | **DELETE** /Files/{FileId}/Associations/{ObjectId} | create a new association
-[**delete_folder**](FilesApi.md#delete_folder) | **DELETE** /Folders/{FolderId} | delete a folder
-[**get_associations_by_object**](FilesApi.md#get_associations_by_object) | **GET** /Associations/{ObjectId} | searches files
-[**get_file**](FilesApi.md#get_file) | **GET** /Files/{FileId} | searches for file by unique id
-[**get_file_associations**](FilesApi.md#get_file_associations) | **GET** /Files/{FileId}/Associations | searches files
-[**get_file_content**](FilesApi.md#get_file_content) | **GET** /Files/{FileId}/Content | searches files to retrieve the data
-[**get_files**](FilesApi.md#get_files) | **GET** /Files | searches files
-[**get_folder**](FilesApi.md#get_folder) | **GET** /Folders/{FolderId} | searches specific folder by id
-[**get_folders**](FilesApi.md#get_folders) | **GET** /Folders | searches folder
-[**get_inbox**](FilesApi.md#get_inbox) | **GET** /Inbox | searches inbox folder
+[**create_file_association**](FilesApi.md#create_file_association) | **POST** /Files/{FileId}/Associations | Creates a new file association
+[**create_folder**](FilesApi.md#create_folder) | **POST** /Folders | Creates a new folder
+[**delete_file**](FilesApi.md#delete_file) | **DELETE** /Files/{FileId} | Deletes a specific file
+[**delete_file_association**](FilesApi.md#delete_file_association) | **DELETE** /Files/{FileId}/Associations/{ObjectId} | Deletes an existing file association
+[**delete_folder**](FilesApi.md#delete_folder) | **DELETE** /Folders/{FolderId} | Deletes a folder
+[**get_associations_by_object**](FilesApi.md#get_associations_by_object) | **GET** /Associations/{ObjectId} | Retrieves an association object using a unique object ID
+[**get_file**](FilesApi.md#get_file) | **GET** /Files/{FileId} | Retrieves a file by a unique file ID
+[**get_file_associations**](FilesApi.md#get_file_associations) | **GET** /Files/{FileId}/Associations | Retrieves a specific file associations
+[**get_file_content**](FilesApi.md#get_file_content) | **GET** /Files/{FileId}/Content | Retrieves the content of a specific file
+[**get_files**](FilesApi.md#get_files) | **GET** /Files | Retrieves files
+[**get_folder**](FilesApi.md#get_folder) | **GET** /Folders/{FolderId} | Retrieves specific folder by using a unique folder ID
+[**get_folders**](FilesApi.md#get_folders) | **GET** /Folders | Retrieves folders
+[**get_inbox**](FilesApi.md#get_inbox) | **GET** /Inbox | Retrieves inbox folder
 [**update_file**](FilesApi.md#update_file) | **PUT** /Files/{FileId} | Update a file
-[**update_folder**](FilesApi.md#update_folder) | **PUT** /Folders/{FolderId} | update folder
-[**upload_file**](FilesApi.md#upload_file) | **POST** /Files | upload an File
+[**update_folder**](FilesApi.md#update_folder) | **PUT** /Folders/{FolderId} | Updates an existing folder
+[**upload_file**](FilesApi.md#upload_file) | **POST** /Files | Uploads a File
 
 
 
@@ -27,7 +27,7 @@ Method | HTTP request | Description
 
 > Association create_file_association(xero_tenant_id, file_id, opts)
 
-create a new association
+Creates a new file association
 
 By passing in the appropriate options, you can create a new folder
 
@@ -59,11 +59,11 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | File id for single object
 opts = {
-  association: XeroRuby::Files::Association.new # Association | 
+  association: { "ObjectId": "1270bf7c-5d18-473a-9231-1e36c4bd33ed", "ObjectGroup": "Contact", "ObjectType": "Business" } # Association | 
 }
 
 begin
-  #create a new association
+  #Creates a new file association
   result = api_instance.create_file_association(xero_tenant_id, file_id, opts)
   p result
 rescue XeroRuby::Files::ApiError => e
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 
 > Folder create_folder(xero_tenant_id, opts)
 
-create a new folder
+Creates a new folder
 
 By passing in the appropriate properties, you can create a new folder
 
@@ -129,11 +129,11 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  folder: XeroRuby::Files::Folder.new # Folder | 
+  folder: { "Name": "My Docs" } # Folder | 
 }
 
 begin
-  #create a new folder
+  #Creates a new folder
   result = api_instance.create_folder(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Files::ApiError => e
@@ -165,9 +165,9 @@ Name | Type | Description  | Notes
 
 ## delete_file
 
-> FileResponse204 delete_file(xero_tenant_id, file_id)
+> delete_file(xero_tenant_id, file_id)
 
-delete a file
+Deletes a specific file
 
 Delete a specific file
 
@@ -199,9 +199,8 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | File id for single object
 begin
-  #delete a file
-  result = api_instance.delete_file(xero_tenant_id, file_id)
-  p result
+  #Deletes a specific file
+  api_instance.delete_file(xero_tenant_id, file_id)
 rescue XeroRuby::Files::ApiError => e
   puts "Exception when calling FilesApi->delete_file: #{e}"
 end
@@ -217,7 +216,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FileResponse204**](FileResponse204.md)
+nil (empty response body)
 
 ### Authorization
 
@@ -226,14 +225,14 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: Not defined
 
 
 ## delete_file_association
 
-> FileResponse204 delete_file_association(xero_tenant_id, file_id, object_id)
+> delete_file_association(xero_tenant_id, file_id, object_id)
 
-create a new association
+Deletes an existing file association
 
 By passing in the appropriate options, you can create a new folder
 
@@ -266,9 +265,8 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | File id for single object
 object_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Object id for single object
 begin
-  #create a new association
-  result = api_instance.delete_file_association(xero_tenant_id, file_id, object_id)
-  p result
+  #Deletes an existing file association
+  api_instance.delete_file_association(xero_tenant_id, file_id, object_id)
 rescue XeroRuby::Files::ApiError => e
   puts "Exception when calling FilesApi->delete_file_association: #{e}"
 end
@@ -285,7 +283,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FileResponse204**](FileResponse204.md)
+nil (empty response body)
 
 ### Authorization
 
@@ -294,14 +292,14 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: Not defined
 
 
 ## delete_folder
 
-> FileResponse204 delete_folder(xero_tenant_id, folder_id)
+> delete_folder(xero_tenant_id, folder_id)
 
-delete a folder
+Deletes a folder
 
 By passing in the appropriate ID, you can delete a folder
 
@@ -333,9 +331,8 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 folder_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Folder id for single object
 begin
-  #delete a folder
-  result = api_instance.delete_folder(xero_tenant_id, folder_id)
-  p result
+  #Deletes a folder
+  api_instance.delete_folder(xero_tenant_id, folder_id)
 rescue XeroRuby::Files::ApiError => e
   puts "Exception when calling FilesApi->delete_folder: #{e}"
 end
@@ -351,7 +348,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FileResponse204**](FileResponse204.md)
+nil (empty response body)
 
 ### Authorization
 
@@ -360,14 +357,14 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: Not defined
 
 
 ## get_associations_by_object
 
 > Array&lt;Association&gt; get_associations_by_object(xero_tenant_id, object_id)
 
-searches files
+Retrieves an association object using a unique object ID
 
 By passing in the appropriate options,
 
@@ -399,7 +396,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 object_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Object id for single object
 begin
-  #searches files
+  #Retrieves an association object using a unique object ID
   result = api_instance.get_associations_by_object(xero_tenant_id, object_id)
   p result
 rescue XeroRuby::Files::ApiError => e
@@ -433,7 +430,7 @@ Name | Type | Description  | Notes
 
 > FileObject get_file(xero_tenant_id, file_id)
 
-searches for file by unique id
+Retrieves a file by a unique file ID
 
 ### Example
 
@@ -463,7 +460,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | File id for single object
 begin
-  #searches for file by unique id
+  #Retrieves a file by a unique file ID
   result = api_instance.get_file(xero_tenant_id, file_id)
   p result
 rescue XeroRuby::Files::ApiError => e
@@ -497,7 +494,7 @@ Name | Type | Description  | Notes
 
 > Array&lt;Association&gt; get_file_associations(xero_tenant_id, file_id)
 
-searches files
+Retrieves a specific file associations
 
 By passing in the appropriate options,  
 
@@ -529,7 +526,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | File id for single object
 begin
-  #searches files
+  #Retrieves a specific file associations
   result = api_instance.get_file_associations(xero_tenant_id, file_id)
   p result
 rescue XeroRuby::Files::ApiError => e
@@ -563,7 +560,7 @@ Name | Type | Description  | Notes
 
 > File get_file_content(xero_tenant_id, file_id)
 
-searches files to retrieve the data
+Retrieves the content of a specific file
 
 By passing in the appropriate options, retrieve data for specific file
 
@@ -595,7 +592,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | File id for single object
 begin
-  #searches files to retrieve the data
+  #Retrieves the content of a specific file
   result = api_instance.get_file_content(xero_tenant_id, file_id)
   p result
 rescue XeroRuby::Files::ApiError => e
@@ -629,7 +626,7 @@ Name | Type | Description  | Notes
 
 > Files get_files(xero_tenant_id, opts)
 
-searches files
+Retrieves files
 
 ### Example
 
@@ -666,7 +663,7 @@ opts = {
 }
 
 begin
-  #searches files
+  #Retrieves files
   result = api_instance.get_files(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Files::ApiError => e
@@ -702,7 +699,7 @@ Name | Type | Description  | Notes
 
 > Folder get_folder(xero_tenant_id, folder_id)
 
-searches specific folder by id
+Retrieves specific folder by using a unique folder ID
 
 By passing in the appropriate ID, you can search for specific folder
 
@@ -734,7 +731,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 folder_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Folder id for single object
 begin
-  #searches specific folder by id
+  #Retrieves specific folder by using a unique folder ID
   result = api_instance.get_folder(xero_tenant_id, folder_id)
   p result
 rescue XeroRuby::Files::ApiError => e
@@ -768,7 +765,7 @@ Name | Type | Description  | Notes
 
 > Array&lt;Folder&gt; get_folders(xero_tenant_id, opts)
 
-searches folder
+Retrieves folders
 
 By passing in the appropriate options, you can search for available folders
 
@@ -803,7 +800,7 @@ opts = {
 }
 
 begin
-  #searches folder
+  #Retrieves folders
   result = api_instance.get_folders(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Files::ApiError => e
@@ -837,7 +834,7 @@ Name | Type | Description  | Notes
 
 > Folder get_inbox(xero_tenant_id)
 
-searches inbox folder
+Retrieves inbox folder
 
 Search for the user inbox
 
@@ -868,7 +865,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 begin
-  #searches inbox folder
+  #Retrieves inbox folder
   result = api_instance.get_inbox(xero_tenant_id)
   p result
 rescue XeroRuby::Files::ApiError => e
@@ -903,7 +900,7 @@ Name | Type | Description  | Notes
 
 Update a file
 
-Update properties on a single file
+Updates file properties of a single file
 
 ### Example
 
@@ -933,7 +930,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | File id for single object
 opts = {
-  file_object: XeroRuby::Files::FileObject.new # FileObject | 
+  file_object: { "FolderId": "bf924975-7097-46f2-a143-1ecfbab3c8c3" } # FileObject | 
 }
 
 begin
@@ -972,7 +969,7 @@ Name | Type | Description  | Notes
 
 > Folder update_folder(xero_tenant_id, folder_id, folder)
 
-update folder
+Updates an existing folder
 
 By passing in the appropriate ID and properties, you can update a folder
 
@@ -1003,9 +1000,9 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 folder_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Folder id for single object
-folder = XeroRuby::Files::Folder.new # Folder | 
+folder = { "Name": "Your Docs" } # Folder | 
 begin
-  #update folder
+  #Updates an existing folder
   result = api_instance.update_folder(xero_tenant_id, folder_id, folder)
   p result
 rescue XeroRuby::Files::ApiError => e
@@ -1040,7 +1037,7 @@ Name | Type | Description  | Notes
 
 > FileObject upload_file(xero_tenant_id, opts)
 
-upload an File
+Uploads a File
 
 ### Example
 
@@ -1081,7 +1078,7 @@ opts = {
 }
 
 begin
-  #upload an File
+  #Uploads a File
   result = api_instance.upload_file(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Files::ApiError => e
