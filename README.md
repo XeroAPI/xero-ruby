@@ -138,6 +138,11 @@ connections = xero_client.connections
   "updatedDateUtc" => "2020-04-15T22:37:10.4943410"
 }]
 
+# To completely Revoke a user's access token and all their connections
+# pass in the users token set to the #revoke_token api_client method
+
+xero_client.revoke_token(user.token_set)
+
 # disconnect an org from a user's connections. Pass the connection ['id'] not ['tenantId'].
 # Useful if you want to enforce only a single org connection per token.
 remaining_connections = xero_client.disconnect(connections[0]['id'])
