@@ -1,4 +1,4 @@
-require './spec_helper'
+require 'spec_helper'
 
 describe 'shared helper methdods' do
 
@@ -10,7 +10,7 @@ describe 'shared helper methdods' do
       date = model_instance.parse_date(datestring)
       expect(date).to eq('2018-02-28T21:01:29+0000')
     end
-    
+
     it 'can parse from a MS date without extra backslashes' do
       datestring = "/Date(1285721714157+0000)/"
       date = model_instance.parse_date(datestring)
@@ -63,7 +63,7 @@ describe 'shared helper methdods' do
       it 'can serialize invoice attributes into a PascalCase hash' do
         expect(invoice.to_hash).to eq(:CurrencyCode => "USD", :HasAttachments => false, :HasErrors => false, :InvoiceNumber => "abc-123", :TotalDiscount => 100, :Type => "ACCPAY")
       end
-      
+
       it 'can serialize contact attributes into a PascalCase hash' do
         expect(contact.to_hash).to eq(:AccountNumber => "abc-123", :ContactStatus => "ACTIVE", :EmailAddress => "email@gmail.com", :FirstName => "Contact", :HasAttachments => false, :HasValidationErrors => false, :LastName => "Name", :Name => "Contact Name")
       end
@@ -73,7 +73,7 @@ describe 'shared helper methdods' do
       it 'can serialize invoice attributes into a snake_case hash' do
         expect(invoice.attributes).to eq({currency_code: "USD", has_attachments: false, has_errors: false, invoice_number: "abc-123", total_discount: 100, type: "ACCPAY"})
       end
-  
+
       it 'can serialize contact attributes into a snake_case hash' do
         expect(contact.attributes).to eq({account_number: "abc-123", contact_status: "ACTIVE", email_address: "email@gmail.com", first_name: 'Contact', has_attachments: false, has_validation_errors: false, last_name: "Name", name: "Contact Name"})
       end

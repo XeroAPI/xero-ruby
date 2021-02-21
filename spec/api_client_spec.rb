@@ -1,4 +1,4 @@
-require './spec_helper'
+require 'spec_helper'
 
 describe XeroRuby::ApiClient do
   context 'initialization' do
@@ -78,7 +78,7 @@ describe XeroRuby::ApiClient do
       }]
     }
 
-    before do 
+    before do
       allow(api_client).to receive(:token_request).and_return(token_set)
     end
 
@@ -112,30 +112,30 @@ describe XeroRuby::ApiClient do
 
     it "sets and resets the base url based on endpoint usage of the same client" do
       expect(api_client).to receive(:call_api).and_return(connections)
-    
+
       api_client.accounting_api
       expect(api_client.config.base_url).to eq('https://api.xero.com/api.xro/2.0')
-      
+
       api_client.asset_api
       expect(api_client.config.base_url).to eq('https://api.xero.com/assets.xro/1.0')
-      
+
       api_client.project_api
       expect(api_client.config.base_url).to eq('https://api.xero.com/projects.xro/2.0/')
-      
+
       api_client.files_api
       expect(api_client.config.base_url).to eq('https://api.xero.com/files.xro/1.0/')
-      
+
       api_client.payroll_au_api
       expect(api_client.config.base_url).to eq('https://api.xero.com/payroll.xro/1.0/')
-      
+
       api_client.payroll_nz_api
       expect(api_client.config.base_url).to eq('https://api.xero.com/payroll.xro/2.0/')
-      
+
       api_client.payroll_uk_api
       expect(api_client.config.base_url).to eq('https://api.xero.com/payroll.xro/2.0/')
-      
+
       api_client.connections
-      expect(api_client.config.base_url).to eq('https://api.xero.com')  
+      expect(api_client.config.base_url).to eq('https://api.xero.com')
     end
   end
 
@@ -227,7 +227,7 @@ describe XeroRuby::ApiClient do
           }
         ]
       }
-       
+
       json_after = {
         "LineItems":[
           {
