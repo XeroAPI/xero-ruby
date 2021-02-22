@@ -1,0 +1,623 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://identity.xero.com/connect/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=refresh_token&refresh_token=7ef8d8b5ebfac6f50105dd6ce2fd78f9340531c0570d5713e068e2a1f3f21ea2
+    headers:
+      User-Agent:
+      - Faraday v1.3.0
+      Authorization:
+      - Basic aG9kb3I6dGhlX2Rvb3I=
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      content-type:
+      - application/json; charset=UTF-8
+      server:
+      - nginx
+      xero-origin-id:
+      - IdentityServer.Web
+      xero-causation-id:
+      - b139e7004c2a4955a5730cce3bc4d6c4
+      xero-message-id:
+      - 6b7560becf084c3b8bdce28a601ac534
+      xero-activity-id:
+      - bdbad1f0cb4c477aa0d7acb99e04516f
+      xero-correlation-id:
+      - ff00a384baee4c32920c094dbf632f8e
+      vary:
+      - Accept-Encoding
+      expires:
+      - Mon, 22 Feb 2021 19:34:29 GMT
+      cache-control:
+      - max-age=0, no-cache, no-store
+      pragma:
+      - no-cache
+      date:
+      - Mon, 22 Feb 2021 19:34:29 GMT
+      content-length:
+      - '1530'
+      connection:
+      - keep-alive
+      set-cookie:
+      - Device=b1eb77f8d50d468bb40ca0e7492fd0de; expires=Sun, 22 Feb 2026 19:34:29
+        GMT; path=/; samesite=none; httponly, bm_sz=AC4FC4A0A099DDEE5E2C3D624235A0E9~YAAQRs9Y2zSFMq93AQAAMGg8ywowXXUr+Y9yR5fhkDa8gUJXaW311KwgVp6346KLahLg4U3ThR/jGp/+ZmOLCnvD+BtkQSWB1cP/r+tS/KWWt+6FH+1WsJJhx4kiDa1sBkNTMMgH9RUpjlitn6T0+m1S6M1EhmscXlqiTpEwDfDGaIFBkR7NvQ9ND7RQrg==;
+        Domain=.xero.com; Path=/; Expires=Mon, 22 Feb 2021 23:34:29 GMT; Max-Age=14400;
+        HttpOnly, _abck=ABC79557133974594DF3AD6FB9405B02~-1~YAAQRs9Y2zWFMq93AQAAMGg8ywWT1pj6r0OR6jxWXH4Jxxee0/Uju5XGbaN7YXHJlLI4sB/30PhNocWs/smkk+NyvhzFQvjqFmHnaPHvRj8xIkKA8dFDVs68xIvxnJSchub0+Ywl0v0CvEPJVZMcb+vReqh10dAsX1hswecjx31BAY7mmPxNJ1pOlBk+/RTXH9DhdHLa1qkIerT3C6h+SajRG5Nk/KkE5hKdLhOwIGyELssnb0nRpyiPryQCjo1aCoWXZfCoNUTx+QWJduZeBIDKKFwSzFro5q86fxfsa74Yn8hd7I+veA==~-1~-1~-1;
+        Domain=.xero.com; Path=/; Expires=Tue, 22 Feb 2022 19:34:29 GMT; Max-Age=31536000;
+        Secure
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"ohmydaze","expires_in":1800,"token_type":"Bearer","refresh_token":"refreshboiz","scope":"accounting.reports.read
+        accounting.settings.read accounting.transactions accounting.transactions.read
+        offline_access"}'
+  recorded_at: Mon, 22 Feb 2021 19:34:29 GMT
+- request:
+    method: get
+    uri: https://api.xero.com/api.xro/2.0/Reports/BankStatement?bankAccountID=AC993F75-035B-433C-82E0-7B7A2D40802C
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - xero-ruby-2.7.0
+      Accept:
+      - application/json
+      Xero-tenant-id:
+      - 26057485-21f7-40bc-8cfe-52a8ecbf4eff
+      Authorization:
+      - Bearer ohmydaze
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '38891'
+      server:
+      - nginx
+      xero-correlation-id:
+      - 19aff3f1-de56-4284-864f-34e3e9e2bd9f
+      x-appminlimit-remaining:
+      - '9999'
+      x-minlimit-remaining:
+      - '59'
+      x-daylimit-remaining:
+      - '4980'
+      expires:
+      - Mon, 22 Feb 2021 19:34:30 GMT
+      cache-control:
+      - max-age=0, no-cache, no-store
+      pragma:
+      - no-cache
+      date:
+      - Mon, 22 Feb 2021 19:34:30 GMT
+      connection:
+      - keep-alive
+      x-client-tls-ver:
+      - tls1.3
+    body:
+      encoding: UTF-8
+      string: "{\r\n  \"Id\": \"19aff3f1-de56-4284-864f-34e3e9e2bd9f\",\r\n  \"Status\":
+        \"OK\",\r\n  \"ProviderName\": \"Sharesight 2.0 Development\",\r\n  \"DateTimeUTC\":
+        \"\\/Date(1614022469974)\\/\",\r\n  \"Reports\": [\r\n    {\r\n      \"ReportID\":
+        \"BankStatement\",\r\n      \"ReportName\": \"Bank Statement\",\r\n      \"ReportType\":
+        \"BankStatement\",\r\n      \"ReportTitles\": [\r\n        \"Bank Statement\",\r\n
+        \       \"Business Bank Account\",\r\n        \"Demo Company (NZ)\",\r\n        \"From
+        1 February 2021 to 23 February 2021\"\r\n      ],\r\n      \"ReportDate\":
+        \"22 February 2021\",\r\n      \"UpdatedDateUTC\": \"\\/Date(1614022469974)\\/\",\r\n
+        \     \"Fields\": [],\r\n      \"Rows\": [\r\n        {\r\n          \"RowType\":
+        \"Header\",\r\n          \"Cells\": [\r\n            {\r\n              \"Value\":
+        \"Date\"\r\n            },\r\n            {\r\n              \"Value\": \"Description\"\r\n
+        \           },\r\n            {\r\n              \"Value\": \"Reference\"\r\n
+        \           },\r\n            {\r\n              \"Value\": \"Reconciled\"\r\n
+        \           },\r\n            {\r\n              \"Value\": \"Source\"\r\n
+        \           },\r\n            {\r\n              \"Value\": \"Amount\"\r\n
+        \           },\r\n            {\r\n              \"Value\": \"Balance\"\r\n
+        \           }\r\n          ]\r\n        },\r\n        {\r\n          \"RowType\":
+        \"Section\",\r\n          \"Title\": \"\",\r\n          \"Rows\": [\r\n            {\r\n
+        \             \"RowType\": \"Row\",\r\n              \"Cells\": [\r\n                {\r\n
+        \                 \"Value\": \"2021-02-01T00:00:00\"\r\n                },\r\n
+        \               {\r\n                  \"Value\": \"Opening Balance\"\r\n
+        \               },\r\n                {\r\n                  \"Value\": \"\"\r\n
+        \               },\r\n                {\r\n                  \"Value\": \"\"\r\n
+        \               },\r\n                {\r\n                  \"Value\": \"\"\r\n
+        \               },\r\n                {\r\n                  \"Value\": \"\"\r\n
+        \               },\r\n                {\r\n                  \"Value\": \"6324.22\"\r\n
+        \               }\r\n              ]\r\n            },\r\n            {\r\n
+        \             \"RowType\": \"Row\",\r\n              \"Cells\": [\r\n                {\r\n
+        \                 \"Value\": \"2021-02-01T00:00:00\",\r\n                  \"Attributes\":
+        [\r\n                    {\r\n                      \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"Central City Parking\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"No\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"Imported\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"-12.00\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"6312.22\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                }\r\n              ]\r\n            },\r\n
+        \           {\r\n              \"RowType\": \"Row\",\r\n              \"Cells\":
+        [\r\n                {\r\n                  \"Value\": \"2021-02-01T00:00:00\",\r\n
+        \                 \"Attributes\": [\r\n                    {\r\n                      \"Value\":
+        \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n                      \"Id\":
+        \"accountID\"\r\n                    },\r\n                    {\r\n                      \"Value\":
+        \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n                      \"Id\":
+        \"statementID\"\r\n                    }\r\n                  ]\r\n                },\r\n
+        \               {\r\n                  \"Value\": \"e-Bank Dep\",\r\n                  \"Attributes\":
+        [\r\n                    {\r\n                      \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"No\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"Imported\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"1500.00\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"7812.22\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                }\r\n              ]\r\n            },\r\n
+        \           {\r\n              \"RowType\": \"Row\",\r\n              \"Cells\":
+        [\r\n                {\r\n                  \"Value\": \"2021-02-01T00:00:00\",\r\n
+        \                 \"Attributes\": [\r\n                    {\r\n                      \"Value\":
+        \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n                      \"Id\":
+        \"accountID\"\r\n                    },\r\n                    {\r\n                      \"Value\":
+        \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n                      \"Id\":
+        \"statementID\"\r\n                    }\r\n                  ]\r\n                },\r\n
+        \               {\r\n                  \"Value\": \"Majestic Contracting\",\r\n
+        \                 \"Attributes\": [\r\n                    {\r\n                      \"Value\":
+        \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n                      \"Id\":
+        \"accountID\"\r\n                    },\r\n                    {\r\n                      \"Value\":
+        \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n                      \"Id\":
+        \"statementID\"\r\n                    }\r\n                  ]\r\n                },\r\n
+        \               {\r\n                  \"Value\": \"Sublet RM2031  \",\r\n
+        \                 \"Attributes\": [\r\n                    {\r\n                      \"Value\":
+        \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n                      \"Id\":
+        \"accountID\"\r\n                    },\r\n                    {\r\n                      \"Value\":
+        \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n                      \"Id\":
+        \"statementID\"\r\n                    }\r\n                  ]\r\n                },\r\n
+        \               {\r\n                  \"Value\": \"No\",\r\n                  \"Attributes\":
+        [\r\n                    {\r\n                      \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"Imported\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"450.00\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"8262.22\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                }\r\n              ]\r\n            },\r\n
+        \           {\r\n              \"RowType\": \"Row\",\r\n              \"Cells\":
+        [\r\n                {\r\n                  \"Value\": \"2021-02-02T00:00:00\",\r\n
+        \                 \"Attributes\": [\r\n                    {\r\n                      \"Value\":
+        \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n                      \"Id\":
+        \"accountID\"\r\n                    },\r\n                    {\r\n                      \"Value\":
+        \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n                      \"Id\":
+        \"statementID\"\r\n                    }\r\n                  ]\r\n                },\r\n
+        \               {\r\n                  \"Value\": \"Parkside Kiosk\",\r\n
+        \                 \"Attributes\": [\r\n                    {\r\n                      \"Value\":
+        \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n                      \"Id\":
+        \"accountID\"\r\n                    },\r\n                    {\r\n                      \"Value\":
+        \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n                      \"Id\":
+        \"statementID\"\r\n                    }\r\n                  ]\r\n                },\r\n
+        \               {\r\n                  \"Value\": \"\",\r\n                  \"Attributes\":
+        [\r\n                    {\r\n                      \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"No\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"Imported\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"-14.30\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"8247.92\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                }\r\n              ]\r\n            },\r\n
+        \           {\r\n              \"RowType\": \"Row\",\r\n              \"Cells\":
+        [\r\n                {\r\n                  \"Value\": \"2021-02-02T00:00:00\",\r\n
+        \                 \"Attributes\": [\r\n                    {\r\n                      \"Value\":
+        \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n                      \"Id\":
+        \"accountID\"\r\n                    },\r\n                    {\r\n                      \"Value\":
+        \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n                      \"Id\":
+        \"statementID\"\r\n                    }\r\n                  ]\r\n                },\r\n
+        \               {\r\n                  \"Value\": \"Central City Parking\",\r\n
+        \                 \"Attributes\": [\r\n                    {\r\n                      \"Value\":
+        \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n                      \"Id\":
+        \"accountID\"\r\n                    },\r\n                    {\r\n                      \"Value\":
+        \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n                      \"Id\":
+        \"statementID\"\r\n                    }\r\n                  ]\r\n                },\r\n
+        \               {\r\n                  \"Value\": \"\",\r\n                  \"Attributes\":
+        [\r\n                    {\r\n                      \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"No\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"Imported\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"-12.00\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"8235.92\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                }\r\n              ]\r\n            },\r\n
+        \           {\r\n              \"RowType\": \"Row\",\r\n              \"Cells\":
+        [\r\n                {\r\n                  \"Value\": \"2021-02-02T00:00:00\",\r\n
+        \                 \"Attributes\": [\r\n                    {\r\n                      \"Value\":
+        \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n                      \"Id\":
+        \"accountID\"\r\n                    },\r\n                    {\r\n                      \"Value\":
+        \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n                      \"Id\":
+        \"statementID\"\r\n                    }\r\n                  ]\r\n                },\r\n
+        \               {\r\n                  \"Value\": \"Wilson Online Periodicals\",\r\n
+        \                 \"Attributes\": [\r\n                    {\r\n                      \"Value\":
+        \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n                      \"Id\":
+        \"accountID\"\r\n                    },\r\n                    {\r\n                      \"Value\":
+        \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n                      \"Id\":
+        \"statementID\"\r\n                    }\r\n                  ]\r\n                },\r\n
+        \               {\r\n                  \"Value\": \"CR 092201  \",\r\n                  \"Attributes\":
+        [\r\n                    {\r\n                      \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"No\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"Imported\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"35.00\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"8270.92\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                }\r\n              ]\r\n            },\r\n
+        \           {\r\n              \"RowType\": \"Row\",\r\n              \"Cells\":
+        [\r\n                {\r\n                  \"Value\": \"2021-02-03T00:00:00\",\r\n
+        \                 \"Attributes\": [\r\n                    {\r\n                      \"Value\":
+        \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n                      \"Id\":
+        \"accountID\"\r\n                    },\r\n                    {\r\n                      \"Value\":
+        \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n                      \"Id\":
+        \"statementID\"\r\n                    }\r\n                  ]\r\n                },\r\n
+        \               {\r\n                  \"Value\": \"Central City Parking\",\r\n
+        \                 \"Attributes\": [\r\n                    {\r\n                      \"Value\":
+        \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n                      \"Id\":
+        \"accountID\"\r\n                    },\r\n                    {\r\n                      \"Value\":
+        \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n                      \"Id\":
+        \"statementID\"\r\n                    }\r\n                  ]\r\n                },\r\n
+        \               {\r\n                  \"Value\": \"\",\r\n                  \"Attributes\":
+        [\r\n                    {\r\n                      \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"No\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"Imported\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"-12.00\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"8258.92\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                }\r\n              ]\r\n            },\r\n
+        \           {\r\n              \"RowType\": \"Row\",\r\n              \"Cells\":
+        [\r\n                {\r\n                  \"Value\": \"2021-02-03T00:00:00\",\r\n
+        \                 \"Attributes\": [\r\n                    {\r\n                      \"Value\":
+        \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n                      \"Id\":
+        \"accountID\"\r\n                    },\r\n                    {\r\n                      \"Value\":
+        \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n                      \"Id\":
+        \"statementID\"\r\n                    }\r\n                  ]\r\n                },\r\n
+        \               {\r\n                  \"Value\": \"Parkside Kiosk\",\r\n
+        \                 \"Attributes\": [\r\n                    {\r\n                      \"Value\":
+        \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n                      \"Id\":
+        \"accountID\"\r\n                    },\r\n                    {\r\n                      \"Value\":
+        \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n                      \"Id\":
+        \"statementID\"\r\n                    }\r\n                  ]\r\n                },\r\n
+        \               {\r\n                  \"Value\": \"\",\r\n                  \"Attributes\":
+        [\r\n                    {\r\n                      \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"No\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"Imported\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"-10.50\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"8248.42\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                }\r\n              ]\r\n            },\r\n
+        \           {\r\n              \"RowType\": \"Row\",\r\n              \"Cells\":
+        [\r\n                {\r\n                  \"Value\": \"2021-02-03T00:00:00\",\r\n
+        \                 \"Attributes\": [\r\n                    {\r\n                      \"Value\":
+        \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n                      \"Id\":
+        \"accountID\"\r\n                    },\r\n                    {\r\n                      \"Value\":
+        \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n                      \"Id\":
+        \"statementID\"\r\n                    }\r\n                  ]\r\n                },\r\n
+        \               {\r\n                  \"Value\": \"e-Bank Dep\",\r\n                  \"Attributes\":
+        [\r\n                    {\r\n                      \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"No\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"Imported\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"200.00\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"8448.42\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                }\r\n              ]\r\n            },\r\n
+        \           {\r\n              \"RowType\": \"Row\",\r\n              \"Cells\":
+        [\r\n                {\r\n                  \"Value\": \"2021-02-03T00:00:00\",\r\n
+        \                 \"Attributes\": [\r\n                    {\r\n                      \"Value\":
+        \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n                      \"Id\":
+        \"accountID\"\r\n                    },\r\n                    {\r\n                      \"Value\":
+        \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n                      \"Id\":
+        \"statementID\"\r\n                    }\r\n                  ]\r\n                },\r\n
+        \               {\r\n                  \"Value\": \"Ridgeway Banking Corporation\",\r\n
+        \                 \"Attributes\": [\r\n                    {\r\n                      \"Value\":
+        \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n                      \"Id\":
+        \"accountID\"\r\n                    },\r\n                    {\r\n                      \"Value\":
+        \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n                      \"Id\":
+        \"statementID\"\r\n                    }\r\n                  ]\r\n                },\r\n
+        \               {\r\n                  \"Value\": \"Fee  \",\r\n                  \"Attributes\":
+        [\r\n                    {\r\n                      \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"No\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"Imported\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"-15.00\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"8433.42\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                }\r\n              ]\r\n            },\r\n
+        \           {\r\n              \"RowType\": \"Row\",\r\n              \"Cells\":
+        [\r\n                {\r\n                  \"Value\": \"2021-02-03T00:00:00\",\r\n
+        \                 \"Attributes\": [\r\n                    {\r\n                      \"Value\":
+        \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n                      \"Id\":
+        \"accountID\"\r\n                    },\r\n                    {\r\n                      \"Value\":
+        \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n                      \"Id\":
+        \"statementID\"\r\n                    }\r\n                  ]\r\n                },\r\n
+        \               {\r\n                  \"Value\": \"7-Eleven\",\r\n                  \"Attributes\":
+        [\r\n                    {\r\n                      \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"No\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"Imported\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"-15.50\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                },\r\n                {\r\n                  \"Value\":
+        \"8417.92\",\r\n                  \"Attributes\": [\r\n                    {\r\n
+        \                     \"Value\": \"ac993f75-035b-433c-82e0-7b7a2d40802c\",\r\n
+        \                     \"Id\": \"accountID\"\r\n                    },\r\n
+        \                   {\r\n                      \"Value\": \"119f8b86-09ad-41af-b7d1-a6ee33311d8d\",\r\n
+        \                     \"Id\": \"statementID\"\r\n                    }\r\n
+        \                 ]\r\n                }\r\n              ]\r\n            },\r\n
+        \           {\r\n              \"RowType\": \"Row\",\r\n              \"Cells\":
+        [\r\n                {\r\n                  \"Value\": \"\"\r\n                },\r\n
+        \               {\r\n                  \"Value\": \"Closing Balance\"\r\n
+        \               },\r\n                {\r\n                  \"Value\": \"\"\r\n
+        \               },\r\n                {\r\n                  \"Value\": \"\"\r\n
+        \               },\r\n                {\r\n                  \"Value\": \"\"\r\n
+        \               },\r\n                {\r\n                  \"Value\": \"\"\r\n
+        \               },\r\n                {\r\n                  \"Value\": \"8417.92\"\r\n
+        \               }\r\n              ]\r\n            }\r\n          ]\r\n        }\r\n
+        \     ]\r\n    }\r\n  ]\r\n}"
+  recorded_at: Mon, 22 Feb 2021 19:34:30 GMT
+recorded_with: VCR 6.0.0
