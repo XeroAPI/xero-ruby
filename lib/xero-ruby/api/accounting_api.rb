@@ -13974,23 +13974,24 @@ module XeroRuby
 
    # Retrieves report for bank statement
    # @param xero_tenant_id [String] Xero identifier for Tenant
+   # @param bank_account_id [String] :bank_account_id The ID of the bank account
    # @param [Hash] opts the optional parameters
    # @option opts [Date] :from_date The from date for the Bank Summary report e.g. 2018-03-31
    # @option opts [Date] :to_date The to date for the Bank Summary report e.g. 2018-03-31
-   # @option opts [String] :bank_account_id The ID of the bank account
    # @return [ReportWithRows]
-   def get_report_bank_statement(xero_tenant_id, opts = {})
+   def get_report_bank_statement(xero_tenant_id, bank_account_id, opts = {})
      data, _status_code, _headers = get_report_bank_statement_with_http_info(xero_tenant_id, opts)
      data
    end
 
    # Retrieves report for bank summary
    # @param xero_tenant_id [String] Xero identifier for Tenant
+   # @param bank_account_id [String] :bank_account_id The ID of the bank account
    # @param [Hash] opts the optional parameters
    # @option opts [Date] :from_date The from date for the Bank Summary report e.g. 2018-03-31
    # @option opts [Date] :to_date The to date for the Bank Summary report e.g. 2018-03-31
    # @return [Array<(ReportWithRows, Integer, Hash)>] ReportWithRows data, response status code and response headers
-   def get_report_bank_statement_with_http_info(xero_tenant_id, opts = {})
+   def get_report_bank_statement_with_http_info(xero_tenant_id, bank_account_id, opts = {})
      if @api_client.config.debugging
        @api_client.config.logger.debug 'Calling API: AccountingApi.get_report_bank_summary ...'
      end
@@ -14006,6 +14007,7 @@ module XeroRuby
 
      # query parameters
      query_params = opts[:query_params] || {}
+     query_params[:'bankAccountID'] = bank_account_id
      query_params[:'fromDate'] = opts[:'from_date'] if !opts[:'from_date'].nil?
      query_params[:'toDate'] = opts[:'to_date'] if !opts[:'to_date'].nil?
 
