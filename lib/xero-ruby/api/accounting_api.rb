@@ -13980,7 +13980,7 @@ module XeroRuby
    # @option opts [Date] :to_date The to date for the Bank Summary report e.g. 2018-03-31
    # @return [ReportWithRows]
    def get_report_bank_statement(xero_tenant_id, bank_account_id, opts = {})
-     data, _status_code, _headers = get_report_bank_statement_with_http_info(xero_tenant_id, opts)
+     data, _status_code, _headers = get_report_bank_statement_with_http_info(xero_tenant_id, bank_account_id, opts)
      data
    end
 
@@ -13993,11 +13993,11 @@ module XeroRuby
    # @return [Array<(ReportWithRows, Integer, Hash)>] ReportWithRows data, response status code and response headers
    def get_report_bank_statement_with_http_info(xero_tenant_id, bank_account_id, opts = {})
      if @api_client.config.debugging
-       @api_client.config.logger.debug 'Calling API: AccountingApi.get_report_bank_summary ...'
+       @api_client.config.logger.debug 'Calling API: AccountingApi.get_report_bank_statement ...'
      end
      # verify the required parameter 'xero_tenant_id' is set
      if @api_client.config.client_side_validation && xero_tenant_id.nil?
-       fail ArgumentError, "Missing the required parameter 'xero_tenant_id' when calling AccountingApi.get_report_bank_summary"
+       fail ArgumentError, "Missing the required parameter 'xero_tenant_id' when calling AccountingApi.get_report_bank_statement"
      end
      # resource path
      local_var_path = '/Reports/BankStatement'
