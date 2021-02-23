@@ -32,6 +32,53 @@ describe 'AccountingApi' do
     end
   end
 
+  describe 'bank statement report' do
+    subject { client.accounting_api.get_report_bank_statement(tenant_id, bank_account_id) }
+
+    # to re-run these specs you will need to copy in actual credentials
+    let(:client) { XeroRuby::ApiClient.new(credentials: credentials) }
+    let(:credentials) {
+      {
+        client_id: 'hodor',
+        client_secret: 'the_door',
+        redirect_uri: 'http://localhost:3000/xero/oauth2_callback',
+        scopes: scopes,
+        debugging: true
+      }
+    }
+    let(:scopes) {
+      [
+        'offline_access', # give us a refresh token
+        'accounting.reports.read',
+        'accounting.transactions',
+        'accounting.settings.read'
+      ].join(' ')
+    }
+    let(:token_set) {
+      {
+        "scope"=>"accounting.reports.read accounting.transactions accounting.settings.read offline_access accounting.transactions.read",
+        "expires_in"=>1800,
+        "token_type"=>"Bearer",
+        "access_token"=>"long_token_very_long_very_secure",
+        "refresh_token"=>"shorter_token"
+      }
+    }
+    let(:tenant_id) { 'tenant' }
+    let(:bank_account_id) { 'AC993F75-035B-433C-82E0-7B7A2D40802C' }
+
+    before do
+      VCR.insert_cassette('accounting_api/bank_statement')
+      set = client.refresh_token_set(token_set)
+      client.set_token_set(set)
+    end
+
+    after { VCR.eject_cassette }
+
+    it 'should return the right stuff' do
+      expect(subject).to be_a(XeroRuby::Accounting::ReportWithRows)
+    end
+  end
+
   # unit tests for create_account
   # Allows you to create a new chart of accounts
   # @param xero_tenant_id Xero identifier for Tenant
@@ -790,7 +837,7 @@ describe 'AccountingApi' do
   # Allows you to update a specified payment for invoices and credit notes
   # @param xero_tenant_id Xero identifier for Tenant
   # @param payment_id Unique identifier for a Payment
-  # @param payment_delete 
+  # @param payment_delete
   # @param [Hash] opts the optional parameters
   # @return [Payments]
   describe 'delete_payment test' do
@@ -828,7 +875,7 @@ describe 'AccountingApi' do
   # Allows you to email a copy of invoice to related Contact
   # @param xero_tenant_id Xero identifier for Tenant
   # @param invoice_id Unique identifier for an Invoice
-  # @param request_empty 
+  # @param request_empty
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'email_invoice test' do
@@ -2430,7 +2477,7 @@ describe 'AccountingApi' do
   # Allows you to update a single spend or receive money transaction
   # @param xero_tenant_id Xero identifier for Tenant
   # @param bank_transaction_id Xero generated unique identifier for a bank transaction
-  # @param bank_transactions 
+  # @param bank_transactions
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
   # @return [BankTransactions]
@@ -2537,7 +2584,7 @@ describe 'AccountingApi' do
   # Allows you to update specified expense claims
   # @param xero_tenant_id Xero identifier for Tenant
   # @param expense_claim_id Unique identifier for a ExpenseClaim
-  # @param expense_claims 
+  # @param expense_claims
   # @param [Hash] opts the optional parameters
   # @return [ExpenseClaims]
   describe 'update_expense_claim test' do
@@ -2550,7 +2597,7 @@ describe 'AccountingApi' do
   # Allows you to update a specified sales invoices or purchase bills
   # @param xero_tenant_id Xero identifier for Tenant
   # @param invoice_id Unique identifier for an Invoice
-  # @param invoices 
+  # @param invoices
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
   # @return [Invoices]
@@ -2578,7 +2625,7 @@ describe 'AccountingApi' do
   # Allows you to update a specified item
   # @param xero_tenant_id Xero identifier for Tenant
   # @param item_id Unique identifier for an Item
-  # @param items 
+  # @param items
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
   # @return [Items]
@@ -2592,7 +2639,7 @@ describe 'AccountingApi' do
   # Allows you to update a specified linked transactions (billable expenses)
   # @param xero_tenant_id Xero identifier for Tenant
   # @param linked_transaction_id Unique identifier for a LinkedTransaction
-  # @param linked_transactions 
+  # @param linked_transactions
   # @param [Hash] opts the optional parameters
   # @return [LinkedTransactions]
   describe 'update_linked_transaction test' do
@@ -2605,7 +2652,7 @@ describe 'AccountingApi' do
   # Allows you to update a specified manual journal
   # @param xero_tenant_id Xero identifier for Tenant
   # @param manual_journal_id Unique identifier for a ManualJournal
-  # @param manual_journals 
+  # @param manual_journals
   # @param [Hash] opts the optional parameters
   # @return [ManualJournals]
   describe 'update_manual_journal test' do
@@ -2631,7 +2678,7 @@ describe 'AccountingApi' do
   # unit tests for update_or_create_bank_transactions
   # Allows you to update or create one or more spend or receive money transaction
   # @param xero_tenant_id Xero identifier for Tenant
-  # @param bank_transactions 
+  # @param bank_transactions
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors
   # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
@@ -2645,7 +2692,7 @@ describe 'AccountingApi' do
   # unit tests for update_or_create_contacts
   # Allows you to update OR create one or more contacts in a Xero organisation
   # @param xero_tenant_id Xero identifier for Tenant
-  # @param contacts 
+  # @param contacts
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors
   # @return [Contacts]
@@ -2685,7 +2732,7 @@ describe 'AccountingApi' do
   # unit tests for update_or_create_invoices
   # Allows you to update OR create one or more sales invoices or purchase bills
   # @param xero_tenant_id Xero identifier for Tenant
-  # @param invoices 
+  # @param invoices
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors
   # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
@@ -2699,7 +2746,7 @@ describe 'AccountingApi' do
   # unit tests for update_or_create_items
   # Allows you to update or create one or more items
   # @param xero_tenant_id Xero identifier for Tenant
-  # @param items 
+  # @param items
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors
   # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
@@ -2726,7 +2773,7 @@ describe 'AccountingApi' do
   # unit tests for update_or_create_purchase_orders
   # Allows you to update or create one or more purchase orders
   # @param xero_tenant_id Xero identifier for Tenant
-  # @param purchase_orders 
+  # @param purchase_orders
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors
   # @return [PurchaseOrders]
@@ -2739,7 +2786,7 @@ describe 'AccountingApi' do
   # unit tests for update_or_create_quotes
   # Allows you to update OR create one or more quotes
   # @param xero_tenant_id Xero identifier for Tenant
-  # @param quotes 
+  # @param quotes
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors
   # @return [Quotes]
@@ -2753,7 +2800,7 @@ describe 'AccountingApi' do
   # Allows you to update a specified purchase order
   # @param xero_tenant_id Xero identifier for Tenant
   # @param purchase_order_id Unique identifier for a PurchaseOrder
-  # @param purchase_orders 
+  # @param purchase_orders
   # @param [Hash] opts the optional parameters
   # @return [PurchaseOrders]
   describe 'update_purchase_order test' do
@@ -2766,7 +2813,7 @@ describe 'AccountingApi' do
   # Allows you to update a specified quote
   # @param xero_tenant_id Xero identifier for Tenant
   # @param quote_id Unique identifier for an Quote
-  # @param quotes 
+  # @param quotes
   # @param [Hash] opts the optional parameters
   # @return [Quotes]
   describe 'update_quote test' do
@@ -2793,7 +2840,7 @@ describe 'AccountingApi' do
   # Allows you to retrieve a specified draft expense claim receipts
   # @param xero_tenant_id Xero identifier for Tenant
   # @param receipt_id Unique identifier for a Receipt
-  # @param receipts 
+  # @param receipts
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
   # @return [Receipts]
@@ -2834,7 +2881,7 @@ describe 'AccountingApi' do
   # unit tests for update_tax_rate
   # Allows you to update Tax Rates
   # @param xero_tenant_id Xero identifier for Tenant
-  # @param tax_rates 
+  # @param tax_rates
   # @param [Hash] opts the optional parameters
   # @return [TaxRates]
   describe 'update_tax_rate test' do
@@ -2847,7 +2894,7 @@ describe 'AccountingApi' do
   # Allows you to update tracking categories
   # @param xero_tenant_id Xero identifier for Tenant
   # @param tracking_category_id Unique identifier for a TrackingCategory
-  # @param tracking_category 
+  # @param tracking_category
   # @param [Hash] opts the optional parameters
   # @return [TrackingCategories]
   describe 'update_tracking_category test' do
@@ -2861,7 +2908,7 @@ describe 'AccountingApi' do
   # @param xero_tenant_id Xero identifier for Tenant
   # @param tracking_category_id Unique identifier for a TrackingCategory
   # @param tracking_option_id Unique identifier for a Tracking Option
-  # @param tracking_option 
+  # @param tracking_option
   # @param [Hash] opts the optional parameters
   # @return [TrackingOptions]
   describe 'update_tracking_options test' do
