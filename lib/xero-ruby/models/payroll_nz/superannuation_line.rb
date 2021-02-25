@@ -16,7 +16,7 @@ module XeroRuby::PayrollNz
   require 'bigdecimal'
 
   class SuperannuationLine
-    # Xero identifier for payroll superannucation type
+    # Xero identifier for payroll superannuation type
     attr_accessor :superannuation_type_id
     
     # Benefit display name

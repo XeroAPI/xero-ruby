@@ -43,7 +43,7 @@ module XeroRuby::PayrollNz
     # Identifies if the earnings is using an average daily pay rate
     attr_accessor :is_average_daily_pay_rate
     
-    # Flag to indentify whether the earnings line is system generated or not.
+    # Flag to identify whether the earnings line is system generated or not.
     attr_accessor :is_system_generated
     
     # Attribute mapping from ruby-style variable name to JSON key.

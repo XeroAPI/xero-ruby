@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**superannuation_type_id** | **String** | Xero identifier for payroll superannucation type | [optional] 
+**superannuation_type_id** | **String** | Xero identifier for payroll superannuation type | [optional] 
 **display_name** | **String** | Benefit display name | [optional] 
 **amount** | **BigDecimal** | The amount of the superannuation line | [optional] 
 **fixed_amount** | **BigDecimal** | Superannuation fixed amount | [optional] 

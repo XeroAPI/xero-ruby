@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **super_membership_id** | **String** | Xero unique identifier for Super membership | [optional] 
 **super_fund_id** | **String** | Xero identifier for super fund | 
-**employee_number** | **String** | The memberhsip number assigned to the employee by the super fund. | 
+**employee_number** | **String** | The membership number assigned to the employee by the super fund. | 
 
 ## Code Sample
 

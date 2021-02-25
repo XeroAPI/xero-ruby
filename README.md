@@ -1,7 +1,7 @@
 # xero-ruby
 Xero Ruby SDK for OAuth 2.0 generated from [Xero API OpenAPI Spec](https://github.com/XeroAPI/Xero-OpenAPI).
 
-[![RubyGem](https://img.shields.io/badge/xero--ruby%20gem-v2.6.1-brightgreen)](https://rubygems.org/gems/xero-ruby)
+[![RubyGem](https://img.shields.io/badge/xero--ruby%20gem-brightgreen)](https://rubygems.org/gems/xero-ruby)
 
 # Documentation
 Xero Ruby SDK supports Xero's OAuth2.0 authentication and the following Xero API sets.
@@ -51,7 +51,7 @@ gem 'xero-ruby'
 
 ### Creating a Client
 * Get the credential values from an API application at https://developer.xero.com/myapps/.
-* Include [neccesary scopes](https://developer.xero.com/documentation/oauth2/scopes) as a space-separated list
+* Include [neccesary scopes](https://developer.xero.com/documentation/oauth2/scopes) as a space-seperated list
     * example => "`openid profile email accounting.transactions accounting.settings`"
 ```
 require 'xero-ruby'
@@ -138,6 +138,11 @@ connections = xero_client.connections
   "updatedDateUtc" => "2020-04-15T22:37:10.4943410"
 }]
 
+# To completely Revoke a user's access token and all their connections
+# pass in the users token set to the #revoke_token api_client method
+
+xero_client.revoke_token(user.token_set)
+
 # disconnect an org from a user's connections. Pass the connection ['id'] not ['tenantId'].
 # Useful if you want to enforce only a single org connection per token.
 remaining_connections = xero_client.disconnect(connections[0]['id'])
@@ -155,7 +160,7 @@ require 'jwt'
 
 def token_expired?
   token_expiry = Time.at(decoded_access_token['exp'])
-  token_expiry > Time.now
+  token_expiry < Time.now
 end
 
 def decoded_access_token
@@ -299,10 +304,20 @@ opts = {
   order: 'UpdatedDateUtc DESC',
   where: {
     is_customer: ['==', true],
-    is_supplier: ['==', true]
+    is_supplier: ['==', true],
+    name: ['StartsWith', 'Rick']
   }
 }
 xero_client.accounting_api.get_contacts(tenant_id, opts).contacts
+
+# for more complex where filtering that requires a null check, pass those in as a string
+# see https://developer.xero.com/documentation/api/requests-and-responses for more
+
+opts = {
+  where: {
+    email_address: '!=null&&EmailAddress.StartsWith("chris.knight@")'
+  }
+}
 
 # Bank Transactions
 opts = {
@@ -328,7 +343,7 @@ xero_client.accounting_api.get_bank_transfers(tenant_id, opts).bank_transfers
 1) Not all `opts` parameter combinations are available for all endpoints, and there are likely some undiscovered edge cases. If you encounter a filter / sort / where clause that seems buggy open an issue and we will dig.
 
 2) Some opts string values may need PascalCasing to match casing defined in our [core API docs](https://developer.xero.com/documentation/api/api-overview).
-    * `opts = { order: 'UpdatedDateUtc DESC'}`
+  * `opts = { order: 'UpdatedDateUtc DESC'}`
 
 3) If you have use cases outside of these examples let us know.
 
@@ -345,13 +360,13 @@ Most of the repo code is auto generated but PR's on issues you encounter are hig
 gem build
 mv xero-ruby-<vsn>.gem xero-ruby.gem
 pwd
-=> /Users/chris.knight/code/sdks/xero-ruby/
+=> /Users/your.user/code/sdks/xero-ruby/
 ```
 
-> xero-ruby-oauth2-app
+> https://github.com/XeroAPI/xero-ruby-oauth2-app
 Replace gem file with local path:
 ```bash
-gem 'xero-ruby', path: '/Users/chris.knight/code/sdks/xero-ruby/'
+gem 'xero-ruby', path: '/Users/your.user/code/sdks/xero-ruby/'
 bundle install
 ```
 
