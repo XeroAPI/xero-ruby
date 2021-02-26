@@ -15,6 +15,7 @@ require 'logger'
 require 'tempfile'
 require 'find'
 require 'faraday'
+require 'base64'
 
 module XeroRuby
   class ApiClient
