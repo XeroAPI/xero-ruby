@@ -15,6 +15,7 @@ require 'logger'
 require 'tempfile'
 require 'find'
 require 'faraday'
+require 'base64'
 
 module XeroRuby
   class ApiClient
@@ -136,7 +137,7 @@ module XeroRuby
         req.body = URI.encode_www_form(data)
       end
       return_error(response) unless response.success?
-      if !response.body.blank?
+      if !response.body.nil? && !response.body.empty?
         body = JSON.parse(response.body)
         set_token_set(body)
       else
