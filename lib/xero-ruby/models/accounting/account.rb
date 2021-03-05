@@ -90,7 +90,7 @@ module XeroRuby::Accounting
     CISLABOURINCOME = "CISLABOURINCOME".freeze
     CISLIABILITY = "CISLIABILITY".freeze
     CISMATERIALS = "CISMATERIALS".freeze
-    # EMPTY = "".freeze
+    EMPTY = "".freeze
     
     # Shown if set
     attr_accessor :reporting_code
@@ -495,7 +495,7 @@ module XeroRuby::Accounting
     end
 
     # Returns the object in the form of hash with snake_case
-    def attributes
+    def to_attributes
       to_hash(downcase: true)
     end
 

@@ -343,7 +343,7 @@ xero_client.accounting_api.get_bank_transfers(tenant_id, opts).bank_transfers
 1) Not all `opts` parameter combinations are available for all endpoints, and there are likely some undiscovered edge cases. If you encounter a filter / sort / where clause that seems buggy open an issue and we will dig.
 
 2) Some opts string values may need PascalCasing to match casing defined in our [core API docs](https://developer.xero.com/documentation/api/api-overview).
-  * `opts = { order: 'UpdatedDateUtc DESC'}`
+* `opts = { order: 'UpdatedDateUtc DESC'}`
 
 3) If you have use cases outside of these examples let us know.
 
