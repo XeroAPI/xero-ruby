@@ -71,11 +71,11 @@ describe 'shared helper methdods' do
 
     describe '#attributes' do
       it 'can serialize invoice attributes into a snake_case hash' do
-        expect(invoice.attributes).to eq({currency_code: "USD", has_attachments: false, has_errors: false, invoice_number: "abc-123", total_discount: 100, type: "ACCPAY"})
+        expect(invoice.to_attributes).to eq({currency_code: "USD", has_attachments: false, has_errors: false, invoice_number: "abc-123", total_discount: 100, type: "ACCPAY"})
       end
   
       it 'can serialize contact attributes into a snake_case hash' do
-        expect(contact.attributes).to eq({account_number: "abc-123", contact_status: "ACTIVE", email_address: "email@gmail.com", first_name: 'Contact', has_attachments: false, has_validation_errors: false, last_name: "Name", name: "Contact Name"})
+        expect(contact.to_attributes).to eq({account_number: "abc-123", contact_status: "ACTIVE", email_address: "email@gmail.com", first_name: 'Contact', has_attachments: false, has_validation_errors: false, last_name: "Name", name: "Contact Name"})
       end
     end
   end
