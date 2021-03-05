@@ -189,7 +189,7 @@ invoices = { invoices: [{ type: XeroRuby::Accounting::Invoice::ACCREC, contact: 
 invoice = xero_client.accounting_api.create_invoices(tenant_id, invoices).invoices.first
 
 # display out all the serialized data as a hash
-puts invoices.attributes
+puts invoices.to_attributes
 => {type: 'ACCREC', line_items: [...]}
 
 # Create History
