@@ -393,7 +393,7 @@ module XeroRuby::PayrollUk
     end
 
     # Returns the object in the form of hash with snake_case
-    def attributes
+    def to_attributes
       to_hash(downcase: true)
     end
 
