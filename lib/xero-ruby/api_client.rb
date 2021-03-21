@@ -16,6 +16,7 @@ require 'tempfile'
 require 'find'
 require 'faraday'
 require 'base64'
+require 'cgi'
 
 module XeroRuby
   class ApiClient
@@ -46,7 +47,7 @@ module XeroRuby
     end
 
     def authorization_url
-      url = "#{@config.login_url}?response_type=code&client_id=#{@client_id}&redirect_uri=#{@redirect_uri}&scope=#{@scopes}"
+      url = "#{@config.login_url}?response_type=code&client_id=#{@client_id}&redirect_uri=#{@redirect_uri}&scope=#{CGI.escape(@scopes)}"
       url << "&state=#{@state}" if @state
       return url
     end

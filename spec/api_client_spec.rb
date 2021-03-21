@@ -47,7 +47,7 @@ describe XeroRuby::ApiClient do
             state: 'i-am-customer-state'
           }
           api_client = XeroRuby::ApiClient.new(credentials: creds)
-          expect(api_client.authorization_url).to eq('https://login.xero.com/identity/connect/authorize?response_type=code&client_id=abc&redirect_uri=https://mydomain.com/callback&scope=openid profile email accounting.transactions accounting.settings&state=i-am-customer-state')
+          expect(api_client.authorization_url).to eq('https://login.xero.com/identity/connect/authorize?response_type=code&client_id=abc&redirect_uri=https://mydomain.com/callback&scope=openid+profile+email+accounting.transactions+accounting.settings&state=i-am-customer-state')
         end
 
         it "Does not append state if it is not provided" do
@@ -58,7 +58,7 @@ describe XeroRuby::ApiClient do
             scopes: 'openid profile email accounting.transactions accounting.settings'
           }
           api_client = XeroRuby::ApiClient.new(credentials: creds)
-          expect(api_client.authorization_url).to eq('https://login.xero.com/identity/connect/authorize?response_type=code&client_id=abc&redirect_uri=https://mydomain.com/callback&scope=openid profile email accounting.transactions accounting.settings')
+          expect(api_client.authorization_url).to eq('https://login.xero.com/identity/connect/authorize?response_type=code&client_id=abc&redirect_uri=https://mydomain.com/callback&scope=openid+profile+email+accounting.transactions+accounting.settings')
         end
       end
     end
