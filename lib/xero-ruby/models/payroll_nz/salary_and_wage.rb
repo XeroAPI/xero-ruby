@@ -44,6 +44,7 @@ module XeroRuby::PayrollNz
     attr_accessor :status
     ACTIVE = "Active".freeze
     PENDING = "Pending".freeze
+    HISTORY = "History".freeze
     
     # The type of the payment of the corresponding salary and wages
     attr_accessor :payment_type
@@ -204,7 +205,7 @@ module XeroRuby::PayrollNz
       return false if @effective_from.nil?
       return false if @annual_salary.nil?
       return false if @status.nil?
-      status_validator = EnumAttributeValidator.new('String', ["Active", "Pending"])
+      status_validator = EnumAttributeValidator.new('String', ["Active", "Pending", "History"])
       return false unless status_validator.valid?(@status)
       return false if @payment_type.nil?
       payment_type_validator = EnumAttributeValidator.new('String', ["Salary", "Hourly"])
@@ -215,7 +216,7 @@ module XeroRuby::PayrollNz
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] status Object to be assigned
     def status=(status)
-      validator = EnumAttributeValidator.new('String', ["Active", "Pending"])
+      validator = EnumAttributeValidator.new('String', ["Active", "Pending", "History"])
       unless validator.valid?(status)
         fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
       end

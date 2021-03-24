@@ -36,6 +36,7 @@ module XeroRuby::PayrollNz
     DRAFT = "Draft".freeze
     APPROVED = "Approved".freeze
     COMPLETED = "Completed".freeze
+    REQUESTED = "Requested".freeze
     
     # The Total Hours of the Timesheet
     attr_accessor :total_hours
@@ -182,7 +183,7 @@ module XeroRuby::PayrollNz
       return false if @employee_id.nil?
       return false if @start_date.nil?
       return false if @end_date.nil?
-      status_validator = EnumAttributeValidator.new('String', ["Draft", "Approved", "Completed"])
+      status_validator = EnumAttributeValidator.new('String', ["Draft", "Approved", "Completed", "Requested"])
       return false unless status_validator.valid?(@status)
       true
     end
@@ -190,7 +191,7 @@ module XeroRuby::PayrollNz
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] status Object to be assigned
     def status=(status)
-      validator = EnumAttributeValidator.new('String', ["Draft", "Approved", "Completed"])
+      validator = EnumAttributeValidator.new('String', ["Draft", "Approved", "Completed", "Requested"])
       unless validator.valid?(status)
         fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
       end
