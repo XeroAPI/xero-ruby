@@ -3548,8 +3548,7 @@ module XeroRuby
     # Retrieves employees
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :first_name Filter by first name
-    # @option opts [String] :last_name Filter by last name
+    # @option opts [String] :filter Filter by first name and/or lastname
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
     # @return [Employees]
     def get_employees(xero_tenant_id, opts = {})
@@ -3560,8 +3559,7 @@ module XeroRuby
     # Retrieves employees
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :first_name Filter by first name
-    # @option opts [String] :last_name Filter by last name
+    # @option opts [String] :filter Filter by first name and/or lastname
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
     # @return [Array<(Employees, Integer, Hash)>] Employees data, response status code and response headers
     def get_employees_with_http_info(xero_tenant_id, opts = {})
@@ -3580,8 +3578,7 @@ module XeroRuby
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'firstName'] = opts[:'first_name'] if !opts[:'first_name'].nil?
-      query_params[:'lastName'] = opts[:'last_name'] if !opts[:'last_name'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
       query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
       
       # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
@@ -4587,8 +4584,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
-    # @option opts [String] :employee_id By default get Timesheets will return the timesheets for all employees in an organization. You can add GET https://…/timesheets?filter&#x3D;employeeId&#x3D;&#x3D;{EmployeeID} to get only the timesheets of a particular employee.
-    # @option opts [String] :payroll_calendar_id By default get Timesheets will return all the timesheets for an organization. You can add GET https://…/timesheets?filter&#x3D;payrollCalendarId&#x3D;&#x3D;{PayrollCalendarID} to filter the timesheets by payroll calendar id
+    # @option opts [String] :filter Filter by first name and/or lastname
     # @return [Timesheets]
     def get_timesheets(xero_tenant_id, opts = {})
       data, _status_code, _headers = get_timesheets_with_http_info(xero_tenant_id, opts)
@@ -4599,8 +4595,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
-    # @option opts [String] :employee_id By default get Timesheets will return the timesheets for all employees in an organization. You can add GET https://…/timesheets?filter&#x3D;employeeId&#x3D;&#x3D;{EmployeeID} to get only the timesheets of a particular employee.
-    # @option opts [String] :payroll_calendar_id By default get Timesheets will return all the timesheets for an organization. You can add GET https://…/timesheets?filter&#x3D;payrollCalendarId&#x3D;&#x3D;{PayrollCalendarID} to filter the timesheets by payroll calendar id
+    # @option opts [String] :filter Filter by first name and/or lastname
     # @return [Array<(Timesheets, Integer, Hash)>] Timesheets data, response status code and response headers
     def get_timesheets_with_http_info(xero_tenant_id, opts = {})
       if @api_client.config.debugging
@@ -4619,8 +4614,7 @@ module XeroRuby
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
-      query_params[:'employeeId'] = opts[:'employee_id'] if !opts[:'employee_id'].nil?
-      query_params[:'payrollCalendarId'] = opts[:'payroll_calendar_id'] if !opts[:'payroll_calendar_id'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
       
       # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
       query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
