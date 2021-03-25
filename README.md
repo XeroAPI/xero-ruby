@@ -7,22 +7,18 @@ Xero Ruby SDK for OAuth 2.0 generated from [Xero API OpenAPI Spec](https://githu
 Xero Ruby SDK supports Xero's OAuth2.0 authentication and the following Xero API sets.
 
 ## API Client Docs
-* [Accounting Api Docs](/docs/accounting/AccountingApi.md)
+
+* Core [Accounting Api Docs](https://xeroapi.github.io/xero-ruby/accounting/index.html)
+---
 * [Asset Api Docs](/docs/assets/AssetApi.md)
 * [Project Api Docs](docs/projects/ProjectApi.md)
-* [File Api Docs](docs/files/FileApi.md)
+* [Files Api Docs](docs/files/FileApi.md)
 * [Payroll Docs (AU)](docs/payroll_au/PayrollAuApi.md)
 * [Payroll Docs (NZ)](docs/payroll_nz/PayrollNzApi.md)
 * [Payroll Docs (UK)](docs/payroll_uk/PayrollUkApi.md)
 
 ## API Model Docs
-* [Accounting Models Docs](/docs/accounting/)
-* [Asset Models Docs](/docs/assets/)
-* [Project Models Docs](/docs/projects/)
-* [File Models Docs](/docs/files/)
-* [Payroll Models (AU)](docs/payroll_au/)
-* [Payroll Models (NZ)](docs/payroll_nz/)
-* [Payroll Models (UK)](docs/payroll_uk/)
+* [XeroRuby Models Docs](/docs/)
 
 ## Sample Apps
 We have two apps showing SDK usage.
@@ -30,9 +26,6 @@ We have two apps showing SDK usage.
 * https://github.com/XeroAPI/xero-ruby-oauth2-app (**Rails** - token management / full examples)
 
 ![sample-app](https://i.imgur.com/OOEn55G.png)
-
-## Looking for OAuth 1.0a support?
-Check out the [Xeroizer](https://github.com/waynerobinson/xeroizer) gem (maintained by community).
 
 ---
 ## Installation
@@ -49,7 +42,7 @@ gem 'xero-ruby'
 * Create a [free Xero user account](https://www.xero.com/us/signup/api/)
 * Login to your Xero developer [/myapps](https://developer.xero.com/myapps) dashboard & create an API application and note your API app's credentials.
 
-### Creating a Client
+### Creating a client
 * Get the credential values from an API application at https://developer.xero.com/myapps/.
 * Include [neccesary scopes](https://developer.xero.com/documentation/oauth2/scopes) as a space-seperated list
     * example => "`openid profile email accounting.transactions accounting.settings`"
@@ -77,10 +70,11 @@ To generate a valid `token_set` send a user to the `authorization_url`:
 redirect_to @authorization_url
 ```
 
-Xero will then redirect back to the URI defined in your ENV['REDIRECT_URI'] variable.
+Xero will then redirect back to the URI defined in your `redirect_uri` config.
+
 *This must match **exactly** with the variable in your /myapps dashboard.*
 
-In your callback route catch, calling `get_token_set_from_callback` will exchange the temp code in your params, with a valid `token_set` that you can use to make API calls.
+In your callback, calling `get_token_set_from_callback` will exchange the temporary code Xero return, with a valid `token_set` that you can use to make API calls.
 ```ruby
 # => http://localhost:3000/oauth/callback
 
@@ -93,11 +87,12 @@ puts params['state']
 ```
 
 ## Making API calls once you have a token_set
-For use outside of the initial auth flow, setup the client by passing the whole token_set to `refresh_token_set` or `set_token_set`.
+Once you already have a token_set stored from this initual user interaction, you can setup a new client by passing the whole token_set to `refresh_token_set` or `set_token_set`.
 ```ruby
-xero_client.refresh_token_set(user.token_set)
-
 xero_client.set_token_set(user.token_set)
+
+xero_client.refresh_token_set(user.token_set)
+# this will set the access_token on the client, and return a refreshed `token_set` you need to save.
 ```
 A `token_set` contains data about your API connection most importantly :
 * `access_token`
@@ -171,6 +166,7 @@ end
 ## API Usage
 
 ### Accounting API
+> https://xeroapi.github.io/xero-ruby/accounting/index.html
 ```ruby
 require 'xero-ruby'
 
@@ -178,8 +174,6 @@ xero_client.refresh_token_set(user.token_set)
 
 tenant_id = user.active_tenant_id
 # example of how to store the `tenantId` of the specific tenant (aka organisation)
-
-# https://github.com/XeroAPI/xero-ruby/blob/master/accounting/lib/xero-ruby/api/accounting_api.rb
 
 # Get Accounts
 accounts = xero_client.accounting_api.get_accounts(tenant_id).accounts
@@ -208,10 +202,8 @@ attachment = xero_client.accounting_api.create_account_attachment_by_file_name(t
 ```
 
 ### Assets API
+> https://github.com/XeroAPI/xero-ruby/blob/master/accounting/lib/xero-ruby/api/asset_api.rb
 ```ruby
-# https://github.com/XeroAPI/xero-ruby/blob/master/accounting/lib/xero-ruby/api/asset_api.rb
-  
-# Create Asset
 asset = {
   "assetName": "AssetName: #{rand(10000)}",
   "assetNumber": "Asset: #{rand(10000)}",
@@ -221,18 +213,14 @@ asset = xero_client.asset_api.create_asset(tenant_id, asset)
 ```
 
 ### Project API
+> https://github.com/XeroAPI/xero-ruby/blob/master/docs/projects/ProjectApi.md
 ```ruby
-# https://github.com/XeroAPI/xero-ruby/blob/master/docs/projects/ProjectApi.md
-
-# Get Projects
 projects = xero_client.project_api.get_projects(tenant_id).items
 ```
 
 ### Files API
+> https://github.com/XeroAPI/xero-ruby/blob/master/docs/files/FileApi.md
 ```ruby
-# https://github.com/XeroAPI/xero-ruby/blob/master/docs/files/FileApi.md
-
-# Get Files
 opts = {
   pagesize: 50, # Integer | pass an optional page size value
   page: 2, # Integer | number of records to skip for pagination

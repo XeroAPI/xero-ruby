@@ -68,6 +68,9 @@ module XeroRuby::Accounting
     # Booelan that tells you if the batch payment has been reconciled (read-only)
     attr_accessor :is_reconciled
     
+    # Displays array of validation error messages from the API
+    attr_accessor :validation_errors
+    
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -108,7 +111,8 @@ module XeroRuby::Accounting
         :'status' => :'Status',
         :'total_amount' => :'TotalAmount',
         :'updated_date_utc' => :'UpdatedDateUTC',
-        :'is_reconciled' => :'IsReconciled'
+        :'is_reconciled' => :'IsReconciled',
+        :'validation_errors' => :'ValidationErrors'
       }
     end
 
@@ -130,7 +134,8 @@ module XeroRuby::Accounting
         :'status' => :'String',
         :'total_amount' => :'String',
         :'updated_date_utc' => :'DateTime',
-        :'is_reconciled' => :'String'
+        :'is_reconciled' => :'String',
+        :'validation_errors' => :'Array<ValidationError>'
       }
     end
 
@@ -213,6 +218,12 @@ module XeroRuby::Accounting
 
       if attributes.key?(:'is_reconciled')
         self.is_reconciled = attributes[:'is_reconciled']
+      end
+
+      if attributes.key?(:'validation_errors')
+        if (value = attributes[:'validation_errors']).is_a?(Array)
+          self.validation_errors = value
+        end
       end
     end
 
@@ -333,7 +344,8 @@ module XeroRuby::Accounting
           status == o.status &&
           total_amount == o.total_amount &&
           updated_date_utc == o.updated_date_utc &&
-          is_reconciled == o.is_reconciled
+          is_reconciled == o.is_reconciled &&
+          validation_errors == o.validation_errors
     end
 
     # @see the `==` method
@@ -345,7 +357,7 @@ module XeroRuby::Accounting
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account, reference, particulars, code, details, narrative, batch_payment_id, date_string, date, amount, payments, type, status, total_amount, updated_date_utc, is_reconciled].hash
+      [account, reference, particulars, code, details, narrative, batch_payment_id, date_string, date, amount, payments, type, status, total_amount, updated_date_utc, is_reconciled, validation_errors].hash
     end
 
     # Builds the object from hash

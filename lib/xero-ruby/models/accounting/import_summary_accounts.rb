@@ -62,15 +62,15 @@ module XeroRuby::Accounting
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'total' => :'Float',
-        :'new' => :'Float',
-        :'updated' => :'Float',
-        :'deleted' => :'Float',
-        :'locked' => :'Float',
-        :'system' => :'Float',
-        :'errored' => :'Float',
+        :'total' => :'Integer',
+        :'new' => :'Integer',
+        :'updated' => :'Integer',
+        :'deleted' => :'Integer',
+        :'locked' => :'Integer',
+        :'system' => :'Integer',
+        :'errored' => :'Integer',
         :'present' => :'Boolean',
-        :'new_or_updated' => :'Float'
+        :'new_or_updated' => :'Integer'
       }
     end
 
