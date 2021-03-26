@@ -6,8 +6,7 @@ Xero Ruby SDK for OAuth 2.0 generated from [Xero API OpenAPI Spec](https://githu
 # Documentation
 Xero Ruby SDK supports Xero's OAuth2.0 authentication and the following Xero API sets.
 
-## API Client Docs
-
+## SDK Documentation
 * Core [Accounting Api Docs](https://xeroapi.github.io/xero-ruby/accounting/index.html)
 ---
 * [Asset Api Docs](/docs/assets/AssetApi.md)
