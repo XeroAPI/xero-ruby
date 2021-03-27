@@ -7,17 +7,16 @@ Xero Ruby SDK for OAuth 2.0 generated from [Xero API OpenAPI Spec](https://githu
 Xero Ruby SDK supports Xero's OAuth2.0 authentication and the following Xero API sets.
 
 ## SDK Documentation
-* Core [Accounting Api Docs](https://xeroapi.github.io/xero-ruby/accounting/index.html)
+* [API client methods](https://xeroapi.github.io/xero-ruby/accounting/index.html)
 ---
-* [Asset Api Docs](/docs/assets/AssetApi.md)
-* [Project Api Docs](docs/projects/ProjectApi.md)
-* [Files Api Docs](docs/files/FileApi.md)
-* [Payroll Docs (AU)](docs/payroll_au/PayrollAuApi.md)
-* [Payroll Docs (NZ)](docs/payroll_nz/PayrollNzApi.md)
-* [Payroll Docs (UK)](docs/payroll_uk/PayrollUkApi.md)
-
 ## API Model Docs
-* [XeroRuby Models Docs](/docs/)
+* [Accounting Models](/docs/accounting)
+* [Asset Api Docs](/docs/assets/)
+* [Project Api Docs](docs/projects/)
+* [Files Api Docs](docs/files/)
+* [Payroll Docs (AU)](docs/payroll_au/)
+* [Payroll Docs (NZ)](docs/payroll_nz/)
+* [Payroll Docs (UK)](docs/payroll_uk/)
 
 ## Sample Apps
 We have two apps showing SDK usage.
