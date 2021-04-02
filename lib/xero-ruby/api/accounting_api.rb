@@ -183,7 +183,7 @@ module XeroRuby
     # Creates an attachment for a specific bank transaction by filename
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param bank_transaction_id [String] Xero generated unique identifier for a bank transaction
-    # @param file_name [String] The name of the file being attached
+    # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Attachments]
@@ -195,7 +195,7 @@ module XeroRuby
     # Creates an attachment for a specific bank transaction by filename
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param bank_transaction_id [String] Xero generated unique identifier for a bank transaction
-    # @param file_name [String] The name of the file being attached
+    # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
@@ -510,7 +510,7 @@ module XeroRuby
 
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param bank_transfer_id [String] Xero generated unique identifier for a bank transfer
-    # @param file_name [String] The name of the file being attached to a Bank Transfer
+    # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Attachments]
@@ -521,7 +521,7 @@ module XeroRuby
 
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param bank_transfer_id [String] Xero generated unique identifier for a bank transfer
-    # @param file_name [String] The name of the file being attached to a Bank Transfer
+    # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
@@ -921,7 +921,7 @@ module XeroRuby
 
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param contact_id [String] Unique identifier for a Contact
-    # @param file_name [String] Name for the file you are attaching
+    # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Attachments]
@@ -932,7 +932,7 @@ module XeroRuby
 
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param contact_id [String] Unique identifier for a Contact
-    # @param file_name [String] Name for the file you are attaching
+    # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
@@ -1412,7 +1412,7 @@ module XeroRuby
     # Creates an attachment for a specific credit note
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param credit_note_id [String] Unique identifier for a Credit Note
-    # @param file_name [String] Name of the file you are attaching to Credit Note
+    # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_online Allows an attachment to be seen by the end customer within their online invoice (default to false)
@@ -1425,7 +1425,7 @@ module XeroRuby
     # Creates an attachment for a specific credit note
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param credit_note_id [String] Unique identifier for a Credit Note
-    # @param file_name [String] Name of the file you are attaching to Credit Note
+    # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_online Allows an attachment to be seen by the end customer within their online invoice
@@ -1980,7 +1980,7 @@ module XeroRuby
     # Creates an attachment for a specific invoice or purchase bill by filename
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param invoice_id [String] Unique identifier for an Invoice
-    # @param file_name [String] Name of the file you are attaching
+    # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_online Allows an attachment to be seen by the end customer within their online invoice (default to false)
@@ -1993,7 +1993,7 @@ module XeroRuby
     # Creates an attachment for a specific invoice or purchase bill by filename
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param invoice_id [String] Unique identifier for an Invoice
-    # @param file_name [String] Name of the file you are attaching
+    # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_online Allows an attachment to be seen by the end customer within their online invoice
@@ -2475,7 +2475,7 @@ module XeroRuby
     # Creates a specific attachment for a specific manual journal by file name
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param manual_journal_id [String] Unique identifier for a ManualJournal
-    # @param file_name [String] The name of the file being attached to a ManualJournal
+    # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Attachments]
@@ -2487,7 +2487,7 @@ module XeroRuby
     # Creates a specific attachment for a specific manual journal by file name
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param manual_journal_id [String] Unique identifier for a ManualJournal
-    # @param file_name [String] The name of the file being attached to a ManualJournal
+    # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
@@ -2562,7 +2562,7 @@ module XeroRuby
 
     # Creates a history record for a specific manual journal
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param manual_journal_id [String] Xero generated unique identifier for a manual journal
+    # @param manual_journal_id [String] Unique identifier for a ManualJournal
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
     # @return [HistoryRecords]
@@ -2573,7 +2573,7 @@ module XeroRuby
 
     # Creates a history record for a specific manual journal
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param manual_journal_id [String] Xero generated unique identifier for a manual journal
+    # @param manual_journal_id [String] Unique identifier for a ManualJournal
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
@@ -3203,7 +3203,7 @@ module XeroRuby
 
     # Allows you to create an Allocation for prepayments
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param prepayment_id [String] Unique identifier for Prepayment
+    # @param prepayment_id [String] Unique identifier for a PrePayment
     # @param allocations [Allocations] Allocations with an array of Allocation object in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
@@ -3215,7 +3215,7 @@ module XeroRuby
 
     # Allows you to create an Allocation for prepayments
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param prepayment_id [String] Unique identifier for Prepayment
+    # @param prepayment_id [String] Unique identifier for a PrePayment
     # @param allocations [Allocations] Allocations with an array of Allocation object in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
@@ -3370,7 +3370,7 @@ module XeroRuby
 
     # Creates attachment for a specific purchase order
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param purchase_order_id [String] Unique identifier for Purchase Order object
+    # @param purchase_order_id [String] Unique identifier for an Purchase Order
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
@@ -3382,7 +3382,7 @@ module XeroRuby
 
     # Creates attachment for a specific purchase order
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param purchase_order_id [String] Unique identifier for Purchase Order object
+    # @param purchase_order_id [String] Unique identifier for an Purchase Order
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
@@ -3458,7 +3458,7 @@ module XeroRuby
 
     # Creates a history record for a specific purchase orders
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param purchase_order_id [String] Unique identifier for a PurchaseOrder
+    # @param purchase_order_id [String] Unique identifier for an Purchase Order
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
     # @return [HistoryRecords]
@@ -3469,7 +3469,7 @@ module XeroRuby
 
     # Creates a history record for a specific purchase orders
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param purchase_order_id [String] Unique identifier for a PurchaseOrder
+    # @param purchase_order_id [String] Unique identifier for an Purchase Order
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
@@ -3619,7 +3619,7 @@ module XeroRuby
 
     # Creates attachment for a specific quote
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param quote_id [String] Unique identifier for Quote object
+    # @param quote_id [String] Unique identifier for an Quote
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
@@ -3631,7 +3631,7 @@ module XeroRuby
 
     # Creates attachment for a specific quote
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param quote_id [String] Unique identifier for Quote object
+    # @param quote_id [String] Unique identifier for an Quote
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
@@ -3948,7 +3948,7 @@ module XeroRuby
     # Creates an attachment on a specific expense claim receipts by file name
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param receipt_id [String] Unique identifier for a Receipt
-    # @param file_name [String] The name of the file being attached to the Receipt
+    # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Attachments]
@@ -3960,7 +3960,7 @@ module XeroRuby
     # Creates an attachment on a specific expense claim receipts by file name
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param receipt_id [String] Unique identifier for a Receipt
-    # @param file_name [String] The name of the file being attached to the Receipt
+    # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
@@ -4118,7 +4118,7 @@ module XeroRuby
     # Creates an attachment from a specific repeating invoices by file name
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param repeating_invoice_id [String] Unique identifier for a Repeating Invoice
-    # @param file_name [String] The name of the file being attached to a Repeating Invoice
+    # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Attachments]
@@ -4130,7 +4130,7 @@ module XeroRuby
     # Creates an attachment from a specific repeating invoices by file name
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param repeating_invoice_id [String] Unique identifier for a Repeating Invoice
-    # @param file_name [String] The name of the file being attached to a Repeating Invoice
+    # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
@@ -4521,7 +4521,7 @@ module XeroRuby
 
     # Deletes a chart of accounts
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param account_id [String] Unique identifier for retrieving single object
+    # @param account_id [String] Unique identifier for Account object
     # @param [Hash] opts the optional parameters
     # @return [Accounts]
     def delete_account(xero_tenant_id, account_id, opts = {})
@@ -4531,7 +4531,7 @@ module XeroRuby
 
     # Deletes a chart of accounts
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param account_id [String] Unique identifier for retrieving single object
+    # @param account_id [String] Unique identifier for Account object
     # @param [Hash] opts the optional parameters
     # @return [Array<(Accounts, Integer, Hash)>] Accounts data, response status code and response headers
     def delete_account_with_http_info(xero_tenant_id, account_id, opts = {})
@@ -5213,7 +5213,7 @@ module XeroRuby
 
     # Retrieves a single chart of accounts by using a unique account Id
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param account_id [String] Unique identifier for retrieving single object
+    # @param account_id [String] Unique identifier for Account object
     # @param [Hash] opts the optional parameters
     # @return [Accounts]
     def get_account(xero_tenant_id, account_id, opts = {})
@@ -5223,7 +5223,7 @@ module XeroRuby
 
     # Retrieves a single chart of accounts by using a unique account Id
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param account_id [String] Unique identifier for retrieving single object
+    # @param account_id [String] Unique identifier for Account object
     # @param [Hash] opts the optional parameters
     # @return [Array<(Accounts, Integer, Hash)>] Accounts data, response status code and response headers
     def get_account_with_http_info(xero_tenant_id, account_id, opts = {})
@@ -5690,7 +5690,7 @@ module XeroRuby
     # Retrieves a specific attachment from a specific bank transaction by filename
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param bank_transaction_id [String] Xero generated unique identifier for a bank transaction
-    # @param file_name [String] The name of the file being attached
+    # @param file_name [String] Name of the attachment
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [File]
@@ -5702,7 +5702,7 @@ module XeroRuby
     # Retrieves a specific attachment from a specific bank transaction by filename
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param bank_transaction_id [String] Xero generated unique identifier for a bank transaction
-    # @param file_name [String] The name of the file being attached
+    # @param file_name [String] Name of the attachment
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
@@ -5777,7 +5777,7 @@ module XeroRuby
     # Retrieves specific attachments from a specific BankTransaction using a unique attachment Id
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param bank_transaction_id [String] Xero generated unique identifier for a bank transaction
-    # @param attachment_id [String] Xero generated unique identifier for an attachment
+    # @param attachment_id [String] Unique identifier for Attachment object
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [File]
@@ -5789,7 +5789,7 @@ module XeroRuby
     # Retrieves specific attachments from a specific BankTransaction using a unique attachment Id
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param bank_transaction_id [String] Xero generated unique identifier for a bank transaction
-    # @param attachment_id [String] Xero generated unique identifier for an attachment
+    # @param attachment_id [String] Unique identifier for Attachment object
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
@@ -6169,7 +6169,7 @@ module XeroRuby
     # Retrieves a specific attachment on a specific bank transfer by file name
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param bank_transfer_id [String] Xero generated unique identifier for a bank transfer
-    # @param file_name [String] The name of the file being attached to a Bank Transfer
+    # @param file_name [String] Name of the attachment
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [File]
@@ -6181,7 +6181,7 @@ module XeroRuby
     # Retrieves a specific attachment on a specific bank transfer by file name
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param bank_transfer_id [String] Xero generated unique identifier for a bank transfer
-    # @param file_name [String] The name of the file being attached to a Bank Transfer
+    # @param file_name [String] Name of the attachment
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
@@ -6256,7 +6256,7 @@ module XeroRuby
     # Retrieves a specific attachment from a specific bank transfer using a unique attachment ID
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param bank_transfer_id [String] Xero generated unique identifier for a bank transfer
-    # @param attachment_id [String] Xero generated unique identifier for an Attachment to a bank transfer
+    # @param attachment_id [String] Unique identifier for Attachment object
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [File]
@@ -6268,7 +6268,7 @@ module XeroRuby
     # Retrieves a specific attachment from a specific bank transfer using a unique attachment ID
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param bank_transfer_id [String] Xero generated unique identifier for a bank transfer
-    # @param attachment_id [String] Xero generated unique identifier for an Attachment to a bank transfer
+    # @param attachment_id [String] Unique identifier for Attachment object
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
@@ -7009,7 +7009,7 @@ module XeroRuby
     # Retrieves a specific attachment from a specific contact by file name
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param contact_id [String] Unique identifier for a Contact
-    # @param file_name [String] Name for the file you are attaching
+    # @param file_name [String] Name of the attachment
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [File]
@@ -7021,7 +7021,7 @@ module XeroRuby
     # Retrieves a specific attachment from a specific contact by file name
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param contact_id [String] Unique identifier for a Contact
-    # @param file_name [String] Name for the file you are attaching
+    # @param file_name [String] Name of the attachment
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
@@ -7096,7 +7096,7 @@ module XeroRuby
     # Retrieves a specific attachment from a specific contact using a unique attachment Id
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param contact_id [String] Unique identifier for a Contact
-    # @param attachment_id [String] Unique identifier for a Attachment
+    # @param attachment_id [String] Unique identifier for Attachment object
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [File]
@@ -7108,7 +7108,7 @@ module XeroRuby
     # Retrieves a specific attachment from a specific contact using a unique attachment Id
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param contact_id [String] Unique identifier for a Contact
-    # @param attachment_id [String] Unique identifier for a Attachment
+    # @param attachment_id [String] Unique identifier for Attachment object
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
@@ -7864,7 +7864,7 @@ module XeroRuby
     # Retrieves a specific attachment on a specific credit note by file name
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param credit_note_id [String] Unique identifier for a Credit Note
-    # @param file_name [String] Name of the file you are attaching to Credit Note
+    # @param file_name [String] Name of the attachment
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [File]
@@ -7876,7 +7876,7 @@ module XeroRuby
     # Retrieves a specific attachment on a specific credit note by file name
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param credit_note_id [String] Unique identifier for a Credit Note
-    # @param file_name [String] Name of the file you are attaching to Credit Note
+    # @param file_name [String] Name of the attachment
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
@@ -7951,7 +7951,7 @@ module XeroRuby
     # Retrieves a specific attachment from a specific credit note using a unique attachment Id
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param credit_note_id [String] Unique identifier for a Credit Note
-    # @param attachment_id [String] Unique identifier for a Attachment
+    # @param attachment_id [String] Unique identifier for Attachment object
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [File]
@@ -7963,7 +7963,7 @@ module XeroRuby
     # Retrieves a specific attachment from a specific credit note using a unique attachment Id
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param credit_note_id [String] Unique identifier for a Credit Note
-    # @param attachment_id [String] Unique identifier for a Attachment
+    # @param attachment_id [String] Unique identifier for Attachment object
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
@@ -8870,7 +8870,7 @@ module XeroRuby
     # Retrieves an attachment from a specific invoice or purchase bill by filename
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param invoice_id [String] Unique identifier for an Invoice
-    # @param file_name [String] Name of the file you are attaching
+    # @param file_name [String] Name of the attachment
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [File]
@@ -8882,7 +8882,7 @@ module XeroRuby
     # Retrieves an attachment from a specific invoice or purchase bill by filename
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param invoice_id [String] Unique identifier for an Invoice
-    # @param file_name [String] Name of the file you are attaching
+    # @param file_name [String] Name of the attachment
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
@@ -8957,7 +8957,7 @@ module XeroRuby
     # Retrieves a specific attachment from a specific invoices or purchase bills by using a unique attachment Id
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param invoice_id [String] Unique identifier for an Invoice
-    # @param attachment_id [String] Unique identifier for an Attachment
+    # @param attachment_id [String] Unique identifier for Attachment object
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [File]
@@ -8969,7 +8969,7 @@ module XeroRuby
     # Retrieves a specific attachment from a specific invoices or purchase bills by using a unique attachment Id
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param invoice_id [String] Unique identifier for an Invoice
-    # @param attachment_id [String] Unique identifier for an Attachment
+    # @param attachment_id [String] Unique identifier for Attachment object
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
@@ -9268,7 +9268,7 @@ module XeroRuby
     # @option opts [Array<String>] :contact_i_ds Filter by a comma-separated list of ContactIDs.
     # @option opts [Array<String>] :statuses Filter by a comma-separated list Statuses. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter.
     # @option opts [Integer] :page e.g. page&#x3D;1 – Up to 100 invoices will be returned in a single API call with line items shown for each invoice
-    # @option opts [Boolean] :include_archived e.g. includeArchived&#x3D;true - Contacts with a status of ARCHIVED will be included in the response
+    # @option opts [Boolean] :include_archived e.g. includeArchived&#x3D;true - Invoices with a status of ARCHIVED will be included in the response
     # @option opts [Boolean] :created_by_my_app When set to true you&#39;ll only retrieve Invoices created by your app
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @return [Invoices]
@@ -9288,7 +9288,7 @@ module XeroRuby
     # @option opts [Array<String>] :contact_i_ds Filter by a comma-separated list of ContactIDs.
     # @option opts [Array<String>] :statuses Filter by a comma-separated list Statuses. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter.
     # @option opts [Integer] :page e.g. page&#x3D;1 – Up to 100 invoices will be returned in a single API call with line items shown for each invoice
-    # @option opts [Boolean] :include_archived e.g. includeArchived&#x3D;true - Contacts with a status of ARCHIVED will be included in the response
+    # @option opts [Boolean] :include_archived e.g. includeArchived&#x3D;true - Invoices with a status of ARCHIVED will be included in the response
     # @option opts [Boolean] :created_by_my_app When set to true you&#39;ll only retrieve Invoices created by your app
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @return [Array<(Invoices, Integer, Hash)>] Invoices data, response status code and response headers
@@ -9977,7 +9977,7 @@ module XeroRuby
     # Retrieves a specific attachment from a specific manual journal by file name
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param manual_journal_id [String] Unique identifier for a ManualJournal
-    # @param file_name [String] The name of the file being attached to a ManualJournal
+    # @param file_name [String] Name of the attachment
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [File]
@@ -9989,7 +9989,7 @@ module XeroRuby
     # Retrieves a specific attachment from a specific manual journal by file name
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param manual_journal_id [String] Unique identifier for a ManualJournal
-    # @param file_name [String] The name of the file being attached to a ManualJournal
+    # @param file_name [String] Name of the attachment
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
@@ -10064,7 +10064,7 @@ module XeroRuby
     # Allows you to retrieve a specific attachment from a specific manual journal using a unique attachment Id
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param manual_journal_id [String] Unique identifier for a ManualJournal
-    # @param attachment_id [String] Unique identifier for a Attachment
+    # @param attachment_id [String] Unique identifier for Attachment object
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [File]
@@ -10076,7 +10076,7 @@ module XeroRuby
     # Allows you to retrieve a specific attachment from a specific manual journal using a unique attachment Id
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param manual_journal_id [String] Unique identifier for a ManualJournal
-    # @param attachment_id [String] Unique identifier for a Attachment
+    # @param attachment_id [String] Unique identifier for Attachment object
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
@@ -10304,7 +10304,7 @@ module XeroRuby
 
     # Retrieves history for a specific manual journal
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param manual_journal_id [String] Xero generated unique identifier for a manual journal
+    # @param manual_journal_id [String] Unique identifier for a ManualJournal
     # @param [Hash] opts the optional parameters
     # @return [HistoryRecords]
     def get_manual_journals_history(xero_tenant_id, manual_journal_id, opts = {})
@@ -10314,7 +10314,7 @@ module XeroRuby
 
     # Retrieves history for a specific manual journal
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param manual_journal_id [String] Xero generated unique identifier for a manual journal
+    # @param manual_journal_id [String] Unique identifier for a ManualJournal
     # @param [Hash] opts the optional parameters
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
     def get_manual_journals_history_with_http_info(xero_tenant_id, manual_journal_id, opts = {})
@@ -11420,7 +11420,7 @@ module XeroRuby
 
     # Retrieves a specific purchase order using a unique purchase order Id
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param purchase_order_id [String] Unique identifier for a PurchaseOrder
+    # @param purchase_order_id [String] Unique identifier for an Purchase Order
     # @param [Hash] opts the optional parameters
     # @return [PurchaseOrders]
     def get_purchase_order(xero_tenant_id, purchase_order_id, opts = {})
@@ -11430,7 +11430,7 @@ module XeroRuby
 
     # Retrieves a specific purchase order using a unique purchase order Id
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param purchase_order_id [String] Unique identifier for a PurchaseOrder
+    # @param purchase_order_id [String] Unique identifier for an Purchase Order
     # @param [Hash] opts the optional parameters
     # @return [Array<(PurchaseOrders, Integer, Hash)>] PurchaseOrders data, response status code and response headers
     def get_purchase_order_with_http_info(xero_tenant_id, purchase_order_id, opts = {})
@@ -11568,7 +11568,7 @@ module XeroRuby
 
     # Retrieves a specific attachment for a specific purchase order by filename
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param purchase_order_id [String] Unique identifier for Purchase Order object
+    # @param purchase_order_id [String] Unique identifier for an Purchase Order
     # @param file_name [String] Name of the attachment
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
@@ -11580,7 +11580,7 @@ module XeroRuby
 
     # Retrieves a specific attachment for a specific purchase order by filename
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param purchase_order_id [String] Unique identifier for Purchase Order object
+    # @param purchase_order_id [String] Unique identifier for an Purchase Order
     # @param file_name [String] Name of the attachment
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
@@ -11655,7 +11655,7 @@ module XeroRuby
 
     # Retrieves specific attachment for a specific purchase order using a unique attachment Id
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param purchase_order_id [String] Unique identifier for Purchase Order object
+    # @param purchase_order_id [String] Unique identifier for an Purchase Order
     # @param attachment_id [String] Unique identifier for Attachment object
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
@@ -11667,7 +11667,7 @@ module XeroRuby
 
     # Retrieves specific attachment for a specific purchase order using a unique attachment Id
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param purchase_order_id [String] Unique identifier for Purchase Order object
+    # @param purchase_order_id [String] Unique identifier for an Purchase Order
     # @param attachment_id [String] Unique identifier for Attachment object
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
@@ -11742,7 +11742,7 @@ module XeroRuby
 
     # Retrieves attachments for a specific purchase order
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param purchase_order_id [String] Unique identifier for Purchase Orders object
+    # @param purchase_order_id [String] Unique identifier for an Purchase Order
     # @param [Hash] opts the optional parameters
     # @return [Attachments]
     def get_purchase_order_attachments(xero_tenant_id, purchase_order_id, opts = {})
@@ -11752,7 +11752,7 @@ module XeroRuby
 
     # Retrieves attachments for a specific purchase order
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param purchase_order_id [String] Unique identifier for Purchase Orders object
+    # @param purchase_order_id [String] Unique identifier for an Purchase Order
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
     def get_purchase_order_attachments_with_http_info(xero_tenant_id, purchase_order_id, opts = {})
@@ -11890,7 +11890,7 @@ module XeroRuby
 
     # Retrieves history for a specific purchase order
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param purchase_order_id [String] Unique identifier for a PurchaseOrder
+    # @param purchase_order_id [String] Unique identifier for an Purchase Order
     # @param [Hash] opts the optional parameters
     # @return [HistoryRecords]
     def get_purchase_order_history(xero_tenant_id, purchase_order_id, opts = {})
@@ -11900,7 +11900,7 @@ module XeroRuby
 
     # Retrieves history for a specific purchase order
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param purchase_order_id [String] Unique identifier for a PurchaseOrder
+    # @param purchase_order_id [String] Unique identifier for an Purchase Order
     # @param [Hash] opts the optional parameters
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
     def get_purchase_order_history_with_http_info(xero_tenant_id, purchase_order_id, opts = {})
@@ -12202,7 +12202,7 @@ module XeroRuby
 
     # Retrieves a specific attachment from a specific quote by filename
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param quote_id [String] Unique identifier for Quote object
+    # @param quote_id [String] Unique identifier for an Quote
     # @param file_name [String] Name of the attachment
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
@@ -12214,7 +12214,7 @@ module XeroRuby
 
     # Retrieves a specific attachment from a specific quote by filename
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param quote_id [String] Unique identifier for Quote object
+    # @param quote_id [String] Unique identifier for an Quote
     # @param file_name [String] Name of the attachment
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
@@ -12289,7 +12289,7 @@ module XeroRuby
 
     # Retrieves a specific attachment from a specific quote using a unique attachment Id
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param quote_id [String] Unique identifier for Quote object
+    # @param quote_id [String] Unique identifier for an Quote
     # @param attachment_id [String] Unique identifier for Attachment object
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
@@ -12301,7 +12301,7 @@ module XeroRuby
 
     # Retrieves a specific attachment from a specific quote using a unique attachment Id
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param quote_id [String] Unique identifier for Quote object
+    # @param quote_id [String] Unique identifier for an Quote
     # @param attachment_id [String] Unique identifier for Attachment object
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
@@ -12376,7 +12376,7 @@ module XeroRuby
 
     # Retrieves attachments for a specific quote
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param quote_id [String] Unique identifier for Quote object
+    # @param quote_id [String] Unique identifier for an Quote
     # @param [Hash] opts the optional parameters
     # @return [Attachments]
     def get_quote_attachments(xero_tenant_id, quote_id, opts = {})
@@ -12386,7 +12386,7 @@ module XeroRuby
 
     # Retrieves attachments for a specific quote
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param quote_id [String] Unique identifier for Quote object
+    # @param quote_id [String] Unique identifier for an Quote
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
     def get_quote_attachments_with_http_info(xero_tenant_id, quote_id, opts = {})
@@ -12700,7 +12700,7 @@ module XeroRuby
     # Retrieves a specific attachment from a specific expense claim receipts by file name
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param receipt_id [String] Unique identifier for a Receipt
-    # @param file_name [String] The name of the file being attached to the Receipt
+    # @param file_name [String] Name of the attachment
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [File]
@@ -12712,7 +12712,7 @@ module XeroRuby
     # Retrieves a specific attachment from a specific expense claim receipts by file name
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param receipt_id [String] Unique identifier for a Receipt
-    # @param file_name [String] The name of the file being attached to the Receipt
+    # @param file_name [String] Name of the attachment
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
@@ -12787,7 +12787,7 @@ module XeroRuby
     # Retrieves a specific attachments from a specific expense claim receipts by using a unique attachment Id
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param receipt_id [String] Unique identifier for a Receipt
-    # @param attachment_id [String] Unique identifier for a Attachment
+    # @param attachment_id [String] Unique identifier for Attachment object
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [File]
@@ -12799,7 +12799,7 @@ module XeroRuby
     # Retrieves a specific attachments from a specific expense claim receipts by using a unique attachment Id
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param receipt_id [String] Unique identifier for a Receipt
-    # @param attachment_id [String] Unique identifier for a Attachment
+    # @param attachment_id [String] Unique identifier for Attachment object
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
@@ -13176,7 +13176,7 @@ module XeroRuby
     # Retrieves a specific attachment from a specific repeating invoices by file name
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param repeating_invoice_id [String] Unique identifier for a Repeating Invoice
-    # @param file_name [String] The name of the file being attached to a Repeating Invoice
+    # @param file_name [String] Name of the attachment
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [File]
@@ -13188,7 +13188,7 @@ module XeroRuby
     # Retrieves a specific attachment from a specific repeating invoices by file name
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param repeating_invoice_id [String] Unique identifier for a Repeating Invoice
-    # @param file_name [String] The name of the file being attached to a Repeating Invoice
+    # @param file_name [String] Name of the attachment
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
@@ -13263,7 +13263,7 @@ module XeroRuby
     # Retrieves a specific attachment from a specific repeating invoice
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param repeating_invoice_id [String] Unique identifier for a Repeating Invoice
-    # @param attachment_id [String] Unique identifier for a Attachment
+    # @param attachment_id [String] Unique identifier for Attachment object
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [File]
@@ -13275,7 +13275,7 @@ module XeroRuby
     # Retrieves a specific attachment from a specific repeating invoice
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param repeating_invoice_id [String] Unique identifier for a Repeating Invoice
-    # @param attachment_id [String] Unique identifier for a Attachment
+    # @param attachment_id [String] Unique identifier for Attachment object
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
@@ -13574,8 +13574,8 @@ module XeroRuby
     # @param contact_id [String] Unique identifier for a Contact
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :date The date of the Aged Payables By Contact report
-    # @option opts [Date] :from_date The from date of the Aged Payables By Contact report
-    # @option opts [Date] :to_date The to date of the Aged Payables By Contact report
+    # @option opts [Date] :from_date filter by the from date of the report e.g. 2021-02-01
+    # @option opts [Date] :to_date filter by the to date of the report e.g. 2021-02-28
     # @return [ReportWithRows]
     def get_report_aged_payables_by_contact(xero_tenant_id, contact_id, opts = {})
       data, _status_code, _headers = get_report_aged_payables_by_contact_with_http_info(xero_tenant_id, contact_id, opts)
@@ -13587,8 +13587,8 @@ module XeroRuby
     # @param contact_id [String] Unique identifier for a Contact
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :date The date of the Aged Payables By Contact report
-    # @option opts [Date] :from_date The from date of the Aged Payables By Contact report
-    # @option opts [Date] :to_date The to date of the Aged Payables By Contact report
+    # @option opts [Date] :from_date filter by the from date of the report e.g. 2021-02-01
+    # @option opts [Date] :to_date filter by the to date of the report e.g. 2021-02-28
     # @return [Array<(ReportWithRows, Integer, Hash)>] ReportWithRows data, response status code and response headers
     def get_report_aged_payables_by_contact_with_http_info(xero_tenant_id, contact_id, opts = {})
       if @api_client.config.debugging
@@ -13658,8 +13658,8 @@ module XeroRuby
     # @param contact_id [String] Unique identifier for a Contact
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :date The date of the Aged Receivables By Contact report
-    # @option opts [Date] :from_date The from date of the Aged Receivables By Contact report
-    # @option opts [Date] :to_date The to date of the Aged Receivables By Contact report
+    # @option opts [Date] :from_date filter by the from date of the report e.g. 2021-02-01
+    # @option opts [Date] :to_date filter by the to date of the report e.g. 2021-02-28
     # @return [ReportWithRows]
     def get_report_aged_receivables_by_contact(xero_tenant_id, contact_id, opts = {})
       data, _status_code, _headers = get_report_aged_receivables_by_contact_with_http_info(xero_tenant_id, contact_id, opts)
@@ -13671,8 +13671,8 @@ module XeroRuby
     # @param contact_id [String] Unique identifier for a Contact
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :date The date of the Aged Receivables By Contact report
-    # @option opts [Date] :from_date The from date of the Aged Receivables By Contact report
-    # @option opts [Date] :to_date The to date of the Aged Receivables By Contact report
+    # @option opts [Date] :from_date filter by the from date of the report e.g. 2021-02-01
+    # @option opts [Date] :to_date filter by the to date of the report e.g. 2021-02-28
     # @return [Array<(ReportWithRows, Integer, Hash)>] ReportWithRows data, response status code and response headers
     def get_report_aged_receivables_by_contact_with_http_info(xero_tenant_id, contact_id, opts = {})
       if @api_client.config.debugging
@@ -13975,8 +13975,8 @@ module XeroRuby
     # Retrieves report for bank summary
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
-    # @option opts [Date] :from_date The from date for the Bank Summary report e.g. 2018-03-31
-    # @option opts [Date] :to_date The to date for the Bank Summary report e.g. 2018-03-31
+    # @option opts [Date] :from_date filter by the from date of the report e.g. 2021-02-01
+    # @option opts [Date] :to_date filter by the to date of the report e.g. 2021-02-28
     # @return [ReportWithRows]
     def get_report_bank_summary(xero_tenant_id, opts = {})
       data, _status_code, _headers = get_report_bank_summary_with_http_info(xero_tenant_id, opts)
@@ -13986,8 +13986,8 @@ module XeroRuby
     # Retrieves report for bank summary
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
-    # @option opts [Date] :from_date The from date for the Bank Summary report e.g. 2018-03-31
-    # @option opts [Date] :to_date The to date for the Bank Summary report e.g. 2018-03-31
+    # @option opts [Date] :from_date filter by the from date of the report e.g. 2021-02-01
+    # @option opts [Date] :to_date filter by the to date of the report e.g. 2021-02-28
     # @return [Array<(ReportWithRows, Integer, Hash)>] ReportWithRows data, response status code and response headers
     def get_report_bank_summary_with_http_info(xero_tenant_id, opts = {})
       if @api_client.config.debugging
@@ -14197,8 +14197,8 @@ module XeroRuby
     # Retrieves report for profit and loss
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
-    # @option opts [Date] :from_date The from date for the ProfitAndLoss report e.g. 2018-03-31
-    # @option opts [Date] :to_date The to date for the ProfitAndLoss report e.g. 2018-03-31
+    # @option opts [Date] :from_date filter by the from date of the report e.g. 2021-02-01
+    # @option opts [Date] :to_date filter by the to date of the report e.g. 2021-02-28
     # @option opts [Integer] :periods The number of periods to compare (integer between 1 and 12)
     # @option opts [String] :timeframe The period size to compare to (MONTH, QUARTER, YEAR)
     # @option opts [String] :tracking_category_id The trackingCategory 1 for the ProfitAndLoss report
@@ -14216,8 +14216,8 @@ module XeroRuby
     # Retrieves report for profit and loss
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
-    # @option opts [Date] :from_date The from date for the ProfitAndLoss report e.g. 2018-03-31
-    # @option opts [Date] :to_date The to date for the ProfitAndLoss report e.g. 2018-03-31
+    # @option opts [Date] :from_date filter by the from date of the report e.g. 2021-02-01
+    # @option opts [Date] :to_date filter by the to date of the report e.g. 2021-02-28
     # @option opts [Integer] :periods The number of periods to compare (integer between 1 and 12)
     # @option opts [String] :timeframe The period size to compare to (MONTH, QUARTER, YEAR)
     # @option opts [String] :tracking_category_id The trackingCategory 1 for the ProfitAndLoss report
@@ -14898,7 +14898,7 @@ module XeroRuby
 
     # Updates a chart of accounts
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param account_id [String] Unique identifier for retrieving single object
+    # @param account_id [String] Unique identifier for Account object
     # @param accounts [Accounts] Request of type Accounts array with one Account
     # @param [Hash] opts the optional parameters
     # @return [Accounts]
@@ -14909,7 +14909,7 @@ module XeroRuby
 
     # Updates a chart of accounts
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param account_id [String] Unique identifier for retrieving single object
+    # @param account_id [String] Unique identifier for Account object
     # @param accounts [Accounts] Request of type Accounts array with one Account
     # @param [Hash] opts the optional parameters
     # @return [Array<(Accounts, Integer, Hash)>] Accounts data, response status code and response headers
@@ -15154,7 +15154,7 @@ module XeroRuby
     # Updates a specific attachment from a specific bank transaction by filename
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param bank_transaction_id [String] Xero generated unique identifier for a bank transaction
-    # @param file_name [String] The name of the file being attached
+    # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Attachments]
@@ -15166,7 +15166,7 @@ module XeroRuby
     # Updates a specific attachment from a specific bank transaction by filename
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param bank_transaction_id [String] Xero generated unique identifier for a bank transaction
-    # @param file_name [String] The name of the file being attached
+    # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
@@ -15241,7 +15241,7 @@ module XeroRuby
 
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param bank_transfer_id [String] Xero generated unique identifier for a bank transfer
-    # @param file_name [String] The name of the file being attached to a Bank Transfer
+    # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Attachments]
@@ -15252,7 +15252,7 @@ module XeroRuby
 
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param bank_transfer_id [String] Xero generated unique identifier for a bank transfer
-    # @param file_name [String] The name of the file being attached to a Bank Transfer
+    # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
@@ -15409,7 +15409,7 @@ module XeroRuby
 
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param contact_id [String] Unique identifier for a Contact
-    # @param file_name [String] Name for the file you are attaching
+    # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Attachments]
@@ -15420,7 +15420,7 @@ module XeroRuby
 
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param contact_id [String] Unique identifier for a Contact
-    # @param file_name [String] Name for the file you are attaching
+    # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
@@ -15663,7 +15663,7 @@ module XeroRuby
     # Updates attachments on a specific credit note by file name
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param credit_note_id [String] Unique identifier for a Credit Note
-    # @param file_name [String] Name of the file you are attaching to Credit Note
+    # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Attachments]
@@ -15675,7 +15675,7 @@ module XeroRuby
     # Updates attachments on a specific credit note by file name
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param credit_note_id [String] Unique identifier for a Credit Note
-    # @param file_name [String] Name of the file you are attaching to Credit Note
+    # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
@@ -15918,7 +15918,7 @@ module XeroRuby
     # Updates an attachment from a specific invoices or purchase bill by filename
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param invoice_id [String] Unique identifier for an Invoice
-    # @param file_name [String] Name of the file you are attaching
+    # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Attachments]
@@ -15930,7 +15930,7 @@ module XeroRuby
     # Updates an attachment from a specific invoices or purchase bill by filename
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param invoice_id [String] Unique identifier for an Invoice
-    # @param file_name [String] Name of the file you are attaching
+    # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
@@ -16255,7 +16255,7 @@ module XeroRuby
     # Updates a specific attachment from a specific manual journal by file name
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param manual_journal_id [String] Unique identifier for a ManualJournal
-    # @param file_name [String] The name of the file being attached to a ManualJournal
+    # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Attachments]
@@ -16267,7 +16267,7 @@ module XeroRuby
     # Updates a specific attachment from a specific manual journal by file name
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param manual_journal_id [String] Unique identifier for a ManualJournal
-    # @param file_name [String] The name of the file being attached to a ManualJournal
+    # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
@@ -17065,7 +17065,7 @@ module XeroRuby
 
     # Updates a specific purchase order
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param purchase_order_id [String] Unique identifier for a PurchaseOrder
+    # @param purchase_order_id [String] Unique identifier for an Purchase Order
     # @param purchase_orders [PurchaseOrders] 
     # @param [Hash] opts the optional parameters
     # @return [PurchaseOrders]
@@ -17076,7 +17076,7 @@ module XeroRuby
 
     # Updates a specific purchase order
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param purchase_order_id [String] Unique identifier for a PurchaseOrder
+    # @param purchase_order_id [String] Unique identifier for an Purchase Order
     # @param purchase_orders [PurchaseOrders] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(PurchaseOrders, Integer, Hash)>] PurchaseOrders data, response status code and response headers
@@ -17147,7 +17147,7 @@ module XeroRuby
 
     # Updates a specific attachment for a specific purchase order by filename
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param purchase_order_id [String] Unique identifier for Purchase Order object
+    # @param purchase_order_id [String] Unique identifier for an Purchase Order
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
@@ -17159,7 +17159,7 @@ module XeroRuby
 
     # Updates a specific attachment for a specific purchase order by filename
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param purchase_order_id [String] Unique identifier for Purchase Order object
+    # @param purchase_order_id [String] Unique identifier for an Purchase Order
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
@@ -17317,7 +17317,7 @@ module XeroRuby
 
     # Updates a specific attachment from a specific quote by filename
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param quote_id [String] Unique identifier for Quote object
+    # @param quote_id [String] Unique identifier for an Quote
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
@@ -17329,7 +17329,7 @@ module XeroRuby
 
     # Updates a specific attachment from a specific quote by filename
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param quote_id [String] Unique identifier for Quote object
+    # @param quote_id [String] Unique identifier for an Quote
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
@@ -17491,7 +17491,7 @@ module XeroRuby
     # Updates a specific attachment on a specific expense claim receipts by file name
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param receipt_id [String] Unique identifier for a Receipt
-    # @param file_name [String] The name of the file being attached to the Receipt
+    # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Attachments]
@@ -17503,7 +17503,7 @@ module XeroRuby
     # Updates a specific attachment on a specific expense claim receipts by file name
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param receipt_id [String] Unique identifier for a Receipt
-    # @param file_name [String] The name of the file being attached to the Receipt
+    # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
@@ -17579,7 +17579,7 @@ module XeroRuby
     # Updates a specific attachment from a specific repeating invoices by file name
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param repeating_invoice_id [String] Unique identifier for a Repeating Invoice
-    # @param file_name [String] The name of the file being attached to a Repeating Invoice
+    # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Attachments]
@@ -17591,7 +17591,7 @@ module XeroRuby
     # Updates a specific attachment from a specific repeating invoices by file name
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param repeating_invoice_id [String] Unique identifier for a Repeating Invoice
-    # @param file_name [String] The name of the file being attached to a Repeating Invoice
+    # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers

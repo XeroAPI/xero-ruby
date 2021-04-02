@@ -1,6 +1,6 @@
-require './spec_helper'
+require 'spec_helper'
 
-describe 'shared helper methdods' do
+describe 'shared helper methods' do
 
   describe '#parse_date' do
     let(:model_instance) {XeroRuby::Accounting::Account.new}

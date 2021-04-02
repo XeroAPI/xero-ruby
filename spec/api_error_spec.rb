@@ -1,4 +1,4 @@
-require './spec_helper'
+require 'spec_helper'
 
 describe XeroRuby::ApiError do
   context 'initialization' do
