@@ -338,8 +338,8 @@ The best resource to understanding how to best leverage this SDK is the sample a
 > https://github.com/XeroAPI/xero-ruby-oauth2-starter (Sinatra - simple getting started)
 > https://github.com/XeroAPI/xero-ruby-oauth2-app (Rails - full featured examples)
 
-## Contributing
-Most of the repo code is auto generated but PR's on issues you encounter are highly encouraged. Xero maintainers will re-incorporate them back into the core SDK build. To develop this gem locally against your project you can use the following development pattern:
+## Developing locally
+To develop this gem locally against your project you can use the following development pattern:
 
 > xero-ruby
 ```bash
@@ -358,3 +358,16 @@ bundle install
 
 ## Testing 
 * `rspec spec/`
+
+## Participating in Xero’s developer community
+This SDK is one of a number of SDK’s that the Xero Developer team builds and maintains. We are grateful for all the contributions that the community makes. 
+
+Here are a few things you should be aware of as a contributor:
+* Xero has adopted the Contributor Covenant [Code of Conduct](https://github.com/XeroAPI/xero-ruby/blob/master/CODE_OF_CONDUCT.md), we expect all contributors in our community to adhere to it
+* If you raise an issue then please make sure to fill out the github issue template, doing so helps us help you 
+* You’re welcome to raise PRs. As our SDKs are generated we may use your code in the core SDK build instead of merging your code
+* We have a [contribution guide](https://github.com/XeroAPI/xero-ruby/blob/master/CONTRIBUTING.md) for you to follow when contributing to this SDK
+* Curious about how we generate our SDK’s? Have a [read of our process](https://devblog.xero.com/building-sdks-for-the-future-b79ff726dfd6) and have a look at our [OpenAPISpec](https://github.com/XeroAPI/Xero-OpenAPI)
+* This software is published under the [MIT License](https://github.com/XeroAPI/xero-ruby/blob/master/LICENSE)
+
+For questions that aren’t related to SDKs please refer to our [developer support page](https://developer.xero.com/support/).
