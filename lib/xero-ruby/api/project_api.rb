@@ -31,7 +31,8 @@ module XeroRuby
     # @param project_create_or_update [ProjectCreateOrUpdate] Create a new project with ProjectCreateOrUpdate object
     # @param [Hash] opts the optional parameters
     # @return [Array<(Project, Integer, Hash)>] Project data, response status code and response headers
-    def create_project_with_http_info(xero_tenant_id, project_create_or_update, opts = {})
+    def create_project_with_http_info(xero_tenant_id, project_create_or_update, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProjectApi.create_project ...'
       end
@@ -111,7 +112,8 @@ module XeroRuby
     # @param time_entry_create_or_update [TimeEntryCreateOrUpdate] The time entry object you are creating
     # @param [Hash] opts the optional parameters
     # @return [Array<(TimeEntry, Integer, Hash)>] TimeEntry data, response status code and response headers
-    def create_time_entry_with_http_info(xero_tenant_id, project_id, time_entry_create_or_update, opts = {})
+    def create_time_entry_with_http_info(xero_tenant_id, project_id, time_entry_create_or_update, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProjectApi.create_time_entry ...'
       end
@@ -195,7 +197,8 @@ module XeroRuby
     # @param time_entry_id [String] You can specify an individual task by appending the id to the endpoint
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def delete_time_entry_with_http_info(xero_tenant_id, project_id, time_entry_id, opts = {})
+    def delete_time_entry_with_http_info(xero_tenant_id, project_id, time_entry_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProjectApi.delete_time_entry ...'
       end
@@ -273,7 +276,8 @@ module XeroRuby
     # @param project_id [String] You can specify an individual project by appending the projectId to the endpoint
     # @param [Hash] opts the optional parameters
     # @return [Array<(Project, Integer, Hash)>] Project data, response status code and response headers
-    def get_project_with_http_info(xero_tenant_id, project_id, opts = {})
+    def get_project_with_http_info(xero_tenant_id, project_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProjectApi.get_project ...'
       end
@@ -351,7 +355,8 @@ module XeroRuby
     # @option opts [Integer] :page set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0.
     # @option opts [Integer] :page_size Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500.
     # @return [Array<(ProjectUsers, Integer, Hash)>] ProjectUsers data, response status code and response headers
-    def get_project_users_with_http_info(xero_tenant_id, opts = {})
+    def get_project_users_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProjectApi.get_project_users ...'
       end
@@ -441,7 +446,8 @@ module XeroRuby
     # @option opts [Integer] :page set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0.
     # @option opts [Integer] :page_size Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500.
     # @return [Array<(Projects, Integer, Hash)>] Projects data, response status code and response headers
-    def get_projects_with_http_info(xero_tenant_id, opts = {})
+    def get_projects_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProjectApi.get_projects ...'
       end
@@ -528,7 +534,8 @@ module XeroRuby
     # @param task_id [String] You can specify an individual task by appending the taskId to the endpoint, i.e. GET https://.../tasks/{taskID}
     # @param [Hash] opts the optional parameters
     # @return [Array<(Task, Integer, Hash)>] Task data, response status code and response headers
-    def get_task_with_http_info(xero_tenant_id, project_id, task_id, opts = {})
+    def get_task_with_http_info(xero_tenant_id, project_id, task_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProjectApi.get_task ...'
       end
@@ -616,7 +623,8 @@ module XeroRuby
     # @option opts [String] :task_ids taskIdsSearch for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds&#x3D;{taskID},{taskID}
     # @option opts [ChargeType] :charge_type 
     # @return [Array<(Tasks, Integer, Hash)>] Tasks data, response status code and response headers
-    def get_tasks_with_http_info(xero_tenant_id, project_id, opts = {})
+    def get_tasks_with_http_info(xero_tenant_id, project_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProjectApi.get_tasks ...'
       end
@@ -716,7 +724,8 @@ module XeroRuby
     # @option opts [DateTime] :date_after_utc ISO 8601 UTC date. Finds all time entries on or after this date filtered on the &#x60;dateUtc&#x60; field.
     # @option opts [DateTime] :date_before_utc ISO 8601 UTC date. Finds all time entries on or before this date filtered on the &#x60;dateUtc&#x60; field.
     # @return [Array<(TimeEntries, Integer, Hash)>] TimeEntries data, response status code and response headers
-    def get_time_entries_with_http_info(xero_tenant_id, project_id, opts = {})
+    def get_time_entries_with_http_info(xero_tenant_id, project_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProjectApi.get_time_entries ...'
       end
@@ -804,7 +813,8 @@ module XeroRuby
     # @param time_entry_id [String] You can specify an individual time entry by appending the id to the endpoint
     # @param [Hash] opts the optional parameters
     # @return [Array<(TimeEntry, Integer, Hash)>] TimeEntry data, response status code and response headers
-    def get_time_entry_with_http_info(xero_tenant_id, project_id, time_entry_id, opts = {})
+    def get_time_entry_with_http_info(xero_tenant_id, project_id, time_entry_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProjectApi.get_time_entry ...'
       end
@@ -886,7 +896,8 @@ module XeroRuby
     # @param project_patch [ProjectPatch] Update the status of an existing Project
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def patch_project_with_http_info(xero_tenant_id, project_id, project_patch, opts = {})
+    def patch_project_with_http_info(xero_tenant_id, project_id, project_patch, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProjectApi.patch_project ...'
       end
@@ -970,7 +981,8 @@ module XeroRuby
     # @param project_create_or_update [ProjectCreateOrUpdate] Request of type ProjectCreateOrUpdate
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def update_project_with_http_info(xero_tenant_id, project_id, project_create_or_update, opts = {})
+    def update_project_with_http_info(xero_tenant_id, project_id, project_create_or_update, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProjectApi.update_project ...'
       end
@@ -1056,7 +1068,8 @@ module XeroRuby
     # @param time_entry_create_or_update [TimeEntryCreateOrUpdate] The time entry object you are updating
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def update_time_entry_with_http_info(xero_tenant_id, project_id, time_entry_id, time_entry_create_or_update, opts = {})
+    def update_time_entry_with_http_info(xero_tenant_id, project_id, time_entry_id, time_entry_create_or_update, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProjectApi.update_time_entry ...'
       end

@@ -46,6 +46,7 @@ module XeroRuby::PayrollUk
     # The type of the payment of the corresponding salary and wages
     attr_accessor :payment_type
     SALARY = "Salary".freeze
+    HOURLY = "Hourly".freeze
     
     class EnumAttributeValidator
       attr_reader :datatype
@@ -193,7 +194,7 @@ module XeroRuby::PayrollUk
       status_validator = EnumAttributeValidator.new('String', ["Active", "Pending", "History"])
       return false unless status_validator.valid?(@status)
       return false if @payment_type.nil?
-      payment_type_validator = EnumAttributeValidator.new('String', ["Salary"])
+      payment_type_validator = EnumAttributeValidator.new('String', ["Salary", "Hourly"])
       return false unless payment_type_validator.valid?(@payment_type)
       true
     end
@@ -211,7 +212,7 @@ module XeroRuby::PayrollUk
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] payment_type Object to be assigned
     def payment_type=(payment_type)
-      validator = EnumAttributeValidator.new('String', ["Salary"])
+      validator = EnumAttributeValidator.new('String', ["Salary", "Hourly"])
       unless validator.valid?(payment_type)
         fail ArgumentError, "invalid value for \"payment_type\", must be one of #{validator.allowable_values}."
       end
