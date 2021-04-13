@@ -58,7 +58,7 @@ creds = {
 xero_client ||= XeroRuby::ApiClient.new(credentials: creds)
 ```
 
-If you want additional logging or timeout, you can add/override any configuration option by passing the optional named paramater object `config`.
+If you want additional logging or timeout, you can add/override any configuration option by passing the optional named parameter object `config`.
 ```ruby
 config = { timeout: 30, debugging: true }
 @xero_client ||= XeroRuby::ApiClient.new(credentials: creds, config: config)
