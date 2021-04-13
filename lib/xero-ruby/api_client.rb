@@ -32,18 +32,25 @@ module XeroRuby
 
     # Initializes the ApiClient
     # @option config [Configuration] Configuration for initializing the object, default to Configuration.default
-    def initialize(config: Configuration.default, credentials: {})
+    def initialize(config: {}, credentials: {})
       @client_id = credentials[:client_id]
       @client_secret = credentials[:client_secret]
       @redirect_uri = credentials[:redirect_uri]
       @scopes = credentials[:scopes]
       @state = credentials[:state]
-      @config = config
+      @config = append_to_default_config(config)
+
       @user_agent = "xero-ruby-#{VERSION}"
       @default_headers = {
         'Content-Type' => 'application/json',
         'User-Agent' => @user_agent
       }
+    end
+
+    def append_to_default_config(user_config)
+      config = Configuration.default
+      user_config.each{|k,v| config.send("#{k}=", v) } if user_config
+      config
     end
 
     def authorization_url
@@ -258,6 +265,7 @@ module XeroRuby
         end
       end
       request.headers = header_params
+      request.options.timeout = @config.timeout
       request.body = req_body
       request.url url
       request.params = query_params

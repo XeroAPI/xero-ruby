@@ -137,6 +137,17 @@ describe XeroRuby::ApiClient do
       api_client.connections
       expect(api_client.config.base_url).to eq('https://api.xero.com')  
     end
+
+    it "does not mutate the original opts hash" do
+      expect(api_client).to receive(:call_api).and_return('')
+      opts = {
+        where: {
+          invoice_number: ['=', "INV-0060"]
+        }
+      }
+      api_client.accounting_api.get_invoices('active_tenant_id', opts)
+      expect(opts).to eq({:where=>{:invoice_number=>["=", "INV-0060"]}})
+    end
   end
 
   describe '#deserialize' do

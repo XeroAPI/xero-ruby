@@ -31,7 +31,8 @@ module XeroRuby
     # @param account [Account] Account object in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Accounts, Integer, Hash)>] Accounts data, response status code and response headers
-    def create_account_with_http_info(xero_tenant_id, account, opts = {})
+    def create_account_with_http_info(xero_tenant_id, account, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_account ...'
       end
@@ -111,7 +112,8 @@ module XeroRuby
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
-    def create_account_attachment_by_file_name_with_http_info(xero_tenant_id, account_id, file_name, body, opts = {})
+    def create_account_attachment_by_file_name_with_http_info(xero_tenant_id, account_id, file_name, body, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_account_attachment_by_file_name ...'
       end
@@ -199,7 +201,8 @@ module XeroRuby
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
-    def create_bank_transaction_attachment_by_file_name_with_http_info(xero_tenant_id, bank_transaction_id, file_name, body, opts = {})
+    def create_bank_transaction_attachment_by_file_name_with_http_info(xero_tenant_id, bank_transaction_id, file_name, body, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_bank_transaction_attachment_by_file_name ...'
       end
@@ -285,7 +288,8 @@ module XeroRuby
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
-    def create_bank_transaction_history_record_with_http_info(xero_tenant_id, bank_transaction_id, history_records, opts = {})
+    def create_bank_transaction_history_record_with_http_info(xero_tenant_id, bank_transaction_id, history_records, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_bank_transaction_history_record ...'
       end
@@ -369,7 +373,8 @@ module XeroRuby
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @return [Array<(BankTransactions, Integer, Hash)>] BankTransactions data, response status code and response headers
-    def create_bank_transactions_with_http_info(xero_tenant_id, bank_transactions, opts = {})
+    def create_bank_transactions_with_http_info(xero_tenant_id, bank_transactions, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_bank_transactions ...'
       end
@@ -447,7 +452,8 @@ module XeroRuby
     # @param bank_transfers [BankTransfers] BankTransfers with array of BankTransfer objects in request body
     # @param [Hash] opts the optional parameters
     # @return [Array<(BankTransfers, Integer, Hash)>] BankTransfers data, response status code and response headers
-    def create_bank_transfer_with_http_info(xero_tenant_id, bank_transfers, opts = {})
+    def create_bank_transfer_with_http_info(xero_tenant_id, bank_transfers, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_bank_transfer ...'
       end
@@ -525,7 +531,8 @@ module XeroRuby
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
-    def create_bank_transfer_attachment_by_file_name_with_http_info(xero_tenant_id, bank_transfer_id, file_name, body, opts = {})
+    def create_bank_transfer_attachment_by_file_name_with_http_info(xero_tenant_id, bank_transfer_id, file_name, body, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_bank_transfer_attachment_by_file_name ...'
       end
@@ -611,7 +618,8 @@ module XeroRuby
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
-    def create_bank_transfer_history_record_with_http_info(xero_tenant_id, bank_transfer_id, history_records, opts = {})
+    def create_bank_transfer_history_record_with_http_info(xero_tenant_id, bank_transfer_id, history_records, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_bank_transfer_history_record ...'
       end
@@ -693,7 +701,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @return [Array<(BatchPayments, Integer, Hash)>] BatchPayments data, response status code and response headers
-    def create_batch_payment_with_http_info(xero_tenant_id, batch_payments, opts = {})
+    def create_batch_payment_with_http_info(xero_tenant_id, batch_payments, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_batch_payment ...'
       end
@@ -772,7 +781,8 @@ module XeroRuby
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
-    def create_batch_payment_history_record_with_http_info(xero_tenant_id, batch_payment_id, history_records, opts = {})
+    def create_batch_payment_history_record_with_http_info(xero_tenant_id, batch_payment_id, history_records, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_batch_payment_history_record ...'
       end
@@ -854,7 +864,8 @@ module XeroRuby
     # @param payment_service [PaymentService] PaymentService object in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(PaymentServices, Integer, Hash)>] PaymentServices data, response status code and response headers
-    def create_branding_theme_payment_services_with_http_info(xero_tenant_id, branding_theme_id, payment_service, opts = {})
+    def create_branding_theme_payment_services_with_http_info(xero_tenant_id, branding_theme_id, payment_service, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_branding_theme_payment_services ...'
       end
@@ -936,7 +947,8 @@ module XeroRuby
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
-    def create_contact_attachment_by_file_name_with_http_info(xero_tenant_id, contact_id, file_name, body, opts = {})
+    def create_contact_attachment_by_file_name_with_http_info(xero_tenant_id, contact_id, file_name, body, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_contact_attachment_by_file_name ...'
       end
@@ -1020,7 +1032,8 @@ module XeroRuby
     # @param contact_groups [ContactGroups] ContactGroups with an array of names in request body
     # @param [Hash] opts the optional parameters
     # @return [Array<(ContactGroups, Integer, Hash)>] ContactGroups data, response status code and response headers
-    def create_contact_group_with_http_info(xero_tenant_id, contact_groups, opts = {})
+    def create_contact_group_with_http_info(xero_tenant_id, contact_groups, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_contact_group ...'
       end
@@ -1098,7 +1111,8 @@ module XeroRuby
     # @param contacts [Contacts] Contacts with array of contacts specifying the ContactID to be added to ContactGroup in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Contacts, Integer, Hash)>] Contacts data, response status code and response headers
-    def create_contact_group_contacts_with_http_info(xero_tenant_id, contact_group_id, contacts, opts = {})
+    def create_contact_group_contacts_with_http_info(xero_tenant_id, contact_group_id, contacts, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_contact_group_contacts ...'
       end
@@ -1180,7 +1194,8 @@ module XeroRuby
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
-    def create_contact_history_with_http_info(xero_tenant_id, contact_id, history_records, opts = {})
+    def create_contact_history_with_http_info(xero_tenant_id, contact_id, history_records, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_contact_history ...'
       end
@@ -1262,7 +1277,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @return [Array<(Contacts, Integer, Hash)>] Contacts data, response status code and response headers
-    def create_contacts_with_http_info(xero_tenant_id, contacts, opts = {})
+    def create_contacts_with_http_info(xero_tenant_id, contacts, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_contacts ...'
       end
@@ -1343,7 +1359,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @return [Array<(Allocations, Integer, Hash)>] Allocations data, response status code and response headers
-    def create_credit_note_allocation_with_http_info(xero_tenant_id, credit_note_id, allocations, opts = {})
+    def create_credit_note_allocation_with_http_info(xero_tenant_id, credit_note_id, allocations, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_credit_note_allocation ...'
       end
@@ -1430,7 +1447,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_online Allows an attachment to be seen by the end customer within their online invoice
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
-    def create_credit_note_attachment_by_file_name_with_http_info(xero_tenant_id, credit_note_id, file_name, body, opts = {})
+    def create_credit_note_attachment_by_file_name_with_http_info(xero_tenant_id, credit_note_id, file_name, body, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_credit_note_attachment_by_file_name ...'
       end
@@ -1517,7 +1535,8 @@ module XeroRuby
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
-    def create_credit_note_history_with_http_info(xero_tenant_id, credit_note_id, history_records, opts = {})
+    def create_credit_note_history_with_http_info(xero_tenant_id, credit_note_id, history_records, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_credit_note_history ...'
       end
@@ -1601,7 +1620,8 @@ module XeroRuby
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @return [Array<(CreditNotes, Integer, Hash)>] CreditNotes data, response status code and response headers
-    def create_credit_notes_with_http_info(xero_tenant_id, credit_notes, opts = {})
+    def create_credit_notes_with_http_info(xero_tenant_id, credit_notes, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_credit_notes ...'
       end
@@ -1679,7 +1699,8 @@ module XeroRuby
     # @param currency [Currency] Currency object in the body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Currencies, Integer, Hash)>] Currencies data, response status code and response headers
-    def create_currency_with_http_info(xero_tenant_id, currency, opts = {})
+    def create_currency_with_http_info(xero_tenant_id, currency, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_currency ...'
       end
@@ -1757,7 +1778,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @return [Array<(Employees, Integer, Hash)>] Employees data, response status code and response headers
-    def create_employees_with_http_info(xero_tenant_id, employees, opts = {})
+    def create_employees_with_http_info(xero_tenant_id, employees, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_employees ...'
       end
@@ -1836,7 +1858,8 @@ module XeroRuby
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
-    def create_expense_claim_history_with_http_info(xero_tenant_id, expense_claim_id, history_records, opts = {})
+    def create_expense_claim_history_with_http_info(xero_tenant_id, expense_claim_id, history_records, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_expense_claim_history ...'
       end
@@ -1916,7 +1939,8 @@ module XeroRuby
     # @param expense_claims [ExpenseClaims] ExpenseClaims with array of ExpenseClaim object in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(ExpenseClaims, Integer, Hash)>] ExpenseClaims data, response status code and response headers
-    def create_expense_claims_with_http_info(xero_tenant_id, expense_claims, opts = {})
+    def create_expense_claims_with_http_info(xero_tenant_id, expense_claims, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_expense_claims ...'
       end
@@ -1998,7 +2022,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_online Allows an attachment to be seen by the end customer within their online invoice
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
-    def create_invoice_attachment_by_file_name_with_http_info(xero_tenant_id, invoice_id, file_name, body, opts = {})
+    def create_invoice_attachment_by_file_name_with_http_info(xero_tenant_id, invoice_id, file_name, body, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_invoice_attachment_by_file_name ...'
       end
@@ -2085,7 +2110,8 @@ module XeroRuby
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
-    def create_invoice_history_with_http_info(xero_tenant_id, invoice_id, history_records, opts = {})
+    def create_invoice_history_with_http_info(xero_tenant_id, invoice_id, history_records, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_invoice_history ...'
       end
@@ -2169,7 +2195,8 @@ module XeroRuby
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @return [Array<(Invoices, Integer, Hash)>] Invoices data, response status code and response headers
-    def create_invoices_with_http_info(xero_tenant_id, invoices, opts = {})
+    def create_invoices_with_http_info(xero_tenant_id, invoices, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_invoices ...'
       end
@@ -2249,7 +2276,8 @@ module XeroRuby
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
-    def create_item_history_with_http_info(xero_tenant_id, item_id, history_records, opts = {})
+    def create_item_history_with_http_info(xero_tenant_id, item_id, history_records, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_item_history ...'
       end
@@ -2333,7 +2361,8 @@ module XeroRuby
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @return [Array<(Items, Integer, Hash)>] Items data, response status code and response headers
-    def create_items_with_http_info(xero_tenant_id, items, opts = {})
+    def create_items_with_http_info(xero_tenant_id, items, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_items ...'
       end
@@ -2411,7 +2440,8 @@ module XeroRuby
     # @param linked_transaction [LinkedTransaction] LinkedTransaction object in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(LinkedTransactions, Integer, Hash)>] LinkedTransactions data, response status code and response headers
-    def create_linked_transaction_with_http_info(xero_tenant_id, linked_transaction, opts = {})
+    def create_linked_transaction_with_http_info(xero_tenant_id, linked_transaction, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_linked_transaction ...'
       end
@@ -2491,7 +2521,8 @@ module XeroRuby
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
-    def create_manual_journal_attachment_by_file_name_with_http_info(xero_tenant_id, manual_journal_id, file_name, body, opts = {})
+    def create_manual_journal_attachment_by_file_name_with_http_info(xero_tenant_id, manual_journal_id, file_name, body, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_manual_journal_attachment_by_file_name ...'
       end
@@ -2577,7 +2608,8 @@ module XeroRuby
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
-    def create_manual_journal_history_record_with_http_info(xero_tenant_id, manual_journal_id, history_records, opts = {})
+    def create_manual_journal_history_record_with_http_info(xero_tenant_id, manual_journal_id, history_records, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_manual_journal_history_record ...'
       end
@@ -2659,7 +2691,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @return [Array<(ManualJournals, Integer, Hash)>] ManualJournals data, response status code and response headers
-    def create_manual_journals_with_http_info(xero_tenant_id, manual_journals, opts = {})
+    def create_manual_journals_with_http_info(xero_tenant_id, manual_journals, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_manual_journals ...'
       end
@@ -2740,7 +2773,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @return [Array<(Allocations, Integer, Hash)>] Allocations data, response status code and response headers
-    def create_overpayment_allocations_with_http_info(xero_tenant_id, overpayment_id, allocations, opts = {})
+    def create_overpayment_allocations_with_http_info(xero_tenant_id, overpayment_id, allocations, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_overpayment_allocations ...'
       end
@@ -2823,7 +2857,8 @@ module XeroRuby
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
-    def create_overpayment_history_with_http_info(xero_tenant_id, overpayment_id, history_records, opts = {})
+    def create_overpayment_history_with_http_info(xero_tenant_id, overpayment_id, history_records, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_overpayment_history ...'
       end
@@ -2903,7 +2938,8 @@ module XeroRuby
     # @param payment [Payment] Request body with a single Payment object
     # @param [Hash] opts the optional parameters
     # @return [Array<(Payments, Integer, Hash)>] Payments data, response status code and response headers
-    def create_payment_with_http_info(xero_tenant_id, payment, opts = {})
+    def create_payment_with_http_info(xero_tenant_id, payment, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_payment ...'
       end
@@ -2981,7 +3017,8 @@ module XeroRuby
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
-    def create_payment_history_with_http_info(xero_tenant_id, payment_id, history_records, opts = {})
+    def create_payment_history_with_http_info(xero_tenant_id, payment_id, history_records, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_payment_history ...'
       end
@@ -3061,7 +3098,8 @@ module XeroRuby
     # @param payment_services [PaymentServices] PaymentServices array with PaymentService object in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(PaymentServices, Integer, Hash)>] PaymentServices data, response status code and response headers
-    def create_payment_service_with_http_info(xero_tenant_id, payment_services, opts = {})
+    def create_payment_service_with_http_info(xero_tenant_id, payment_services, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_payment_service ...'
       end
@@ -3139,7 +3177,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @return [Array<(Payments, Integer, Hash)>] Payments data, response status code and response headers
-    def create_payments_with_http_info(xero_tenant_id, payments, opts = {})
+    def create_payments_with_http_info(xero_tenant_id, payments, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_payments ...'
       end
@@ -3220,7 +3259,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @return [Array<(Allocations, Integer, Hash)>] Allocations data, response status code and response headers
-    def create_prepayment_allocations_with_http_info(xero_tenant_id, prepayment_id, allocations, opts = {})
+    def create_prepayment_allocations_with_http_info(xero_tenant_id, prepayment_id, allocations, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_prepayment_allocations ...'
       end
@@ -3303,7 +3343,8 @@ module XeroRuby
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
-    def create_prepayment_history_with_http_info(xero_tenant_id, prepayment_id, history_records, opts = {})
+    def create_prepayment_history_with_http_info(xero_tenant_id, prepayment_id, history_records, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_prepayment_history ...'
       end
@@ -3387,7 +3428,8 @@ module XeroRuby
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
-    def create_purchase_order_attachment_by_file_name_with_http_info(xero_tenant_id, purchase_order_id, file_name, body, opts = {})
+    def create_purchase_order_attachment_by_file_name_with_http_info(xero_tenant_id, purchase_order_id, file_name, body, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_purchase_order_attachment_by_file_name ...'
       end
@@ -3473,7 +3515,8 @@ module XeroRuby
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
-    def create_purchase_order_history_with_http_info(xero_tenant_id, purchase_order_id, history_records, opts = {})
+    def create_purchase_order_history_with_http_info(xero_tenant_id, purchase_order_id, history_records, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_purchase_order_history ...'
       end
@@ -3555,7 +3598,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @return [Array<(PurchaseOrders, Integer, Hash)>] PurchaseOrders data, response status code and response headers
-    def create_purchase_orders_with_http_info(xero_tenant_id, purchase_orders, opts = {})
+    def create_purchase_orders_with_http_info(xero_tenant_id, purchase_orders, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_purchase_orders ...'
       end
@@ -3636,7 +3680,8 @@ module XeroRuby
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
-    def create_quote_attachment_by_file_name_with_http_info(xero_tenant_id, quote_id, file_name, body, opts = {})
+    def create_quote_attachment_by_file_name_with_http_info(xero_tenant_id, quote_id, file_name, body, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_quote_attachment_by_file_name ...'
       end
@@ -3722,7 +3767,8 @@ module XeroRuby
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
-    def create_quote_history_with_http_info(xero_tenant_id, quote_id, history_records, opts = {})
+    def create_quote_history_with_http_info(xero_tenant_id, quote_id, history_records, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_quote_history ...'
       end
@@ -3804,7 +3850,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @return [Array<(Quotes, Integer, Hash)>] Quotes data, response status code and response headers
-    def create_quotes_with_http_info(xero_tenant_id, quotes, opts = {})
+    def create_quotes_with_http_info(xero_tenant_id, quotes, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_quotes ...'
       end
@@ -3883,7 +3930,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @return [Array<(Receipts, Integer, Hash)>] Receipts data, response status code and response headers
-    def create_receipt_with_http_info(xero_tenant_id, receipts, opts = {})
+    def create_receipt_with_http_info(xero_tenant_id, receipts, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_receipt ...'
       end
@@ -3964,7 +4012,8 @@ module XeroRuby
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
-    def create_receipt_attachment_by_file_name_with_http_info(xero_tenant_id, receipt_id, file_name, body, opts = {})
+    def create_receipt_attachment_by_file_name_with_http_info(xero_tenant_id, receipt_id, file_name, body, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_receipt_attachment_by_file_name ...'
       end
@@ -4050,7 +4099,8 @@ module XeroRuby
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
-    def create_receipt_history_with_http_info(xero_tenant_id, receipt_id, history_records, opts = {})
+    def create_receipt_history_with_http_info(xero_tenant_id, receipt_id, history_records, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_receipt_history ...'
       end
@@ -4134,7 +4184,8 @@ module XeroRuby
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
-    def create_repeating_invoice_attachment_by_file_name_with_http_info(xero_tenant_id, repeating_invoice_id, file_name, body, opts = {})
+    def create_repeating_invoice_attachment_by_file_name_with_http_info(xero_tenant_id, repeating_invoice_id, file_name, body, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_repeating_invoice_attachment_by_file_name ...'
       end
@@ -4220,7 +4271,8 @@ module XeroRuby
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
-    def create_repeating_invoice_history_with_http_info(xero_tenant_id, repeating_invoice_id, history_records, opts = {})
+    def create_repeating_invoice_history_with_http_info(xero_tenant_id, repeating_invoice_id, history_records, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_repeating_invoice_history ...'
       end
@@ -4300,7 +4352,8 @@ module XeroRuby
     # @param tax_rates [TaxRates] TaxRates array with TaxRate object in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(TaxRates, Integer, Hash)>] TaxRates data, response status code and response headers
-    def create_tax_rates_with_http_info(xero_tenant_id, tax_rates, opts = {})
+    def create_tax_rates_with_http_info(xero_tenant_id, tax_rates, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_tax_rates ...'
       end
@@ -4376,7 +4429,8 @@ module XeroRuby
     # @param tracking_category [TrackingCategory] TrackingCategory object in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(TrackingCategories, Integer, Hash)>] TrackingCategories data, response status code and response headers
-    def create_tracking_category_with_http_info(xero_tenant_id, tracking_category, opts = {})
+    def create_tracking_category_with_http_info(xero_tenant_id, tracking_category, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_tracking_category ...'
       end
@@ -4454,7 +4508,8 @@ module XeroRuby
     # @param tracking_option [TrackingOption] TrackingOption object in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(TrackingOptions, Integer, Hash)>] TrackingOptions data, response status code and response headers
-    def create_tracking_options_with_http_info(xero_tenant_id, tracking_category_id, tracking_option, opts = {})
+    def create_tracking_options_with_http_info(xero_tenant_id, tracking_category_id, tracking_option, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_tracking_options ...'
       end
@@ -4534,7 +4589,8 @@ module XeroRuby
     # @param account_id [String] Unique identifier for Account object
     # @param [Hash] opts the optional parameters
     # @return [Array<(Accounts, Integer, Hash)>] Accounts data, response status code and response headers
-    def delete_account_with_http_info(xero_tenant_id, account_id, opts = {})
+    def delete_account_with_http_info(xero_tenant_id, account_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.delete_account ...'
       end
@@ -4610,7 +4666,8 @@ module XeroRuby
     # @param contact_id [String] Unique identifier for a Contact
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def delete_contact_group_contact_with_http_info(xero_tenant_id, contact_group_id, contact_id, opts = {})
+    def delete_contact_group_contact_with_http_info(xero_tenant_id, contact_group_id, contact_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.delete_contact_group_contact ...'
       end
@@ -4688,7 +4745,8 @@ module XeroRuby
     # @param contact_group_id [String] Unique identifier for a Contact Group
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def delete_contact_group_contacts_with_http_info(xero_tenant_id, contact_group_id, opts = {})
+    def delete_contact_group_contacts_with_http_info(xero_tenant_id, contact_group_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.delete_contact_group_contacts ...'
       end
@@ -4760,7 +4818,8 @@ module XeroRuby
     # @param item_id [String] Unique identifier for an Item
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def delete_item_with_http_info(xero_tenant_id, item_id, opts = {})
+    def delete_item_with_http_info(xero_tenant_id, item_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.delete_item ...'
       end
@@ -4834,7 +4893,8 @@ module XeroRuby
     # @param linked_transaction_id [String] Unique identifier for a LinkedTransaction
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def delete_linked_transaction_with_http_info(xero_tenant_id, linked_transaction_id, opts = {})
+    def delete_linked_transaction_with_http_info(xero_tenant_id, linked_transaction_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.delete_linked_transaction ...'
       end
@@ -4910,7 +4970,8 @@ module XeroRuby
     # @param payment_delete [PaymentDelete] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(Payments, Integer, Hash)>] Payments data, response status code and response headers
-    def delete_payment_with_http_info(xero_tenant_id, payment_id, payment_delete, opts = {})
+    def delete_payment_with_http_info(xero_tenant_id, payment_id, payment_delete, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.delete_payment ...'
       end
@@ -4990,7 +5051,8 @@ module XeroRuby
     # @param tracking_category_id [String] Unique identifier for a TrackingCategory
     # @param [Hash] opts the optional parameters
     # @return [Array<(TrackingCategories, Integer, Hash)>] TrackingCategories data, response status code and response headers
-    def delete_tracking_category_with_http_info(xero_tenant_id, tracking_category_id, opts = {})
+    def delete_tracking_category_with_http_info(xero_tenant_id, tracking_category_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.delete_tracking_category ...'
       end
@@ -5066,7 +5128,8 @@ module XeroRuby
     # @param tracking_option_id [String] Unique identifier for a Tracking Option
     # @param [Hash] opts the optional parameters
     # @return [Array<(TrackingOptions, Integer, Hash)>] TrackingOptions data, response status code and response headers
-    def delete_tracking_options_with_http_info(xero_tenant_id, tracking_category_id, tracking_option_id, opts = {})
+    def delete_tracking_options_with_http_info(xero_tenant_id, tracking_category_id, tracking_option_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.delete_tracking_options ...'
       end
@@ -5146,7 +5209,8 @@ module XeroRuby
     # @param request_empty [RequestEmpty] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def email_invoice_with_http_info(xero_tenant_id, invoice_id, request_empty, opts = {})
+    def email_invoice_with_http_info(xero_tenant_id, invoice_id, request_empty, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.email_invoice ...'
       end
@@ -5226,7 +5290,8 @@ module XeroRuby
     # @param account_id [String] Unique identifier for Account object
     # @param [Hash] opts the optional parameters
     # @return [Array<(Accounts, Integer, Hash)>] Accounts data, response status code and response headers
-    def get_account_with_http_info(xero_tenant_id, account_id, opts = {})
+    def get_account_with_http_info(xero_tenant_id, account_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_account ...'
       end
@@ -5304,7 +5369,8 @@ module XeroRuby
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
-    def get_account_attachment_by_file_name_with_http_info(xero_tenant_id, account_id, file_name, content_type, opts = {})
+    def get_account_attachment_by_file_name_with_http_info(xero_tenant_id, account_id, file_name, content_type, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_account_attachment_by_file_name ...'
       end
@@ -5391,7 +5457,8 @@ module XeroRuby
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
-    def get_account_attachment_by_id_with_http_info(xero_tenant_id, account_id, attachment_id, content_type, opts = {})
+    def get_account_attachment_by_id_with_http_info(xero_tenant_id, account_id, attachment_id, content_type, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_account_attachment_by_id ...'
       end
@@ -5474,7 +5541,8 @@ module XeroRuby
     # @param account_id [String] Unique identifier for Account object
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
-    def get_account_attachments_with_http_info(xero_tenant_id, account_id, opts = {})
+    def get_account_attachments_with_http_info(xero_tenant_id, account_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_account_attachments ...'
       end
@@ -5552,7 +5620,8 @@ module XeroRuby
     # @option opts [String] :where Filter by an any element
     # @option opts [String] :order Order by an any element
     # @return [Array<(Accounts, Integer, Hash)>] Accounts data, response status code and response headers
-    def get_accounts_with_http_info(xero_tenant_id, opts = {})
+    def get_accounts_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_accounts ...'
       end
@@ -5627,7 +5696,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @return [Array<(BankTransactions, Integer, Hash)>] BankTransactions data, response status code and response headers
-    def get_bank_transaction_with_http_info(xero_tenant_id, bank_transaction_id, opts = {})
+    def get_bank_transaction_with_http_info(xero_tenant_id, bank_transaction_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_bank_transaction ...'
       end
@@ -5706,7 +5776,8 @@ module XeroRuby
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
-    def get_bank_transaction_attachment_by_file_name_with_http_info(xero_tenant_id, bank_transaction_id, file_name, content_type, opts = {})
+    def get_bank_transaction_attachment_by_file_name_with_http_info(xero_tenant_id, bank_transaction_id, file_name, content_type, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_bank_transaction_attachment_by_file_name ...'
       end
@@ -5793,7 +5864,8 @@ module XeroRuby
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
-    def get_bank_transaction_attachment_by_id_with_http_info(xero_tenant_id, bank_transaction_id, attachment_id, content_type, opts = {})
+    def get_bank_transaction_attachment_by_id_with_http_info(xero_tenant_id, bank_transaction_id, attachment_id, content_type, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_bank_transaction_attachment_by_id ...'
       end
@@ -5876,7 +5948,8 @@ module XeroRuby
     # @param bank_transaction_id [String] Xero generated unique identifier for a bank transaction
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
-    def get_bank_transaction_attachments_with_http_info(xero_tenant_id, bank_transaction_id, opts = {})
+    def get_bank_transaction_attachments_with_http_info(xero_tenant_id, bank_transaction_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_bank_transaction_attachments ...'
       end
@@ -5958,7 +6031,8 @@ module XeroRuby
     # @option opts [Integer] :page Up to 100 bank transactions will be returned in a single API call with line items details
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @return [Array<(BankTransactions, Integer, Hash)>] BankTransactions data, response status code and response headers
-    def get_bank_transactions_with_http_info(xero_tenant_id, opts = {})
+    def get_bank_transactions_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_bank_transactions ...'
       end
@@ -6033,7 +6107,8 @@ module XeroRuby
     # @param bank_transaction_id [String] Xero generated unique identifier for a bank transaction
     # @param [Hash] opts the optional parameters
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
-    def get_bank_transactions_history_with_http_info(xero_tenant_id, bank_transaction_id, opts = {})
+    def get_bank_transactions_history_with_http_info(xero_tenant_id, bank_transaction_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_bank_transactions_history ...'
       end
@@ -6107,7 +6182,8 @@ module XeroRuby
     # @param bank_transfer_id [String] Xero generated unique identifier for a bank transfer
     # @param [Hash] opts the optional parameters
     # @return [Array<(BankTransfers, Integer, Hash)>] BankTransfers data, response status code and response headers
-    def get_bank_transfer_with_http_info(xero_tenant_id, bank_transfer_id, opts = {})
+    def get_bank_transfer_with_http_info(xero_tenant_id, bank_transfer_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_bank_transfer ...'
       end
@@ -6185,7 +6261,8 @@ module XeroRuby
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
-    def get_bank_transfer_attachment_by_file_name_with_http_info(xero_tenant_id, bank_transfer_id, file_name, content_type, opts = {})
+    def get_bank_transfer_attachment_by_file_name_with_http_info(xero_tenant_id, bank_transfer_id, file_name, content_type, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_bank_transfer_attachment_by_file_name ...'
       end
@@ -6272,7 +6349,8 @@ module XeroRuby
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
-    def get_bank_transfer_attachment_by_id_with_http_info(xero_tenant_id, bank_transfer_id, attachment_id, content_type, opts = {})
+    def get_bank_transfer_attachment_by_id_with_http_info(xero_tenant_id, bank_transfer_id, attachment_id, content_type, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_bank_transfer_attachment_by_id ...'
       end
@@ -6355,7 +6433,8 @@ module XeroRuby
     # @param bank_transfer_id [String] Xero generated unique identifier for a bank transfer
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
-    def get_bank_transfer_attachments_with_http_info(xero_tenant_id, bank_transfer_id, opts = {})
+    def get_bank_transfer_attachments_with_http_info(xero_tenant_id, bank_transfer_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_bank_transfer_attachments ...'
       end
@@ -6429,7 +6508,8 @@ module XeroRuby
     # @param bank_transfer_id [String] Xero generated unique identifier for a bank transfer
     # @param [Hash] opts the optional parameters
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
-    def get_bank_transfer_history_with_http_info(xero_tenant_id, bank_transfer_id, opts = {})
+    def get_bank_transfer_history_with_http_info(xero_tenant_id, bank_transfer_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_bank_transfer_history ...'
       end
@@ -6507,7 +6587,8 @@ module XeroRuby
     # @option opts [String] :where Filter by an any element
     # @option opts [String] :order Order by an any element
     # @return [Array<(BankTransfers, Integer, Hash)>] BankTransfers data, response status code and response headers
-    def get_bank_transfers_with_http_info(xero_tenant_id, opts = {})
+    def get_bank_transfers_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_bank_transfers ...'
       end
@@ -6580,7 +6661,8 @@ module XeroRuby
     # @param batch_payment_id [String] Unique identifier for BatchPayment
     # @param [Hash] opts the optional parameters
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
-    def get_batch_payment_history_with_http_info(xero_tenant_id, batch_payment_id, opts = {})
+    def get_batch_payment_history_with_http_info(xero_tenant_id, batch_payment_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_batch_payment_history ...'
       end
@@ -6658,7 +6740,8 @@ module XeroRuby
     # @option opts [String] :where Filter by an any element
     # @option opts [String] :order Order by an any element
     # @return [Array<(BatchPayments, Integer, Hash)>] BatchPayments data, response status code and response headers
-    def get_batch_payments_with_http_info(xero_tenant_id, opts = {})
+    def get_batch_payments_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_batch_payments ...'
       end
@@ -6731,7 +6814,8 @@ module XeroRuby
     # @param branding_theme_id [String] Unique identifier for a Branding Theme
     # @param [Hash] opts the optional parameters
     # @return [Array<(BrandingThemes, Integer, Hash)>] BrandingThemes data, response status code and response headers
-    def get_branding_theme_with_http_info(xero_tenant_id, branding_theme_id, opts = {})
+    def get_branding_theme_with_http_info(xero_tenant_id, branding_theme_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_branding_theme ...'
       end
@@ -6805,7 +6889,8 @@ module XeroRuby
     # @param branding_theme_id [String] Unique identifier for a Branding Theme
     # @param [Hash] opts the optional parameters
     # @return [Array<(PaymentServices, Integer, Hash)>] PaymentServices data, response status code and response headers
-    def get_branding_theme_payment_services_with_http_info(xero_tenant_id, branding_theme_id, opts = {})
+    def get_branding_theme_payment_services_with_http_info(xero_tenant_id, branding_theme_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_branding_theme_payment_services ...'
       end
@@ -6877,7 +6962,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @return [Array<(BrandingThemes, Integer, Hash)>] BrandingThemes data, response status code and response headers
-    def get_branding_themes_with_http_info(xero_tenant_id, opts = {})
+    def get_branding_themes_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_branding_themes ...'
       end
@@ -6947,7 +7033,8 @@ module XeroRuby
     # @param contact_id [String] Unique identifier for a Contact
     # @param [Hash] opts the optional parameters
     # @return [Array<(Contacts, Integer, Hash)>] Contacts data, response status code and response headers
-    def get_contact_with_http_info(xero_tenant_id, contact_id, opts = {})
+    def get_contact_with_http_info(xero_tenant_id, contact_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_contact ...'
       end
@@ -7025,7 +7112,8 @@ module XeroRuby
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
-    def get_contact_attachment_by_file_name_with_http_info(xero_tenant_id, contact_id, file_name, content_type, opts = {})
+    def get_contact_attachment_by_file_name_with_http_info(xero_tenant_id, contact_id, file_name, content_type, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_contact_attachment_by_file_name ...'
       end
@@ -7112,7 +7200,8 @@ module XeroRuby
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
-    def get_contact_attachment_by_id_with_http_info(xero_tenant_id, contact_id, attachment_id, content_type, opts = {})
+    def get_contact_attachment_by_id_with_http_info(xero_tenant_id, contact_id, attachment_id, content_type, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_contact_attachment_by_id ...'
       end
@@ -7195,7 +7284,8 @@ module XeroRuby
     # @param contact_id [String] Unique identifier for a Contact
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
-    def get_contact_attachments_with_http_info(xero_tenant_id, contact_id, opts = {})
+    def get_contact_attachments_with_http_info(xero_tenant_id, contact_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_contact_attachments ...'
       end
@@ -7269,7 +7359,8 @@ module XeroRuby
     # @param contact_number [String] This field is read only on the Xero contact screen, used to identify contacts in external systems (max length &#x3D; 50).
     # @param [Hash] opts the optional parameters
     # @return [Array<(Contacts, Integer, Hash)>] Contacts data, response status code and response headers
-    def get_contact_by_contact_number_with_http_info(xero_tenant_id, contact_number, opts = {})
+    def get_contact_by_contact_number_with_http_info(xero_tenant_id, contact_number, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_contact_by_contact_number ...'
       end
@@ -7343,7 +7434,8 @@ module XeroRuby
     # @param contact_id [String] Unique identifier for a Contact
     # @param [Hash] opts the optional parameters
     # @return [Array<(CISSettings, Integer, Hash)>] CISSettings data, response status code and response headers
-    def get_contact_cis_settings_with_http_info(xero_tenant_id, contact_id, opts = {})
+    def get_contact_cis_settings_with_http_info(xero_tenant_id, contact_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_contact_cis_settings ...'
       end
@@ -7417,7 +7509,8 @@ module XeroRuby
     # @param contact_group_id [String] Unique identifier for a Contact Group
     # @param [Hash] opts the optional parameters
     # @return [Array<(ContactGroups, Integer, Hash)>] ContactGroups data, response status code and response headers
-    def get_contact_group_with_http_info(xero_tenant_id, contact_group_id, opts = {})
+    def get_contact_group_with_http_info(xero_tenant_id, contact_group_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_contact_group ...'
       end
@@ -7493,7 +7586,8 @@ module XeroRuby
     # @option opts [String] :where Filter by an any element
     # @option opts [String] :order Order by an any element
     # @return [Array<(ContactGroups, Integer, Hash)>] ContactGroups data, response status code and response headers
-    def get_contact_groups_with_http_info(xero_tenant_id, opts = {})
+    def get_contact_groups_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_contact_groups ...'
       end
@@ -7565,7 +7659,8 @@ module XeroRuby
     # @param contact_id [String] Unique identifier for a Contact
     # @param [Hash] opts the optional parameters
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
-    def get_contact_history_with_http_info(xero_tenant_id, contact_id, opts = {})
+    def get_contact_history_with_http_info(xero_tenant_id, contact_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_contact_history ...'
       end
@@ -7649,7 +7744,8 @@ module XeroRuby
     # @option opts [Integer] :page e.g. page&#x3D;1 - Up to 100 contacts will be returned in a single API call.
     # @option opts [Boolean] :include_archived e.g. includeArchived&#x3D;true - Contacts with a status of ARCHIVED will be included in the response
     # @return [Array<(Contacts, Integer, Hash)>] Contacts data, response status code and response headers
-    def get_contacts_with_http_info(xero_tenant_id, opts = {})
+    def get_contacts_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_contacts ...'
       end
@@ -7727,7 +7823,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @return [Array<(CreditNotes, Integer, Hash)>] CreditNotes data, response status code and response headers
-    def get_credit_note_with_http_info(xero_tenant_id, credit_note_id, opts = {})
+    def get_credit_note_with_http_info(xero_tenant_id, credit_note_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_credit_note ...'
       end
@@ -7802,7 +7899,8 @@ module XeroRuby
     # @param credit_note_id [String] Unique identifier for a Credit Note
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
-    def get_credit_note_as_pdf_with_http_info(xero_tenant_id, credit_note_id, opts = {})
+    def get_credit_note_as_pdf_with_http_info(xero_tenant_id, credit_note_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_credit_note_as_pdf ...'
       end
@@ -7880,7 +7978,8 @@ module XeroRuby
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
-    def get_credit_note_attachment_by_file_name_with_http_info(xero_tenant_id, credit_note_id, file_name, content_type, opts = {})
+    def get_credit_note_attachment_by_file_name_with_http_info(xero_tenant_id, credit_note_id, file_name, content_type, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_credit_note_attachment_by_file_name ...'
       end
@@ -7967,7 +8066,8 @@ module XeroRuby
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
-    def get_credit_note_attachment_by_id_with_http_info(xero_tenant_id, credit_note_id, attachment_id, content_type, opts = {})
+    def get_credit_note_attachment_by_id_with_http_info(xero_tenant_id, credit_note_id, attachment_id, content_type, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_credit_note_attachment_by_id ...'
       end
@@ -8050,7 +8150,8 @@ module XeroRuby
     # @param credit_note_id [String] Unique identifier for a Credit Note
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
-    def get_credit_note_attachments_with_http_info(xero_tenant_id, credit_note_id, opts = {})
+    def get_credit_note_attachments_with_http_info(xero_tenant_id, credit_note_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_credit_note_attachments ...'
       end
@@ -8124,7 +8225,8 @@ module XeroRuby
     # @param credit_note_id [String] Unique identifier for a Credit Note
     # @param [Hash] opts the optional parameters
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
-    def get_credit_note_history_with_http_info(xero_tenant_id, credit_note_id, opts = {})
+    def get_credit_note_history_with_http_info(xero_tenant_id, credit_note_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_credit_note_history ...'
       end
@@ -8206,7 +8308,8 @@ module XeroRuby
     # @option opts [Integer] :page e.g. page&#x3D;1 – Up to 100 credit notes will be returned in a single API call with line items shown for each credit note
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @return [Array<(CreditNotes, Integer, Hash)>] CreditNotes data, response status code and response headers
-    def get_credit_notes_with_http_info(xero_tenant_id, opts = {})
+    def get_credit_notes_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_credit_notes ...'
       end
@@ -8283,7 +8386,8 @@ module XeroRuby
     # @option opts [String] :where Filter by an any element
     # @option opts [String] :order Order by an any element
     # @return [Array<(Currencies, Integer, Hash)>] Currencies data, response status code and response headers
-    def get_currencies_with_http_info(xero_tenant_id, opts = {})
+    def get_currencies_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_currencies ...'
       end
@@ -8355,7 +8459,8 @@ module XeroRuby
     # @param employee_id [String] Unique identifier for a Employee
     # @param [Hash] opts the optional parameters
     # @return [Array<(Employees, Integer, Hash)>] Employees data, response status code and response headers
-    def get_employee_with_http_info(xero_tenant_id, employee_id, opts = {})
+    def get_employee_with_http_info(xero_tenant_id, employee_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_employee ...'
       end
@@ -8433,7 +8538,8 @@ module XeroRuby
     # @option opts [String] :where Filter by an any element
     # @option opts [String] :order Order by an any element
     # @return [Array<(Employees, Integer, Hash)>] Employees data, response status code and response headers
-    def get_employees_with_http_info(xero_tenant_id, opts = {})
+    def get_employees_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_employees ...'
       end
@@ -8506,7 +8612,8 @@ module XeroRuby
     # @param expense_claim_id [String] Unique identifier for a ExpenseClaim
     # @param [Hash] opts the optional parameters
     # @return [Array<(ExpenseClaims, Integer, Hash)>] ExpenseClaims data, response status code and response headers
-    def get_expense_claim_with_http_info(xero_tenant_id, expense_claim_id, opts = {})
+    def get_expense_claim_with_http_info(xero_tenant_id, expense_claim_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_expense_claim ...'
       end
@@ -8580,7 +8687,8 @@ module XeroRuby
     # @param expense_claim_id [String] Unique identifier for a ExpenseClaim
     # @param [Hash] opts the optional parameters
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
-    def get_expense_claim_history_with_http_info(xero_tenant_id, expense_claim_id, opts = {})
+    def get_expense_claim_history_with_http_info(xero_tenant_id, expense_claim_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_expense_claim_history ...'
       end
@@ -8658,7 +8766,8 @@ module XeroRuby
     # @option opts [String] :where Filter by an any element
     # @option opts [String] :order Order by an any element
     # @return [Array<(ExpenseClaims, Integer, Hash)>] ExpenseClaims data, response status code and response headers
-    def get_expense_claims_with_http_info(xero_tenant_id, opts = {})
+    def get_expense_claims_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_expense_claims ...'
       end
@@ -8733,7 +8842,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @return [Array<(Invoices, Integer, Hash)>] Invoices data, response status code and response headers
-    def get_invoice_with_http_info(xero_tenant_id, invoice_id, opts = {})
+    def get_invoice_with_http_info(xero_tenant_id, invoice_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_invoice ...'
       end
@@ -8808,7 +8918,8 @@ module XeroRuby
     # @param invoice_id [String] Unique identifier for an Invoice
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
-    def get_invoice_as_pdf_with_http_info(xero_tenant_id, invoice_id, opts = {})
+    def get_invoice_as_pdf_with_http_info(xero_tenant_id, invoice_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_invoice_as_pdf ...'
       end
@@ -8886,7 +8997,8 @@ module XeroRuby
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
-    def get_invoice_attachment_by_file_name_with_http_info(xero_tenant_id, invoice_id, file_name, content_type, opts = {})
+    def get_invoice_attachment_by_file_name_with_http_info(xero_tenant_id, invoice_id, file_name, content_type, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_invoice_attachment_by_file_name ...'
       end
@@ -8973,7 +9085,8 @@ module XeroRuby
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
-    def get_invoice_attachment_by_id_with_http_info(xero_tenant_id, invoice_id, attachment_id, content_type, opts = {})
+    def get_invoice_attachment_by_id_with_http_info(xero_tenant_id, invoice_id, attachment_id, content_type, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_invoice_attachment_by_id ...'
       end
@@ -9056,7 +9169,8 @@ module XeroRuby
     # @param invoice_id [String] Unique identifier for an Invoice
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
-    def get_invoice_attachments_with_http_info(xero_tenant_id, invoice_id, opts = {})
+    def get_invoice_attachments_with_http_info(xero_tenant_id, invoice_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_invoice_attachments ...'
       end
@@ -9130,7 +9244,8 @@ module XeroRuby
     # @param invoice_id [String] Unique identifier for an Invoice
     # @param [Hash] opts the optional parameters
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
-    def get_invoice_history_with_http_info(xero_tenant_id, invoice_id, opts = {})
+    def get_invoice_history_with_http_info(xero_tenant_id, invoice_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_invoice_history ...'
       end
@@ -9202,7 +9317,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @return [Array<(InvoiceReminders, Integer, Hash)>] InvoiceReminders data, response status code and response headers
-    def get_invoice_reminders_with_http_info(xero_tenant_id, opts = {})
+    def get_invoice_reminders_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_invoice_reminders ...'
       end
@@ -9292,7 +9408,8 @@ module XeroRuby
     # @option opts [Boolean] :created_by_my_app When set to true you&#39;ll only retrieve Invoices created by your app
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @return [Array<(Invoices, Integer, Hash)>] Invoices data, response status code and response headers
-    def get_invoices_with_http_info(xero_tenant_id, opts = {})
+    def get_invoices_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_invoices ...'
       end
@@ -9375,7 +9492,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @return [Array<(Items, Integer, Hash)>] Items data, response status code and response headers
-    def get_item_with_http_info(xero_tenant_id, item_id, opts = {})
+    def get_item_with_http_info(xero_tenant_id, item_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_item ...'
       end
@@ -9450,7 +9568,8 @@ module XeroRuby
     # @param item_id [String] Unique identifier for an Item
     # @param [Hash] opts the optional parameters
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
-    def get_item_history_with_http_info(xero_tenant_id, item_id, opts = {})
+    def get_item_history_with_http_info(xero_tenant_id, item_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_item_history ...'
       end
@@ -9530,7 +9649,8 @@ module XeroRuby
     # @option opts [String] :order Order by an any element
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @return [Array<(Items, Integer, Hash)>] Items data, response status code and response headers
-    def get_items_with_http_info(xero_tenant_id, opts = {})
+    def get_items_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_items ...'
       end
@@ -9604,7 +9724,8 @@ module XeroRuby
     # @param journal_id [String] Unique identifier for a Journal
     # @param [Hash] opts the optional parameters
     # @return [Array<(Journals, Integer, Hash)>] Journals data, response status code and response headers
-    def get_journal_with_http_info(xero_tenant_id, journal_id, opts = {})
+    def get_journal_with_http_info(xero_tenant_id, journal_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_journal ...'
       end
@@ -9682,7 +9803,8 @@ module XeroRuby
     # @option opts [Integer] :offset Offset by a specified journal number. e.g. journals with a JournalNumber greater than the offset will be returned
     # @option opts [Boolean] :payments_only Filter to retrieve journals on a cash basis. Journals are returned on an accrual basis by default.
     # @return [Array<(Journals, Integer, Hash)>] Journals data, response status code and response headers
-    def get_journals_with_http_info(xero_tenant_id, opts = {})
+    def get_journals_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_journals ...'
       end
@@ -9755,7 +9877,8 @@ module XeroRuby
     # @param linked_transaction_id [String] Unique identifier for a LinkedTransaction
     # @param [Hash] opts the optional parameters
     # @return [Array<(LinkedTransactions, Integer, Hash)>] LinkedTransactions data, response status code and response headers
-    def get_linked_transaction_with_http_info(xero_tenant_id, linked_transaction_id, opts = {})
+    def get_linked_transaction_with_http_info(xero_tenant_id, linked_transaction_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_linked_transaction ...'
       end
@@ -9839,7 +9962,8 @@ module XeroRuby
     # @option opts [String] :status Filter by the combination of ContactID and Status. Get  the linked transactions associated to a  customer and with a status
     # @option opts [String] :target_transaction_id Filter by the TargetTransactionID. Get all the linked transactions allocated to a particular ACCREC invoice
     # @return [Array<(LinkedTransactions, Integer, Hash)>] LinkedTransactions data, response status code and response headers
-    def get_linked_transactions_with_http_info(xero_tenant_id, opts = {})
+    def get_linked_transactions_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_linked_transactions ...'
       end
@@ -9915,7 +10039,8 @@ module XeroRuby
     # @param manual_journal_id [String] Unique identifier for a ManualJournal
     # @param [Hash] opts the optional parameters
     # @return [Array<(ManualJournals, Integer, Hash)>] ManualJournals data, response status code and response headers
-    def get_manual_journal_with_http_info(xero_tenant_id, manual_journal_id, opts = {})
+    def get_manual_journal_with_http_info(xero_tenant_id, manual_journal_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_manual_journal ...'
       end
@@ -9993,7 +10118,8 @@ module XeroRuby
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
-    def get_manual_journal_attachment_by_file_name_with_http_info(xero_tenant_id, manual_journal_id, file_name, content_type, opts = {})
+    def get_manual_journal_attachment_by_file_name_with_http_info(xero_tenant_id, manual_journal_id, file_name, content_type, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_manual_journal_attachment_by_file_name ...'
       end
@@ -10080,7 +10206,8 @@ module XeroRuby
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
-    def get_manual_journal_attachment_by_id_with_http_info(xero_tenant_id, manual_journal_id, attachment_id, content_type, opts = {})
+    def get_manual_journal_attachment_by_id_with_http_info(xero_tenant_id, manual_journal_id, attachment_id, content_type, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_manual_journal_attachment_by_id ...'
       end
@@ -10163,7 +10290,8 @@ module XeroRuby
     # @param manual_journal_id [String] Unique identifier for a ManualJournal
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
-    def get_manual_journal_attachments_with_http_info(xero_tenant_id, manual_journal_id, opts = {})
+    def get_manual_journal_attachments_with_http_info(xero_tenant_id, manual_journal_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_manual_journal_attachments ...'
       end
@@ -10243,7 +10371,8 @@ module XeroRuby
     # @option opts [String] :order Order by an any element
     # @option opts [Integer] :page e.g. page&#x3D;1 – Up to 100 manual journals will be returned in a single API call with line items shown for each overpayment
     # @return [Array<(ManualJournals, Integer, Hash)>] ManualJournals data, response status code and response headers
-    def get_manual_journals_with_http_info(xero_tenant_id, opts = {})
+    def get_manual_journals_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_manual_journals ...'
       end
@@ -10317,7 +10446,8 @@ module XeroRuby
     # @param manual_journal_id [String] Unique identifier for a ManualJournal
     # @param [Hash] opts the optional parameters
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
-    def get_manual_journals_history_with_http_info(xero_tenant_id, manual_journal_id, opts = {})
+    def get_manual_journals_history_with_http_info(xero_tenant_id, manual_journal_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_manual_journals_history ...'
       end
@@ -10391,7 +10521,8 @@ module XeroRuby
     # @param invoice_id [String] Unique identifier for an Invoice
     # @param [Hash] opts the optional parameters
     # @return [Array<(OnlineInvoices, Integer, Hash)>] OnlineInvoices data, response status code and response headers
-    def get_online_invoice_with_http_info(xero_tenant_id, invoice_id, opts = {})
+    def get_online_invoice_with_http_info(xero_tenant_id, invoice_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_online_invoice ...'
       end
@@ -10463,7 +10594,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @return [Array<(Actions, Integer, Hash)>] Actions data, response status code and response headers
-    def get_organisation_actions_with_http_info(xero_tenant_id, opts = {})
+    def get_organisation_actions_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_organisation_actions ...'
       end
@@ -10533,7 +10665,8 @@ module XeroRuby
     # @param organisation_id [String] The unique Xero identifier for an organisation
     # @param [Hash] opts the optional parameters
     # @return [Array<(CISOrgSettings, Integer, Hash)>] CISOrgSettings data, response status code and response headers
-    def get_organisation_cis_settings_with_http_info(xero_tenant_id, organisation_id, opts = {})
+    def get_organisation_cis_settings_with_http_info(xero_tenant_id, organisation_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_organisation_cis_settings ...'
       end
@@ -10605,7 +10738,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @return [Array<(Organisations, Integer, Hash)>] Organisations data, response status code and response headers
-    def get_organisations_with_http_info(xero_tenant_id, opts = {})
+    def get_organisations_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_organisations ...'
       end
@@ -10675,7 +10809,8 @@ module XeroRuby
     # @param overpayment_id [String] Unique identifier for a Overpayment
     # @param [Hash] opts the optional parameters
     # @return [Array<(Overpayments, Integer, Hash)>] Overpayments data, response status code and response headers
-    def get_overpayment_with_http_info(xero_tenant_id, overpayment_id, opts = {})
+    def get_overpayment_with_http_info(xero_tenant_id, overpayment_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_overpayment ...'
       end
@@ -10749,7 +10884,8 @@ module XeroRuby
     # @param overpayment_id [String] Unique identifier for a Overpayment
     # @param [Hash] opts the optional parameters
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
-    def get_overpayment_history_with_http_info(xero_tenant_id, overpayment_id, opts = {})
+    def get_overpayment_history_with_http_info(xero_tenant_id, overpayment_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_overpayment_history ...'
       end
@@ -10831,7 +10967,8 @@ module XeroRuby
     # @option opts [Integer] :page e.g. page&#x3D;1 – Up to 100 overpayments will be returned in a single API call with line items shown for each overpayment
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @return [Array<(Overpayments, Integer, Hash)>] Overpayments data, response status code and response headers
-    def get_overpayments_with_http_info(xero_tenant_id, opts = {})
+    def get_overpayments_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_overpayments ...'
       end
@@ -10906,7 +11043,8 @@ module XeroRuby
     # @param payment_id [String] Unique identifier for a Payment
     # @param [Hash] opts the optional parameters
     # @return [Array<(Payments, Integer, Hash)>] Payments data, response status code and response headers
-    def get_payment_with_http_info(xero_tenant_id, payment_id, opts = {})
+    def get_payment_with_http_info(xero_tenant_id, payment_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_payment ...'
       end
@@ -10980,7 +11118,8 @@ module XeroRuby
     # @param payment_id [String] Unique identifier for a Payment
     # @param [Hash] opts the optional parameters
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
-    def get_payment_history_with_http_info(xero_tenant_id, payment_id, opts = {})
+    def get_payment_history_with_http_info(xero_tenant_id, payment_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_payment_history ...'
       end
@@ -11052,7 +11191,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @return [Array<(PaymentServices, Integer, Hash)>] PaymentServices data, response status code and response headers
-    def get_payment_services_with_http_info(xero_tenant_id, opts = {})
+    def get_payment_services_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_payment_services ...'
       end
@@ -11128,7 +11268,8 @@ module XeroRuby
     # @option opts [String] :order Order by an any element
     # @option opts [Integer] :page Up to 100 payments will be returned in a single API call
     # @return [Array<(Payments, Integer, Hash)>] Payments data, response status code and response headers
-    def get_payments_with_http_info(xero_tenant_id, opts = {})
+    def get_payments_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_payments ...'
       end
@@ -11202,7 +11343,8 @@ module XeroRuby
     # @param prepayment_id [String] Unique identifier for a PrePayment
     # @param [Hash] opts the optional parameters
     # @return [Array<(Prepayments, Integer, Hash)>] Prepayments data, response status code and response headers
-    def get_prepayment_with_http_info(xero_tenant_id, prepayment_id, opts = {})
+    def get_prepayment_with_http_info(xero_tenant_id, prepayment_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_prepayment ...'
       end
@@ -11276,7 +11418,8 @@ module XeroRuby
     # @param prepayment_id [String] Unique identifier for a PrePayment
     # @param [Hash] opts the optional parameters
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
-    def get_prepayment_history_with_http_info(xero_tenant_id, prepayment_id, opts = {})
+    def get_prepayment_history_with_http_info(xero_tenant_id, prepayment_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_prepayment_history ...'
       end
@@ -11358,7 +11501,8 @@ module XeroRuby
     # @option opts [Integer] :page e.g. page&#x3D;1 – Up to 100 prepayments will be returned in a single API call with line items shown for each overpayment
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @return [Array<(Prepayments, Integer, Hash)>] Prepayments data, response status code and response headers
-    def get_prepayments_with_http_info(xero_tenant_id, opts = {})
+    def get_prepayments_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_prepayments ...'
       end
@@ -11433,7 +11577,8 @@ module XeroRuby
     # @param purchase_order_id [String] Unique identifier for an Purchase Order
     # @param [Hash] opts the optional parameters
     # @return [Array<(PurchaseOrders, Integer, Hash)>] PurchaseOrders data, response status code and response headers
-    def get_purchase_order_with_http_info(xero_tenant_id, purchase_order_id, opts = {})
+    def get_purchase_order_with_http_info(xero_tenant_id, purchase_order_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_purchase_order ...'
       end
@@ -11507,7 +11652,8 @@ module XeroRuby
     # @param purchase_order_id [String] Unique identifier for an Purchase Order
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
-    def get_purchase_order_as_pdf_with_http_info(xero_tenant_id, purchase_order_id, opts = {})
+    def get_purchase_order_as_pdf_with_http_info(xero_tenant_id, purchase_order_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_purchase_order_as_pdf ...'
       end
@@ -11585,7 +11731,8 @@ module XeroRuby
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
-    def get_purchase_order_attachment_by_file_name_with_http_info(xero_tenant_id, purchase_order_id, file_name, content_type, opts = {})
+    def get_purchase_order_attachment_by_file_name_with_http_info(xero_tenant_id, purchase_order_id, file_name, content_type, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_purchase_order_attachment_by_file_name ...'
       end
@@ -11672,7 +11819,8 @@ module XeroRuby
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
-    def get_purchase_order_attachment_by_id_with_http_info(xero_tenant_id, purchase_order_id, attachment_id, content_type, opts = {})
+    def get_purchase_order_attachment_by_id_with_http_info(xero_tenant_id, purchase_order_id, attachment_id, content_type, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_purchase_order_attachment_by_id ...'
       end
@@ -11755,7 +11903,8 @@ module XeroRuby
     # @param purchase_order_id [String] Unique identifier for an Purchase Order
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
-    def get_purchase_order_attachments_with_http_info(xero_tenant_id, purchase_order_id, opts = {})
+    def get_purchase_order_attachments_with_http_info(xero_tenant_id, purchase_order_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_purchase_order_attachments ...'
       end
@@ -11829,7 +11978,8 @@ module XeroRuby
     # @param purchase_order_number [String] Unique identifier for a PurchaseOrder
     # @param [Hash] opts the optional parameters
     # @return [Array<(PurchaseOrders, Integer, Hash)>] PurchaseOrders data, response status code and response headers
-    def get_purchase_order_by_number_with_http_info(xero_tenant_id, purchase_order_number, opts = {})
+    def get_purchase_order_by_number_with_http_info(xero_tenant_id, purchase_order_number, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_purchase_order_by_number ...'
       end
@@ -11903,7 +12053,8 @@ module XeroRuby
     # @param purchase_order_id [String] Unique identifier for an Purchase Order
     # @param [Hash] opts the optional parameters
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
-    def get_purchase_order_history_with_http_info(xero_tenant_id, purchase_order_id, opts = {})
+    def get_purchase_order_history_with_http_info(xero_tenant_id, purchase_order_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_purchase_order_history ...'
       end
@@ -11987,7 +12138,8 @@ module XeroRuby
     # @option opts [String] :order Order by an any element
     # @option opts [Integer] :page To specify a page, append the page parameter to the URL e.g. ?page&#x3D;1. If there are 100 records in the response you will need to check if there is any more data by fetching the next page e.g ?page&#x3D;2 and continuing this process until no more results are returned.
     # @return [Array<(PurchaseOrders, Integer, Hash)>] PurchaseOrders data, response status code and response headers
-    def get_purchase_orders_with_http_info(xero_tenant_id, opts = {})
+    def get_purchase_orders_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_purchase_orders ...'
       end
@@ -12067,7 +12219,8 @@ module XeroRuby
     # @param quote_id [String] Unique identifier for an Quote
     # @param [Hash] opts the optional parameters
     # @return [Array<(Quotes, Integer, Hash)>] Quotes data, response status code and response headers
-    def get_quote_with_http_info(xero_tenant_id, quote_id, opts = {})
+    def get_quote_with_http_info(xero_tenant_id, quote_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_quote ...'
       end
@@ -12141,7 +12294,8 @@ module XeroRuby
     # @param quote_id [String] Unique identifier for an Quote
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
-    def get_quote_as_pdf_with_http_info(xero_tenant_id, quote_id, opts = {})
+    def get_quote_as_pdf_with_http_info(xero_tenant_id, quote_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_quote_as_pdf ...'
       end
@@ -12219,7 +12373,8 @@ module XeroRuby
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
-    def get_quote_attachment_by_file_name_with_http_info(xero_tenant_id, quote_id, file_name, content_type, opts = {})
+    def get_quote_attachment_by_file_name_with_http_info(xero_tenant_id, quote_id, file_name, content_type, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_quote_attachment_by_file_name ...'
       end
@@ -12306,7 +12461,8 @@ module XeroRuby
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
-    def get_quote_attachment_by_id_with_http_info(xero_tenant_id, quote_id, attachment_id, content_type, opts = {})
+    def get_quote_attachment_by_id_with_http_info(xero_tenant_id, quote_id, attachment_id, content_type, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_quote_attachment_by_id ...'
       end
@@ -12389,7 +12545,8 @@ module XeroRuby
     # @param quote_id [String] Unique identifier for an Quote
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
-    def get_quote_attachments_with_http_info(xero_tenant_id, quote_id, opts = {})
+    def get_quote_attachments_with_http_info(xero_tenant_id, quote_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_quote_attachments ...'
       end
@@ -12463,7 +12620,8 @@ module XeroRuby
     # @param quote_id [String] Unique identifier for an Quote
     # @param [Hash] opts the optional parameters
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
-    def get_quote_history_with_http_info(xero_tenant_id, quote_id, opts = {})
+    def get_quote_history_with_http_info(xero_tenant_id, quote_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_quote_history ...'
       end
@@ -12555,7 +12713,8 @@ module XeroRuby
     # @option opts [String] :order Order by an any element
     # @option opts [String] :quote_number Filter by quote number (e.g. GET https://.../Quotes?QuoteNumber&#x3D;QU-0001)
     # @return [Array<(Quotes, Integer, Hash)>] Quotes data, response status code and response headers
-    def get_quotes_with_http_info(xero_tenant_id, opts = {})
+    def get_quotes_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_quotes ...'
       end
@@ -12637,7 +12796,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @return [Array<(Receipts, Integer, Hash)>] Receipts data, response status code and response headers
-    def get_receipt_with_http_info(xero_tenant_id, receipt_id, opts = {})
+    def get_receipt_with_http_info(xero_tenant_id, receipt_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_receipt ...'
       end
@@ -12716,7 +12876,8 @@ module XeroRuby
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
-    def get_receipt_attachment_by_file_name_with_http_info(xero_tenant_id, receipt_id, file_name, content_type, opts = {})
+    def get_receipt_attachment_by_file_name_with_http_info(xero_tenant_id, receipt_id, file_name, content_type, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_receipt_attachment_by_file_name ...'
       end
@@ -12803,7 +12964,8 @@ module XeroRuby
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
-    def get_receipt_attachment_by_id_with_http_info(xero_tenant_id, receipt_id, attachment_id, content_type, opts = {})
+    def get_receipt_attachment_by_id_with_http_info(xero_tenant_id, receipt_id, attachment_id, content_type, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_receipt_attachment_by_id ...'
       end
@@ -12886,7 +13048,8 @@ module XeroRuby
     # @param receipt_id [String] Unique identifier for a Receipt
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
-    def get_receipt_attachments_with_http_info(xero_tenant_id, receipt_id, opts = {})
+    def get_receipt_attachments_with_http_info(xero_tenant_id, receipt_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_receipt_attachments ...'
       end
@@ -12960,7 +13123,8 @@ module XeroRuby
     # @param receipt_id [String] Unique identifier for a Receipt
     # @param [Hash] opts the optional parameters
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
-    def get_receipt_history_with_http_info(xero_tenant_id, receipt_id, opts = {})
+    def get_receipt_history_with_http_info(xero_tenant_id, receipt_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_receipt_history ...'
       end
@@ -13040,7 +13204,8 @@ module XeroRuby
     # @option opts [String] :order Order by an any element
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @return [Array<(Receipts, Integer, Hash)>] Receipts data, response status code and response headers
-    def get_receipts_with_http_info(xero_tenant_id, opts = {})
+    def get_receipts_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_receipts ...'
       end
@@ -13114,7 +13279,8 @@ module XeroRuby
     # @param repeating_invoice_id [String] Unique identifier for a Repeating Invoice
     # @param [Hash] opts the optional parameters
     # @return [Array<(RepeatingInvoices, Integer, Hash)>] RepeatingInvoices data, response status code and response headers
-    def get_repeating_invoice_with_http_info(xero_tenant_id, repeating_invoice_id, opts = {})
+    def get_repeating_invoice_with_http_info(xero_tenant_id, repeating_invoice_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_repeating_invoice ...'
       end
@@ -13192,7 +13358,8 @@ module XeroRuby
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
-    def get_repeating_invoice_attachment_by_file_name_with_http_info(xero_tenant_id, repeating_invoice_id, file_name, content_type, opts = {})
+    def get_repeating_invoice_attachment_by_file_name_with_http_info(xero_tenant_id, repeating_invoice_id, file_name, content_type, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_repeating_invoice_attachment_by_file_name ...'
       end
@@ -13279,7 +13446,8 @@ module XeroRuby
     # @param content_type [String] The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
-    def get_repeating_invoice_attachment_by_id_with_http_info(xero_tenant_id, repeating_invoice_id, attachment_id, content_type, opts = {})
+    def get_repeating_invoice_attachment_by_id_with_http_info(xero_tenant_id, repeating_invoice_id, attachment_id, content_type, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_repeating_invoice_attachment_by_id ...'
       end
@@ -13362,7 +13530,8 @@ module XeroRuby
     # @param repeating_invoice_id [String] Unique identifier for a Repeating Invoice
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
-    def get_repeating_invoice_attachments_with_http_info(xero_tenant_id, repeating_invoice_id, opts = {})
+    def get_repeating_invoice_attachments_with_http_info(xero_tenant_id, repeating_invoice_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_repeating_invoice_attachments ...'
       end
@@ -13436,7 +13605,8 @@ module XeroRuby
     # @param repeating_invoice_id [String] Unique identifier for a Repeating Invoice
     # @param [Hash] opts the optional parameters
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
-    def get_repeating_invoice_history_with_http_info(xero_tenant_id, repeating_invoice_id, opts = {})
+    def get_repeating_invoice_history_with_http_info(xero_tenant_id, repeating_invoice_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_repeating_invoice_history ...'
       end
@@ -13512,7 +13682,8 @@ module XeroRuby
     # @option opts [String] :where Filter by an any element
     # @option opts [String] :order Order by an any element
     # @return [Array<(RepeatingInvoices, Integer, Hash)>] RepeatingInvoices data, response status code and response headers
-    def get_repeating_invoices_with_http_info(xero_tenant_id, opts = {})
+    def get_repeating_invoices_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_repeating_invoices ...'
       end
@@ -13590,7 +13761,8 @@ module XeroRuby
     # @option opts [Date] :from_date filter by the from date of the report e.g. 2021-02-01
     # @option opts [Date] :to_date filter by the to date of the report e.g. 2021-02-28
     # @return [Array<(ReportWithRows, Integer, Hash)>] ReportWithRows data, response status code and response headers
-    def get_report_aged_payables_by_contact_with_http_info(xero_tenant_id, contact_id, opts = {})
+    def get_report_aged_payables_by_contact_with_http_info(xero_tenant_id, contact_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_report_aged_payables_by_contact ...'
       end
@@ -13674,7 +13846,8 @@ module XeroRuby
     # @option opts [Date] :from_date filter by the from date of the report e.g. 2021-02-01
     # @option opts [Date] :to_date filter by the to date of the report e.g. 2021-02-28
     # @return [Array<(ReportWithRows, Integer, Hash)>] ReportWithRows data, response status code and response headers
-    def get_report_aged_receivables_by_contact_with_http_info(xero_tenant_id, contact_id, opts = {})
+    def get_report_aged_receivables_by_contact_with_http_info(xero_tenant_id, contact_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_report_aged_receivables_by_contact ...'
       end
@@ -13752,7 +13925,8 @@ module XeroRuby
     # @param report_id [String] Unique identifier for a Report
     # @param [Hash] opts the optional parameters
     # @return [Array<(ReportWithRows, Integer, Hash)>] ReportWithRows data, response status code and response headers
-    def get_report_ba_sor_gst_with_http_info(xero_tenant_id, report_id, opts = {})
+    def get_report_ba_sor_gst_with_http_info(xero_tenant_id, report_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_report_ba_sor_gst ...'
       end
@@ -13824,7 +13998,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @return [Array<(ReportWithRows, Integer, Hash)>] ReportWithRows data, response status code and response headers
-    def get_report_ba_sor_gst_list_with_http_info(xero_tenant_id, opts = {})
+    def get_report_ba_sor_gst_list_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_report_ba_sor_gst_list ...'
       end
@@ -13906,7 +14081,8 @@ module XeroRuby
     # @option opts [Boolean] :standard_layout The standard layout boolean for the Balance Sheet report
     # @option opts [Boolean] :payments_only return a cash basis for the Balance Sheet report
     # @return [Array<(ReportWithRows, Integer, Hash)>] ReportWithRows data, response status code and response headers
-    def get_report_balance_sheet_with_http_info(xero_tenant_id, opts = {})
+    def get_report_balance_sheet_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_report_balance_sheet ...'
       end
@@ -13989,7 +14165,8 @@ module XeroRuby
     # @option opts [Date] :from_date filter by the from date of the report e.g. 2021-02-01
     # @option opts [Date] :to_date filter by the to date of the report e.g. 2021-02-28
     # @return [Array<(ReportWithRows, Integer, Hash)>] ReportWithRows data, response status code and response headers
-    def get_report_bank_summary_with_http_info(xero_tenant_id, opts = {})
+    def get_report_bank_summary_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_report_bank_summary ...'
       end
@@ -14065,7 +14242,8 @@ module XeroRuby
     # @option opts [Integer] :period The number of periods to compare (integer between 1 and 12)
     # @option opts [Integer] :timeframe The period size to compare to (1&#x3D;month, 3&#x3D;quarter, 12&#x3D;year)
     # @return [Array<(ReportWithRows, Integer, Hash)>] ReportWithRows data, response status code and response headers
-    def get_report_budget_summary_with_http_info(xero_tenant_id, opts = {})
+    def get_report_budget_summary_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_report_budget_summary ...'
       end
@@ -14138,7 +14316,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :date The date for the Bank Summary report e.g. 2018-03-31
     # @return [Array<(ReportWithRows, Integer, Hash)>] ReportWithRows data, response status code and response headers
-    def get_report_executive_summary_with_http_info(xero_tenant_id, opts = {})
+    def get_report_executive_summary_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_report_executive_summary ...'
       end
@@ -14227,7 +14406,8 @@ module XeroRuby
     # @option opts [Boolean] :standard_layout Return the standard layout for the ProfitAndLoss report
     # @option opts [Boolean] :payments_only Return cash only basis for the ProfitAndLoss report
     # @return [Array<(ReportWithRows, Integer, Hash)>] ReportWithRows data, response status code and response headers
-    def get_report_profit_and_loss_with_http_info(xero_tenant_id, opts = {})
+    def get_report_profit_and_loss_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_report_profit_and_loss ...'
       end
@@ -14311,7 +14491,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [String] :report_year The year of the 1099 report
     # @return [Array<(Reports, Integer, Hash)>] Reports data, response status code and response headers
-    def get_report_ten_ninety_nine_with_http_info(xero_tenant_id, opts = {})
+    def get_report_ten_ninety_nine_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_report_ten_ninety_nine ...'
       end
@@ -14384,7 +14565,8 @@ module XeroRuby
     # @option opts [Date] :date The date for the Trial Balance report e.g. 2018-03-31
     # @option opts [Boolean] :payments_only Return cash only basis for the Trial Balance report
     # @return [Array<(ReportWithRows, Integer, Hash)>] ReportWithRows data, response status code and response headers
-    def get_report_trial_balance_with_http_info(xero_tenant_id, opts = {})
+    def get_report_trial_balance_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_report_trial_balance ...'
       end
@@ -14460,7 +14642,8 @@ module XeroRuby
     # @option opts [String] :order Order by an any element
     # @option opts [String] :tax_type Filter by tax type
     # @return [Array<(TaxRates, Integer, Hash)>] TaxRates data, response status code and response headers
-    def get_tax_rates_with_http_info(xero_tenant_id, opts = {})
+    def get_tax_rates_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_tax_rates ...'
       end
@@ -14537,7 +14720,8 @@ module XeroRuby
     # @option opts [String] :order Order by an any element
     # @option opts [Boolean] :include_archived e.g. includeArchived&#x3D;true - Categories and options with a status of ARCHIVED will be included in the response
     # @return [Array<(TrackingCategories, Integer, Hash)>] TrackingCategories data, response status code and response headers
-    def get_tracking_categories_with_http_info(xero_tenant_id, opts = {})
+    def get_tracking_categories_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_tracking_categories ...'
       end
@@ -14610,7 +14794,8 @@ module XeroRuby
     # @param tracking_category_id [String] Unique identifier for a TrackingCategory
     # @param [Hash] opts the optional parameters
     # @return [Array<(TrackingCategories, Integer, Hash)>] TrackingCategories data, response status code and response headers
-    def get_tracking_category_with_http_info(xero_tenant_id, tracking_category_id, opts = {})
+    def get_tracking_category_with_http_info(xero_tenant_id, tracking_category_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_tracking_category ...'
       end
@@ -14684,7 +14869,8 @@ module XeroRuby
     # @param user_id [String] Unique identifier for a User
     # @param [Hash] opts the optional parameters
     # @return [Array<(Users, Integer, Hash)>] Users data, response status code and response headers
-    def get_user_with_http_info(xero_tenant_id, user_id, opts = {})
+    def get_user_with_http_info(xero_tenant_id, user_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_user ...'
       end
@@ -14762,7 +14948,8 @@ module XeroRuby
     # @option opts [String] :where Filter by an any element
     # @option opts [String] :order Order by an any element
     # @return [Array<(Users, Integer, Hash)>] Users data, response status code and response headers
-    def get_users_with_http_info(xero_tenant_id, opts = {})
+    def get_users_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_users ...'
       end
@@ -14835,7 +15022,8 @@ module XeroRuby
     # @param setup [Setup] Object including an accounts array, a conversion balances array and a conversion date object in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(ImportSummaryObject, Integer, Hash)>] ImportSummaryObject data, response status code and response headers
-    def post_setup_with_http_info(xero_tenant_id, setup, opts = {})
+    def post_setup_with_http_info(xero_tenant_id, setup, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.post_setup ...'
       end
@@ -14913,7 +15101,8 @@ module XeroRuby
     # @param accounts [Accounts] Request of type Accounts array with one Account
     # @param [Hash] opts the optional parameters
     # @return [Array<(Accounts, Integer, Hash)>] Accounts data, response status code and response headers
-    def update_account_with_http_info(xero_tenant_id, account_id, accounts, opts = {})
+    def update_account_with_http_info(xero_tenant_id, account_id, accounts, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.update_account ...'
       end
@@ -14997,7 +15186,8 @@ module XeroRuby
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
-    def update_account_attachment_by_file_name_with_http_info(xero_tenant_id, account_id, file_name, body, opts = {})
+    def update_account_attachment_by_file_name_with_http_info(xero_tenant_id, account_id, file_name, body, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.update_account_attachment_by_file_name ...'
       end
@@ -15085,7 +15275,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @return [Array<(BankTransactions, Integer, Hash)>] BankTransactions data, response status code and response headers
-    def update_bank_transaction_with_http_info(xero_tenant_id, bank_transaction_id, bank_transactions, opts = {})
+    def update_bank_transaction_with_http_info(xero_tenant_id, bank_transaction_id, bank_transactions, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.update_bank_transaction ...'
       end
@@ -15170,7 +15361,8 @@ module XeroRuby
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
-    def update_bank_transaction_attachment_by_file_name_with_http_info(xero_tenant_id, bank_transaction_id, file_name, body, opts = {})
+    def update_bank_transaction_attachment_by_file_name_with_http_info(xero_tenant_id, bank_transaction_id, file_name, body, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.update_bank_transaction_attachment_by_file_name ...'
       end
@@ -15256,7 +15448,8 @@ module XeroRuby
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
-    def update_bank_transfer_attachment_by_file_name_with_http_info(xero_tenant_id, bank_transfer_id, file_name, body, opts = {})
+    def update_bank_transfer_attachment_by_file_name_with_http_info(xero_tenant_id, bank_transfer_id, file_name, body, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.update_bank_transfer_attachment_by_file_name ...'
       end
@@ -15342,7 +15535,8 @@ module XeroRuby
     # @param contacts [Contacts] an array of Contacts containing single Contact object with properties to update
     # @param [Hash] opts the optional parameters
     # @return [Array<(Contacts, Integer, Hash)>] Contacts data, response status code and response headers
-    def update_contact_with_http_info(xero_tenant_id, contact_id, contacts, opts = {})
+    def update_contact_with_http_info(xero_tenant_id, contact_id, contacts, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.update_contact ...'
       end
@@ -15424,7 +15618,8 @@ module XeroRuby
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
-    def update_contact_attachment_by_file_name_with_http_info(xero_tenant_id, contact_id, file_name, body, opts = {})
+    def update_contact_attachment_by_file_name_with_http_info(xero_tenant_id, contact_id, file_name, body, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.update_contact_attachment_by_file_name ...'
       end
@@ -15510,7 +15705,8 @@ module XeroRuby
     # @param contact_groups [ContactGroups] an array of Contact groups with Name of specific group to update
     # @param [Hash] opts the optional parameters
     # @return [Array<(ContactGroups, Integer, Hash)>] ContactGroups data, response status code and response headers
-    def update_contact_group_with_http_info(xero_tenant_id, contact_group_id, contact_groups, opts = {})
+    def update_contact_group_with_http_info(xero_tenant_id, contact_group_id, contact_groups, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.update_contact_group ...'
       end
@@ -15594,7 +15790,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @return [Array<(CreditNotes, Integer, Hash)>] CreditNotes data, response status code and response headers
-    def update_credit_note_with_http_info(xero_tenant_id, credit_note_id, credit_notes, opts = {})
+    def update_credit_note_with_http_info(xero_tenant_id, credit_note_id, credit_notes, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.update_credit_note ...'
       end
@@ -15679,7 +15876,8 @@ module XeroRuby
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
-    def update_credit_note_attachment_by_file_name_with_http_info(xero_tenant_id, credit_note_id, file_name, body, opts = {})
+    def update_credit_note_attachment_by_file_name_with_http_info(xero_tenant_id, credit_note_id, file_name, body, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.update_credit_note_attachment_by_file_name ...'
       end
@@ -15765,7 +15963,8 @@ module XeroRuby
     # @param expense_claims [ExpenseClaims] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ExpenseClaims, Integer, Hash)>] ExpenseClaims data, response status code and response headers
-    def update_expense_claim_with_http_info(xero_tenant_id, expense_claim_id, expense_claims, opts = {})
+    def update_expense_claim_with_http_info(xero_tenant_id, expense_claim_id, expense_claims, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.update_expense_claim ...'
       end
@@ -15849,7 +16048,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @return [Array<(Invoices, Integer, Hash)>] Invoices data, response status code and response headers
-    def update_invoice_with_http_info(xero_tenant_id, invoice_id, invoices, opts = {})
+    def update_invoice_with_http_info(xero_tenant_id, invoice_id, invoices, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.update_invoice ...'
       end
@@ -15934,7 +16134,8 @@ module XeroRuby
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
-    def update_invoice_attachment_by_file_name_with_http_info(xero_tenant_id, invoice_id, file_name, body, opts = {})
+    def update_invoice_attachment_by_file_name_with_http_info(xero_tenant_id, invoice_id, file_name, body, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.update_invoice_attachment_by_file_name ...'
       end
@@ -16022,7 +16223,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @return [Array<(Items, Integer, Hash)>] Items data, response status code and response headers
-    def update_item_with_http_info(xero_tenant_id, item_id, items, opts = {})
+    def update_item_with_http_info(xero_tenant_id, item_id, items, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.update_item ...'
       end
@@ -16105,7 +16307,8 @@ module XeroRuby
     # @param linked_transactions [LinkedTransactions] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(LinkedTransactions, Integer, Hash)>] LinkedTransactions data, response status code and response headers
-    def update_linked_transaction_with_http_info(xero_tenant_id, linked_transaction_id, linked_transactions, opts = {})
+    def update_linked_transaction_with_http_info(xero_tenant_id, linked_transaction_id, linked_transactions, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.update_linked_transaction ...'
       end
@@ -16187,7 +16390,8 @@ module XeroRuby
     # @param manual_journals [ManualJournals] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ManualJournals, Integer, Hash)>] ManualJournals data, response status code and response headers
-    def update_manual_journal_with_http_info(xero_tenant_id, manual_journal_id, manual_journals, opts = {})
+    def update_manual_journal_with_http_info(xero_tenant_id, manual_journal_id, manual_journals, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.update_manual_journal ...'
       end
@@ -16271,7 +16475,8 @@ module XeroRuby
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
-    def update_manual_journal_attachment_by_file_name_with_http_info(xero_tenant_id, manual_journal_id, file_name, body, opts = {})
+    def update_manual_journal_attachment_by_file_name_with_http_info(xero_tenant_id, manual_journal_id, file_name, body, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.update_manual_journal_attachment_by_file_name ...'
       end
@@ -16359,7 +16564,8 @@ module XeroRuby
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @return [Array<(BankTransactions, Integer, Hash)>] BankTransactions data, response status code and response headers
-    def update_or_create_bank_transactions_with_http_info(xero_tenant_id, bank_transactions, opts = {})
+    def update_or_create_bank_transactions_with_http_info(xero_tenant_id, bank_transactions, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.update_or_create_bank_transactions ...'
       end
@@ -16439,7 +16645,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @return [Array<(Contacts, Integer, Hash)>] Contacts data, response status code and response headers
-    def update_or_create_contacts_with_http_info(xero_tenant_id, contacts, opts = {})
+    def update_or_create_contacts_with_http_info(xero_tenant_id, contacts, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.update_or_create_contacts ...'
       end
@@ -16520,7 +16727,8 @@ module XeroRuby
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @return [Array<(CreditNotes, Integer, Hash)>] CreditNotes data, response status code and response headers
-    def update_or_create_credit_notes_with_http_info(xero_tenant_id, credit_notes, opts = {})
+    def update_or_create_credit_notes_with_http_info(xero_tenant_id, credit_notes, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.update_or_create_credit_notes ...'
       end
@@ -16600,7 +16808,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @return [Array<(Employees, Integer, Hash)>] Employees data, response status code and response headers
-    def update_or_create_employees_with_http_info(xero_tenant_id, employees, opts = {})
+    def update_or_create_employees_with_http_info(xero_tenant_id, employees, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.update_or_create_employees ...'
       end
@@ -16681,7 +16890,8 @@ module XeroRuby
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @return [Array<(Invoices, Integer, Hash)>] Invoices data, response status code and response headers
-    def update_or_create_invoices_with_http_info(xero_tenant_id, invoices, opts = {})
+    def update_or_create_invoices_with_http_info(xero_tenant_id, invoices, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.update_or_create_invoices ...'
       end
@@ -16763,7 +16973,8 @@ module XeroRuby
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @return [Array<(Items, Integer, Hash)>] Items data, response status code and response headers
-    def update_or_create_items_with_http_info(xero_tenant_id, items, opts = {})
+    def update_or_create_items_with_http_info(xero_tenant_id, items, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.update_or_create_items ...'
       end
@@ -16843,7 +17054,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @return [Array<(ManualJournals, Integer, Hash)>] ManualJournals data, response status code and response headers
-    def update_or_create_manual_journals_with_http_info(xero_tenant_id, manual_journals, opts = {})
+    def update_or_create_manual_journals_with_http_info(xero_tenant_id, manual_journals, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.update_or_create_manual_journals ...'
       end
@@ -16922,7 +17134,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @return [Array<(PurchaseOrders, Integer, Hash)>] PurchaseOrders data, response status code and response headers
-    def update_or_create_purchase_orders_with_http_info(xero_tenant_id, purchase_orders, opts = {})
+    def update_or_create_purchase_orders_with_http_info(xero_tenant_id, purchase_orders, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.update_or_create_purchase_orders ...'
       end
@@ -17001,7 +17214,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @return [Array<(Quotes, Integer, Hash)>] Quotes data, response status code and response headers
-    def update_or_create_quotes_with_http_info(xero_tenant_id, quotes, opts = {})
+    def update_or_create_quotes_with_http_info(xero_tenant_id, quotes, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.update_or_create_quotes ...'
       end
@@ -17080,7 +17294,8 @@ module XeroRuby
     # @param purchase_orders [PurchaseOrders] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(PurchaseOrders, Integer, Hash)>] PurchaseOrders data, response status code and response headers
-    def update_purchase_order_with_http_info(xero_tenant_id, purchase_order_id, purchase_orders, opts = {})
+    def update_purchase_order_with_http_info(xero_tenant_id, purchase_order_id, purchase_orders, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.update_purchase_order ...'
       end
@@ -17164,7 +17379,8 @@ module XeroRuby
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
-    def update_purchase_order_attachment_by_file_name_with_http_info(xero_tenant_id, purchase_order_id, file_name, body, opts = {})
+    def update_purchase_order_attachment_by_file_name_with_http_info(xero_tenant_id, purchase_order_id, file_name, body, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.update_purchase_order_attachment_by_file_name ...'
       end
@@ -17250,7 +17466,8 @@ module XeroRuby
     # @param quotes [Quotes] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(Quotes, Integer, Hash)>] Quotes data, response status code and response headers
-    def update_quote_with_http_info(xero_tenant_id, quote_id, quotes, opts = {})
+    def update_quote_with_http_info(xero_tenant_id, quote_id, quotes, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.update_quote ...'
       end
@@ -17334,7 +17551,8 @@ module XeroRuby
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
-    def update_quote_attachment_by_file_name_with_http_info(xero_tenant_id, quote_id, file_name, body, opts = {})
+    def update_quote_attachment_by_file_name_with_http_info(xero_tenant_id, quote_id, file_name, body, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.update_quote_attachment_by_file_name ...'
       end
@@ -17422,7 +17640,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @return [Array<(Receipts, Integer, Hash)>] Receipts data, response status code and response headers
-    def update_receipt_with_http_info(xero_tenant_id, receipt_id, receipts, opts = {})
+    def update_receipt_with_http_info(xero_tenant_id, receipt_id, receipts, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.update_receipt ...'
       end
@@ -17507,7 +17726,8 @@ module XeroRuby
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
-    def update_receipt_attachment_by_file_name_with_http_info(xero_tenant_id, receipt_id, file_name, body, opts = {})
+    def update_receipt_attachment_by_file_name_with_http_info(xero_tenant_id, receipt_id, file_name, body, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.update_receipt_attachment_by_file_name ...'
       end
@@ -17595,7 +17815,8 @@ module XeroRuby
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
-    def update_repeating_invoice_attachment_by_file_name_with_http_info(xero_tenant_id, repeating_invoice_id, file_name, body, opts = {})
+    def update_repeating_invoice_attachment_by_file_name_with_http_info(xero_tenant_id, repeating_invoice_id, file_name, body, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.update_repeating_invoice_attachment_by_file_name ...'
       end
@@ -17679,7 +17900,8 @@ module XeroRuby
     # @param tax_rates [TaxRates] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(TaxRates, Integer, Hash)>] TaxRates data, response status code and response headers
-    def update_tax_rate_with_http_info(xero_tenant_id, tax_rates, opts = {})
+    def update_tax_rate_with_http_info(xero_tenant_id, tax_rates, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.update_tax_rate ...'
       end
@@ -17757,7 +17979,8 @@ module XeroRuby
     # @param tracking_category [TrackingCategory] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(TrackingCategories, Integer, Hash)>] TrackingCategories data, response status code and response headers
-    def update_tracking_category_with_http_info(xero_tenant_id, tracking_category_id, tracking_category, opts = {})
+    def update_tracking_category_with_http_info(xero_tenant_id, tracking_category_id, tracking_category, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.update_tracking_category ...'
       end
@@ -17841,7 +18064,8 @@ module XeroRuby
     # @param tracking_option [TrackingOption] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(TrackingOptions, Integer, Hash)>] TrackingOptions data, response status code and response headers
-    def update_tracking_options_with_http_info(xero_tenant_id, tracking_category_id, tracking_option_id, tracking_option, opts = {})
+    def update_tracking_options_with_http_info(xero_tenant_id, tracking_category_id, tracking_option_id, tracking_option, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.update_tracking_options ...'
       end
