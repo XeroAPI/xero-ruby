@@ -14167,7 +14167,8 @@ module XeroRuby
    # @option opts [Date] :from_date The from date for the Bank Summary report e.g. 2018-03-31
    # @option opts [Date] :to_date The to date for the Bank Summary report e.g. 2018-03-31
    # @return [Array<(ReportWithRows, Integer, Hash)>] ReportWithRows data, response status code and response headers
-   def get_report_bank_statement_with_http_info(xero_tenant_id, bank_account_id, opts = {})
+   def get_report_bank_statement_with_http_info(xero_tenant_id, bank_account_id, options = {})
+     opts = options.dup
      if @api_client.config.debugging
        @api_client.config.logger.debug 'Calling API: AccountingApi.get_report_bank_statement ...'
      end
