@@ -19,7 +19,8 @@ Method | HTTP request | Description
 [**get_inbox**](FilesApi.md#get_inbox) | **GET** /Inbox | Retrieves inbox folder
 [**update_file**](FilesApi.md#update_file) | **PUT** /Files/{FileId} | Update a file
 [**update_folder**](FilesApi.md#update_folder) | **PUT** /Folders/{FolderId} | Updates an existing folder
-[**upload_file**](FilesApi.md#upload_file) | **POST** /Files | Uploads a File
+[**upload_file**](FilesApi.md#upload_file) | **POST** /Files | Uploads a File to the inbox
+[**upload_file_to_folder**](FilesApi.md#upload_file_to_folder) | **POST** /Files/{FolderId} | Uploads a File to a specific folder
 
 
 
@@ -1035,9 +1036,9 @@ Name | Type | Description  | Notes
 
 ## upload_file
 
-> FileObject upload_file(xero_tenant_id, opts)
+> FileObject upload_file(xero_tenant_id, body, name, filename, opts)
 
-Uploads a File
+Uploads a File to the inbox
 
 ### Example
 
@@ -1065,21 +1066,16 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+body = 'body_example' # String | 
+name = 'name_example' # String | exact name of the file you are uploading
+filename = 'filename_example' # String | 
 opts = {
-  folder_id: '4ff1e5cc-9835-40d5-bb18-09fdb118db9c', # String | pass an optional folder id to save file to specific folder
-
-  body: 'body_example', # String | 
-
-  name: 'name_example', # String | exact name of the file you are uploading
-
-  filename: 'filename_example', # String | 
-
   mime_type: 'mime_type_example' # String | 
 }
 
 begin
-  #Uploads a File
-  result = api_instance.upload_file(xero_tenant_id, opts)
+  #Uploads a File to the inbox
+  result = api_instance.upload_file(xero_tenant_id, body, name, filename, opts)
   p result
 rescue XeroRuby::Files::ApiError => e
   puts "Exception when calling FilesApi->upload_file: #{e}"
@@ -1092,10 +1088,84 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **folder_id** | [**String**](.md)| pass an optional folder id to save file to specific folder | [optional] 
- **body** | **String**|  | [optional] 
- **name** | **String**| exact name of the file you are uploading | [optional] 
- **filename** | **String**|  | [optional] 
+ **body** | **String**|  | 
+ **name** | **String**| exact name of the file you are uploading | 
+ **filename** | **String**|  | 
+ **mime_type** | **String**|  | [optional] 
+
+### Return type
+
+[**FileObject**](FileObject.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
+
+
+## upload_file_to_folder
+
+> FileObject upload_file_to_folder(xero_tenant_id, folder_id, body, name, filename, opts)
+
+Uploads a File to a specific folder
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# You need to namespace your api method call to one of the following api sets
+# [:accounting_api, :assets_api, :projects_api, :files_api, :payroll_au_api, :payroll_nz_api, :payroll_uk_api]
+
+api_instance = xero_client.<api_set>
+
+
+
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+folder_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | pass required folder id to save file to specific folder
+body = 'body_example' # String | 
+name = 'name_example' # String | exact name of the file you are uploading
+filename = 'filename_example' # String | 
+opts = {
+  mime_type: 'mime_type_example' # String | 
+}
+
+begin
+  #Uploads a File to a specific folder
+  result = api_instance.upload_file_to_folder(xero_tenant_id, folder_id, body, name, filename, opts)
+  p result
+rescue XeroRuby::Files::ApiError => e
+  puts "Exception when calling FilesApi->upload_file_to_folder: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **folder_id** | [**String**](.md)| pass required folder id to save file to specific folder | 
+ **body** | **String**|  | 
+ **name** | **String**| exact name of the file you are uploading | 
+ **filename** | **String**|  | 
  **mime_type** | **String**|  | [optional] 
 
 ### Return type

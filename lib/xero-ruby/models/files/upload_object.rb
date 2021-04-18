@@ -15,7 +15,7 @@ require 'date'
 module XeroRuby::Files
   require 'bigdecimal'
 
-  class InlineObject
+  class UploadObject
 
     attr_accessor :body
     
@@ -52,13 +52,13 @@ module XeroRuby::Files
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `XeroRuby::Files::InlineObject` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `XeroRuby::Files::UploadObject` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `XeroRuby::Files::InlineObject`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `XeroRuby::Files::UploadObject`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -84,12 +84,27 @@ module XeroRuby::Files
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @body.nil?
+        invalid_properties.push('invalid value for "body", body cannot be nil.')
+      end
+
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      end
+
+      if @filename.nil?
+        invalid_properties.push('invalid value for "filename", filename cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @body.nil?
+      return false if @name.nil?
+      return false if @filename.nil?
       true
     end
 
@@ -212,7 +227,7 @@ module XeroRuby::Files
     end
 
     # Returns the object in the form of hash with snake_case
-    def attributes
+    def to_attributes
       to_hash(downcase: true)
     end
 

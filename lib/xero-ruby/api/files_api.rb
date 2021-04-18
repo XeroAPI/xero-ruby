@@ -35,7 +35,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Association] :association 
     # @return [Array<(Association, Integer, Hash)>] Association data, response status code and response headers
-    def create_file_association_with_http_info(xero_tenant_id, file_id, opts = {})
+    def create_file_association_with_http_info(xero_tenant_id, file_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FilesApi.create_file_association ...'
       end
@@ -113,7 +114,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Folder] :folder 
     # @return [Array<(Folder, Integer, Hash)>] Folder data, response status code and response headers
-    def create_folder_with_http_info(xero_tenant_id, opts = {})
+    def create_folder_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FilesApi.create_folder ...'
       end
@@ -187,7 +189,8 @@ module XeroRuby
     # @param file_id [String] File id for single object
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def delete_file_with_http_info(xero_tenant_id, file_id, opts = {})
+    def delete_file_with_http_info(xero_tenant_id, file_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FilesApi.delete_file ...'
       end
@@ -263,7 +266,8 @@ module XeroRuby
     # @param object_id [String] Object id for single object
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def delete_file_association_with_http_info(xero_tenant_id, file_id, object_id, opts = {})
+    def delete_file_association_with_http_info(xero_tenant_id, file_id, object_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FilesApi.delete_file_association ...'
       end
@@ -341,7 +345,8 @@ module XeroRuby
     # @param folder_id [String] Folder id for single object
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def delete_folder_with_http_info(xero_tenant_id, folder_id, opts = {})
+    def delete_folder_with_http_info(xero_tenant_id, folder_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FilesApi.delete_folder ...'
       end
@@ -415,7 +420,8 @@ module XeroRuby
     # @param object_id [String] Object id for single object
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<Association>, Integer, Hash)>] Array<Association> data, response status code and response headers
-    def get_associations_by_object_with_http_info(xero_tenant_id, object_id, opts = {})
+    def get_associations_by_object_with_http_info(xero_tenant_id, object_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FilesApi.get_associations_by_object ...'
       end
@@ -489,7 +495,8 @@ module XeroRuby
     # @param file_id [String] File id for single object
     # @param [Hash] opts the optional parameters
     # @return [Array<(FileObject, Integer, Hash)>] FileObject data, response status code and response headers
-    def get_file_with_http_info(xero_tenant_id, file_id, opts = {})
+    def get_file_with_http_info(xero_tenant_id, file_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FilesApi.get_file ...'
       end
@@ -565,7 +572,8 @@ module XeroRuby
     # @param file_id [String] File id for single object
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<Association>, Integer, Hash)>] Array<Association> data, response status code and response headers
-    def get_file_associations_with_http_info(xero_tenant_id, file_id, opts = {})
+    def get_file_associations_with_http_info(xero_tenant_id, file_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FilesApi.get_file_associations ...'
       end
@@ -641,7 +649,8 @@ module XeroRuby
     # @param file_id [String] File id for single object
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
-    def get_file_content_with_http_info(xero_tenant_id, file_id, opts = {})
+    def get_file_content_with_http_info(xero_tenant_id, file_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FilesApi.get_file_content ...'
       end
@@ -719,7 +728,8 @@ module XeroRuby
     # @option opts [Integer] :page number of records to skip for pagination
     # @option opts [String] :sort values to sort by
     # @return [Array<(Files, Integer, Hash)>] Files data, response status code and response headers
-    def get_files_with_http_info(xero_tenant_id, opts = {})
+    def get_files_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FilesApi.get_files ...'
       end
@@ -806,7 +816,8 @@ module XeroRuby
     # @param folder_id [String] Folder id for single object
     # @param [Hash] opts the optional parameters
     # @return [Array<(Folder, Integer, Hash)>] Folder data, response status code and response headers
-    def get_folder_with_http_info(xero_tenant_id, folder_id, opts = {})
+    def get_folder_with_http_info(xero_tenant_id, folder_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FilesApi.get_folder ...'
       end
@@ -882,7 +893,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [String] :sort values to sort by
     # @return [Array<(Array<Folder>, Integer, Hash)>] Array<Folder> data, response status code and response headers
-    def get_folders_with_http_info(xero_tenant_id, opts = {})
+    def get_folders_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FilesApi.get_folders ...'
       end
@@ -957,7 +969,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @return [Array<(Folder, Integer, Hash)>] Folder data, response status code and response headers
-    def get_inbox_with_http_info(xero_tenant_id, opts = {})
+    def get_inbox_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FilesApi.get_inbox ...'
       end
@@ -1031,7 +1044,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [FileObject] :file_object 
     # @return [Array<(FileObject, Integer, Hash)>] FileObject data, response status code and response headers
-    def update_file_with_http_info(xero_tenant_id, file_id, opts = {})
+    def update_file_with_http_info(xero_tenant_id, file_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FilesApi.update_file ...'
       end
@@ -1111,7 +1125,8 @@ module XeroRuby
     # @param folder [Folder] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(Folder, Integer, Hash)>] Folder data, response status code and response headers
-    def update_folder_with_http_info(xero_tenant_id, folder_id, folder, opts = {})
+    def update_folder_with_http_info(xero_tenant_id, folder_id, folder, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FilesApi.update_folder ...'
       end
@@ -1176,36 +1191,47 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # Uploads a File
+    # Uploads a File to the inbox
     # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param body [String] 
+    # @param name [String] exact name of the file you are uploading
+    # @param filename [String] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :folder_id pass an optional folder id to save file to specific folder
-    # @option opts [String] :body 
-    # @option opts [String] :name exact name of the file you are uploading
-    # @option opts [String] :filename 
     # @option opts [String] :mime_type 
     # @return [FileObject]
-    def upload_file(xero_tenant_id, opts = {})
-      data, _status_code, _headers = upload_file_with_http_info(xero_tenant_id, opts)
+    def upload_file(xero_tenant_id, body, name, filename, opts = {})
+      data, _status_code, _headers = upload_file_with_http_info(xero_tenant_id, body, name, filename, opts)
       data
     end
 
-    # Uploads a File
+    # Uploads a File to the inbox
     # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param body [String] 
+    # @param name [String] exact name of the file you are uploading
+    # @param filename [String] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :folder_id pass an optional folder id to save file to specific folder
-    # @option opts [String] :body 
-    # @option opts [String] :name exact name of the file you are uploading
-    # @option opts [String] :filename 
     # @option opts [String] :mime_type 
     # @return [Array<(FileObject, Integer, Hash)>] FileObject data, response status code and response headers
-    def upload_file_with_http_info(xero_tenant_id, opts = {})
+    def upload_file_with_http_info(xero_tenant_id, body, name, filename, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FilesApi.upload_file ...'
       end
       # verify the required parameter 'xero_tenant_id' is set
       if @api_client.config.client_side_validation && xero_tenant_id.nil?
         fail ArgumentError, "Missing the required parameter 'xero_tenant_id' when calling FilesApi.upload_file"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling FilesApi.upload_file"
+      end
+      # verify the required parameter 'name' is set
+      if @api_client.config.client_side_validation && name.nil?
+        fail ArgumentError, "Missing the required parameter 'name' when calling FilesApi.upload_file"
+      end
+      # verify the required parameter 'filename' is set
+      if @api_client.config.client_side_validation && filename.nil?
+        fail ArgumentError, "Missing the required parameter 'filename' when calling FilesApi.upload_file"
       end
       # resource path
       local_var_path = '/Files'
@@ -1215,7 +1241,6 @@ module XeroRuby
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'FolderId'] = opts[:'folder_id'] if !opts[:'folder_id'].nil?
       
       # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
       query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
@@ -1231,9 +1256,9 @@ module XeroRuby
 
       # form parameters
       form_params = opts[:form_params] || {}
-      form_params['body'] = opts[:'body'] if !opts[:'body'].nil?
-      form_params['name'] = opts[:'name'] if !opts[:'name'].nil?
-      form_params['filename'] = opts[:'filename'] if !opts[:'filename'].nil?
+      form_params['body'] = body
+      form_params['name'] = name
+      form_params['filename'] = filename
       form_params['mimeType'] = opts[:'mime_type'] if !opts[:'mime_type'].nil?
 
       # http body (model)
@@ -1257,6 +1282,107 @@ module XeroRuby
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, "FilesApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FilesApi#upload_file\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Uploads a File to a specific folder
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param folder_id [String] pass required folder id to save file to specific folder
+    # @param body [String] 
+    # @param name [String] exact name of the file you are uploading
+    # @param filename [String] 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :mime_type 
+    # @return [FileObject]
+    def upload_file_to_folder(xero_tenant_id, folder_id, body, name, filename, opts = {})
+      data, _status_code, _headers = upload_file_to_folder_with_http_info(xero_tenant_id, folder_id, body, name, filename, opts)
+      data
+    end
+
+    # Uploads a File to a specific folder
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param folder_id [String] pass required folder id to save file to specific folder
+    # @param body [String] 
+    # @param name [String] exact name of the file you are uploading
+    # @param filename [String] 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :mime_type 
+    # @return [Array<(FileObject, Integer, Hash)>] FileObject data, response status code and response headers
+    def upload_file_to_folder_with_http_info(xero_tenant_id, folder_id, body, name, filename, options = {})
+      opts = options.dup
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FilesApi.upload_file_to_folder ...'
+      end
+      # verify the required parameter 'xero_tenant_id' is set
+      if @api_client.config.client_side_validation && xero_tenant_id.nil?
+        fail ArgumentError, "Missing the required parameter 'xero_tenant_id' when calling FilesApi.upload_file_to_folder"
+      end
+      # verify the required parameter 'folder_id' is set
+      if @api_client.config.client_side_validation && folder_id.nil?
+        fail ArgumentError, "Missing the required parameter 'folder_id' when calling FilesApi.upload_file_to_folder"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling FilesApi.upload_file_to_folder"
+      end
+      # verify the required parameter 'name' is set
+      if @api_client.config.client_side_validation && name.nil?
+        fail ArgumentError, "Missing the required parameter 'name' when calling FilesApi.upload_file_to_folder"
+      end
+      # verify the required parameter 'filename' is set
+      if @api_client.config.client_side_validation && filename.nil?
+        fail ArgumentError, "Missing the required parameter 'filename' when calling FilesApi.upload_file_to_folder"
+      end
+      # resource path
+      local_var_path = '/Files/{FolderId}'.sub('{' + 'FolderId' + '}', folder_id.to_s)
+
+      # camelize keys of incoming `where` opts
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      
+      # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
+      query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+      query_params[:'ContactIDs'] = @api_client.build_collection_param(opts[:'contact_ids'], :csv) if !opts[:'contact_ids'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'xero-tenant-id'] = xero_tenant_id
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+      form_params['body'] = body
+      form_params['name'] = name
+      form_params['filename'] = filename
+      form_params['mimeType'] = opts[:'mime_type'] if !opts[:'mime_type'].nil?
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'FileObject' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['OAuth2']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "FilesApi", new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FilesApi#upload_file_to_folder\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

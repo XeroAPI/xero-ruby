@@ -1,12 +1,12 @@
-# XeroRuby::Files::InlineObject
+# XeroRuby::Files::UploadObject
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**body** | **String** |  | [optional] 
-**name** | **String** | exact name of the file you are uploading | [optional] 
-**filename** | **String** |  | [optional] 
+**body** | **String** |  | 
+**name** | **String** | exact name of the file you are uploading | 
+**filename** | **String** |  | 
 **mime_type** | **String** |  | [optional] 
 
 ## Code Sample
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ```ruby
 require 'XeroRuby::Files'
 
-instance = XeroRuby::Files::InlineObject.new(body: null,
+instance = XeroRuby::Files::UploadObject.new(body: null,
                                  name: null,
                                  filename: null,
                                  mime_type: null)

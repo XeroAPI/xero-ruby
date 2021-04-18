@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**total** | **Float** | The total number of accounts in the org | [optional] 
-**new** | **Float** | The number of new accounts created | [optional] 
-**updated** | **Float** | The number of accounts updated | [optional] 
-**deleted** | **Float** | The number of accounts deleted | [optional] 
-**locked** | **Float** | The number of locked accounts | [optional] 
-**system** | **Float** | The number of system accounts | [optional] 
-**errored** | **Float** | The number of accounts that had an error | [optional] 
+**total** | **Integer** | The total number of accounts in the org | [optional] 
+**new** | **Integer** | The number of new accounts created | [optional] 
+**updated** | **Integer** | The number of accounts updated | [optional] 
+**deleted** | **Integer** | The number of accounts deleted | [optional] 
+**locked** | **Integer** | The number of locked accounts | [optional] 
+**system** | **Integer** | The number of system accounts | [optional] 
+**errored** | **Integer** | The number of accounts that had an error | [optional] 
 **present** | **Boolean** |  | [optional] 
-**new_or_updated** | **Float** | The number of new or updated accounts | [optional] 
+**new_or_updated** | **Integer** | The number of new or updated accounts | [optional] 
 
 ## Code Sample
 

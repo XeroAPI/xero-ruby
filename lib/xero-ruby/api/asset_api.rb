@@ -33,7 +33,8 @@ module XeroRuby
     # @param asset [Asset] Fixed asset you are creating
     # @param [Hash] opts the optional parameters
     # @return [Array<(Asset, Integer, Hash)>] Asset data, response status code and response headers
-    def create_asset_with_http_info(xero_tenant_id, asset, opts = {})
+    def create_asset_with_http_info(xero_tenant_id, asset, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AssetApi.create_asset ...'
       end
@@ -111,7 +112,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [AssetType] :asset_type Asset type to add
     # @return [Array<(AssetType, Integer, Hash)>] AssetType data, response status code and response headers
-    def create_asset_type_with_http_info(xero_tenant_id, opts = {})
+    def create_asset_type_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AssetApi.create_asset_type ...'
       end
@@ -185,7 +187,8 @@ module XeroRuby
     # @param id [String] fixed asset id for single object
     # @param [Hash] opts the optional parameters
     # @return [Array<(Asset, Integer, Hash)>] Asset data, response status code and response headers
-    def get_asset_by_id_with_http_info(xero_tenant_id, id, opts = {})
+    def get_asset_by_id_with_http_info(xero_tenant_id, id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AssetApi.get_asset_by_id ...'
       end
@@ -259,7 +262,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @return [Array<(Setting, Integer, Hash)>] Setting data, response status code and response headers
-    def get_asset_settings_with_http_info(xero_tenant_id, opts = {})
+    def get_asset_settings_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AssetApi.get_asset_settings ...'
       end
@@ -329,7 +333,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<AssetType>, Integer, Hash)>] Array<AssetType> data, response status code and response headers
-    def get_asset_types_with_http_info(xero_tenant_id, opts = {})
+    def get_asset_types_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AssetApi.get_asset_types ...'
       end
@@ -411,7 +416,8 @@ module XeroRuby
     # @option opts [String] :sort_direction ASC or DESC
     # @option opts [String] :filter_by A string that can be used to filter the list to only return assets containing the text. Checks it against the AssetName, AssetNumber, Description and AssetTypeName fields.
     # @return [Array<(Assets, Integer, Hash)>] Assets data, response status code and response headers
-    def get_assets_with_http_info(xero_tenant_id, status, opts = {})
+    def get_assets_with_http_info(xero_tenant_id, status, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AssetApi.get_assets ...'
       end

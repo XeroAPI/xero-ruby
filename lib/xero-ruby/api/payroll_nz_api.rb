@@ -31,7 +31,8 @@ module XeroRuby
     # @param timesheet_id [String] Identifier for the timesheet
     # @param [Hash] opts the optional parameters
     # @return [Array<(TimesheetObject, Integer, Hash)>] TimesheetObject data, response status code and response headers
-    def approve_timesheet_with_http_info(xero_tenant_id, timesheet_id, opts = {})
+    def approve_timesheet_with_http_info(xero_tenant_id, timesheet_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.approve_timesheet ...'
       end
@@ -105,7 +106,8 @@ module XeroRuby
     # @param deduction [Deduction] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DeductionObject, Integer, Hash)>] DeductionObject data, response status code and response headers
-    def create_deduction_with_http_info(xero_tenant_id, deduction, opts = {})
+    def create_deduction_with_http_info(xero_tenant_id, deduction, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.create_deduction ...'
       end
@@ -181,7 +183,8 @@ module XeroRuby
     # @param earnings_rate [EarningsRate] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(EarningsRateObject, Integer, Hash)>] EarningsRateObject data, response status code and response headers
-    def create_earnings_rate_with_http_info(xero_tenant_id, earnings_rate, opts = {})
+    def create_earnings_rate_with_http_info(xero_tenant_id, earnings_rate, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.create_earnings_rate ...'
       end
@@ -257,7 +260,8 @@ module XeroRuby
     # @param employee [Employee] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(EmployeeObject, Integer, Hash)>] EmployeeObject data, response status code and response headers
-    def create_employee_with_http_info(xero_tenant_id, employee, opts = {})
+    def create_employee_with_http_info(xero_tenant_id, employee, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.create_employee ...'
       end
@@ -335,7 +339,8 @@ module XeroRuby
     # @param earnings_template [EarningsTemplate] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(EarningsTemplateObject, Integer, Hash)>] EarningsTemplateObject data, response status code and response headers
-    def create_employee_earnings_template_with_http_info(xero_tenant_id, employee_id, earnings_template, opts = {})
+    def create_employee_earnings_template_with_http_info(xero_tenant_id, employee_id, earnings_template, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.create_employee_earnings_template ...'
       end
@@ -417,7 +422,8 @@ module XeroRuby
     # @param employee_leave [EmployeeLeave] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(EmployeeLeaveObject, Integer, Hash)>] EmployeeLeaveObject data, response status code and response headers
-    def create_employee_leave_with_http_info(xero_tenant_id, employee_id, employee_leave, opts = {})
+    def create_employee_leave_with_http_info(xero_tenant_id, employee_id, employee_leave, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.create_employee_leave ...'
       end
@@ -499,7 +505,8 @@ module XeroRuby
     # @param employee_leave_setup [EmployeeLeaveSetup] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(EmployeeLeaveSetupObject, Integer, Hash)>] EmployeeLeaveSetupObject data, response status code and response headers
-    def create_employee_leave_setup_with_http_info(xero_tenant_id, employee_id, employee_leave_setup, opts = {})
+    def create_employee_leave_setup_with_http_info(xero_tenant_id, employee_id, employee_leave_setup, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.create_employee_leave_setup ...'
       end
@@ -581,7 +588,8 @@ module XeroRuby
     # @param employee_leave_type [EmployeeLeaveType] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(EmployeeLeaveTypeObject, Integer, Hash)>] EmployeeLeaveTypeObject data, response status code and response headers
-    def create_employee_leave_type_with_http_info(xero_tenant_id, employee_id, employee_leave_type, opts = {})
+    def create_employee_leave_type_with_http_info(xero_tenant_id, employee_id, employee_leave_type, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.create_employee_leave_type ...'
       end
@@ -663,7 +671,8 @@ module XeroRuby
     # @param employee_opening_balance [Array<EmployeeOpeningBalance>] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(EmployeeOpeningBalancesObject, Integer, Hash)>] EmployeeOpeningBalancesObject data, response status code and response headers
-    def create_employee_opening_balances_with_http_info(xero_tenant_id, employee_id, employee_opening_balance, opts = {})
+    def create_employee_opening_balances_with_http_info(xero_tenant_id, employee_id, employee_opening_balance, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.create_employee_opening_balances ...'
       end
@@ -745,7 +754,8 @@ module XeroRuby
     # @param payment_method [PaymentMethod] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(PaymentMethodObject, Integer, Hash)>] PaymentMethodObject data, response status code and response headers
-    def create_employee_payment_method_with_http_info(xero_tenant_id, employee_id, payment_method, opts = {})
+    def create_employee_payment_method_with_http_info(xero_tenant_id, employee_id, payment_method, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.create_employee_payment_method ...'
       end
@@ -827,7 +837,8 @@ module XeroRuby
     # @param salary_and_wage [SalaryAndWage] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(SalaryAndWageObject, Integer, Hash)>] SalaryAndWageObject data, response status code and response headers
-    def create_employee_salary_and_wage_with_http_info(xero_tenant_id, employee_id, salary_and_wage, opts = {})
+    def create_employee_salary_and_wage_with_http_info(xero_tenant_id, employee_id, salary_and_wage, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.create_employee_salary_and_wage ...'
       end
@@ -909,7 +920,8 @@ module XeroRuby
     # @param employment [Employment] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(EmploymentObject, Integer, Hash)>] EmploymentObject data, response status code and response headers
-    def create_employment_with_http_info(xero_tenant_id, employee_id, employment, opts = {})
+    def create_employment_with_http_info(xero_tenant_id, employee_id, employment, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.create_employment ...'
       end
@@ -989,7 +1001,8 @@ module XeroRuby
     # @param leave_type [LeaveType] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(LeaveTypeObject, Integer, Hash)>] LeaveTypeObject data, response status code and response headers
-    def create_leave_type_with_http_info(xero_tenant_id, leave_type, opts = {})
+    def create_leave_type_with_http_info(xero_tenant_id, leave_type, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.create_leave_type ...'
       end
@@ -1067,7 +1080,8 @@ module XeroRuby
     # @param earnings_template [Array<EarningsTemplate>] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(EmployeeEarningsTemplates, Integer, Hash)>] EmployeeEarningsTemplates data, response status code and response headers
-    def create_multiple_employee_earnings_template_with_http_info(xero_tenant_id, employee_id, earnings_template, opts = {})
+    def create_multiple_employee_earnings_template_with_http_info(xero_tenant_id, employee_id, earnings_template, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.create_multiple_employee_earnings_template ...'
       end
@@ -1147,7 +1161,8 @@ module XeroRuby
     # @param pay_run [PayRun] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(PayRunObject, Integer, Hash)>] PayRunObject data, response status code and response headers
-    def create_pay_run_with_http_info(xero_tenant_id, pay_run, opts = {})
+    def create_pay_run_with_http_info(xero_tenant_id, pay_run, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.create_pay_run ...'
       end
@@ -1223,7 +1238,8 @@ module XeroRuby
     # @param pay_run_calendar [PayRunCalendar] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(PayRunCalendarObject, Integer, Hash)>] PayRunCalendarObject data, response status code and response headers
-    def create_pay_run_calendar_with_http_info(xero_tenant_id, pay_run_calendar, opts = {})
+    def create_pay_run_calendar_with_http_info(xero_tenant_id, pay_run_calendar, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.create_pay_run_calendar ...'
       end
@@ -1299,7 +1315,8 @@ module XeroRuby
     # @param reimbursement [Reimbursement] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ReimbursementObject, Integer, Hash)>] ReimbursementObject data, response status code and response headers
-    def create_reimbursement_with_http_info(xero_tenant_id, reimbursement, opts = {})
+    def create_reimbursement_with_http_info(xero_tenant_id, reimbursement, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.create_reimbursement ...'
       end
@@ -1375,7 +1392,8 @@ module XeroRuby
     # @param benefit [Benefit] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(SuperannuationObject, Integer, Hash)>] SuperannuationObject data, response status code and response headers
-    def create_superannuation_with_http_info(xero_tenant_id, benefit, opts = {})
+    def create_superannuation_with_http_info(xero_tenant_id, benefit, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.create_superannuation ...'
       end
@@ -1451,7 +1469,8 @@ module XeroRuby
     # @param timesheet [Timesheet] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(TimesheetObject, Integer, Hash)>] TimesheetObject data, response status code and response headers
-    def create_timesheet_with_http_info(xero_tenant_id, timesheet, opts = {})
+    def create_timesheet_with_http_info(xero_tenant_id, timesheet, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.create_timesheet ...'
       end
@@ -1529,7 +1548,8 @@ module XeroRuby
     # @param timesheet_line [TimesheetLine] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(TimesheetLineObject, Integer, Hash)>] TimesheetLineObject data, response status code and response headers
-    def create_timesheet_line_with_http_info(xero_tenant_id, timesheet_id, timesheet_line, opts = {})
+    def create_timesheet_line_with_http_info(xero_tenant_id, timesheet_id, timesheet_line, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.create_timesheet_line ...'
       end
@@ -1611,7 +1631,8 @@ module XeroRuby
     # @param pay_template_earning_id [String] Id for single pay template earnings object
     # @param [Hash] opts the optional parameters
     # @return [Array<(EarningsTemplateObject, Integer, Hash)>] EarningsTemplateObject data, response status code and response headers
-    def delete_employee_earnings_template_with_http_info(xero_tenant_id, employee_id, pay_template_earning_id, opts = {})
+    def delete_employee_earnings_template_with_http_info(xero_tenant_id, employee_id, pay_template_earning_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.delete_employee_earnings_template ...'
       end
@@ -1691,7 +1712,8 @@ module XeroRuby
     # @param leave_id [String] Leave id for single object
     # @param [Hash] opts the optional parameters
     # @return [Array<(EmployeeLeaveObject, Integer, Hash)>] EmployeeLeaveObject data, response status code and response headers
-    def delete_employee_leave_with_http_info(xero_tenant_id, employee_id, leave_id, opts = {})
+    def delete_employee_leave_with_http_info(xero_tenant_id, employee_id, leave_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.delete_employee_leave ...'
       end
@@ -1771,7 +1793,8 @@ module XeroRuby
     # @param salary_and_wages_id [String] Id for single salary and wages object
     # @param [Hash] opts the optional parameters
     # @return [Array<(SalaryAndWageObject, Integer, Hash)>] SalaryAndWageObject data, response status code and response headers
-    def delete_employee_salary_and_wage_with_http_info(xero_tenant_id, employee_id, salary_and_wages_id, opts = {})
+    def delete_employee_salary_and_wage_with_http_info(xero_tenant_id, employee_id, salary_and_wages_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.delete_employee_salary_and_wage ...'
       end
@@ -1849,7 +1872,8 @@ module XeroRuby
     # @param timesheet_id [String] Identifier for the timesheet
     # @param [Hash] opts the optional parameters
     # @return [Array<(TimesheetLine, Integer, Hash)>] TimesheetLine data, response status code and response headers
-    def delete_timesheet_with_http_info(xero_tenant_id, timesheet_id, opts = {})
+    def delete_timesheet_with_http_info(xero_tenant_id, timesheet_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.delete_timesheet ...'
       end
@@ -1925,7 +1949,8 @@ module XeroRuby
     # @param timesheet_line_id [String] Identifier for the timesheet line
     # @param [Hash] opts the optional parameters
     # @return [Array<(TimesheetLine, Integer, Hash)>] TimesheetLine data, response status code and response headers
-    def delete_timesheet_line_with_http_info(xero_tenant_id, timesheet_id, timesheet_line_id, opts = {})
+    def delete_timesheet_line_with_http_info(xero_tenant_id, timesheet_id, timesheet_line_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.delete_timesheet_line ...'
       end
@@ -2003,7 +2028,8 @@ module XeroRuby
     # @param deduction_id [String] Identifier for the deduction
     # @param [Hash] opts the optional parameters
     # @return [Array<(DeductionObject, Integer, Hash)>] DeductionObject data, response status code and response headers
-    def get_deduction_with_http_info(xero_tenant_id, deduction_id, opts = {})
+    def get_deduction_with_http_info(xero_tenant_id, deduction_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.get_deduction ...'
       end
@@ -2077,7 +2103,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
     # @return [Array<(Deductions, Integer, Hash)>] Deductions data, response status code and response headers
-    def get_deductions_with_http_info(xero_tenant_id, opts = {})
+    def get_deductions_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.get_deductions ...'
       end
@@ -2148,7 +2175,8 @@ module XeroRuby
     # @param earnings_rate_id [String] Identifier for the earnings rate
     # @param [Hash] opts the optional parameters
     # @return [Array<(EarningsRateObject, Integer, Hash)>] EarningsRateObject data, response status code and response headers
-    def get_earnings_rate_with_http_info(xero_tenant_id, earnings_rate_id, opts = {})
+    def get_earnings_rate_with_http_info(xero_tenant_id, earnings_rate_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.get_earnings_rate ...'
       end
@@ -2222,7 +2250,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
     # @return [Array<(EarningsRates, Integer, Hash)>] EarningsRates data, response status code and response headers
-    def get_earnings_rates_with_http_info(xero_tenant_id, opts = {})
+    def get_earnings_rates_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.get_earnings_rates ...'
       end
@@ -2293,7 +2322,8 @@ module XeroRuby
     # @param employee_id [String] Employee id for single object
     # @param [Hash] opts the optional parameters
     # @return [Array<(EmployeeObject, Integer, Hash)>] EmployeeObject data, response status code and response headers
-    def get_employee_with_http_info(xero_tenant_id, employee_id, opts = {})
+    def get_employee_with_http_info(xero_tenant_id, employee_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.get_employee ...'
       end
@@ -2367,7 +2397,8 @@ module XeroRuby
     # @param employee_id [String] Employee id for single object
     # @param [Hash] opts the optional parameters
     # @return [Array<(EmployeeLeaveBalances, Integer, Hash)>] EmployeeLeaveBalances data, response status code and response headers
-    def get_employee_leave_balances_with_http_info(xero_tenant_id, employee_id, opts = {})
+    def get_employee_leave_balances_with_http_info(xero_tenant_id, employee_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.get_employee_leave_balances ...'
       end
@@ -2445,7 +2476,8 @@ module XeroRuby
     # @option opts [Date] :start_date Filter by start date
     # @option opts [Date] :end_date Filter by end date
     # @return [Array<(LeavePeriods, Integer, Hash)>] LeavePeriods data, response status code and response headers
-    def get_employee_leave_periods_with_http_info(xero_tenant_id, employee_id, opts = {})
+    def get_employee_leave_periods_with_http_info(xero_tenant_id, employee_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.get_employee_leave_periods ...'
       end
@@ -2521,7 +2553,8 @@ module XeroRuby
     # @param employee_id [String] Employee id for single object
     # @param [Hash] opts the optional parameters
     # @return [Array<(EmployeeLeaveTypes, Integer, Hash)>] EmployeeLeaveTypes data, response status code and response headers
-    def get_employee_leave_types_with_http_info(xero_tenant_id, employee_id, opts = {})
+    def get_employee_leave_types_with_http_info(xero_tenant_id, employee_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.get_employee_leave_types ...'
       end
@@ -2595,7 +2628,8 @@ module XeroRuby
     # @param employee_id [String] Employee id for single object
     # @param [Hash] opts the optional parameters
     # @return [Array<(EmployeeLeaves, Integer, Hash)>] EmployeeLeaves data, response status code and response headers
-    def get_employee_leaves_with_http_info(xero_tenant_id, employee_id, opts = {})
+    def get_employee_leaves_with_http_info(xero_tenant_id, employee_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.get_employee_leaves ...'
       end
@@ -2669,7 +2703,8 @@ module XeroRuby
     # @param employee_id [String] Employee id for single object
     # @param [Hash] opts the optional parameters
     # @return [Array<(EmployeeOpeningBalancesObject, Integer, Hash)>] EmployeeOpeningBalancesObject data, response status code and response headers
-    def get_employee_opening_balances_with_http_info(xero_tenant_id, employee_id, opts = {})
+    def get_employee_opening_balances_with_http_info(xero_tenant_id, employee_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.get_employee_opening_balances ...'
       end
@@ -2743,7 +2778,8 @@ module XeroRuby
     # @param employee_id [String] Employee id for single object
     # @param [Hash] opts the optional parameters
     # @return [Array<(EmployeePayTemplates, Integer, Hash)>] EmployeePayTemplates data, response status code and response headers
-    def get_employee_pay_templates_with_http_info(xero_tenant_id, employee_id, opts = {})
+    def get_employee_pay_templates_with_http_info(xero_tenant_id, employee_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.get_employee_pay_templates ...'
       end
@@ -2817,7 +2853,8 @@ module XeroRuby
     # @param employee_id [String] Employee id for single object
     # @param [Hash] opts the optional parameters
     # @return [Array<(PaymentMethodObject, Integer, Hash)>] PaymentMethodObject data, response status code and response headers
-    def get_employee_payment_method_with_http_info(xero_tenant_id, employee_id, opts = {})
+    def get_employee_payment_method_with_http_info(xero_tenant_id, employee_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.get_employee_payment_method ...'
       end
@@ -2893,7 +2930,8 @@ module XeroRuby
     # @param salary_and_wages_id [String] Id for single pay template earnings object
     # @param [Hash] opts the optional parameters
     # @return [Array<(SalaryAndWages, Integer, Hash)>] SalaryAndWages data, response status code and response headers
-    def get_employee_salary_and_wage_with_http_info(xero_tenant_id, employee_id, salary_and_wages_id, opts = {})
+    def get_employee_salary_and_wage_with_http_info(xero_tenant_id, employee_id, salary_and_wages_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.get_employee_salary_and_wage ...'
       end
@@ -2973,7 +3011,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
     # @return [Array<(SalaryAndWages, Integer, Hash)>] SalaryAndWages data, response status code and response headers
-    def get_employee_salary_and_wages_with_http_info(xero_tenant_id, employee_id, opts = {})
+    def get_employee_salary_and_wages_with_http_info(xero_tenant_id, employee_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.get_employee_salary_and_wages ...'
       end
@@ -3048,7 +3087,8 @@ module XeroRuby
     # @param employee_id [String] Employee id for single object
     # @param [Hash] opts the optional parameters
     # @return [Array<(EmployeeTaxObject, Integer, Hash)>] EmployeeTaxObject data, response status code and response headers
-    def get_employee_tax_with_http_info(xero_tenant_id, employee_id, opts = {})
+    def get_employee_tax_with_http_info(xero_tenant_id, employee_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.get_employee_tax ...'
       end
@@ -3126,7 +3166,8 @@ module XeroRuby
     # @option opts [String] :last_name Filter by last name
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
     # @return [Array<(Employees, Integer, Hash)>] Employees data, response status code and response headers
-    def get_employees_with_http_info(xero_tenant_id, opts = {})
+    def get_employees_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.get_employees ...'
       end
@@ -3199,7 +3240,8 @@ module XeroRuby
     # @param leave_type_id [String] Identifier for the leave type
     # @param [Hash] opts the optional parameters
     # @return [Array<(LeaveTypeObject, Integer, Hash)>] LeaveTypeObject data, response status code and response headers
-    def get_leave_type_with_http_info(xero_tenant_id, leave_type_id, opts = {})
+    def get_leave_type_with_http_info(xero_tenant_id, leave_type_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.get_leave_type ...'
       end
@@ -3275,7 +3317,8 @@ module XeroRuby
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
     # @option opts [Boolean] :active_only Filters leave types by active status. By default the API returns all leave types.
     # @return [Array<(LeaveTypes, Integer, Hash)>] LeaveTypes data, response status code and response headers
-    def get_leave_types_with_http_info(xero_tenant_id, opts = {})
+    def get_leave_types_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.get_leave_types ...'
       end
@@ -3347,7 +3390,8 @@ module XeroRuby
     # @param pay_run_id [String] Identifier for the pay run
     # @param [Hash] opts the optional parameters
     # @return [Array<(PayRunObject, Integer, Hash)>] PayRunObject data, response status code and response headers
-    def get_pay_run_with_http_info(xero_tenant_id, pay_run_id, opts = {})
+    def get_pay_run_with_http_info(xero_tenant_id, pay_run_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.get_pay_run ...'
       end
@@ -3421,7 +3465,8 @@ module XeroRuby
     # @param payroll_calendar_id [String] Identifier for the payrun calendars
     # @param [Hash] opts the optional parameters
     # @return [Array<(PayRunCalendarObject, Integer, Hash)>] PayRunCalendarObject data, response status code and response headers
-    def get_pay_run_calendar_with_http_info(xero_tenant_id, payroll_calendar_id, opts = {})
+    def get_pay_run_calendar_with_http_info(xero_tenant_id, payroll_calendar_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.get_pay_run_calendar ...'
       end
@@ -3495,7 +3540,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
     # @return [Array<(PayRunCalendars, Integer, Hash)>] PayRunCalendars data, response status code and response headers
-    def get_pay_run_calendars_with_http_info(xero_tenant_id, opts = {})
+    def get_pay_run_calendars_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.get_pay_run_calendars ...'
       end
@@ -3568,7 +3614,8 @@ module XeroRuby
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
     # @option opts [String] :status By default get payruns will return all the payruns for an organization. You can add GET https://api.xero.com/payroll.xro/2.0/payRuns?statu&#x3D;{PayRunStatus} to filter the payruns by status.
     # @return [Array<(PayRuns, Integer, Hash)>] PayRuns data, response status code and response headers
-    def get_pay_runs_with_http_info(xero_tenant_id, opts = {})
+    def get_pay_runs_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.get_pay_runs ...'
       end
@@ -3644,7 +3691,8 @@ module XeroRuby
     # @param pay_slip_id [String] Identifier for the payslip
     # @param [Hash] opts the optional parameters
     # @return [Array<(PaySlipObject, Integer, Hash)>] PaySlipObject data, response status code and response headers
-    def get_pay_slip_with_http_info(xero_tenant_id, pay_slip_id, opts = {})
+    def get_pay_slip_with_http_info(xero_tenant_id, pay_slip_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.get_pay_slip ...'
       end
@@ -3720,7 +3768,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
     # @return [Array<(PaySlips, Integer, Hash)>] PaySlips data, response status code and response headers
-    def get_pay_slips_with_http_info(xero_tenant_id, pay_run_id, opts = {})
+    def get_pay_slips_with_http_info(xero_tenant_id, pay_run_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.get_pay_slips ...'
       end
@@ -3796,7 +3845,8 @@ module XeroRuby
     # @param reimbursement_id [String] Identifier for the reimbursement
     # @param [Hash] opts the optional parameters
     # @return [Array<(ReimbursementObject, Integer, Hash)>] ReimbursementObject data, response status code and response headers
-    def get_reimbursement_with_http_info(xero_tenant_id, reimbursement_id, opts = {})
+    def get_reimbursement_with_http_info(xero_tenant_id, reimbursement_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.get_reimbursement ...'
       end
@@ -3870,7 +3920,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
     # @return [Array<(Reimbursements, Integer, Hash)>] Reimbursements data, response status code and response headers
-    def get_reimbursements_with_http_info(xero_tenant_id, opts = {})
+    def get_reimbursements_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.get_reimbursements ...'
       end
@@ -3939,7 +3990,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @return [Array<(Settings, Integer, Hash)>] Settings data, response status code and response headers
-    def get_settings_with_http_info(xero_tenant_id, opts = {})
+    def get_settings_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.get_settings ...'
       end
@@ -4009,7 +4061,8 @@ module XeroRuby
     # @param id [String] Identifier for the statutory deduction
     # @param [Hash] opts the optional parameters
     # @return [Array<(StatutoryDeductionObject, Integer, Hash)>] StatutoryDeductionObject data, response status code and response headers
-    def get_statutory_deduction_with_http_info(xero_tenant_id, id, opts = {})
+    def get_statutory_deduction_with_http_info(xero_tenant_id, id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.get_statutory_deduction ...'
       end
@@ -4083,7 +4136,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
     # @return [Array<(StatutoryDeductions, Integer, Hash)>] StatutoryDeductions data, response status code and response headers
-    def get_statutory_deductions_with_http_info(xero_tenant_id, opts = {})
+    def get_statutory_deductions_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.get_statutory_deductions ...'
       end
@@ -4154,7 +4208,8 @@ module XeroRuby
     # @param superannuation_id [String] Identifier for the superannuation
     # @param [Hash] opts the optional parameters
     # @return [Array<(SuperannuationObject, Integer, Hash)>] SuperannuationObject data, response status code and response headers
-    def get_superannuation_with_http_info(xero_tenant_id, superannuation_id, opts = {})
+    def get_superannuation_with_http_info(xero_tenant_id, superannuation_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.get_superannuation ...'
       end
@@ -4228,7 +4283,8 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
     # @return [Array<(Superannuations, Integer, Hash)>] Superannuations data, response status code and response headers
-    def get_superannuations_with_http_info(xero_tenant_id, opts = {})
+    def get_superannuations_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.get_superannuations ...'
       end
@@ -4299,7 +4355,8 @@ module XeroRuby
     # @param timesheet_id [String] Identifier for the timesheet
     # @param [Hash] opts the optional parameters
     # @return [Array<(TimesheetObject, Integer, Hash)>] TimesheetObject data, response status code and response headers
-    def get_timesheet_with_http_info(xero_tenant_id, timesheet_id, opts = {})
+    def get_timesheet_with_http_info(xero_tenant_id, timesheet_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.get_timesheet ...'
       end
@@ -4377,7 +4434,8 @@ module XeroRuby
     # @option opts [String] :employee_id By default get Timesheets will return the timesheets for all employees in an organization. You can add GET https://…/timesheets?filter&#x3D;employeeId&#x3D;&#x3D;{EmployeeID} to get only the timesheets of a particular employee.
     # @option opts [String] :payroll_calendar_id By default get Timesheets will return all the timesheets for an organization. You can add GET https://…/timesheets?filter&#x3D;payrollCalendarId&#x3D;&#x3D;{PayrollCalendarID} to filter the timesheets by payroll calendar id
     # @return [Array<(Timesheets, Integer, Hash)>] Timesheets data, response status code and response headers
-    def get_timesheets_with_http_info(xero_tenant_id, opts = {})
+    def get_timesheets_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.get_timesheets ...'
       end
@@ -4448,7 +4506,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @return [Array<(TrackingCategories, Integer, Hash)>] TrackingCategories data, response status code and response headers
-    def get_tracking_categories_with_http_info(xero_tenant_id, opts = {})
+    def get_tracking_categories_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.get_tracking_categories ...'
       end
@@ -4518,7 +4577,8 @@ module XeroRuby
     # @param timesheet_id [String] Identifier for the timesheet
     # @param [Hash] opts the optional parameters
     # @return [Array<(TimesheetObject, Integer, Hash)>] TimesheetObject data, response status code and response headers
-    def revert_timesheet_with_http_info(xero_tenant_id, timesheet_id, opts = {})
+    def revert_timesheet_with_http_info(xero_tenant_id, timesheet_id, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.revert_timesheet ...'
       end
@@ -4594,7 +4654,8 @@ module XeroRuby
     # @param employee [Employee] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(EmployeeObject, Integer, Hash)>] EmployeeObject data, response status code and response headers
-    def update_employee_with_http_info(xero_tenant_id, employee_id, employee, opts = {})
+    def update_employee_with_http_info(xero_tenant_id, employee_id, employee, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.update_employee ...'
       end
@@ -4678,7 +4739,8 @@ module XeroRuby
     # @param earnings_template [EarningsTemplate] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(EarningsTemplateObject, Integer, Hash)>] EarningsTemplateObject data, response status code and response headers
-    def update_employee_earnings_template_with_http_info(xero_tenant_id, employee_id, pay_template_earning_id, earnings_template, opts = {})
+    def update_employee_earnings_template_with_http_info(xero_tenant_id, employee_id, pay_template_earning_id, earnings_template, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.update_employee_earnings_template ...'
       end
@@ -4766,7 +4828,8 @@ module XeroRuby
     # @param employee_leave [EmployeeLeave] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(EmployeeLeaveObject, Integer, Hash)>] EmployeeLeaveObject data, response status code and response headers
-    def update_employee_leave_with_http_info(xero_tenant_id, employee_id, leave_id, employee_leave, opts = {})
+    def update_employee_leave_with_http_info(xero_tenant_id, employee_id, leave_id, employee_leave, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.update_employee_leave ...'
       end
@@ -4854,7 +4917,8 @@ module XeroRuby
     # @param salary_and_wage [SalaryAndWage] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(SalaryAndWageObject, Integer, Hash)>] SalaryAndWageObject data, response status code and response headers
-    def update_employee_salary_and_wage_with_http_info(xero_tenant_id, employee_id, salary_and_wages_id, salary_and_wage, opts = {})
+    def update_employee_salary_and_wage_with_http_info(xero_tenant_id, employee_id, salary_and_wages_id, salary_and_wage, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.update_employee_salary_and_wage ...'
       end
@@ -4940,7 +5004,8 @@ module XeroRuby
     # @param employee_tax [EmployeeTax] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(EmployeeTaxObject, Integer, Hash)>] EmployeeTaxObject data, response status code and response headers
-    def update_employee_tax_with_http_info(xero_tenant_id, employee_id, employee_tax, opts = {})
+    def update_employee_tax_with_http_info(xero_tenant_id, employee_id, employee_tax, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.update_employee_tax ...'
       end
@@ -5022,7 +5087,8 @@ module XeroRuby
     # @param pay_run [PayRun] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(PayRunObject, Integer, Hash)>] PayRunObject data, response status code and response headers
-    def update_pay_run_with_http_info(xero_tenant_id, pay_run_id, pay_run, opts = {})
+    def update_pay_run_with_http_info(xero_tenant_id, pay_run_id, pay_run, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.update_pay_run ...'
       end
@@ -5104,7 +5170,8 @@ module XeroRuby
     # @param pay_slip [PaySlip] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(PaySlipObject, Integer, Hash)>] PaySlipObject data, response status code and response headers
-    def update_pay_slip_line_items_with_http_info(xero_tenant_id, pay_slip_id, pay_slip, opts = {})
+    def update_pay_slip_line_items_with_http_info(xero_tenant_id, pay_slip_id, pay_slip, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.update_pay_slip_line_items ...'
       end
@@ -5188,7 +5255,8 @@ module XeroRuby
     # @param timesheet_line [TimesheetLine] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(TimesheetLineObject, Integer, Hash)>] TimesheetLineObject data, response status code and response headers
-    def update_timesheet_line_with_http_info(xero_tenant_id, timesheet_id, timesheet_line_id, timesheet_line, opts = {})
+    def update_timesheet_line_with_http_info(xero_tenant_id, timesheet_id, timesheet_line_id, timesheet_line, options = {})
+      opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollNzApi.update_timesheet_line ...'
       end
