@@ -97,10 +97,6 @@ module XeroRuby::PayrollAu
         invalid_properties.push('invalid value for "deduction_type_id", deduction_type_id cannot be nil.')
       end
 
-      if @calculation_type.nil?
-        invalid_properties.push('invalid value for "calculation_type", calculation_type cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -108,7 +104,6 @@ module XeroRuby::PayrollAu
     # @return true if the model is valid
     def valid?
       return false if @deduction_type_id.nil?
-      return false if @calculation_type.nil?
       true
     end
 
