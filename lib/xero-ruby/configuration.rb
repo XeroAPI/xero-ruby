@@ -62,6 +62,7 @@ module XeroRuby
 
     # Defines the access token (Bearer) used with OAuth2.
     attr_accessor :access_token
+    attr_accessor :id_token
 
     # Defines the token set used with OAuth2. May include id/access/refresh token & other meta info.
     attr_accessor :token_set
@@ -146,6 +147,8 @@ module XeroRuby
       @payroll_au_url = 'https://api.xero.com/payroll.xro/1.0/'
       @payroll_nz_url = 'https://api.xero.com/payroll.xro/2.0/'
       @payroll_uk_url = 'https://api.xero.com/payroll.xro/2.0/'
+      @access_token = nil
+      @id_token = nil
       @api_key = {}
       @api_key_prefix = {}
       @timeout = 0
@@ -190,6 +193,14 @@ module XeroRuby
 
     def base_url=(api_url)
       @base_url = api_url
+    end
+
+    def access_token=(access_token)
+      @access_token = access_token
+    end
+
+    def id_token=(id_token)
+      @id_token = id_token
     end
     
     # Gets API key (with prefix if set).

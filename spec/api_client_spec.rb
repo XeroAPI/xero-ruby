@@ -371,4 +371,81 @@ describe XeroRuby::ApiClient do
       expect(api_client.sanitize_filename('.\sun.gif')).to eq('sun.gif')
     end
   end
+
+  describe 'thread safety in the XeroClient' do
+    let(:creds) {{
+      client_id: 'abc',
+      client_secret: '123',
+      redirect_uri: 'https://mydomain.com/callback',
+      scopes: 'openid profile email accounting.transactions'
+    }}
+    let(:api_client_1) {XeroRuby::ApiClient.new(credentials: creds)}
+    let(:api_client_2) {XeroRuby::ApiClient.new(credentials: creds)}
+    let(:api_client_3) {XeroRuby::ApiClient.new(credentials: creds)}
+
+    let(:tkn_set_1){{id_token: "abc.123.1", access_token: "xxx.yyy.zzz.111"}}
+    let(:tkn_set_2){{id_token: "efg.456.2", access_token: "xxx.yyy.zzz.222"}}
+    
+    describe 'when configuration is changed, other instantiations of the client are not affected' do
+      it 'applies to #set_access_token' do
+        expect(api_client_1.access_token).to eq(nil)
+        expect(api_client_2.access_token).to eq(nil)
+        expect(api_client_3.access_token).to eq(nil)
+
+        api_client_1.set_access_token("ACCESS_TOKEN_1")
+        expect(api_client_1.access_token).to eq("ACCESS_TOKEN_1")
+        expect(api_client_2.access_token).to eq(nil)
+        expect(api_client_3.access_token).to eq(nil)
+
+        api_client_2.set_access_token("ACCESS_TOKEN_2")
+        expect(api_client_1.access_token).to eq("ACCESS_TOKEN_1")
+        expect(api_client_2.access_token).to eq("ACCESS_TOKEN_2")
+        expect(api_client_3.access_token).to eq(nil)
+
+        api_client_3.set_access_token("ACCESS_TOKEN_3")
+        expect(api_client_1.access_token).to eq("ACCESS_TOKEN_1")
+        expect(api_client_2.access_token).to eq("ACCESS_TOKEN_2")
+        expect(api_client_3.access_token).to eq("ACCESS_TOKEN_3")
+      end
+
+      it 'applies to #set_id_token' do
+        expect(api_client_1.id_token).to eq(nil)
+        expect(api_client_2.id_token).to eq(nil)
+
+        api_client_1.set_id_token("ACCESS_TOKEN_1")
+        expect(api_client_1.id_token).to eq("ACCESS_TOKEN_1")
+        expect(api_client_2.id_token).to eq(nil)
+
+        api_client_2.set_id_token("ACCESS_TOKEN_2")
+        expect(api_client_1.id_token).to eq("ACCESS_TOKEN_1")
+        expect(api_client_2.id_token).to eq("ACCESS_TOKEN_2")
+      end
+
+      it 'applies to #set_token_set' do 
+        expect(api_client_1.token_set).to eq(nil)
+        expect(api_client_2.token_set).to eq(nil)
+
+        api_client_1.set_token_set(tkn_set_1)
+        expect(api_client_1.token_set).to eq(tkn_set_1)
+        expect(api_client_2.token_set).to eq(nil)
+
+        api_client_2.set_token_set(tkn_set_2)
+        expect(api_client_1.token_set).to eq(tkn_set_1)
+        expect(api_client_2.token_set).to eq(tkn_set_2)
+      end
+      
+      it 'applies to #base_url' do
+        expect(api_client_1.config.base_url).to eq(nil)
+        expect(api_client_2.config.base_url).to eq(nil)
+
+        api_client_1.accounting_api
+        expect(api_client_1.config.base_url).to eq(api_client_1.config.accounting_url)
+        expect(api_client_2.config.base_url).to eq(nil)
+        
+        api_client_2.files_api
+        expect(api_client_1.config.base_url).to eq(api_client_1.config.accounting_url)
+        expect(api_client_2.config.base_url).to eq(api_client_1.config.files_url)
+      end
+    end
+  end
 end
