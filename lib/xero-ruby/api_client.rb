@@ -17,6 +17,7 @@ require 'find'
 require 'faraday'
 require 'base64'
 require 'cgi'
+require 'jwt'
 
 module XeroRuby
   class ApiClient
@@ -100,6 +101,20 @@ module XeroRuby
     end
 
     def access_token
+      XeroRuby.configure.access_token
+    end
+
+    def id_token
+      XeroRuby.configure.id_token
+
+      # https://identity.xero.com/.well-known/openid-configuration/jwks
+    end
+
+    def decoded_access_token
+      XeroRuby.configure.access_token
+    end
+
+    def decoded_id_token
       XeroRuby.configure.access_token
     end
 
