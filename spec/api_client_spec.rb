@@ -412,13 +412,13 @@ describe XeroRuby::ApiClient do
         expect(api_client_1.id_token).to eq(nil)
         expect(api_client_2.id_token).to eq(nil)
 
-        api_client_1.set_id_token("ACCESS_TOKEN_1")
-        expect(api_client_1.id_token).to eq("ACCESS_TOKEN_1")
+        api_client_1.set_id_token("id_token_1")
+        expect(api_client_1.id_token).to eq("id_token_1")
         expect(api_client_2.id_token).to eq(nil)
 
-        api_client_2.set_id_token("ACCESS_TOKEN_2")
-        expect(api_client_1.id_token).to eq("ACCESS_TOKEN_1")
-        expect(api_client_2.id_token).to eq("ACCESS_TOKEN_2")
+        api_client_2.set_id_token("id_token_2")
+        expect(api_client_1.id_token).to eq("id_token_1")
+        expect(api_client_2.id_token).to eq("id_token_2")
       end
 
       it 'applies to #set_token_set' do 
@@ -445,6 +445,10 @@ describe XeroRuby::ApiClient do
         api_client_2.files_api
         expect(api_client_1.config.base_url).to eq(api_client_1.config.accounting_url)
         expect(api_client_2.config.base_url).to eq(api_client_1.config.files_url)
+
+        api_client_2.project_api
+        expect(api_client_1.config.base_url).to eq(api_client_1.config.accounting_url)
+        expect(api_client_2.config.base_url).to eq(api_client_1.config.project_url)
       end
     end
   end

@@ -7730,9 +7730,6 @@ module XeroRuby
     # @option opts [Boolean] :include_archived e.g. includeArchived&#x3D;true - Contacts with a status of ARCHIVED will be included in the response
     # @return [Contacts]
     def get_contacts(xero_tenant_id, opts = {})
-      puts "\n\n\n"
-      puts "*****************************"
-      puts "opts #{opts}"
       data, _status_code, _headers = get_contacts_with_http_info(xero_tenant_id, opts)
       data
     end
@@ -7749,9 +7746,6 @@ module XeroRuby
     # @return [Array<(Contacts, Integer, Hash)>] Contacts data, response status code and response headers
     def get_contacts_with_http_info(xero_tenant_id, options = {})
       opts = options.dup
-
-      puts "opts == options ?"
-      puts "#{opts} == #{options} ?"
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.get_contacts ...'
       end

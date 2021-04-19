@@ -60,8 +60,10 @@ module XeroRuby
     # @return [String]
     attr_accessor :password
 
-    # Defines the access token (Bearer) used with OAuth2.
+    # Defines the access token (Bearer) used with OAuth2 authorization
     attr_accessor :access_token
+    
+    # Defines OpenID Connect id_token containing Xero user authentication detail
     attr_accessor :id_token
 
     # Defines the token set used with OAuth2. May include id/access/refresh token & other meta info.

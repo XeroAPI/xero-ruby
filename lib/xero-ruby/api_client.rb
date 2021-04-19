@@ -191,7 +191,26 @@ module XeroRuby
         :client_key => @config.ssl_client_key
       }
 
-      connection = Faraday.new(:url => config.base_url, :ssl => ssl_options) do |conn|
+      case api_client
+      when "AccountingApi"
+        method_base_url = @config.accounting_url
+      when "AssetApi"
+        method_base_url = @config.asset_url
+      when "FilesApi"
+       method_base_url = @config.files_url
+      when "PayrollAuApi"
+        method_base_url = @config.payroll_au_url
+      when "PayrollNzApi"
+        method_base_url = @config.payroll_nz_url
+      when "PayrollUkApi"
+        method_base_url = @config.payroll_uk_url
+      when "ProjectApi"
+        method_base_url = @config.project_url
+      else
+        method_base_url = @config.accounting_url
+      end
+
+      connection = Faraday.new(:url => method_base_url, :ssl => ssl_options) do |conn|
         conn.basic_auth(config.username, config.password)
         if opts[:header_params]["Content-Type"] == "multipart/form-data"
           conn.request :multipart
