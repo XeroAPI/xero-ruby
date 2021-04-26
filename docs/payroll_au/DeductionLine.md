@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **deduction_type_id** | **String** | Xero deduction type identifier | 
-**calculation_type** | [**DeductionTypeCalculationType**](DeductionTypeCalculationType.md) |  | 
+**calculation_type** | [**DeductionTypeCalculationType**](DeductionTypeCalculationType.md) |  | [optional] 
 **amount** | **BigDecimal** | Deduction type amount | [optional] 
 **percentage** | **BigDecimal** | The Percentage of the Deduction | [optional] 
 **number_of_units** | **BigDecimal** | Deduction number of units | [optional] 
