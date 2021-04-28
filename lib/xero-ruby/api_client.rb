@@ -39,7 +39,8 @@ module XeroRuby
       @redirect_uri = credentials[:redirect_uri]
       @scopes = credentials[:scopes]
       @state = credentials[:state]
-      @config = append_to_default_config(config)
+      default_config = Configuration.default.clone
+      @config = append_to_default_config(default_config, config)
 
       @user_agent = "xero-ruby-#{VERSION}"
       @default_headers = {
@@ -48,9 +49,9 @@ module XeroRuby
       }
     end
 
-    def append_to_default_config(user_config)
-      config = Configuration.default
-      user_config.each{|k,v| config.send("#{k}=", v) } if user_config
+    def append_to_default_config(default_config, user_config)
+      config = default_config
+      user_config.each{|k,v| config.send("#{k}=", v)}
       config
     end
 
@@ -97,11 +98,15 @@ module XeroRuby
 
     # Token Helpers
     def token_set
-      XeroRuby.configure.token_set
+      @config.token_set
     end
 
     def access_token
-      XeroRuby.configure.access_token
+      @config.access_token
+    end
+
+    def id_token
+      @config.id_token
     end
 
     def id_token
@@ -121,12 +126,16 @@ module XeroRuby
     def set_token_set(token_set)
       # helper to set the token_set on a client once the user
       # has a valid token set ( access_token & refresh_token )
-      XeroRuby.configure.token_set = token_set
+      @config.token_set = token_set
       set_access_token(token_set['access_token'])
     end
 
     def set_access_token(access_token)
-      XeroRuby.configure.access_token = access_token
+      @config.access_token = access_token
+    end
+
+    def set_id_token(id_token)
+      @config.id_token = id_token
     end
 
     def get_token_set_from_callback(params)
@@ -197,7 +206,26 @@ module XeroRuby
         :client_key => @config.ssl_client_key
       }
 
-      connection = Faraday.new(:url => config.base_url, :ssl => ssl_options) do |conn|
+      case api_client
+      when "AccountingApi"
+        method_base_url = @config.accounting_url
+      when "AssetApi"
+        method_base_url = @config.asset_url
+      when "FilesApi"
+       method_base_url = @config.files_url
+      when "PayrollAuApi"
+        method_base_url = @config.payroll_au_url
+      when "PayrollNzApi"
+        method_base_url = @config.payroll_nz_url
+      when "PayrollUkApi"
+        method_base_url = @config.payroll_uk_url
+      when "ProjectApi"
+        method_base_url = @config.project_url
+      else
+        method_base_url = @config.accounting_url
+      end
+
+      connection = Faraday.new(:url => method_base_url, :ssl => ssl_options) do |conn|
         conn.basic_auth(config.username, config.password)
         if opts[:header_params]["Content-Type"] == "multipart/form-data"
           conn.request :multipart
@@ -280,7 +308,8 @@ module XeroRuby
         end
       end
       request.headers = header_params
-      request.options.timeout = @config.timeout
+      timeout = @config.timeout
+      request.options.timeout = timeout if timeout > 0
       request.body = req_body
       request.url url
       request.params = query_params
