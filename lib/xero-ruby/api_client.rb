@@ -149,6 +149,7 @@ module XeroRuby
     end
 
     def validate_tokens(token_set)
+      token_set = token_set.with_indifferent_access
       id_token = token_set[:id_token]
       access_token = token_set[:access_token]
       if id_token || access_token
@@ -177,6 +178,7 @@ module XeroRuby
     end
 
     def refresh_token_set(token_set)
+      token_set = token_set.with_indifferent_access
       data = {
         grant_type: 'refresh_token',
         refresh_token: token_set[:refresh_token]
@@ -185,6 +187,7 @@ module XeroRuby
     end
 
     def revoke_token(token_set)
+      token_set = token_set.with_indifferent_access
       data = {
         token: token_set[:refresh_token]
       }
