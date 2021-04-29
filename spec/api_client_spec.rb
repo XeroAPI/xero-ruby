@@ -66,7 +66,7 @@ describe XeroRuby::ApiClient do
 
   describe 'api_client helper functions' do
     let(:api_client) { XeroRuby::ApiClient.new }
-    let(:token_set) { {access_token: 'eyx.jibberjabber', refresh_token: 'REFRESHMENTS'} }
+    let(:token_set) { {'access_token': 'eyx.authorization.data', 'id_token': 'eyx.authentication.data', 'refresh_token': 'REFRESHMENTS'} }
     let(:connections) {
         [{
         "id" => "xxx-yyy-zzz",
@@ -84,12 +84,17 @@ describe XeroRuby::ApiClient do
 
     it "#set_token_set" do
       api_client.set_token_set(token_set)
-      expect(api_client.token_set).to eq(token_set)
+      expect(api_client.token_set).to eq(token_set.with_indifferent_access)
     end
 
     it "#set_access_token" do
-      api_client.set_access_token(token_set[:access_token])
-      expect(api_client.access_token).to eq(token_set[:access_token])
+      api_client.set_access_token(token_set['access_token'])
+      expect(api_client.access_token).to eq(token_set['access_token'])
+    end
+
+    it "#set_id_token" do
+      api_client.set_id_token(token_set['id_token'])
+      expect(api_client.id_token).to eq(token_set['id_token'])
     end
 
     it "#refresh_token_set" do
@@ -374,27 +379,38 @@ describe XeroRuby::ApiClient do
 
   describe 'token helper methods' do
     let(:api_client) { XeroRuby::ApiClient.new }
-    let(:tkn_set) {{id_token: "abc.123.1", access_token: "xxx.yyy.zzz.111"}}
+    let(:id_token){'eyJhbGciOiJSUzI1NiIsImtpZCI6IjFDQUY4RTY2NzcyRDZEQzAyOEQ2NzI2RkQwMjYxNTgxNTcwRUZDMTkiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJISy1PWm5jdGJjQW8xbkp2MENZVmdWY09fQmsifQ.eyJuYmYiOjE2MTk3MTQwNDMsImV4cCI6MTYxOTcxNDM0MywiaXNzIjoiaHR0cHM6Ly9pZGVudGl0eS54ZXJvLmNvbSIsImF1ZCI6IkFEQjVBNzdEQTZCNjRFOTI4RDg0MDkwOTlBMzlDQTdCIiwiaWF0IjoxNjE5NzE0MDQzLCJhdF9oYXNoIjoiMXJNamVvUTJiOUxUNFU0ZlBXbEZJZyIsInNpZCI6ImY0YTY4ZDc0ZmM3OTQzMjc4YTgzMTg0NGM5ZWRmNzFiIiwic3ViIjoiZGI0ZjBmMzdiNTg1NTMwZTkxZjNiOWNiYjUwMzQwZTgiLCJhdXRoX3RpbWUiOjE2MTk3MTM5ODcsInhlcm9fdXNlcmlkIjoiZmFhODNlYzktZjZhNy00ODlmLTg5MTEtZTNmY2UwM2ExMTg2IiwiZ2xvYmFsX3Nlc3Npb25faWQiOiJmNGE2OGQ3NGZjNzk0MzI3OGE4MzE4NDRjOWVkZjcxYiIsInByZWZlcnJlZF91c2VybmFtZSI6ImNocmlzLmtuaWdodEB4ZXJvLmNvbSIsImVtYWlsIjoiY2hyaXMua25pZ2h0QHhlcm8uY29tIiwiZ2l2ZW5fbmFtZSI6IkNocmlzdG9waGVyIiwiZmFtaWx5X25hbWUiOiJLbmlnaHQifQ.hF04tCE1Qd-al355fQyCjWqTVWKnguor4RD1sC7rKH7zV3r3_nGwnGLMm2A96fov06fig0zusTX8onev0qFLZy-jlEXDp1f19LHhT15sBy0KH6dB0lGMrM14BnDuEP4NUGeP06nAPhQHHLw2oCc9hzYXorRVOSFDw43jgAC0vxRgDvJwgKgv6TDVEmpvwP0S4R7A0VbnFemHP_HY8gLHd7RpN7rrYmpJC4cofztdptDNLTF8Qup8qVlFdQgpJPQEQ95N1m6W-unvrh_dlO6AVMjXBjC1BJ10IGzoCCr8DSVyz2UMPnUT3oIYFVTlDc2K-ZJYkW86pigITMCdvR1hKg'}
+    let(:access_token){'eyJhbGciOiJSUzI1NiIsImtpZCI6IjFDQUY4RTY2NzcyRDZEQzAyOEQ2NzI2RkQwMjYxNTgxNTcwRUZDMTkiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJISy1PWm5jdGJjQW8xbkp2MENZVmdWY09fQmsifQ.eyJuYmYiOjE2MTk3MTQwNDMsImV4cCI6MTYxOTcxNTg0MywiaXNzIjoiaHR0cHM6Ly9pZGVudGl0eS54ZXJvLmNvbSIsImF1ZCI6Imh0dHBzOi8vaWRlbnRpdHkueGVyby5jb20vcmVzb3VyY2VzIiwiY2xpZW50X2lkIjoiQURCNUE3N0RBNkI2NEU5MjhEODQwOTA5OUEzOUNBN0IiLCJzdWIiOiJkYjRmMGYzN2I1ODU1MzBlOTFmM2I5Y2JiNTAzNDBlOCIsImF1dGhfdGltZSI6MTYxOTcxMzk4NywieGVyb191c2VyaWQiOiJmYWE4M2VjOS1mNmE3LTQ4OWYtODkxMS1lM2ZjZTAzYTExODYiLCJnbG9iYWxfc2Vzc2lvbl9pZCI6ImY0YTY4ZDc0ZmM3OTQzMjc4YTgzMTg0NGM5ZWRmNzFiIiwianRpIjoiZmFmNGNkYzQ5MjM0YzhmZDE0OTA0ZjRlOWEyMWY4YmYiLCJhdXRoZW50aWNhdGlvbl9ldmVudF9pZCI6IjI0MmRjNWIyLTIwZTMtNGFjNS05NjU3LWExMGI5ZTI0ZGI1NSIsInNjb3BlIjpbImVtYWlsIiwicHJvZmlsZSIsIm9wZW5pZCIsImFjY291bnRpbmcucmVwb3J0cy5yZWFkIiwiZmlsZXMiLCJwYXlyb2xsLmVtcGxveWVlcyIsInBheXJvbGwucGF5cnVucyIsInBheXJvbGwucGF5c2xpcCIsInBheXJvbGwudGltZXNoZWV0cyIsInByb2plY3RzLnJlYWQiLCJwcm9qZWN0cyIsImFjY291bnRpbmcuc2V0dGluZ3MiLCJhY2NvdW50aW5nLmF0dGFjaG1lbnRzIiwiYWNjb3VudGluZy50cmFuc2FjdGlvbnMiLCJhY2NvdW50aW5nLmpvdXJuYWxzLnJlYWQiLCJhc3NldHMucmVhZCIsImFzc2V0cyIsImFjY291bnRpbmcuY29udGFjdHMiLCJwYXlyb2xsLnNldHRpbmdzIiwib2ZmbGluZV9hY2Nlc3MiXX0.vNV-YsgHFWKFBmyYdhg7tztdsPc9ykObadQcGFoFXJ8qCBerR3h7XXKzWAP3KzFzhOCcIpWU8Q081zuYBNxahPeeLRLUuc_3MwgwE72esE5vGuxa2_-_QidtNvMCgsX-ie_LcX7FE_KI-sXB_EZ8fDk6WAMIPC9d3GejgeuH5Uh6rZkhowN2jm5pZjEOEy_QE7PScBO0XEbiZNUsarvBUSdKuSTvVVLHzHzs0bHMRfgKEkqZySNtZlac-oyaL3PVba1S7A_vbRcNWpYR_VrKGf2g9LHSI3EA5j3Beto4pKukU-bk6rLBGul37u4tM17U-wyJLsFmt6ZC_SEJKgmluQ'}
+    let(:tkn_set) {{'id_token': id_token, 'access_token': access_token, 'refresh_token': 'abc123xyz'}}
+
+    before do
+      api_client.set_token_set(tkn_set)
+    end
 
     it '#validate_tokens' do
-      api_client.set_token_set(tkn_set)
-      api_client.validate_tokens(tkn_set)
+      expect(api_client.validate_tokens(tkn_set)).to eq(true)
     end
     it '#access_token' do
-      api_client.set_token_set(tkn_set)
-      api_client.access_token
+      expect(api_client.access_token).to eq(access_token)
     end
     it '#decoded_access_token' do
-      api_client.set_token_set(tkn_set)
-      api_client.decoded_access_token
+      expect(api_client.decoded_access_token['aud']).to eq("https://identity.xero.com/resources")
     end
     it '#id_token' do
-      api_client.set_token_set(tkn_set)
-      api_client.id_token
+      expect(api_client.id_token).to eq(tkn_set[:id_token])
     end
     it '#decoded_id_token' do
-      api_client.set_token_set(tkn_set)
-      api_client.decoded_id_token
+      expect(api_client.decoded_id_token['email']).to eq('chris.knight@xero.com')
+    end
+
+    it 'decoding an invalid access_token' do
+      api_client.set_access_token("#{access_token}.NotAValidJWTstring")
+      expect{api_client.decoded_access_token}.to raise_error(JSON::JWT::InvalidFormat)
+    end
+
+    it 'decoding an invalid id_token' do
+      api_client.set_id_token("#{id_token}.NotAValidJWTstring")
+      expect{api_client.decoded_id_token}.to raise_error(JSON::JWT::InvalidFormat)
     end
   end
 
@@ -410,8 +426,8 @@ describe XeroRuby::ApiClient do
     let(:api_client_2) {XeroRuby::ApiClient.new(credentials: creds)}
     let(:api_client_3) {XeroRuby::ApiClient.new(credentials: creds)}
 
-    let(:tkn_set_1){{id_token: "abc.123.1", access_token: "xxx.yyy.zzz.111"}}
-    let(:tkn_set_2){{id_token: "efg.456.2", access_token: "xxx.yyy.zzz.222"}}
+    let(:tkn_set_1){{'id_token': "abc.123.1", 'access_token': "xxx.yyy.zzz.111"}}
+    let(:tkn_set_2){{'id_token': "efg.456.2", 'access_token': "xxx.yyy.zzz.222"}}
     
     describe 'when configuration is changed, other instantiations of the client are not affected' do
       it 'applies to #set_access_token' do
@@ -453,12 +469,12 @@ describe XeroRuby::ApiClient do
         expect(api_client_2.token_set).to eq(nil)
 
         api_client_1.set_token_set(tkn_set_1)
-        expect(api_client_1.token_set).to eq(tkn_set_1)
+        expect(api_client_1.token_set).to eq(tkn_set_1.with_indifferent_access)
         expect(api_client_2.token_set).to eq(nil)
 
         api_client_2.set_token_set(tkn_set_2)
-        expect(api_client_1.token_set).to eq(tkn_set_1)
-        expect(api_client_2.token_set).to eq(tkn_set_2)
+        expect(api_client_1.token_set).to eq(tkn_set_1.with_indifferent_access)
+        expect(api_client_2.token_set).to eq(tkn_set_2.with_indifferent_access)
       end
       
       it 'applies to #base_url' do
