@@ -5,45 +5,39 @@ Xero Ruby SDK for OAuth 2.0 generated from [Xero API OpenAPI Spec](https://githu
 
 # Documentation
 Xero Ruby SDK supports Xero's OAuth2.0 authentication and the following Xero API sets.
-
-## SDK Documentation
+### API Client Documentation
 * [API client methods](https://xeroapi.github.io/xero-ruby/accounting/index.html)
----
-## API Model Docs
-* [Accounting Models](/docs/accounting)
-* [Asset Api Docs](/docs/assets/)
-* [Project Api Docs](docs/projects/)
-* [Files Api Docs](docs/files/)
-* [Payroll Docs (AU)](docs/payroll_au/)
-* [Payroll Docs (NZ)](docs/payroll_nz/)
-* [Payroll Docs (UK)](docs/payroll_uk/)
-
+> This describes to ~200+ accounting API endpoints and their expected params. There are also method reference docs for the Assets, Files, Projects, and Payroll endpoints sets, though we are still working on accurately generating usable parameter examples for all! (feedback welcome)
+### Model Docs
+* [Models](/docs/)
+> Directory of markdown files, describing the object models for the Accounting, Asset, Projects, Files, Payroll (AU, UK, NZ) Xero API sets.
 ## Sample Apps
-We have two apps showing SDK usage.
-* https://github.com/XeroAPI/xero-ruby-oauth2-starter (**Sinatra** - session based / getting started)
-* https://github.com/XeroAPI/xero-ruby-oauth2-app (**Rails** - token management / full examples)
+We have two sample apps showing SDK usage:
+* https://github.com/XeroAPI/xero-ruby-oauth2-starter (**Sinatra** - bare minimum to hello world and simple session based storage)
+* https://github.com/XeroAPI/xero-ruby-oauth2-app (**Rails** - token management with robust usage examples)
 
 ![sample-app](https://i.imgur.com/OOEn55G.png)
 
----
+## Xero Pre-Requisites
+* Create a [free Xero user account](https://www.xero.com/us/signup/api/)
+* Login to your Xero developer [/myapps](https://developer.xero.com/myapps) dashboard & create an API application
+* Copy the credentials from your API app and store/access them using a secure ENV variable strategy
+* Resaearch and include the [neccesary scopes](https://developer.xero.com/documentation/oauth2/scopes) for your app's functionality as a space-seperated list, ex. "`SCOPES="openid profile email accounting.transactions accounting.settings"`"
+
+
+
 ## Installation
-To install this gem to your current gemset.
+To install this gem to your project:
 ```
 gem install 'xero-ruby'
 ```
-Or add to your gemfile and run `bundle install`.
+Or more commonly in Ruby on Rails usage add to your gemfile and run `bundle install`:
 ```
 gem 'xero-ruby'
 ```
 
-## Getting Started
-* Create a [free Xero user account](https://www.xero.com/us/signup/api/)
-* Login to your Xero developer [/myapps](https://developer.xero.com/myapps) dashboard & create an API application and note your API app's credentials.
-
-### Creating a client
-* Get the credential values from an API application at https://developer.xero.com/myapps/.
-* Include [neccesary scopes](https://developer.xero.com/documentation/oauth2/scopes) as a space-seperated list
-    * example => "`openid profile email accounting.transactions accounting.settings`"
+---
+## Usage
 ```
 require 'xero-ruby'
 ```
@@ -58,56 +52,77 @@ creds = {
 xero_client ||= XeroRuby::ApiClient.new(credentials: creds)
 ```
 
-If you want additional logging or timeout, you can add/override any configuration option by passing the optional named parameter object `config`.
+For additional logging or timeout add or override any [config](/lib/xero-ruby/configuration.rb) option by passing an optional named parameter `config: {..}`.
 ```ruby
 config = { timeout: 30, debugging: true }
 @xero_client ||= XeroRuby::ApiClient.new(credentials: creds, config: config)
 ```
 
-## User Authorization & Callback
-All API requests require a valid access token to be set on the client.
+## OAuth2.0 Authorization & Callback
+All API requests require a valid access token to be set on the xero_client.
 
-To generate a valid `token_set` send a user to the `authorization_url`:
+### Step 1
+Send the user to the `authorization_url` after you have configured your xero_client
 ```ruby
 @authorization_url = xero_client.authorization_url
 
 redirect_to @authorization_url
 ```
 
-Xero will then redirect back to the URI defined in your `redirect_uri` config.
-
-*This must match **exactly** with the variable in your /myapps dashboard.*
-
-In your callback, calling `get_token_set_from_callback` will exchange the temporary code Xero return, with a valid `token_set` that you can use to make API calls.
+### Step 2
+On successful authorization, Xero identity will redirect to the URI defined in your `redirect_uri` config which must match **exactly** with the variable in your /myapps dashboard.
+```
+=> /oauth/redirect_uri
+```
+### Step 3
+In your server defined callback route, exchange the temporary code for a valid `token_set` that will get set on your client. 
 ```ruby
-# => http://localhost:3000/oauth/callback
-
 token_set = xero_client.get_token_set_from_callback(params)
+```
+At this point you should save the token_set as JSON in a datastore in relation to the authenticating user or entity.
 
-# save token_set JSON in a datastore in relation to the user authentication
+The sample [Rails app](https://github.com/XeroAPI/xero-ruby-oauth2-app/blob/master/app/controllers/application_controller.rb#L11) shows a solid pattern you can tweak to fit your needs:
+```ruby
+# /oauth/redirect_uri -> 'application#callback'
+def callback
+  @token_set = @xero_client.get_token_set_from_callback(params)
 
-puts params['state']
-=> "this-can-be-a-custom-state-parameter"
+  current_user.token_set = @token_set
+  current_user.token_set['connections'] = @xero_client.connections
+  current_user.active_tenant_id = latest_connection(current_user.token_set['connections'])
+  current_user.save!
+  flash.notice = "Successfully authenticated with Xero!"
+end
+```
+---
+### What is a Token Set?
+A `token_set` is what we call the XeroAPI response that contains data about your API connection:
+```json
+{
+  "id_token": "xxx.yyy.zz", (if you requested `openid profile email` scope)
+  "access_token": "xxx.yyy.zzz",
+  "expires_in": 1800,
+  "token_type": "Bearer",
+  "refresh_token": "xxxxxx", (if you requested `offline_access` scope)
+  "scope": "email profile openid accounting.transactions offline_access"
+}
 ```
 
-## Making API calls once you have a token_set
-Once you already have a token_set stored from this initual user interaction, you can setup a new client by passing the whole token_set to `refresh_token_set` or `set_token_set`.
+Note that an `access_token` is valid for 30 minutes but a `refresh_token` can be used once in up to a 60 day window. If a refresh_token is used to refresh access you must replace the entire token_set.
+
+Both the `id_token` & `access_token` are JWT's, and can be decoded for to see additional metadata described in the Token Helpers section:
+## Making API calls with a valid token_set
+After the initial user interaction you can simply setup a xero_client by passing the whole token_set to the client.
 ```ruby
 xero_client.set_token_set(user.token_set)
 
 xero_client.refresh_token_set(user.token_set)
-# this will set the access_token on the client, and return a refreshed `token_set` you need to save.
 ```
-A `token_set` contains data about your API connection most importantly :
-* `access_token`
-* `refresh_token`
-* `expiry`
-
-**An `access_token` is valid 30 minutes and a `refresh_token` is valid for 60 days**
-
-Example Token set:
-> You can decode the `id_token` & `access_token` for additional metadata by using a [decoding library](https://github.com/jwt/ruby-jwt):
-```json
+This sets the access_token on the client, and returns a refreshed `token_set` you should save in your database for the next time you need to connect to Xero's API.
+## Token Helpers
+```ruby
+xero_client.token_set
+=>
 {
   "id_token": "xxx.yyy.zz",
   "access_token": "xxx.yyy.zzz",
@@ -116,17 +131,63 @@ Example Token set:
   "refresh_token": "xxxxxx",
   "scope": "email profile openid accounting.transactions offline_access"
 }
+
+xero_client.access_token
+=> "xxx.yyy.zzz"
+
+xero_client.decoded_access_token
+=> {
+    "exp": 1619715843,
+    "xero_userid": "xero-user-uuid",
+    "scope": [
+      "email",
+      "profile",
+      "openid",
+      "accounting.transactions",
+      "offline_access"
+    ]
+  }
+
+
+xero_client.id_token
+=> "aaa.bbb.ccc"
+
+xero_client.decoded_id_token
+=> {
+    "iss": "https://identity.xero.com",
+    "email": "luca.pacioli@accounting-services.com",
+    "given_name": "Luca",
+    "family_name": "Pacioli"
+  }
+
+xero_client.set_token_set(token_set)
+=> true
+
+xero_client.get_token_set_from_callback(callback_url_params)
+=> new_xero_token_set
+
+xero_client.refresh_token_set(token_set)
+=> new_xero_token_set
+
+# These are automatically populated with `set_token_set`
+# But if you need to set just an access or id token on the client
+xero_client.set_access_token(access_token)
+xero_client.set_id_token(id_token)
+
+# Automatically run on initial OAuth flow - can be called its own if desired
+# Read about why we have included this in the default library: https://auth0.com/docs/tokens/access-tokens/validate-access-tokens
+xero_client.validate_tokens(token_set)
+xero_client.decode_jwt(tkn)
 ```
-
-## Token & SDK Helpers
-Refresh/connection helpers
+# Connection Helpers
 ```ruby
-@token_set = xero_client.refresh_token_set(user.token_set)
+xero_client.authorization_url
+=> # https://login.xero.com/identity/connect/authorize?response_type=code&client_id=<client_id>&redirect_uri=<redirect_uri>&scope=<scopes>&state=<my-state>
 
-# Xero's tokens can potentially facilitate (n) org connections in a single token.
-# It is important to store the `tenantId` of the Organisation your user wants to read/write data.
+# To completely Revoke a user's access token and all their connections
+xero_client.revoke_token(token_set)
 
-# The `updatedDateUtc` will show you the most recently authorized Tenant (AKA Organisation)
+# In case there are > 1 tenants connected the `updatedDateUtc` will show you the most recently authorized tenant (aka organisation) - it is important to store the `tenantId` of the Org your user specified in their API authorization
 connections = xero_client.connections
 [{
   "id" => "xxx-yyy-zzz",
@@ -137,38 +198,19 @@ connections = xero_client.connections
   "updatedDateUtc" => "2020-04-15T22:37:10.4943410"
 }]
 
-# To completely Revoke a user's access token and all their connections
-# pass in the users token set to the #revoke_token api_client method
-
-xero_client.revoke_token(user.token_set)
-
-# disconnect an org from a user's connections. Pass the connection ['id'] not ['tenantId'].
-# Useful if you want to enforce only a single org connection per token.
+# To disconnect a single org from a user's active connections pass the connection ['id'] (not ['tenantId'])
+# If you want to enforce only a single org connection per token do this prior to sending user through Xero authorize flow a 2nd time.
 remaining_connections = xero_client.disconnect(connections[0]['id'])
 
-# set a refreshed token_set
-token_set = xero_client.set_token_set(user.token_set)
+xero_client.token_expired?
+=> true || false
 
-# access token_set once it is set on the client
-token_set = xero_client.token_set
+# This will check against the following logic
+token_expiry = Time.at(decoded_access_token['exp'])
+token_expiry < Time.now
 ```
 
-Example token expiry helper
-```ruby
-require 'jwt'
-
-def token_expired?
-  token_expiry = Time.at(decoded_access_token['exp'])
-  token_expiry < Time.now
-end
-
-def decoded_access_token
-  JWT.decode(token_set['access_token'], nil, false)[0]
-end
-```
-
-## API Usage
-
+# API Usage
 ### Accounting API
 > https://xeroapi.github.io/xero-ruby/accounting/index.html
 ```ruby
@@ -177,7 +219,7 @@ require 'xero-ruby'
 xero_client.refresh_token_set(user.token_set)
 
 tenant_id = user.active_tenant_id
-# example of how to store the `tenantId` of the specific tenant (aka organisation)
+# Example 'active tenant' logic storage of the tenant the user specified, xero_client.connections[0] is not a safe assumption in case they authorized multiple orgs.
 
 # Get Accounts
 accounts = xero_client.accounting_api.get_accounts(tenant_id).accounts
@@ -331,19 +373,13 @@ opts = {
 }
 xero_client.accounting_api.get_bank_transfers(tenant_id, opts).bank_transfers
 ```
-### NOTE
+
 1) Not all `opts` parameter combinations are available for all endpoints, and there are likely some undiscovered edge cases. If you encounter a filter / sort / where clause that seems buggy open an issue and we will dig.
 
 2) Some opts string values may need PascalCasing to match casing defined in our [core API docs](https://developer.xero.com/documentation/api/api-overview).
 * `opts = { order: 'UpdatedDateUtc DESC'}`
 
 3) If you have use cases outside of these examples let us know.
-
-## Sample App
-The best resource to understanding how to best leverage this SDK is the sample applications showing all the features of the gem.
-> https://github.com/XeroAPI/xero-ruby-oauth2-starter (Sinatra - simple getting started)
-> https://github.com/XeroAPI/xero-ruby-oauth2-app (Rails - full featured examples)
-
 ## Developing locally
 To develop this gem locally against your project you can use the following development pattern:
 

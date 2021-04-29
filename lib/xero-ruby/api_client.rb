@@ -123,6 +123,8 @@ module XeroRuby
 
       set_access_token(token_set[:access_token]) if token_set[:access_token]
       set_id_token(token_set[:id_token]) if token_set[:id_token]
+      
+      return true
     end
 
     def set_access_token(access_token)
@@ -157,7 +159,6 @@ module XeroRuby
     end
 
     def validate_state(params)
-      puts "params: #{params}"
       if params[:state] != @state
         raise StandardError.new "WARNING: @config.state: #{@state} and OAuth callback state: #{params['state']} do not match!"
       end
@@ -168,6 +169,11 @@ module XeroRuby
       jwks_data = JSON.parse(Faraday.get('https://identity.xero.com/.well-known/openid-configuration/jwks').body)
       jwk_set = JSON::JWK::Set.new(jwks_data)
       JSON::JWT.decode(tkn, jwk_set)
+    end
+
+    def token_expired?
+      token_expiry = Time.at(decoded_access_token['exp'])
+      token_expiry < Time.now
     end
 
     def refresh_token_set(token_set)

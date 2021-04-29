@@ -400,6 +400,25 @@ describe XeroRuby::ApiClient do
       api_client.set_token_set(tkn_set)
     end
 
+    it '#token_expired? for an expired token' do
+      expect(api_client.token_expired?).to eq(true)
+    end
+
+    it '#token_expired? for a just expired token' do
+      allow(api_client).to receive(:decoded_access_token).and_return({"exp"=>Time.now.to_i})
+      expect(api_client.token_expired?).to eq(true)
+    end
+
+    it '#token_expired? for a non-expired token' do
+      allow(api_client).to receive(:decoded_access_token).and_return({"exp"=>(Time.now + 30.minutes).to_i})
+      expect(api_client.token_expired?).to eq(false)
+    end
+
+    it '#token_expired? for an almost expired token' do
+      allow(api_client).to receive(:decoded_access_token).and_return({"exp"=>(Time.now + 30.seconds).to_i})
+      expect(api_client.token_expired?).to eq(false)
+    end
+
     it '#validate_tokens' do
       expect(api_client.validate_tokens(tkn_set)).to eq(true)
     end
