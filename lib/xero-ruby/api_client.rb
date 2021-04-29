@@ -17,7 +17,7 @@ require 'find'
 require 'faraday'
 require 'base64'
 require 'cgi'
-require 'jwt'
+require 'json/jwt'
 
 module XeroRuby
   class ApiClient
@@ -109,18 +109,12 @@ module XeroRuby
       @config.id_token
     end
 
-    def id_token
-      XeroRuby.configure.id_token
-
-      # https://identity.xero.com/.well-known/openid-configuration/jwks
-    end
-
     def decoded_access_token
-      XeroRuby.configure.access_token
+      decode_jwt(@config.access_token)
     end
 
     def decoded_id_token
-      XeroRuby.configure.access_token
+      decode_jwt(@config.id_token)
     end
 
     def set_token_set(token_set)
@@ -144,7 +138,25 @@ module XeroRuby
         code: params['code'],
         redirect_uri: @redirect_uri
       }
-      return token_request(data, '/token')
+      token_set = token_request(data, '/token')
+
+      validate_tokens(token_set)
+      return token_set
+    end
+
+    def validate_tokens(token_set)
+      id_token = token_set['id_token']
+      access_token = token_set['access_token']
+      if id_token || access_token
+        decode_jwt(access_token) if access_token
+        decode_jwt(id_token) if id_token
+      end
+    end
+
+    def decode_jwt(tkn)
+      jwks_data = JSON.parse(Faraday.get('https://identity.xero.com/.well-known/openid-configuration/jwks').body)
+      jwk_set = JSON::JWK::Set.new(jwks_data)
+      JSON::JWT.decode(tkn, jwk_set)
     end
 
     def refresh_token_set(token_set)

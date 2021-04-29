@@ -44,6 +44,7 @@ module XeroRuby::Projects
     attr_accessor :status
     ACTIVE = "ACTIVE".freeze
     LOCKED = "LOCKED".freeze
+    INVOICED = "INVOICED".freeze
     
     class EnumAttributeValidator
       attr_reader :datatype
@@ -159,7 +160,7 @@ module XeroRuby::Projects
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      status_validator = EnumAttributeValidator.new('String', ["ACTIVE", "LOCKED"])
+      status_validator = EnumAttributeValidator.new('String', ["ACTIVE", "LOCKED", "INVOICED"])
       return false unless status_validator.valid?(@status)
       true
     end
@@ -167,7 +168,7 @@ module XeroRuby::Projects
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] status Object to be assigned
     def status=(status)
-      validator = EnumAttributeValidator.new('String', ["ACTIVE", "LOCKED"])
+      validator = EnumAttributeValidator.new('String', ["ACTIVE", "LOCKED", "INVOICED"])
       unless validator.valid?(status)
         fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
       end

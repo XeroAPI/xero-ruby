@@ -372,6 +372,33 @@ describe XeroRuby::ApiClient do
     end
   end
 
+  describe 'token helper methods' do
+    let(:api_client) { XeroRuby::ApiClient.new }
+    let(:tkn_set) {{id_token: "abc.123.1", access_token: "xxx.yyy.zzz.111"}}
+
+    it '#validate_tokens' do
+      api_client.set_token_set(tkn_set)
+      api_client.validate_tokens(tkn_set)
+    end
+    it '#access_token' do
+      api_client.set_token_set(tkn_set)
+      api_client.access_token
+    end
+    it '#decoded_access_token' do
+      api_client.set_token_set(tkn_set)
+      api_client.decoded_access_token
+    end
+    it '#id_token' do
+      api_client.set_token_set(tkn_set)
+      api_client.id_token
+    end
+    it '#decoded_id_token' do
+      api_client.set_token_set(tkn_set)
+      api_client.decoded_id_token
+    end
+  end
+
+
   describe 'thread safety in the XeroClient' do
     let(:creds) {{
       client_id: 'abc',

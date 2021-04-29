@@ -6623,7 +6623,9 @@ opts = {
 
   page: 1, # Integer | e.g. page=1 - Up to 100 contacts will be returned in a single API call.
 
-  include_archived: true # Boolean | e.g. includeArchived=true - Contacts with a status of ARCHIVED will be included in the response
+  include_archived: true, # Boolean | e.g. includeArchived=true - Contacts with a status of ARCHIVED will be included in the response
+
+  summary_only: false # Boolean | Use summaryOnly=true in GET Contacts endpoint to retrieve a smaller version of the response object. This returns only lightweight fields, excluding computation-heavy fields from the response, making the API calls quick and efficient.
 }
 
 begin
@@ -6647,6 +6649,7 @@ Name | Type | Description  | Notes
  **i_ds** | [**Array&lt;String&gt;**](String.md)| Filter by a comma separated list of ContactIDs. Allows you to retrieve a specific set of contacts in a single call. | [optional] 
  **page** | **Integer**| e.g. page&#x3D;1 - Up to 100 contacts will be returned in a single API call. | [optional] 
  **include_archived** | **Boolean**| e.g. includeArchived&#x3D;true - Contacts with a status of ARCHIVED will be included in the response | [optional] 
+ **summary_only** | **Boolean**| Use summaryOnly&#x3D;true in GET Contacts endpoint to retrieve a smaller version of the response object. This returns only lightweight fields, excluding computation-heavy fields from the response, making the API calls quick and efficient. | [optional] [default to false]
 
 ### Return type
 
