@@ -157,8 +157,9 @@ module XeroRuby
     end
 
     def validate_state(params)
-      if params['state'] != @config.state
-        raise StandardError.new "WARNING: @config.state: #{@config.state} and OAuth callback state: #{params['state']} do not match!"
+      puts "params: #{params}"
+      if params[:state] != @state
+        raise StandardError.new "WARNING: @config.state: #{@state} and OAuth callback state: #{params['state']} do not match!"
       end
       return true
     end

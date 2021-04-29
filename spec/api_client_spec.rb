@@ -60,6 +60,19 @@ describe XeroRuby::ApiClient do
           api_client = XeroRuby::ApiClient.new(credentials: creds)
           expect(api_client.authorization_url).to eq('https://login.xero.com/identity/connect/authorize?response_type=code&client_id=abc&redirect_uri=https://mydomain.com/callback&scope=openid+profile+email+accounting.transactions+accounting.settings')
         end
+
+        it "Validates state on callback matches @config.state" do
+          creds = {
+            client_id: 'abc',
+            client_secret: '123',
+            redirect_uri: 'https://mydomain.com/callback',
+            scopes: 'openid profile email accounting.transactions accounting.settings',
+            state: "custom-state"
+          }
+          api_client = XeroRuby::ApiClient.new(credentials: creds)
+          altered_state = {'state': 'not-original-state'}
+          expect{api_client.validate_state(altered_state)}.to raise_error(StandardError, 'WARNING: @config.state: custom-state and OAuth callback state:  do not match!')
+        end
       end
     end
   end
