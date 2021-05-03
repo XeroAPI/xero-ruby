@@ -110,11 +110,11 @@ module XeroRuby
     end
 
     def decoded_access_token
-      decode_jwt(@config.access_token)
+      decode_jwt(@config.access_token, false)
     end
 
     def decoded_id_token
-      decode_jwt(@config.id_token)
+      decode_jwt(@config.id_token, false)
     end
 
     def set_token_set(token_set)
@@ -166,10 +166,14 @@ module XeroRuby
       return true
     end
 
-    def decode_jwt(tkn)
-      jwks_data = JSON.parse(Faraday.get('https://identity.xero.com/.well-known/openid-configuration/jwks').body)
-      jwk_set = JSON::JWK::Set.new(jwks_data)
-      JSON::JWT.decode(tkn, jwk_set)
+    def decode_jwt(tkn, verify=true)
+      if verify == true
+        jwks_data = JSON.parse(Faraday.get('https://identity.xero.com/.well-known/openid-configuration/jwks').body)
+        jwk_set = JSON::JWK::Set.new(jwks_data)
+        JSON::JWT.decode(tkn, jwk_set)
+      else
+        JSON::JWT.decode(tkn, :skip_verification)
+      end
     end
 
     def token_expired?
