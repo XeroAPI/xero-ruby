@@ -110,15 +110,15 @@ A `token_set` is what we call the XeroAPI response that contains data about your
 
 Note that an `access_token` is valid for 30 minutes but a `refresh_token` can be used once in up to a 60 day window. If a refresh_token is used to refresh access you must replace the entire token_set.
 
-Both the `id_token` & `access_token` are JWT's, and can be decoded to see additional metadata described in the Token Helpers section:
+Both the `id_token` & `access_token` are JWT's, and can be decoded for to see additional metadata described in the Token Helpers section:
 ## Making API calls with a valid token_set
 After the initial user interaction you can simply setup a xero_client by passing the whole token_set to the client.
 ```ruby
 xero_client.set_token_set(user.token_set)
-# or set it and refresh in same go
+
 xero_client.refresh_token_set(user.token_set)
 ```
-This sets the access_token on the client returns either the existing, or newly refreshed `token_set`. You should save in your database for the next time you need to connect to Xero's AP and repeat the process. Assuming you keep your connection live at least once per 60 days, you can persist infinite API connection assuming the user does not revoke your API access.
+This sets the access_token on the client, and returns a refreshed `token_set` you should save in your database for the next time you need to connect to Xero's API.
 ## Token Helpers
 ```ruby
 xero_client.token_set

@@ -71,6 +71,9 @@ module XeroRuby::Accounting
     # See Allocations
     attr_accessor :allocations
     
+    # See Payments
+    attr_accessor :payments
+    
     # The amount of applied to an invoice
     attr_accessor :applied_amount
     
@@ -121,6 +124,7 @@ module XeroRuby::Accounting
         :'currency_rate' => :'CurrencyRate',
         :'remaining_credit' => :'RemainingCredit',
         :'allocations' => :'Allocations',
+        :'payments' => :'Payments',
         :'applied_amount' => :'AppliedAmount',
         :'has_attachments' => :'HasAttachments',
         :'attachments' => :'Attachments'
@@ -146,6 +150,7 @@ module XeroRuby::Accounting
         :'currency_rate' => :'BigDecimal',
         :'remaining_credit' => :'BigDecimal',
         :'allocations' => :'Array<Allocation>',
+        :'payments' => :'Array<Payment>',
         :'applied_amount' => :'Float',
         :'has_attachments' => :'Boolean',
         :'attachments' => :'Array<Attachment>'
@@ -235,6 +240,12 @@ module XeroRuby::Accounting
         end
       end
 
+      if attributes.key?(:'payments')
+        if (value = attributes[:'payments']).is_a?(Array)
+          self.payments = value
+        end
+      end
+
       if attributes.key?(:'applied_amount')
         self.applied_amount = attributes[:'applied_amount']
       end
@@ -310,6 +321,7 @@ module XeroRuby::Accounting
           currency_rate == o.currency_rate &&
           remaining_credit == o.remaining_credit &&
           allocations == o.allocations &&
+          payments == o.payments &&
           applied_amount == o.applied_amount &&
           has_attachments == o.has_attachments &&
           attachments == o.attachments
@@ -324,7 +336,7 @@ module XeroRuby::Accounting
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [type, contact, date, status, line_amount_types, line_items, sub_total, total_tax, total, reference, updated_date_utc, currency_code, prepayment_id, currency_rate, remaining_credit, allocations, applied_amount, has_attachments, attachments].hash
+      [type, contact, date, status, line_amount_types, line_items, sub_total, total_tax, total, reference, updated_date_utc, currency_code, prepayment_id, currency_rate, remaining_credit, allocations, payments, applied_amount, has_attachments, attachments].hash
     end
 
     # Builds the object from hash
@@ -414,10 +426,13 @@ module XeroRuby::Accounting
     def to_hash(downcase: false)
       hash = {}
       self.class.attribute_map.each_pair do |attr, param|
+        puts "1 ***********"
+        puts "attr: #{attr}"
+        puts "param: #{param}"
         value = self.send(attr)
         next if value.nil?
         key = downcase ? attr : param
-        hash[key] = _to_hash(value)
+        hash[key] = _to_hash(value, param, downcase: downcase)
       end
       hash
     end
@@ -431,16 +446,32 @@ module XeroRuby::Accounting
     # For object, use to_hash. Otherwise, just return the value
     # @param [Object] value Any valid value
     # @return [Hash] Returns the value in the form of hash
-    def _to_hash(value)
+    def _to_hash(value, param, downcase: false)
+      puts "2 ***********"
+      puts "value: #{value}"
       if value.is_a?(Array)
-        value.compact.map { |v| _to_hash(v) }
+        puts "2.a ARRAY"
+        puts "this means its a nested model, right"
+        value.map do |v|
+          n = param.length
+          model_name_without_trailing_s = param[0..n-2]
+          to_hash_value = self.class.module_parent.const_get(model_name_without_trailing_s).build_from_hash(v).to_hash(downcase: downcase)
+          puts "to_hash_value.class #{to_hash_value.class}"
+          puts "to_hash_value #{to_hash_value}"
+          sleep 1
+          to_hash_value
+        end
+        # value.compact.map { |v| _to_hash(v) }
       elsif value.is_a?(Hash)
+        puts "2.b HASH"
         {}.tap do |hash|
           value.each { |k, v| hash[k] = _to_hash(v) }
         end
       elsif value.respond_to? :to_hash
+        puts "2.c respond to hash?"
         value.to_hash
       else
+        puts "2.d just value?"
         value
       end
     end

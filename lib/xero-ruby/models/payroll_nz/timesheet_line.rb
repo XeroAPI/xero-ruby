@@ -228,10 +228,13 @@ module XeroRuby::PayrollNz
     def to_hash(downcase: false)
       hash = {}
       self.class.attribute_map.each_pair do |attr, param|
+        puts "1 ***********"
+        puts "attr: #{attr}"
+        puts "param: #{param}"
         value = self.send(attr)
         next if value.nil?
         key = downcase ? attr : param
-        hash[key] = _to_hash(value)
+        hash[key] = _to_hash(value, param, downcase: downcase)
       end
       hash
     end
@@ -245,16 +248,32 @@ module XeroRuby::PayrollNz
     # For object, use to_hash. Otherwise, just return the value
     # @param [Object] value Any valid value
     # @return [Hash] Returns the value in the form of hash
-    def _to_hash(value)
+    def _to_hash(value, param, downcase: false)
+      puts "2 ***********"
+      puts "value: #{value}"
       if value.is_a?(Array)
-        value.compact.map { |v| _to_hash(v) }
+        puts "2.a ARRAY"
+        puts "this means its a nested model, right"
+        value.map do |v|
+          n = param.length
+          model_name_without_trailing_s = param[0..n-2]
+          to_hash_value = self.class.module_parent.const_get(model_name_without_trailing_s).build_from_hash(v).to_hash(downcase: downcase)
+          puts "to_hash_value.class #{to_hash_value.class}"
+          puts "to_hash_value #{to_hash_value}"
+          sleep 1
+          to_hash_value
+        end
+        # value.compact.map { |v| _to_hash(v) }
       elsif value.is_a?(Hash)
+        puts "2.b HASH"
         {}.tap do |hash|
           value.each { |k, v| hash[k] = _to_hash(v) }
         end
       elsif value.respond_to? :to_hash
+        puts "2.c respond to hash?"
         value.to_hash
       else
+        puts "2.d just value?"
         value
       end
     end

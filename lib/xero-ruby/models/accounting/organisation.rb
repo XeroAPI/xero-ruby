@@ -113,7 +113,7 @@ module XeroRuby::Accounting
     N6_MONTHLY = "6MONTHLY".freeze
     QUARTERLY = "QUARTERLY".freeze
     YEARLY = "YEARLY".freeze
-    # NONE = "NONE".freeze
+    NONE = "NONE".freeze
     
     # The default for LineAmountTypes on sales transactions
     attr_accessor :default_sales_tax
@@ -135,18 +135,18 @@ module XeroRuby::Accounting
     
     # Organisation Entity Type
     attr_accessor :organisation_entity_type
-    # ACCOUNTING_PRACTICE = "ACCOUNTING_PRACTICE".freeze
-    # COMPANY = "COMPANY".freeze
-    # CHARITY = "CHARITY".freeze
-    # CLUB_OR_SOCIETY = "CLUB_OR_SOCIETY".freeze
-    # LOOK_THROUGH_COMPANY = "LOOK_THROUGH_COMPANY".freeze
-    # NOT_FOR_PROFIT = "NOT_FOR_PROFIT".freeze
-    # PARTNERSHIP = "PARTNERSHIP".freeze
-    # S_CORPORATION = "S_CORPORATION".freeze
-    # SELF_MANAGED_SUPERANNUATION_FUND = "SELF_MANAGED_SUPERANNUATION_FUND".freeze
-    # SOLE_TRADER = "SOLE_TRADER".freeze
-    # SUPERANNUATION_FUND = "SUPERANNUATION_FUND".freeze
-    # TRUST = "TRUST".freeze
+    ACCOUNTING_PRACTICE = "ACCOUNTING_PRACTICE".freeze
+    COMPANY = "COMPANY".freeze
+    CHARITY = "CHARITY".freeze
+    CLUB_OR_SOCIETY = "CLUB_OR_SOCIETY".freeze
+    LOOK_THROUGH_COMPANY = "LOOK_THROUGH_COMPANY".freeze
+    NOT_FOR_PROFIT = "NOT_FOR_PROFIT".freeze
+    PARTNERSHIP = "PARTNERSHIP".freeze
+    S_CORPORATION = "S_CORPORATION".freeze
+    SELF_MANAGED_SUPERANNUATION_FUND = "SELF_MANAGED_SUPERANNUATION_FUND".freeze
+    SOLE_TRADER = "SOLE_TRADER".freeze
+    SUPERANNUATION_FUND = "SUPERANNUATION_FUND".freeze
+    TRUST = "TRUST".freeze
     
     # A unique identifier for the organisation. Potential uses.
     attr_accessor :short_code
@@ -675,10 +675,13 @@ module XeroRuby::Accounting
     def to_hash(downcase: false)
       hash = {}
       self.class.attribute_map.each_pair do |attr, param|
+        puts "1 ***********"
+        puts "attr: #{attr}"
+        puts "param: #{param}"
         value = self.send(attr)
         next if value.nil?
         key = downcase ? attr : param
-        hash[key] = _to_hash(value)
+        hash[key] = _to_hash(value, param, downcase: downcase)
       end
       hash
     end
@@ -692,16 +695,32 @@ module XeroRuby::Accounting
     # For object, use to_hash. Otherwise, just return the value
     # @param [Object] value Any valid value
     # @return [Hash] Returns the value in the form of hash
-    def _to_hash(value)
+    def _to_hash(value, param, downcase: false)
+      puts "2 ***********"
+      puts "value: #{value}"
       if value.is_a?(Array)
-        value.compact.map { |v| _to_hash(v) }
+        puts "2.a ARRAY"
+        puts "this means its a nested model, right"
+        value.map do |v|
+          n = param.length
+          model_name_without_trailing_s = param[0..n-2]
+          to_hash_value = self.class.module_parent.const_get(model_name_without_trailing_s).build_from_hash(v).to_hash(downcase: downcase)
+          puts "to_hash_value.class #{to_hash_value.class}"
+          puts "to_hash_value #{to_hash_value}"
+          sleep 1
+          to_hash_value
+        end
+        # value.compact.map { |v| _to_hash(v) }
       elsif value.is_a?(Hash)
+        puts "2.b HASH"
         {}.tap do |hash|
           value.each { |k, v| hash[k] = _to_hash(v) }
         end
       elsif value.respond_to? :to_hash
+        puts "2.c respond to hash?"
         value.to_hash
       else
+        puts "2.d just value?"
         value
       end
     end
