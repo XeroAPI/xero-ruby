@@ -251,7 +251,7 @@ module XeroRuby::Accounting
         value = self.send(attr)
         next if value.nil?
         key = downcase ? attr : param
-        hash[key] = _to_hash(value, param, downcase: downcase)
+        hash[key] = _to_hash(value, downcase: downcase)
       end
       hash
     end
@@ -265,35 +265,39 @@ module XeroRuby::Accounting
     # For object, use to_hash. Otherwise, just return the value
     # @param [Object] value Any valid value
     # @return [Hash] Returns the value in the form of hash
-    def _to_hash(value, param, downcase: false)
-      puts "2 ***********"
-      puts "value: #{value}"
+    def _to_hash(value, downcase: false)
       if value.is_a?(Array)
-        puts "2.a ARRAY"
-        puts "this means its a nested model, right"
         value.map do |v|
-          n = param.length
-          model_name_without_trailing_s = param[0..n-2]
-          to_hash_value = self.class.module_parent.const_get(model_name_without_trailing_s).build_from_hash(v).to_hash(downcase: downcase)
-          puts "to_hash_value.class #{to_hash_value.class}"
-          puts "to_hash_value #{to_hash_value}"
-          sleep 1
+          to_hash_value = v.to_hash(downcase: downcase)
           to_hash_value
         end
         # value.compact.map { |v| _to_hash(v) }
       elsif value.is_a?(Hash)
-        puts "2.b HASH"
         {}.tap do |hash|
-          value.each { |k, v| hash[k] = _to_hash(v) }
+          binding.pry
+          value.map { |k, v| hash[k] = _to_hash(v, downcase: downcase) }
         end
       elsif value.respond_to? :to_hash
-        puts "2.c respond to hash?"
         value.to_hash
       else
-        puts "2.d just value?"
         value
       end
     end
+
+    # def deplurarlized_model_name_from(param)
+    #   n = param.length
+    #   case param
+    #   when 'Addresses'
+    #     'Address'
+    #   when 'TrackingCategories'
+    #     'TrackingCategory'
+    #   else
+    #     puts "param -> #{param}"
+    #     puts "param[0..n-2] -> #{param[0..n-2]}"
+    #     puts "********************************"
+    #     param[0..n-2]
+    #   end
+    # end
 
     def parse_date(datestring)
       if datestring.include?('Date')

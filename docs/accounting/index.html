@@ -20916,7 +20916,7 @@ e.g. includeArchived=true - Contacts with a status of ARCHIVED will be included 
                 </span>
 
                     <div class="inner description marked">
-Use summaryOnly=true in GET Contacts endpoint to retrieve a smaller version of the response object. This returns only lightweight fields, excluding computation-heavy fields from the response, making the API calls quick and efficient.
+Use summaryOnly=true in GET Contacts and Invoices endpoint to retrieve a smaller version of the response object. This returns only lightweight fields, excluding computation-heavy fields from the response, making the API calls quick and efficient.
                     </div>
             </div>
         </div>
@@ -23618,10 +23618,11 @@ statuses = [&quot;DRAFT&quot;, &quot;SUBMITTED&quot;]
 page = 1
 include_archived = true
 created_by_my_app = false
+summary_only = true
 unitdp = 4
 
 begin
-  response = xero_client.accounting_api.get_invoices(xero_tenant_id, if_modified_since, where, order, ids, invoice_numbers, contact_ids, statuses, page, include_archived, created_by_my_app, unitdp)
+  response = xero_client.accounting_api.get_invoices(xero_tenant_id, if_modified_since, where, order, ids, invoice_numbers, contact_ids, statuses, page, include_archived, created_by_my_app, summary_only, unitdp)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_invoices: #{e}"
@@ -23877,6 +23878,26 @@ e.g. includeArchived=true - Invoices with a status of ARCHIVED will be included 
 
                     <div class="inner description marked">
 When set to true you'll only retrieve Invoices created by your app
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">summaryOnly</td>
+<td>
+
+
+    <div id="d2e199_getInvoices_summaryOnly">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Boolean
+                </span>
+
+                    <div class="inner description marked">
+Use summaryOnly=true in GET Contacts and Invoices endpoint to retrieve a smaller version of the response object. This returns only lightweight fields, excluding computation-heavy fields from the response, making the API calls quick and efficient.
                     </div>
             </div>
         </div>
