@@ -415,9 +415,6 @@ module XeroRuby::Accounting
     def to_hash(downcase: false)
       hash = {}
       self.class.attribute_map.each_pair do |attr, param|
-        puts "1 ***********"
-        puts "attr: #{attr}"
-        puts "param: #{param}"
         value = self.send(attr)
         next if value.nil?
         key = downcase ? attr : param
@@ -444,35 +441,21 @@ module XeroRuby::Accounting
         # value.compact.map { |v| _to_hash(v) }
       elsif value.is_a?(Hash)
         {}.tap do |hash|
-          binding.pry
           value.map { |k, v| hash[k] = _to_hash(v, downcase: downcase) }
         end
       elsif value.respond_to? :to_hash
-        value.to_hash
+        value.to_hash(downcase: downcase)
       else
         value
       end
     end
 
-    # def deplurarlized_model_name_from(param)
-    #   n = param.length
-    #   case param
-    #   when 'Addresses'
-    #     'Address'
-    #   when 'TrackingCategories'
-    #     'TrackingCategory'
-    #   else
-    #     puts "param -> #{param}"
-    #     puts "param[0..n-2] -> #{param[0..n-2]}"
-    #     puts "********************************"
-    #     param[0..n-2]
-    #   end
-    # end
-
     def parse_date(datestring)
       if datestring.include?('Date')
-        seconds_since_epoch = datestring.scan(/[0-9]+/)[0].to_i / 1000.0
-        Time.at(seconds_since_epoch).utc.strftime('%Y-%m-%dT%H:%M:%S%z').to_s
+        date_pattern = /\/Date\((-?\d+)(\+\d+)?\)\//
+        original, date, timezone = *date_pattern.match(datestring)
+        date = (date.to_i / 1000)
+        Time.at(date).utc.strftime('%Y-%m-%dT%H:%M:%S%z').to_s
       else # handle date 'types' for small subset of payroll API's
         Time.parse(datestring).strftime('%Y-%m-%dT%H:%M:%S').to_s
       end
