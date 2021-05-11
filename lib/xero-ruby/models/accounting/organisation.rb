@@ -113,7 +113,7 @@ module XeroRuby::Accounting
     N6_MONTHLY = "6MONTHLY".freeze
     QUARTERLY = "QUARTERLY".freeze
     YEARLY = "YEARLY".freeze
-    NONE = "NONE".freeze
+    # NONE = "NONE".freeze
     
     # The default for LineAmountTypes on sales transactions
     attr_accessor :default_sales_tax
@@ -135,18 +135,18 @@ module XeroRuby::Accounting
     
     # Organisation Entity Type
     attr_accessor :organisation_entity_type
-    ACCOUNTING_PRACTICE = "ACCOUNTING_PRACTICE".freeze
-    COMPANY = "COMPANY".freeze
-    CHARITY = "CHARITY".freeze
-    CLUB_OR_SOCIETY = "CLUB_OR_SOCIETY".freeze
-    LOOK_THROUGH_COMPANY = "LOOK_THROUGH_COMPANY".freeze
-    NOT_FOR_PROFIT = "NOT_FOR_PROFIT".freeze
-    PARTNERSHIP = "PARTNERSHIP".freeze
-    S_CORPORATION = "S_CORPORATION".freeze
-    SELF_MANAGED_SUPERANNUATION_FUND = "SELF_MANAGED_SUPERANNUATION_FUND".freeze
-    SOLE_TRADER = "SOLE_TRADER".freeze
-    SUPERANNUATION_FUND = "SUPERANNUATION_FUND".freeze
-    TRUST = "TRUST".freeze
+    # ACCOUNTING_PRACTICE = "ACCOUNTING_PRACTICE".freeze
+    # COMPANY = "COMPANY".freeze
+    # CHARITY = "CHARITY".freeze
+    # CLUB_OR_SOCIETY = "CLUB_OR_SOCIETY".freeze
+    # LOOK_THROUGH_COMPANY = "LOOK_THROUGH_COMPANY".freeze
+    # NOT_FOR_PROFIT = "NOT_FOR_PROFIT".freeze
+    # PARTNERSHIP = "PARTNERSHIP".freeze
+    # S_CORPORATION = "S_CORPORATION".freeze
+    # SELF_MANAGED_SUPERANNUATION_FUND = "SELF_MANAGED_SUPERANNUATION_FUND".freeze
+    # SOLE_TRADER = "SOLE_TRADER".freeze
+    # SUPERANNUATION_FUND = "SUPERANNUATION_FUND".freeze
+    # TRUST = "TRUST".freeze
     
     # A unique identifier for the organisation. Potential uses.
     attr_accessor :short_code
@@ -675,9 +675,6 @@ module XeroRuby::Accounting
     def to_hash(downcase: false)
       hash = {}
       self.class.attribute_map.each_pair do |attr, param|
-        puts "1 ***********"
-        puts "attr: #{attr}"
-        puts "param: #{param}"
         value = self.send(attr)
         next if value.nil?
         key = downcase ? attr : param
@@ -704,35 +701,21 @@ module XeroRuby::Accounting
         # value.compact.map { |v| _to_hash(v) }
       elsif value.is_a?(Hash)
         {}.tap do |hash|
-          binding.pry
           value.map { |k, v| hash[k] = _to_hash(v, downcase: downcase) }
         end
       elsif value.respond_to? :to_hash
-        value.to_hash
+        value.to_hash(downcase: downcase)
       else
         value
       end
     end
 
-    # def deplurarlized_model_name_from(param)
-    #   n = param.length
-    #   case param
-    #   when 'Addresses'
-    #     'Address'
-    #   when 'TrackingCategories'
-    #     'TrackingCategory'
-    #   else
-    #     puts "param -> #{param}"
-    #     puts "param[0..n-2] -> #{param[0..n-2]}"
-    #     puts "********************************"
-    #     param[0..n-2]
-    #   end
-    # end
-
     def parse_date(datestring)
       if datestring.include?('Date')
-        seconds_since_epoch = datestring.scan(/[0-9]+/)[0].to_i / 1000.0
-        Time.at(seconds_since_epoch).utc.strftime('%Y-%m-%dT%H:%M:%S%z').to_s
+        date_pattern = /\/Date\((-?\d+)(\+\d+)?\)\//
+        original, date, timezone = *date_pattern.match(datestring)
+        date = (date.to_i / 1000)
+        Time.at(date).utc.strftime('%Y-%m-%dT%H:%M:%S%z').to_s
       else # handle date 'types' for small subset of payroll API's
         Time.parse(datestring).strftime('%Y-%m-%dT%H:%M:%S').to_s
       end

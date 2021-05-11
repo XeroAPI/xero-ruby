@@ -23,9 +23,6 @@ We have two sample apps showing SDK usage:
 * Login to your Xero developer [/myapps](https://developer.xero.com/myapps) dashboard & create an API application
 * Copy the credentials from your API app and store/access them using a secure ENV variable strategy
 * Resaearch and include the [neccesary scopes](https://developer.xero.com/documentation/oauth2/scopes) for your app's functionality as a space-seperated list, ex. "`SCOPES="openid profile email accounting.transactions accounting.settings"`"
-
-
-
 ## Installation
 To install this gem to your project:
 ```
@@ -110,7 +107,7 @@ A `token_set` is what we call the XeroAPI response that contains data about your
 
 Note that an `access_token` is valid for 30 minutes but a `refresh_token` can be used once in up to a 60 day window. If a refresh_token is used to refresh access you must replace the entire token_set.
 
-Both the `id_token` & `access_token` are JWT's, and can be decoded for to see additional metadata described in the Token Helpers section:
+Both the `id_token` & `access_token` are JWT's, and can be decoded to see additional metadata described in the Token Helpers section:
 ## Making API calls with a valid token_set
 After the initial user interaction you can simply setup a xero_client by passing the whole token_set to the client.
 ```ruby
@@ -118,7 +115,7 @@ xero_client.set_token_set(user.token_set)
 
 xero_client.refresh_token_set(user.token_set)
 ```
-This sets the access_token on the client, and returns a refreshed `token_set` you should save in your database for the next time you need to connect to Xero's API.
+This sets the access_token on the client, and returns a refreshed `token_set` that you should save in your datastore for the next time you need to connect to Xero's API.
 ## Token Helpers
 ```ruby
 xero_client.token_set
@@ -228,9 +225,12 @@ accounts = xero_client.accounting_api.get_accounts(tenant_id).accounts
 invoices = { invoices: [{ type: XeroRuby::Accounting::Invoice::ACCREC, contact: { contact_id: contacts[0].contact_id }, line_items: [{ description: "Big Agency", quantity: BigDecimal("2.0"), unit_amount: BigDecimal("50.99"), account_code: "600", tax_type: XeroRuby::Accounting::TaxType::NONE }], date: "2019-03-11", due_date: "2018-12-10", reference: "Website Design", status: XeroRuby::Accounting::Invoice::DRAFT }]}
 invoice = xero_client.accounting_api.create_invoices(tenant_id, invoices).invoices.first
 
-# display out all the serialized data as a hash
+# display out all the serialized data as a snake_case hash
 puts invoices.to_attributes
 => {type: 'ACCREC', line_items: [...]}
+
+puts invoices.to_hash(downcase: false)
+=> {'Type': 'ACCREC', 'LineItems': [...]}
 
 # Create History
 payment = xero_client.accounting_api.get_payments(tenant_id).payments.first

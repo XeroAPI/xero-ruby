@@ -59,16 +59,16 @@ describe 'shared helper methods' do
       )
     }
 
-    let(:contact_capitalized_with_nested_keys) {
+    let(:contact_capitalized_with_nested_objects) {
       XeroRuby::Accounting::Contact.new({
         has_attachments: false,
         has_validation_errors: false,
         phones: [
-          {
-            PhoneType: "MOBILE",
-            PhoneNumber: "555-1212",
-            PhoneAreaCode: "415"
-          }
+          XeroRuby::Accounting::Phone.new({
+            phone_type: "MOBILE",
+            phone_number: "555-1212",
+            phone_area_code: "415"
+          })
         ]
       })
     }
@@ -93,7 +93,7 @@ describe 'shared helper methods' do
       end
 
       it 'can serialize nested attributes into a snake_case hash' do
-        expect(contact_capitalized_with_nested_keys.to_attributes).to eq({
+        expect(contact_capitalized_with_nested_objects.to_attributes).to eq({
           has_attachments: false,
           has_validation_errors: false,
           phones: [
