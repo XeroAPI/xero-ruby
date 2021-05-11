@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **currency_rate** | **BigDecimal** | The currency rate for a multicurrency prepayment. If no rate is specified, the XE.com day rate is used | [optional] 
 **remaining_credit** | **BigDecimal** | The remaining credit balance on the prepayment | [optional] 
 **allocations** | [**Array&lt;Allocation&gt;**](Allocation.md) | See Allocations | [optional] 
+**payments** | [**Array&lt;Payment&gt;**](Payment.md) | See Payments | [optional] 
 **applied_amount** | **Float** | The amount of applied to an invoice | [optional] 
 **has_attachments** | **Boolean** | boolean to indicate if a prepayment has an attachment | [optional] [default to false]
 **attachments** | [**Array&lt;Attachment&gt;**](Attachment.md) | See Attachments | [optional] 
@@ -45,6 +46,7 @@ instance = XeroRuby::Accounting::Prepayment.new(type: null,
                                  currency_rate: null,
                                  remaining_credit: null,
                                  allocations: null,
+                                 payments: null,
                                  applied_amount: 2.0,
                                  has_attachments: false,
                                  attachments: null)
