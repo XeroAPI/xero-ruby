@@ -263,10 +263,8 @@ module XeroRuby::Files
     def _to_hash(value, downcase: false)
       if value.is_a?(Array)
         value.map do |v|
-          to_hash_value = v.to_hash(downcase: downcase)
-          to_hash_value
+          v.to_hash(downcase: downcase)
         end
-        # value.compact.map { |v| _to_hash(v) }
       elsif value.is_a?(Hash)
         {}.tap do |hash|
           value.map { |k, v| hash[k] = _to_hash(v, downcase: downcase) }
