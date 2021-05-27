@@ -17,19 +17,19 @@ module XeroRuby::Accounting
 
   class Budgets
 
-    attr_accessor :invoices
+    attr_accessor :budgets
     
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'invoices' => :'Invoices'
+        :'budgets' => :'Budgets'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'invoices' => :'Array<Budget>'
+        :'budgets' => :'Array<Budget>'
       }
     end
 
@@ -48,9 +48,9 @@ module XeroRuby::Accounting
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'invoices')
-        if (value = attributes[:'invoices']).is_a?(Array)
-          self.invoices = value
+      if attributes.key?(:'budgets')
+        if (value = attributes[:'budgets']).is_a?(Array)
+          self.budgets = value
         end
       end
     end
@@ -73,7 +73,7 @@ module XeroRuby::Accounting
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          invoices == o.invoices
+          budgets == o.budgets
     end
 
     # @see the `==` method
@@ -85,7 +85,7 @@ module XeroRuby::Accounting
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [invoices].hash
+      [budgets].hash
     end
 
     # Builds the object from hash
