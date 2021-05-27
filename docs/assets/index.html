@@ -1454,6 +1454,12 @@ ul.nav-tabs {
 
 xeroTenantId = 'YOUR_XERO_TENANT_ID'
 
+asset = { 
+  asset_name: "Other Computer",
+  asset_number: "FA-00210",
+  status:  XeroRuby::Asset::AssetStatus::DRAFT
+}  
+
 begin
   response = xero_client.accounting_api.create_asset(xeroTenantId, asset)
   return response
@@ -1570,6 +1576,21 @@ Xero identifier for Tenant
 
 xeroTenantId = 'YOUR_XERO_TENANT_ID'
 
+bookDepreciationSetting = { 
+  depreciation_method: "DiminishingValue100",
+  averaging_method: "ActualDays",
+  deprecitation_rate: 40,
+  depreciation_calculation_method: "None"
+}  
+
+assetType = { 
+  asset_type_name: "Computer Equipment",
+  fixed_asset_account_id: "00000000-0000-0000-0000-000000000000",
+  depreciation_expense_account_id: "00000000-0000-0000-0000-000000000000",
+  accumulated_depreciation_account_id: "00000000-0000-0000-0000-000000000000",
+  bookDepreciationSetting:  book_depreciation_setting
+}  
+
 begin
   response = xero_client.accounting_api.create_asset_type(xeroTenantId, assetType)
   return response
@@ -1682,7 +1703,7 @@ a specific fixed asset in the system</p>
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xeroTenantId = 'YOUR_XERO_TENANT_ID'
-id = '4f7bcdcb-5ec1-4258-9558-19f662fccdfe'
+id = '00000000-0000-0000-0000-000000000000'
 
 begin
   response = xero_client.accounting_api.get_asset_by_id(xeroTenantId, id)

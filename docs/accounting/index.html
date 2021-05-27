@@ -3370,6 +3370,12 @@ ul.nav-tabs {
       "type" : "string",
       "description" : "See Accounts"
     },
+    "AccountID" : {
+      "type" : "string",
+      "description" : "The associated account ID related to this line item",
+      "format" : "uuid",
+      "example" : "00000000-0000-0000-0000-000000000000"
+    },
     "TaxType" : {
       "type" : "string",
       "description" : "The tax type from TaxRates"
@@ -32303,11 +32309,11 @@ filter by the to date of the report e.g. 2021-02-28
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 date = "2019-03-31"
-period = 2
+periods = 2
 time_frame = 3
 
 begin
-  response = xero_client.accounting_api.get_report_budget_summary(xero_tenant_id, date, period, time_frame)
+  response = xero_client.accounting_api.get_report_budget_summary(xero_tenant_id, date, periods, time_frame)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_report_budget_summary: #{e}"
@@ -32384,11 +32390,11 @@ The date for the Bank Summary report e.g. 2018-03-31
 </td>
 </tr>
 
-                    <tr><td style="width:150px;">period</td>
+                    <tr><td style="width:150px;">periods</td>
 <td>
 
 
-    <div id="d2e199_getReportBudgetSummary_period">
+    <div id="d2e199_getReportBudgetSummary_periods">
         <div class="json-schema-view">
             <div class="primitive">
                 <span class="type">
