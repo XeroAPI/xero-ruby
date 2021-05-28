@@ -14242,7 +14242,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :date The date for the Bank Summary report e.g. 2018-03-31
-    # @option opts [Integer] :period The number of periods to compare (integer between 1 and 12)
+    # @option opts [Integer] :periods The number of periods to compare (integer between 1 and 12)
     # @option opts [Integer] :timeframe The period size to compare to (1&#x3D;month, 3&#x3D;quarter, 12&#x3D;year)
     # @return [ReportWithRows]
     def get_report_budget_summary(xero_tenant_id, opts = {})
@@ -14254,7 +14254,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :date The date for the Bank Summary report e.g. 2018-03-31
-    # @option opts [Integer] :period The number of periods to compare (integer between 1 and 12)
+    # @option opts [Integer] :periods The number of periods to compare (integer between 1 and 12)
     # @option opts [Integer] :timeframe The period size to compare to (1&#x3D;month, 3&#x3D;quarter, 12&#x3D;year)
     # @return [Array<(ReportWithRows, Integer, Hash)>] ReportWithRows data, response status code and response headers
     def get_report_budget_summary_with_http_info(xero_tenant_id, options = {})
@@ -14275,7 +14275,7 @@ module XeroRuby
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'date'] = opts[:'date'] if !opts[:'date'].nil?
-      query_params[:'period'] = opts[:'period'] if !opts[:'period'].nil?
+      query_params[:'periods'] = opts[:'periods'] if !opts[:'periods'].nil?
       query_params[:'timeframe'] = opts[:'timeframe'] if !opts[:'timeframe'].nil?
       
       # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:

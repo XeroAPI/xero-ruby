@@ -12246,7 +12246,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   date: Date.parse('2019-03-31'), # Date | The date for the Bank Summary report e.g. 2018-03-31
 
-  period: 2, # Integer | The number of periods to compare (integer between 1 and 12)
+  periods: 2, # Integer | The number of periods to compare (integer between 1 and 12)
 
   timeframe: 3 # Integer | The period size to compare to (1=month, 3=quarter, 12=year)
 }
@@ -12267,7 +12267,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **date** | **Date**| The date for the Bank Summary report e.g. 2018-03-31 | [optional] 
- **period** | **Integer**| The number of periods to compare (integer between 1 and 12) | [optional] 
+ **periods** | **Integer**| The number of periods to compare (integer between 1 and 12) | [optional] 
  **timeframe** | **Integer**| The period size to compare to (1&#x3D;month, 3&#x3D;quarter, 12&#x3D;year) | [optional] 
 
 ### Return type

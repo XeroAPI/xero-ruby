@@ -34,6 +34,9 @@ module XeroRuby::Accounting
     # See Accounts
     attr_accessor :account_code
     
+    # The associated account ID related to this line item
+    attr_accessor :account_id
+    
     # The tax type from TaxRates
     attr_accessor :tax_type
     
@@ -64,6 +67,7 @@ module XeroRuby::Accounting
         :'unit_amount' => :'UnitAmount',
         :'item_code' => :'ItemCode',
         :'account_code' => :'AccountCode',
+        :'account_id' => :'AccountID',
         :'tax_type' => :'TaxType',
         :'tax_amount' => :'TaxAmount',
         :'line_amount' => :'LineAmount',
@@ -83,6 +87,7 @@ module XeroRuby::Accounting
         :'unit_amount' => :'BigDecimal',
         :'item_code' => :'String',
         :'account_code' => :'String',
+        :'account_id' => :'String',
         :'tax_type' => :'String',
         :'tax_amount' => :'BigDecimal',
         :'line_amount' => :'BigDecimal',
@@ -130,6 +135,10 @@ module XeroRuby::Accounting
 
       if attributes.key?(:'account_code')
         self.account_code = attributes[:'account_code']
+      end
+
+      if attributes.key?(:'account_id')
+        self.account_id = attributes[:'account_id']
       end
 
       if attributes.key?(:'tax_type')
@@ -187,6 +196,7 @@ module XeroRuby::Accounting
           unit_amount == o.unit_amount &&
           item_code == o.item_code &&
           account_code == o.account_code &&
+          account_id == o.account_id &&
           tax_type == o.tax_type &&
           tax_amount == o.tax_amount &&
           line_amount == o.line_amount &&
@@ -205,7 +215,7 @@ module XeroRuby::Accounting
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [line_item_id, description, quantity, unit_amount, item_code, account_code, tax_type, tax_amount, line_amount, tracking, discount_rate, discount_amount, repeating_invoice_id].hash
+      [line_item_id, description, quantity, unit_amount, item_code, account_code, account_id, tax_type, tax_amount, line_amount, tracking, discount_rate, discount_amount, repeating_invoice_id].hash
     end
 
     # Builds the object from hash
