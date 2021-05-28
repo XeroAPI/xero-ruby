@@ -90,6 +90,8 @@ Method | HTTP request | Description
 [**get_branding_theme**](AccountingApi.md#get_branding_theme) | **GET** /BrandingThemes/{BrandingThemeID} | Retrieves a specific branding theme using a unique branding theme Id
 [**get_branding_theme_payment_services**](AccountingApi.md#get_branding_theme_payment_services) | **GET** /BrandingThemes/{BrandingThemeID}/PaymentServices | Retrieves the payment services for a specific branding theme
 [**get_branding_themes**](AccountingApi.md#get_branding_themes) | **GET** /BrandingThemes | Retrieves all the branding themes
+[**get_budget**](AccountingApi.md#get_budget) | **GET** /Budgets/{BudgetID} | Retrieves a specific budgets, which includes budget lines
+[**get_budgets**](AccountingApi.md#get_budgets) | **GET** /Budgets | Retrieve a list of budgets
 [**get_contact**](AccountingApi.md#get_contact) | **GET** /Contacts/{ContactID} | Retrieves a specific contacts in a Xero organisation using a unique contact Id
 [**get_contact_attachment_by_file_name**](AccountingApi.md#get_contact_attachment_by_file_name) | **GET** /Contacts/{ContactID}/Attachments/{FileName} | Retrieves a specific attachment from a specific contact by file name
 [**get_contact_attachment_by_id**](AccountingApi.md#get_contact_attachment_by_id) | **GET** /Contacts/{ContactID}/Attachments/{AttachmentID} | Retrieves a specific attachment from a specific contact using a unique attachment Id
@@ -177,15 +179,15 @@ Method | HTTP request | Description
 [**get_repeating_invoices**](AccountingApi.md#get_repeating_invoices) | **GET** /RepeatingInvoices | Retrieves repeating invoices
 [**get_report_aged_payables_by_contact**](AccountingApi.md#get_report_aged_payables_by_contact) | **GET** /Reports/AgedPayablesByContact | Retrieves report for aged payables by contact
 [**get_report_aged_receivables_by_contact**](AccountingApi.md#get_report_aged_receivables_by_contact) | **GET** /Reports/AgedReceivablesByContact | Retrieves report for aged receivables by contact
-[**get_report_ba_sor_gst**](AccountingApi.md#get_report_ba_sor_gst) | **GET** /Reports/{ReportID} | Retrieves a specific report for BAS using a unique report Id (only valid for AU orgs)
-[**get_report_ba_sor_gst_list**](AccountingApi.md#get_report_ba_sor_gst_list) | **GET** /Reports | Retrieves report for BAS (only valid for AU orgs)
 [**get_report_balance_sheet**](AccountingApi.md#get_report_balance_sheet) | **GET** /Reports/BalanceSheet | Retrieves report for balancesheet
 [**get_report_bank_summary**](AccountingApi.md#get_report_bank_summary) | **GET** /Reports/BankSummary | Retrieves report for bank summary
 [**get_report_budget_summary**](AccountingApi.md#get_report_budget_summary) | **GET** /Reports/BudgetSummary | Retrieves report for budget summary
 [**get_report_executive_summary**](AccountingApi.md#get_report_executive_summary) | **GET** /Reports/ExecutiveSummary | Retrieves report for executive summary
+[**get_report_from_id**](AccountingApi.md#get_report_from_id) | **GET** /Reports/{ReportID} | Retrieves a specific report using a unique ReportID
 [**get_report_profit_and_loss**](AccountingApi.md#get_report_profit_and_loss) | **GET** /Reports/ProfitAndLoss | Retrieves report for profit and loss
 [**get_report_ten_ninety_nine**](AccountingApi.md#get_report_ten_ninety_nine) | **GET** /Reports/TenNinetyNine | Retrieve reports for 1099
 [**get_report_trial_balance**](AccountingApi.md#get_report_trial_balance) | **GET** /Reports/TrialBalance | Retrieves report for trial balance
+[**get_reports_list**](AccountingApi.md#get_reports_list) | **GET** /Reports | Retrieves a list of the organistaions unique reports that require a uuid to fetch
 [**get_tax_rates**](AccountingApi.md#get_tax_rates) | **GET** /TaxRates | Retrieves tax rates
 [**get_tracking_categories**](AccountingApi.md#get_tracking_categories) | **GET** /TrackingCategories | Retrieves tracking categories and options
 [**get_tracking_category**](AccountingApi.md#get_tracking_category) | **GET** /TrackingCategories/{TrackingCategoryID} | Retrieves specific tracking categories and options using a unique tracking category Id
@@ -934,7 +936,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 branding_theme_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Branding Theme
-payment_service = { "PaymentServiceID": "00000000-0000-0000-0000-000000000000", "PaymentServiceName": "ACME Payments", "PaymentServiceUrl": "https://www.payupnow.com/", "PayNowText": "Pay Now" } # PaymentService | PaymentService object in body of request
+payment_service = { "PaymentServiceID": "00000000-0000-0000-0000-000000000000", "PaymentServiceName": "Payments Service", "PaymentServiceUrl": "https://www.paymentservice.com/", "PayNowText": "Pay Now" } # PaymentService | PaymentService object in body of request
 begin
   #Creates a new custom payment service for a specific branding theme
   result = api_instance.create_branding_theme_payment_services(xero_tenant_id, branding_theme_id, payment_service)
@@ -5979,6 +5981,143 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**BrandingThemes**](BrandingThemes.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_budget
+
+> Budgets get_budget(xero_tenant_id, budget_id)
+
+Retrieves a specific budgets, which includes budget lines
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# You need to namespace your api method call to one of the following api sets
+# [:accounting_api, :assets_api, :projects_api, :files_api, :payroll_au_api, :payroll_nz_api, :payroll_uk_api]
+
+api_instance = xero_client.<api_set>
+
+
+
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+budget_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for Budgets
+begin
+  #Retrieves a specific budgets, which includes budget lines
+  result = api_instance.get_budget(xero_tenant_id, budget_id)
+  p result
+rescue XeroRuby::Accounting::ApiError => e
+  puts "Exception when calling AccountingApi->get_budget: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **budget_id** | [**String**](.md)| Unique identifier for Budgets | 
+
+### Return type
+
+[**Budgets**](Budgets.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_budgets
+
+> Budgets get_budgets(xero_tenant_id, opts)
+
+Retrieve a list of budgets
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# You need to namespace your api method call to one of the following api sets
+# [:accounting_api, :assets_api, :projects_api, :files_api, :payroll_au_api, :payroll_nz_api, :payroll_uk_api]
+
+api_instance = xero_client.<api_set>
+
+
+
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+opts = {
+  i_ds: ['&quot;00000000-0000-0000-0000-000000000000&quot;'], # Array<String> | Filter by BudgetID. Allows you to retrieve a specific individual budget.
+
+  date_to: Date.parse('2013-10-20'), # Date | Filter by start date
+
+  date_from: Date.parse('2013-10-20') # Date | Filter by end date
+}
+
+begin
+  #Retrieve a list of budgets
+  result = api_instance.get_budgets(xero_tenant_id, opts)
+  p result
+rescue XeroRuby::Accounting::ApiError => e
+  puts "Exception when calling AccountingApi->get_budgets: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **i_ds** | [**Array&lt;String&gt;**](String.md)| Filter by BudgetID. Allows you to retrieve a specific individual budget. | [optional] 
+ **date_to** | **Date**| Filter by start date | [optional] 
+ **date_from** | **Date**| Filter by end date | [optional] 
+
+### Return type
+
+[**Budgets**](Budgets.md)
 
 ### Authorization
 
@@ -11917,132 +12056,6 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## get_report_ba_sor_gst
-
-> ReportWithRows get_report_ba_sor_gst(xero_tenant_id, report_id)
-
-Retrieves a specific report for BAS using a unique report Id (only valid for AU orgs)
-
-### Example
-
-```ruby
-# load the gem
-require 'xero-ruby'
-
-creds = {
-  client_id: ENV['CLIENT_ID'],
-  client_secret: ENV['CLIENT_SECRET'],
-  redirect_uri: ENV['REDIRECT_URI'],
-  scopes: ENV['SCOPES']
-}
-xero_client = XeroRuby::ApiClient.new(credentials: creds)
-
-token_set = fetch_valid_token_set(user) # example
-
-xero_client.refresh_token_set(token_set)
-
-# You need to namespace your api method call to one of the following api sets
-# [:accounting_api, :assets_api, :projects_api, :files_api, :payroll_au_api, :payroll_nz_api, :payroll_uk_api]
-
-api_instance = xero_client.<api_set>
-
-
-
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-report_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Report
-begin
-  #Retrieves a specific report for BAS using a unique report Id (only valid for AU orgs)
-  result = api_instance.get_report_ba_sor_gst(xero_tenant_id, report_id)
-  p result
-rescue XeroRuby::Accounting::ApiError => e
-  puts "Exception when calling AccountingApi->get_report_ba_sor_gst: #{e}"
-end
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **report_id** | **String**| Unique identifier for a Report | 
-
-### Return type
-
-[**ReportWithRows**](ReportWithRows.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## get_report_ba_sor_gst_list
-
-> ReportWithRows get_report_ba_sor_gst_list(xero_tenant_id)
-
-Retrieves report for BAS (only valid for AU orgs)
-
-### Example
-
-```ruby
-# load the gem
-require 'xero-ruby'
-
-creds = {
-  client_id: ENV['CLIENT_ID'],
-  client_secret: ENV['CLIENT_SECRET'],
-  redirect_uri: ENV['REDIRECT_URI'],
-  scopes: ENV['SCOPES']
-}
-xero_client = XeroRuby::ApiClient.new(credentials: creds)
-
-token_set = fetch_valid_token_set(user) # example
-
-xero_client.refresh_token_set(token_set)
-
-# You need to namespace your api method call to one of the following api sets
-# [:accounting_api, :assets_api, :projects_api, :files_api, :payroll_au_api, :payroll_nz_api, :payroll_uk_api]
-
-api_instance = xero_client.<api_set>
-
-
-
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-begin
-  #Retrieves report for BAS (only valid for AU orgs)
-  result = api_instance.get_report_ba_sor_gst_list(xero_tenant_id)
-  p result
-rescue XeroRuby::Accounting::ApiError => e
-  puts "Exception when calling AccountingApi->get_report_ba_sor_gst_list: #{e}"
-end
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xero_tenant_id** | **String**| Xero identifier for Tenant | 
-
-### Return type
-
-[**ReportWithRows**](ReportWithRows.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
 ## get_report_balance_sheet
 
 > ReportWithRows get_report_balance_sheet(xero_tenant_id, opts)
@@ -12233,7 +12246,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   date: Date.parse('2019-03-31'), # Date | The date for the Bank Summary report e.g. 2018-03-31
 
-  period: 2, # Integer | The number of periods to compare (integer between 1 and 12)
+  periods: 2, # Integer | The number of periods to compare (integer between 1 and 12)
 
   timeframe: 3 # Integer | The period size to compare to (1=month, 3=quarter, 12=year)
 }
@@ -12254,7 +12267,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **date** | **Date**| The date for the Bank Summary report e.g. 2018-03-31 | [optional] 
- **period** | **Integer**| The number of periods to compare (integer between 1 and 12) | [optional] 
+ **periods** | **Integer**| The number of periods to compare (integer between 1 and 12) | [optional] 
  **timeframe** | **Integer**| The period size to compare to (1&#x3D;month, 3&#x3D;quarter, 12&#x3D;year) | [optional] 
 
 ### Return type
@@ -12323,6 +12336,70 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **date** | **Date**| The date for the Bank Summary report e.g. 2018-03-31 | [optional] 
+
+### Return type
+
+[**ReportWithRows**](ReportWithRows.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_report_from_id
+
+> ReportWithRows get_report_from_id(xero_tenant_id, report_id)
+
+Retrieves a specific report using a unique ReportID
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# You need to namespace your api method call to one of the following api sets
+# [:accounting_api, :assets_api, :projects_api, :files_api, :payroll_au_api, :payroll_nz_api, :payroll_uk_api]
+
+api_instance = xero_client.<api_set>
+
+
+
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+report_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Report
+begin
+  #Retrieves a specific report using a unique ReportID
+  result = api_instance.get_report_from_id(xero_tenant_id, report_id)
+  p result
+rescue XeroRuby::Accounting::ApiError => e
+  puts "Exception when calling AccountingApi->get_report_from_id: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **report_id** | **String**| Unique identifier for a Report | 
 
 ### Return type
 
@@ -12554,6 +12631,68 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **date** | **Date**| The date for the Trial Balance report e.g. 2018-03-31 | [optional] 
  **payments_only** | **Boolean**| Return cash only basis for the Trial Balance report | [optional] 
+
+### Return type
+
+[**ReportWithRows**](ReportWithRows.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_reports_list
+
+> ReportWithRows get_reports_list(xero_tenant_id)
+
+Retrieves a list of the organistaions unique reports that require a uuid to fetch
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# You need to namespace your api method call to one of the following api sets
+# [:accounting_api, :assets_api, :projects_api, :files_api, :payroll_au_api, :payroll_nz_api, :payroll_uk_api]
+
+api_instance = xero_client.<api_set>
+
+
+
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+begin
+  #Retrieves a list of the organistaions unique reports that require a uuid to fetch
+  result = api_instance.get_reports_list(xero_tenant_id)
+  p result
+rescue XeroRuby::Accounting::ApiError => e
+  puts "Exception when calling AccountingApi->get_reports_list: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
 
 ### Return type
 

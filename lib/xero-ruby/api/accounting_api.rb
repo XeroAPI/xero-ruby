@@ -7018,6 +7018,159 @@ module XeroRuby
       return data, status_code, headers
     end
 
+    # Retrieves a specific budgets, which includes budget lines
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param budget_id [String] Unique identifier for Budgets
+    # @param [Hash] opts the optional parameters
+    # @return [Budgets]
+    def get_budget(xero_tenant_id, budget_id, opts = {})
+      data, _status_code, _headers = get_budget_with_http_info(xero_tenant_id, budget_id, opts)
+      data
+    end
+
+    # Retrieves a specific budgets, which includes budget lines
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param budget_id [String] Unique identifier for Budgets
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Budgets, Integer, Hash)>] Budgets data, response status code and response headers
+    def get_budget_with_http_info(xero_tenant_id, budget_id, options = {})
+      opts = options.dup
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AccountingApi.get_budget ...'
+      end
+      # verify the required parameter 'xero_tenant_id' is set
+      if @api_client.config.client_side_validation && xero_tenant_id.nil?
+        fail ArgumentError, "Missing the required parameter 'xero_tenant_id' when calling AccountingApi.get_budget"
+      end
+      # verify the required parameter 'budget_id' is set
+      if @api_client.config.client_side_validation && budget_id.nil?
+        fail ArgumentError, "Missing the required parameter 'budget_id' when calling AccountingApi.get_budget"
+      end
+      # resource path
+      local_var_path = '/Budgets/{BudgetID}'.sub('{' + 'BudgetID' + '}', budget_id.to_s)
+
+      # camelize keys of incoming `where` opts
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      
+      # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
+      query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+      query_params[:'ContactIDs'] = @api_client.build_collection_param(opts[:'contact_ids'], :csv) if !opts[:'contact_ids'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'xero-tenant-id'] = xero_tenant_id
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'Budgets' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['OAuth2']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AccountingApi#get_budget\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve a list of budgets
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :i_ds Filter by BudgetID. Allows you to retrieve a specific individual budget.
+    # @option opts [Date] :date_to Filter by start date
+    # @option opts [Date] :date_from Filter by end date
+    # @return [Budgets]
+    def get_budgets(xero_tenant_id, opts = {})
+      data, _status_code, _headers = get_budgets_with_http_info(xero_tenant_id, opts)
+      data
+    end
+
+    # Retrieve a list of budgets
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :i_ds Filter by BudgetID. Allows you to retrieve a specific individual budget.
+    # @option opts [Date] :date_to Filter by start date
+    # @option opts [Date] :date_from Filter by end date
+    # @return [Array<(Budgets, Integer, Hash)>] Budgets data, response status code and response headers
+    def get_budgets_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AccountingApi.get_budgets ...'
+      end
+      # verify the required parameter 'xero_tenant_id' is set
+      if @api_client.config.client_side_validation && xero_tenant_id.nil?
+        fail ArgumentError, "Missing the required parameter 'xero_tenant_id' when calling AccountingApi.get_budgets"
+      end
+      # resource path
+      local_var_path = '/Budgets'
+
+      # camelize keys of incoming `where` opts
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'IDs'] = @api_client.build_collection_param(opts[:'i_ds'], :csv) if !opts[:'i_ds'].nil?
+      query_params[:'DateTo'] = opts[:'date_to'] if !opts[:'date_to'].nil?
+      query_params[:'DateFrom'] = opts[:'date_from'] if !opts[:'date_from'].nil?
+      
+      # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
+      query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+      query_params[:'ContactIDs'] = @api_client.build_collection_param(opts[:'contact_ids'], :csv) if !opts[:'contact_ids'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'xero-tenant-id'] = xero_tenant_id
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'Budgets' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['OAuth2']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AccountingApi#get_budgets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Retrieves a specific contacts in a Xero organisation using a unique contact Id
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param contact_id [String] Unique identifier for a Contact
@@ -13916,150 +14069,6 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # Retrieves a specific report for BAS using a unique report Id (only valid for AU orgs)
-    # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param report_id [String] Unique identifier for a Report
-    # @param [Hash] opts the optional parameters
-    # @return [ReportWithRows]
-    def get_report_ba_sor_gst(xero_tenant_id, report_id, opts = {})
-      data, _status_code, _headers = get_report_ba_sor_gst_with_http_info(xero_tenant_id, report_id, opts)
-      data
-    end
-
-    # Retrieves a specific report for BAS using a unique report Id (only valid for AU orgs)
-    # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param report_id [String] Unique identifier for a Report
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(ReportWithRows, Integer, Hash)>] ReportWithRows data, response status code and response headers
-    def get_report_ba_sor_gst_with_http_info(xero_tenant_id, report_id, options = {})
-      opts = options.dup
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AccountingApi.get_report_ba_sor_gst ...'
-      end
-      # verify the required parameter 'xero_tenant_id' is set
-      if @api_client.config.client_side_validation && xero_tenant_id.nil?
-        fail ArgumentError, "Missing the required parameter 'xero_tenant_id' when calling AccountingApi.get_report_ba_sor_gst"
-      end
-      # verify the required parameter 'report_id' is set
-      if @api_client.config.client_side_validation && report_id.nil?
-        fail ArgumentError, "Missing the required parameter 'report_id' when calling AccountingApi.get_report_ba_sor_gst"
-      end
-      # resource path
-      local_var_path = '/Reports/{ReportID}'.sub('{' + 'ReportID' + '}', report_id.to_s)
-
-      # camelize keys of incoming `where` opts
-      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-      
-      # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
-      query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
-      query_params[:'ContactIDs'] = @api_client.build_collection_param(opts[:'contact_ids'], :csv) if !opts[:'contact_ids'].nil?
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      header_params[:'xero-tenant-id'] = xero_tenant_id
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:body] 
-
-      # return_type
-      return_type = opts[:return_type] || 'ReportWithRows' 
-
-      # auth_names
-      auth_names = opts[:auth_names] || ['OAuth2']
-
-      new_options = opts.merge(
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: AccountingApi#get_report_ba_sor_gst\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Retrieves report for BAS (only valid for AU orgs)
-    # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param [Hash] opts the optional parameters
-    # @return [ReportWithRows]
-    def get_report_ba_sor_gst_list(xero_tenant_id, opts = {})
-      data, _status_code, _headers = get_report_ba_sor_gst_list_with_http_info(xero_tenant_id, opts)
-      data
-    end
-
-    # Retrieves report for BAS (only valid for AU orgs)
-    # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(ReportWithRows, Integer, Hash)>] ReportWithRows data, response status code and response headers
-    def get_report_ba_sor_gst_list_with_http_info(xero_tenant_id, options = {})
-      opts = options.dup
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AccountingApi.get_report_ba_sor_gst_list ...'
-      end
-      # verify the required parameter 'xero_tenant_id' is set
-      if @api_client.config.client_side_validation && xero_tenant_id.nil?
-        fail ArgumentError, "Missing the required parameter 'xero_tenant_id' when calling AccountingApi.get_report_ba_sor_gst_list"
-      end
-      # resource path
-      local_var_path = '/Reports'
-
-      # camelize keys of incoming `where` opts
-      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-      
-      # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
-      query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
-      query_params[:'ContactIDs'] = @api_client.build_collection_param(opts[:'contact_ids'], :csv) if !opts[:'contact_ids'].nil?
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      header_params[:'xero-tenant-id'] = xero_tenant_id
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:body] 
-
-      # return_type
-      return_type = opts[:return_type] || 'ReportWithRows' 
-
-      # auth_names
-      auth_names = opts[:auth_names] || ['OAuth2']
-
-      new_options = opts.merge(
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: AccountingApi#get_report_ba_sor_gst_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
     # Retrieves report for balancesheet
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
@@ -14233,7 +14242,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :date The date for the Bank Summary report e.g. 2018-03-31
-    # @option opts [Integer] :period The number of periods to compare (integer between 1 and 12)
+    # @option opts [Integer] :periods The number of periods to compare (integer between 1 and 12)
     # @option opts [Integer] :timeframe The period size to compare to (1&#x3D;month, 3&#x3D;quarter, 12&#x3D;year)
     # @return [ReportWithRows]
     def get_report_budget_summary(xero_tenant_id, opts = {})
@@ -14245,7 +14254,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :date The date for the Bank Summary report e.g. 2018-03-31
-    # @option opts [Integer] :period The number of periods to compare (integer between 1 and 12)
+    # @option opts [Integer] :periods The number of periods to compare (integer between 1 and 12)
     # @option opts [Integer] :timeframe The period size to compare to (1&#x3D;month, 3&#x3D;quarter, 12&#x3D;year)
     # @return [Array<(ReportWithRows, Integer, Hash)>] ReportWithRows data, response status code and response headers
     def get_report_budget_summary_with_http_info(xero_tenant_id, options = {})
@@ -14266,7 +14275,7 @@ module XeroRuby
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'date'] = opts[:'date'] if !opts[:'date'].nil?
-      query_params[:'period'] = opts[:'period'] if !opts[:'period'].nil?
+      query_params[:'periods'] = opts[:'periods'] if !opts[:'periods'].nil?
       query_params[:'timeframe'] = opts[:'timeframe'] if !opts[:'timeframe'].nil?
       
       # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
@@ -14375,6 +14384,81 @@ module XeroRuby
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_report_executive_summary\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieves a specific report using a unique ReportID
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param report_id [String] Unique identifier for a Report
+    # @param [Hash] opts the optional parameters
+    # @return [ReportWithRows]
+    def get_report_from_id(xero_tenant_id, report_id, opts = {})
+      data, _status_code, _headers = get_report_from_id_with_http_info(xero_tenant_id, report_id, opts)
+      data
+    end
+
+    # Retrieves a specific report using a unique ReportID
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param report_id [String] Unique identifier for a Report
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ReportWithRows, Integer, Hash)>] ReportWithRows data, response status code and response headers
+    def get_report_from_id_with_http_info(xero_tenant_id, report_id, options = {})
+      opts = options.dup
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AccountingApi.get_report_from_id ...'
+      end
+      # verify the required parameter 'xero_tenant_id' is set
+      if @api_client.config.client_side_validation && xero_tenant_id.nil?
+        fail ArgumentError, "Missing the required parameter 'xero_tenant_id' when calling AccountingApi.get_report_from_id"
+      end
+      # verify the required parameter 'report_id' is set
+      if @api_client.config.client_side_validation && report_id.nil?
+        fail ArgumentError, "Missing the required parameter 'report_id' when calling AccountingApi.get_report_from_id"
+      end
+      # resource path
+      local_var_path = '/Reports/{ReportID}'.sub('{' + 'ReportID' + '}', report_id.to_s)
+
+      # camelize keys of incoming `where` opts
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      
+      # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
+      query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+      query_params[:'ContactIDs'] = @api_client.build_collection_param(opts[:'contact_ids'], :csv) if !opts[:'contact_ids'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'xero-tenant-id'] = xero_tenant_id
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'ReportWithRows' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['OAuth2']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AccountingApi#get_report_from_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -14625,6 +14709,75 @@ module XeroRuby
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_report_trial_balance\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieves a list of the organistaions unique reports that require a uuid to fetch
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param [Hash] opts the optional parameters
+    # @return [ReportWithRows]
+    def get_reports_list(xero_tenant_id, opts = {})
+      data, _status_code, _headers = get_reports_list_with_http_info(xero_tenant_id, opts)
+      data
+    end
+
+    # Retrieves a list of the organistaions unique reports that require a uuid to fetch
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ReportWithRows, Integer, Hash)>] ReportWithRows data, response status code and response headers
+    def get_reports_list_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AccountingApi.get_reports_list ...'
+      end
+      # verify the required parameter 'xero_tenant_id' is set
+      if @api_client.config.client_side_validation && xero_tenant_id.nil?
+        fail ArgumentError, "Missing the required parameter 'xero_tenant_id' when calling AccountingApi.get_reports_list"
+      end
+      # resource path
+      local_var_path = '/Reports'
+
+      # camelize keys of incoming `where` opts
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      
+      # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
+      query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+      query_params[:'ContactIDs'] = @api_client.build_collection_param(opts[:'contact_ids'], :csv) if !opts[:'contact_ids'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'xero-tenant-id'] = xero_tenant_id
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'ReportWithRows' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['OAuth2']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AccountingApi#get_reports_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

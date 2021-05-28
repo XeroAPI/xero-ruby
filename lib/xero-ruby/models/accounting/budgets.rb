@@ -15,61 +15,21 @@ require 'date'
 module XeroRuby::Accounting
   require 'bigdecimal'
 
-  class ReportWithRow
-    # ID of the Report
-    attr_accessor :report_id
-    
-    # Name of the report
-    attr_accessor :report_name
-    
-    # Title of the report
-    attr_accessor :report_title
-    
-    # The type of report (BalanceSheet,ProfitLoss, etc)
-    attr_accessor :report_type
-    
-    # Report titles array (3 to 4 strings with the report name, orgnisation name and time frame of report)
-    attr_accessor :report_titles
-    
-    # Date of report
-    attr_accessor :report_date
-    
+  class Budgets
 
-    attr_accessor :rows
-    
-    # Updated Date
-    attr_accessor :updated_date_utc
-    
-
-    attr_accessor :fields
+    attr_accessor :budgets
     
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'report_id' => :'ReportID',
-        :'report_name' => :'ReportName',
-        :'report_title' => :'ReportTitle',
-        :'report_type' => :'ReportType',
-        :'report_titles' => :'ReportTitles',
-        :'report_date' => :'ReportDate',
-        :'rows' => :'Rows',
-        :'updated_date_utc' => :'UpdatedDateUTC',
-        :'fields' => :'Fields'
+        :'budgets' => :'Budgets'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'report_id' => :'String',
-        :'report_name' => :'String',
-        :'report_title' => :'String',
-        :'report_type' => :'String',
-        :'report_titles' => :'Array<String>',
-        :'report_date' => :'String',
-        :'rows' => :'Array<ReportRows>',
-        :'updated_date_utc' => :'DateTime',
-        :'fields' => :'Array<ReportFields>'
+        :'budgets' => :'Array<Budget>'
       }
     end
 
@@ -77,56 +37,20 @@ module XeroRuby::Accounting
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `XeroRuby::Accounting::ReportWithRow` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `XeroRuby::Accounting::Budgets` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `XeroRuby::Accounting::ReportWithRow`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `XeroRuby::Accounting::Budgets`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'report_id')
-        self.report_id = attributes[:'report_id']
-      end
-
-      if attributes.key?(:'report_name')
-        self.report_name = attributes[:'report_name']
-      end
-
-      if attributes.key?(:'report_title')
-        self.report_title = attributes[:'report_title']
-      end
-
-      if attributes.key?(:'report_type')
-        self.report_type = attributes[:'report_type']
-      end
-
-      if attributes.key?(:'report_titles')
-        if (value = attributes[:'report_titles']).is_a?(Array)
-          self.report_titles = value
-        end
-      end
-
-      if attributes.key?(:'report_date')
-        self.report_date = attributes[:'report_date']
-      end
-
-      if attributes.key?(:'rows')
-        if (value = attributes[:'rows']).is_a?(Array)
-          self.rows = value
-        end
-      end
-
-      if attributes.key?(:'updated_date_utc')
-        self.updated_date_utc = attributes[:'updated_date_utc']
-      end
-
-      if attributes.key?(:'fields')
-        if (value = attributes[:'fields']).is_a?(Array)
-          self.fields = value
+      if attributes.key?(:'budgets')
+        if (value = attributes[:'budgets']).is_a?(Array)
+          self.budgets = value
         end
       end
     end
@@ -149,15 +73,7 @@ module XeroRuby::Accounting
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          report_id == o.report_id &&
-          report_name == o.report_name &&
-          report_title == o.report_title &&
-          report_type == o.report_type &&
-          report_titles == o.report_titles &&
-          report_date == o.report_date &&
-          rows == o.rows &&
-          updated_date_utc == o.updated_date_utc &&
-          fields == o.fields
+          budgets == o.budgets
     end
 
     # @see the `==` method
@@ -169,7 +85,7 @@ module XeroRuby::Accounting
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [report_id, report_name, report_title, report_type, report_titles, report_date, rows, updated_date_utc, fields].hash
+      [budgets].hash
     end
 
     # Builds the object from hash

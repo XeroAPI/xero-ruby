@@ -15,61 +15,70 @@ require 'date'
 module XeroRuby::Accounting
   require 'bigdecimal'
 
-  class ReportWithRow
-    # ID of the Report
-    attr_accessor :report_id
+  class Budget
+    # Xero identifier
+    attr_accessor :budget_id
     
-    # Name of the report
-    attr_accessor :report_name
+    # Type of Budget. OVERALL or TRACKING
+    attr_accessor :type
+    OVERALL = "OVERALL".freeze
+    TRACKING = "TRACKING".freeze
     
-    # Title of the report
-    attr_accessor :report_title
+    # The Budget description
+    attr_accessor :description
     
-    # The type of report (BalanceSheet,ProfitLoss, etc)
-    attr_accessor :report_type
-    
-    # Report titles array (3 to 4 strings with the report name, orgnisation name and time frame of report)
-    attr_accessor :report_titles
-    
-    # Date of report
-    attr_accessor :report_date
-    
-
-    attr_accessor :rows
-    
-    # Updated Date
+    # UTC timestamp of last update to budget
     attr_accessor :updated_date_utc
     
 
-    attr_accessor :fields
+    attr_accessor :budget_lines
     
+
+    attr_accessor :tracking
+    
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'report_id' => :'ReportID',
-        :'report_name' => :'ReportName',
-        :'report_title' => :'ReportTitle',
-        :'report_type' => :'ReportType',
-        :'report_titles' => :'ReportTitles',
-        :'report_date' => :'ReportDate',
-        :'rows' => :'Rows',
+        :'budget_id' => :'BudgetID',
+        :'type' => :'Type',
+        :'description' => :'Description',
         :'updated_date_utc' => :'UpdatedDateUTC',
-        :'fields' => :'Fields'
+        :'budget_lines' => :'BudgetLines',
+        :'tracking' => :'Tracking'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'report_id' => :'String',
-        :'report_name' => :'String',
-        :'report_title' => :'String',
-        :'report_type' => :'String',
-        :'report_titles' => :'Array<String>',
-        :'report_date' => :'String',
-        :'rows' => :'Array<ReportRows>',
+        :'budget_id' => :'String',
+        :'type' => :'String',
+        :'description' => :'String',
         :'updated_date_utc' => :'DateTime',
-        :'fields' => :'Array<ReportFields>'
+        :'budget_lines' => :'BudgetLines',
+        :'tracking' => :'TrackingCategory'
       }
     end
 
@@ -77,57 +86,39 @@ module XeroRuby::Accounting
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `XeroRuby::Accounting::ReportWithRow` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `XeroRuby::Accounting::Budget` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `XeroRuby::Accounting::ReportWithRow`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `XeroRuby::Accounting::Budget`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'report_id')
-        self.report_id = attributes[:'report_id']
+      if attributes.key?(:'budget_id')
+        self.budget_id = attributes[:'budget_id']
       end
 
-      if attributes.key?(:'report_name')
-        self.report_name = attributes[:'report_name']
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
 
-      if attributes.key?(:'report_title')
-        self.report_title = attributes[:'report_title']
-      end
-
-      if attributes.key?(:'report_type')
-        self.report_type = attributes[:'report_type']
-      end
-
-      if attributes.key?(:'report_titles')
-        if (value = attributes[:'report_titles']).is_a?(Array)
-          self.report_titles = value
-        end
-      end
-
-      if attributes.key?(:'report_date')
-        self.report_date = attributes[:'report_date']
-      end
-
-      if attributes.key?(:'rows')
-        if (value = attributes[:'rows']).is_a?(Array)
-          self.rows = value
-        end
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
       end
 
       if attributes.key?(:'updated_date_utc')
         self.updated_date_utc = attributes[:'updated_date_utc']
       end
 
-      if attributes.key?(:'fields')
-        if (value = attributes[:'fields']).is_a?(Array)
-          self.fields = value
-        end
+      if attributes.key?(:'budget_lines')
+        self.budget_lines = attributes[:'budget_lines']
+      end
+
+      if attributes.key?(:'tracking')
+        self.tracking = attributes[:'tracking']
       end
     end
 
@@ -135,13 +126,40 @@ module XeroRuby::Accounting
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@description.nil? && @description.to_s.length > 255
+        invalid_properties.push('invalid value for "description", the character length must be smaller than or equal to 255.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      type_validator = EnumAttributeValidator.new('String', ["OVERALL", "TRACKING"])
+      return false unless type_validator.valid?(@type)
+      return false if !@description.nil? && @description.to_s.length > 255
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] type Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('String', ["OVERALL", "TRACKING"])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      @type = type
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] description Value to be assigned
+    def description=(description)
+      if !description.nil? && description.to_s.length > 255
+        fail ArgumentError, 'invalid value for "description", the character length must be smaller than or equal to 255.'
+      end
+
+      @description = description
     end
 
     # Checks equality by comparing each attribute.
@@ -149,15 +167,12 @@ module XeroRuby::Accounting
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          report_id == o.report_id &&
-          report_name == o.report_name &&
-          report_title == o.report_title &&
-          report_type == o.report_type &&
-          report_titles == o.report_titles &&
-          report_date == o.report_date &&
-          rows == o.rows &&
+          budget_id == o.budget_id &&
+          type == o.type &&
+          description == o.description &&
           updated_date_utc == o.updated_date_utc &&
-          fields == o.fields
+          budget_lines == o.budget_lines &&
+          tracking == o.tracking
     end
 
     # @see the `==` method
@@ -169,7 +184,7 @@ module XeroRuby::Accounting
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [report_id, report_name, report_title, report_type, report_titles, report_date, rows, updated_date_utc, fields].hash
+      [budget_id, type, description, updated_date_utc, budget_lines, tracking].hash
     end
 
     # Builds the object from hash
