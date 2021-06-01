@@ -9542,8 +9542,8 @@ module XeroRuby
     # @option opts [Integer] :page e.g. page&#x3D;1 – Up to 100 invoices will be returned in a single API call with line items shown for each invoice
     # @option opts [Boolean] :include_archived e.g. includeArchived&#x3D;true - Invoices with a status of ARCHIVED will be included in the response
     # @option opts [Boolean] :created_by_my_app When set to true you&#39;ll only retrieve Invoices created by your app
-    # @option opts [Boolean] :summary_only Use summaryOnly&#x3D;true in GET Contacts and Invoices endpoint to retrieve a smaller version of the response object. This returns only lightweight fields, excluding computation-heavy fields from the response, making the API calls quick and efficient. (default to false)
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [Boolean] :summary_only Use summaryOnly&#x3D;true in GET Contacts and Invoices endpoint to retrieve a smaller version of the response object. This returns only lightweight fields, excluding computation-heavy fields from the response, making the API calls quick and efficient. (default to false)
     # @return [Invoices]
     def get_invoices(xero_tenant_id, opts = {})
       data, _status_code, _headers = get_invoices_with_http_info(xero_tenant_id, opts)
@@ -9563,8 +9563,8 @@ module XeroRuby
     # @option opts [Integer] :page e.g. page&#x3D;1 – Up to 100 invoices will be returned in a single API call with line items shown for each invoice
     # @option opts [Boolean] :include_archived e.g. includeArchived&#x3D;true - Invoices with a status of ARCHIVED will be included in the response
     # @option opts [Boolean] :created_by_my_app When set to true you&#39;ll only retrieve Invoices created by your app
-    # @option opts [Boolean] :summary_only Use summaryOnly&#x3D;true in GET Contacts and Invoices endpoint to retrieve a smaller version of the response object. This returns only lightweight fields, excluding computation-heavy fields from the response, making the API calls quick and efficient.
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [Boolean] :summary_only Use summaryOnly&#x3D;true in GET Contacts and Invoices endpoint to retrieve a smaller version of the response object. This returns only lightweight fields, excluding computation-heavy fields from the response, making the API calls quick and efficient.
     # @return [Array<(Invoices, Integer, Hash)>] Invoices data, response status code and response headers
     def get_invoices_with_http_info(xero_tenant_id, options = {})
       opts = options.dup
@@ -9592,8 +9592,8 @@ module XeroRuby
       query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
       query_params[:'includeArchived'] = opts[:'include_archived'] if !opts[:'include_archived'].nil?
       query_params[:'createdByMyApp'] = opts[:'created_by_my_app'] if !opts[:'created_by_my_app'].nil?
-      query_params[:'summaryOnly'] = opts[:'summary_only'] if !opts[:'summary_only'].nil?
       query_params[:'unitdp'] = opts[:'unitdp'] if !opts[:'unitdp'].nil?
+      query_params[:'summaryOnly'] = opts[:'summary_only'] if !opts[:'summary_only'].nil?
       
       # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
       query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
