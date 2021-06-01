@@ -3364,6 +3364,21 @@ ul.nav-tabs {
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xeroTenantId = 'xeroTenantId_example'
+date_of_birth = 'YYYY-MM-DD'
+
+home_address = { 
+  address_line_1: "123 Test st",
+  region: "VIC",
+  postal_code: 3000,
+  city: "Melbourne"
+}  
+
+employee = { 
+  first_name: "Adam",
+  last_name: "Adamson",
+  date_of_birth:  date_of_birth,
+  homeAddress:  home_address
+}  
 
 begin
   response = xero_client.accounting_api.create_employee(xeroTenantId, employee)
@@ -3482,6 +3497,16 @@ Xero identifier for Tenant
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xeroTenantId = 'xeroTenantId_example'
+start_date = 'YYYY-MM-DD'
+end_date = 'YYYY-MM-DD'
+
+leaveApplication = { 
+  employee_id: "00000000-0000-0000-0000-000000000000",
+  leave_type_id: "00000000-0000-0000-0000-000000000000",
+  title: "Annual Leave",
+  start_date:  start_date,
+  end_date:  end_date
+}  
 
 begin
   response = xero_client.accounting_api.create_leave_application(xeroTenantId, leaveApplication)
@@ -3601,6 +3626,48 @@ Xero identifier for Tenant
 
 xeroTenantId = 'xeroTenantId_example'
 
+earnings_rate = { 
+  name: "Ordinary Hours 123",
+  account_code: "477",
+  type_of_units: "Hours",
+  is_exempt_from_tax: true,
+  is_exempt_from_super: true,
+  earningsType:  XeroRuby::PayrollAu::EarningsType::OVERTIMEEARNINGS
+}  
+
+deduction_type = { 
+  name: "Union Fees",
+  account_code: "826",
+  reduces_tax: true,
+  reduces_super: true
+}  
+
+leave_type = { 
+  name: "Annual Leave",
+  type_of_units: "Hours",
+  is_paid_leave: true,
+  show_on_payslip: true
+}  
+
+reimbursement_type = { 
+  name: "Annual Leave",
+  account_code: "850"
+}    
+earnings_rates = []
+earnings_rates << earnings_rate,  
+deduction_types = []  
+leave_types = []
+leave_types << leave_type  
+reimbursement_types = []
+reimbursement_types << reimbursement_type
+
+pay_item = { 
+  earningsRates:  earnings_rates,
+  deductionTypes:  deduction_types,
+  leaveTypes:  leave_types,
+  reimbursementTypes:  reimbursement_types
+}  
+
 begin
   response = xero_client.accounting_api.create_pay_item(xeroTenantId, payItem)
   return response
@@ -3715,6 +3782,10 @@ Xero identifier for Tenant
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xeroTenantId = 'xeroTenantId_example'
+
+pay_run = { 
+  payroll_calendar_id: "00000000-0000-0000-0000-000000000000"
+}  
 
 begin
   response = xero_client.accounting_api.create_pay_run(xeroTenantId, payRun)
@@ -3833,6 +3904,17 @@ Xero identifier for Tenant
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xeroTenantId = 'xeroTenantId_example'
+start_date = 'YYYY-MM-DD'
+payment_date = 'YYYY-MM-DD'
+
+payroll_calendar = { 
+  name: "Weekly",
+  calendar_type:  XeroRuby::PayrollAu::CalendarType::WEEKLY,
+  start_date:  start_date,
+  payment_date:  payment_date
+}    
+payroll_calendars = []
+payroll_calendars << payroll_calendar
 
 begin
   response = xero_client.accounting_api.create_payroll_calendar(xeroTenantId, payrollCalendar)
@@ -3952,6 +4034,11 @@ Xero identifier for Tenant
 
 xeroTenantId = 'xeroTenantId_example'
 
+super_fund = { 
+  type:  XeroRuby::PayrollAu::SuperFundType::REGULATED,
+  USI: "40022701955002"
+}  
+
 begin
   response = xero_client.accounting_api.create_superfund(xeroTenantId, superFund)
   return response
@@ -4069,6 +4156,15 @@ Xero identifier for Tenant
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xeroTenantId = 'xeroTenantId_example'
+start_date = 'YYYY-MM-DD'
+end_date = 'YYYY-MM-DD'
+
+timesheet = { 
+  employee_id: "00000000-0000-0000-0000-000000000000",
+  start_date:  start_date,
+  end_date:  end_date,
+  status:  XeroRuby::PayrollAu::TimesheetStatus::DRAFT
+}  
 
 begin
   response = xero_client.accounting_api.create_timesheet(xeroTenantId, timesheet)
@@ -6376,6 +6472,21 @@ e.g. page=1 – Up to 100 timesheets will be returned in a single API call
 
 xeroTenantId = 'xeroTenantId_example'
 employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+date_of_birth = 'YYYY-MM-DD'
+
+home_address = { 
+  address_line_1: "123 Test st",
+  region: "VIC",
+  postal_code: 3000,
+  city: "Melbourne"
+}  
+
+employee = { 
+  first_name: "Adam",
+  last_name: "Adamson",
+  date_of_birth:  date_of_birth,
+  homeAddress:  home_address
+}  
 
 begin
   response = xero_client.accounting_api.update_employee(xeroTenantId, employeeID, employee)
@@ -6524,6 +6635,16 @@ Xero identifier for Tenant
 
 xeroTenantId = 'xeroTenantId_example'
 leaveApplicationID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+start_date = 'YYYY-MM-DD'
+end_date = 'YYYY-MM-DD'
+
+leaveApplication = { 
+  employee_id: "00000000-0000-0000-0000-000000000000",
+  leave_type_id: "00000000-0000-0000-0000-000000000000",
+  title: "Annual Leave",
+  start_date:  start_date,
+  end_date:  end_date
+}  
 
 begin
   response = xero_client.accounting_api.update_leave_application(xeroTenantId, leaveApplicationID, leaveApplication)
@@ -6677,6 +6798,10 @@ Xero identifier for Tenant
 xeroTenantId = 'xeroTenantId_example'
 payRunID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
+pay_run = { 
+  payroll_calendar_id: "00000000-0000-0000-0000-000000000000"
+}  
+
 begin
   response = xero_client.accounting_api.update_pay_run(xeroTenantId, payRunID, payRun)
   return response
@@ -6824,6 +6949,20 @@ Xero identifier for Tenant
 
 xeroTenantId = 'xeroTenantId_example'
 payslipID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+
+earnings_line = { 
+  earnings_rate_id: "00000000-0000-0000-0000-000000000000",
+  rate_per_unit: 20,
+  number_of_units: 1
+}    
+earnings_lines = []
+earnings_lines << earnings_line
+
+payslip_lines = { 
+  earnings_lines: earningsLines
+}    
+payslip_lines = []
+payslip_lines << payslip_line
 
 begin
   response = xero_client.accounting_api.update_payslip(xeroTenantId, payslipID, payslipLines)
@@ -6973,6 +7112,11 @@ Xero identifier for Tenant
 xeroTenantId = 'xeroTenantId_example'
 superFundID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
+super_fund = { 
+  type:  XeroRuby::PayrollAu::SuperFundType::REGULATED,
+  USI: "40022701955002"
+}  
+
 begin
   response = xero_client.accounting_api.update_superfund(xeroTenantId, superFundID, superFund)
   return response
@@ -7120,6 +7264,15 @@ Xero identifier for Tenant
 
 xeroTenantId = 'xeroTenantId_example'
 timesheetID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+start_date = 'YYYY-MM-DD'
+end_date = 'YYYY-MM-DD'
+
+timesheet = { 
+  employee_id: "00000000-0000-0000-0000-000000000000",
+  start_date:  start_date,
+  end_date:  end_date,
+  status:  XeroRuby::PayrollAu::TimesheetStatus::DRAFT
+}  
 
 begin
   response = xero_client.accounting_api.update_timesheet(xeroTenantId, timesheetID, timesheet)
