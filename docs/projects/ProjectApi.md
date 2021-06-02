@@ -4,19 +4,19 @@ All URIs are relative to *https://api.xero.com/projects.xro/2.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_project**](ProjectApi.md#create_project) | **POST** /projects | create one or more new projects
-[**create_time_entry**](ProjectApi.md#create_time_entry) | **POST** /projects/{projectId}/time | Allows you to create a task
-[**delete_time_entry**](ProjectApi.md#delete_time_entry) | **DELETE** /projects/{projectId}/time/{timeEntryId} | Allows you to delete a time entry
-[**get_project**](ProjectApi.md#get_project) | **GET** /projects/{projectId} | Allows you to retrieve a single project
-[**get_project_users**](ProjectApi.md#get_project_users) | **GET** /projectsusers | list all project users
-[**get_projects**](ProjectApi.md#get_projects) | **GET** /projects | list all projects
-[**get_task**](ProjectApi.md#get_task) | **GET** /projects/{projectId}/tasks/{taskId} | Allows you to retrieve a single project
-[**get_tasks**](ProjectApi.md#get_tasks) | **GET** /projects/{projectId}/tasks | Allows you to retrieve a single project
-[**get_time_entries**](ProjectApi.md#get_time_entries) | **GET** /projects/{projectId}/time | Allows you to retrieve the time entries associated with a specific project
-[**get_time_entry**](ProjectApi.md#get_time_entry) | **GET** /projects/{projectId}/time/{timeEntryId} | Allows you to get a single time entry in a project
-[**patch_project**](ProjectApi.md#patch_project) | **PATCH** /projects/{projectId} | creates a project for the specified contact
-[**update_project**](ProjectApi.md#update_project) | **PUT** /projects/{projectId} | update a specific project
-[**update_time_entry**](ProjectApi.md#update_time_entry) | **PUT** /projects/{projectId}/time/{timeEntryId} | Allows you to update time entry in a project
+[**create_project**](ProjectApi.md#create_project) | **POST** /Projects | Create one or more new projects
+[**create_time_entry**](ProjectApi.md#create_time_entry) | **POST** /Projects/{projectId}/Time | Creates a time entry for a specific project
+[**delete_time_entry**](ProjectApi.md#delete_time_entry) | **DELETE** /Projects/{projectId}/Time/{timeEntryId} | Deletes a time entry for a specific project
+[**get_project**](ProjectApi.md#get_project) | **GET** /Projects/{projectId} | Retrieves a single project
+[**get_project_users**](ProjectApi.md#get_project_users) | **GET** /ProjectsUsers | Retrieves a list of all project users
+[**get_projects**](ProjectApi.md#get_projects) | **GET** /Projects | Retrieves all projects
+[**get_task**](ProjectApi.md#get_task) | **GET** /Projects/{projectId}/Tasks/{taskId} | Retrieves a single project task
+[**get_tasks**](ProjectApi.md#get_tasks) | **GET** /Projects/{projectId}/Tasks | Retrieves all project tasks
+[**get_time_entries**](ProjectApi.md#get_time_entries) | **GET** /Projects/{projectId}/Time | Retrieves all time entries associated with a specific project
+[**get_time_entry**](ProjectApi.md#get_time_entry) | **GET** /Projects/{projectId}/Time/{timeEntryId} | Retrieves a single time entry for a specific project
+[**patch_project**](ProjectApi.md#patch_project) | **PATCH** /Projects/{projectId} | creates a project for the specified contact
+[**update_project**](ProjectApi.md#update_project) | **PUT** /Projects/{projectId} | Updates a specific project
+[**update_time_entry**](ProjectApi.md#update_time_entry) | **PUT** /Projects/{projectId}/Time/{timeEntryId} | Updates a time entry for a specific project
 
 
 
@@ -24,7 +24,7 @@ Method | HTTP request | Description
 
 > Project create_project(xero_tenant_id, project_create_or_update)
 
-create one or more new projects
+Create one or more new projects
 
 ### Example
 
@@ -52,9 +52,9 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-project_create_or_update = { "contactId":"00000000-0000-0000-000-000000000000", "name":"New Kitchen", "deadlineUtc":"2019-12-10T12:59:59Z", "estimateAmount":"99.99" } # ProjectCreateOrUpdate | Create a new project with ProjectCreateOrUpdate object
+project_create_or_update = { "contactId": "00000000-0000-0000-000-000000000000", "name": "New Kitchen", "deadlineUtc": "2019-12-10T12:59:59Z", "estimateAmount": "99.99" } # ProjectCreateOrUpdate | Create a new project with ProjectCreateOrUpdate object
 begin
-  #create one or more new projects
+  #Create one or more new projects
   result = api_instance.create_project(xero_tenant_id, project_create_or_update)
   p result
 rescue XeroRuby::Projects::ApiError => e
@@ -88,7 +88,7 @@ Name | Type | Description  | Notes
 
 > TimeEntry create_time_entry(xero_tenant_id, project_id, time_entry_create_or_update)
 
-Allows you to create a task
+Creates a time entry for a specific project
 
 Allows you to create a specific task
 
@@ -119,9 +119,9 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 project_id = 'project_id_example' # String | You can specify an individual project by appending the projectId to the endpoint
-time_entry_create_or_update = { "userId":"740add2a-a703-4b8a-a670-1093919c2040", "taskId":"7be77337-feec-4458-bb1b-dbaa5a4aafce", "dateUtc":"2020-02-26T15:00:00Z", "duration":30, "description":"My description" } # TimeEntryCreateOrUpdate | The time entry object you are creating
+time_entry_create_or_update = { "userId": "00000000-0000-0000-0000-000000000000", "taskId": "00000000-0000-0000-0000-000000000000", "dateUtc": "2020-02-26T15:00:00Z", "duration":30, "description": "My description" } # TimeEntryCreateOrUpdate | The time entry object you are creating
 begin
-  #Allows you to create a task
+  #Creates a time entry for a specific project
   result = api_instance.create_time_entry(xero_tenant_id, project_id, time_entry_create_or_update)
   p result
 rescue XeroRuby::Projects::ApiError => e
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 
 > delete_time_entry(xero_tenant_id, project_id, time_entry_id)
 
-Allows you to delete a time entry
+Deletes a time entry for a specific project
 
 Allows you to delete a specific time entry
 
@@ -189,7 +189,7 @@ xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 project_id = 'project_id_example' # String | You can specify an individual project by appending the projectId to the endpoint
 time_entry_id = 'time_entry_id_example' # String | You can specify an individual task by appending the id to the endpoint
 begin
-  #Allows you to delete a time entry
+  #Deletes a time entry for a specific project
   api_instance.delete_time_entry(xero_tenant_id, project_id, time_entry_id)
 rescue XeroRuby::Projects::ApiError => e
   puts "Exception when calling ProjectApi->delete_time_entry: #{e}"
@@ -223,9 +223,9 @@ nil (empty response body)
 
 > Project get_project(xero_tenant_id, project_id)
 
-Allows you to retrieve a single project
+Retrieves a single project
 
-Allows you to retrieve a specific project
+Allows you to retrieve a specific project using the projectId
 
 ### Example
 
@@ -255,7 +255,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 project_id = 'project_id_example' # String | You can specify an individual project by appending the projectId to the endpoint
 begin
-  #Allows you to retrieve a single project
+  #Retrieves a single project
   result = api_instance.get_project(xero_tenant_id, project_id)
   p result
 rescue XeroRuby::Projects::ApiError => e
@@ -289,7 +289,7 @@ Name | Type | Description  | Notes
 
 > ProjectUsers get_project_users(xero_tenant_id, opts)
 
-list all project users
+Retrieves a list of all project users
 
 Allows you to retrieve the users on a projects.
 
@@ -326,7 +326,7 @@ opts = {
 }
 
 begin
-  #list all project users
+  #Retrieves a list of all project users
   result = api_instance.get_project_users(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Projects::ApiError => e
@@ -361,7 +361,7 @@ Name | Type | Description  | Notes
 
 > Projects get_projects(xero_tenant_id, opts)
 
-list all projects
+Retrieves all projects
 
 Allows you to retrieve, create and update projects.
 
@@ -404,7 +404,7 @@ opts = {
 }
 
 begin
-  #list all projects
+  #Retrieves all projects
   result = api_instance.get_projects(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Projects::ApiError => e
@@ -442,7 +442,7 @@ Name | Type | Description  | Notes
 
 > Task get_task(xero_tenant_id, project_id, task_id)
 
-Allows you to retrieve a single project
+Retrieves a single project task
 
 Allows you to retrieve a specific project
 
@@ -473,9 +473,9 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 project_id = 'project_id_example' # String | You can specify an individual project by appending the projectId to the endpoint
-task_id = 'task_id_example' # String | You can specify an individual task by appending the taskId to the endpoint, i.e. GET https://.../tasks/{taskId}
+task_id = 'task_id_example' # String | You can specify an individual task by appending the taskId to the endpoint, i.e. GET https://.../tasks/{taskID}
 begin
-  #Allows you to retrieve a single project
+  #Retrieves a single project task
   result = api_instance.get_task(xero_tenant_id, project_id, task_id)
   p result
 rescue XeroRuby::Projects::ApiError => e
@@ -490,7 +490,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **project_id** | [**String**](.md)| You can specify an individual project by appending the projectId to the endpoint | 
- **task_id** | [**String**](.md)| You can specify an individual task by appending the taskId to the endpoint, i.e. GET https://.../tasks/{taskId} | 
+ **task_id** | [**String**](.md)| You can specify an individual task by appending the taskId to the endpoint, i.e. GET https://.../tasks/{taskID} | 
 
 ### Return type
 
@@ -510,7 +510,7 @@ Name | Type | Description  | Notes
 
 > Tasks get_tasks(xero_tenant_id, project_id, opts)
 
-Allows you to retrieve a single project
+Retrieves all project tasks
 
 Allows you to retrieve a specific project
 
@@ -546,11 +546,13 @@ opts = {
 
   page_size: 10, # Integer | Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500.
 
-  task_ids: 'task_ids_example' # String | taskIdsSearch for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds={taskId},{taskId}
+  task_ids: 'task_ids_example', # String | taskIdsSearch for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds={taskID},{taskID}
+
+  charge_type: XeroRuby::Projects::ChargeType.new # ChargeType | 
 }
 
 begin
-  #Allows you to retrieve a single project
+  #Retrieves all project tasks
   result = api_instance.get_tasks(xero_tenant_id, project_id, opts)
   p result
 rescue XeroRuby::Projects::ApiError => e
@@ -567,7 +569,8 @@ Name | Type | Description  | Notes
  **project_id** | [**String**](.md)| You can specify an individual project by appending the projectId to the endpoint | 
  **page** | **Integer**| Set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0. | [optional] 
  **page_size** | **Integer**| Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500. | [optional] 
- **task_ids** | **String**| taskIdsSearch for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds&#x3D;{taskId},{taskId} | [optional] 
+ **task_ids** | **String**| taskIdsSearch for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds&#x3D;{taskID},{taskID} | [optional] 
+ **charge_type** | [**ChargeType**](.md)|  | [optional] 
 
 ### Return type
 
@@ -587,7 +590,7 @@ Name | Type | Description  | Notes
 
 > TimeEntries get_time_entries(xero_tenant_id, project_id, opts)
 
-Allows you to retrieve the time entries associated with a specific project
+Retrieves all time entries associated with a specific project
 
 Allows you to retrieve the time entries associated with a specific project
 
@@ -631,7 +634,7 @@ opts = {
 
   page_size: 10, # Integer | Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500.
 
-  states: ['states_example'], # Array<String> | Comma-separated list of states to find. Will find all time entries that are in the status of whatever’s specified.
+  states: ['states_example'], # Array<String> | Comma-separated list of states to find. Will find all time entries that are in the status of whatever is specified.
 
   is_chargeable: true, # Boolean | Finds all time entries which relate to tasks with the charge type `TIME` or `FIXED`.
 
@@ -641,7 +644,7 @@ opts = {
 }
 
 begin
-  #Allows you to retrieve the time entries associated with a specific project
+  #Retrieves all time entries associated with a specific project
   result = api_instance.get_time_entries(xero_tenant_id, project_id, opts)
   p result
 rescue XeroRuby::Projects::ApiError => e
@@ -662,7 +665,7 @@ Name | Type | Description  | Notes
  **contact_id** | [**String**](.md)| Finds all time entries for this contact identifier. | [optional] 
  **page** | **Integer**| Set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0. | [optional] 
  **page_size** | **Integer**| Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500. | [optional] 
- **states** | [**Array&lt;String&gt;**](String.md)| Comma-separated list of states to find. Will find all time entries that are in the status of whatever’s specified. | [optional] 
+ **states** | [**Array&lt;String&gt;**](String.md)| Comma-separated list of states to find. Will find all time entries that are in the status of whatever is specified. | [optional] 
  **is_chargeable** | **Boolean**| Finds all time entries which relate to tasks with the charge type &#x60;TIME&#x60; or &#x60;FIXED&#x60;. | [optional] 
  **date_after_utc** | **DateTime**| ISO 8601 UTC date. Finds all time entries on or after this date filtered on the &#x60;dateUtc&#x60; field. | [optional] 
  **date_before_utc** | **DateTime**| ISO 8601 UTC date. Finds all time entries on or before this date filtered on the &#x60;dateUtc&#x60; field. | [optional] 
@@ -685,9 +688,9 @@ Name | Type | Description  | Notes
 
 > TimeEntry get_time_entry(xero_tenant_id, project_id, time_entry_id)
 
-Allows you to get a single time entry in a project
+Retrieves a single time entry for a specific project
 
-Allows you to upget a single time entry in a project
+Allows you to get a single time entry in a project
 
 ### Example
 
@@ -718,7 +721,7 @@ xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 project_id = 'project_id_example' # String | You can specify an individual project by appending the projectId to the endpoint
 time_entry_id = 'time_entry_id_example' # String | You can specify an individual time entry by appending the id to the endpoint
 begin
-  #Allows you to get a single time entry in a project
+  #Retrieves a single time entry for a specific project
   result = api_instance.get_time_entry(xero_tenant_id, project_id, time_entry_id)
   p result
 rescue XeroRuby::Projects::ApiError => e
@@ -820,7 +823,7 @@ nil (empty response body)
 
 > update_project(xero_tenant_id, project_id, project_create_or_update)
 
-update a specific project
+Updates a specific project
 
 Allows you to update a specific projects.
 
@@ -853,7 +856,7 @@ xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 project_id = 'project_id_example' # String | You can specify an individual project by appending the projectId to the endpoint
 project_create_or_update = { "name": "New Kitchen", "deadlineUtc": "2017-04-23T18:25:43.511Z", "estimateAmount": 99.99 } # ProjectCreateOrUpdate | Request of type ProjectCreateOrUpdate
 begin
-  #update a specific project
+  #Updates a specific project
   api_instance.update_project(xero_tenant_id, project_id, project_create_or_update)
 rescue XeroRuby::Projects::ApiError => e
   puts "Exception when calling ProjectApi->update_project: #{e}"
@@ -887,7 +890,7 @@ nil (empty response body)
 
 > update_time_entry(xero_tenant_id, project_id, time_entry_id, time_entry_create_or_update)
 
-Allows you to update time entry in a project
+Updates a time entry for a specific project
 
 Allows you to update time entry in a project
 
@@ -919,9 +922,9 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 project_id = 'project_id_example' # String | You can specify an individual project by appending the projectId to the endpoint
 time_entry_id = 'time_entry_id_example' # String | You can specify an individual time entry by appending the id to the endpoint
-time_entry_create_or_update = { "userId":"740add2a-a703-4b8a-a670-1093919c2040", "taskId":"7be77337-feec-4458-bb1b-dbaa5a4aafce", "dateUtc":"2020-02-27T15:00:00Z", "duration":45, "description":"My UPDATED description" } # TimeEntryCreateOrUpdate | The time entry object you are updating
+time_entry_create_or_update = { "userId": "00000000-0000-0000-0000-000000000000", "taskId": "00000000-0000-0000-0000-000000000000", "dateUtc": "2020-02-27T15:00:00Z", "duration":45, "description": "My UPDATED description" } # TimeEntryCreateOrUpdate | The time entry object you are updating
 begin
-  #Allows you to update time entry in a project
+  #Updates a time entry for a specific project
   api_instance.update_time_entry(xero_tenant_id, project_id, time_entry_id, time_entry_create_or_update)
 rescue XeroRuby::Projects::ApiError => e
   puts "Exception when calling ProjectApi->update_time_entry: #{e}"

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**report_id** | **String** | Report id | [optional] 
+**report_id** | **String** | ID of the Report | [optional] 
 **report_name** | **String** | Name of the report | [optional] 
 **report_title** | **String** | Title of the report | [optional] 
 **report_type** | **String** | The type of report (BalanceSheet,ProfitLoss, etc) | [optional] 

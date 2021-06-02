@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 **salary_and_wages_id** | **String** | Xero unique identifier for a salary and wages record | [optional] 
 **earnings_rate_id** | **String** | Xero unique identifier for an earnings rate | 
 **number_of_units_per_week** | **BigDecimal** | The Number of Units per week for the corresponding salary and wages | 
-**rate_per_unit** | **BigDecimal** | The rate of each unit for the corresponding salary and wages | 
+**rate_per_unit** | **BigDecimal** | The rate of each unit for the corresponding salary and wages | [optional] 
 **number_of_units_per_day** | **BigDecimal** | The Number of Units per day for the corresponding salary and wages | 
-**days_per_week** | **Integer** | The days per week for the salary. | [optional] 
+**days_per_week** | **BigDecimal** | The days per week for the salary. | [optional] 
 **effective_from** | **Date** | The effective date of the corresponding salary and wages | 
 **annual_salary** | **BigDecimal** | The annual salary | 
 **status** | **String** | The current status of the corresponding salary and wages | 

@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **total_amount** | **String** | The total of the payments that make up the batch (read-only) | [optional] 
 **updated_date_utc** | **DateTime** | UTC timestamp of last update to the payment | [optional] 
 **is_reconciled** | **String** | Booelan that tells you if the batch payment has been reconciled (read-only) | [optional] 
+**validation_errors** | [**Array&lt;ValidationError&gt;**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
 
 ## Code Sample
 
@@ -41,7 +42,8 @@ instance = XeroRuby::Accounting::BatchPayment.new(account: null,
                                  status: null,
                                  total_amount: null,
                                  updated_date_utc: /Date(1573755038314)/,
-                                 is_reconciled: null)
+                                 is_reconciled: null,
+                                 validation_errors: null)
 ```
 
 

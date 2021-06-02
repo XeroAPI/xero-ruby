@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **super_membership_id** | **String** | Xero super membership ID | [optional] 
 **contribution_type** | [**SuperannuationContributionType**](SuperannuationContributionType.md) |  | [optional] 
 **calculation_type** | [**SuperannuationCalculationType**](SuperannuationCalculationType.md) |  | [optional] 
-**minimum_monthly_earnings** | **BigDecimal** | amount of mimimum earnings | [optional] 
+**minimum_monthly_earnings** | **BigDecimal** | amount of minimum earnings | [optional] 
 **expense_account_code** | **String** | expense account code | [optional] 
 **liability_account_code** | **String** | liabilty account code | [optional] 
 **percentage** | **BigDecimal** | percentage for super line | [optional] 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**period_units** | **Integer** | The number of units for the period type | [optional] 
+**period_units** | **BigDecimal** | The number of units for the period type | [optional] 
 **period_type** | **String** | The type of period (\&quot;weeks\&quot; or \&quot;months\&quot;) | [optional] 
 **tax_code** | [**TaxCode**](TaxCode.md) |  | [optional] 
 **special_tax_rate** | **String** | Tax rate for STC and WT | [optional] 

@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **payment_type** | **String** | See Payment Types. | [optional] 
 **updated_date_utc** | **DateTime** | UTC timestamp of last update to the payment | [optional] 
 **payment_id** | **String** | The Xero identifier for an Payment e.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9 | [optional] 
+**batch_payment_id** | **String** | Present if the payment was created as part of a batch. | [optional] 
 **bank_account_number** | **String** | The suppliers bank account number the payment is being made to | [optional] 
 **particulars** | **String** | The suppliers bank account number the payment is being made to | [optional] 
 **details** | **String** | The information to appear on the supplier&#39;s bank account | [optional] 
@@ -50,7 +51,8 @@ instance = XeroRuby::Accounting::Payment.new(invoice: null,
                                  status: null,
                                  payment_type: null,
                                  updated_date_utc: /Date(1573755038314)/,
-                                 payment_id: null,
+                                 payment_id: 00000000-0000-0000-0000-000000000000,
+                                 batch_payment_id: 00000000-0000-0000-0000-000000000000,
                                  bank_account_number: null,
                                  particulars: null,
                                  details: null,

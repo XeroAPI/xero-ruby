@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_asset**](AssetApi.md#create_asset) | **POST** /Assets | adds a fixed asset
 [**create_asset_type**](AssetApi.md#create_asset_type) | **POST** /AssetTypes | adds a fixed asset type
-[**get_asset_by_id**](AssetApi.md#get_asset_by_id) | **GET** /Assets/{id} | retrieves fixed asset by id
+[**get_asset_by_id**](AssetApi.md#get_asset_by_id) | **GET** /Assets/{id} | Retrieves fixed asset by id
 [**get_asset_settings**](AssetApi.md#get_asset_settings) | **GET** /Settings | searches fixed asset settings
 [**get_asset_types**](AssetApi.md#get_asset_types) | **GET** /AssetTypes | searches fixed asset types
 [**get_assets**](AssetApi.md#get_assets) | **GET** /Assets | searches fixed asset
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 
 > Asset get_asset_by_id(xero_tenant_id, id)
 
-retrieves fixed asset by id
+Retrieves fixed asset by id
 
 By passing in the appropriate asset id, you can search for a specific fixed asset in the system 
 
@@ -182,9 +182,9 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-id = '4f7bcdcb-5ec1-4258-9558-19f662fccdfe' # String | fixed asset id for single object
+id = '00000000-0000-0000-0000-000000000000' # String | fixed asset id for single object
 begin
-  #retrieves fixed asset by id
+  #Retrieves fixed asset by id
   result = api_instance.get_asset_by_id(xero_tenant_id, id)
   p result
 rescue XeroRuby::Assets::ApiError => e
@@ -386,7 +386,7 @@ opts = {
 
   sort_direction: 'ASC', # String | ASC or DESC
 
-  filter_by: 'Draft' # String | A string that can be used to filter the list to only return assets containing the text. Checks it against the AssetName, AssetNumber, Description and AssetTypeName fields.
+  filter_by: 'Company Car' # String | A string that can be used to filter the list to only return assets containing the text. Checks it against the AssetName, AssetNumber, Description and AssetTypeName fields.
 }
 
 begin
