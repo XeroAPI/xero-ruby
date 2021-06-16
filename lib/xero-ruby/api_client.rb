@@ -37,6 +37,7 @@ module XeroRuby
       @client_id = credentials[:client_id]
       @client_secret = credentials[:client_secret]
       @redirect_uri = credentials[:redirect_uri]
+      @grant_type = credentials[:grant_type] || 'authorization_code'
       @scopes = credentials[:scopes]
       @state = credentials[:state]
       default_config = Configuration.default.clone
@@ -135,9 +136,19 @@ module XeroRuby
       @config.id_token = id_token
     end
 
+    def get_client_credentials_token
+      data = {
+        grant_type: @grant_type
+      }
+      token_set = token_request(data, '/token')
+      puts "token_set: #{token_set}"
+
+      return token_set
+    end
+
     def get_token_set_from_callback(params)
       data = {
-        grant_type: 'authorization_code',
+        grant_type: @grant_type,
         code: params['code'],
         redirect_uri: @redirect_uri
       }
@@ -199,6 +210,8 @@ module XeroRuby
     end
 
     def token_request(data, path)
+      puts "Data #{data}"
+      puts "Path #{path}"
       response = Faraday.post("#{@config.token_url}#{path}") do |req|
         req.headers['Authorization'] = "Basic " + Base64.strict_encode64("#{@client_id}:#{@client_secret}")
         req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
@@ -207,6 +220,7 @@ module XeroRuby
       return_error(response) unless response.success?
       if !response.body.nil? && !response.body.empty?
         body = JSON.parse(response.body)
+        puts "body #{body}"
         set_token_set(body)
       else
         body = {}

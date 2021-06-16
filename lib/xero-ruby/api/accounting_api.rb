@@ -7722,7 +7722,7 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # Retrieves the contact Id and name of all the contacts in a contact group
+    # Retrieves the contact Id and name of each contact group
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @option opts [String] :where Filter by an any element
@@ -7733,7 +7733,7 @@ module XeroRuby
       data
     end
 
-    # Retrieves the contact Id and name of all the contacts in a contact group
+    # Retrieves the contact Id and name of each contact group
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @option opts [String] :where Filter by an any element

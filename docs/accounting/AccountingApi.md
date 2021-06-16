@@ -99,7 +99,7 @@ Method | HTTP request | Description
 [**get_contact_by_contact_number**](AccountingApi.md#get_contact_by_contact_number) | **GET** /Contacts/{ContactNumber} | Retrieves a specific contact by contact number in a Xero organisation
 [**get_contact_cis_settings**](AccountingApi.md#get_contact_cis_settings) | **GET** /Contacts/{ContactID}/CISSettings | Retrieves CIS settings for a specific contact in a Xero organisation
 [**get_contact_group**](AccountingApi.md#get_contact_group) | **GET** /ContactGroups/{ContactGroupID} | Retrieves a specific contact group by using a unique contact group Id
-[**get_contact_groups**](AccountingApi.md#get_contact_groups) | **GET** /ContactGroups | Retrieves the contact Id and name of all the contacts in a contact group
+[**get_contact_groups**](AccountingApi.md#get_contact_groups) | **GET** /ContactGroups | Retrieves the contact Id and name of each contact group
 [**get_contact_history**](AccountingApi.md#get_contact_history) | **GET** /Contacts/{ContactID}/History | Retrieves history records for a specific contact
 [**get_contacts**](AccountingApi.md#get_contacts) | **GET** /Contacts | Retrieves all contacts in a Xero organisation
 [**get_credit_note**](AccountingApi.md#get_credit_note) | **GET** /CreditNotes/{CreditNoteID} | Retrieves a specific credit note using a unique credit note Id
@@ -6589,7 +6589,7 @@ Name | Type | Description  | Notes
 
 > ContactGroups get_contact_groups(xero_tenant_id, opts)
 
-Retrieves the contact Id and name of all the contacts in a contact group
+Retrieves the contact Id and name of each contact group
 
 ### Example
 
@@ -6624,7 +6624,7 @@ opts = {
 }
 
 begin
-  #Retrieves the contact Id and name of all the contacts in a contact group
+  #Retrieves the contact Id and name of each contact group
   result = api_instance.get_contact_groups(xero_tenant_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e

@@ -90,7 +90,7 @@ module XeroRuby::Accounting
     CISLABOURINCOME = "CISLABOURINCOME".freeze
     CISLIABILITY = "CISLIABILITY".freeze
     CISMATERIALS = "CISMATERIALS".freeze
-    # EMPTY = "".freeze
+    EMPTY = "".freeze
     
     # Shown if set
     attr_accessor :reporting_code
