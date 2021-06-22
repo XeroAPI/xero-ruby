@@ -141,7 +141,6 @@ module XeroRuby
         grant_type: @grant_type
       }
       token_set = token_request(data, '/token')
-      puts "token_set: #{token_set}"
 
       return token_set
     end
@@ -210,8 +209,6 @@ module XeroRuby
     end
 
     def token_request(data, path)
-      puts "Data #{data}"
-      puts "Path #{path}"
       response = Faraday.post("#{@config.token_url}#{path}") do |req|
         req.headers['Authorization'] = "Basic " + Base64.strict_encode64("#{@client_id}:#{@client_secret}")
         req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
@@ -220,7 +217,6 @@ module XeroRuby
       return_error(response) unless response.success?
       if !response.body.nil? && !response.body.empty?
         body = JSON.parse(response.body)
-        puts "body #{body}"
         set_token_set(body)
       else
         body = {}
@@ -234,6 +230,10 @@ module XeroRuby
       opts = { :header_params => {'Content-Type': 'application/json'}, :auth_names => ['OAuth2'] }
       response = call_api(:GET, "/connections/", nil, opts)
       response[0]
+    end
+
+    def last_connection
+      connections.sort { |a,b| DateTime.parse(a['updatedDateUtc']) <=> DateTime.parse(b['updatedDateUtc'])}.first
     end
 
     def disconnect(connection_id)
