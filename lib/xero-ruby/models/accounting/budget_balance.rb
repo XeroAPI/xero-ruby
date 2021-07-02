@@ -15,31 +15,36 @@ require 'date'
 module XeroRuby::Accounting
   require 'bigdecimal'
 
-  class ReportRow
-
-    attr_accessor :row_type
+  class BudgetBalance
+    # Period the amount applies to (e.g. “2019-08”)
+    attr_accessor :period
     
-
-    attr_accessor :title
+    # LineItem Quantity
+    attr_accessor :amount
     
-
-    attr_accessor :cells
+    # Budgeted amount
+    attr_accessor :unit_amount
+    
+    # Any footnotes associated with this balance
+    attr_accessor :notes
     
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'row_type' => :'RowType',
-        :'title' => :'Title',
-        :'cells' => :'Cells'
+        :'period' => :'Period',
+        :'amount' => :'Amount',
+        :'unit_amount' => :'UnitAmount',
+        :'notes' => :'Notes'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'row_type' => :'RowType',
-        :'title' => :'String',
-        :'cells' => :'Array<ReportCell>'
+        :'period' => :'Date',
+        :'amount' => :'Integer',
+        :'unit_amount' => :'Integer',
+        :'notes' => :'String'
       }
     end
 
@@ -47,29 +52,31 @@ module XeroRuby::Accounting
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `XeroRuby::Accounting::ReportRow` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `XeroRuby::Accounting::BudgetBalance` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `XeroRuby::Accounting::ReportRow`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `XeroRuby::Accounting::BudgetBalance`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'row_type')
-        self.row_type = attributes[:'row_type']
+      if attributes.key?(:'period')
+        self.period = attributes[:'period']
       end
 
-      if attributes.key?(:'title')
-        self.title = attributes[:'title']
+      if attributes.key?(:'amount')
+        self.amount = attributes[:'amount']
       end
 
-      if attributes.key?(:'cells')
-        if (value = attributes[:'cells']).is_a?(Array)
-          self.cells = value
-        end
+      if attributes.key?(:'unit_amount')
+        self.unit_amount = attributes[:'unit_amount']
+      end
+
+      if attributes.key?(:'notes')
+        self.notes = attributes[:'notes']
       end
     end
 
@@ -77,13 +84,28 @@ module XeroRuby::Accounting
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@notes.nil? && @notes.to_s.length > 255
+        invalid_properties.push('invalid value for "notes", the character length must be smaller than or equal to 255.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@notes.nil? && @notes.to_s.length > 255
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] notes Value to be assigned
+    def notes=(notes)
+      if !notes.nil? && notes.to_s.length > 255
+        fail ArgumentError, 'invalid value for "notes", the character length must be smaller than or equal to 255.'
+      end
+
+      @notes = notes
     end
 
     # Checks equality by comparing each attribute.
@@ -91,9 +113,10 @@ module XeroRuby::Accounting
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          row_type == o.row_type &&
-          title == o.title &&
-          cells == o.cells
+          period == o.period &&
+          amount == o.amount &&
+          unit_amount == o.unit_amount &&
+          notes == o.notes
     end
 
     # @see the `==` method
@@ -105,7 +128,7 @@ module XeroRuby::Accounting
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [row_type, title, cells].hash
+      [period, amount, unit_amount, notes].hash
     end
 
     # Builds the object from hash
