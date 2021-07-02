@@ -77,8 +77,8 @@ module XeroRuby::Accounting
         :'type' => :'String',
         :'description' => :'String',
         :'updated_date_utc' => :'DateTime',
-        :'budget_lines' => :'BudgetLines',
-        :'tracking' => :'TrackingCategory'
+        :'budget_lines' => :'Array<BudgetLine>',
+        :'tracking' => :'Array<TrackingCategory>'
       }
     end
 
@@ -114,11 +114,15 @@ module XeroRuby::Accounting
       end
 
       if attributes.key?(:'budget_lines')
-        self.budget_lines = attributes[:'budget_lines']
+        if (value = attributes[:'budget_lines']).is_a?(Array)
+          self.budget_lines = value
+        end
       end
 
       if attributes.key?(:'tracking')
-        self.tracking = attributes[:'tracking']
+        if (value = attributes[:'tracking']).is_a?(Array)
+          self.tracking = value
+        end
       end
     end
 
@@ -313,6 +317,8 @@ module XeroRuby::Accounting
         original, date, timezone = *date_pattern.match(datestring)
         date = (date.to_i / 1000)
         Time.at(date).utc.strftime('%Y-%m-%dT%H:%M:%S%z').to_s
+      elsif /(\d\d\d\d)-(\d\d)/.match(datestring) # handles dates w/out Days: YYYY-MM*-DD
+        Time.parse(datestring + '-01').strftime('%Y-%m-%dT%H:%M:%S').to_s
       else # handle date 'types' for small subset of payroll API's
         Time.parse(datestring).strftime('%Y-%m-%dT%H:%M:%S').to_s
       end
