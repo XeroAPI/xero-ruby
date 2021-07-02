@@ -29,7 +29,7 @@ module XeroRuby
     # Defines the headers to be used in HTTP requests of all API calls by default.
     #
     # @return [Hash]
-    attr_accessor :default_headers
+    attr_accessor :default_headers, :grant_type
 
     # Initializes the ApiClient
     # @option config [Configuration] Configuration for initializing the object, default to Configuration.default
@@ -37,6 +37,7 @@ module XeroRuby
       @client_id = credentials[:client_id]
       @client_secret = credentials[:client_secret]
       @redirect_uri = credentials[:redirect_uri]
+      @grant_type = credentials[:grant_type] || 'authorization_code'
       @scopes = credentials[:scopes]
       @state = credentials[:state]
       default_config = Configuration.default.clone
@@ -135,9 +136,18 @@ module XeroRuby
       @config.id_token = id_token
     end
 
+    def get_client_credentials_token
+      data = {
+        grant_type: @grant_type
+      }
+      token_set = token_request(data, '/token')
+
+      return token_set
+    end
+
     def get_token_set_from_callback(params)
       data = {
-        grant_type: 'authorization_code',
+        grant_type: @grant_type,
         code: params['code'],
         redirect_uri: @redirect_uri
       }
@@ -220,6 +230,10 @@ module XeroRuby
       opts = { :header_params => {'Content-Type': 'application/json'}, :auth_names => ['OAuth2'] }
       response = call_api(:GET, "/connections/", nil, opts)
       response[0]
+    end
+
+    def last_connection
+      connections.sort { |a,b| DateTime.parse(a['updatedDateUtc']) <=> DateTime.parse(b['updatedDateUtc'])}.first
     end
 
     def disconnect(connection_id)

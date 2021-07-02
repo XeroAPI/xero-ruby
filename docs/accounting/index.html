@@ -1801,10 +1801,16 @@ ul.nav-tabs {
       "x-is-msdate-time" : true
     },
     "BudgetLines" : {
-      "$ref" : "#/components/schemas/BudgetLines"
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/components/schemas/BudgetLine"
+      }
     },
     "Tracking" : {
-      "$ref" : "#/components/schemas/TrackingCategory"
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/components/schemas/TrackingCategory"
+      }
     }
   },
   "description" : "",
@@ -1812,7 +1818,7 @@ ul.nav-tabs {
     "url" : "http://developer.xero.com/documentation/api/budgets/"
   }
 };
-      defs["BudgetLines"] = {
+      defs["BudgetBalance"] = {
   "title" : "",
   "type" : "object",
   "properties" : {
@@ -1833,6 +1839,29 @@ ul.nav-tabs {
       "maxLength" : 255,
       "type" : "string",
       "description" : "Any footnotes associated with this balance"
+    }
+  },
+  "description" : ""
+};
+      defs["BudgetLine"] = {
+  "title" : "",
+  "type" : "object",
+  "properties" : {
+    "AccountID" : {
+      "type" : "string",
+      "description" : "See Accounts",
+      "format" : "uuid"
+    },
+    "AccountCode" : {
+      "type" : "string",
+      "description" : "See Accounts",
+      "example" : "90.0"
+    },
+    "BudgetBalances" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/components/schemas/BudgetBalance"
+      }
     }
   },
   "description" : "",
