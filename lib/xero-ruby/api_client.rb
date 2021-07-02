@@ -29,7 +29,7 @@ module XeroRuby
     # Defines the headers to be used in HTTP requests of all API calls by default.
     #
     # @return [Hash]
-    attr_accessor :default_headers
+    attr_accessor :default_headers, :grant_type
 
     # Initializes the ApiClient
     # @option config [Configuration] Configuration for initializing the object, default to Configuration.default

@@ -80,8 +80,7 @@ describe XeroRuby::ApiClient do
             client_secret: '123',
           }
           api_client = XeroRuby::ApiClient.new(credentials: creds)
-          puts api_client.inspect
-          expect(api_client.grant_type).to eq('authoizaraion_code')
+          expect(api_client.grant_type).to eq('authorization_code')
         end
       end
 
@@ -93,7 +92,7 @@ describe XeroRuby::ApiClient do
             grant_type: 'client_credentials'
           }
           api_client = XeroRuby::ApiClient.new(credentials: creds)
-          expect(api_client.grant_type).to eq('client_credentialsz')
+          expect(api_client.grant_type).to eq('client_credentials')
         end
 
       end
