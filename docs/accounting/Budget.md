@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **type** | **String** | Type of Budget. OVERALL or TRACKING | [optional] 
 **description** | **String** | The Budget description | [optional] 
 **updated_date_utc** | **DateTime** | UTC timestamp of last update to budget | [optional] 
-**budget_lines** | [**BudgetLines**](BudgetLines.md) |  | [optional] 
-**tracking** | [**TrackingCategory**](TrackingCategory.md) |  | [optional] 
+**budget_lines** | [**Array&lt;BudgetLine&gt;**](BudgetLine.md) |  | [optional] 
+**tracking** | [**Array&lt;TrackingCategory&gt;**](TrackingCategory.md) |  | [optional] 
 
 ## Code Sample
 
