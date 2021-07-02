@@ -15,36 +15,31 @@ require 'date'
 module XeroRuby::Accounting
   require 'bigdecimal'
 
-  class BudgetLines
-    # Period the amount applies to (e.g. “2019-08”)
-    attr_accessor :period
+  class BudgetLine
+    # See Accounts
+    attr_accessor :account_id
     
-    # LineItem Quantity
-    attr_accessor :amount
+    # See Accounts
+    attr_accessor :account_code
     
-    # Budgeted amount
-    attr_accessor :unit_amount
-    
-    # Any footnotes associated with this balance
-    attr_accessor :notes
+
+    attr_accessor :budget_balances
     
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'period' => :'Period',
-        :'amount' => :'Amount',
-        :'unit_amount' => :'UnitAmount',
-        :'notes' => :'Notes'
+        :'account_id' => :'AccountID',
+        :'account_code' => :'AccountCode',
+        :'budget_balances' => :'BudgetBalances'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'period' => :'Date',
-        :'amount' => :'Integer',
-        :'unit_amount' => :'Integer',
-        :'notes' => :'String'
+        :'account_id' => :'String',
+        :'account_code' => :'String',
+        :'budget_balances' => :'Array<BudgetBalance>'
       }
     end
 
@@ -52,31 +47,29 @@ module XeroRuby::Accounting
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `XeroRuby::Accounting::BudgetLines` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `XeroRuby::Accounting::BudgetLine` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `XeroRuby::Accounting::BudgetLines`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `XeroRuby::Accounting::BudgetLine`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'period')
-        self.period = attributes[:'period']
+      if attributes.key?(:'account_id')
+        self.account_id = attributes[:'account_id']
       end
 
-      if attributes.key?(:'amount')
-        self.amount = attributes[:'amount']
+      if attributes.key?(:'account_code')
+        self.account_code = attributes[:'account_code']
       end
 
-      if attributes.key?(:'unit_amount')
-        self.unit_amount = attributes[:'unit_amount']
-      end
-
-      if attributes.key?(:'notes')
-        self.notes = attributes[:'notes']
+      if attributes.key?(:'budget_balances')
+        if (value = attributes[:'budget_balances']).is_a?(Array)
+          self.budget_balances = value
+        end
       end
     end
 
@@ -84,28 +77,13 @@ module XeroRuby::Accounting
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if !@notes.nil? && @notes.to_s.length > 255
-        invalid_properties.push('invalid value for "notes", the character length must be smaller than or equal to 255.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if !@notes.nil? && @notes.to_s.length > 255
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] notes Value to be assigned
-    def notes=(notes)
-      if !notes.nil? && notes.to_s.length > 255
-        fail ArgumentError, 'invalid value for "notes", the character length must be smaller than or equal to 255.'
-      end
-
-      @notes = notes
     end
 
     # Checks equality by comparing each attribute.
@@ -113,10 +91,9 @@ module XeroRuby::Accounting
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          period == o.period &&
-          amount == o.amount &&
-          unit_amount == o.unit_amount &&
-          notes == o.notes
+          account_id == o.account_id &&
+          account_code == o.account_code &&
+          budget_balances == o.budget_balances
     end
 
     # @see the `==` method
@@ -128,7 +105,7 @@ module XeroRuby::Accounting
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [period, amount, unit_amount, notes].hash
+      [account_id, account_code, budget_balances].hash
     end
 
     # Builds the object from hash
@@ -257,6 +234,8 @@ module XeroRuby::Accounting
         original, date, timezone = *date_pattern.match(datestring)
         date = (date.to_i / 1000)
         Time.at(date).utc.strftime('%Y-%m-%dT%H:%M:%S%z').to_s
+      elsif /(\d\d\d\d)-(\d\d)/.match(datestring) # handles dates w/out Days: YYYY-MM*-DD
+        Time.parse(datestring + '-01').strftime('%Y-%m-%dT%H:%M:%S').to_s
       else # handle date 'types' for small subset of payroll API's
         Time.parse(datestring).strftime('%Y-%m-%dT%H:%M:%S').to_s
       end

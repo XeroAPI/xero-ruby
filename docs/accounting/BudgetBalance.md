@@ -1,4 +1,4 @@
-# XeroRuby::Accounting::BudgetLines
+# XeroRuby::Accounting::BudgetBalance
 
 ## Properties
 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ```ruby
 require 'XeroRuby::Accounting'
 
-instance = XeroRuby::Accounting::BudgetLines.new(period: null,
+instance = XeroRuby::Accounting::BudgetBalance.new(period: null,
                                  amount: null,
                                  unit_amount: null,
                                  notes: null)
