@@ -73,6 +73,29 @@ describe XeroRuby::ApiClient do
           altered_state = {'state': 'not-original-state'}
           expect{api_client.validate_state(altered_state)}.to raise_error(StandardError, 'WARNING: @config.state: custom-state and OAuth callback state:  do not match!')
         end
+
+        it "defaults to grant_type: authoriation_code" do
+          creds = {
+            client_id: 'abc',
+            client_secret: '123',
+          }
+          api_client = XeroRuby::ApiClient.new(credentials: creds)
+          puts api_client.inspect
+          expect(api_client.grant_type).to eq('authoizaraion_code')
+        end
+      end
+
+      context "creates a valid authorization_code client" do
+        it "passes through attributes" do
+          creds = {
+            client_id: 'abc',
+            client_secret: '123',
+            grant_type: 'client_credentials'
+          }
+          api_client = XeroRuby::ApiClient.new(credentials: creds)
+          expect(api_client.grant_type).to eq('client_credentialsz')
+        end
+
       end
     end
   end
