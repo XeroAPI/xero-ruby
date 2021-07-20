@@ -57,9 +57,17 @@ module XeroRuby
     end
 
     def authorization_url
-      url = "#{@config.login_url}?response_type=code&client_id=#{@client_id}&redirect_uri=#{@redirect_uri}&scope=#{CGI.escape(@scopes)}"
-      url << "&state=#{@state}" if @state
-      return url
+      url = URI.parse @config.login_url
+      url.query = URI.encode_www_form(
+        {
+          response_type: 'code',
+          client_id: @client_id,
+          redirect_uri: @redirect_uri,
+          scope: @scopes,
+          state: @state
+        }.compact
+      )
+      url.to_s
     end
 
     def accounting_api
