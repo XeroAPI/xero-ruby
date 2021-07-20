@@ -11,5 +11,5 @@ The version of the XeroOpenAPI document: 2.13.2
 =end
 
 module XeroRuby
-  VERSION = '3.2.0'
+  VERSION = '3.2.1'
 end
