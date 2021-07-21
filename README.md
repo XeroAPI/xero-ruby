@@ -4,7 +4,7 @@
 [![Github stars](https://img.shields.io/github/stars/XeroAPI/xero-ruby.svg)](https://github.com/XeroAPI/xero-ruby/stargazers)
 ![total downloads](https://ruby-gem-downloads-badge.herokuapp.com/xero-ruby?type=total)
 
-The xero-ruby SDK makes it easy for developers to access Xero's APIs in their Ruby code, and build robust applications and software using small business & general ledget accounting data.
+The xero-ruby SDK makes it easy for developers to access Xero's APIs in their Ruby code, and build robust applications and software using small business & general ledger accounting data.
 # Table of Contents
 - [API Client documentation](#api-client-documentation)
 - [Sample Applications](#sample-applications)
