@@ -4,7 +4,7 @@
 [![Github stars](https://img.shields.io/github/stars/XeroAPI/xero-ruby.svg)](https://github.com/XeroAPI/xero-ruby/stargazers)
 ![total downloads](https://ruby-gem-downloads-badge.herokuapp.com/xero-ruby?type=total)
 
-The xero-ruby SDK makes it easy for developers to access Xero's APIs in their Ruby code, and build robust applications and software using small business & general ledger accounting data.
+The xero-ruby SDK makes it easy for developers to access Xero's APIs in their Ruby code, and build robust applications and software using small business & general ledget accounting data.
 # Table of Contents
 - [API Client documentation](#api-client-documentation)
 - [Sample Applications](#sample-applications)
@@ -132,7 +132,7 @@ Example Token Set JSON:
 ---
 ## Custom Connections 
 
-Custom Connections are a Xero [premium option](https://developer.xero.com/documentation/oauth2/custom-connections) used for building M2M integrations to a single organisation. A custom connection uses OAuth2.0's [`client_credentials`](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/) grant which eliminates the step of exchanging the temporary code for a token set.
+Custom Connections are a Xero [premium option](https://developer.xero.com/documentation/oauth2/custom-connections) used for building M2M integrations to a single organisation. A custom connection uses OAuth2.0's [`client_credentis`](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/) grant which eliminates the step of exchanging the temporary code for a token set.
 
 To use this SDK with a Custom Connections:
 ```ruby

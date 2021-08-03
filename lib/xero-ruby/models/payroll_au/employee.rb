@@ -83,6 +83,16 @@ module XeroRuby::PayrollAu
     # Employee Termination Date (YYYY-MM-DD)
     attr_accessor :termination_date
     
+    # * `V` Voluntary cessation - An employee resignation, retirement, domestic or pressing necessity or abandonment of employment * `I` Ill health - An employee resignation due to medical condition that prevents the continuation of employment, such as for illness, ill-health, medical unfitness or total permanent disability * `D` Deceased - The death of an employee * `R` Redundancy - An employer-initiated termination of employment due to a genuine redundancy or approved early retirement scheme * `F` Dismissal - An employer-initiated termination of employment due to dismissal, inability to perform the required work, misconduct or inefficiency * `C` Contract cessation - The natural conclusion of a limited employment relationship due to contract/engagement duration or task completion, seasonal work completion, or to cease casuals that are no longer required * `T` Transfer - The administrative arrangements performed to transfer employees across payroll systems, move them temporarily to another employer (machinery of government for public servants), transfer of business, move them to outsourcing arrangements or other such technical activities. 
+    attr_accessor :termination_reason
+    V = "V".freeze
+    I = "I".freeze
+    D = "D".freeze
+    R = "R".freeze
+    F = "F".freeze
+    C = "C".freeze
+    T = "T".freeze
+    
 
     attr_accessor :bank_accounts
     
@@ -159,6 +169,7 @@ module XeroRuby::PayrollAu
         :'employee_group_name' => :'EmployeeGroupName',
         :'employee_id' => :'EmployeeID',
         :'termination_date' => :'TerminationDate',
+        :'termination_reason' => :'TerminationReason',
         :'bank_accounts' => :'BankAccounts',
         :'pay_template' => :'PayTemplate',
         :'opening_balances' => :'OpeningBalances',
@@ -196,6 +207,7 @@ module XeroRuby::PayrollAu
         :'employee_group_name' => :'String',
         :'employee_id' => :'String',
         :'termination_date' => :'Date',
+        :'termination_reason' => :'String',
         :'bank_accounts' => :'Array<BankAccount>',
         :'pay_template' => :'PayTemplate',
         :'opening_balances' => :'OpeningBalances',
@@ -308,6 +320,10 @@ module XeroRuby::PayrollAu
         self.termination_date = attributes[:'termination_date']
       end
 
+      if attributes.key?(:'termination_reason')
+        self.termination_reason = attributes[:'termination_reason']
+      end
+
       if attributes.key?(:'bank_accounts')
         if (value = attributes[:'bank_accounts']).is_a?(Array)
           self.bank_accounts = value
@@ -386,6 +402,8 @@ module XeroRuby::PayrollAu
       return false if @date_of_birth.nil?
       gender_validator = EnumAttributeValidator.new('String', ["N", "M", "F", "I"])
       return false unless gender_validator.valid?(@gender)
+      termination_reason_validator = EnumAttributeValidator.new('String', ["V", "I", "D", "R", "F", "C", "T"])
+      return false unless termination_reason_validator.valid?(@termination_reason)
       true
     end
 
@@ -397,6 +415,16 @@ module XeroRuby::PayrollAu
         fail ArgumentError, "invalid value for \"gender\", must be one of #{validator.allowable_values}."
       end
       @gender = gender
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] termination_reason Object to be assigned
+    def termination_reason=(termination_reason)
+      validator = EnumAttributeValidator.new('String', ["V", "I", "D", "R", "F", "C", "T"])
+      unless validator.valid?(termination_reason)
+        fail ArgumentError, "invalid value for \"termination_reason\", must be one of #{validator.allowable_values}."
+      end
+      @termination_reason = termination_reason
     end
 
     # Checks equality by comparing each attribute.
@@ -425,6 +453,7 @@ module XeroRuby::PayrollAu
           employee_group_name == o.employee_group_name &&
           employee_id == o.employee_id &&
           termination_date == o.termination_date &&
+          termination_reason == o.termination_reason &&
           bank_accounts == o.bank_accounts &&
           pay_template == o.pay_template &&
           opening_balances == o.opening_balances &&
@@ -446,7 +475,7 @@ module XeroRuby::PayrollAu
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [first_name, last_name, date_of_birth, home_address, start_date, title, middle_names, email, gender, phone, mobile, twitter_user_name, is_authorised_to_approve_leave, is_authorised_to_approve_timesheets, job_title, classification, ordinary_earnings_rate_id, payroll_calendar_id, employee_group_name, employee_id, termination_date, bank_accounts, pay_template, opening_balances, tax_declaration, leave_balances, leave_lines, super_memberships, status, updated_date_utc, validation_errors].hash
+      [first_name, last_name, date_of_birth, home_address, start_date, title, middle_names, email, gender, phone, mobile, twitter_user_name, is_authorised_to_approve_leave, is_authorised_to_approve_timesheets, job_title, classification, ordinary_earnings_rate_id, payroll_calendar_id, employee_group_name, employee_id, termination_date, termination_reason, bank_accounts, pay_template, opening_balances, tax_declaration, leave_balances, leave_lines, super_memberships, status, updated_date_utc, validation_errors].hash
     end
 
     # Builds the object from hash

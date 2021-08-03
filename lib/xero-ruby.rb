@@ -18,6 +18,12 @@ require 'xero-ruby/version'
 require 'xero-ruby/configuration'
 
 # Models
+require 'xero-ruby/models/appstore/plan'
+require 'xero-ruby/models/appstore/price'
+require 'xero-ruby/models/appstore/problem_details'
+require 'xero-ruby/models/appstore/product'
+require 'xero-ruby/models/appstore/subscription'
+require 'xero-ruby/models/appstore/subscription_item'
 require 'xero-ruby/models/payroll_uk/account'
 require 'xero-ruby/models/payroll_uk/accounts'
 require 'xero-ruby/models/payroll_uk/address'

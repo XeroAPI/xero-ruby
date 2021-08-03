@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **employee_group_name** | **String** | The Employee Group allows you to report on payroll expenses and liabilities for each group of employees | [optional] 
 **employee_id** | **String** | Xero unique identifier for an Employee | [optional] 
 **termination_date** | **Date** | Employee Termination Date (YYYY-MM-DD) | [optional] 
+**termination_reason** | **String** | * &#x60;V&#x60; Voluntary cessation - An employee resignation, retirement, domestic or pressing necessity or abandonment of employment * &#x60;I&#x60; Ill health - An employee resignation due to medical condition that prevents the continuation of employment, such as for illness, ill-health, medical unfitness or total permanent disability * &#x60;D&#x60; Deceased - The death of an employee * &#x60;R&#x60; Redundancy - An employer-initiated termination of employment due to a genuine redundancy or approved early retirement scheme * &#x60;F&#x60; Dismissal - An employer-initiated termination of employment due to dismissal, inability to perform the required work, misconduct or inefficiency * &#x60;C&#x60; Contract cessation - The natural conclusion of a limited employment relationship due to contract/engagement duration or task completion, seasonal work completion, or to cease casuals that are no longer required * &#x60;T&#x60; Transfer - The administrative arrangements performed to transfer employees across payroll systems, move them temporarily to another employer (machinery of government for public servants), transfer of business, move them to outsourcing arrangements or other such technical activities.  | [optional] 
 **bank_accounts** | [**Array&lt;BankAccount&gt;**](BankAccount.md) |  | [optional] 
 **pay_template** | [**PayTemplate**](PayTemplate.md) |  | [optional] 
 **opening_balances** | [**OpeningBalances**](OpeningBalances.md) |  | [optional] 
@@ -62,6 +63,7 @@ instance = XeroRuby::PayrollAu::Employee.new(first_name: Karen,
                                  employee_group_name: marketing,
                                  employee_id: 4ff1e5cc-9835-40d5-bb18-09fdb118db9c,
                                  termination_date: /Date(1584662400000+0000)/,
+                                 termination_reason: F,
                                  bank_accounts: null,
                                  pay_template: null,
                                  opening_balances: null,
