@@ -164,7 +164,7 @@ If you are implementing subscriptions to participate in Xero's App Store you wil
 
 When a plan is successfully purchased, the user is redirected back to the URL specified in the setup process. The Xero App Store appends the subscription Id to this URL so you can immediately determine what plan the user has subscribed to through the subscriptions API.
 
-With your app credentials you can create a client via `client_credentials` grant_type with the `marketplace.billing` scope. This uniqie access_token will allow you to query any functions in`appStoreApi`. Client Credentials tokens to query app store endpoints will only work for apps that have completed the App Store on-boarding process.
+With your app credentials you can create a client via `client_credentials` grant_type with the `marketplace.billing` scope. This uniqie access_token will allow you to query any functions in `appStoreApi`. Client Credentials tokens to query app store endpoints will only work for apps that have completed the App Store on-boarding process.
 
 ```ruby
 // => /post-purchase-url?subscriptionId=03bc74f2-1237-4477-b782-2dfb1a6d8b21
@@ -174,6 +174,7 @@ subscription_id = params[:subscriptionId]
 xero_app_store_client ||= XeroRuby::ApiClient.new(credentials: {
   client_id: ENV['CLIENT_ID'],
   client_secret: ENV['CLIENT_SECRET'],
+  grant_type: 'client_credentials'
   scopes: ['marketplace.billing']
 })
 
