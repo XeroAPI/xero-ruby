@@ -507,7 +507,7 @@ module XeroRuby
         when 'PayrollUkApi'
           XeroRuby::PayrollUk.const_get(return_type).build_from_hash(data)
         when 'AppStoreApi'
-          XeroRuby::AppStoreApi.const_get(return_type).build_from_hash(data)
+          XeroRuby::AppStore.const_get(return_type).build_from_hash(data)
         else
           XeroRuby::Accounting.const_get(return_type).build_from_hash(data)
         end
