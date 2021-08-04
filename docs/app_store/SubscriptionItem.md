@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **end_date** | **DateTime** | Date when the subscription to this product will end | [optional] 
 **id** | **String** | The unique identifier of the subscription item. | 
-**price** | **BigDecimal** | The price of the product subscribed to. | 
+**price** | [**Price**](Price.md) |  | 
 **product** | [**Product**](Product.md) |  | 
 **start_date** | **DateTime** | Date the subscription started, or will start. Note: this could be in the future for downgrades or reduced number of seats that haven&#39;t taken effect yet.  | 
 **test_mode** | **Boolean** | If the subscription is a test subscription | [optional] 

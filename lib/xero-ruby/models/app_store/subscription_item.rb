@@ -22,7 +22,7 @@ module XeroRuby::AppStore
     # The unique identifier of the subscription item.
     attr_accessor :id
     
-    # The price of the product subscribed to.
+
     attr_accessor :price
     
 
@@ -51,7 +51,7 @@ module XeroRuby::AppStore
       {
         :'end_date' => :'DateTime',
         :'id' => :'String',
-        :'price' => :'BigDecimal',
+        :'price' => :'Price',
         :'product' => :'Product',
         :'start_date' => :'DateTime',
         :'test_mode' => :'Boolean'
