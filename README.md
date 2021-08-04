@@ -178,43 +178,42 @@ xero_app_store_client ||= XeroRuby::ApiClient.new(credentials: {
   scopes: ['marketplace.billing']
 })
 
-token_set = xero_app_store_client.get_client_credentials_token
+xero_app_store_client.get_client_credentials_token
 
-@subscription = xero_app_store_client.app_store_api.get_subscription(subscription_id).subscription
+@subscription = xero_app_store_client.app_store_api.get_subscription(subscription_id)
 
 puts @subscription.to_attributes
 {
-  current_period_End: 2021-09-02T20:08:58.772Z,
-  end_date: nil,
-  id: '03bc74f2-1237-4477-b782-2dfb1a6d8b21',
-  organisation_id: '79e8b2e5-c63d-4dce-888f-e0f3e9eac647',
-  plans: [
+  :current_period_end => Thu, 02 Sep 2021 14:08:58 +0000,
+  :id => "03bc74f2-1237-4477-b782-2dfb1a6d8b21",
+  :organisation_id => "79e8b2e5-c63d-4dce-888f-e0f3e9eac647",
+  :plans => [
     {
-      id: '6abc26f3-9390-4194-8b25-ce8b9942fda9',
-      name: 'Small',
-      status: 'ACTIVE',
-      subscription_items: [
-        end_date: nil,
-        id: '834cff4c-b753-4de2-9e7a-3451e14fa17a',
-        price: {
-          id: '2310de92-c7c0-4bcb-b972-fb7612177bc7',
-          amount: 0.1,
-          currency: 'NZD'
-        },
-        product: {
-          id: '9586421f-7325-4493-bac9-d93be06a6a38',
-          name: '',
-          type: 'FIXED'
-        },
-        start_date: 2021-08-02T20:08:58.772Z,
-        test_mode: true
-
+      :id => "6abc26f3-9390-4194-8b25-ce8b9942fda9",
+      :name => "Small",
+      :status => "ACTIVE",
+      :subscription_items => [
+        {
+          :id => "834cff4c-b753-4de2-9e7a-3451e14fa17a",
+          :price => {
+            :amount => 0.1e0,
+            :currency => "NZD",
+            :id => "2310de92-c7c0-4bcb-b972-fb7612177bc7"
+          },
+          :product => {
+            :id => "9586421f-7325-4493-bac9-d93be06a6a38",
+            :name => "",
+            :type => "FIXED"
+          },
+          :start_date => Mon, 02 Aug 2021 14:08:58 +0000,
+          :test_mode => true
+        }
       ]
     }
   ],
-  start_date: 2021-08-02T20:08:58.772Z,
-  status: 'ACTIVE',
-  test_mode: true
+  :start_date => Mon, 02 Aug 2021 14:08:58 +0000,
+  :status => "ACTIVE",
+  :test_mode => true
 }
 ```
 You should use this subscription data to provision user access/permissions to your application.
