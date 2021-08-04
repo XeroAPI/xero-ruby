@@ -18,7 +18,7 @@ require 'json'
 describe 'AppStoreApi' do
   before do
     # run before each test
-    @api_instance = XeroRuby::AppStore::AppStoreApi.new
+    @api_instance = XeroRuby::AppStoreApi.new
   end
 
   after do
@@ -27,7 +27,7 @@ describe 'AppStoreApi' do
 
   describe 'test an instance of AppStoreApi' do
     it 'should create an instance of AppStoreApi' do
-      expect(@api_instance).to be_instance_of(XeroRuby::AppStore::AppStoreApi)
+      expect(@api_instance).to be_instance_of(XeroRuby::AppStoreApi)
     end
   end
 
