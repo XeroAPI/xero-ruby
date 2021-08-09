@@ -3766,7 +3766,7 @@ ul.nav-tabs {
     <div class='docs-header'>
       <div class='xero-logo'>
         <a target="_blank"  href="https://developer.xero.com/documentation/">
-        <img alt="" width="115" height="30" class="xrh-app-image" src="https://developer.xero.com/static/images/developer-logo.svg">
+        <img alt="" width="115" height="30" class="xrh-app-image" src="https://i.imgur.com/kzfh8mf.png">
         </a>
       </div>
       <fieldset class='api-set'>
@@ -3836,7 +3836,7 @@ ul.nav-tabs {
           <nav id="scrollingNav">
             <ul class="sidenav nav nav-list">
               <li class="nav-header" data-group="PayrollNz"><strong>SDK: </strong><span id='sdk-name'></span></li>
-              <li class="nav-header" data-group="PayrollNz"><strong>VSN: </strong>2.9.0</li>
+              <li class="nav-header" data-group="PayrollNz"><strong>VSN: </strong>3.1.0</li>
               <li class="nav-header" data-group="PayrollNz"><a href="#api-PayrollNz">Methods</a></li>
               <li data-group="PayrollNz" data-name="approveTimesheet" class="">
                 <a href="#api-PayrollNz-approveTimesheet">approveTimesheet</a>
@@ -4200,6 +4200,12 @@ Xero identifier for Tenant
 
 xeroTenantId = 'xeroTenantId_example'
 
+deduction = { 
+  deduction_name: "Deduction test",
+  deduction_category:  XeroRuby::PayrollNz::Deduction::deduction_category::NZ_OTHER,
+  liability_account_id: "00000000-0000-0000-0000-000000000000"
+}  
+
 begin
   response = xero_client.accounting_api.create_deduction(xeroTenantId, deduction)
   return response
@@ -4315,6 +4321,12 @@ Xero identifier for Tenant
 
 xeroTenantId = 'xeroTenantId_example'
 
+earnings_rate = { 
+  earnings_type:  XeroRuby::PayrollNz::EarningsRate::EarningsTypeEnum::REGULAREARNINGS,
+  rate_type:  XeroRuby::PayrollNz::EarningsRate::RateTypeEnum::ACCPAYCREDIT,
+  expense_account_ID: "00000000-0000-0000-0000-000000000000"
+}  
+
 begin
   response = xero_client.accounting_api.create_earnings_rate(xeroTenantId, earningsRate)
   return response
@@ -4429,6 +4441,21 @@ Xero identifier for Tenant
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xeroTenantId = 'xeroTenantId_example'
+date_of_birth = 'YYYY-MM-DD'
+
+address = { 
+  address_line_1: "123 Test st",
+  city: "Rangiora",
+  post_code: "7400",
+  country_name: "NEW ZEALAND"
+}  
+
+employee = { 
+  first_name: "Adam",
+  last_name: "Adamson",
+  date_of_birth:  date_of_birth,
+  address:  address
+}  
 
 begin
   response = xero_client.accounting_api.create_employee(xeroTenantId, employee)
@@ -4545,6 +4572,17 @@ Xero identifier for Tenant
 
 xeroTenantId = 'xeroTenantId_example'
 employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+
+earnings_template = { 
+  pay_template_earning_id: "00000000-0000-0000-0000-000000000000",
+  rate_per_unit: 14.25,
+  number_of_units: 35.5,
+  fixed_amount: 50,
+  earnings_rate_id: "00000000-0000-0000-0000-000000000000",
+  name: "Overtime Hours"
+}    
+earnings_templates = []
+earnings_templates << earnings_template
 
 begin
   response = xero_client.accounting_api.create_employee_earnings_template(xeroTenantId, employeeID, earningsTemplate)
@@ -4694,6 +4732,14 @@ Xero identifier for Tenant
 
 xeroTenantId = 'xeroTenantId_example'
 employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+start_date = 'YYYY-MM-DD'
+end_date = 'YYYY-MM-DD'
+
+employee_leave = { 
+  leave_type_id: "00000000-0000-0000-0000-000000000000",
+  start_date:  start_date,
+  end_date:  end_date
+}  
 
 begin
   response = xero_client.accounting_api.create_employee_leave(xeroTenantId, employeeID, employeeLeave)
@@ -4844,6 +4890,15 @@ Xero identifier for Tenant
 xeroTenantId = 'xeroTenantId_example'
 employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
+employee_leave_setup = { 
+  include_holiday_pay: false,
+  holiday_pay_opening_balance: 10.5,
+  annual_leave_opening_balance: 25.89,
+  sick_leave_hours_to_accrue_annually: 100.0,
+  sick_leave_maximum_hours_to_accrue: 200.0,
+  sick_leave_opening_balance: 10.5
+}  
+
 begin
   response = xero_client.accounting_api.create_employee_leave_setup(xeroTenantId, employeeID, employeeLeaveSetup)
   return response
@@ -4993,6 +5048,12 @@ Xero identifier for Tenant
 xeroTenantId = 'xeroTenantId_example'
 employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
+employee_leave_type = { 
+  leave_type_id: "00000000-0000-0000-0000-000000000000",
+  schedule_of_accrual:  XeroRuby::PayrollNz::EmployeeLeaveType::schedule_of_accrual::PERCENTAGEOFGROSSEARNINGS,
+  opening_balance: 5.25
+}  
+
 begin
   response = xero_client.accounting_api.create_employee_leave_type(xeroTenantId, employeeID, employeeLeaveType)
   return response
@@ -5141,6 +5202,16 @@ Xero identifier for Tenant
 
 xeroTenantId = 'xeroTenantId_example'
 employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+period_end_date = 'YYYY-MM-DD'
+
+employee_opening_balance = { 
+  period_end_date:  period_end_date,
+  days_paid: 5,
+  unpaid_weeks: 0,
+  gross_earnings: 1730.77
+}    
+employee_opening_balances = []
+employee_opening_balances << employee_opening_balance
 
 begin
   response = xero_client.accounting_api.create_employee_opening_balances(xeroTenantId, employeeID, employeeOpeningBalance)
@@ -5291,6 +5362,18 @@ Xero identifier for Tenant
 xeroTenantId = 'xeroTenantId_example'
 employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
+bank_account = { 
+  account_name: "Charlotte Danes",
+  account_number: 123456,
+  sort_code: "123411"
+}    
+bank_accounts = []
+bank_accounts << bank_account
+
+payment_method = { 
+  bankAccounts: bankAccounts
+}  
+
 begin
   response = xero_client.accounting_api.create_employee_payment_method(xeroTenantId, employeeID, paymentMethod)
   return response
@@ -5438,6 +5521,13 @@ Xero identifier for Tenant
 
 xeroTenantId = 'xeroTenantId_example'
 employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+
+salary_and_wage = { 
+  earnings_rate_id: "00000000-0000-0000-0000-000000000000",
+  number_of_units_per_day: 0,
+  days_per_week: 0,
+  payment_type:  XeroRuby::PayrollNz::SalaryAndWage::payment_type_enum::HOURLY
+}  
 
 begin
   response = xero_client.accounting_api.create_employee_salary_and_wage(xeroTenantId, employeeID, salaryAndWage)
@@ -5587,6 +5677,12 @@ Xero identifier for Tenant
 
 xeroTenantId = 'xeroTenantId_example'
 employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+start_date = 'YYYY-MM-DD'
+
+employment = { 
+  payroll_calendar_id: "00000000-0000-0000-0000-000000000000",
+  start_date:  start_date
+}  
 
 begin
   response = xero_client.accounting_api.create_employment(xeroTenantId, employeeID, employment)
@@ -5736,6 +5832,12 @@ Xero identifier for Tenant
 
 xeroTenantId = 'xeroTenantId_example'
 
+leave_type = { 
+  name: "LeaveType",
+  is_paid_leave: true,
+  show_on_payslip: true
+}  
+
 begin
   response = xero_client.accounting_api.create_leave_type(xeroTenantId, leaveType)
   return response
@@ -5851,6 +5953,17 @@ Xero identifier for Tenant
 
 xeroTenantId = 'xeroTenantId_example'
 employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+
+earnings_template = { 
+  pay_template_earning_id: "00000000-0000-0000-0000-000000000000",
+  rate_per_unit: 14.25,
+  number_of_units: 35.5,
+  fixed_amount: 50,
+  earnings_rate_id: "00000000-0000-0000-0000-000000000000",
+  name: "Overtime Hours"
+}    
+earnings_templates = []
+earnings_templates << earnings_template
 
 begin
   response = xero_client.accounting_api.create_multiple_employee_earnings_template(xeroTenantId, employeeID, earningsTemplate)
@@ -6000,6 +6113,11 @@ Xero identifier for Tenant
 
 xeroTenantId = 'xeroTenantId_example'
 
+pay_run = { 
+  pay_run_type:  XeroRuby::PayrollNz::PayRun::pay_run_type_enum::SCHEDULED,
+  payroll_calendar_id: "00000000-0000-0000-0000-000000000000"
+}  
+
 begin
   response = xero_client.accounting_api.create_pay_run(xeroTenantId, payRun)
   return response
@@ -6114,6 +6232,14 @@ Xero identifier for Tenant
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xeroTenantId = 'xeroTenantId_example'
+start_date = 'YYYY-MM-DD'
+payment_date = 'YYYY-MM-DD'
+
+pay_run_calendar = { 
+  calendar_type:  XeroRuby::PayrollNz::calendar_type::WEEKLY,
+  period_start_date:  start_date,
+  payment_date:  payment_date
+}  
 
 begin
   response = xero_client.accounting_api.create_pay_run_calendar(xeroTenantId, payRunCalendar)
@@ -6230,6 +6356,14 @@ Xero identifier for Tenant
 
 xeroTenantId = 'xeroTenantId_example'
 
+reimbursement = { 
+  name: "Test Reimbursement",
+  account_id: "00000000-0000-0000-0000-000000000000"
+}  
+  calculation_type:  XeroRuby::PayrollNz::Reimbursement::calculation_type_enum::FIXEDAMOUNT,
+  reimbursement_category:  XeroRuby::PayrollNz::Reimbursement::reimbursement_category_enum::GST
+}  
+
 begin
   response = xero_client.accounting_api.create_reimbursement(xeroTenantId, reimbursement)
   return response
@@ -6345,6 +6479,15 @@ Xero identifier for Tenant
 
 xeroTenantId = 'xeroTenantId_example'
 
+benefit = { 
+  category:  XeroRuby::PayrollNz::Benefit::CategoryEnum::COMPLYINGFUND,
+  calculation_type_nz:  XeroRuby::PayrollNz::Benefit::CalculationTypeNZ::PERCENTAGEOFTAXABLEEARNINGS,
+  liability_account_id: "00000000-0000-0000-0000-000000000000",
+  expense_account_id: "00000000-0000-0000-0000-000000000000",
+  percentage: 3,
+  standard_amount: 100
+}  
+
 begin
   response = xero_client.accounting_api.create_superannuation(xeroTenantId, benefit)
   return response
@@ -6459,6 +6602,15 @@ Xero identifier for Tenant
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xeroTenantId = 'xeroTenantId_example'
+start_date = 'YYYY-MM-DD'
+end_date = 'YYYY-MM-DD'
+
+timesheet = { 
+  payroll_calendar_id: "00000000-0000-0000-0000-000000000000",
+  employee_id: "00000000-0000-0000-0000-000000000000",
+  start_date:  start_date,
+  end_date:  end_date
+}  
 
 begin
   response = xero_client.accounting_api.create_timesheet(xeroTenantId, timesheet)
@@ -6575,6 +6727,15 @@ Xero identifier for Tenant
 
 xeroTenantId = 'xeroTenantId_example'
 timesheetID = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+date = 'YYYY-MM-DD'
+
+timesheet_line = { 
+  timesheet_line_id: "00000000-0000-0000-0000-000000000000",
+  date:  date,
+  earnings_rate_id: "00000000-0000-0000-0000-000000000000",
+  tracking_item_id: "00000000-0000-0000-0000-000000000000",
+  number_of_units: 6
+}  
 
 begin
   response = xero_client.accounting_api.create_timesheet_line(xeroTenantId, timesheetID, timesheetLine)
@@ -11652,6 +11813,21 @@ Xero identifier for Tenant
 
 xeroTenantId = 'xeroTenantId_example'
 employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+date_of_birth = 'YYYY-MM-DD'
+
+address = { 
+  address_line_1: "123 Test st",
+  city: "Rangiora",
+  post_code: "7400",
+  country_name: "NEW ZEALAND"
+}  
+
+employee = { 
+  first_name: "Adam",
+  last_name: "Adamson",
+  date_of_birth:  date_of_birth,
+  address:  address
+}  
 
 begin
   response = xero_client.accounting_api.update_employee(xeroTenantId, employeeID, employee)
@@ -11802,6 +11978,17 @@ Xero identifier for Tenant
 xeroTenantId = 'xeroTenantId_example'
 employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 payTemplateEarningID = '3fa85f64-5717-4562-b3fc-2c963f66afa6'
+
+earnings_template = { 
+  pay_template_earning_id: "00000000-0000-0000-0000-000000000000",
+  rate_per_unit: 14.25,
+  number_of_units: 35.5,
+  fixed_amount: 50,
+  earnings_rate_id: "00000000-0000-0000-0000-000000000000",
+  name: "Overtime Hours"
+}    
+earnings_templates = []
+earnings_templates << earnings_template
 
 begin
   response = xero_client.accounting_api.update_employee_earnings_template(xeroTenantId, employeeID, payTemplateEarningID, earningsTemplate)
@@ -11978,6 +12165,14 @@ Xero identifier for Tenant
 xeroTenantId = 'xeroTenantId_example'
 employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 leaveID = 'c4be24e5-e840-4c92-9eaa-2d86cd596314'
+start_date = 'YYYY-MM-DD'
+end_date = 'YYYY-MM-DD'
+
+employee_leave = { 
+  leave_type_id: "00000000-0000-0000-0000-000000000000",
+  start_date:  start_date,
+  end_date:  end_date
+}  
 
 begin
   response = xero_client.accounting_api.update_employee_leave(xeroTenantId, employeeID, leaveID, employeeLeave)
@@ -12155,6 +12350,13 @@ xeroTenantId = 'xeroTenantId_example'
 employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 salaryAndWagesID = '3fa85f64-5717-4562-b3fc-2c963f66afa6'
 
+salary_and_wage = { 
+  earnings_rate_id: "00000000-0000-0000-0000-000000000000",
+  number_of_units_per_day: 0,
+  days_per_week: 0,
+  payment_type:  XeroRuby::PayrollNz::SalaryAndWage::payment_type_enum::HOURLY
+}  
+
 begin
   response = xero_client.accounting_api.update_employee_salary_and_wage(xeroTenantId, employeeID, salaryAndWagesID, salaryAndWage)
   return response
@@ -12329,6 +12531,22 @@ Xero identifier for Tenant
 
 xeroTenantId = 'xeroTenantId_example'
 employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+student_loan_as_at = 'YYYY-MM-DD'
+
+employee_tax = { 
+  ird_number: "111111111",
+  has_special_student_loan_rate: true,
+  special_student_loan_rate_percentage: 2,
+  is_eligible_for_kiwi_saver: true,
+  esct_rate_percentage: 17.5,
+  kiwi_saver_contributions:  XeroRuby::PayrollNz::EmployeeTax::kiwi_saver_contributions_enum::MAKECONTRIBUTIONS,
+  kiwi_saver_employee_contribution_rate_percentage: 4,
+  kiwi_saver_employer_salary_sacrifice_contribution_rate_percentage: 2,
+  tax_code:  XeroRuby::PayrollNz::TaxCode::MSL,
+  has_student_loan_balance: true,
+  student_loan_balance: 30.0,
+  student_loan_as_at:  student_loan_as_at
+}  
 
 begin
   response = xero_client.accounting_api.update_employee_tax(xeroTenantId, employeeID, employeeTax)
@@ -12482,6 +12700,14 @@ Xero identifier for Tenant
 
 xeroTenantId = 'xeroTenantId_example'
 payRunID = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+start_date = 'YYYY-MM-DD'
+payment_date = 'YYYY-MM-DD'
+
+pay_run_calendar = { 
+  calendar_type:  XeroRuby::PayrollNz::calendar_type::WEEKLY,
+  period_start_date:  start_date,
+  payment_date:  payment_date
+}  
 
 begin
   response = xero_client.accounting_api.update_pay_run(xeroTenantId, payRunID, payRun)
@@ -12632,6 +12858,21 @@ Xero identifier for Tenant
 xeroTenantId = 'xeroTenantId_example'
 paySlipID = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
 
+earnings_line = { 
+  earnings_line_id: "00000000-0000-0000-0000-000000000000",
+  earnings_rate_id: "00000000-0000-0000-0000-000000000000",
+  rate_per_unit: 14.25,
+  number_of_units: 35.5,
+  is_average_daily_pay_rate: true,
+  is_system_generated: true
+}    
+earnings_lines = []
+earnings_lines << earnings_line
+
+pay_slip = { 
+  earningsLines:  earnings_lines
+}  
+
 begin
   response = xero_client.accounting_api.update_pay_slip_line_items(xeroTenantId, paySlipID, paySlip)
   return response
@@ -12781,6 +13022,15 @@ Xero identifier for Tenant
 xeroTenantId = 'xeroTenantId_example'
 timesheetID = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
 timesheetLineID = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+date = 'YYYY-MM-DD'
+
+timesheet_line = { 
+  timesheet_line_id: "00000000-0000-0000-0000-000000000000",
+  date:  date,
+  earnings_rate_id: "00000000-0000-0000-0000-000000000000",
+  tracking_item_id: "00000000-0000-0000-0000-000000000000",
+  number_of_units: 6
+}  
 
 begin
   response = xero_client.accounting_api.update_timesheet_line(xeroTenantId, timesheetID, timesheetLineID, timesheetLine)

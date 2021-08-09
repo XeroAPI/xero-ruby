@@ -229,7 +229,7 @@ module XeroRuby::PayrollNz
         value = self.send(attr)
         next if value.nil?
         key = downcase ? attr : param
-        hash[key] = _to_hash(value)
+        hash[key] = _to_hash(value, downcase: downcase)
       end
       hash
     end
@@ -243,15 +243,17 @@ module XeroRuby::PayrollNz
     # For object, use to_hash. Otherwise, just return the value
     # @param [Object] value Any valid value
     # @return [Hash] Returns the value in the form of hash
-    def _to_hash(value)
+    def _to_hash(value, downcase: false)
       if value.is_a?(Array)
-        value.compact.map { |v| _to_hash(v) }
+        value.map do |v|
+          v.to_hash(downcase: downcase)
+        end
       elsif value.is_a?(Hash)
         {}.tap do |hash|
-          value.each { |k, v| hash[k] = _to_hash(v) }
+          value.map { |k, v| hash[k] = _to_hash(v, downcase: downcase) }
         end
       elsif value.respond_to? :to_hash
-        value.to_hash
+        value.to_hash(downcase: downcase)
       else
         value
       end
@@ -259,8 +261,12 @@ module XeroRuby::PayrollNz
 
     def parse_date(datestring)
       if datestring.include?('Date')
-        seconds_since_epoch = datestring.scan(/[0-9]+/)[0].to_i / 1000.0
-        Time.at(seconds_since_epoch).utc.strftime('%Y-%m-%dT%H:%M:%S%z').to_s
+        date_pattern = /\/Date\((-?\d+)(\+\d+)?\)\//
+        original, date, timezone = *date_pattern.match(datestring)
+        date = (date.to_i / 1000)
+        Time.at(date).utc.strftime('%Y-%m-%dT%H:%M:%S%z').to_s
+      elsif /(\d\d\d\d)-(\d\d)/.match(datestring) # handles dates w/out Days: YYYY-MM*-DD
+        Time.parse(datestring + '-01').strftime('%Y-%m-%dT%H:%M:%S').to_s
       else # handle date 'types' for small subset of payroll API's
         Time.parse(datestring).strftime('%Y-%m-%dT%H:%M:%S').to_s
       end

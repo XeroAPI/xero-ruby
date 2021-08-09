@@ -59,6 +59,20 @@ describe 'shared helper methods' do
       )
     }
 
+    let(:contact_capitalized_with_nested_objects) {
+      XeroRuby::Accounting::Contact.new({
+        has_attachments: false,
+        has_validation_errors: false,
+        phones: [
+          XeroRuby::Accounting::Phone.new({
+            phone_type: "MOBILE",
+            phone_number: "555-1212",
+            phone_area_code: "415"
+          })
+        ]
+      })
+    }
+
     describe '#to_hash' do
       it 'can serialize invoice attributes into a PascalCase hash' do
         expect(invoice.to_hash).to eq(:CurrencyCode => "USD", :HasAttachments => false, :HasErrors => false, :InvoiceNumber => "abc-123", :TotalDiscount => 100, :Type => "ACCPAY")
@@ -76,6 +90,20 @@ describe 'shared helper methods' do
 
       it 'can serialize contact attributes into a snake_case hash' do
         expect(contact.to_attributes).to eq({account_number: "abc-123", contact_status: "ACTIVE", email_address: "email@gmail.com", first_name: 'Contact', has_attachments: false, has_validation_errors: false, last_name: "Name", name: "Contact Name"})
+      end
+
+      it 'can serialize nested attributes into a snake_case hash' do
+        expect(contact_capitalized_with_nested_objects.to_attributes).to eq({
+          has_attachments: false,
+          has_validation_errors: false,
+          phones: [
+            {
+              phone_type: "MOBILE",
+              phone_number: "555-1212",
+              phone_area_code: "415"
+            }
+          ]
+        })
       end
     end
   end

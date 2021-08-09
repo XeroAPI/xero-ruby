@@ -182,7 +182,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-id = '4f7bcdcb-5ec1-4258-9558-19f662fccdfe' # String | fixed asset id for single object
+id = '00000000-0000-0000-0000-000000000000' # String | fixed asset id for single object
 begin
   #Retrieves fixed asset by id
   result = api_instance.get_asset_by_id(xero_tenant_id, id)

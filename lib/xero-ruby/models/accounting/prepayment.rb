@@ -71,6 +71,9 @@ module XeroRuby::Accounting
     # See Allocations
     attr_accessor :allocations
     
+    # See Payments
+    attr_accessor :payments
+    
     # The amount of applied to an invoice
     attr_accessor :applied_amount
     
@@ -121,6 +124,7 @@ module XeroRuby::Accounting
         :'currency_rate' => :'CurrencyRate',
         :'remaining_credit' => :'RemainingCredit',
         :'allocations' => :'Allocations',
+        :'payments' => :'Payments',
         :'applied_amount' => :'AppliedAmount',
         :'has_attachments' => :'HasAttachments',
         :'attachments' => :'Attachments'
@@ -146,6 +150,7 @@ module XeroRuby::Accounting
         :'currency_rate' => :'BigDecimal',
         :'remaining_credit' => :'BigDecimal',
         :'allocations' => :'Array<Allocation>',
+        :'payments' => :'Array<Payment>',
         :'applied_amount' => :'Float',
         :'has_attachments' => :'Boolean',
         :'attachments' => :'Array<Attachment>'
@@ -235,6 +240,12 @@ module XeroRuby::Accounting
         end
       end
 
+      if attributes.key?(:'payments')
+        if (value = attributes[:'payments']).is_a?(Array)
+          self.payments = value
+        end
+      end
+
       if attributes.key?(:'applied_amount')
         self.applied_amount = attributes[:'applied_amount']
       end
@@ -310,6 +321,7 @@ module XeroRuby::Accounting
           currency_rate == o.currency_rate &&
           remaining_credit == o.remaining_credit &&
           allocations == o.allocations &&
+          payments == o.payments &&
           applied_amount == o.applied_amount &&
           has_attachments == o.has_attachments &&
           attachments == o.attachments
@@ -324,7 +336,7 @@ module XeroRuby::Accounting
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [type, contact, date, status, line_amount_types, line_items, sub_total, total_tax, total, reference, updated_date_utc, currency_code, prepayment_id, currency_rate, remaining_credit, allocations, applied_amount, has_attachments, attachments].hash
+      [type, contact, date, status, line_amount_types, line_items, sub_total, total_tax, total, reference, updated_date_utc, currency_code, prepayment_id, currency_rate, remaining_credit, allocations, payments, applied_amount, has_attachments, attachments].hash
     end
 
     # Builds the object from hash
@@ -417,7 +429,7 @@ module XeroRuby::Accounting
         value = self.send(attr)
         next if value.nil?
         key = downcase ? attr : param
-        hash[key] = _to_hash(value)
+        hash[key] = _to_hash(value, downcase: downcase)
       end
       hash
     end
@@ -431,15 +443,17 @@ module XeroRuby::Accounting
     # For object, use to_hash. Otherwise, just return the value
     # @param [Object] value Any valid value
     # @return [Hash] Returns the value in the form of hash
-    def _to_hash(value)
+    def _to_hash(value, downcase: false)
       if value.is_a?(Array)
-        value.compact.map { |v| _to_hash(v) }
+        value.map do |v|
+          v.to_hash(downcase: downcase)
+        end
       elsif value.is_a?(Hash)
         {}.tap do |hash|
-          value.each { |k, v| hash[k] = _to_hash(v) }
+          value.map { |k, v| hash[k] = _to_hash(v, downcase: downcase) }
         end
       elsif value.respond_to? :to_hash
-        value.to_hash
+        value.to_hash(downcase: downcase)
       else
         value
       end
@@ -447,8 +461,12 @@ module XeroRuby::Accounting
 
     def parse_date(datestring)
       if datestring.include?('Date')
-        seconds_since_epoch = datestring.scan(/[0-9]+/)[0].to_i / 1000.0
-        Time.at(seconds_since_epoch).utc.strftime('%Y-%m-%dT%H:%M:%S%z').to_s
+        date_pattern = /\/Date\((-?\d+)(\+\d+)?\)\//
+        original, date, timezone = *date_pattern.match(datestring)
+        date = (date.to_i / 1000)
+        Time.at(date).utc.strftime('%Y-%m-%dT%H:%M:%S%z').to_s
+      elsif /(\d\d\d\d)-(\d\d)/.match(datestring) # handles dates w/out Days: YYYY-MM*-DD
+        Time.parse(datestring + '-01').strftime('%Y-%m-%dT%H:%M:%S').to_s
       else # handle date 'types' for small subset of payroll API's
         Time.parse(datestring).strftime('%Y-%m-%dT%H:%M:%S').to_s
       end

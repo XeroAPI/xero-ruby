@@ -17,6 +17,7 @@ require 'find'
 require 'faraday'
 require 'base64'
 require 'cgi'
+require 'json/jwt'
 
 module XeroRuby
   class ApiClient
@@ -28,7 +29,7 @@ module XeroRuby
     # Defines the headers to be used in HTTP requests of all API calls by default.
     #
     # @return [Hash]
-    attr_accessor :default_headers
+    attr_accessor :default_headers, :grant_type
 
     # Initializes the ApiClient
     # @option config [Configuration] Configuration for initializing the object, default to Configuration.default
@@ -36,6 +37,7 @@ module XeroRuby
       @client_id = credentials[:client_id]
       @client_secret = credentials[:client_secret]
       @redirect_uri = credentials[:redirect_uri]
+      @grant_type = credentials[:grant_type] || 'authorization_code'
       @scopes = credentials[:scopes]
       @state = credentials[:state]
       default_config = Configuration.default.clone
@@ -55,9 +57,17 @@ module XeroRuby
     end
 
     def authorization_url
-      url = "#{@config.login_url}?response_type=code&client_id=#{@client_id}&redirect_uri=#{@redirect_uri}&scope=#{CGI.escape(@scopes)}"
-      url << "&state=#{@state}" if @state
-      return url
+      url = URI.parse @config.login_url
+      url.query = URI.encode_www_form(
+        {
+          response_type: 'code',
+          client_id: @client_id,
+          redirect_uri: @redirect_uri,
+          scope: @scopes,
+          state: @state
+        }.compact
+      )
+      url.to_s
     end
 
     def accounting_api
@@ -108,11 +118,22 @@ module XeroRuby
       @config.id_token
     end
 
+    def decoded_access_token
+      decode_jwt(@config.access_token, false)
+    end
+
+    def decoded_id_token
+      decode_jwt(@config.id_token, false)
+    end
+
     def set_token_set(token_set)
-      # helper to set the token_set on a client once the user
-      # has a valid token set ( access_token & refresh_token )
+      token_set = token_set.with_indifferent_access
       @config.token_set = token_set
-      set_access_token(token_set['access_token'])
+
+      set_access_token(token_set[:access_token]) if token_set[:access_token]
+      set_id_token(token_set[:id_token]) if token_set[:id_token]
+      
+      return true
     end
 
     def set_access_token(access_token)
@@ -123,26 +144,74 @@ module XeroRuby
       @config.id_token = id_token
     end
 
+    def get_client_credentials_token
+      data = {
+        grant_type: @grant_type
+      }
+      token_set = token_request(data, '/token')
+
+      return token_set
+    end
+
     def get_token_set_from_callback(params)
       data = {
-        grant_type: 'authorization_code',
+        grant_type: @grant_type,
         code: params['code'],
         redirect_uri: @redirect_uri
       }
-      return token_request(data, '/token')
+      token_set = token_request(data, '/token')
+
+      validate_tokens(token_set)
+      validate_state(params)
+      return token_set
+    end
+
+    def validate_tokens(token_set)
+      token_set = token_set.with_indifferent_access
+      id_token = token_set[:id_token]
+      access_token = token_set[:access_token]
+      if id_token || access_token
+        decode_jwt(access_token) if access_token
+        decode_jwt(id_token) if id_token
+      end
+      return true
+    end
+
+    def validate_state(params)
+      if params[:state] != @state
+        raise StandardError.new "WARNING: @config.state: #{@state} and OAuth callback state: #{params['state']} do not match!"
+      end
+      return true
+    end
+
+    def decode_jwt(tkn, verify=true)
+      if verify == true
+        jwks_data = JSON.parse(Faraday.get('https://identity.xero.com/.well-known/openid-configuration/jwks').body)
+        jwk_set = JSON::JWK::Set.new(jwks_data)
+        JSON::JWT.decode(tkn, jwk_set)
+      else
+        JSON::JWT.decode(tkn, :skip_verification)
+      end
+    end
+
+    def token_expired?
+      token_expiry = Time.at(decoded_access_token['exp'])
+      token_expiry < Time.now
     end
 
     def refresh_token_set(token_set)
+      token_set = token_set.with_indifferent_access
       data = {
         grant_type: 'refresh_token',
-        refresh_token: token_set['refresh_token']
+        refresh_token: token_set[:refresh_token]
       }
       return token_request(data, '/token')
     end
 
     def revoke_token(token_set)
+      token_set = token_set.with_indifferent_access
       data = {
-        token: token_set['refresh_token']
+        token: token_set[:refresh_token]
       }
       return token_request(data, '/revocation')
     end
@@ -169,6 +238,10 @@ module XeroRuby
       opts = { :header_params => {'Content-Type': 'application/json'}, :auth_names => ['OAuth2'] }
       response = call_api(:GET, "/connections/", nil, opts)
       response[0]
+    end
+
+    def last_connection
+      connections.sort { |a,b| DateTime.parse(a['updatedDateUtc']) <=> DateTime.parse(b['updatedDateUtc'])}.first
     end
 
     def disconnect(connection_id)

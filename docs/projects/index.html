@@ -1341,7 +1341,7 @@ ul.nav-tabs {
     "status" : {
       "type" : "string",
       "description" : "Status of the time entry. By default a time entry is created with status of `ACTIVE`. A `LOCKED` state indicates that the time entry is currently changing state (for example being invoiced). Updates are not allowed when in this state. It will have a status of INVOICED once it is invoiced.",
-      "enum" : [ "ACTIVE", "LOCKED" ]
+      "enum" : [ "ACTIVE", "LOCKED", "INVOICED" ]
     }
   },
   "description" : "",
@@ -1396,7 +1396,7 @@ ul.nav-tabs {
     <div class='docs-header'>
       <div class='xero-logo'>
         <a target="_blank"  href="https://developer.xero.com/documentation/">
-        <img alt="" width="115" height="30" class="xrh-app-image" src="https://developer.xero.com/static/images/developer-logo.svg">
+        <img alt="" width="115" height="30" class="xrh-app-image" src="https://i.imgur.com/kzfh8mf.png">
         </a>
       </div>
       <fieldset class='api-set'>
@@ -1466,7 +1466,7 @@ ul.nav-tabs {
           <nav id="scrollingNav">
             <ul class="sidenav nav nav-list">
               <li class="nav-header" data-group="Project"><strong>SDK: </strong><span id='sdk-name'></span></li>
-              <li class="nav-header" data-group="Project"><strong>VSN: </strong>2.9.0</li>
+              <li class="nav-header" data-group="Project"><strong>VSN: </strong>3.1.0</li>
               <li class="nav-header" data-group="Project"><a href="#api-Project">Methods</a></li>
               <li data-group="Project" data-name="createProject" class="">
                 <a href="#api-Project-createProject">createProject</a>
@@ -1631,7 +1631,7 @@ Xero identifier for Tenant
       "schema" : {
         "$ref" : "#/components/schemas/ProjectCreateOrUpdate"
       },
-      "example" : "{ \"contactId\":\"00000000-0000-0000-000-000000000000\", \"name\":\"New Kitchen\", \"deadlineUtc\":\"2019-12-10T12:59:59Z\", \"estimateAmount\":\"99.99\" }"
+      "example" : "{ \"contactId\": \"00000000-0000-0000-000-000000000000\", \"name\": \"New Kitchen\", \"deadlineUtc\": \"2019-12-10T12:59:59Z\", \"estimateAmount\": \"99.99\" }"
     }
   },
   "required" : true
@@ -1786,7 +1786,7 @@ Xero identifier for Tenant
       "schema" : {
         "$ref" : "#/components/schemas/TimeEntryCreateOrUpdate"
       },
-      "example" : "{ \"userId\":\"740add2a-a703-4b8a-a670-1093919c2040\", \"taskId\":\"7be77337-feec-4458-bb1b-dbaa5a4aafce\", \"dateUtc\":\"2020-02-26T15:00:00Z\", \"duration\":30, \"description\":\"My description\" }"
+      "example" : "{ \"userId\": \"00000000-0000-0000-0000-000000000000\", \"taskId\": \"00000000-0000-0000-0000-000000000000\", \"dateUtc\": \"2020-02-26T15:00:00Z\", \"duration\":30, \"description\": \"My description\" }"
     }
   },
   "required" : true
@@ -3713,7 +3713,7 @@ Xero identifier for Tenant
       "schema" : {
         "$ref" : "#/components/schemas/TimeEntryCreateOrUpdate"
       },
-      "example" : "{ \"userId\":\"740add2a-a703-4b8a-a670-1093919c2040\", \"taskId\":\"7be77337-feec-4458-bb1b-dbaa5a4aafce\", \"dateUtc\":\"2020-02-27T15:00:00Z\", \"duration\":45, \"description\":\"My UPDATED description\" }"
+      "example" : "{ \"userId\": \"00000000-0000-0000-0000-000000000000\", \"taskId\": \"00000000-0000-0000-0000-000000000000\", \"dateUtc\": \"2020-02-27T15:00:00Z\", \"duration\":45, \"description\": \"My UPDATED description\" }"
     }
   },
   "required" : true

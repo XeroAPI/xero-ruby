@@ -46,6 +46,7 @@ module XeroRuby::PayrollUk
     STATUTORY_SICK_PAY_NON_PENSIONABLE = "StatutorySickPayNonPensionable".freeze
     TIPS_DIRECT = "Tips(Direct)".freeze
     TIPS_NON_DIRECT = "Tips(Non-Direct)".freeze
+    TERMINATION_PAY = "TerminationPay".freeze
     
     # Indicates the type of the earning rate
     attr_accessor :rate_type
@@ -213,7 +214,7 @@ module XeroRuby::PayrollUk
     def valid?
       return false if @name.nil?
       return false if @earnings_type.nil?
-      earnings_type_validator = EnumAttributeValidator.new('String', ["Allowance", "Backpay", "Bonus", "Commission", "LumpSum", "OtherEarnings", "OvertimeEarnings", "RegularEarnings", "StatutoryAdoptionPay", "StatutoryAdoptionPayNonPensionable", "StatutoryBereavementPay", "StatutoryMaternityPay", "StatutoryMaternityPayNonPensionable", "StatutoryPaternityPay", "StatutoryPaternityPayNonPensionable", "StatutoryParentalBereavementPayNonPensionable", "StatutorySharedParentalPay", "StatutorySharedParentalPayNonPensionable", "StatutorySickPay", "StatutorySickPayNonPensionable", "Tips(Direct)", "Tips(Non-Direct)"])
+      earnings_type_validator = EnumAttributeValidator.new('String', ["Allowance", "Backpay", "Bonus", "Commission", "LumpSum", "OtherEarnings", "OvertimeEarnings", "RegularEarnings", "StatutoryAdoptionPay", "StatutoryAdoptionPayNonPensionable", "StatutoryBereavementPay", "StatutoryMaternityPay", "StatutoryMaternityPayNonPensionable", "StatutoryPaternityPay", "StatutoryPaternityPayNonPensionable", "StatutoryParentalBereavementPayNonPensionable", "StatutorySharedParentalPay", "StatutorySharedParentalPayNonPensionable", "StatutorySickPay", "StatutorySickPayNonPensionable", "Tips(Direct)", "Tips(Non-Direct)", "TerminationPay"])
       return false unless earnings_type_validator.valid?(@earnings_type)
       return false if @rate_type.nil?
       rate_type_validator = EnumAttributeValidator.new('String', ["RatePerUnit", "MultipleOfOrdinaryEarningsRate", "FixedAmount"])
@@ -226,7 +227,7 @@ module XeroRuby::PayrollUk
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] earnings_type Object to be assigned
     def earnings_type=(earnings_type)
-      validator = EnumAttributeValidator.new('String', ["Allowance", "Backpay", "Bonus", "Commission", "LumpSum", "OtherEarnings", "OvertimeEarnings", "RegularEarnings", "StatutoryAdoptionPay", "StatutoryAdoptionPayNonPensionable", "StatutoryBereavementPay", "StatutoryMaternityPay", "StatutoryMaternityPayNonPensionable", "StatutoryPaternityPay", "StatutoryPaternityPayNonPensionable", "StatutoryParentalBereavementPayNonPensionable", "StatutorySharedParentalPay", "StatutorySharedParentalPayNonPensionable", "StatutorySickPay", "StatutorySickPayNonPensionable", "Tips(Direct)", "Tips(Non-Direct)"])
+      validator = EnumAttributeValidator.new('String', ["Allowance", "Backpay", "Bonus", "Commission", "LumpSum", "OtherEarnings", "OvertimeEarnings", "RegularEarnings", "StatutoryAdoptionPay", "StatutoryAdoptionPayNonPensionable", "StatutoryBereavementPay", "StatutoryMaternityPay", "StatutoryMaternityPayNonPensionable", "StatutoryPaternityPay", "StatutoryPaternityPayNonPensionable", "StatutoryParentalBereavementPayNonPensionable", "StatutorySharedParentalPay", "StatutorySharedParentalPayNonPensionable", "StatutorySickPay", "StatutorySickPayNonPensionable", "Tips(Direct)", "Tips(Non-Direct)", "TerminationPay"])
       unless validator.valid?(earnings_type)
         fail ArgumentError, "invalid value for \"earnings_type\", must be one of #{validator.allowable_values}."
       end
@@ -362,7 +363,7 @@ module XeroRuby::PayrollUk
         value = self.send(attr)
         next if value.nil?
         key = downcase ? attr : param
-        hash[key] = _to_hash(value)
+        hash[key] = _to_hash(value, downcase: downcase)
       end
       hash
     end
@@ -376,15 +377,17 @@ module XeroRuby::PayrollUk
     # For object, use to_hash. Otherwise, just return the value
     # @param [Object] value Any valid value
     # @return [Hash] Returns the value in the form of hash
-    def _to_hash(value)
+    def _to_hash(value, downcase: false)
       if value.is_a?(Array)
-        value.compact.map { |v| _to_hash(v) }
+        value.map do |v|
+          v.to_hash(downcase: downcase)
+        end
       elsif value.is_a?(Hash)
         {}.tap do |hash|
-          value.each { |k, v| hash[k] = _to_hash(v) }
+          value.map { |k, v| hash[k] = _to_hash(v, downcase: downcase) }
         end
       elsif value.respond_to? :to_hash
-        value.to_hash
+        value.to_hash(downcase: downcase)
       else
         value
       end
@@ -392,8 +395,12 @@ module XeroRuby::PayrollUk
 
     def parse_date(datestring)
       if datestring.include?('Date')
-        seconds_since_epoch = datestring.scan(/[0-9]+/)[0].to_i / 1000.0
-        Time.at(seconds_since_epoch).utc.strftime('%Y-%m-%dT%H:%M:%S%z').to_s
+        date_pattern = /\/Date\((-?\d+)(\+\d+)?\)\//
+        original, date, timezone = *date_pattern.match(datestring)
+        date = (date.to_i / 1000)
+        Time.at(date).utc.strftime('%Y-%m-%dT%H:%M:%S%z').to_s
+      elsif /(\d\d\d\d)-(\d\d)/.match(datestring) # handles dates w/out Days: YYYY-MM*-DD
+        Time.parse(datestring + '-01').strftime('%Y-%m-%dT%H:%M:%S').to_s
       else # handle date 'types' for small subset of payroll API's
         Time.parse(datestring).strftime('%Y-%m-%dT%H:%M:%S').to_s
       end
