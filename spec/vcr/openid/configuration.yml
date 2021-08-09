@@ -1,0 +1,91 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://identity.xero.com/.well-known/openid-configuration/jwks
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.6.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      content-type:
+      - application/jwk-set+json; charset=UTF-8
+      server:
+      - nginx
+      xero-origin-id:
+      - IdentityServer.Web
+      xero-causation-id:
+      - 863d3c6de6b046ccb2b0283bc67ce9c6
+      xero-message-id:
+      - f990443442f14dc39380524c385d4742
+      xero-activity-id:
+      - ef9976f7a4044d6eab4431ebf1494a08
+      xero-correlation-id:
+      - f6751233b6b847c7af9e35d873879c3d
+      content-length:
+      - '2262'
+      date:
+      - Mon, 09 Aug 2021 06:32:12 GMT
+      connection:
+      - keep-alive
+      set-cookie:
+      - bm_sz=FFF27D173279CF0488E6F801BA133013~YAAQRs9Y22F/wMJ6AQAAiJOcKQwnmH5C4ehQO1H6dCd3/BXJ+xKN7mJmsFo4jeAK3lZORTgH/yFL9qb577CwAndxgufem+B7TjZFxETb98LYwfSDRS91r+jRUG4sYEO6xYG8k03qm/aefjLhCSv8faL2b6Ni4v9R84oKHWbFHuT8j/+kq/N+IW9+ACED3w==;
+        Domain=.xero.com; Path=/; Expires=Mon, 09 Aug 2021 10:32:12 GMT; Max-Age=14400;
+        HttpOnly, _abck=9E3AB706A413011A3351BAB548DB76F6~-1~YAAQRs9Y22J/wMJ6AQAAiJOcKQYI6ZrF4GoSCNhkSW1xXji1PoHTnOy3Za5tB9vNsNUagIj7LiXhaEQd8hZeN93CXPEC592CAkMO1g/1RSb5YtTYGR7UooHNnk4DxC5HANBBu8ZE4i5qHGZTTT4cl78w1E+Wu9Clb+6Z5Sgz0U4fiSOZNLot7kaihDzA8h4BFI6sQhyLZgoFrXV5woGbC/yLAOZvFQ48DnK6hc0ANi2+B96lvyLYdt0HWktKpzr13z8TWHNDiIQ1K9h5YFPdf9Va0EJtUBi5VmXyt7raIoutnZzyPjkQOzhd6b+OCLMec1ERwlKz867/qiWnq+mrUD1lL5fQ+SRafVPbMk53ticewgSagkDo~-1~-1~-1;
+        Domain=.xero.com; Path=/; Expires=Tue, 09 Aug 2022 06:32:12 GMT; Max-Age=31536000;
+        Secure
+    body:
+      encoding: UTF-8
+      string: '{"keys":[{"kty":"RSA","use":"sig","kid":"1CAF8E66772D6DC028D6726FD0261581570EFC19","x5t":"HK-OZnctbcAo1nJv0CYVgVcO_Bk","e":"AQAB","n":"zF3EI4O33euG7WriakxRBkeko99IuG0A5gzp-thNWFmglx4hdCjQ4-8jB6MM7xdQ2OfC271Ox8sjrDLFRdlGT2fPLLvMwBYi8fb-L_o7KakkU1CGf7YH2F2vSmNEWKMfo6jFOGMya7Cff9Yi2lFyMXlT764tvEVt09TLZ5Kq8rrX-OkFVuHc9Jkb98Bpj-bJxE5ANy-MXyOGXwYsRbTno27RouvqNGWurcCEWCwIhn-xmeI_JPWzV3o_uscPyCMkW-iNTLeeZTo32Tqn2xBNg2qxl7H3ujw1QJYhf5Qc6UD166GB0gG94uxO0TaGde974IBI6FD_6cikTTJpHInAZQ","x5c":["MIIFITCCBAmgAwIBAgIRAO2aYd0RmqejAAAAAFDbwfMwDQYJKoZIhvcNAQELBQAwgboxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1FbnRydXN0LCBJbmMuMSgwJgYDVQQLEx9TZWUgd3d3LmVudHJ1c3QubmV0L2xlZ2FsLXRlcm1zMTkwNwYDVQQLEzAoYykgMjAxMiBFbnRydXN0LCBJbmMuIC0gZm9yIGF1dGhvcml6ZWQgdXNlIG9ubHkxLjAsBgNVBAMTJUVudHJ1c3QgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkgLSBMMUswHhcNMTcwMzA4MTk1MDEwWhcNMTkwNzA4MjAyMDA5WjBRMQswCQYDVQQGEwJOWjETMBEGA1UEBxMKV2VsbGluZ3RvbjERMA8GA1UEChMIWGVybyBMdGQxGjAYBgNVBAMTEWlkZW50aXR5Lnhlcm8uY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzF3EI4O33euG7WriakxRBkeko99IuG0A5gzp+thNWFmglx4hdCjQ4+8jB6MM7xdQ2OfC271Ox8sjrDLFRdlGT2fPLLvMwBYi8fb+L/o7KakkU1CGf7YH2F2vSmNEWKMfo6jFOGMya7Cff9Yi2lFyMXlT764tvEVt09TLZ5Kq8rrX+OkFVuHc9Jkb98Bpj+bJxE5ANy+MXyOGXwYsRbTno27RouvqNGWurcCEWCwIhn+xmeI/JPWzV3o/uscPyCMkW+iNTLeeZTo32Tqn2xBNg2qxl7H3ujw1QJYhf5Qc6UD166GB0gG94uxO0TaGde974IBI6FD/6cikTTJpHInAZQIDAQABo4IBiDCCAYQwDgYDVR0PAQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAzBgNVHR8ELDAqMCigJqAkhiJodHRwOi8vY3JsLmVudHJ1c3QubmV0L2xldmVsMWsuY3JsMEsGA1UdIAREMEIwNgYKYIZIAYb6bAoBBTAoMCYGCCsGAQUFBwIBFhpodHRwOi8vd3d3LmVudHJ1c3QubmV0L3JwYTAIBgZngQwBAgIwaAYIKwYBBQUHAQEEXDBaMCMGCCsGAQUFBzABhhdodHRwOi8vb2NzcC5lbnRydXN0Lm5ldDAzBggrBgEFBQcwAoYnaHR0cDovL2FpYS5lbnRydXN0Lm5ldC9sMWstY2hhaW4yNTYuY2VyMBwGA1UdEQQVMBOCEWlkZW50aXR5Lnhlcm8uY29tMB8GA1UdIwQYMBaAFIKicHTdvFM/z3vU981/p2DGCky/MB0GA1UdDgQWBBRFeeDSLzlET3U0/DtzB6I/v20WQjAJBgNVHRMEAjAAMA0GCSqGSIb3DQEBCwUAA4IBAQBLkj/9pEPkITL0MUTCjQMmHQHMCRHpeI1t0oAWkl42PbT+Us2M58WkGoKbwLNh1kwDs2mWw2wBGd8SBGjfiwybhkfyjT7IIDkiPBlfsM0qo4wvGcwRmU86nG4koMX4JMUaqw8rp1OrttOKlUORiTAM9WhgtYnvJrD7TGwNHLkMa1z9Iaz0K//hPCIcGmLBz1uk0KXIwxVQTR7a1DS9yb0vLLwvoRFNuajDESdGhxGuzTe1FcR/xdJTEjH0dZ/+chKvGoUF9W97SZKXgLgpefh/xNgRV5gKrVwBrRuQ9ORoMCnKh8MMgxeTjZqTA6/rSTeNwOVpcCNomYrVP0G4+OSA"],"alg":"RS256"}]}'
+  recorded_at: Mon, 09 Aug 2021 06:32:12 GMT
+- request:
+    method: get
+    uri: https://identity.xero.com/.well-known/openid-configuration/jwks
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.6.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      content-type:
+      - application/jwk-set+json; charset=UTF-8
+      server:
+      - nginx
+      xero-origin-id:
+      - IdentityServer.Web
+      xero-causation-id:
+      - 863d3c6de6b046ccb2b0283bc67ce9c6
+      xero-message-id:
+      - f990443442f14dc39380524c385d4742
+      xero-activity-id:
+      - ef9976f7a4044d6eab4431ebf1494a08
+      xero-correlation-id:
+      - f6751233b6b847c7af9e35d873879c3d
+      content-length:
+      - '2262'
+      date:
+      - Mon, 09 Aug 2021 06:32:12 GMT
+      connection:
+      - keep-alive
+      set-cookie:
+      - bm_sz=4816294E962D258511B6654933CE2C25~YAAQRs9Y22N/wMJ6AQAAx5OcKQw4YQwyr97AvpSWO29siv99PbjqN3qhzREQd74c/SOeRO+kYMlXptlrx23VX9wqcKSZM032PFiH7j1RQPqsbSxdtnXHpcuCADvuVUhGJ/DzoEWwV3c0DntSNeAs3Gvnu1RbRyw7N3h8D+D6Fwzg90StM6jMEl9byBa87g==;
+        Domain=.xero.com; Path=/; Expires=Mon, 09 Aug 2021 10:32:12 GMT; Max-Age=14400;
+        HttpOnly, _abck=5A5C09B298A067074EEE3877B1A6387D~-1~YAAQRs9Y22R/wMJ6AQAAx5OcKQb0Tv/7XEbogOanNkOUGAU9c28IbUxCvaYQWVLbZyhp5iegyFpqgpJMRIcnwcJ/HuKKTh0DiEvKTsqVwJJeiPXhPaBP46fYhP3BxIpNkH6Kh70JT25+GhHiHT9chEyvjOo5B+pV8Pz8fHfgIHcIw4PlQE3qHgOPO2TvbsjjT1trx6leHo7zhy4T9BvJyUjPhcVfhXkLSQVhAdLg/IOnPA1uhkU8tyvSMjnMl9aPxCdvRbYz55YUlVL3m7LN2wDJPT0XcfmfX1CrN2tiWUuvA+BZjwFWP8263nKncPYsAZ/zT/16JR7N1AVjhrO7/RPFtSTB32zH8g0Ym7H7RvEUPzyCe0N6~-1~-1~-1;
+        Domain=.xero.com; Path=/; Expires=Tue, 09 Aug 2022 06:32:12 GMT; Max-Age=31536000;
+        Secure
+    body:
+      encoding: UTF-8
+      string: '{"keys":[{"kty":"RSA","use":"sig","kid":"1CAF8E66772D6DC028D6726FD0261581570EFC19","x5t":"HK-OZnctbcAo1nJv0CYVgVcO_Bk","e":"AQAB","n":"zF3EI4O33euG7WriakxRBkeko99IuG0A5gzp-thNWFmglx4hdCjQ4-8jB6MM7xdQ2OfC271Ox8sjrDLFRdlGT2fPLLvMwBYi8fb-L_o7KakkU1CGf7YH2F2vSmNEWKMfo6jFOGMya7Cff9Yi2lFyMXlT764tvEVt09TLZ5Kq8rrX-OkFVuHc9Jkb98Bpj-bJxE5ANy-MXyOGXwYsRbTno27RouvqNGWurcCEWCwIhn-xmeI_JPWzV3o_uscPyCMkW-iNTLeeZTo32Tqn2xBNg2qxl7H3ujw1QJYhf5Qc6UD166GB0gG94uxO0TaGde974IBI6FD_6cikTTJpHInAZQ","x5c":["MIIFITCCBAmgAwIBAgIRAO2aYd0RmqejAAAAAFDbwfMwDQYJKoZIhvcNAQELBQAwgboxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1FbnRydXN0LCBJbmMuMSgwJgYDVQQLEx9TZWUgd3d3LmVudHJ1c3QubmV0L2xlZ2FsLXRlcm1zMTkwNwYDVQQLEzAoYykgMjAxMiBFbnRydXN0LCBJbmMuIC0gZm9yIGF1dGhvcml6ZWQgdXNlIG9ubHkxLjAsBgNVBAMTJUVudHJ1c3QgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkgLSBMMUswHhcNMTcwMzA4MTk1MDEwWhcNMTkwNzA4MjAyMDA5WjBRMQswCQYDVQQGEwJOWjETMBEGA1UEBxMKV2VsbGluZ3RvbjERMA8GA1UEChMIWGVybyBMdGQxGjAYBgNVBAMTEWlkZW50aXR5Lnhlcm8uY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzF3EI4O33euG7WriakxRBkeko99IuG0A5gzp+thNWFmglx4hdCjQ4+8jB6MM7xdQ2OfC271Ox8sjrDLFRdlGT2fPLLvMwBYi8fb+L/o7KakkU1CGf7YH2F2vSmNEWKMfo6jFOGMya7Cff9Yi2lFyMXlT764tvEVt09TLZ5Kq8rrX+OkFVuHc9Jkb98Bpj+bJxE5ANy+MXyOGXwYsRbTno27RouvqNGWurcCEWCwIhn+xmeI/JPWzV3o/uscPyCMkW+iNTLeeZTo32Tqn2xBNg2qxl7H3ujw1QJYhf5Qc6UD166GB0gG94uxO0TaGde974IBI6FD/6cikTTJpHInAZQIDAQABo4IBiDCCAYQwDgYDVR0PAQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAzBgNVHR8ELDAqMCigJqAkhiJodHRwOi8vY3JsLmVudHJ1c3QubmV0L2xldmVsMWsuY3JsMEsGA1UdIAREMEIwNgYKYIZIAYb6bAoBBTAoMCYGCCsGAQUFBwIBFhpodHRwOi8vd3d3LmVudHJ1c3QubmV0L3JwYTAIBgZngQwBAgIwaAYIKwYBBQUHAQEEXDBaMCMGCCsGAQUFBzABhhdodHRwOi8vb2NzcC5lbnRydXN0Lm5ldDAzBggrBgEFBQcwAoYnaHR0cDovL2FpYS5lbnRydXN0Lm5ldC9sMWstY2hhaW4yNTYuY2VyMBwGA1UdEQQVMBOCEWlkZW50aXR5Lnhlcm8uY29tMB8GA1UdIwQYMBaAFIKicHTdvFM/z3vU981/p2DGCky/MB0GA1UdDgQWBBRFeeDSLzlET3U0/DtzB6I/v20WQjAJBgNVHRMEAjAAMA0GCSqGSIb3DQEBCwUAA4IBAQBLkj/9pEPkITL0MUTCjQMmHQHMCRHpeI1t0oAWkl42PbT+Us2M58WkGoKbwLNh1kwDs2mWw2wBGd8SBGjfiwybhkfyjT7IIDkiPBlfsM0qo4wvGcwRmU86nG4koMX4JMUaqw8rp1OrttOKlUORiTAM9WhgtYnvJrD7TGwNHLkMa1z9Iaz0K//hPCIcGmLBz1uk0KXIwxVQTR7a1DS9yb0vLLwvoRFNuajDESdGhxGuzTe1FcR/xdJTEjH0dZ/+chKvGoUF9W97SZKXgLgpefh/xNgRV5gKrVwBrRuQ9ORoMCnKh8MMgxeTjZqTA6/rSTeNwOVpcCNomYrVP0G4+OSA"],"alg":"RS256"}]}'
+  recorded_at: Mon, 09 Aug 2021 06:32:12 GMT
+recorded_with: VCR 6.0.0

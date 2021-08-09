@@ -443,7 +443,9 @@ describe XeroRuby::ApiClient do
     end
 
     it '#validate_tokens' do
-      expect(api_client.validate_tokens(tkn_set)).to eq(true)
+      VCR.use_cassette("openid/configuration") do
+        expect(api_client.validate_tokens(tkn_set)).to eq(true)
+      end
     end
     it '#access_token' do
       expect(api_client.access_token).to eq(access_token)
