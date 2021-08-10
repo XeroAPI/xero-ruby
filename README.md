@@ -13,7 +13,7 @@ The xero-ruby SDK makes it easy for developers to access Xero's APIs in their Ru
 - [Configuration](#configuration)
 - [Authentication](#authentication)
 - [Custom Connections](#custom-connections)
-- [App Store Subscriptions](#app-store-subscriptioons)
+- [App Store Subscriptions](#app-store-subscriptions)
 - [API Clients](#api-clients)
 - [Helper Methods](#helper-methods)
 - [Usage Examples](#usage-examples)
