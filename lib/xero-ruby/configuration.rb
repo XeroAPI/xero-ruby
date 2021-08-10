@@ -33,6 +33,7 @@ module XeroRuby
     attr_accessor :payroll_au_url
     attr_accessor :payroll_nz_url
     attr_accessor :payroll_uk_url
+    attr_accessor :app_store_url
 
     # Defines API keys used with API Key authentications.
     #
@@ -149,6 +150,7 @@ module XeroRuby
       @payroll_au_url = 'https://api.xero.com/payroll.xro/1.0/'
       @payroll_nz_url = 'https://api.xero.com/payroll.xro/2.0/'
       @payroll_uk_url = 'https://api.xero.com/payroll.xro/2.0/'
+      @app_store_url = 'https://api.xero.com/appstore/2.0/'
       @access_token = nil
       @id_token = nil
       @api_key = {}

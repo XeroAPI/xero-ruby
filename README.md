@@ -13,6 +13,7 @@ The xero-ruby SDK makes it easy for developers to access Xero's APIs in their Ru
 - [Configuration](#configuration)
 - [Authentication](#authentication)
 - [Custom Connections](#custom-connections)
+- [App Store Subscriptions](#app-store-subscriptioons)
 - [API Clients](#api-clients)
 - [Helper Methods](#helper-methods)
 - [Usage Examples](#usage-examples)
@@ -46,6 +47,7 @@ Sample apps can get you started quickly with simple auth flows to advanced usage
 | [`xero-ruby-oauth2-starter`](https://github.com/XeroAPI/Xero-ruby-oauth2-starter) | A Sinatra application showing the basic getting started code to work with the sdk | <img src="https://i.imgur.com/9H4F98M.png" alt="drawing" width="300"/>
 | [`xero-ruby-oauth2-app`](https://github.com/XeroAPI/Xero-ruby-oauth2-app) | Complete rails app with +95% of api set examples, complex filters, pagination, and user/token management in postgres | <img src="https://i.imgur.com/XsAp9Ww.png" alt="drawing" width="500"/>
 | [`xero-ruby-custom-connections-starter`](https://github.com/XeroAPI/xero-ruby-custom-connections-starter) | A getting started Sinatra app showing Custom Connections - a Xero [premium option](https://developer.xero.com/documentation/oauth2/custom-connections) for building M2M integrations to a single org | <img src="https://i.imgur.com/YEkScui.png" alt="drawing" width="300"/>
+| [`xero-ruby-sso-form`](https://github.com/XeroAPI/xero-ruby-sso-form) | A basic Sinatra app showing how to implement SSU to Lead | <img src="https://i.imgur.com/Nf95GVd.png" alt="drawing" width="300"/>
 
 <hr>
 
@@ -155,6 +157,73 @@ Because Custom Connections are only valid for a single organisation you don't ne
 However - due to the nature of how our SDK's are generated from our OpenAPI spec, the parameter remains which requires you to pass an empty string for now to use the SDK with a Custom Connection.
 
 ---
+
+## App Store Subscriptions
+
+If you are implementing subscriptions to participate in Xero's App Store you will need to setup [App Store subscriptions](https://developer.xero.com/documentation/guides/how-to-guides/xero-app-store-referrals/) endpoints.
+
+When a plan is successfully purchased, the user is redirected back to the URL specified in the setup process. The Xero App Store appends the subscription Id to this URL so you can immediately determine what plan the user has subscribed to through the subscriptions API.
+
+With your app credentials you can create a client via `client_credentials` grant_type with the `marketplace.billing` scope. This unique access_token will allow you to query any functions in `appStoreApi`. Client Credentials tokens to query app store endpoints will only work for apps that have completed the App Store on-boarding process.
+
+```ruby
+// => /post-purchase-url?subscriptionId=03bc74f2-1237-4477-b782-2dfb1a6d8b21
+
+subscription_id = params[:subscriptionId]
+
+xero_app_store_client ||= XeroRuby::ApiClient.new(credentials: {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  grant_type: 'client_credentials'
+  scopes: ['marketplace.billing']
+})
+
+xero_app_store_client.get_client_credentials_token
+
+@subscription = xero_app_store_client.app_store_api.get_subscription(subscription_id)
+
+puts @subscription.to_attributes
+{
+  :current_period_end => Thu, 02 Sep 2021 14:08:58 +0000,
+  :id => "03bc74f2-1237-4477-b782-2dfb1a6d8b21",
+  :organisation_id => "79e8b2e5-c63d-4dce-888f-e0f3e9eac647",
+  :plans => [
+    {
+      :id => "6abc26f3-9390-4194-8b25-ce8b9942fda9",
+      :name => "Small",
+      :status => "ACTIVE",
+      :subscription_items => [
+        {
+          :id => "834cff4c-b753-4de2-9e7a-3451e14fa17a",
+          :price => {
+            :amount => 0.1e0,
+            :currency => "NZD",
+            :id => "2310de92-c7c0-4bcb-b972-fb7612177bc7"
+          },
+          :product => {
+            :id => "9586421f-7325-4493-bac9-d93be06a6a38",
+            :name => "",
+            :type => "FIXED"
+          },
+          :start_date => Mon, 02 Aug 2021 14:08:58 +0000,
+          :test_mode => true
+        }
+      ]
+    }
+  ],
+  :start_date => Mon, 02 Aug 2021 14:08:58 +0000,
+  :status => "ACTIVE",
+  :test_mode => true
+}
+```
+You should use this subscription data to provision user access/permissions to your application.
+### App Store Subscription Webhooks
+
+In additon to a subscription Id being passed through the URL, when a purchase or an upgrade takes place you will be notified via a webhook. You can then use the subscription Id in the webhook payload to query the AppStore endpoints and determine what plan the user purchased, upgraded, downgraded or cancelled.
+
+Refer to Xero's documenation to learn more about setting up and receiving webhooks.
+> https://developer.xero.com/documentation/guides/webhooks/overview/
+
 ## API Clients
 You can access the different API sets and their available methods through the following:
 

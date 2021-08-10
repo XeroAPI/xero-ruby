@@ -57,7 +57,7 @@ module XeroRuby
     end
 
     def authorization_url
-      url = URI.parse @config.login_url
+      url = URI.parse(@config.login_url)
       url.query = URI.encode_www_form(
         {
           response_type: 'code',
@@ -103,6 +103,11 @@ module XeroRuby
     def payroll_uk_api
       @config.base_url = @config.payroll_uk_url
       XeroRuby::PayrollUkApi.new(self)
+    end
+
+    def app_store_api
+      @config.base_url = @config.app_store_url
+      XeroRuby::AppStoreApi.new(self)
     end
 
     # Token Helpers
@@ -501,6 +506,8 @@ module XeroRuby
           XeroRuby::PayrollNz.const_get(return_type).build_from_hash(data)
         when 'PayrollUkApi'
           XeroRuby::PayrollUk.const_get(return_type).build_from_hash(data)
+        when 'AppStoreApi'
+          XeroRuby::AppStore.const_get(return_type).build_from_hash(data)
         else
           XeroRuby::Accounting.const_get(return_type).build_from_hash(data)
         end

@@ -122,6 +122,7 @@ module XeroRuby::Accounting
     HAWAIIANSTANDARDTIME = "HAWAIIANSTANDARDTIME".freeze
     UTC11 = "UTC11".freeze
     DATELINESTANDARDTIME = "DATELINESTANDARDTIME".freeze
+    EASTERISLANDSTANDARDTIME = "EASTERISLANDSTANDARDTIME".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
