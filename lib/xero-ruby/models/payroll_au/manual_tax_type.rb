@@ -19,6 +19,7 @@ module XeroRuby::PayrollAu
     ETPRMANUAL = "ETPRMANUAL".freeze
     SCHEDULE5_MANUAL = "SCHEDULE5MANUAL".freeze
     SCHEDULE5_STSLMANUAL = "SCHEDULE5STSLMANUAL".freeze
+    SCHEDULE4_MANUAL = "SCHEDULE4MANUAL".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

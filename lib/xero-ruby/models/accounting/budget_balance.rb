@@ -42,8 +42,8 @@ module XeroRuby::Accounting
     def self.openapi_types
       {
         :'period' => :'Date',
-        :'amount' => :'Integer',
-        :'unit_amount' => :'Integer',
+        :'amount' => :'BigDecimal',
+        :'unit_amount' => :'BigDecimal',
         :'notes' => :'String'
       }
     end

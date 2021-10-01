@@ -7018,20 +7018,24 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # Retrieves a specific budgets, which includes budget lines
+    # Retrieves a specific budget, which includes budget lines
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param budget_id [String] Unique identifier for Budgets
     # @param [Hash] opts the optional parameters
+    # @option opts [Date] :date_to Filter by start date
+    # @option opts [Date] :date_from Filter by end date
     # @return [Budgets]
     def get_budget(xero_tenant_id, budget_id, opts = {})
       data, _status_code, _headers = get_budget_with_http_info(xero_tenant_id, budget_id, opts)
       data
     end
 
-    # Retrieves a specific budgets, which includes budget lines
+    # Retrieves a specific budget, which includes budget lines
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param budget_id [String] Unique identifier for Budgets
     # @param [Hash] opts the optional parameters
+    # @option opts [Date] :date_to Filter by start date
+    # @option opts [Date] :date_from Filter by end date
     # @return [Array<(Budgets, Integer, Hash)>] Budgets data, response status code and response headers
     def get_budget_with_http_info(xero_tenant_id, budget_id, options = {})
       opts = options.dup
@@ -7054,6 +7058,8 @@ module XeroRuby
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'DateTo'] = opts[:'date_to'] if !opts[:'date_to'].nil?
+      query_params[:'DateFrom'] = opts[:'date_from'] if !opts[:'date_from'].nil?
       
       # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
       query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
