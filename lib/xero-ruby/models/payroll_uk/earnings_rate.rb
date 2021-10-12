@@ -44,8 +44,8 @@ module XeroRuby::PayrollUk
     STATUTORY_SHARED_PARENTAL_PAY_NON_PENSIONABLE = "StatutorySharedParentalPayNonPensionable".freeze
     STATUTORY_SICK_PAY = "StatutorySickPay".freeze
     STATUTORY_SICK_PAY_NON_PENSIONABLE = "StatutorySickPayNonPensionable".freeze
-    TIPS_DIRECT = "Tips(Direct)".freeze
-    TIPS_NON_DIRECT = "Tips(Non-Direct)".freeze
+    TIPS_NON_DIRECT = "TipsNonDirect".freeze
+    TIPS_DIRECT = "TipsDirect".freeze
     TERMINATION_PAY = "TerminationPay".freeze
     
     # Indicates the type of the earning rate
@@ -214,7 +214,7 @@ module XeroRuby::PayrollUk
     def valid?
       return false if @name.nil?
       return false if @earnings_type.nil?
-      earnings_type_validator = EnumAttributeValidator.new('String', ["Allowance", "Backpay", "Bonus", "Commission", "LumpSum", "OtherEarnings", "OvertimeEarnings", "RegularEarnings", "StatutoryAdoptionPay", "StatutoryAdoptionPayNonPensionable", "StatutoryBereavementPay", "StatutoryMaternityPay", "StatutoryMaternityPayNonPensionable", "StatutoryPaternityPay", "StatutoryPaternityPayNonPensionable", "StatutoryParentalBereavementPayNonPensionable", "StatutorySharedParentalPay", "StatutorySharedParentalPayNonPensionable", "StatutorySickPay", "StatutorySickPayNonPensionable", "Tips(Direct)", "Tips(Non-Direct)", "TerminationPay"])
+      earnings_type_validator = EnumAttributeValidator.new('String', ["Allowance", "Backpay", "Bonus", "Commission", "LumpSum", "OtherEarnings", "OvertimeEarnings", "RegularEarnings", "StatutoryAdoptionPay", "StatutoryAdoptionPayNonPensionable", "StatutoryBereavementPay", "StatutoryMaternityPay", "StatutoryMaternityPayNonPensionable", "StatutoryPaternityPay", "StatutoryPaternityPayNonPensionable", "StatutoryParentalBereavementPayNonPensionable", "StatutorySharedParentalPay", "StatutorySharedParentalPayNonPensionable", "StatutorySickPay", "StatutorySickPayNonPensionable", "TipsNonDirect", "TipsDirect", "TerminationPay"])
       return false unless earnings_type_validator.valid?(@earnings_type)
       return false if @rate_type.nil?
       rate_type_validator = EnumAttributeValidator.new('String', ["RatePerUnit", "MultipleOfOrdinaryEarningsRate", "FixedAmount"])
@@ -227,7 +227,7 @@ module XeroRuby::PayrollUk
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] earnings_type Object to be assigned
     def earnings_type=(earnings_type)
-      validator = EnumAttributeValidator.new('String', ["Allowance", "Backpay", "Bonus", "Commission", "LumpSum", "OtherEarnings", "OvertimeEarnings", "RegularEarnings", "StatutoryAdoptionPay", "StatutoryAdoptionPayNonPensionable", "StatutoryBereavementPay", "StatutoryMaternityPay", "StatutoryMaternityPayNonPensionable", "StatutoryPaternityPay", "StatutoryPaternityPayNonPensionable", "StatutoryParentalBereavementPayNonPensionable", "StatutorySharedParentalPay", "StatutorySharedParentalPayNonPensionable", "StatutorySickPay", "StatutorySickPayNonPensionable", "Tips(Direct)", "Tips(Non-Direct)", "TerminationPay"])
+      validator = EnumAttributeValidator.new('String', ["Allowance", "Backpay", "Bonus", "Commission", "LumpSum", "OtherEarnings", "OvertimeEarnings", "RegularEarnings", "StatutoryAdoptionPay", "StatutoryAdoptionPayNonPensionable", "StatutoryBereavementPay", "StatutoryMaternityPay", "StatutoryMaternityPayNonPensionable", "StatutoryPaternityPay", "StatutoryPaternityPayNonPensionable", "StatutoryParentalBereavementPayNonPensionable", "StatutorySharedParentalPay", "StatutorySharedParentalPayNonPensionable", "StatutorySickPay", "StatutorySickPayNonPensionable", "TipsNonDirect", "TipsDirect", "TerminationPay"])
       unless validator.valid?(earnings_type)
         fail ArgumentError, "invalid value for \"earnings_type\", must be one of #{validator.allowable_values}."
       end

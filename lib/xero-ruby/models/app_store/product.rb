@@ -27,6 +27,9 @@ module XeroRuby::AppStore
     FIXED = "FIXED".freeze
     PER_SEAT = "PER_SEAT".freeze
     
+    # The unit of the per seat product. e.g. \"user\", \"organisation\", \"SMS\", etc
+    attr_accessor :seat_unit
+    
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -54,7 +57,8 @@ module XeroRuby::AppStore
       {
         :'id' => :'id',
         :'name' => :'name',
-        :'type' => :'type'
+        :'type' => :'type',
+        :'seat_unit' => :'seatUnit'
       }
     end
 
@@ -63,7 +67,8 @@ module XeroRuby::AppStore
       {
         :'id' => :'String',
         :'name' => :'String',
-        :'type' => :'String'
+        :'type' => :'String',
+        :'seat_unit' => :'String'
       }
     end
 
@@ -92,6 +97,10 @@ module XeroRuby::AppStore
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
+      end
+
+      if attributes.key?(:'seat_unit')
+        self.seat_unit = attributes[:'seat_unit']
       end
     end
 
@@ -127,7 +136,8 @@ module XeroRuby::AppStore
       self.class == o.class &&
           id == o.id &&
           name == o.name &&
-          type == o.type
+          type == o.type &&
+          seat_unit == o.seat_unit
     end
 
     # @see the `==` method
@@ -139,7 +149,7 @@ module XeroRuby::AppStore
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, type].hash
+      [id, name, type, seat_unit].hash
     end
 
     # Builds the object from hash

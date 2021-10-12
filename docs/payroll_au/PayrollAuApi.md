@@ -581,7 +581,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: 'if_modified_since_example', # String | Only records created or modified since this timestamp will be returned
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
   where: 'Status==\"ACTIVE\"', # String | Filter by an any element
 
@@ -605,7 +605,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **if_modified_since** | **String**| Only records created or modified since this timestamp will be returned | [optional] 
+ **if_modified_since** | **DateTime**| Only records created or modified since this timestamp will be returned | [optional] 
  **where** | **String**| Filter by an any element | [optional] 
  **order** | **String**| Order by an any element | [optional] 
  **page** | **Integer**| e.g. page&#x3D;1 – Up to 100 employees will be returned in a single API call | [optional] 
@@ -721,7 +721,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: 'if_modified_since_example', # String | Only records created or modified since this timestamp will be returned
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
   where: 'Status==\"ACTIVE\"', # String | Filter by an any element
 
@@ -745,7 +745,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **if_modified_since** | **String**| Only records created or modified since this timestamp will be returned | [optional] 
+ **if_modified_since** | **DateTime**| Only records created or modified since this timestamp will be returned | [optional] 
  **where** | **String**| Filter by an any element | [optional] 
  **order** | **String**| Order by an any element | [optional] 
  **page** | **Integer**| e.g. page&#x3D;1 – Up to 100 objects will be returned in a single API call | [optional] 
@@ -797,7 +797,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: 'if_modified_since_example', # String | Only records created or modified since this timestamp will be returned
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
   where: 'Status==\"ACTIVE\"', # String | Filter by an any element
 
@@ -821,7 +821,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **if_modified_since** | **String**| Only records created or modified since this timestamp will be returned | [optional] 
+ **if_modified_since** | **DateTime**| Only records created or modified since this timestamp will be returned | [optional] 
  **where** | **String**| Filter by an any element | [optional] 
  **order** | **String**| Order by an any element | [optional] 
  **page** | **Integer**| e.g. page&#x3D;1 – Up to 100 objects will be returned in a single API call | [optional] 
@@ -937,7 +937,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: 'if_modified_since_example', # String | Only records created or modified since this timestamp will be returned
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
   where: 'Status==\"ACTIVE\"', # String | Filter by an any element
 
@@ -961,7 +961,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **if_modified_since** | **String**| Only records created or modified since this timestamp will be returned | [optional] 
+ **if_modified_since** | **DateTime**| Only records created or modified since this timestamp will be returned | [optional] 
  **where** | **String**| Filter by an any element | [optional] 
  **order** | **String**| Order by an any element | [optional] 
  **page** | **Integer**| e.g. page&#x3D;1 – Up to 100 PayRuns will be returned in a single API call | [optional] 
@@ -1077,7 +1077,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: 'if_modified_since_example', # String | Only records created or modified since this timestamp will be returned
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
   where: 'Status==\"ACTIVE\"', # String | Filter by an any element
 
@@ -1101,7 +1101,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **if_modified_since** | **String**| Only records created or modified since this timestamp will be returned | [optional] 
+ **if_modified_since** | **DateTime**| Only records created or modified since this timestamp will be returned | [optional] 
  **where** | **String**| Filter by an any element | [optional] 
  **order** | **String**| Order by an any element | [optional] 
  **page** | **Integer**| e.g. page&#x3D;1 – Up to 100 objects will be returned in a single API call | [optional] 
@@ -1413,7 +1413,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: 'if_modified_since_example', # String | Only records created or modified since this timestamp will be returned
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
   where: 'Status==\"ACTIVE\"', # String | Filter by an any element
 
@@ -1437,7 +1437,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **if_modified_since** | **String**| Only records created or modified since this timestamp will be returned | [optional] 
+ **if_modified_since** | **DateTime**| Only records created or modified since this timestamp will be returned | [optional] 
  **where** | **String**| Filter by an any element | [optional] 
  **order** | **String**| Order by an any element | [optional] 
  **page** | **Integer**| e.g. page&#x3D;1 – Up to 100 SuperFunds will be returned in a single API call | [optional] 
@@ -1553,7 +1553,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: 'if_modified_since_example', # String | Only records created or modified since this timestamp will be returned
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
   where: 'Status==\"ACTIVE\"', # String | Filter by an any element
 
@@ -1577,7 +1577,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **if_modified_since** | **String**| Only records created or modified since this timestamp will be returned | [optional] 
+ **if_modified_since** | **DateTime**| Only records created or modified since this timestamp will be returned | [optional] 
  **where** | **String**| Filter by an any element | [optional] 
  **order** | **String**| Order by an any element | [optional] 
  **page** | **Integer**| e.g. page&#x3D;1 – Up to 100 timesheets will be returned in a single API call | [optional] 

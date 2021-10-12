@@ -3117,7 +3117,7 @@ xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
   filter: 'firstName==John,lastName==Smith', # String | Filter by first name and/or lastname
 
-  page: 56 # Integer | Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
+  page: 5 # Integer | Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
 }
 
 begin
@@ -4043,9 +4043,17 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
-  page: 56, # Integer | Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
+  page: 5, # Integer | Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
 
-  filter: 'employeeId==00000000-0000-0000-0000-000000000000,payrollCalendarId==00000000-0000-0000-0000-000000000000' # String | Filter by first name and/or lastname
+  filter: 'employeeId==00000000-0000-0000-0000-000000000000,payrollCalendarId==00000000-0000-0000-0000-000000000000', # String | Filter by employeeId and/or payrollCalendarId
+
+  status: 'Draft', # String | filter results by any timesheets with a matching timesheet status
+
+  start_date: '2019-01-02', # String | filter results by any timesheets with a startDate on or after the provided date
+
+  end_date: '2020-01-02', # String | filter results by any timesheets with a endDate on or before the provided date
+
+  sort: 'startDate' # String | sort the order of timesheets returned. The default is based on the timesheets createdDate, sorted oldest to newest. Currently, the only other option is to reverse the order based on the timesheets startDate, sorted newest to oldest.
 }
 
 begin
@@ -4064,7 +4072,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **page** | **Integer**| Page number which specifies the set of records to retrieve. By default the number of the records per set is 100. | [optional] 
- **filter** | **String**| Filter by first name and/or lastname | [optional] 
+ **filter** | **String**| Filter by employeeId and/or payrollCalendarId | [optional] 
+ **status** | **String**| filter results by any timesheets with a matching timesheet status | [optional] 
+ **start_date** | **String**| filter results by any timesheets with a startDate on or after the provided date | [optional] 
+ **end_date** | **String**| filter results by any timesheets with a endDate on or before the provided date | [optional] 
+ **sort** | **String**| sort the order of timesheets returned. The default is based on the timesheets createdDate, sorted oldest to newest. Currently, the only other option is to reverse the order based on the timesheets startDate, sorted newest to oldest. | [optional] 
 
 ### Return type
 
