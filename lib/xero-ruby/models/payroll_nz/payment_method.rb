@@ -18,9 +18,9 @@ module XeroRuby::PayrollNz
   class PaymentMethod
     # The payment method code
     attr_accessor :payment_method
-    CHEQUE = "Cheque".freeze
-    ELECTRONICALLY = "Electronically".freeze
-    MANUAL = "Manual".freeze
+    CHEQUE ||= "Cheque".freeze
+    ELECTRONICALLY ||= "Electronically".freeze
+    MANUAL ||= "Manual".freeze
     
 
     attr_accessor :bank_accounts

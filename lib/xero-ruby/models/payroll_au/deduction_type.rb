@@ -39,9 +39,9 @@ module XeroRuby::PayrollAu
     
 
     attr_accessor :deduction_category
-    NONE = "NONE".freeze
-    UNIONFEES = "UNIONFEES".freeze
-    WORKPLACEGIVING = "WORKPLACEGIVING".freeze
+    NONE ||= "NONE".freeze
+    UNIONFEES ||= "UNIONFEES".freeze
+    WORKPLACEGIVING ||= "WORKPLACEGIVING".freeze
     
     # Is the current record
     attr_accessor :current_record

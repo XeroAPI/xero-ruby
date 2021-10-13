@@ -14,9 +14,9 @@ require 'date'
 
 module XeroRuby::Accounting
   class QuoteLineAmountTypes
-    EXCLUSIVE = "EXCLUSIVE".freeze
-    INCLUSIVE = "INCLUSIVE".freeze
-    NOTAX = "NOTAX".freeze
+    EXCLUSIVE ||= "EXCLUSIVE".freeze
+    INCLUSIVE ||= "INCLUSIVE".freeze
+    NOTAX ||= "NOTAX".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

@@ -21,10 +21,10 @@ module XeroRuby::PayrollNz
     
     # The assigned AccountType
     attr_accessor :type
-    PAYELIABILITY = "PAYELIABILITY".freeze
-    WAGESPAYABLE = "WAGESPAYABLE".freeze
-    WAGESEXPENSE = "WAGESEXPENSE".freeze
-    BANK = "BANK".freeze
+    PAYELIABILITY ||= "PAYELIABILITY".freeze
+    WAGESPAYABLE ||= "WAGESPAYABLE".freeze
+    WAGESEXPENSE ||= "WAGESEXPENSE".freeze
+    BANK ||= "BANK".freeze
     
     # A unique 3 digit number for each Account
     attr_accessor :code

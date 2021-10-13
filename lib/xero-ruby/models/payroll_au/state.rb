@@ -14,14 +14,14 @@ require 'date'
 
 module XeroRuby::PayrollAu
   class State
-    ACT = "ACT".freeze
-    NSW = "NSW".freeze
-    NT = "NT".freeze
-    QLD = "QLD".freeze
-    SA = "SA".freeze
-    TAS = "TAS".freeze
-    VIC = "VIC".freeze
-    WA = "WA".freeze
+    ACT ||= "ACT".freeze
+    NSW ||= "NSW".freeze
+    NT ||= "NT".freeze
+    QLD ||= "QLD".freeze
+    SA ||= "SA".freeze
+    TAS ||= "TAS".freeze
+    VIC ||= "VIC".freeze
+    WA ||= "WA".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

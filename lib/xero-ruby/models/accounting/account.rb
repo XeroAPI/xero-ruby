@@ -33,20 +33,20 @@ module XeroRuby::Accounting
     
     # Accounts with a status of ACTIVE can be updated to ARCHIVED. See Account Status Codes
     attr_accessor :status
-    ACTIVE = "ACTIVE".freeze
-    ARCHIVED = "ARCHIVED".freeze
-    DELETED = "DELETED".freeze
+    ACTIVE ||= "ACTIVE".freeze
+    ARCHIVED ||= "ARCHIVED".freeze
+    DELETED ||= "DELETED".freeze
     
     # Description of the Account. Valid for all types of accounts except bank accounts (max length = 4000)
     attr_accessor :description
     
     # For bank accounts only. See Bank Account types
     attr_accessor :bank_account_type
-    BANK = "BANK".freeze
-    CREDITCARD = "CREDITCARD".freeze
-    PAYPAL = "PAYPAL".freeze
-    NONE = "NONE".freeze
-    EMPTY = "".freeze
+    BANK ||= "BANK".freeze
+    CREDITCARD ||= "CREDITCARD".freeze
+    PAYPAL ||= "PAYPAL".freeze
+    NONE ||= "NONE".freeze
+    EMPTY ||= "".freeze
     
 
     attr_accessor :currency_code
@@ -62,35 +62,35 @@ module XeroRuby::Accounting
     
     # See Account Class Types
     attr_accessor :_class
-    ASSET = "ASSET".freeze
-    EQUITY = "EQUITY".freeze
-    EXPENSE = "EXPENSE".freeze
-    LIABILITY = "LIABILITY".freeze
-    REVENUE = "REVENUE".freeze
+    ASSET ||= "ASSET".freeze
+    EQUITY ||= "EQUITY".freeze
+    EXPENSE ||= "EXPENSE".freeze
+    LIABILITY ||= "LIABILITY".freeze
+    REVENUE ||= "REVENUE".freeze
     
     # If this is a system account then this element is returned. See System Account types. Note that non-system accounts may have this element set as either “” or null.
     attr_accessor :system_account
-    DEBTORS = "DEBTORS".freeze
-    CREDITORS = "CREDITORS".freeze
-    BANKCURRENCYGAIN = "BANKCURRENCYGAIN".freeze
-    GST = "GST".freeze
-    GSTONIMPORTS = "GSTONIMPORTS".freeze
-    HISTORICAL = "HISTORICAL".freeze
-    REALISEDCURRENCYGAIN = "REALISEDCURRENCYGAIN".freeze
-    RETAINEDEARNINGS = "RETAINEDEARNINGS".freeze
-    ROUNDING = "ROUNDING".freeze
-    TRACKINGTRANSFERS = "TRACKINGTRANSFERS".freeze
-    UNPAIDEXPCLM = "UNPAIDEXPCLM".freeze
-    UNREALISEDCURRENCYGAIN = "UNREALISEDCURRENCYGAIN".freeze
-    WAGEPAYABLES = "WAGEPAYABLES".freeze
-    CISASSETS = "CISASSETS".freeze
-    CISASSET = "CISASSET".freeze
-    CISLABOUR = "CISLABOUR".freeze
-    CISLABOUREXPENSE = "CISLABOUREXPENSE".freeze
-    CISLABOURINCOME = "CISLABOURINCOME".freeze
-    CISLIABILITY = "CISLIABILITY".freeze
-    CISMATERIALS = "CISMATERIALS".freeze
-    EMPTY = "".freeze
+    DEBTORS ||= "DEBTORS".freeze
+    CREDITORS ||= "CREDITORS".freeze
+    BANKCURRENCYGAIN ||= "BANKCURRENCYGAIN".freeze
+    GST ||= "GST".freeze
+    GSTONIMPORTS ||= "GSTONIMPORTS".freeze
+    HISTORICAL ||= "HISTORICAL".freeze
+    REALISEDCURRENCYGAIN ||= "REALISEDCURRENCYGAIN".freeze
+    RETAINEDEARNINGS ||= "RETAINEDEARNINGS".freeze
+    ROUNDING ||= "ROUNDING".freeze
+    TRACKINGTRANSFERS ||= "TRACKINGTRANSFERS".freeze
+    UNPAIDEXPCLM ||= "UNPAIDEXPCLM".freeze
+    UNREALISEDCURRENCYGAIN ||= "UNREALISEDCURRENCYGAIN".freeze
+    WAGEPAYABLES ||= "WAGEPAYABLES".freeze
+    CISASSETS ||= "CISASSETS".freeze
+    CISASSET ||= "CISASSET".freeze
+    CISLABOUR ||= "CISLABOUR".freeze
+    CISLABOUREXPENSE ||= "CISLABOUREXPENSE".freeze
+    CISLABOURINCOME ||= "CISLABOURINCOME".freeze
+    CISLIABILITY ||= "CISLIABILITY".freeze
+    CISMATERIALS ||= "CISMATERIALS".freeze
+    EMPTY ||= "".freeze
     
     # Shown if set
     attr_accessor :reporting_code

@@ -14,11 +14,11 @@ require 'date'
 
 module XeroRuby::PayrollAu
   class EmploymentBasis
-    FULLTIME = "FULLTIME".freeze
-    PARTTIME = "PARTTIME".freeze
-    CASUAL = "CASUAL".freeze
-    LABOURHIRE = "LABOURHIRE".freeze
-    SUPERINCOMESTREAM = "SUPERINCOMESTREAM".freeze
+    FULLTIME ||= "FULLTIME".freeze
+    PARTTIME ||= "PARTTIME".freeze
+    CASUAL ||= "CASUAL".freeze
+    LABOURHIRE ||= "LABOURHIRE".freeze
+    SUPERINCOMESTREAM ||= "SUPERINCOMESTREAM".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

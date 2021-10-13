@@ -14,18 +14,18 @@ require 'date'
 
 module XeroRuby::PayrollAu
   class EarningsType
-    FIXED = "FIXED".freeze
-    ORDINARYTIMEEARNINGS = "ORDINARYTIMEEARNINGS".freeze
-    OVERTIMEEARNINGS = "OVERTIMEEARNINGS".freeze
-    ALLOWANCE = "ALLOWANCE".freeze
-    LUMPSUMD = "LUMPSUMD".freeze
-    EMPLOYMENTTERMINATIONPAYMENT = "EMPLOYMENTTERMINATIONPAYMENT".freeze
-    LUMPSUMA = "LUMPSUMA".freeze
-    LUMPSUMB = "LUMPSUMB".freeze
-    BONUSESANDCOMMISSIONS = "BONUSESANDCOMMISSIONS".freeze
-    LUMPSUME = "LUMPSUME".freeze
-    LUMPSUMW = "LUMPSUMW".freeze
-    DIRECTORSFEES = "DIRECTORSFEES".freeze
+    FIXED ||= "FIXED".freeze
+    ORDINARYTIMEEARNINGS ||= "ORDINARYTIMEEARNINGS".freeze
+    OVERTIMEEARNINGS ||= "OVERTIMEEARNINGS".freeze
+    ALLOWANCE ||= "ALLOWANCE".freeze
+    LUMPSUMD ||= "LUMPSUMD".freeze
+    EMPLOYMENTTERMINATIONPAYMENT ||= "EMPLOYMENTTERMINATIONPAYMENT".freeze
+    LUMPSUMA ||= "LUMPSUMA".freeze
+    LUMPSUMB ||= "LUMPSUMB".freeze
+    BONUSESANDCOMMISSIONS ||= "BONUSESANDCOMMISSIONS".freeze
+    LUMPSUME ||= "LUMPSUME".freeze
+    LUMPSUMW ||= "LUMPSUMW".freeze
+    DIRECTORSFEES ||= "DIRECTORSFEES".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

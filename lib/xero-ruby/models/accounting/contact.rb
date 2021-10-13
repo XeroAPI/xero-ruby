@@ -27,9 +27,9 @@ module XeroRuby::Accounting
     
     # Current status of a contact – see contact status types
     attr_accessor :contact_status
-    ACTIVE = "ACTIVE".freeze
-    ARCHIVED = "ARCHIVED".freeze
-    GDPRREQUEST = "GDPRREQUEST".freeze
+    ACTIVE ||= "ACTIVE".freeze
+    ARCHIVED ||= "ARCHIVED".freeze
+    GDPRREQUEST ||= "GDPRREQUEST".freeze
     
     # Full name of contact/organisation (max length = 255)
     attr_accessor :name

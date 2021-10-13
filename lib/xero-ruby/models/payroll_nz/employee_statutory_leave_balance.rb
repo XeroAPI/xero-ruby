@@ -18,18 +18,18 @@ module XeroRuby::PayrollNz
   class EmployeeStatutoryLeaveBalance
     # The type of statutory leave
     attr_accessor :leave_type
-    SICK = "Sick".freeze
-    ADOPTION = "Adoption".freeze
-    MATERNITY = "Maternity".freeze
-    PATERNITY = "Paternity".freeze
-    SHAREDPARENTAL = "Sharedparental".freeze
+    SICK ||= "Sick".freeze
+    ADOPTION ||= "Adoption".freeze
+    MATERNITY ||= "Maternity".freeze
+    PATERNITY ||= "Paternity".freeze
+    SHAREDPARENTAL ||= "Sharedparental".freeze
     
     # The balance remaining for the corresponding leave type as of specified date.
     attr_accessor :balance_remaining
     
     # The units will be \"Hours\"
     attr_accessor :units
-    HOURS = "Hours".freeze
+    HOURS ||= "Hours".freeze
     
     class EnumAttributeValidator
       attr_reader :datatype

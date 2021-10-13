@@ -14,8 +14,8 @@ require 'date'
 
 module XeroRuby::Projects
   class ProjectStatus
-    INPROGRESS = "INPROGRESS".freeze
-    CLOSED = "CLOSED".freeze
+    INPROGRESS ||= "INPROGRESS".freeze
+    CLOSED ||= "CLOSED".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
