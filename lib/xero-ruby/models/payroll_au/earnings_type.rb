@@ -24,6 +24,8 @@ module XeroRuby::PayrollAu
     LUMPSUMB = "LUMPSUMB".freeze
     BONUSESANDCOMMISSIONS = "BONUSESANDCOMMISSIONS".freeze
     LUMPSUME = "LUMPSUME".freeze
+    LUMPSUMW = "LUMPSUMW".freeze
+    DIRECTORSFEES = "DIRECTORSFEES".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

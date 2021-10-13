@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **period** | **Date** | Period the amount applies to (e.g. “2019-08”) | [optional] 
-**amount** | **Integer** | LineItem Quantity | [optional] 
-**unit_amount** | **Integer** | Budgeted amount | [optional] 
+**amount** | **BigDecimal** | LineItem Quantity | [optional] 
+**unit_amount** | **BigDecimal** | Budgeted amount | [optional] 
 **notes** | **String** | Any footnotes associated with this balance | [optional] 
 
 ## Code Sample
