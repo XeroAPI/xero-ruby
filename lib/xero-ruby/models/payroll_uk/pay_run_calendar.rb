@@ -24,12 +24,12 @@ module XeroRuby::PayrollUk
     
     # Type of the calendar
     attr_accessor :calendar_type
-    WEEKLY ||= "Weekly".freeze
-    FORTNIGHTLY ||= "Fortnightly".freeze
-    FOUR_WEEKLY ||= "FourWeekly".freeze
-    MONTHLY ||= "Monthly".freeze
-    ANNUAL ||= "Annual".freeze
-    QUARTERLY ||= "Quarterly".freeze
+    WEEKLY = "Weekly".freeze
+    FORTNIGHTLY = "Fortnightly".freeze
+    FOUR_WEEKLY = "FourWeekly".freeze
+    MONTHLY = "Monthly".freeze
+    ANNUAL = "Annual".freeze
+    QUARTERLY = "Quarterly".freeze
     
     # Period start date of the calendar
     attr_accessor :period_start_date

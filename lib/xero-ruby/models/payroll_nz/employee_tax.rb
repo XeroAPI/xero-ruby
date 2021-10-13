@@ -39,11 +39,11 @@ module XeroRuby::PayrollNz
     
     # Contribution Option which can be 'MakeContributions' 'OptOut', 'OnAContributionsHoliday', 'OnASavingsSuspension', 'NotCurrentlyAKiwiSaverMember' for employees without a KiwiSaver membership
     attr_accessor :kiwi_saver_contributions
-    MAKE_CONTRIBUTIONS ||= "MakeContributions".freeze
-    OPT_OUT ||= "OptOut".freeze
-    ON_A_CONTRIBUTIONS_HOLIDAY ||= "OnAContributionsHoliday".freeze
-    ON_A_SAVINGS_SUSPENSION ||= "OnASavingsSuspension".freeze
-    NOT_CURRENTLY_A_KIWI_SAVER_MEMBER ||= "NotCurrentlyAKiwiSaverMember".freeze
+    MAKE_CONTRIBUTIONS = "MakeContributions".freeze
+    OPT_OUT = "OptOut".freeze
+    ON_A_CONTRIBUTIONS_HOLIDAY = "OnAContributionsHoliday".freeze
+    ON_A_SAVINGS_SUSPENSION = "OnASavingsSuspension".freeze
+    NOT_CURRENTLY_A_KIWI_SAVER_MEMBER = "NotCurrentlyAKiwiSaverMember".freeze
     
     # Employee Contribution percentage.
     attr_accessor :kiwi_saver_employee_contribution_rate_percentage

@@ -51,13 +51,13 @@ module XeroRuby::Accounting
     
     # PAYBATCH for bill payments or RECBATCH for sales invoice payments (read-only)
     attr_accessor :type
-    PAYBATCH ||= "PAYBATCH".freeze
-    RECBATCH ||= "RECBATCH".freeze
+    PAYBATCH = "PAYBATCH".freeze
+    RECBATCH = "RECBATCH".freeze
     
     # AUTHORISED or DELETED (read-only). New batch payments will have a status of AUTHORISED. It is not possible to delete batch payments via the API.
     attr_accessor :status
-    AUTHORISED ||= "AUTHORISED".freeze
-    DELETED ||= "DELETED".freeze
+    AUTHORISED = "AUTHORISED".freeze
+    DELETED = "DELETED".freeze
     
     # The total of the payments that make up the batch (read-only)
     attr_accessor :total_amount

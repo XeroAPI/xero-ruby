@@ -33,31 +33,31 @@ module XeroRuby::Accounting
     
     # See Version Types
     attr_accessor :version
-    AU ||= "AU".freeze
-    NZ ||= "NZ".freeze
-    GLOBAL ||= "GLOBAL".freeze
-    UK ||= "UK".freeze
-    US ||= "US".freeze
-    AUONRAMP ||= "AUONRAMP".freeze
-    NZONRAMP ||= "NZONRAMP".freeze
-    GLOBALONRAMP ||= "GLOBALONRAMP".freeze
-    UKONRAMP ||= "UKONRAMP".freeze
-    USONRAMP ||= "USONRAMP".freeze
+    AU = "AU".freeze
+    NZ = "NZ".freeze
+    GLOBAL = "GLOBAL".freeze
+    UK = "UK".freeze
+    US = "US".freeze
+    AUONRAMP = "AUONRAMP".freeze
+    NZONRAMP = "NZONRAMP".freeze
+    GLOBALONRAMP = "GLOBALONRAMP".freeze
+    UKONRAMP = "UKONRAMP".freeze
+    USONRAMP = "USONRAMP".freeze
     
     # Organisation Type
     attr_accessor :organisation_type
-    ACCOUNTING_PRACTICE ||= "ACCOUNTING_PRACTICE".freeze
-    COMPANY ||= "COMPANY".freeze
-    CHARITY ||= "CHARITY".freeze
-    CLUB_OR_SOCIETY ||= "CLUB_OR_SOCIETY".freeze
-    LOOK_THROUGH_COMPANY ||= "LOOK_THROUGH_COMPANY".freeze
-    NOT_FOR_PROFIT ||= "NOT_FOR_PROFIT".freeze
-    PARTNERSHIP ||= "PARTNERSHIP".freeze
-    S_CORPORATION ||= "S_CORPORATION".freeze
-    SELF_MANAGED_SUPERANNUATION_FUND ||= "SELF_MANAGED_SUPERANNUATION_FUND".freeze
-    SOLE_TRADER ||= "SOLE_TRADER".freeze
-    SUPERANNUATION_FUND ||= "SUPERANNUATION_FUND".freeze
-    TRUST ||= "TRUST".freeze
+    ACCOUNTING_PRACTICE = "ACCOUNTING_PRACTICE".freeze
+    COMPANY = "COMPANY".freeze
+    CHARITY = "CHARITY".freeze
+    CLUB_OR_SOCIETY = "CLUB_OR_SOCIETY".freeze
+    LOOK_THROUGH_COMPANY = "LOOK_THROUGH_COMPANY".freeze
+    NOT_FOR_PROFIT = "NOT_FOR_PROFIT".freeze
+    PARTNERSHIP = "PARTNERSHIP".freeze
+    S_CORPORATION = "S_CORPORATION".freeze
+    SELF_MANAGED_SUPERANNUATION_FUND = "SELF_MANAGED_SUPERANNUATION_FUND".freeze
+    SOLE_TRADER = "SOLE_TRADER".freeze
+    SUPERANNUATION_FUND = "SUPERANNUATION_FUND".freeze
+    TRUST = "TRUST".freeze
     
 
     attr_accessor :base_currency
@@ -88,32 +88,32 @@ module XeroRuby::Accounting
     
     # The accounting basis used for tax returns. See Sales Tax Basis
     attr_accessor :sales_tax_basis
-    PAYMENTS ||= "PAYMENTS".freeze
-    INVOICE ||= "INVOICE".freeze
-    NONE ||= "NONE".freeze
-    CASH ||= "CASH".freeze
-    ACCRUAL ||= "ACCRUAL".freeze
-    FLATRATECASH ||= "FLATRATECASH".freeze
-    FLATRATEACCRUAL ||= "FLATRATEACCRUAL".freeze
-    ACCRUALS ||= "ACCRUALS".freeze
+    PAYMENTS = "PAYMENTS".freeze
+    INVOICE = "INVOICE".freeze
+    NONE = "NONE".freeze
+    CASH = "CASH".freeze
+    ACCRUAL = "ACCRUAL".freeze
+    FLATRATECASH = "FLATRATECASH".freeze
+    FLATRATEACCRUAL = "FLATRATEACCRUAL".freeze
+    ACCRUALS = "ACCRUALS".freeze
     
     # The frequency with which tax returns are processed. See Sales Tax Period
     attr_accessor :sales_tax_period
-    MONTHLY ||= "MONTHLY".freeze
-    QUARTERLY1 ||= "QUARTERLY1".freeze
-    QUARTERLY2 ||= "QUARTERLY2".freeze
-    QUARTERLY3 ||= "QUARTERLY3".freeze
-    ANNUALLY ||= "ANNUALLY".freeze
-    ONEMONTHS ||= "ONEMONTHS".freeze
-    TWOMONTHS ||= "TWOMONTHS".freeze
-    SIXMONTHS ||= "SIXMONTHS".freeze
-    N1_MONTHLY ||= "1MONTHLY".freeze
-    N2_MONTHLY ||= "2MONTHLY".freeze
-    N3_MONTHLY ||= "3MONTHLY".freeze
-    N6_MONTHLY ||= "6MONTHLY".freeze
-    QUARTERLY ||= "QUARTERLY".freeze
-    YEARLY ||= "YEARLY".freeze
-    NONE ||= "NONE".freeze
+    MONTHLY = "MONTHLY".freeze
+    QUARTERLY1 = "QUARTERLY1".freeze
+    QUARTERLY2 = "QUARTERLY2".freeze
+    QUARTERLY3 = "QUARTERLY3".freeze
+    ANNUALLY = "ANNUALLY".freeze
+    ONEMONTHS = "ONEMONTHS".freeze
+    TWOMONTHS = "TWOMONTHS".freeze
+    SIXMONTHS = "SIXMONTHS".freeze
+    N1_MONTHLY = "1MONTHLY".freeze
+    N2_MONTHLY = "2MONTHLY".freeze
+    N3_MONTHLY = "3MONTHLY".freeze
+    N6_MONTHLY = "6MONTHLY".freeze
+    QUARTERLY = "QUARTERLY".freeze
+    YEARLY = "YEARLY".freeze
+    NONE = "NONE".freeze
     
     # The default for LineAmountTypes on sales transactions
     attr_accessor :default_sales_tax
@@ -135,40 +135,40 @@ module XeroRuby::Accounting
     
     # Organisation Entity Type
     attr_accessor :organisation_entity_type
-    ACCOUNTING_PRACTICE ||= "ACCOUNTING_PRACTICE".freeze
-    COMPANY ||= "COMPANY".freeze
-    CHARITY ||= "CHARITY".freeze
-    CLUB_OR_SOCIETY ||= "CLUB_OR_SOCIETY".freeze
-    LOOK_THROUGH_COMPANY ||= "LOOK_THROUGH_COMPANY".freeze
-    NOT_FOR_PROFIT ||= "NOT_FOR_PROFIT".freeze
-    PARTNERSHIP ||= "PARTNERSHIP".freeze
-    S_CORPORATION ||= "S_CORPORATION".freeze
-    SELF_MANAGED_SUPERANNUATION_FUND ||= "SELF_MANAGED_SUPERANNUATION_FUND".freeze
-    SOLE_TRADER ||= "SOLE_TRADER".freeze
-    SUPERANNUATION_FUND ||= "SUPERANNUATION_FUND".freeze
-    TRUST ||= "TRUST".freeze
+    ACCOUNTING_PRACTICE = "ACCOUNTING_PRACTICE".freeze
+    COMPANY = "COMPANY".freeze
+    CHARITY = "CHARITY".freeze
+    CLUB_OR_SOCIETY = "CLUB_OR_SOCIETY".freeze
+    LOOK_THROUGH_COMPANY = "LOOK_THROUGH_COMPANY".freeze
+    NOT_FOR_PROFIT = "NOT_FOR_PROFIT".freeze
+    PARTNERSHIP = "PARTNERSHIP".freeze
+    S_CORPORATION = "S_CORPORATION".freeze
+    SELF_MANAGED_SUPERANNUATION_FUND = "SELF_MANAGED_SUPERANNUATION_FUND".freeze
+    SOLE_TRADER = "SOLE_TRADER".freeze
+    SUPERANNUATION_FUND = "SUPERANNUATION_FUND".freeze
+    TRUST = "TRUST".freeze
     
     # A unique identifier for the organisation. Potential uses.
     attr_accessor :short_code
     
     # Organisation Classes describe which plan the Xero organisation is on (e.g. DEMO, TRIAL, PREMIUM)
     attr_accessor :_class
-    DEMO ||= "DEMO".freeze
-    TRIAL ||= "TRIAL".freeze
-    STARTER ||= "STARTER".freeze
-    STANDARD ||= "STANDARD".freeze
-    PREMIUM ||= "PREMIUM".freeze
-    PREMIUM_20 ||= "PREMIUM_20".freeze
-    PREMIUM_50 ||= "PREMIUM_50".freeze
-    PREMIUM_100 ||= "PREMIUM_100".freeze
-    LEDGER ||= "LEDGER".freeze
-    GST_CASHBOOK ||= "GST_CASHBOOK".freeze
-    NON_GST_CASHBOOK ||= "NON_GST_CASHBOOK".freeze
+    DEMO = "DEMO".freeze
+    TRIAL = "TRIAL".freeze
+    STARTER = "STARTER".freeze
+    STANDARD = "STANDARD".freeze
+    PREMIUM = "PREMIUM".freeze
+    PREMIUM_20 = "PREMIUM_20".freeze
+    PREMIUM_50 = "PREMIUM_50".freeze
+    PREMIUM_100 = "PREMIUM_100".freeze
+    LEDGER = "LEDGER".freeze
+    GST_CASHBOOK = "GST_CASHBOOK".freeze
+    NON_GST_CASHBOOK = "NON_GST_CASHBOOK".freeze
     
     # BUSINESS or PARTNER. Partner edition organisations are sold exclusively through accounting partners and have restricted functionality (e.g. no access to invoicing)
     attr_accessor :edition
-    BUSINESS ||= "BUSINESS".freeze
-    PARTNER ||= "PARTNER".freeze
+    BUSINESS = "BUSINESS".freeze
+    PARTNER = "PARTNER".freeze
     
     # Description of business type as defined in Organisation settings
     attr_accessor :line_of_business

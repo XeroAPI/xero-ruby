@@ -48,11 +48,11 @@ module XeroRuby::Accounting
     
     # Current status of receipt – see status types
     attr_accessor :status
-    DRAFT ||= "DRAFT".freeze
-    SUBMITTED ||= "SUBMITTED".freeze
-    AUTHORISED ||= "AUTHORISED".freeze
-    DECLINED ||= "DECLINED".freeze
-    VOIDED ||= "VOIDED".freeze
+    DRAFT = "DRAFT".freeze
+    SUBMITTED = "SUBMITTED".freeze
+    AUTHORISED = "AUTHORISED".freeze
+    DECLINED = "DECLINED".freeze
+    VOIDED = "VOIDED".freeze
     
     # Xero generated sequence number for receipt in current claim for a given user
     attr_accessor :receipt_number

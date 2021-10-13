@@ -27,14 +27,14 @@ module XeroRuby::PayrollUk
     
     # The NI Category of the employee
     attr_accessor :ni_category
-    A ||= "A".freeze
-    B ||= "B".freeze
-    C ||= "C".freeze
-    H ||= "H".freeze
-    J ||= "J".freeze
-    M ||= "M".freeze
-    Z ||= "Z".freeze
-    X ||= "X".freeze
+    A = "A".freeze
+    B = "B".freeze
+    C = "C".freeze
+    H = "H".freeze
+    J = "J".freeze
+    M = "M".freeze
+    Z = "Z".freeze
+    X = "X".freeze
     
     class EnumAttributeValidator
       attr_reader :datatype

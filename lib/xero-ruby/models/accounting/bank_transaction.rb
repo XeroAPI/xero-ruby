@@ -18,14 +18,14 @@ module XeroRuby::Accounting
   class BankTransaction
     # See Bank Transaction Types
     attr_accessor :type
-    RECEIVE ||= "RECEIVE".freeze
-    RECEIVE_OVERPAYMENT ||= "RECEIVE-OVERPAYMENT".freeze
-    RECEIVE_PREPAYMENT ||= "RECEIVE-PREPAYMENT".freeze
-    SPEND ||= "SPEND".freeze
-    SPEND_OVERPAYMENT ||= "SPEND-OVERPAYMENT".freeze
-    SPEND_PREPAYMENT ||= "SPEND-PREPAYMENT".freeze
-    RECEIVE_TRANSFER ||= "RECEIVE-TRANSFER".freeze
-    SPEND_TRANSFER ||= "SPEND-TRANSFER".freeze
+    RECEIVE = "RECEIVE".freeze
+    RECEIVE_OVERPAYMENT = "RECEIVE-OVERPAYMENT".freeze
+    RECEIVE_PREPAYMENT = "RECEIVE-PREPAYMENT".freeze
+    SPEND = "SPEND".freeze
+    SPEND_OVERPAYMENT = "SPEND-OVERPAYMENT".freeze
+    SPEND_PREPAYMENT = "SPEND-PREPAYMENT".freeze
+    RECEIVE_TRANSFER = "RECEIVE-TRANSFER".freeze
+    SPEND_TRANSFER = "SPEND-TRANSFER".freeze
     
 
     attr_accessor :contact
@@ -56,9 +56,9 @@ module XeroRuby::Accounting
     
     # See Bank Transaction Status Codes
     attr_accessor :status
-    AUTHORISED ||= "AUTHORISED".freeze
-    DELETED ||= "DELETED".freeze
-    VOIDED ||= "VOIDED".freeze
+    AUTHORISED = "AUTHORISED".freeze
+    DELETED = "DELETED".freeze
+    VOIDED = "VOIDED".freeze
     
 
     attr_accessor :line_amount_types

@@ -21,11 +21,11 @@ module XeroRuby::Accounting
     
     # Current status of an expense claim – see status types
     attr_accessor :status
-    SUBMITTED ||= "SUBMITTED".freeze
-    AUTHORISED ||= "AUTHORISED".freeze
-    PAID ||= "PAID".freeze
-    VOIDED ||= "VOIDED".freeze
-    DELETED ||= "DELETED".freeze
+    SUBMITTED = "SUBMITTED".freeze
+    AUTHORISED = "AUTHORISED".freeze
+    PAID = "PAID".freeze
+    VOIDED = "VOIDED".freeze
+    DELETED = "DELETED".freeze
     
     # See Payments
     attr_accessor :payments

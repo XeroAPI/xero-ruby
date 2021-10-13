@@ -30,11 +30,11 @@ module XeroRuby::Accounting
     
     # See Manual Journal Status Codes
     attr_accessor :status
-    DRAFT ||= "DRAFT".freeze
-    POSTED ||= "POSTED".freeze
-    DELETED ||= "DELETED".freeze
-    VOIDED ||= "VOIDED".freeze
-    ARCHIVED ||= "ARCHIVED".freeze
+    DRAFT = "DRAFT".freeze
+    POSTED = "POSTED".freeze
+    DELETED = "DELETED".freeze
+    VOIDED = "VOIDED".freeze
+    ARCHIVED = "ARCHIVED".freeze
     
     # Url link to a source document – shown as “Go to [appName]” in the Xero app
     attr_accessor :url

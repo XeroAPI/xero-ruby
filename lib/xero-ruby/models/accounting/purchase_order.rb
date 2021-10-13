@@ -45,11 +45,11 @@ module XeroRuby::Accounting
     
     # See Purchase Order Status Codes
     attr_accessor :status
-    DRAFT ||= "DRAFT".freeze
-    SUBMITTED ||= "SUBMITTED".freeze
-    AUTHORISED ||= "AUTHORISED".freeze
-    BILLED ||= "BILLED".freeze
-    DELETED ||= "DELETED".freeze
+    DRAFT = "DRAFT".freeze
+    SUBMITTED = "SUBMITTED".freeze
+    AUTHORISED = "AUTHORISED".freeze
+    BILLED = "BILLED".freeze
+    DELETED = "DELETED".freeze
     
     # Boolean to set whether the purchase order should be marked as “sent”. This can be set only on purchase orders that have been approved or billed
     attr_accessor :sent_to_contact

@@ -21,10 +21,10 @@ module XeroRuby::PayrollNz
     
     # The schedule of accrual
     attr_accessor :schedule_of_accrual
-    ANNUALLY_AFTER6_MONTHS ||= "AnnuallyAfter6Months".freeze
-    ON_ANNIVERSARY_DATE ||= "OnAnniversaryDate".freeze
-    PERCENTAGE_OF_GROSS_EARNINGS ||= "PercentageOfGrossEarnings".freeze
-    NO_ACCRUALS ||= "NoAccruals".freeze
+    ANNUALLY_AFTER6_MONTHS = "AnnuallyAfter6Months".freeze
+    ON_ANNIVERSARY_DATE = "OnAnniversaryDate".freeze
+    PERCENTAGE_OF_GROSS_EARNINGS = "PercentageOfGrossEarnings".freeze
+    NO_ACCRUALS = "NoAccruals".freeze
     
     # The number of hours accrued for the leave annually. This is 0 when the scheduleOfAccrual chosen is \"OnHourWorked\"
     attr_accessor :hours_accrued_annually

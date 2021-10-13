@@ -39,23 +39,23 @@ module XeroRuby::PayrollUk
     
     # Pay run status
     attr_accessor :pay_run_status
-    DRAFT ||= "Draft".freeze
-    POSTED ||= "Posted".freeze
+    DRAFT = "Draft".freeze
+    POSTED = "Posted".freeze
     
     # Pay run type
     attr_accessor :pay_run_type
-    SCHEDULED ||= "Scheduled".freeze
-    UNSCHEDULED ||= "Unscheduled".freeze
-    EARLIER_YEAR_UPDATE ||= "EarlierYearUpdate".freeze
+    SCHEDULED = "Scheduled".freeze
+    UNSCHEDULED = "Unscheduled".freeze
+    EARLIER_YEAR_UPDATE = "EarlierYearUpdate".freeze
     
     # Calendar type of the pay run
     attr_accessor :calendar_type
-    WEEKLY ||= "Weekly".freeze
-    FORTNIGHTLY ||= "Fortnightly".freeze
-    FOUR_WEEKLY ||= "FourWeekly".freeze
-    MONTHLY ||= "Monthly".freeze
-    ANNUAL ||= "Annual".freeze
-    QUARTERLY ||= "Quarterly".freeze
+    WEEKLY = "Weekly".freeze
+    FORTNIGHTLY = "Fortnightly".freeze
+    FOUR_WEEKLY = "FourWeekly".freeze
+    MONTHLY = "Monthly".freeze
+    ANNUAL = "Annual".freeze
+    QUARTERLY = "Quarterly".freeze
     
     # Posted date time of the pay run
     attr_accessor :posted_date_time

@@ -21,10 +21,10 @@ module XeroRuby::PayrollUk
     
     # The schedule of accrual
     attr_accessor :schedule_of_accrual
-    BEGINNING_OF_CALENDAR_YEAR ||= "BeginningOfCalendarYear".freeze
-    ON_ANNIVERSARY_DATE ||= "OnAnniversaryDate".freeze
-    EACH_PAY_PERIOD ||= "EachPayPeriod".freeze
-    ON_HOUR_WORKED ||= "OnHourWorked".freeze
+    BEGINNING_OF_CALENDAR_YEAR = "BeginningOfCalendarYear".freeze
+    ON_ANNIVERSARY_DATE = "OnAnniversaryDate".freeze
+    EACH_PAY_PERIOD = "EachPayPeriod".freeze
+    ON_HOUR_WORKED = "OnHourWorked".freeze
     
     # The number of hours accrued for the leave annually. This is 0 when the scheduleOfAccrual chosen is \"OnHourWorked\"
     attr_accessor :hours_accrued_annually

@@ -39,8 +39,8 @@ module XeroRuby::PayrollNz
     
     # Calculation type for the transaction can be 'Fixed Amount' or 'Balance'
     attr_accessor :calculation_type
-    FIXED_AMOUNT ||= "FixedAmount".freeze
-    BALANCE ||= "Balance".freeze
+    FIXED_AMOUNT = "FixedAmount".freeze
+    BALANCE = "Balance".freeze
     
     class EnumAttributeValidator
       attr_reader :datatype

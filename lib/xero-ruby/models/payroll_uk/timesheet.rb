@@ -33,9 +33,9 @@ module XeroRuby::PayrollUk
     
     # Status of the timesheet
     attr_accessor :status
-    DRAFT ||= "Draft".freeze
-    APPROVED ||= "Approved".freeze
-    COMPLETED ||= "Completed".freeze
+    DRAFT = "Draft".freeze
+    APPROVED = "Approved".freeze
+    COMPLETED = "Completed".freeze
     
     # The Total Hours of the Timesheet
     attr_accessor :total_hours

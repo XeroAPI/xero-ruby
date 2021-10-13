@@ -42,9 +42,9 @@ module XeroRuby::Projects
     
     # Status of the time entry. By default a time entry is created with status of `ACTIVE`. A `LOCKED` state indicates that the time entry is currently changing state (for example being invoiced). Updates are not allowed when in this state. It will have a status of INVOICED once it is invoiced.
     attr_accessor :status
-    ACTIVE ||= "ACTIVE".freeze
-    LOCKED ||= "LOCKED".freeze
-    INVOICED ||= "INVOICED".freeze
+    ACTIVE = "ACTIVE".freeze
+    LOCKED = "LOCKED".freeze
+    INVOICED = "INVOICED".freeze
     
     class EnumAttributeValidator
       attr_reader :datatype

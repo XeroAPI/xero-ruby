@@ -21,8 +21,8 @@ module XeroRuby::PayrollNz
     
     # The type of period (\"weeks\" or \"months\")
     attr_accessor :period_type
-    WEEKS ||= "weeks".freeze
-    MONTHS ||= "months".freeze
+    WEEKS = "weeks".freeze
+    MONTHS = "months".freeze
     
 
     attr_accessor :tax_code

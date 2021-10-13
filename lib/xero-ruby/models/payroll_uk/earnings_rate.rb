@@ -24,35 +24,35 @@ module XeroRuby::PayrollUk
     
     # Indicates how an employee will be paid when taking this type of earning
     attr_accessor :earnings_type
-    ALLOWANCE ||= "Allowance".freeze
-    BACKPAY ||= "Backpay".freeze
-    BONUS ||= "Bonus".freeze
-    COMMISSION ||= "Commission".freeze
-    LUMP_SUM ||= "LumpSum".freeze
-    OTHER_EARNINGS ||= "OtherEarnings".freeze
-    OVERTIME_EARNINGS ||= "OvertimeEarnings".freeze
-    REGULAR_EARNINGS ||= "RegularEarnings".freeze
-    STATUTORY_ADOPTION_PAY ||= "StatutoryAdoptionPay".freeze
-    STATUTORY_ADOPTION_PAY_NON_PENSIONABLE ||= "StatutoryAdoptionPayNonPensionable".freeze
-    STATUTORY_BEREAVEMENT_PAY ||= "StatutoryBereavementPay".freeze
-    STATUTORY_MATERNITY_PAY ||= "StatutoryMaternityPay".freeze
-    STATUTORY_MATERNITY_PAY_NON_PENSIONABLE ||= "StatutoryMaternityPayNonPensionable".freeze
-    STATUTORY_PATERNITY_PAY ||= "StatutoryPaternityPay".freeze
-    STATUTORY_PATERNITY_PAY_NON_PENSIONABLE ||= "StatutoryPaternityPayNonPensionable".freeze
-    STATUTORY_PARENTAL_BEREAVEMENT_PAY_NON_PENSIONABLE ||= "StatutoryParentalBereavementPayNonPensionable".freeze
-    STATUTORY_SHARED_PARENTAL_PAY ||= "StatutorySharedParentalPay".freeze
-    STATUTORY_SHARED_PARENTAL_PAY_NON_PENSIONABLE ||= "StatutorySharedParentalPayNonPensionable".freeze
-    STATUTORY_SICK_PAY ||= "StatutorySickPay".freeze
-    STATUTORY_SICK_PAY_NON_PENSIONABLE ||= "StatutorySickPayNonPensionable".freeze
-    TIPS_NON_DIRECT ||= "TipsNonDirect".freeze
-    TIPS_DIRECT ||= "TipsDirect".freeze
-    TERMINATION_PAY ||= "TerminationPay".freeze
+    ALLOWANCE = "Allowance".freeze
+    BACKPAY = "Backpay".freeze
+    BONUS = "Bonus".freeze
+    COMMISSION = "Commission".freeze
+    LUMP_SUM = "LumpSum".freeze
+    OTHER_EARNINGS = "OtherEarnings".freeze
+    OVERTIME_EARNINGS = "OvertimeEarnings".freeze
+    REGULAR_EARNINGS = "RegularEarnings".freeze
+    STATUTORY_ADOPTION_PAY = "StatutoryAdoptionPay".freeze
+    STATUTORY_ADOPTION_PAY_NON_PENSIONABLE = "StatutoryAdoptionPayNonPensionable".freeze
+    STATUTORY_BEREAVEMENT_PAY = "StatutoryBereavementPay".freeze
+    STATUTORY_MATERNITY_PAY = "StatutoryMaternityPay".freeze
+    STATUTORY_MATERNITY_PAY_NON_PENSIONABLE = "StatutoryMaternityPayNonPensionable".freeze
+    STATUTORY_PATERNITY_PAY = "StatutoryPaternityPay".freeze
+    STATUTORY_PATERNITY_PAY_NON_PENSIONABLE = "StatutoryPaternityPayNonPensionable".freeze
+    STATUTORY_PARENTAL_BEREAVEMENT_PAY_NON_PENSIONABLE = "StatutoryParentalBereavementPayNonPensionable".freeze
+    STATUTORY_SHARED_PARENTAL_PAY = "StatutorySharedParentalPay".freeze
+    STATUTORY_SHARED_PARENTAL_PAY_NON_PENSIONABLE = "StatutorySharedParentalPayNonPensionable".freeze
+    STATUTORY_SICK_PAY = "StatutorySickPay".freeze
+    STATUTORY_SICK_PAY_NON_PENSIONABLE = "StatutorySickPayNonPensionable".freeze
+    TIPS_NON_DIRECT = "TipsNonDirect".freeze
+    TIPS_DIRECT = "TipsDirect".freeze
+    TERMINATION_PAY = "TerminationPay".freeze
     
     # Indicates the type of the earning rate
     attr_accessor :rate_type
-    RATE_PER_UNIT ||= "RatePerUnit".freeze
-    MULTIPLE_OF_ORDINARY_EARNINGS_RATE ||= "MultipleOfOrdinaryEarningsRate".freeze
-    FIXED_AMOUNT ||= "FixedAmount".freeze
+    RATE_PER_UNIT = "RatePerUnit".freeze
+    MULTIPLE_OF_ORDINARY_EARNINGS_RATE = "MultipleOfOrdinaryEarningsRate".freeze
+    FIXED_AMOUNT = "FixedAmount".freeze
     
     # The type of units used to record earnings
     attr_accessor :type_of_units

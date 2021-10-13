@@ -24,16 +24,16 @@ module XeroRuby::PayrollUk
     
     # Deduction Category type
     attr_accessor :deduction_category
-    CAPITAL_CONTRIBUTIONS ||= "CapitalContributions".freeze
-    CHILD_CARE_VOUCHER ||= "ChildCareVoucher".freeze
-    MAKING_GOOD ||= "MakingGood".freeze
-    POSTGRADUATE_LOAN_DEDUCTIONS ||= "PostgraduateLoanDeductions".freeze
-    PRIVATE_USE_PAYMENTS ||= "PrivateUsePayments".freeze
-    SALARY_SACRIFICE ||= "SalarySacrifice".freeze
-    STAKEHOLDER_PENSION ||= "StakeholderPension".freeze
-    STAKEHOLDER_PENSION_POST_TAX ||= "StakeholderPensionPostTax".freeze
-    STUDENT_LOAN_DEDUCTIONS ||= "StudentLoanDeductions".freeze
-    UK_OTHER ||= "UkOther".freeze
+    CAPITAL_CONTRIBUTIONS = "CapitalContributions".freeze
+    CHILD_CARE_VOUCHER = "ChildCareVoucher".freeze
+    MAKING_GOOD = "MakingGood".freeze
+    POSTGRADUATE_LOAN_DEDUCTIONS = "PostgraduateLoanDeductions".freeze
+    PRIVATE_USE_PAYMENTS = "PrivateUsePayments".freeze
+    SALARY_SACRIFICE = "SalarySacrifice".freeze
+    STAKEHOLDER_PENSION = "StakeholderPension".freeze
+    STAKEHOLDER_PENSION_POST_TAX = "StakeholderPensionPostTax".freeze
+    STUDENT_LOAN_DEDUCTIONS = "StudentLoanDeductions".freeze
+    UK_OTHER = "UkOther".freeze
     
     # Xero identifier for Liability Account
     attr_accessor :liability_account_id
@@ -52,8 +52,8 @@ module XeroRuby::PayrollUk
     
     # determine the calculation type whether fixed amount or percentage of gross
     attr_accessor :calculation_type
-    FIXED_AMOUNT ||= "FixedAmount".freeze
-    PERCENTAGE_OF_GROSS ||= "PercentageOfGross".freeze
+    FIXED_AMOUNT = "FixedAmount".freeze
+    PERCENTAGE_OF_GROSS = "PercentageOfGross".freeze
     
     # Percentage of gross
     attr_accessor :percentage

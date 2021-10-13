@@ -289,7 +289,7 @@ module XeroRuby
       end
 
       connection = Faraday.new(:url => method_base_url, :ssl => ssl_options) do |conn|
-        conn.request(:basic_auth, config.username, config.password)
+        conn.basic_auth(config.username, config.password)
         if opts[:header_params]["Content-Type"] == "multipart/form-data"
           conn.request :multipart
           conn.request :url_encoded

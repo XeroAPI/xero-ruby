@@ -39,14 +39,14 @@ module XeroRuby::PayrollNz
     
     # Pay run status
     attr_accessor :pay_run_status
-    DRAFT ||= "Draft".freeze
-    POSTED ||= "Posted".freeze
+    DRAFT = "Draft".freeze
+    POSTED = "Posted".freeze
     
     # Pay run type
     attr_accessor :pay_run_type
-    SCHEDULED ||= "Scheduled".freeze
-    UNSCHEDULED ||= "Unscheduled".freeze
-    EARLIER_YEAR_UPDATE ||= "EarlierYearUpdate".freeze
+    SCHEDULED = "Scheduled".freeze
+    UNSCHEDULED = "Unscheduled".freeze
+    EARLIER_YEAR_UPDATE = "EarlierYearUpdate".freeze
     
 
     attr_accessor :calendar_type

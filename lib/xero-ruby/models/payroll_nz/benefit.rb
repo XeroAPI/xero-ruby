@@ -24,9 +24,9 @@ module XeroRuby::PayrollNz
     
     # Superannuations Category type
     attr_accessor :category
-    KIWI_SAVER ||= "KiwiSaver".freeze
-    COMPLYING_FUND ||= "ComplyingFund".freeze
-    OTHER ||= "Other".freeze
+    KIWI_SAVER = "KiwiSaver".freeze
+    COMPLYING_FUND = "ComplyingFund".freeze
+    OTHER = "Other".freeze
     
     # Xero identifier for Liability Account
     attr_accessor :liability_account_id
@@ -36,8 +36,8 @@ module XeroRuby::PayrollNz
     
     # Calculation Type of the superannuation either FixedAmount or PercentageOfTaxableEarnings
     attr_accessor :calculation_type_nz
-    FIXED_AMOUNT ||= "FixedAmount".freeze
-    PERCENTAGE_OF_TAXABLE_EARNINGS ||= "PercentageOfTaxableEarnings".freeze
+    FIXED_AMOUNT = "FixedAmount".freeze
+    PERCENTAGE_OF_TAXABLE_EARNINGS = "PercentageOfTaxableEarnings".freeze
     
     # Standard amount of the superannuation
     attr_accessor :standard_amount

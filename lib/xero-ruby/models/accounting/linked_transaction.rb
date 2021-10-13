@@ -36,23 +36,23 @@ module XeroRuby::Accounting
     
     # Filter by the combination of ContactID and Status. Get all the linked transactions that have been assigned to a particular customer and have a particular status e.g. GET /LinkedTransactions?ContactID=4bb34b03-3378-4bb2-a0ed-6345abf3224e&Status=APPROVED.
     attr_accessor :status
-    APPROVED ||= "APPROVED".freeze
-    DRAFT ||= "DRAFT".freeze
-    ONDRAFT ||= "ONDRAFT".freeze
-    BILLED ||= "BILLED".freeze
-    VOIDED ||= "VOIDED".freeze
+    APPROVED = "APPROVED".freeze
+    DRAFT = "DRAFT".freeze
+    ONDRAFT = "ONDRAFT".freeze
+    BILLED = "BILLED".freeze
+    VOIDED = "VOIDED".freeze
     
     # This will always be BILLABLEEXPENSE. More types may be added in future.
     attr_accessor :type
-    BILLABLEEXPENSE ||= "BILLABLEEXPENSE".freeze
+    BILLABLEEXPENSE = "BILLABLEEXPENSE".freeze
     
     # The last modified date in UTC format
     attr_accessor :updated_date_utc
     
     # The Type of the source tranasction. This will be ACCPAY if the linked transaction was created from an invoice and SPEND if it was created from a bank transaction.
     attr_accessor :source_transaction_type_code
-    ACCPAY ||= "ACCPAY".freeze
-    SPEND ||= "SPEND".freeze
+    ACCPAY = "ACCPAY".freeze
+    SPEND = "SPEND".freeze
     
     # Displays array of validation error messages from the API
     attr_accessor :validation_errors

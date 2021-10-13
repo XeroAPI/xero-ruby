@@ -39,8 +39,8 @@ module XeroRuby::PayrollNz
     
     # The employee’s gender
     attr_accessor :gender
-    M ||= "M".freeze
-    F ||= "F".freeze
+    M = "M".freeze
+    F = "F".freeze
     
     # Employee phone number
     attr_accessor :phone_number

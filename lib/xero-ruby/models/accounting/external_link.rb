@@ -18,11 +18,11 @@ module XeroRuby::Accounting
   class ExternalLink
     # See External link types
     attr_accessor :link_type
-    FACEBOOK ||= "Facebook".freeze
-    GOOGLE_PLUS ||= "GooglePlus".freeze
-    LINKED_IN ||= "LinkedIn".freeze
-    TWITTER ||= "Twitter".freeze
-    WEBSITE ||= "Website".freeze
+    FACEBOOK = "Facebook".freeze
+    GOOGLE_PLUS = "GooglePlus".freeze
+    LINKED_IN = "LinkedIn".freeze
+    TWITTER = "Twitter".freeze
+    WEBSITE = "Website".freeze
     
     # URL for service e.g. http://twitter.com/xeroapi
     attr_accessor :url

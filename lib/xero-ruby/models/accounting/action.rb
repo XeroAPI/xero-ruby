@@ -21,8 +21,8 @@ module XeroRuby::Accounting
     
     # Status of the action for this organisation
     attr_accessor :status
-    ALLOWED ||= "ALLOWED".freeze
-    NOT_ALLOWED ||= "NOT-ALLOWED".freeze
+    ALLOWED = "ALLOWED".freeze
+    NOT_ALLOWED = "NOT-ALLOWED".freeze
     
     class EnumAttributeValidator
       attr_reader :datatype

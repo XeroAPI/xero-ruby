@@ -18,10 +18,10 @@ module XeroRuby::Accounting
   class Prepayment
     # See Prepayment Types
     attr_accessor :type
-    RECEIVE_PREPAYMENT ||= "RECEIVE-PREPAYMENT".freeze
-    SPEND_PREPAYMENT ||= "SPEND-PREPAYMENT".freeze
-    ARPREPAYMENT ||= "ARPREPAYMENT".freeze
-    APPREPAYMENT ||= "APPREPAYMENT".freeze
+    RECEIVE_PREPAYMENT = "RECEIVE-PREPAYMENT".freeze
+    SPEND_PREPAYMENT = "SPEND-PREPAYMENT".freeze
+    ARPREPAYMENT = "ARPREPAYMENT".freeze
+    APPREPAYMENT = "APPREPAYMENT".freeze
     
 
     attr_accessor :contact
@@ -31,9 +31,9 @@ module XeroRuby::Accounting
     
     # See Prepayment Status Codes
     attr_accessor :status
-    AUTHORISED ||= "AUTHORISED".freeze
-    PAID ||= "PAID".freeze
-    VOIDED ||= "VOIDED".freeze
+    AUTHORISED = "AUTHORISED".freeze
+    PAID = "PAID".freeze
+    VOIDED = "VOIDED".freeze
     
 
     attr_accessor :line_amount_types

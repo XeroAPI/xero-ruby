@@ -21,10 +21,10 @@ module XeroRuby::Accounting
     
     # Current status of an employee – see contact status types
     attr_accessor :status
-    ACTIVE ||= "ACTIVE".freeze
-    ARCHIVED ||= "ARCHIVED".freeze
-    GDPRREQUEST ||= "GDPRREQUEST".freeze
-    DELETED ||= "DELETED".freeze
+    ACTIVE = "ACTIVE".freeze
+    ARCHIVED = "ARCHIVED".freeze
+    GDPRREQUEST = "GDPRREQUEST".freeze
+    DELETED = "DELETED".freeze
     
     # First name of an employee (max length = 255)
     attr_accessor :first_name

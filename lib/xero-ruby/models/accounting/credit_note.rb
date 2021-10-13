@@ -18,8 +18,8 @@ module XeroRuby::Accounting
   class CreditNote
     # See Credit Note Types
     attr_accessor :type
-    ACCPAYCREDIT ||= "ACCPAYCREDIT".freeze
-    ACCRECCREDIT ||= "ACCRECCREDIT".freeze
+    ACCPAYCREDIT = "ACCPAYCREDIT".freeze
+    ACCRECCREDIT = "ACCRECCREDIT".freeze
     
 
     attr_accessor :contact
@@ -32,12 +32,12 @@ module XeroRuby::Accounting
     
     # See Credit Note Status Codes
     attr_accessor :status
-    DRAFT ||= "DRAFT".freeze
-    SUBMITTED ||= "SUBMITTED".freeze
-    DELETED ||= "DELETED".freeze
-    AUTHORISED ||= "AUTHORISED".freeze
-    PAID ||= "PAID".freeze
-    VOIDED ||= "VOIDED".freeze
+    DRAFT = "DRAFT".freeze
+    SUBMITTED = "SUBMITTED".freeze
+    DELETED = "DELETED".freeze
+    AUTHORISED = "AUTHORISED".freeze
+    PAID = "PAID".freeze
+    VOIDED = "VOIDED".freeze
     
 
     attr_accessor :line_amount_types

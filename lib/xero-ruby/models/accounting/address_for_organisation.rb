@@ -18,9 +18,9 @@ module XeroRuby::Accounting
   class AddressForOrganisation
     # define the type of address
     attr_accessor :address_type
-    POBOX ||= "POBOX".freeze
-    STREET ||= "STREET".freeze
-    DELIVERY ||= "DELIVERY".freeze
+    POBOX = "POBOX".freeze
+    STREET = "STREET".freeze
+    DELIVERY = "DELIVERY".freeze
     
     # max length = 500
     attr_accessor :address_line1

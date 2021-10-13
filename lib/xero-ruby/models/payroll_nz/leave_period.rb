@@ -27,8 +27,8 @@ module XeroRuby::PayrollNz
     
     # Period Status
     attr_accessor :period_status
-    APPROVED ||= "Approved".freeze
-    COMPLETED ||= "Completed".freeze
+    APPROVED = "Approved".freeze
+    COMPLETED = "Completed".freeze
     
     class EnumAttributeValidator
       attr_reader :datatype

@@ -14,13 +14,13 @@ require 'date'
 
 module XeroRuby::PayrollAu
   class AllowanceType
-    CAR ||= "CAR".freeze
-    TRANSPORT ||= "TRANSPORT".freeze
-    TRAVEL ||= "TRAVEL".freeze
-    LAUNDRY ||= "LAUNDRY".freeze
-    MEALS ||= "MEALS".freeze
-    JOBKEEPER ||= "JOBKEEPER".freeze
-    OTHER ||= "OTHER".freeze
+    CAR = "CAR".freeze
+    TRANSPORT = "TRANSPORT".freeze
+    TRAVEL = "TRAVEL".freeze
+    LAUNDRY = "LAUNDRY".freeze
+    MEALS = "MEALS".freeze
+    JOBKEEPER = "JOBKEEPER".freeze
+    OTHER = "OTHER".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

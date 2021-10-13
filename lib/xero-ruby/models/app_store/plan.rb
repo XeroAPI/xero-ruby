@@ -24,8 +24,8 @@ module XeroRuby::AppStore
     
     # Status of the plan. Available statuses are ACTIVE, PENDING_ACTIVATION. 
     attr_accessor :status
-    ACTIVE ||= "ACTIVE".freeze
-    PENDING_ACTIVATION ||= "PENDING_ACTIVATION".freeze
+    ACTIVE = "ACTIVE".freeze
+    PENDING_ACTIVATION = "PENDING_ACTIVATION".freeze
     
     # List of the subscription items belonging to the plan. It does not include cancelled subscription items. 
     attr_accessor :subscription_items
