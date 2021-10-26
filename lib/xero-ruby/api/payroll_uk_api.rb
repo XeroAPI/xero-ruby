@@ -4644,7 +4644,11 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
-    # @option opts [String] :filter Filter by first name and/or lastname
+    # @option opts [String] :filter Filter by employeeId and/or payrollCalendarId
+    # @option opts [String] :status filter results by any timesheets with a matching timesheet status
+    # @option opts [String] :start_date filter results by any timesheets with a startDate on or after the provided date
+    # @option opts [String] :end_date filter results by any timesheets with a endDate on or before the provided date
+    # @option opts [String] :sort sort the order of timesheets returned. The default is based on the timesheets createdDate, sorted oldest to newest. Currently, the only other option is to reverse the order based on the timesheets startDate, sorted newest to oldest.
     # @return [Timesheets]
     def get_timesheets(xero_tenant_id, opts = {})
       data, _status_code, _headers = get_timesheets_with_http_info(xero_tenant_id, opts)
@@ -4655,7 +4659,11 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
-    # @option opts [String] :filter Filter by first name and/or lastname
+    # @option opts [String] :filter Filter by employeeId and/or payrollCalendarId
+    # @option opts [String] :status filter results by any timesheets with a matching timesheet status
+    # @option opts [String] :start_date filter results by any timesheets with a startDate on or after the provided date
+    # @option opts [String] :end_date filter results by any timesheets with a endDate on or before the provided date
+    # @option opts [String] :sort sort the order of timesheets returned. The default is based on the timesheets createdDate, sorted oldest to newest. Currently, the only other option is to reverse the order based on the timesheets startDate, sorted newest to oldest.
     # @return [Array<(Timesheets, Integer, Hash)>] Timesheets data, response status code and response headers
     def get_timesheets_with_http_info(xero_tenant_id, options = {})
       opts = options.dup
@@ -4676,6 +4684,10 @@ module XeroRuby
       query_params = opts[:query_params] || {}
       query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
       query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'status'] = opts[:'status'] if !opts[:'status'].nil?
+      query_params[:'startDate'] = opts[:'start_date'] if !opts[:'start_date'].nil?
+      query_params[:'endDate'] = opts[:'end_date'] if !opts[:'end_date'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
       
       # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
       query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?

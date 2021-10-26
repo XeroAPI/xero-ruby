@@ -7018,20 +7018,24 @@ module XeroRuby
       return data, status_code, headers
     end
 
-    # Retrieves a specific budgets, which includes budget lines
+    # Retrieves a specific budget, which includes budget lines
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param budget_id [String] Unique identifier for Budgets
     # @param [Hash] opts the optional parameters
+    # @option opts [Date] :date_to Filter by start date
+    # @option opts [Date] :date_from Filter by end date
     # @return [Budgets]
     def get_budget(xero_tenant_id, budget_id, opts = {})
       data, _status_code, _headers = get_budget_with_http_info(xero_tenant_id, budget_id, opts)
       data
     end
 
-    # Retrieves a specific budgets, which includes budget lines
+    # Retrieves a specific budget, which includes budget lines
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param budget_id [String] Unique identifier for Budgets
     # @param [Hash] opts the optional parameters
+    # @option opts [Date] :date_to Filter by start date
+    # @option opts [Date] :date_from Filter by end date
     # @return [Array<(Budgets, Integer, Hash)>] Budgets data, response status code and response headers
     def get_budget_with_http_info(xero_tenant_id, budget_id, options = {})
       opts = options.dup
@@ -7054,6 +7058,8 @@ module XeroRuby
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'DateTo'] = opts[:'date_to'] if !opts[:'date_to'].nil?
+      query_params[:'DateFrom'] = opts[:'date_from'] if !opts[:'date_from'].nil?
       
       # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
       query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
@@ -7882,6 +7888,7 @@ module XeroRuby
     # @option opts [Integer] :page e.g. page&#x3D;1 - Up to 100 contacts will be returned in a single API call.
     # @option opts [Boolean] :include_archived e.g. includeArchived&#x3D;true - Contacts with a status of ARCHIVED will be included in the response
     # @option opts [Boolean] :summary_only Use summaryOnly&#x3D;true in GET Contacts and Invoices endpoint to retrieve a smaller version of the response object. This returns only lightweight fields, excluding computation-heavy fields from the response, making the API calls quick and efficient. (default to false)
+    # @option opts [String] :search_term Search parameter that performs a case-insensitive text search across the Name, FirstName, LastName, ContactNumber and EmailAddress fields.
     # @return [Contacts]
     def get_contacts(xero_tenant_id, opts = {})
       data, _status_code, _headers = get_contacts_with_http_info(xero_tenant_id, opts)
@@ -7898,6 +7905,7 @@ module XeroRuby
     # @option opts [Integer] :page e.g. page&#x3D;1 - Up to 100 contacts will be returned in a single API call.
     # @option opts [Boolean] :include_archived e.g. includeArchived&#x3D;true - Contacts with a status of ARCHIVED will be included in the response
     # @option opts [Boolean] :summary_only Use summaryOnly&#x3D;true in GET Contacts and Invoices endpoint to retrieve a smaller version of the response object. This returns only lightweight fields, excluding computation-heavy fields from the response, making the API calls quick and efficient.
+    # @option opts [String] :search_term Search parameter that performs a case-insensitive text search across the Name, FirstName, LastName, ContactNumber and EmailAddress fields.
     # @return [Array<(Contacts, Integer, Hash)>] Contacts data, response status code and response headers
     def get_contacts_with_http_info(xero_tenant_id, options = {})
       opts = options.dup
@@ -7922,6 +7930,7 @@ module XeroRuby
       query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
       query_params[:'includeArchived'] = opts[:'include_archived'] if !opts[:'include_archived'].nil?
       query_params[:'summaryOnly'] = opts[:'summary_only'] if !opts[:'summary_only'].nil?
+      query_params[:'searchTerm'] = opts[:'search_term'] if !opts[:'search_term'].nil?
       
       # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
       query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?

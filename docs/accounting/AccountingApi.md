@@ -90,7 +90,7 @@ Method | HTTP request | Description
 [**get_branding_theme**](AccountingApi.md#get_branding_theme) | **GET** /BrandingThemes/{BrandingThemeID} | Retrieves a specific branding theme using a unique branding theme Id
 [**get_branding_theme_payment_services**](AccountingApi.md#get_branding_theme_payment_services) | **GET** /BrandingThemes/{BrandingThemeID}/PaymentServices | Retrieves the payment services for a specific branding theme
 [**get_branding_themes**](AccountingApi.md#get_branding_themes) | **GET** /BrandingThemes | Retrieves all the branding themes
-[**get_budget**](AccountingApi.md#get_budget) | **GET** /Budgets/{BudgetID} | Retrieves a specific budgets, which includes budget lines
+[**get_budget**](AccountingApi.md#get_budget) | **GET** /Budgets/{BudgetID} | Retrieves a specific budget, which includes budget lines
 [**get_budgets**](AccountingApi.md#get_budgets) | **GET** /Budgets | Retrieve a list of budgets
 [**get_contact**](AccountingApi.md#get_contact) | **GET** /Contacts/{ContactID} | Retrieves a specific contacts in a Xero organisation using a unique contact Id
 [**get_contact_attachment_by_file_name**](AccountingApi.md#get_contact_attachment_by_file_name) | **GET** /Contacts/{ContactID}/Attachments/{FileName} | Retrieves a specific attachment from a specific contact by file name
@@ -603,7 +603,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-bank_transfers = { "BankTransfers": [ { "FromBankAccount": { "Code": "090", "Name": "My Savings", "AccountID": "00000000-0000-0000-0000-000000000000", "Type": "BANK", "BankAccountNumber": "123455", "Status": "ACTIVE", "BankAccountType": "BANK", "CurrencyCode": "USD", "TaxType": "NONE", "EnablePaymentsToAccount": false, "ShowInExpenseClaims": false, "Class": "ASSET", "ReportingCode": "ASS", "ReportingCodeName": "Assets", "HasAttachments": false, "UpdatedDateUTC": "2016-10-17T13:45:33.993-07:00" }, "ToBankAccount": { "Code": "088", "Name": "Business Wells Fargo", "AccountID": "00000000-0000-0000-0000-000000000000", "Type": "BANK", "BankAccountNumber": "123455", "Status": "ACTIVE", "BankAccountType": "BANK", "CurrencyCode": "USD", "TaxType": "NONE", "EnablePaymentsToAccount": false, "ShowInExpenseClaims": false, "Class": "ASSET", "ReportingCode": "ASS", "ReportingCodeName": "Assets", "HasAttachments": false, "UpdatedDateUTC": "2016-06-03T08:31:14.517-07:00" }, "Amount": "50.00" } ] } # BankTransfers | BankTransfers with array of BankTransfer objects in request body
+bank_transfers = { "BankTransfers": [ { "FromBankAccount": { "Code": "090", "Name": "My Savings", "AccountID": "00000000-0000-0000-0000-000000000000", "Type": "BANK", "BankAccountNumber": "123455", "Status": "ACTIVE", "BankAccountType": "BANK", "CurrencyCode": "USD", "TaxType": "NONE", "EnablePaymentsToAccount": false, "ShowInExpenseClaims": false, "Class": "ASSET", "ReportingCode": "ASS", "ReportingCodeName": "Assets", "HasAttachments": false, "UpdatedDateUTC": "2016-10-17T13:45:33.993-07:00" }, "ToBankAccount": { "Code": "088", "Name": "Business Wells Fargo", "AccountID": "00000000-0000-0000-0000-000000000000", "Type": "BANK", "BankAccountNumber": "123455", "Status": "ACTIVE", "BankAccountType": "BANK", "CurrencyCode": "USD", "TaxType": "NONE", "EnablePaymentsToAccount": false, "ShowInExpenseClaims": false, "Class": "ASSET", "ReportingCode": "ASS", "ReportingCodeName": "Assets", "HasAttachments": false, "UpdatedDateUTC": "2016-06-03T08:31:14.517-07:00" }, "Amount": "50.00", "FromIsReconciled": true, "ToIsReconciled": true, "Reference": "Sub 098801" } ] } # BankTransfers | BankTransfers with array of BankTransfer objects in request body
 begin
   #Creates a bank transfer
   result = api_instance.create_bank_transfer(xero_tenant_id, bank_transfers)
@@ -5994,9 +5994,9 @@ Name | Type | Description  | Notes
 
 ## get_budget
 
-> Budgets get_budget(xero_tenant_id, budget_id)
+> Budgets get_budget(xero_tenant_id, budget_id, opts)
 
-Retrieves a specific budgets, which includes budget lines
+Retrieves a specific budget, which includes budget lines
 
 ### Example
 
@@ -6025,9 +6025,15 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 budget_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for Budgets
+opts = {
+  date_to: Date.parse('2019-10-31'), # Date | Filter by start date
+
+  date_from: Date.parse('2019-10-31') # Date | Filter by end date
+}
+
 begin
-  #Retrieves a specific budgets, which includes budget lines
-  result = api_instance.get_budget(xero_tenant_id, budget_id)
+  #Retrieves a specific budget, which includes budget lines
+  result = api_instance.get_budget(xero_tenant_id, budget_id, opts)
   p result
 rescue XeroRuby::Accounting::ApiError => e
   puts "Exception when calling AccountingApi->get_budget: #{e}"
@@ -6041,6 +6047,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **budget_id** | [**String**](.md)| Unique identifier for Budgets | 
+ **date_to** | **Date**| Filter by start date | [optional] 
+ **date_from** | **Date**| Filter by end date | [optional] 
 
 ### Return type
 
@@ -6091,9 +6099,9 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   i_ds: ['&quot;00000000-0000-0000-0000-000000000000&quot;'], # Array<String> | Filter by BudgetID. Allows you to retrieve a specific individual budget.
 
-  date_to: Date.parse('2013-10-20'), # Date | Filter by start date
+  date_to: Date.parse('2019-10-31'), # Date | Filter by start date
 
-  date_from: Date.parse('2013-10-20') # Date | Filter by end date
+  date_from: Date.parse('2019-10-31') # Date | Filter by end date
 }
 
 begin
@@ -6764,7 +6772,9 @@ opts = {
 
   include_archived: true, # Boolean | e.g. includeArchived=true - Contacts with a status of ARCHIVED will be included in the response
 
-  summary_only: false # Boolean | Use summaryOnly=true in GET Contacts and Invoices endpoint to retrieve a smaller version of the response object. This returns only lightweight fields, excluding computation-heavy fields from the response, making the API calls quick and efficient.
+  summary_only: false, # Boolean | Use summaryOnly=true in GET Contacts and Invoices endpoint to retrieve a smaller version of the response object. This returns only lightweight fields, excluding computation-heavy fields from the response, making the API calls quick and efficient.
+
+  search_term: 'searchTerm=Joe Bloggs' # String | Search parameter that performs a case-insensitive text search across the Name, FirstName, LastName, ContactNumber and EmailAddress fields.
 }
 
 begin
@@ -6789,6 +6799,7 @@ Name | Type | Description  | Notes
  **page** | **Integer**| e.g. page&#x3D;1 - Up to 100 contacts will be returned in a single API call. | [optional] 
  **include_archived** | **Boolean**| e.g. includeArchived&#x3D;true - Contacts with a status of ARCHIVED will be included in the response | [optional] 
  **summary_only** | **Boolean**| Use summaryOnly&#x3D;true in GET Contacts and Invoices endpoint to retrieve a smaller version of the response object. This returns only lightweight fields, excluding computation-heavy fields from the response, making the API calls quick and efficient. | [optional] [default to false]
+ **search_term** | **String**| Search parameter that performs a case-insensitive text search across the Name, FirstName, LastName, ContactNumber and EmailAddress fields. | [optional] 
 
 ### Return type
 
@@ -11040,13 +11051,13 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  date_from: Date.parse('2013-10-20'), # Date | Filter for quotes after a particular date
+  date_from: Date.parse('2019-10-31'), # Date | Filter for quotes after a particular date
 
-  date_to: Date.parse('2013-10-20'), # Date | Filter for quotes before a particular date
+  date_to: Date.parse('2019-10-31'), # Date | Filter for quotes before a particular date
 
-  expiry_date_from: Date.parse('2013-10-20'), # Date | Filter for quotes expiring after a particular date
+  expiry_date_from: Date.parse('2019-10-31'), # Date | Filter for quotes expiring after a particular date
 
-  expiry_date_to: Date.parse('2013-10-20'), # Date | Filter for quotes before a particular date
+  expiry_date_to: Date.parse('2019-10-31'), # Date | Filter for quotes before a particular date
 
   contact_id: '00000000-0000-0000-0000-000000000000', # String | Filter for quotes belonging to a particular contact
 
@@ -11940,11 +11951,11 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Contact
 opts = {
-  date: Date.parse('2013-10-20'), # Date | The date of the Aged Payables By Contact report
+  date: Date.parse('2019-10-31'), # Date | The date of the Aged Payables By Contact report
 
-  from_date: Date.parse('2013-10-20'), # Date | filter by the from date of the report e.g. 2021-02-01
+  from_date: Date.parse('2019-10-31'), # Date | filter by the from date of the report e.g. 2021-02-01
 
-  to_date: Date.parse('2013-10-20') # Date | filter by the to date of the report e.g. 2021-02-28
+  to_date: Date.parse('2019-10-31') # Date | filter by the to date of the report e.g. 2021-02-28
 }
 
 begin
@@ -12015,11 +12026,11 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Contact
 opts = {
-  date: Date.parse('2013-10-20'), # Date | The date of the Aged Receivables By Contact report
+  date: Date.parse('2019-10-31'), # Date | The date of the Aged Receivables By Contact report
 
-  from_date: Date.parse('2013-10-20'), # Date | filter by the from date of the report e.g. 2021-02-01
+  from_date: Date.parse('2019-10-31'), # Date | filter by the from date of the report e.g. 2021-02-01
 
-  to_date: Date.parse('2013-10-20') # Date | filter by the to date of the report e.g. 2021-02-28
+  to_date: Date.parse('2019-10-31') # Date | filter by the to date of the report e.g. 2021-02-28
 }
 
 begin
@@ -12174,9 +12185,9 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  from_date: Date.parse('2013-10-20'), # Date | filter by the from date of the report e.g. 2021-02-01
+  from_date: Date.parse('2019-10-31'), # Date | filter by the from date of the report e.g. 2021-02-01
 
-  to_date: Date.parse('2013-10-20') # Date | filter by the to date of the report e.g. 2021-02-28
+  to_date: Date.parse('2019-10-31') # Date | filter by the to date of the report e.g. 2021-02-28
 }
 
 begin
@@ -12448,9 +12459,9 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  from_date: Date.parse('2013-10-20'), # Date | filter by the from date of the report e.g. 2021-02-01
+  from_date: Date.parse('2019-10-31'), # Date | filter by the from date of the report e.g. 2021-02-01
 
-  to_date: Date.parse('2013-10-20'), # Date | filter by the to date of the report e.g. 2021-02-28
+  to_date: Date.parse('2019-10-31'), # Date | filter by the to date of the report e.g. 2021-02-28
 
   periods: 3, # Integer | The number of periods to compare (integer between 1 and 12)
 
