@@ -546,6 +546,172 @@ module XeroRuby
       return data, status_code, headers
     end
 
+    # Get expense by contacts report
+    # The expense by contact report provides a year to date profit and loss for customers and suppliers for a given organisation, including detailed contact information.
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :contact_ids Specifies the customer contacts to be included in the report.    If no parameter is provided, all customer contacts will be included
+    # @option opts [Boolean] :include_manual_journals Specifies whether to include the manual journals in the report.                If no parameter is provided, manual journals will not be included.
+    # @option opts [String] :start_date Date yyyy-MM-dd    Specifies the start date for the report.                If no parameter is provided, the date of 12 months before the end date will be used.                It is recommended to always specify both a start date and end date; While the initial range may be set to 12 months, this may need to be reduced for high volume organisations in order to improve latency.
+    # @option opts [String] :end_date Date yyyy-MM-dd    Specifies the end date for the report.    If no parameter is provided, the current date will be used.                It is recommended to always specify both a start date and end date; While the initial range may be set to 12 months, this may need to be reduced for high volume organisations in order to improve latency.
+    # @return [IncomeByContactResponse]
+    def get_financial_statement_contacts_expense(xero_tenant_id, opts = {})
+      data, _status_code, _headers = get_financial_statement_contacts_expense_with_http_info(xero_tenant_id, opts)
+      data
+    end
+
+    # Get expense by contacts report
+    # The expense by contact report provides a year to date profit and loss for customers and suppliers for a given organisation, including detailed contact information.
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :contact_ids Specifies the customer contacts to be included in the report.    If no parameter is provided, all customer contacts will be included
+    # @option opts [Boolean] :include_manual_journals Specifies whether to include the manual journals in the report.                If no parameter is provided, manual journals will not be included.
+    # @option opts [String] :start_date Date yyyy-MM-dd    Specifies the start date for the report.                If no parameter is provided, the date of 12 months before the end date will be used.                It is recommended to always specify both a start date and end date; While the initial range may be set to 12 months, this may need to be reduced for high volume organisations in order to improve latency.
+    # @option opts [String] :end_date Date yyyy-MM-dd    Specifies the end date for the report.    If no parameter is provided, the current date will be used.                It is recommended to always specify both a start date and end date; While the initial range may be set to 12 months, this may need to be reduced for high volume organisations in order to improve latency.
+    # @return [Array<(IncomeByContactResponse, Integer, Hash)>] IncomeByContactResponse data, response status code and response headers
+    def get_financial_statement_contacts_expense_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FinanceApi.get_financial_statement_contacts_expense ...'
+      end
+      # verify the required parameter 'xero_tenant_id' is set
+      if @api_client.config.client_side_validation && xero_tenant_id.nil?
+        fail ArgumentError, "Missing the required parameter 'xero_tenant_id' when calling FinanceApi.get_financial_statement_contacts_expense"
+      end
+      # resource path
+      local_var_path = '/FinancialStatements/contacts/expense'
+
+      # camelize keys of incoming `where` opts
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'contactIds'] = @api_client.build_collection_param(opts[:'contact_ids'], :multi) if !opts[:'contact_ids'].nil?
+      query_params[:'includeManualJournals'] = opts[:'include_manual_journals'] if !opts[:'include_manual_journals'].nil?
+      query_params[:'startDate'] = opts[:'start_date'] if !opts[:'start_date'].nil?
+      query_params[:'endDate'] = opts[:'end_date'] if !opts[:'end_date'].nil?
+      
+      # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
+      query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+      query_params[:'ContactIDs'] = @api_client.build_collection_param(opts[:'contact_ids'], :csv) if !opts[:'contact_ids'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'xero-tenant-id'] = xero_tenant_id
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'IncomeByContactResponse' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['OAuth2']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "FinanceApi", new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FinanceApi#get_financial_statement_contacts_expense\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get revenue by contacts report
+    # The revenue by contact report provides a year to date profit and loss for customers and suppliers for a given organisation, including detailed contact information.
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :contact_ids Specifies the customer contacts to be included in the report.    If no parameter is provided, all customer contacts will be included
+    # @option opts [Boolean] :include_manual_journals Specifies whether to include the manual journals in the report.                If no parameter is provided, manual journals will not be included.
+    # @option opts [String] :start_date Date yyyy-MM-dd    Specifies the start date for the report.                If no parameter is provided, the date of 12 months before the end date will be used.                It is recommended to always specify both a start date and end date; While the initial range may be set to 12 months, this may need to be reduced for high volume organisations in order to improve latency.
+    # @option opts [String] :end_date Date yyyy-MM-dd    Specifies the end date for the report.    If no parameter is provided, the current date will be used.                It is recommended to always specify both a start date and end date; While the initial range may be set to 12 months, this may need to be reduced for high volume organisations in order to improve latency.
+    # @return [IncomeByContactResponse]
+    def get_financial_statement_contacts_revenue(xero_tenant_id, opts = {})
+      data, _status_code, _headers = get_financial_statement_contacts_revenue_with_http_info(xero_tenant_id, opts)
+      data
+    end
+
+    # Get revenue by contacts report
+    # The revenue by contact report provides a year to date profit and loss for customers and suppliers for a given organisation, including detailed contact information.
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :contact_ids Specifies the customer contacts to be included in the report.    If no parameter is provided, all customer contacts will be included
+    # @option opts [Boolean] :include_manual_journals Specifies whether to include the manual journals in the report.                If no parameter is provided, manual journals will not be included.
+    # @option opts [String] :start_date Date yyyy-MM-dd    Specifies the start date for the report.                If no parameter is provided, the date of 12 months before the end date will be used.                It is recommended to always specify both a start date and end date; While the initial range may be set to 12 months, this may need to be reduced for high volume organisations in order to improve latency.
+    # @option opts [String] :end_date Date yyyy-MM-dd    Specifies the end date for the report.    If no parameter is provided, the current date will be used.                It is recommended to always specify both a start date and end date; While the initial range may be set to 12 months, this may need to be reduced for high volume organisations in order to improve latency.
+    # @return [Array<(IncomeByContactResponse, Integer, Hash)>] IncomeByContactResponse data, response status code and response headers
+    def get_financial_statement_contacts_revenue_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FinanceApi.get_financial_statement_contacts_revenue ...'
+      end
+      # verify the required parameter 'xero_tenant_id' is set
+      if @api_client.config.client_side_validation && xero_tenant_id.nil?
+        fail ArgumentError, "Missing the required parameter 'xero_tenant_id' when calling FinanceApi.get_financial_statement_contacts_revenue"
+      end
+      # resource path
+      local_var_path = '/FinancialStatements/contacts/revenue'
+
+      # camelize keys of incoming `where` opts
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'contactIds'] = @api_client.build_collection_param(opts[:'contact_ids'], :multi) if !opts[:'contact_ids'].nil?
+      query_params[:'includeManualJournals'] = opts[:'include_manual_journals'] if !opts[:'include_manual_journals'].nil?
+      query_params[:'startDate'] = opts[:'start_date'] if !opts[:'start_date'].nil?
+      query_params[:'endDate'] = opts[:'end_date'] if !opts[:'end_date'].nil?
+      
+      # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
+      query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+      query_params[:'ContactIDs'] = @api_client.build_collection_param(opts[:'contact_ids'], :csv) if !opts[:'contact_ids'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'xero-tenant-id'] = xero_tenant_id
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'IncomeByContactResponse' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['OAuth2']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "FinanceApi", new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FinanceApi#get_financial_statement_contacts_revenue\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get Profit & Loss report
     # The profit and loss statement is a standard financial report providing detailed year to date income and expense detail for an organisation.
     # @param xero_tenant_id [String] Xero identifier for Tenant

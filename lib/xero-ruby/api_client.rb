@@ -289,8 +289,6 @@ module XeroRuby
         method_base_url = @config.payroll_uk_url
       when "ProjectApi"
         method_base_url = @config.project_url
-      when "AppStoreApi"
-        method_base_url = @config.app_store_url
       when "FinanceApi"
         method_base_url = @config.finance_url
       else

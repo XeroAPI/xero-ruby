@@ -19,6 +19,9 @@ module XeroRuby::Accounting
     # Xero identifier
     attr_accessor :contact_id
     
+    # ID for the destination of a merged contact. Only returned when using paging or when fetching a contact by ContactId or ContactNumber.
+    attr_accessor :merged_to_contact_id
+    
     # This can be updated via the API only i.e. This field is read only on the Xero contact screen, used to identify contacts in external systems (max length = 50). If the Contact Number is used, this is displayed as Contact Code in the Contacts UI in Xero.
     attr_accessor :contact_number
     
@@ -39,6 +42,9 @@ module XeroRuby::Accounting
     
     # Last name of contact person (max length = 255)
     attr_accessor :last_name
+    
+    # Company registration number (max length = 50)
+    attr_accessor :company_number
     
     # Email address of contact person (umlauts not supported) (max length  = 255)
     attr_accessor :email_address
@@ -72,6 +78,18 @@ module XeroRuby::Accounting
     
     # true or false – Boolean that describes if a contact has any AR invoices entered against them. Cannot be set via PUT or POST – it is automatically set when an accounts receivable invoice is generated against this contact.
     attr_accessor :is_customer
+    
+    # The default sales line amount type for a contact. Only available when summaryOnly parameter or paging is used, or when fetch by ContactId or ContactNumber.
+    attr_accessor :sales_default_line_amount_type
+    INCLUSIVE = "INCLUSIVE".freeze
+    EXCLUSIVE = "EXCLUSIVE".freeze
+    NONE = "NONE".freeze
+    
+    # The default purchases line amount type for a contact Only available when summaryOnly parameter or paging is used, or when fetch by ContactId or ContactNumber.
+    attr_accessor :purchases_default_line_amount_type
+    INCLUSIVE = "INCLUSIVE".freeze
+    EXCLUSIVE = "EXCLUSIVE".freeze
+    NONE = "NONE".freeze
     
 
     attr_accessor :default_currency
@@ -162,12 +180,14 @@ module XeroRuby::Accounting
     def self.attribute_map
       {
         :'contact_id' => :'ContactID',
+        :'merged_to_contact_id' => :'MergedToContactID',
         :'contact_number' => :'ContactNumber',
         :'account_number' => :'AccountNumber',
         :'contact_status' => :'ContactStatus',
         :'name' => :'Name',
         :'first_name' => :'FirstName',
         :'last_name' => :'LastName',
+        :'company_number' => :'CompanyNumber',
         :'email_address' => :'EmailAddress',
         :'skype_user_name' => :'SkypeUserName',
         :'contact_persons' => :'ContactPersons',
@@ -179,6 +199,8 @@ module XeroRuby::Accounting
         :'phones' => :'Phones',
         :'is_supplier' => :'IsSupplier',
         :'is_customer' => :'IsCustomer',
+        :'sales_default_line_amount_type' => :'SalesDefaultLineAmountType',
+        :'purchases_default_line_amount_type' => :'PurchasesDefaultLineAmountType',
         :'default_currency' => :'DefaultCurrency',
         :'xero_network_key' => :'XeroNetworkKey',
         :'sales_default_account_code' => :'SalesDefaultAccountCode',
@@ -207,12 +229,14 @@ module XeroRuby::Accounting
     def self.openapi_types
       {
         :'contact_id' => :'String',
+        :'merged_to_contact_id' => :'String',
         :'contact_number' => :'String',
         :'account_number' => :'String',
         :'contact_status' => :'String',
         :'name' => :'String',
         :'first_name' => :'String',
         :'last_name' => :'String',
+        :'company_number' => :'String',
         :'email_address' => :'String',
         :'skype_user_name' => :'String',
         :'contact_persons' => :'Array<ContactPerson>',
@@ -224,6 +248,8 @@ module XeroRuby::Accounting
         :'phones' => :'Array<Phone>',
         :'is_supplier' => :'Boolean',
         :'is_customer' => :'Boolean',
+        :'sales_default_line_amount_type' => :'String',
+        :'purchases_default_line_amount_type' => :'String',
         :'default_currency' => :'CurrencyCode',
         :'xero_network_key' => :'String',
         :'sales_default_account_code' => :'String',
@@ -267,6 +293,10 @@ module XeroRuby::Accounting
         self.contact_id = attributes[:'contact_id']
       end
 
+      if attributes.key?(:'merged_to_contact_id')
+        self.merged_to_contact_id = attributes[:'merged_to_contact_id']
+      end
+
       if attributes.key?(:'contact_number')
         self.contact_number = attributes[:'contact_number']
       end
@@ -289,6 +319,10 @@ module XeroRuby::Accounting
 
       if attributes.key?(:'last_name')
         self.last_name = attributes[:'last_name']
+      end
+
+      if attributes.key?(:'company_number')
+        self.company_number = attributes[:'company_number']
       end
 
       if attributes.key?(:'email_address')
@@ -339,6 +373,14 @@ module XeroRuby::Accounting
 
       if attributes.key?(:'is_customer')
         self.is_customer = attributes[:'is_customer']
+      end
+
+      if attributes.key?(:'sales_default_line_amount_type')
+        self.sales_default_line_amount_type = attributes[:'sales_default_line_amount_type']
+      end
+
+      if attributes.key?(:'purchases_default_line_amount_type')
+        self.purchases_default_line_amount_type = attributes[:'purchases_default_line_amount_type']
       end
 
       if attributes.key?(:'default_currency')
@@ -464,6 +506,10 @@ module XeroRuby::Accounting
         invalid_properties.push('invalid value for "last_name", the character length must be smaller than or equal to 255.')
       end
 
+      if !@company_number.nil? && @company_number.to_s.length > 50
+        invalid_properties.push('invalid value for "company_number", the character length must be smaller than or equal to 50.')
+      end
+
       if !@email_address.nil? && @email_address.to_s.length > 255
         invalid_properties.push('invalid value for "email_address", the character length must be smaller than or equal to 255.')
       end
@@ -485,8 +531,13 @@ module XeroRuby::Accounting
       return false if !@name.nil? && @name.to_s.length > 255
       return false if !@first_name.nil? && @first_name.to_s.length > 255
       return false if !@last_name.nil? && @last_name.to_s.length > 255
+      return false if !@company_number.nil? && @company_number.to_s.length > 50
       return false if !@email_address.nil? && @email_address.to_s.length > 255
       return false if !@tax_number.nil? && @tax_number.to_s.length > 50
+      sales_default_line_amount_type_validator = EnumAttributeValidator.new('String', ["INCLUSIVE", "EXCLUSIVE", "NONE"])
+      return false unless sales_default_line_amount_type_validator.valid?(@sales_default_line_amount_type)
+      purchases_default_line_amount_type_validator = EnumAttributeValidator.new('String', ["INCLUSIVE", "EXCLUSIVE", "NONE"])
+      return false unless purchases_default_line_amount_type_validator.valid?(@purchases_default_line_amount_type)
       true
     end
 
@@ -551,6 +602,16 @@ module XeroRuby::Accounting
     end
 
     # Custom attribute writer method with validation
+    # @param [Object] company_number Value to be assigned
+    def company_number=(company_number)
+      if !company_number.nil? && company_number.to_s.length > 50
+        fail ArgumentError, 'invalid value for "company_number", the character length must be smaller than or equal to 50.'
+      end
+
+      @company_number = company_number
+    end
+
+    # Custom attribute writer method with validation
     # @param [Object] email_address Value to be assigned
     def email_address=(email_address)
       if !email_address.nil? && email_address.to_s.length > 255
@@ -570,18 +631,40 @@ module XeroRuby::Accounting
       @tax_number = tax_number
     end
 
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] sales_default_line_amount_type Object to be assigned
+    def sales_default_line_amount_type=(sales_default_line_amount_type)
+      validator = EnumAttributeValidator.new('String', ["INCLUSIVE", "EXCLUSIVE", "NONE"])
+      unless validator.valid?(sales_default_line_amount_type)
+        fail ArgumentError, "invalid value for \"sales_default_line_amount_type\", must be one of #{validator.allowable_values}."
+      end
+      @sales_default_line_amount_type = sales_default_line_amount_type
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] purchases_default_line_amount_type Object to be assigned
+    def purchases_default_line_amount_type=(purchases_default_line_amount_type)
+      validator = EnumAttributeValidator.new('String', ["INCLUSIVE", "EXCLUSIVE", "NONE"])
+      unless validator.valid?(purchases_default_line_amount_type)
+        fail ArgumentError, "invalid value for \"purchases_default_line_amount_type\", must be one of #{validator.allowable_values}."
+      end
+      @purchases_default_line_amount_type = purchases_default_line_amount_type
+    end
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
           contact_id == o.contact_id &&
+          merged_to_contact_id == o.merged_to_contact_id &&
           contact_number == o.contact_number &&
           account_number == o.account_number &&
           contact_status == o.contact_status &&
           name == o.name &&
           first_name == o.first_name &&
           last_name == o.last_name &&
+          company_number == o.company_number &&
           email_address == o.email_address &&
           skype_user_name == o.skype_user_name &&
           contact_persons == o.contact_persons &&
@@ -593,6 +676,8 @@ module XeroRuby::Accounting
           phones == o.phones &&
           is_supplier == o.is_supplier &&
           is_customer == o.is_customer &&
+          sales_default_line_amount_type == o.sales_default_line_amount_type &&
+          purchases_default_line_amount_type == o.purchases_default_line_amount_type &&
           default_currency == o.default_currency &&
           xero_network_key == o.xero_network_key &&
           sales_default_account_code == o.sales_default_account_code &&
@@ -625,7 +710,7 @@ module XeroRuby::Accounting
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [contact_id, contact_number, account_number, contact_status, name, first_name, last_name, email_address, skype_user_name, contact_persons, bank_account_details, tax_number, accounts_receivable_tax_type, accounts_payable_tax_type, addresses, phones, is_supplier, is_customer, default_currency, xero_network_key, sales_default_account_code, purchases_default_account_code, sales_tracking_categories, purchases_tracking_categories, tracking_category_name, tracking_category_option, payment_terms, updated_date_utc, contact_groups, website, branding_theme, batch_payments, discount, balances, attachments, has_attachments, validation_errors, has_validation_errors, status_attribute_string].hash
+      [contact_id, merged_to_contact_id, contact_number, account_number, contact_status, name, first_name, last_name, company_number, email_address, skype_user_name, contact_persons, bank_account_details, tax_number, accounts_receivable_tax_type, accounts_payable_tax_type, addresses, phones, is_supplier, is_customer, sales_default_line_amount_type, purchases_default_line_amount_type, default_currency, xero_network_key, sales_default_account_code, purchases_default_account_code, sales_tracking_categories, purchases_tracking_categories, tracking_category_name, tracking_category_option, payment_terms, updated_date_utc, contact_groups, website, branding_theme, batch_payments, discount, balances, attachments, has_attachments, validation_errors, has_validation_errors, status_attribute_string].hash
     end
 
     # Builds the object from hash

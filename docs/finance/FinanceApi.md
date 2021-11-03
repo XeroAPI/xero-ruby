@@ -11,6 +11,8 @@ Method | HTTP request | Description
 [**get_cash_validation**](FinanceApi.md#get_cash_validation) | **GET** /CashValidation | Get cash validation
 [**get_financial_statement_balance_sheet**](FinanceApi.md#get_financial_statement_balance_sheet) | **GET** /FinancialStatements/BalanceSheet | Get Balance Sheet report
 [**get_financial_statement_cashflow**](FinanceApi.md#get_financial_statement_cashflow) | **GET** /FinancialStatements/Cashflow | Get Cash flow report
+[**get_financial_statement_contacts_expense**](FinanceApi.md#get_financial_statement_contacts_expense) | **GET** /FinancialStatements/contacts/expense | Get expense by contacts report
+[**get_financial_statement_contacts_revenue**](FinanceApi.md#get_financial_statement_contacts_revenue) | **GET** /FinancialStatements/contacts/revenue | Get revenue by contacts report
 [**get_financial_statement_profit_and_loss**](FinanceApi.md#get_financial_statement_profit_and_loss) | **GET** /FinancialStatements/ProfitAndLoss | Get Profit &amp; Loss report
 [**get_financial_statement_trial_balance**](FinanceApi.md#get_financial_statement_trial_balance) | **GET** /FinancialStatements/TrialBalance | Get Trial Balance report
 
@@ -500,6 +502,162 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CashflowResponse**](CashflowResponse.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_financial_statement_contacts_expense
+
+> IncomeByContactResponse get_financial_statement_contacts_expense(xero_tenant_id, opts)
+
+Get expense by contacts report
+
+The expense by contact report provides a year to date profit and loss for customers and suppliers for a given organisation, including detailed contact information.
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# You need to namespace your api method call to one of the following api sets
+# [:accounting_api, :assets_api, :projects_api, :files_api, :payroll_au_api, :payroll_nz_api, :payroll_uk_api, :app_store_api]
+
+api_instance = xero_client.<api_set>
+
+
+
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+opts = {
+  contact_ids: ['[\"00000000-0000-0000-0000-000000000000\",\"00000000-0000-0000-0000-000000000000\"]'], # Array<String> | Specifies the customer contacts to be included in the report.    If no parameter is provided, all customer contacts will be included
+
+  include_manual_journals: true, # Boolean | Specifies whether to include the manual journals in the report.                If no parameter is provided, manual journals will not be included.
+
+  start_date: '2020-09-15', # String | Date yyyy-MM-dd    Specifies the start date for the report.                If no parameter is provided, the date of 12 months before the end date will be used.                It is recommended to always specify both a start date and end date; While the initial range may be set to 12 months, this may need to be reduced for high volume organisations in order to improve latency.
+
+  end_date: '2020-09-15' # String | Date yyyy-MM-dd    Specifies the end date for the report.    If no parameter is provided, the current date will be used.                It is recommended to always specify both a start date and end date; While the initial range may be set to 12 months, this may need to be reduced for high volume organisations in order to improve latency.
+}
+
+begin
+  #Get expense by contacts report
+  result = api_instance.get_financial_statement_contacts_expense(xero_tenant_id, opts)
+  p result
+rescue XeroRuby::Finance::ApiError => e
+  puts "Exception when calling FinanceApi->get_financial_statement_contacts_expense: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **contact_ids** | [**Array&lt;String&gt;**](String.md)| Specifies the customer contacts to be included in the report.    If no parameter is provided, all customer contacts will be included | [optional] 
+ **include_manual_journals** | **Boolean**| Specifies whether to include the manual journals in the report.                If no parameter is provided, manual journals will not be included. | [optional] 
+ **start_date** | **String**| Date yyyy-MM-dd    Specifies the start date for the report.                If no parameter is provided, the date of 12 months before the end date will be used.                It is recommended to always specify both a start date and end date; While the initial range may be set to 12 months, this may need to be reduced for high volume organisations in order to improve latency. | [optional] 
+ **end_date** | **String**| Date yyyy-MM-dd    Specifies the end date for the report.    If no parameter is provided, the current date will be used.                It is recommended to always specify both a start date and end date; While the initial range may be set to 12 months, this may need to be reduced for high volume organisations in order to improve latency. | [optional] 
+
+### Return type
+
+[**IncomeByContactResponse**](IncomeByContactResponse.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_financial_statement_contacts_revenue
+
+> IncomeByContactResponse get_financial_statement_contacts_revenue(xero_tenant_id, opts)
+
+Get revenue by contacts report
+
+The revenue by contact report provides a year to date profit and loss for customers and suppliers for a given organisation, including detailed contact information.
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# You need to namespace your api method call to one of the following api sets
+# [:accounting_api, :assets_api, :projects_api, :files_api, :payroll_au_api, :payroll_nz_api, :payroll_uk_api, :app_store_api]
+
+api_instance = xero_client.<api_set>
+
+
+
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+opts = {
+  contact_ids: ['[\"00000000-0000-0000-0000-000000000000\",\"00000000-0000-0000-0000-000000000000\"]'], # Array<String> | Specifies the customer contacts to be included in the report.    If no parameter is provided, all customer contacts will be included
+
+  include_manual_journals: true, # Boolean | Specifies whether to include the manual journals in the report.                If no parameter is provided, manual journals will not be included.
+
+  start_date: '2020-09-15', # String | Date yyyy-MM-dd    Specifies the start date for the report.                If no parameter is provided, the date of 12 months before the end date will be used.                It is recommended to always specify both a start date and end date; While the initial range may be set to 12 months, this may need to be reduced for high volume organisations in order to improve latency.
+
+  end_date: '2020-09-15' # String | Date yyyy-MM-dd    Specifies the end date for the report.    If no parameter is provided, the current date will be used.                It is recommended to always specify both a start date and end date; While the initial range may be set to 12 months, this may need to be reduced for high volume organisations in order to improve latency.
+}
+
+begin
+  #Get revenue by contacts report
+  result = api_instance.get_financial_statement_contacts_revenue(xero_tenant_id, opts)
+  p result
+rescue XeroRuby::Finance::ApiError => e
+  puts "Exception when calling FinanceApi->get_financial_statement_contacts_revenue: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **contact_ids** | [**Array&lt;String&gt;**](String.md)| Specifies the customer contacts to be included in the report.    If no parameter is provided, all customer contacts will be included | [optional] 
+ **include_manual_journals** | **Boolean**| Specifies whether to include the manual journals in the report.                If no parameter is provided, manual journals will not be included. | [optional] 
+ **start_date** | **String**| Date yyyy-MM-dd    Specifies the start date for the report.                If no parameter is provided, the date of 12 months before the end date will be used.                It is recommended to always specify both a start date and end date; While the initial range may be set to 12 months, this may need to be reduced for high volume organisations in order to improve latency. | [optional] 
+ **end_date** | **String**| Date yyyy-MM-dd    Specifies the end date for the report.    If no parameter is provided, the current date will be used.                It is recommended to always specify both a start date and end date; While the initial range may be set to 12 months, this may need to be reduced for high volume organisations in order to improve latency. | [optional] 
+
+### Return type
+
+[**IncomeByContactResponse**](IncomeByContactResponse.md)
 
 ### Authorization
 
