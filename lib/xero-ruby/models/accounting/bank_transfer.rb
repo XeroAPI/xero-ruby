@@ -40,6 +40,15 @@ module XeroRuby::Accounting
     # The Bank Transaction ID for the destination account
     attr_accessor :to_bank_transaction_id
     
+    # The Bank Transaction boolean to show if it is reconciled for the source account
+    attr_accessor :from_is_reconciled
+    
+    # The Bank Transaction boolean to show if it is reconciled for the destination account
+    attr_accessor :to_is_reconciled
+    
+    # Reference for the transactions.
+    attr_accessor :reference
+    
     # Boolean to indicate if a Bank Transfer has an attachment
     attr_accessor :has_attachments
     
@@ -60,6 +69,9 @@ module XeroRuby::Accounting
         :'currency_rate' => :'CurrencyRate',
         :'from_bank_transaction_id' => :'FromBankTransactionID',
         :'to_bank_transaction_id' => :'ToBankTransactionID',
+        :'from_is_reconciled' => :'FromIsReconciled',
+        :'to_is_reconciled' => :'ToIsReconciled',
+        :'reference' => :'Reference',
         :'has_attachments' => :'HasAttachments',
         :'created_date_utc' => :'CreatedDateUTC',
         :'validation_errors' => :'ValidationErrors'
@@ -77,6 +89,9 @@ module XeroRuby::Accounting
         :'currency_rate' => :'BigDecimal',
         :'from_bank_transaction_id' => :'String',
         :'to_bank_transaction_id' => :'String',
+        :'from_is_reconciled' => :'Boolean',
+        :'to_is_reconciled' => :'Boolean',
+        :'reference' => :'String',
         :'has_attachments' => :'Boolean',
         :'created_date_utc' => :'DateTime',
         :'validation_errors' => :'Array<ValidationError>'
@@ -128,6 +143,22 @@ module XeroRuby::Accounting
 
       if attributes.key?(:'to_bank_transaction_id')
         self.to_bank_transaction_id = attributes[:'to_bank_transaction_id']
+      end
+
+      if attributes.key?(:'from_is_reconciled')
+        self.from_is_reconciled = attributes[:'from_is_reconciled']
+      else
+        self.from_is_reconciled = false
+      end
+
+      if attributes.key?(:'to_is_reconciled')
+        self.to_is_reconciled = attributes[:'to_is_reconciled']
+      else
+        self.to_is_reconciled = false
+      end
+
+      if attributes.key?(:'reference')
+        self.reference = attributes[:'reference']
       end
 
       if attributes.key?(:'has_attachments')
@@ -188,6 +219,9 @@ module XeroRuby::Accounting
           currency_rate == o.currency_rate &&
           from_bank_transaction_id == o.from_bank_transaction_id &&
           to_bank_transaction_id == o.to_bank_transaction_id &&
+          from_is_reconciled == o.from_is_reconciled &&
+          to_is_reconciled == o.to_is_reconciled &&
+          reference == o.reference &&
           has_attachments == o.has_attachments &&
           created_date_utc == o.created_date_utc &&
           validation_errors == o.validation_errors
@@ -202,7 +236,7 @@ module XeroRuby::Accounting
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [from_bank_account, to_bank_account, amount, date, bank_transfer_id, currency_rate, from_bank_transaction_id, to_bank_transaction_id, has_attachments, created_date_utc, validation_errors].hash
+      [from_bank_account, to_bank_account, amount, date, bank_transfer_id, currency_rate, from_bank_transaction_id, to_bank_transaction_id, from_is_reconciled, to_is_reconciled, reference, has_attachments, created_date_utc, validation_errors].hash
     end
 
     # Builds the object from hash

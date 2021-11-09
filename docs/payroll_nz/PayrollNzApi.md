@@ -2717,11 +2717,9 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
-  first_name: 'John', # String | Filter by first name
+  filter: 'firstName==John,lastName==Smith', # String | Filter by first name and/or lastname
 
-  last_name: 'Johnson', # String | Filter by last name
-
-  page: 56 # Integer | Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
+  page: 5 # Integer | Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
 }
 
 begin
@@ -2739,8 +2737,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **first_name** | **String**| Filter by first name | [optional] 
- **last_name** | **String**| Filter by last name | [optional] 
+ **filter** | **String**| Filter by first name and/or lastname | [optional] 
  **page** | **Integer**| Page number which specifies the set of records to retrieve. By default the number of the records per set is 100. | [optional] 
 
 ### Return type
@@ -3841,11 +3838,17 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
-  page: 56, # Integer | Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
+  page: 5, # Integer | Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
 
-  employee_id: 'employee_id_example', # String | By default get Timesheets will return the timesheets for all employees in an organization. You can add GET https://…/timesheets?filter=employeeId=={EmployeeID} to get only the timesheets of a particular employee.
+  filter: 'employeeId==00000000-0000-0000-0000-000000000000,payrollCalendarId==00000000-0000-0000-0000-000000000000', # String | Filter by employeeId and/or payrollCalendarId
 
-  payroll_calendar_id: 'payroll_calendar_id_example' # String | By default get Timesheets will return all the timesheets for an organization. You can add GET https://…/timesheets?filter=payrollCalendarId=={PayrollCalendarID} to filter the timesheets by payroll calendar id
+  status: 'Draft', # String | filter results by any timesheets with a matching timesheet status
+
+  start_date: '2019-01-02', # String | filter results by any timesheets with a startDate on or after the provided date
+
+  end_date: '2020-01-02', # String | filter results by any timesheets with a endDate on or before the provided date
+
+  sort: 'startDate' # String | sort the order of timesheets returned. The default is based on the timesheets createdDate, sorted oldest to newest. Currently, the only other option is to reverse the order based on the timesheets startDate, sorted newest to oldest.
 }
 
 begin
@@ -3864,8 +3867,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **page** | **Integer**| Page number which specifies the set of records to retrieve. By default the number of the records per set is 100. | [optional] 
- **employee_id** | [**String**](.md)| By default get Timesheets will return the timesheets for all employees in an organization. You can add GET https://…/timesheets?filter&#x3D;employeeId&#x3D;&#x3D;{EmployeeID} to get only the timesheets of a particular employee. | [optional] 
- **payroll_calendar_id** | [**String**](.md)| By default get Timesheets will return all the timesheets for an organization. You can add GET https://…/timesheets?filter&#x3D;payrollCalendarId&#x3D;&#x3D;{PayrollCalendarID} to filter the timesheets by payroll calendar id | [optional] 
+ **filter** | **String**| Filter by employeeId and/or payrollCalendarId | [optional] 
+ **status** | **String**| filter results by any timesheets with a matching timesheet status | [optional] 
+ **start_date** | **String**| filter results by any timesheets with a startDate on or after the provided date | [optional] 
+ **end_date** | **String**| filter results by any timesheets with a endDate on or before the provided date | [optional] 
+ **sort** | **String**| sort the order of timesheets returned. The default is based on the timesheets createdDate, sorted oldest to newest. Currently, the only other option is to reverse the order based on the timesheets startDate, sorted newest to oldest. | [optional] 
 
 ### Return type
 
