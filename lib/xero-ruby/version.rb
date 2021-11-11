@@ -8,6 +8,7 @@
 # OpenAPI Generator version: 4.3.1
 
 # The version of the XeroOpenAPI document: 2.17.2
+=end
 
 module XeroRuby
   VERSION = '3.4.0'
