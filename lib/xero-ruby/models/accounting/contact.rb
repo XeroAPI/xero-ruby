@@ -83,13 +83,13 @@ module XeroRuby::Accounting
     attr_accessor :sales_default_line_amount_type
     INCLUSIVE = "INCLUSIVE".freeze
     EXCLUSIVE = "EXCLUSIVE".freeze
-    NONE = "NONE".freeze
+    # NONE = "NONE".freeze
     
     # The default purchases line amount type for a contact Only available when summaryOnly parameter or paging is used, or when fetch by ContactId or ContactNumber.
     attr_accessor :purchases_default_line_amount_type
-    INCLUSIVE = "INCLUSIVE".freeze
-    EXCLUSIVE = "EXCLUSIVE".freeze
-    NONE = "NONE".freeze
+    # INCLUSIVE = "INCLUSIVE".freeze
+    # EXCLUSIVE = "EXCLUSIVE".freeze
+    # NONE = "NONE".freeze
     
 
     attr_accessor :default_currency
