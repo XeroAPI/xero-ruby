@@ -5,12 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **contact_id** | **String** | Xero identifier | [optional] 
+**merged_to_contact_id** | **String** | ID for the destination of a merged contact. Only returned when using paging or when fetching a contact by ContactId or ContactNumber. | [optional] 
 **contact_number** | **String** | This can be updated via the API only i.e. This field is read only on the Xero contact screen, used to identify contacts in external systems (max length &#x3D; 50). If the Contact Number is used, this is displayed as Contact Code in the Contacts UI in Xero. | [optional] 
 **account_number** | **String** | A user defined account number. This can be updated via the API and the Xero UI (max length &#x3D; 50) | [optional] 
 **contact_status** | **String** | Current status of a contact – see contact status types | [optional] 
 **name** | **String** | Full name of contact/organisation (max length &#x3D; 255) | [optional] 
 **first_name** | **String** | First name of contact person (max length &#x3D; 255) | [optional] 
 **last_name** | **String** | Last name of contact person (max length &#x3D; 255) | [optional] 
+**company_number** | **String** | Company registration number (max length &#x3D; 50) | [optional] 
 **email_address** | **String** | Email address of contact person (umlauts not supported) (max length  &#x3D; 255) | [optional] 
 **skype_user_name** | **String** | Skype user name of contact | [optional] 
 **contact_persons** | [**Array&lt;ContactPerson&gt;**](ContactPerson.md) | See contact persons | [optional] 
@@ -22,6 +24,8 @@ Name | Type | Description | Notes
 **phones** | [**Array&lt;Phone&gt;**](Phone.md) | Store certain phone types for a contact – see phone types | [optional] 
 **is_supplier** | **Boolean** | true or false – Boolean that describes if a contact that has any AP  invoices entered against them. Cannot be set via PUT or POST – it is automatically set when an accounts payable invoice is generated against this contact. | [optional] 
 **is_customer** | **Boolean** | true or false – Boolean that describes if a contact has any AR invoices entered against them. Cannot be set via PUT or POST – it is automatically set when an accounts receivable invoice is generated against this contact. | [optional] 
+**sales_default_line_amount_type** | **String** | The default sales line amount type for a contact. Only available when summaryOnly parameter or paging is used, or when fetch by ContactId or ContactNumber. | [optional] 
+**purchases_default_line_amount_type** | **String** | The default purchases line amount type for a contact Only available when summaryOnly parameter or paging is used, or when fetch by ContactId or ContactNumber. | [optional] 
 **default_currency** | [**CurrencyCode**](CurrencyCode.md) |  | [optional] 
 **xero_network_key** | **String** | Store XeroNetworkKey for contacts. | [optional] 
 **sales_default_account_code** | **String** | The default sales account code for contacts | [optional] 
@@ -50,12 +54,14 @@ Name | Type | Description | Notes
 require 'XeroRuby::Accounting'
 
 instance = XeroRuby::Accounting::Contact.new(contact_id: null,
+                                 merged_to_contact_id: null,
                                  contact_number: null,
                                  account_number: null,
                                  contact_status: null,
                                  name: null,
                                  first_name: null,
                                  last_name: null,
+                                 company_number: null,
                                  email_address: null,
                                  skype_user_name: null,
                                  contact_persons: null,
@@ -67,6 +73,8 @@ instance = XeroRuby::Accounting::Contact.new(contact_id: null,
                                  phones: null,
                                  is_supplier: null,
                                  is_customer: null,
+                                 sales_default_line_amount_type: null,
+                                 purchases_default_line_amount_type: null,
                                  default_currency: null,
                                  xero_network_key: null,
                                  sales_default_account_code: null,

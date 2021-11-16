@@ -110,6 +110,11 @@ module XeroRuby
       XeroRuby::AppStoreApi.new(self)
     end
 
+    def finance_api
+      @config.base_url = @config.finance_url
+      XeroRuby::FinanceApi.new(self)
+    end
+
     # Token Helpers
     def token_set
       @config.token_set
@@ -284,6 +289,10 @@ module XeroRuby
         method_base_url = @config.payroll_uk_url
       when "ProjectApi"
         method_base_url = @config.project_url
+      when "AppStoreApi"
+        method_base_url = @config.app_store_url
+      when "FinanceApi"
+        method_base_url = @config.finance_url
       else
         method_base_url = @config.accounting_url
       end
@@ -508,6 +517,8 @@ module XeroRuby
           XeroRuby::PayrollUk.const_get(return_type).build_from_hash(data)
         when 'AppStoreApi'
           XeroRuby::AppStore.const_get(return_type).build_from_hash(data)
+        when 'FinanceApi'
+          XeroRuby::Finance.const_get(return_type).build_from_hash(data)
         else
           XeroRuby::Accounting.const_get(return_type).build_from_hash(data)
         end

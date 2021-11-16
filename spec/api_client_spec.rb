@@ -174,6 +174,9 @@ describe XeroRuby::ApiClient do
       
       api_client.payroll_uk_api
       expect(api_client.config.base_url).to eq('https://api.xero.com/payroll.xro/2.0/')
+
+      api_client.finance_api
+      expect(api_client.config.base_url).to eq('https://api.xero.com/finance.xro/1.0/')
       
       api_client.connections
       expect(api_client.config.base_url).to eq('https://api.xero.com')  
