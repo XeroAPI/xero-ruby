@@ -21,8 +21,8 @@ module XeroRuby::Accounting
     
     # Type of Budget. OVERALL or TRACKING
     attr_accessor :type
-    OVERALL = "OVERALL".freeze
-    TRACKING = "TRACKING".freeze
+    OVERALL ||= "OVERALL".freeze
+    TRACKING ||= "TRACKING".freeze
     
     # The Budget description
     attr_accessor :description

@@ -14,29 +14,29 @@ require 'date'
 
 module XeroRuby::PayrollAu
   class AccountType
-    BANK = "BANK".freeze
-    CURRENT = "CURRENT".freeze
-    CURRLIAB = "CURRLIAB".freeze
-    DEPRECIATN = "DEPRECIATN".freeze
-    DIRECTCOSTS = "DIRECTCOSTS".freeze
-    EQUITY = "EQUITY".freeze
-    EXPENSE = "EXPENSE".freeze
-    FIXED = "FIXED".freeze
-    INVENTORY = "INVENTORY".freeze
-    LIABILITY = "LIABILITY".freeze
-    NONCURRENT = "NONCURRENT".freeze
-    OTHERINCOME = "OTHERINCOME".freeze
-    OVERHEADS = "OVERHEADS".freeze
-    PREPAYMENT = "PREPAYMENT".freeze
-    REVENUE = "REVENUE".freeze
-    SALES = "SALES".freeze
-    TERMLIAB = "TERMLIAB".freeze
-    PAYGLIABILITY = "PAYGLIABILITY".freeze
-    PAYG = "PAYG".freeze
-    SUPERANNUATIONEXPENSE = "SUPERANNUATIONEXPENSE".freeze
-    SUPERANNUATIONLIABILITY = "SUPERANNUATIONLIABILITY".freeze
-    WAGESEXPENSE = "WAGESEXPENSE".freeze
-    WAGESPAYABLELIABILITY = "WAGESPAYABLELIABILITY".freeze
+    BANK ||= "BANK".freeze
+    CURRENT ||= "CURRENT".freeze
+    CURRLIAB ||= "CURRLIAB".freeze
+    DEPRECIATN ||= "DEPRECIATN".freeze
+    DIRECTCOSTS ||= "DIRECTCOSTS".freeze
+    EQUITY ||= "EQUITY".freeze
+    EXPENSE ||= "EXPENSE".freeze
+    FIXED ||= "FIXED".freeze
+    INVENTORY ||= "INVENTORY".freeze
+    LIABILITY ||= "LIABILITY".freeze
+    NONCURRENT ||= "NONCURRENT".freeze
+    OTHERINCOME ||= "OTHERINCOME".freeze
+    OVERHEADS ||= "OVERHEADS".freeze
+    PREPAYMENT ||= "PREPAYMENT".freeze
+    REVENUE ||= "REVENUE".freeze
+    SALES ||= "SALES".freeze
+    TERMLIAB ||= "TERMLIAB".freeze
+    PAYGLIABILITY ||= "PAYGLIABILITY".freeze
+    PAYG ||= "PAYG".freeze
+    SUPERANNUATIONEXPENSE ||= "SUPERANNUATIONEXPENSE".freeze
+    SUPERANNUATIONLIABILITY ||= "SUPERANNUATIONLIABILITY".freeze
+    WAGESEXPENSE ||= "WAGESEXPENSE".freeze
+    WAGESPAYABLELIABILITY ||= "WAGESPAYABLELIABILITY".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

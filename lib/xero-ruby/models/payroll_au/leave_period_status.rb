@@ -14,8 +14,8 @@ require 'date'
 
 module XeroRuby::PayrollAu
   class LeavePeriodStatus
-    SCHEDULED = "SCHEDULED".freeze
-    PROCESSED = "PROCESSED".freeze
+    SCHEDULED ||= "SCHEDULED".freeze
+    PROCESSED ||= "PROCESSED".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

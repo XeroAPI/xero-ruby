@@ -14,17 +14,17 @@ require 'date'
 
 module XeroRuby::PayrollNz
   class StatutoryDeductionCategory
-    PRIORITY_ORDER = "PriorityOrder".freeze
-    NON_PRIORITY_ORDER = "NonPriorityOrder".freeze
-    TABLE_BASED = "TableBased".freeze
-    CHILD_SUPPORT = "ChildSupport".freeze
-    COURT_FINES = "CourtFines".freeze
-    INLAND_REVENUE_ARREARS = "InlandRevenueArrears".freeze
-    MSD_REPAYMENTS = "MsdRepayments".freeze
-    STUDENT_LOAN = "StudentLoan".freeze
-    ADDITIONAL_STUDENT_LOAN = "AdditionalStudentLoan".freeze
-    VOLUNTARY_STUDENT_LOAN = "VoluntaryStudentLoan".freeze
-    KIWI_SAVER = "KiwiSaver".freeze
+    PRIORITY_ORDER ||= "PriorityOrder".freeze
+    NON_PRIORITY_ORDER ||= "NonPriorityOrder".freeze
+    TABLE_BASED ||= "TableBased".freeze
+    CHILD_SUPPORT ||= "ChildSupport".freeze
+    COURT_FINES ||= "CourtFines".freeze
+    INLAND_REVENUE_ARREARS ||= "InlandRevenueArrears".freeze
+    MSD_REPAYMENTS ||= "MsdRepayments".freeze
+    STUDENT_LOAN ||= "StudentLoan".freeze
+    ADDITIONAL_STUDENT_LOAN ||= "AdditionalStudentLoan".freeze
+    VOLUNTARY_STUDENT_LOAN ||= "VoluntaryStudentLoan".freeze
+    KIWI_SAVER ||= "KiwiSaver".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

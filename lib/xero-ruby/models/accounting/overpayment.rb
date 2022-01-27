@@ -18,9 +18,9 @@ module XeroRuby::Accounting
   class Overpayment
     # See Overpayment Types
     attr_accessor :type
-    RECEIVE_OVERPAYMENT = "RECEIVE-OVERPAYMENT".freeze
-    SPEND_OVERPAYMENT = "SPEND-OVERPAYMENT".freeze
-    AROVERPAYMENT = "AROVERPAYMENT".freeze
+    RECEIVE_OVERPAYMENT ||= "RECEIVE-OVERPAYMENT".freeze
+    SPEND_OVERPAYMENT ||= "SPEND-OVERPAYMENT".freeze
+    AROVERPAYMENT ||= "AROVERPAYMENT".freeze
     
 
     attr_accessor :contact
@@ -30,9 +30,9 @@ module XeroRuby::Accounting
     
     # See Overpayment Status Codes
     attr_accessor :status
-    AUTHORISED = "AUTHORISED".freeze
-    PAID = "PAID".freeze
-    VOIDED = "VOIDED".freeze
+    AUTHORISED ||= "AUTHORISED".freeze
+    PAID ||= "PAID".freeze
+    VOIDED ||= "VOIDED".freeze
     
 
     attr_accessor :line_amount_types

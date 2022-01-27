@@ -60,9 +60,9 @@ module XeroRuby::Projects
     
     # Status of the task. When a task of ChargeType is `FIXED` and the rate amount is invoiced the status will be set to `INVOICED` and can't be modified. A task with ChargeType of `TIME` or `NON_CHARGEABLE` cannot have a status of `INVOICED`. A `LOCKED` state indicates that the task is currently changing state (for example being invoiced) and can't be modified.
     attr_accessor :status
-    ACTIVE = "ACTIVE".freeze
-    INVOICED = "INVOICED".freeze
-    LOCKED = "LOCKED".freeze
+    ACTIVE ||= "ACTIVE".freeze
+    INVOICED ||= "INVOICED".freeze
+    LOCKED ||= "LOCKED".freeze
     
     class EnumAttributeValidator
       attr_reader :datatype

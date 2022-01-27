@@ -13,10 +13,14 @@ require 'time'
 require 'date'
 
 module XeroRuby::PayrollAu
-  class DeductionTypeCalculationType
-    FIXEDAMOUNT ||= "FIXEDAMOUNT".freeze
-    PRETAX ||= "PRETAX".freeze
-    POSTTAX ||= "POSTTAX".freeze
+  class AllowanceCategory
+    NONDEDUCTIBLE ||= "NONDEDUCTIBLE".freeze
+    UNIFORM ||= "UNIFORM".freeze
+    PRIVATEVEHICLE ||= "PRIVATEVEHICLE".freeze
+    HOMEOFFICE ||= "HOMEOFFICE".freeze
+    TRANSPORT ||= "TRANSPORT".freeze
+    GENERAL ||= "GENERAL".freeze
+    OTHER ||= "OTHER".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
@@ -29,8 +33,8 @@ module XeroRuby::PayrollAu
     # @param [String] The enum value in the form of the string
     # @return [String] The enum value
     def build_from_hash(value)
-      constantValues = DeductionTypeCalculationType.constants.select { |c| DeductionTypeCalculationType::const_get(c) == value }
-      raise "Invalid ENUM value #{value} for class #DeductionTypeCalculationType" if constantValues.empty?
+      constantValues = AllowanceCategory.constants.select { |c| AllowanceCategory::const_get(c) == value }
+      raise "Invalid ENUM value #{value} for class #AllowanceCategory" if constantValues.empty?
       value
     end
   end

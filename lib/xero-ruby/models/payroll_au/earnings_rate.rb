@@ -67,6 +67,9 @@ module XeroRuby::PayrollAu
 
     attr_accessor :allowance_type
     
+
+    attr_accessor :allowance_category
+    
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -86,7 +89,8 @@ module XeroRuby::PayrollAu
         :'employment_termination_payment_type' => :'EmploymentTerminationPaymentType',
         :'updated_date_utc' => :'UpdatedDateUTC',
         :'current_record' => :'CurrentRecord',
-        :'allowance_type' => :'AllowanceType'
+        :'allowance_type' => :'AllowanceType',
+        :'allowance_category' => :'AllowanceCategory'
       }
     end
 
@@ -109,7 +113,8 @@ module XeroRuby::PayrollAu
         :'employment_termination_payment_type' => :'EmploymentTerminationPaymentType',
         :'updated_date_utc' => :'DateTime',
         :'current_record' => :'Boolean',
-        :'allowance_type' => :'AllowanceType'
+        :'allowance_type' => :'AllowanceType',
+        :'allowance_category' => :'AllowanceCategory'
       }
     end
 
@@ -195,6 +200,10 @@ module XeroRuby::PayrollAu
       if attributes.key?(:'allowance_type')
         self.allowance_type = attributes[:'allowance_type']
       end
+
+      if attributes.key?(:'allowance_category')
+        self.allowance_category = attributes[:'allowance_category']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -261,7 +270,8 @@ module XeroRuby::PayrollAu
           employment_termination_payment_type == o.employment_termination_payment_type &&
           updated_date_utc == o.updated_date_utc &&
           current_record == o.current_record &&
-          allowance_type == o.allowance_type
+          allowance_type == o.allowance_type &&
+          allowance_category == o.allowance_category
     end
 
     # @see the `==` method
@@ -273,7 +283,7 @@ module XeroRuby::PayrollAu
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, account_code, type_of_units, is_exempt_from_tax, is_exempt_from_super, is_reportable_as_w1, earnings_type, earnings_rate_id, rate_type, rate_per_unit, multiplier, accrue_leave, amount, employment_termination_payment_type, updated_date_utc, current_record, allowance_type].hash
+      [name, account_code, type_of_units, is_exempt_from_tax, is_exempt_from_super, is_reportable_as_w1, earnings_type, earnings_rate_id, rate_type, rate_per_unit, multiplier, accrue_leave, amount, employment_termination_payment_type, updated_date_utc, current_record, allowance_type, allowance_category].hash
     end
 
     # Builds the object from hash

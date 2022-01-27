@@ -14,10 +14,10 @@ require 'date'
 
 module XeroRuby::Accounting
   class PaymentTermType
-    DAYSAFTERBILLDATE = "DAYSAFTERBILLDATE".freeze
-    DAYSAFTERBILLMONTH = "DAYSAFTERBILLMONTH".freeze
-    OFCURRENTMONTH = "OFCURRENTMONTH".freeze
-    OFFOLLOWINGMONTH = "OFFOLLOWINGMONTH".freeze
+    DAYSAFTERBILLDATE ||= "DAYSAFTERBILLDATE".freeze
+    DAYSAFTERBILLMONTH ||= "DAYSAFTERBILLMONTH".freeze
+    OFCURRENTMONTH ||= "OFCURRENTMONTH".freeze
+    OFFOLLOWINGMONTH ||= "OFFOLLOWINGMONTH".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

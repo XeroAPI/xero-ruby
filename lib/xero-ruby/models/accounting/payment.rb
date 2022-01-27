@@ -60,19 +60,19 @@ module XeroRuby::Accounting
     
     # The status of the payment.
     attr_accessor :status
-    AUTHORISED = "AUTHORISED".freeze
-    DELETED = "DELETED".freeze
+    AUTHORISED ||= "AUTHORISED".freeze
+    DELETED ||= "DELETED".freeze
     
     # See Payment Types.
     attr_accessor :payment_type
-    ACCRECPAYMENT = "ACCRECPAYMENT".freeze
-    ACCPAYPAYMENT = "ACCPAYPAYMENT".freeze
-    ARCREDITPAYMENT = "ARCREDITPAYMENT".freeze
-    APCREDITPAYMENT = "APCREDITPAYMENT".freeze
-    AROVERPAYMENTPAYMENT = "AROVERPAYMENTPAYMENT".freeze
-    ARPREPAYMENTPAYMENT = "ARPREPAYMENTPAYMENT".freeze
-    APPREPAYMENTPAYMENT = "APPREPAYMENTPAYMENT".freeze
-    APOVERPAYMENTPAYMENT = "APOVERPAYMENTPAYMENT".freeze
+    ACCRECPAYMENT ||= "ACCRECPAYMENT".freeze
+    ACCPAYPAYMENT ||= "ACCPAYPAYMENT".freeze
+    ARCREDITPAYMENT ||= "ARCREDITPAYMENT".freeze
+    APCREDITPAYMENT ||= "APCREDITPAYMENT".freeze
+    AROVERPAYMENTPAYMENT ||= "AROVERPAYMENTPAYMENT".freeze
+    ARPREPAYMENTPAYMENT ||= "ARPREPAYMENTPAYMENT".freeze
+    APPREPAYMENTPAYMENT ||= "APPREPAYMENTPAYMENT".freeze
+    APOVERPAYMENTPAYMENT ||= "APOVERPAYMENTPAYMENT".freeze
     
     # UTC timestamp of last update to the payment
     attr_accessor :updated_date_utc

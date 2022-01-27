@@ -14,20 +14,20 @@ require 'date'
 
 module XeroRuby::PayrollUk
   class StatutoryDeductionCategory
-    ADDITIONAL_STUDENT_LOAN = "AdditionalStudentLoan".freeze
-    CHILD_SUPPORT = "ChildSupport".freeze
-    COURT_FINES = "CourtFines".freeze
-    CREDITOR = "Creditor".freeze
-    FEDERAL_LEVY = "FederalLevy".freeze
-    INLAND_REVENUE_ARREARS = "InlandRevenueArrears".freeze
-    KIWI_SAVER = "KiwiSaver".freeze
-    MSD_REPAYMENTS = "MsdRepayments".freeze
-    NON_PRIORITY_ORDER = "NonPriorityOrder".freeze
-    PRIORITY_ORDER = "PriorityOrder".freeze
-    TABLE_BASED = "TableBased".freeze
-    STUDENT_LOAN = "StudentLoan".freeze
-    VOLUNTARY_STUDENT_LOAN = "VoluntaryStudentLoan".freeze
-    US_CHILD_SUPPORT = "USChildSupport".freeze
+    ADDITIONAL_STUDENT_LOAN ||= "AdditionalStudentLoan".freeze
+    CHILD_SUPPORT ||= "ChildSupport".freeze
+    COURT_FINES ||= "CourtFines".freeze
+    CREDITOR ||= "Creditor".freeze
+    FEDERAL_LEVY ||= "FederalLevy".freeze
+    INLAND_REVENUE_ARREARS ||= "InlandRevenueArrears".freeze
+    KIWI_SAVER ||= "KiwiSaver".freeze
+    MSD_REPAYMENTS ||= "MsdRepayments".freeze
+    NON_PRIORITY_ORDER ||= "NonPriorityOrder".freeze
+    PRIORITY_ORDER ||= "PriorityOrder".freeze
+    TABLE_BASED ||= "TableBased".freeze
+    STUDENT_LOAN ||= "StudentLoan".freeze
+    VOLUNTARY_STUDENT_LOAN ||= "VoluntaryStudentLoan".freeze
+    US_CHILD_SUPPORT ||= "USChildSupport".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
