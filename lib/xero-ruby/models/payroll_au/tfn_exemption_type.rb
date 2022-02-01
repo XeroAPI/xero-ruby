@@ -14,10 +14,10 @@ require 'date'
 
 module XeroRuby::PayrollAu
   class TFNExemptionType
-    NOTQUOTED = "NOTQUOTED".freeze
-    PENDING = "PENDING".freeze
-    PENSIONER = "PENSIONER".freeze
-    UNDER18 = "UNDER18".freeze
+    NOTQUOTED ||= "NOTQUOTED".freeze
+    PENDING ||= "PENDING".freeze
+    PENSIONER ||= "PENSIONER".freeze
+    UNDER18 ||= "UNDER18".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

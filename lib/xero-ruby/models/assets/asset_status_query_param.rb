@@ -14,9 +14,9 @@ require 'date'
 
 module XeroRuby::Assets
   class AssetStatusQueryParam
-    DRAFT = "DRAFT".freeze
-    REGISTERED = "REGISTERED".freeze
-    DISPOSED = "DISPOSED".freeze
+    DRAFT ||= "DRAFT".freeze
+    REGISTERED ||= "REGISTERED".freeze
+    DISPOSED ||= "DISPOSED".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

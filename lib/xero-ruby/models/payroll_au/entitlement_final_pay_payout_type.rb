@@ -14,8 +14,8 @@ require 'date'
 
 module XeroRuby::PayrollAu
   class EntitlementFinalPayPayoutType
-    NOTPAIDOUT = "NOTPAIDOUT".freeze
-    PAIDOUT = "PAIDOUT".freeze
+    NOTPAIDOUT ||= "NOTPAIDOUT".freeze
+    PAIDOUT ||= "PAIDOUT".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

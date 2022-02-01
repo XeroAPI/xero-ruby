@@ -14,10 +14,10 @@ require 'date'
 
 module XeroRuby::Accounting
   class RowType
-    HEADER = "Header".freeze
-    SECTION = "Section".freeze
-    ROW = "Row".freeze
-    SUMMARY_ROW = "SummaryRow".freeze
+    HEADER ||= "Header".freeze
+    SECTION ||= "Section".freeze
+    ROW ||= "Row".freeze
+    SUMMARY_ROW ||= "SummaryRow".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

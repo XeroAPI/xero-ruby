@@ -14,8 +14,8 @@ require 'date'
 
 module XeroRuby::PayrollAu
   class EmployeeStatus
-    ACTIVE = "ACTIVE".freeze
-    TERMINATED = "TERMINATED".freeze
+    ACTIVE ||= "ACTIVE".freeze
+    TERMINATED ||= "TERMINATED".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

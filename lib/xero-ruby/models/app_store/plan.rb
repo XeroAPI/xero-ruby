@@ -22,10 +22,11 @@ module XeroRuby::AppStore
     # The name of the plan. It is used in the invoice line item description. 
     attr_accessor :name
     
-    # Status of the plan. Available statuses are ACTIVE, PENDING_ACTIVATION. 
+    # Status of the plan. Available statuses are ACTIVE, CANCELED, and PENDING_ACTIVATION. 
     attr_accessor :status
-    ACTIVE = "ACTIVE".freeze
-    PENDING_ACTIVATION = "PENDING_ACTIVATION".freeze
+    ACTIVE ||= "ACTIVE".freeze
+    CANCELED ||= "CANCELED".freeze
+    PENDING_ACTIVATION ||= "PENDING_ACTIVATION".freeze
     
     # List of the subscription items belonging to the plan. It does not include cancelled subscription items. 
     attr_accessor :subscription_items
@@ -135,7 +136,7 @@ module XeroRuby::AppStore
       return false if @id.nil?
       return false if @name.nil?
       return false if @status.nil?
-      status_validator = EnumAttributeValidator.new('String', ["ACTIVE", "PENDING_ACTIVATION"])
+      status_validator = EnumAttributeValidator.new('String', ["ACTIVE", "CANCELED", "PENDING_ACTIVATION"])
       return false unless status_validator.valid?(@status)
       return false if @subscription_items.nil?
       true
@@ -144,7 +145,7 @@ module XeroRuby::AppStore
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] status Object to be assigned
     def status=(status)
-      validator = EnumAttributeValidator.new('String', ["ACTIVE", "PENDING_ACTIVATION"])
+      validator = EnumAttributeValidator.new('String', ["ACTIVE", "CANCELED", "PENDING_ACTIVATION"])
       unless validator.valid?(status)
         fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
       end

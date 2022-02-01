@@ -14,9 +14,9 @@ require 'date'
 
 module XeroRuby::PayrollAu
   class RateType
-    FIXEDAMOUNT = "FIXEDAMOUNT".freeze
-    MULTIPLE = "MULTIPLE".freeze
-    RATEPERUNIT = "RATEPERUNIT".freeze
+    FIXEDAMOUNT ||= "FIXEDAMOUNT".freeze
+    MULTIPLE ||= "MULTIPLE".freeze
+    RATEPERUNIT ||= "RATEPERUNIT".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

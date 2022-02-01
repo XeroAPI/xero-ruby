@@ -14,10 +14,10 @@ require 'date'
 
 module XeroRuby::PayrollAu
   class LeaveTypeContributionType
-    SGC = "SGC".freeze
-    SALARYSACRIFICE = "SALARYSACRIFICE".freeze
-    EMPLOYERADDITIONAL = "EMPLOYERADDITIONAL".freeze
-    EMPLOYEE = "EMPLOYEE".freeze
+    SGC ||= "SGC".freeze
+    SALARYSACRIFICE ||= "SALARYSACRIFICE".freeze
+    EMPLOYERADDITIONAL ||= "EMPLOYERADDITIONAL".freeze
+    EMPLOYEE ||= "EMPLOYEE".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

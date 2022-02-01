@@ -21,7 +21,7 @@ module XeroRuby::Accounting
     
     # See Prepayment Types
     attr_accessor :report_type
-    AGED_PAYABLES_BY_CONTACT = "AgedPayablesByContact".freeze
+    AGED_PAYABLES_BY_CONTACT ||= "AgedPayablesByContact".freeze
     
     # See Prepayment Types
     attr_accessor :report_title

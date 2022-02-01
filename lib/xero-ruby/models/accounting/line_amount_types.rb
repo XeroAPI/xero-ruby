@@ -14,9 +14,9 @@ require 'date'
 
 module XeroRuby::Accounting
   class LineAmountTypes
-    EXCLUSIVE = "Exclusive".freeze
-    INCLUSIVE = "Inclusive".freeze
-    NO_TAX = "NoTax".freeze
+    EXCLUSIVE ||= "Exclusive".freeze
+    INCLUSIVE ||= "Inclusive".freeze
+    NO_TAX ||= "NoTax".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

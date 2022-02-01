@@ -24,27 +24,27 @@ module XeroRuby::PayrollNz
     
     # Indicates how an employee will be paid when taking this type of earning
     attr_accessor :earnings_type
-    ALLOWANCE = "Allowance".freeze
-    BACKPAY = "Backpay".freeze
-    BONUS = "Bonus".freeze
-    COMMISSION = "Commission".freeze
-    DISCRETIONARY_PAYMENTS = "DiscretionaryPayments".freeze
-    HOLIDAY_PAY = "HolidayPay".freeze
-    LUMP_SUM = "LumpSum".freeze
-    OTHER_EARNINGS = "OtherEarnings".freeze
-    OTHER_GROSS_EARNINGS = "OtherGrossEarnings".freeze
-    OVERTIME_EARNINGS = "OvertimeEarnings".freeze
-    REGULAR_EARNINGS = "RegularEarnings".freeze
-    SALARY_SACRIFICE_FOR_KIWI_SAVER = "SalarySacrificeForKiwiSaver".freeze
-    TIPS_DIRECT = "Tips(Direct)".freeze
-    TIPS_NON_DIRECT = "Tips(Non-Direct)".freeze
-    WITHHOLDING_INCOME = "WithholdingIncome".freeze
+    ALLOWANCE ||= "Allowance".freeze
+    BACKPAY ||= "Backpay".freeze
+    BONUS ||= "Bonus".freeze
+    COMMISSION ||= "Commission".freeze
+    DISCRETIONARY_PAYMENTS ||= "DiscretionaryPayments".freeze
+    HOLIDAY_PAY ||= "HolidayPay".freeze
+    LUMP_SUM ||= "LumpSum".freeze
+    OTHER_EARNINGS ||= "OtherEarnings".freeze
+    OTHER_GROSS_EARNINGS ||= "OtherGrossEarnings".freeze
+    OVERTIME_EARNINGS ||= "OvertimeEarnings".freeze
+    REGULAR_EARNINGS ||= "RegularEarnings".freeze
+    SALARY_SACRIFICE_FOR_KIWI_SAVER ||= "SalarySacrificeForKiwiSaver".freeze
+    TIPS_DIRECT ||= "Tips(Direct)".freeze
+    TIPS_NON_DIRECT ||= "Tips(Non-Direct)".freeze
+    WITHHOLDING_INCOME ||= "WithholdingIncome".freeze
     
     # Indicates the type of the earning rate
     attr_accessor :rate_type
-    RATE_PER_UNIT = "RatePerUnit".freeze
-    MULTIPLE_OF_ORDINARY_EARNINGS_RATE = "MultipleOfOrdinaryEarningsRate".freeze
-    FIXED_AMOUNT = "FixedAmount".freeze
+    RATE_PER_UNIT ||= "RatePerUnit".freeze
+    MULTIPLE_OF_ORDINARY_EARNINGS_RATE ||= "MultipleOfOrdinaryEarningsRate".freeze
+    FIXED_AMOUNT ||= "FixedAmount".freeze
     
     # The type of units used to record earnings
     attr_accessor :type_of_units

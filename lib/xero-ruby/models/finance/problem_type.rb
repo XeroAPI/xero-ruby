@@ -14,11 +14,11 @@ require 'date'
 
 module XeroRuby::Finance
   class ProblemType
-    NOT_SET = "NotSet".freeze
-    INVALID_REQUEST = "invalid-request".freeze
-    INVALID_APPLICATION = "invalid-application".freeze
-    SERVICE_UNAVAILABLE = "service-unavailable".freeze
-    INTERNAL_ERROR = "internal-error".freeze
+    NOT_SET ||= "NotSet".freeze
+    INVALID_REQUEST ||= "invalid-request".freeze
+    INVALID_APPLICATION ||= "invalid-application".freeze
+    SERVICE_UNAVAILABLE ||= "service-unavailable".freeze
+    INTERNAL_ERROR ||= "internal-error".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

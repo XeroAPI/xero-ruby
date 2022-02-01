@@ -36,13 +36,13 @@ module XeroRuby::Accounting
     
     # User role that defines permissions in Xero and via API (READONLY, INVOICEONLY, STANDARD, FINANCIALADVISER, etc)
     attr_accessor :organisation_role
-    READONLY = "READONLY".freeze
-    INVOICEONLY = "INVOICEONLY".freeze
-    STANDARD = "STANDARD".freeze
-    FINANCIALADVISER = "FINANCIALADVISER".freeze
-    MANAGEDCLIENT = "MANAGEDCLIENT".freeze
-    CASHBOOKCLIENT = "CASHBOOKCLIENT".freeze
-    UNKNOWN = "UNKNOWN".freeze
+    READONLY ||= "READONLY".freeze
+    INVOICEONLY ||= "INVOICEONLY".freeze
+    STANDARD ||= "STANDARD".freeze
+    FINANCIALADVISER ||= "FINANCIALADVISER".freeze
+    MANAGEDCLIENT ||= "MANAGEDCLIENT".freeze
+    CASHBOOKCLIENT ||= "CASHBOOKCLIENT".freeze
+    UNKNOWN ||= "UNKNOWN".freeze
     
     class EnumAttributeValidator
       attr_reader :datatype

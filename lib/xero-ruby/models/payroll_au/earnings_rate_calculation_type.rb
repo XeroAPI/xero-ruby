@@ -14,9 +14,9 @@ require 'date'
 
 module XeroRuby::PayrollAu
   class EarningsRateCalculationType
-    USEEARNINGSRATE = "USEEARNINGSRATE".freeze
-    ENTEREARNINGSRATE = "ENTEREARNINGSRATE".freeze
-    ANNUALSALARY = "ANNUALSALARY".freeze
+    USEEARNINGSRATE ||= "USEEARNINGSRATE".freeze
+    ENTEREARNINGSRATE ||= "ENTEREARNINGSRATE".freeze
+    ANNUALSALARY ||= "ANNUALSALARY".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

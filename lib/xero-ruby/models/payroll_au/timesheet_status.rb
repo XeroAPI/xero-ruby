@@ -14,11 +14,11 @@ require 'date'
 
 module XeroRuby::PayrollAu
   class TimesheetStatus
-    DRAFT = "DRAFT".freeze
-    PROCESSED = "PROCESSED".freeze
-    APPROVED = "APPROVED".freeze
-    REJECTED = "REJECTED".freeze
-    REQUESTED = "REQUESTED".freeze
+    DRAFT ||= "DRAFT".freeze
+    PROCESSED ||= "PROCESSED".freeze
+    APPROVED ||= "APPROVED".freeze
+    REJECTED ||= "REJECTED".freeze
+    REQUESTED ||= "REQUESTED".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

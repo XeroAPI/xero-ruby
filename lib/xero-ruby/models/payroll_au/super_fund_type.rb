@@ -14,8 +14,8 @@ require 'date'
 
 module XeroRuby::PayrollAu
   class SuperFundType
-    REGULATED = "REGULATED".freeze
-    SMSF = "SMSF".freeze
+    REGULATED ||= "REGULATED".freeze
+    SMSF ||= "SMSF".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

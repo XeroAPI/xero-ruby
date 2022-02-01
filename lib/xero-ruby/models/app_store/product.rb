@@ -24,8 +24,8 @@ module XeroRuby::AppStore
     
     # The pricing model of the product: * FIXED: Customers are charged a fixed amount for each billing period * PER_SEAT: Customers are charged based on the number of units they purchase 
     attr_accessor :type
-    FIXED = "FIXED".freeze
-    PER_SEAT = "PER_SEAT".freeze
+    FIXED ||= "FIXED".freeze
+    PER_SEAT ||= "PER_SEAT".freeze
     
     # The unit of the per seat product. e.g. \"user\", \"organisation\", \"SMS\", etc
     attr_accessor :seat_unit

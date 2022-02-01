@@ -18,11 +18,11 @@ module XeroRuby::Accounting
   class Phone
 
     attr_accessor :phone_type
-    DEFAULT = "DEFAULT".freeze
-    DDI = "DDI".freeze
-    MOBILE = "MOBILE".freeze
-    FAX = "FAX".freeze
-    OFFICE = "OFFICE".freeze
+    DEFAULT ||= "DEFAULT".freeze
+    DDI ||= "DDI".freeze
+    MOBILE ||= "MOBILE".freeze
+    FAX ||= "FAX".freeze
+    OFFICE ||= "OFFICE".freeze
     
     # max length = 50
     attr_accessor :phone_number

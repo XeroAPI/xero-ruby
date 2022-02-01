@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **updated_date_utc** | **DateTime** | Last modified timestamp | [optional] 
 **current_record** | **Boolean** | Is the current record | [optional] 
 **allowance_type** | [**AllowanceType**](AllowanceType.md) |  | [optional] 
+**allowance_category** | [**AllowanceCategory**](AllowanceCategory.md) |  | [optional] 
 
 ## Code Sample
 
@@ -43,7 +44,8 @@ instance = XeroRuby::PayrollAu::EarningsRate.new(name: PTO,
                                  employment_termination_payment_type: null,
                                  updated_date_utc: /Date(1583967733054+0000)/,
                                  current_record: true,
-                                 allowance_type: null)
+                                 allowance_type: null,
+                                 allowance_category: null)
 ```
 
 

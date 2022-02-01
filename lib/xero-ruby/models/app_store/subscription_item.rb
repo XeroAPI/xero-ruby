@@ -31,9 +31,37 @@ module XeroRuby::AppStore
     # Date the subscription started, or will start. Note: this could be in the future for downgrades or reduced number of seats that haven't taken effect yet. 
     attr_accessor :start_date
     
+    # Status of the subscription item. Available statuses are ACTIVE, CANCELED, and PENDING_ACTIVATION. 
+    attr_accessor :status
+    ACTIVE ||= "ACTIVE".freeze
+    CANCELED ||= "CANCELED".freeze
+    PENDING_ACTIVATION ||= "PENDING_ACTIVATION".freeze
+    
     # If the subscription is a test subscription
     attr_accessor :test_mode
     
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -42,6 +70,7 @@ module XeroRuby::AppStore
         :'price' => :'price',
         :'product' => :'product',
         :'start_date' => :'startDate',
+        :'status' => :'status',
         :'test_mode' => :'testMode'
       }
     end
@@ -54,6 +83,7 @@ module XeroRuby::AppStore
         :'price' => :'Price',
         :'product' => :'Product',
         :'start_date' => :'DateTime',
+        :'status' => :'String',
         :'test_mode' => :'Boolean'
       }
     end
@@ -93,6 +123,10 @@ module XeroRuby::AppStore
         self.start_date = attributes[:'start_date']
       end
 
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
+      end
+
       if attributes.key?(:'test_mode')
         self.test_mode = attributes[:'test_mode']
       end
@@ -118,6 +152,10 @@ module XeroRuby::AppStore
         invalid_properties.push('invalid value for "start_date", start_date cannot be nil.')
       end
 
+      if @status.nil?
+        invalid_properties.push('invalid value for "status", status cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -128,7 +166,20 @@ module XeroRuby::AppStore
       return false if @price.nil?
       return false if @product.nil?
       return false if @start_date.nil?
+      return false if @status.nil?
+      status_validator = EnumAttributeValidator.new('String', ["ACTIVE", "CANCELED", "PENDING_ACTIVATION"])
+      return false unless status_validator.valid?(@status)
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] status Object to be assigned
+    def status=(status)
+      validator = EnumAttributeValidator.new('String', ["ACTIVE", "CANCELED", "PENDING_ACTIVATION"])
+      unless validator.valid?(status)
+        fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
+      end
+      @status = status
     end
 
     # Checks equality by comparing each attribute.
@@ -141,6 +192,7 @@ module XeroRuby::AppStore
           price == o.price &&
           product == o.product &&
           start_date == o.start_date &&
+          status == o.status &&
           test_mode == o.test_mode
     end
 
@@ -153,7 +205,7 @@ module XeroRuby::AppStore
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [end_date, id, price, product, start_date, test_mode].hash
+      [end_date, id, price, product, start_date, status, test_mode].hash
     end
 
     # Builds the object from hash

@@ -14,9 +14,9 @@ require 'date'
 
 module XeroRuby::PayrollAu
   class ResidencyStatus
-    AUSTRALIANRESIDENT = "AUSTRALIANRESIDENT".freeze
-    FOREIGNRESIDENT = "FOREIGNRESIDENT".freeze
-    WORKINGHOLIDAYMAKER = "WORKINGHOLIDAYMAKER".freeze
+    AUSTRALIANRESIDENT ||= "AUSTRALIANRESIDENT".freeze
+    FOREIGNRESIDENT ||= "FOREIGNRESIDENT".freeze
+    WORKINGHOLIDAYMAKER ||= "WORKINGHOLIDAYMAKER".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

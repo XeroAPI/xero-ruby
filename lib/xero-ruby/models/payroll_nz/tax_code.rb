@@ -14,25 +14,25 @@ require 'date'
 
 module XeroRuby::PayrollNz
   class TaxCode
-    ND = "ND".freeze
-    M = "M".freeze
-    ME = "ME".freeze
-    MSL = "MSL".freeze
-    MESL = "MESL".freeze
-    SB = "SB".freeze
-    S = "S".freeze
-    SH = "SH".freeze
-    ST = "ST".freeze
-    SBSL = "SBSL".freeze
-    SSL = "SSL".freeze
-    SHSL = "SHSL".freeze
-    STSL = "STSL".freeze
-    WT = "WT".freeze
-    CAE = "CAE".freeze
-    EDW = "EDW".freeze
-    NSW = "NSW".freeze
-    STC = "STC".freeze
-    STCSL = "STCSL".freeze
+    ND ||= "ND".freeze
+    M ||= "M".freeze
+    ME ||= "ME".freeze
+    MSL ||= "MSL".freeze
+    MESL ||= "MESL".freeze
+    SB ||= "SB".freeze
+    S ||= "S".freeze
+    SH ||= "SH".freeze
+    ST ||= "ST".freeze
+    SBSL ||= "SBSL".freeze
+    SSL ||= "SSL".freeze
+    SHSL ||= "SHSL".freeze
+    STSL ||= "STSL".freeze
+    WT ||= "WT".freeze
+    CAE ||= "CAE".freeze
+    EDW ||= "EDW".freeze
+    NSW ||= "NSW".freeze
+    STC ||= "STC".freeze
+    STCSL ||= "STCSL".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
