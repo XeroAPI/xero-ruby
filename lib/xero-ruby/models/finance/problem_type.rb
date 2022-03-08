@@ -15,10 +15,15 @@ require 'date'
 module XeroRuby::Finance
   class ProblemType
     NOT_SET ||= "NotSet".freeze
-    INVALID_REQUEST ||= "invalid-request".freeze
-    INVALID_APPLICATION ||= "invalid-application".freeze
-    SERVICE_UNAVAILABLE ||= "service-unavailable".freeze
+    BANK_ACCOUNT_NOT_FOUND ||= "bank-account-not-found".freeze
     INTERNAL_ERROR ||= "internal-error".freeze
+    INVALID_APPLICATION ||= "invalid-application".freeze
+    INVALID_REQUEST ||= "invalid-request".freeze
+    ORGANISATION_NOT_FOUND ||= "organisation-not-found".freeze
+    ORGANISATION_OFFLINE ||= "organisation-offline".freeze
+    REQUEST_TIMEOUT ||= "request-timeout".freeze
+    SERVICE_UNAVAILABLE ||= "service-unavailable".freeze
+    UNAUTHORIZED ||= "unauthorized".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

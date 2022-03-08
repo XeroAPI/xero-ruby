@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **updated_date_utc** | **DateTime** | UTC timestamp of last update to the employee | [optional] 
 **created_date_utc** | **DateTime** | UTC timestamp when the employee was created in Xero | [optional] 
 **national_insurance_number** | **String** | National insurance number of the employee | [optional] 
+**is_off_payroll_worker** | **Boolean** | Whether the employee is an off payroll worker | [optional] 
 
 ## Code Sample
 
@@ -39,7 +40,8 @@ instance = XeroRuby::PayrollUk::Employee.new(employee_id: d90457c4-f1be-4f2e-b4e
                                  payroll_calendar_id: null,
                                  updated_date_utc: null,
                                  created_date_utc: null,
-                                 national_insurance_number: AB123456C)
+                                 national_insurance_number: AB123456C,
+                                 is_off_payroll_worker: null)
 ```
 
 

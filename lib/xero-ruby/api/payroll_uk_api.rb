@@ -3594,7 +3594,7 @@ module XeroRuby
     # Retrieves employees
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter by first name and/or lastname
+    # @option opts [String] :filter Filter by first name, lastname, and/or whether they are an off-payroll worker
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
     # @return [Employees]
     def get_employees(xero_tenant_id, opts = {})
@@ -3605,7 +3605,7 @@ module XeroRuby
     # Retrieves employees
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter by first name and/or lastname
+    # @option opts [String] :filter Filter by first name, lastname, and/or whether they are an off-payroll worker
     # @option opts [Integer] :page Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
     # @return [Array<(Employees, Integer, Hash)>] Employees data, response status code and response headers
     def get_employees_with_http_info(xero_tenant_id, options = {})

@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_accounting_activity_lock_history**](FinanceApi.md#get_accounting_activity_lock_history) | **GET** /AccountingActivities/LockHistory | Get lock history
 [**get_accounting_activity_report_history**](FinanceApi.md#get_accounting_activity_report_history) | **GET** /AccountingActivities/ReportHistory | Get report history
 [**get_accounting_activity_user_activities**](FinanceApi.md#get_accounting_activity_user_activities) | **GET** /AccountingActivities/UserActivities | Get user activities
+[**get_bank_statement_accounting**](FinanceApi.md#get_bank_statement_accounting) | **GET** /BankStatementsPlus/statements | Get Bank Statement Accounting
 [**get_cash_validation**](FinanceApi.md#get_cash_validation) | **GET** /CashValidation | Get cash validation
 [**get_financial_statement_balance_sheet**](FinanceApi.md#get_financial_statement_balance_sheet) | **GET** /FinancialStatements/BalanceSheet | Get Balance Sheet report
 [**get_financial_statement_cashflow**](FinanceApi.md#get_financial_statement_cashflow) | **GET** /FinancialStatements/Cashflow | Get Cash flow report
@@ -286,6 +287,81 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**UserActivitiesResponse**](UserActivitiesResponse.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_bank_statement_accounting
+
+> BankStatementAccountingResponse get_bank_statement_accounting(xero_tenant_id, bank_account_id, from_date, to_date, opts)
+
+Get Bank Statement Accounting
+
+For lenders that prefer using bank statement data as the source of truth.  We provide a data point that will allow access to customer bank statements, plus for reconciled bank transactions the matching accounting, invoice and billing data as well.  As customers reconcile bank statements to invoices and bills, this transaction detail will provide valuable insight for lender's assessment measures. 
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# You need to namespace your api method call to one of the following api sets
+# [:accounting_api, :assets_api, :projects_api, :files_api, :payroll_au_api, :payroll_nz_api, :payroll_uk_api, :app_store_api]
+
+api_instance = xero_client.<api_set>
+
+
+
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_account_id = 'bank_account_id_example' # String | string, GUID    Bank account Id
+from_date = '2020-07-01' # String | date, yyyy-MM-dd     Specifies the start date of the query period.   The maximum range of the query period is 12 months. If the specified query period is more than 12 months the request will be rejected.
+to_date = '2021-06-30' # String | date, yyyy-MM-dd     Specifies the end date of the query period.   If the end date is a future date, the request will be rejected.
+opts = {
+  summary_only: true # Boolean | boolean, true/false    The default value is true if no parameter is provided.    In summary mode, the response will exclude the computation-heavy LineItems fields from bank transaction, invoice, credit note, prepayment and overpayment data, making the API calls quicker and more efficient.
+}
+
+begin
+  #Get Bank Statement Accounting
+  result = api_instance.get_bank_statement_accounting(xero_tenant_id, bank_account_id, from_date, to_date, opts)
+  p result
+rescue XeroRuby::Finance::ApiError => e
+  puts "Exception when calling FinanceApi->get_bank_statement_accounting: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **bank_account_id** | [**String**](.md)| string, GUID    Bank account Id | 
+ **from_date** | **String**| date, yyyy-MM-dd     Specifies the start date of the query period.   The maximum range of the query period is 12 months. If the specified query period is more than 12 months the request will be rejected. | 
+ **to_date** | **String**| date, yyyy-MM-dd     Specifies the end date of the query period.   If the end date is a future date, the request will be rejected. | 
+ **summary_only** | **Boolean**| boolean, true/false    The default value is true if no parameter is provided.    In summary mode, the response will exclude the computation-heavy LineItems fields from bank transaction, invoice, credit note, prepayment and overpayment data, making the API calls quicker and more efficient. | [optional] 
+
+### Return type
+
+[**BankStatementAccountingResponse**](BankStatementAccountingResponse.md)
 
 ### Authorization
 
