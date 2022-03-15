@@ -78,12 +78,12 @@ module XeroRuby::Finance
     def self.openapi_types
       {
         :'statement_line_id' => :'String',
-        :'posted_date' => :'DateTime',
+        :'posted_date' => :'Date',
         :'reference' => :'String',
         :'notes' => :'String',
         :'cheque_no' => :'String',
         :'amount' => :'BigDecimal',
-        :'transaction_date' => :'DateTime',
+        :'transaction_date' => :'Date',
         :'type' => :'String',
         :'is_reconciled' => :'Boolean',
         :'is_duplicate' => :'Boolean',

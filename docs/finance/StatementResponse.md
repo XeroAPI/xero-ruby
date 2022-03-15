@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **statement_id** | **String** | Xero Identifier of statement | [optional] 
-**start_date** | **DateTime** | Start date of statement | [optional] 
-**end_date** | **DateTime** | End date of statement | [optional] 
+**start_date** | **Date** | Start date of statement | [optional] 
+**end_date** | **Date** | End date of statement | [optional] 
 **imported_date_time_utc** | **DateTime** | Utc date time of when the statement was imported in Xero | [optional] 
 **import_source** | **String** | Import source of statement (STMTIMPORTSRC/MANUAL, STMTIMPORTSRC/CSV, STMTIMPORTSRC/QIF, STMTIMPORTSRC/OFX, XeroApi) | [optional] 
 **statement_lines** | [**Array&lt;StatementLineResponse&gt;**](StatementLineResponse.md) | List of statement lines | [optional] 
