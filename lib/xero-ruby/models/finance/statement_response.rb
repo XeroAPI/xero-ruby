@@ -50,8 +50,8 @@ module XeroRuby::Finance
     def self.openapi_types
       {
         :'statement_id' => :'String',
-        :'start_date' => :'DateTime',
-        :'end_date' => :'DateTime',
+        :'start_date' => :'Date',
+        :'end_date' => :'Date',
         :'imported_date_time_utc' => :'DateTime',
         :'import_source' => :'String',
         :'statement_lines' => :'Array<StatementLineResponse>'

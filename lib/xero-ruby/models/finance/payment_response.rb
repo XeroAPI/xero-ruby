@@ -67,7 +67,7 @@ module XeroRuby::Finance
       {
         :'payment_id' => :'String',
         :'batch_payment_id' => :'String',
-        :'date' => :'DateTime',
+        :'date' => :'Date',
         :'amount' => :'BigDecimal',
         :'bank_amount' => :'BigDecimal',
         :'currency_rate' => :'Float',

@@ -52,7 +52,7 @@ module XeroRuby::Finance
         :'bank_transaction_id' => :'String',
         :'batch_payment_id' => :'String',
         :'contact' => :'ContactResponse',
-        :'date' => :'DateTime',
+        :'date' => :'Date',
         :'amount' => :'BigDecimal',
         :'line_items' => :'Array<LineItemResponse>'
       }
