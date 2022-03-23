@@ -24,8 +24,8 @@ module XeroRuby::PayrollUk
     
     # Category type of the employer pension
     attr_accessor :category
-    STAKEHOLDER_PENSION = "StakeholderPension".freeze
-    OTHER = "Other".freeze
+    STAKEHOLDER_PENSION ||= "StakeholderPension".freeze
+    OTHER ||= "Other".freeze
     
     # Xero identifier for Liability Account
     attr_accessor :liability_account_id
@@ -41,8 +41,8 @@ module XeroRuby::PayrollUk
     
     # Calculation Type of the employer pension (FixedAmount or PercentageOfGross).
     attr_accessor :calculation_type
-    FIXED_AMOUNT = "FixedAmount".freeze
-    PERCENTAGE_OF_GROSS = "PercentageOfGross".freeze
+    FIXED_AMOUNT ||= "FixedAmount".freeze
+    PERCENTAGE_OF_GROSS ||= "PercentageOfGross".freeze
     
     # Identifier of a record is active or not.
     attr_accessor :current_record

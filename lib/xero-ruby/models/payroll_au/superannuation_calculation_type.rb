@@ -14,9 +14,9 @@ require 'date'
 
 module XeroRuby::PayrollAu
   class SuperannuationCalculationType
-    FIXEDAMOUNT = "FIXEDAMOUNT".freeze
-    PERCENTAGEOFEARNINGS = "PERCENTAGEOFEARNINGS".freeze
-    STATUTORY = "STATUTORY".freeze
+    FIXEDAMOUNT ||= "FIXEDAMOUNT".freeze
+    PERCENTAGEOFEARNINGS ||= "PERCENTAGEOFEARNINGS".freeze
+    STATUTORY ||= "STATUTORY".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

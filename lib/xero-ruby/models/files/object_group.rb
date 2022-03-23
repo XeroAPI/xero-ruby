@@ -14,17 +14,18 @@ require 'date'
 
 module XeroRuby::Files
   class ObjectGroup
-    ACCOUNT = "Account".freeze
-    BANK_TRANSACTION = "BankTransaction".freeze
-    CONTACT = "Contact".freeze
-    CREDIT_NOTE = "CreditNote".freeze
-    INVOICE = "Invoice".freeze
-    ITEM = "Item".freeze
-    MANUAL_JOURNAL = "ManualJournal".freeze
-    OVERPAYMENT = "Overpayment".freeze
-    PAYMENT = "Payment".freeze
-    PREPAYMENT = "Prepayment".freeze
-    RECEIPT = "Receipt".freeze
+    ACCOUNT ||= "Account".freeze
+    BANK_TRANSACTION ||= "BankTransaction".freeze
+    CONTACT ||= "Contact".freeze
+    CREDIT_NOTE ||= "CreditNote".freeze
+    INVOICE ||= "Invoice".freeze
+    ITEM ||= "Item".freeze
+    MANUAL_JOURNAL ||= "ManualJournal".freeze
+    OVERPAYMENT ||= "Overpayment".freeze
+    PAYMENT ||= "Payment".freeze
+    PREPAYMENT ||= "Prepayment".freeze
+    QUOTE ||= "Quote".freeze
+    RECEIPT ||= "Receipt".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

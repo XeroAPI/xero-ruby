@@ -42,10 +42,10 @@ module XeroRuby::PayrollAu
     
     # The employee’s gender. See Employee Gender
     attr_accessor :gender
-    N = "N".freeze
-    M = "M".freeze
-    F = "F".freeze
-    I = "I".freeze
+    N ||= "N".freeze
+    M ||= "M".freeze
+    F ||= "F".freeze
+    I ||= "I".freeze
     
     # Employee phone number
     attr_accessor :phone
@@ -85,13 +85,13 @@ module XeroRuby::PayrollAu
     
     # * `V` Voluntary cessation - An employee resignation, retirement, domestic or pressing necessity or abandonment of employment * `I` Ill health - An employee resignation due to medical condition that prevents the continuation of employment, such as for illness, ill-health, medical unfitness or total permanent disability * `D` Deceased - The death of an employee * `R` Redundancy - An employer-initiated termination of employment due to a genuine redundancy or approved early retirement scheme * `F` Dismissal - An employer-initiated termination of employment due to dismissal, inability to perform the required work, misconduct or inefficiency * `C` Contract cessation - The natural conclusion of a limited employment relationship due to contract/engagement duration or task completion, seasonal work completion, or to cease casuals that are no longer required * `T` Transfer - The administrative arrangements performed to transfer employees across payroll systems, move them temporarily to another employer (machinery of government for public servants), transfer of business, move them to outsourcing arrangements or other such technical activities. 
     attr_accessor :termination_reason
-    V = "V".freeze
-    # I = "I".freeze
-    D = "D".freeze
-    R = "R".freeze
-    # F = "F".freeze
-    C = "C".freeze
-    T = "T".freeze
+    V ||= "V".freeze
+    I ||= "I".freeze
+    D ||= "D".freeze
+    R ||= "R".freeze
+    F ||= "F".freeze
+    C ||= "C".freeze
+    T ||= "T".freeze
     
 
     attr_accessor :bank_accounts

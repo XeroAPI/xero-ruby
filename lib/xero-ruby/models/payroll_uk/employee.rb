@@ -39,8 +39,8 @@ module XeroRuby::PayrollUk
     
     # The employee’s gender
     attr_accessor :gender
-    M = "M".freeze
-    F = "F".freeze
+    M ||= "M".freeze
+    F ||= "F".freeze
     
     # Employee phone number
     attr_accessor :phone_number
@@ -62,6 +62,9 @@ module XeroRuby::PayrollUk
     
     # National insurance number of the employee
     attr_accessor :national_insurance_number
+    
+    # Whether the employee is an off payroll worker
+    attr_accessor :is_off_payroll_worker
     
     class EnumAttributeValidator
       attr_reader :datatype
@@ -102,7 +105,8 @@ module XeroRuby::PayrollUk
         :'payroll_calendar_id' => :'payrollCalendarID',
         :'updated_date_utc' => :'updatedDateUTC',
         :'created_date_utc' => :'createdDateUTC',
-        :'national_insurance_number' => :'nationalInsuranceNumber'
+        :'national_insurance_number' => :'nationalInsuranceNumber',
+        :'is_off_payroll_worker' => :'isOffPayrollWorker'
       }
     end
 
@@ -123,7 +127,8 @@ module XeroRuby::PayrollUk
         :'payroll_calendar_id' => :'String',
         :'updated_date_utc' => :'DateTime',
         :'created_date_utc' => :'DateTime',
-        :'national_insurance_number' => :'String'
+        :'national_insurance_number' => :'String',
+        :'is_off_payroll_worker' => :'Boolean'
       }
     end
 
@@ -201,6 +206,10 @@ module XeroRuby::PayrollUk
       if attributes.key?(:'national_insurance_number')
         self.national_insurance_number = attributes[:'national_insurance_number']
       end
+
+      if attributes.key?(:'is_off_payroll_worker')
+        self.is_off_payroll_worker = attributes[:'is_off_payroll_worker']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -247,7 +256,8 @@ module XeroRuby::PayrollUk
           payroll_calendar_id == o.payroll_calendar_id &&
           updated_date_utc == o.updated_date_utc &&
           created_date_utc == o.created_date_utc &&
-          national_insurance_number == o.national_insurance_number
+          national_insurance_number == o.national_insurance_number &&
+          is_off_payroll_worker == o.is_off_payroll_worker
     end
 
     # @see the `==` method
@@ -259,7 +269,7 @@ module XeroRuby::PayrollUk
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [employee_id, title, first_name, last_name, date_of_birth, address, email, gender, phone_number, start_date, end_date, payroll_calendar_id, updated_date_utc, created_date_utc, national_insurance_number].hash
+      [employee_id, title, first_name, last_name, date_of_birth, address, email, gender, phone_number, start_date, end_date, payroll_calendar_id, updated_date_utc, created_date_utc, national_insurance_number, is_off_payroll_worker].hash
     end
 
     # Builds the object from hash

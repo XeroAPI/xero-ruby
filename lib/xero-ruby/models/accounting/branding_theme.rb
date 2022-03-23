@@ -27,7 +27,7 @@ module XeroRuby::Accounting
     
     # Always INVOICE
     attr_accessor :type
-    INVOICE = "INVOICE".freeze
+    INVOICE ||= "INVOICE".freeze
     
     # Integer – ranked order of branding theme. The default branding theme has a value of 0
     attr_accessor :sort_order

@@ -315,6 +315,101 @@ module XeroRuby
       return data, status_code, headers
     end
 
+    # Get Bank Statement Accounting
+    # For lenders that prefer using bank statement data as the source of truth.  We provide a data point that will allow access to customer bank statements, plus for reconciled bank transactions the matching accounting, invoice and billing data as well.  As customers reconcile bank statements to invoices and bills, this transaction detail will provide valuable insight for lender's assessment measures. 
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param bank_account_id [String] string, GUID    Bank account Id
+    # @param from_date [String] date, yyyy-MM-dd     Specifies the start date of the query period.   The maximum range of the query period is 12 months. If the specified query period is more than 12 months the request will be rejected.
+    # @param to_date [String] date, yyyy-MM-dd     Specifies the end date of the query period.   If the end date is a future date, the request will be rejected.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summary_only boolean, true/false    The default value is true if no parameter is provided.    In summary mode, the response will exclude the computation-heavy LineItems fields from bank transaction, invoice, credit note, prepayment and overpayment data, making the API calls quicker and more efficient.
+    # @return [BankStatementAccountingResponse]
+    def get_bank_statement_accounting(xero_tenant_id, bank_account_id, from_date, to_date, opts = {})
+      data, _status_code, _headers = get_bank_statement_accounting_with_http_info(xero_tenant_id, bank_account_id, from_date, to_date, opts)
+      data
+    end
+
+    # Get Bank Statement Accounting
+    # For lenders that prefer using bank statement data as the source of truth.  We provide a data point that will allow access to customer bank statements, plus for reconciled bank transactions the matching accounting, invoice and billing data as well.  As customers reconcile bank statements to invoices and bills, this transaction detail will provide valuable insight for lender&#39;s assessment measures. 
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param bank_account_id [String] string, GUID    Bank account Id
+    # @param from_date [String] date, yyyy-MM-dd     Specifies the start date of the query period.   The maximum range of the query period is 12 months. If the specified query period is more than 12 months the request will be rejected.
+    # @param to_date [String] date, yyyy-MM-dd     Specifies the end date of the query period.   If the end date is a future date, the request will be rejected.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summary_only boolean, true/false    The default value is true if no parameter is provided.    In summary mode, the response will exclude the computation-heavy LineItems fields from bank transaction, invoice, credit note, prepayment and overpayment data, making the API calls quicker and more efficient.
+    # @return [Array<(BankStatementAccountingResponse, Integer, Hash)>] BankStatementAccountingResponse data, response status code and response headers
+    def get_bank_statement_accounting_with_http_info(xero_tenant_id, bank_account_id, from_date, to_date, options = {})
+      opts = options.dup
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FinanceApi.get_bank_statement_accounting ...'
+      end
+      # verify the required parameter 'xero_tenant_id' is set
+      if @api_client.config.client_side_validation && xero_tenant_id.nil?
+        fail ArgumentError, "Missing the required parameter 'xero_tenant_id' when calling FinanceApi.get_bank_statement_accounting"
+      end
+      # verify the required parameter 'bank_account_id' is set
+      if @api_client.config.client_side_validation && bank_account_id.nil?
+        fail ArgumentError, "Missing the required parameter 'bank_account_id' when calling FinanceApi.get_bank_statement_accounting"
+      end
+      # verify the required parameter 'from_date' is set
+      if @api_client.config.client_side_validation && from_date.nil?
+        fail ArgumentError, "Missing the required parameter 'from_date' when calling FinanceApi.get_bank_statement_accounting"
+      end
+      # verify the required parameter 'to_date' is set
+      if @api_client.config.client_side_validation && to_date.nil?
+        fail ArgumentError, "Missing the required parameter 'to_date' when calling FinanceApi.get_bank_statement_accounting"
+      end
+      # resource path
+      local_var_path = '/BankStatementsPlus/statements'
+
+      # camelize keys of incoming `where` opts
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'BankAccountID'] = bank_account_id
+      query_params[:'FromDate'] = from_date
+      query_params[:'ToDate'] = to_date
+      query_params[:'SummaryOnly'] = opts[:'summary_only'] if !opts[:'summary_only'].nil?
+      
+      # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
+      query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+      query_params[:'ContactIDs'] = @api_client.build_collection_param(opts[:'contact_ids'], :csv) if !opts[:'contact_ids'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'xero-tenant-id'] = xero_tenant_id
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'BankStatementAccountingResponse' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['OAuth2']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "FinanceApi", new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FinanceApi#get_bank_statement_accounting\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get cash validation
     # Summarizes the total cash position for each account for an org
     # @param xero_tenant_id [String] Xero identifier for Tenant

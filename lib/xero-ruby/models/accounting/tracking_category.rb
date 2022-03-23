@@ -30,9 +30,9 @@ module XeroRuby::Accounting
     
     # The status of a tracking category
     attr_accessor :status
-    ACTIVE = "ACTIVE".freeze
-    ARCHIVED = "ARCHIVED".freeze
-    DELETED = "DELETED".freeze
+    ACTIVE ||= "ACTIVE".freeze
+    ARCHIVED ||= "ARCHIVED".freeze
+    DELETED ||= "DELETED".freeze
     
     # See Tracking Options
     attr_accessor :options

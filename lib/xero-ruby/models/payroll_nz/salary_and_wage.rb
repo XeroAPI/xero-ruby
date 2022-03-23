@@ -42,14 +42,14 @@ module XeroRuby::PayrollNz
     
     # The current status of the corresponding salary and wages
     attr_accessor :status
-    ACTIVE = "Active".freeze
-    PENDING = "Pending".freeze
-    HISTORY = "History".freeze
+    ACTIVE ||= "Active".freeze
+    PENDING ||= "Pending".freeze
+    HISTORY ||= "History".freeze
     
     # The type of the payment of the corresponding salary and wages
     attr_accessor :payment_type
-    SALARY = "Salary".freeze
-    HOURLY = "Hourly".freeze
+    SALARY ||= "Salary".freeze
+    HOURLY ||= "Hourly".freeze
     
     class EnumAttributeValidator
       attr_reader :datatype

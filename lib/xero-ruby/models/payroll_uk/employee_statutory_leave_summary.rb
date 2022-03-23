@@ -24,11 +24,11 @@ module XeroRuby::PayrollUk
     
     # The category of statutory leave
     attr_accessor :type
-    SICK = "Sick".freeze
-    ADOPTION = "Adoption".freeze
-    MATERNITY = "Maternity".freeze
-    PATERNITY = "Paternity".freeze
-    SHAREDPARENTAL = "Sharedparental".freeze
+    SICK ||= "Sick".freeze
+    ADOPTION ||= "Adoption".freeze
+    MATERNITY ||= "Maternity".freeze
+    PATERNITY ||= "Paternity".freeze
+    SHAREDPARENTAL ||= "Sharedparental".freeze
     
     # The date when the leave starts
     attr_accessor :start_date
@@ -41,9 +41,9 @@ module XeroRuby::PayrollUk
     
     # The status of the leave
     attr_accessor :status
-    PENDING = "Pending".freeze
-    IN_PROGRESS = "In-Progress".freeze
-    COMPLETED = "Completed".freeze
+    PENDING ||= "Pending".freeze
+    IN_PROGRESS ||= "In-Progress".freeze
+    COMPLETED ||= "Completed".freeze
     
     class EnumAttributeValidator
       attr_reader :datatype

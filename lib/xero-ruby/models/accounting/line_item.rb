@@ -43,6 +43,9 @@ module XeroRuby::Accounting
     # The tax amount is auto calculated as a percentage of the line amount (see below) based on the tax rate. This value can be overriden if the calculated <TaxAmount> is not correct.
     attr_accessor :tax_amount
     
+
+    attr_accessor :item
+    
     # If you wish to omit either of the <Quantity> or <UnitAmount> you can provide a LineAmount and Xero will calculate the missing amount for you. The line amount reflects the discounted price if a DiscountRate has been used . i.e LineAmount = Quantity * Unit Amount * ((100 – DiscountRate)/100)
     attr_accessor :line_amount
     
@@ -70,6 +73,7 @@ module XeroRuby::Accounting
         :'account_id' => :'AccountID',
         :'tax_type' => :'TaxType',
         :'tax_amount' => :'TaxAmount',
+        :'item' => :'Item',
         :'line_amount' => :'LineAmount',
         :'tracking' => :'Tracking',
         :'discount_rate' => :'DiscountRate',
@@ -90,6 +94,7 @@ module XeroRuby::Accounting
         :'account_id' => :'String',
         :'tax_type' => :'String',
         :'tax_amount' => :'BigDecimal',
+        :'item' => :'LineItemItem',
         :'line_amount' => :'BigDecimal',
         :'tracking' => :'Array<LineItemTracking>',
         :'discount_rate' => :'BigDecimal',
@@ -149,6 +154,10 @@ module XeroRuby::Accounting
         self.tax_amount = attributes[:'tax_amount']
       end
 
+      if attributes.key?(:'item')
+        self.item = attributes[:'item']
+      end
+
       if attributes.key?(:'line_amount')
         self.line_amount = attributes[:'line_amount']
       end
@@ -199,6 +208,7 @@ module XeroRuby::Accounting
           account_id == o.account_id &&
           tax_type == o.tax_type &&
           tax_amount == o.tax_amount &&
+          item == o.item &&
           line_amount == o.line_amount &&
           tracking == o.tracking &&
           discount_rate == o.discount_rate &&
@@ -215,7 +225,7 @@ module XeroRuby::Accounting
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [line_item_id, description, quantity, unit_amount, item_code, account_code, account_id, tax_type, tax_amount, line_amount, tracking, discount_rate, discount_amount, repeating_invoice_id].hash
+      [line_item_id, description, quantity, unit_amount, item_code, account_code, account_id, tax_type, tax_amount, item, line_amount, tracking, discount_rate, discount_amount, repeating_invoice_id].hash
     end
 
     # Builds the object from hash

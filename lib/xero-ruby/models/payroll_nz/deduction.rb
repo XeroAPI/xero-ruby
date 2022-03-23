@@ -24,10 +24,10 @@ module XeroRuby::PayrollNz
     
     # Deduction Category type
     attr_accessor :deduction_category
-    PAYROLL_GIVING = "PayrollGiving".freeze
-    KIWI_SAVER_VOLUNTARY_CONTRIBUTIONS = "KiwiSaverVoluntaryContributions".freeze
-    SUPERANNUATION = "Superannuation".freeze
-    NZ_OTHER = "NzOther".freeze
+    PAYROLL_GIVING ||= "PayrollGiving".freeze
+    KIWI_SAVER_VOLUNTARY_CONTRIBUTIONS ||= "KiwiSaverVoluntaryContributions".freeze
+    SUPERANNUATION ||= "Superannuation".freeze
+    NZ_OTHER ||= "NzOther".freeze
     
     # Xero identifier for Liability Account
     attr_accessor :liability_account_id

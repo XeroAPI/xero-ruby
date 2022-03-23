@@ -14,13 +14,13 @@ require 'date'
 
 module XeroRuby::PayrollNz
   class CalendarType
-    WEEKLY = "Weekly".freeze
-    FORTNIGHTLY = "Fortnightly".freeze
-    FOUR_WEEKLY = "FourWeekly".freeze
-    MONTHLY = "Monthly".freeze
-    ANNUAL = "Annual".freeze
-    QUARTERLY = "Quarterly".freeze
-    TWICE_MONTHLY = "TwiceMonthly".freeze
+    WEEKLY ||= "Weekly".freeze
+    FORTNIGHTLY ||= "Fortnightly".freeze
+    FOUR_WEEKLY ||= "FourWeekly".freeze
+    MONTHLY ||= "Monthly".freeze
+    ANNUAL ||= "Annual".freeze
+    QUARTERLY ||= "Quarterly".freeze
+    TWICE_MONTHLY ||= "TwiceMonthly".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

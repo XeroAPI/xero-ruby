@@ -14,8 +14,8 @@ require 'date'
 
 module XeroRuby::PayrollAu
   class PayRunStatus
-    DRAFT = "DRAFT".freeze
-    POSTED = "POSTED".freeze
+    DRAFT ||= "DRAFT".freeze
+    POSTED ||= "POSTED".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

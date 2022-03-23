@@ -14,8 +14,8 @@ require 'date'
 
 module XeroRuby::PayrollAu
   class EmploymentTerminationPaymentType
-    O = "O".freeze
-    R = "R".freeze
+    O ||= "O".freeze
+    R ||= "R".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

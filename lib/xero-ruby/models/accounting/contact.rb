@@ -30,9 +30,9 @@ module XeroRuby::Accounting
     
     # Current status of a contact – see contact status types
     attr_accessor :contact_status
-    ACTIVE = "ACTIVE".freeze
-    ARCHIVED = "ARCHIVED".freeze
-    GDPRREQUEST = "GDPRREQUEST".freeze
+    ACTIVE ||= "ACTIVE".freeze
+    ARCHIVED ||= "ARCHIVED".freeze
+    GDPRREQUEST ||= "GDPRREQUEST".freeze
     
     # Full name of contact/organisation (max length = 255)
     attr_accessor :name
@@ -81,15 +81,15 @@ module XeroRuby::Accounting
     
     # The default sales line amount type for a contact. Only available when summaryOnly parameter or paging is used, or when fetch by ContactId or ContactNumber.
     attr_accessor :sales_default_line_amount_type
-    INCLUSIVE = "INCLUSIVE".freeze
-    EXCLUSIVE = "EXCLUSIVE".freeze
-    # NONE = "NONE".freeze
+    INCLUSIVE ||= "INCLUSIVE".freeze
+    EXCLUSIVE ||= "EXCLUSIVE".freeze
+    NONE ||= "NONE".freeze
     
     # The default purchases line amount type for a contact Only available when summaryOnly parameter or paging is used, or when fetch by ContactId or ContactNumber.
     attr_accessor :purchases_default_line_amount_type
-    # INCLUSIVE = "INCLUSIVE".freeze
-    # EXCLUSIVE = "EXCLUSIVE".freeze
-    # NONE = "NONE".freeze
+    INCLUSIVE ||= "INCLUSIVE".freeze
+    EXCLUSIVE ||= "EXCLUSIVE".freeze
+    NONE ||= "NONE".freeze
     
 
     attr_accessor :default_currency

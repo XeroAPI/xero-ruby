@@ -14,9 +14,9 @@ require 'date'
 
 module XeroRuby::Projects
   class ChargeType
-    TIME = "TIME".freeze
-    FIXED = "FIXED".freeze
-    NON_CHARGEABLE = "NON_CHARGEABLE".freeze
+    TIME ||= "TIME".freeze
+    FIXED ||= "FIXED".freeze
+    NON_CHARGEABLE ||= "NON_CHARGEABLE".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
