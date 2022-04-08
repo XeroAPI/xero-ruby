@@ -1155,7 +1155,7 @@ ul.nav-tabs {
           <nav id="scrollingNav">
             <ul class="sidenav nav nav-list">
               <li class="nav-header" data-group="Files"><strong>SDK: </strong><span id='sdk-name'></span></li>
-              <li class="nav-header" data-group="Files"><strong>VSN: </strong>3.7.1</li>
+              <li class="nav-header" data-group="Files"><strong>VSN: </strong>3.8.0</li>
               <li class="nav-header" data-group="Files"><a href="#api-Files">Methods</a></li>
               <li data-group="Files" data-name="createFileAssociation" class="">
                 <a href="#api-Files-createFileAssociation">createFileAssociation</a>
@@ -1251,11 +1251,11 @@ ul.nav-tabs {
                     <div class="tab-pane" id="examples-Files-createFileAssociation-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'YOUR_XERO_TENANT_ID'
-fileId = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'YOUR_XERO_TENANT_ID'
+file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.create_file_association(xeroTenantId, fileId, association)
+  response = xero_client.accounting_api.create_file_association(xero_tenant_id, file_id, association)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_file_association: #{e}"
@@ -1396,10 +1396,10 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-Files-createFolder-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'YOUR_XERO_TENANT_ID'
+xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 
 begin
-  response = xero_client.accounting_api.create_folder(xeroTenantId, folder)
+  response = xero_client.accounting_api.create_folder(xero_tenant_id, folder)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_folder: #{e}"
@@ -1507,11 +1507,11 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-Files-deleteFile-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'YOUR_XERO_TENANT_ID'
-fileId = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'YOUR_XERO_TENANT_ID'
+file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.delete_file(xeroTenantId, fileId)
+  response = xero_client.accounting_api.delete_file(xero_tenant_id, file_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling delete_file: #{e}"
@@ -1620,12 +1620,12 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-Files-deleteFileAssociation-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'YOUR_XERO_TENANT_ID'
-fileId = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
-objectId = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'YOUR_XERO_TENANT_ID'
+file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+object_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.delete_file_association(xeroTenantId, fileId, objectId)
+  response = xero_client.accounting_api.delete_file_association(xero_tenant_id, file_id, object_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling delete_file_association: #{e}"
@@ -1760,11 +1760,11 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-Files-deleteFolder-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'YOUR_XERO_TENANT_ID'
-folderId = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'YOUR_XERO_TENANT_ID'
+folder_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.delete_folder(xeroTenantId, folderId)
+  response = xero_client.accounting_api.delete_folder(xero_tenant_id, folder_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling delete_folder: #{e}"
@@ -1873,11 +1873,11 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-Files-getAssociationsByObject-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'YOUR_XERO_TENANT_ID'
-objectId = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'YOUR_XERO_TENANT_ID'
+object_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.get_associations_by_object(xeroTenantId, objectId)
+  response = xero_client.accounting_api.get_associations_by_object(xero_tenant_id, object_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_associations_by_object: #{e}"
@@ -1991,11 +1991,11 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-Files-getFile-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'YOUR_XERO_TENANT_ID'
-fileId = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'YOUR_XERO_TENANT_ID'
+file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.get_file(xeroTenantId, fileId)
+  response = xero_client.accounting_api.get_file(xero_tenant_id, file_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_file: #{e}"
@@ -2109,11 +2109,11 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-Files-getFileAssociations-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'YOUR_XERO_TENANT_ID'
-fileId = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'YOUR_XERO_TENANT_ID'
+file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.get_file_associations(xeroTenantId, fileId)
+  response = xero_client.accounting_api.get_file_associations(xero_tenant_id, file_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_file_associations: #{e}"
@@ -2227,11 +2227,11 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-Files-getFileContent-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'YOUR_XERO_TENANT_ID'
-fileId = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'YOUR_XERO_TENANT_ID'
+file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.get_file_content(xeroTenantId, fileId)
+  response = xero_client.accounting_api.get_file_content(xero_tenant_id, file_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_file_content: #{e}"
@@ -2345,13 +2345,13 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-Files-getFiles-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'YOUR_XERO_TENANT_ID'
+xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 pagesize = 50
 page = 2
 sort = 'CreatedDateUTC DESC'
 
 begin
-  response = xero_client.accounting_api.get_files(xeroTenantId, pagesize, page, sort)
+  response = xero_client.accounting_api.get_files(xero_tenant_id, pagesize, page, sort)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_files: #{e}"
@@ -2499,11 +2499,11 @@ values to sort by
                     <div class="tab-pane" id="examples-Files-getFolder-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'YOUR_XERO_TENANT_ID'
-folderId = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'YOUR_XERO_TENANT_ID'
+folder_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.get_folder(xeroTenantId, folderId)
+  response = xero_client.accounting_api.get_folder(xero_tenant_id, folder_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_folder: #{e}"
@@ -2617,11 +2617,11 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-Files-getFolders-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'YOUR_XERO_TENANT_ID'
+xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 sort = 'CreatedDateUTC DESC'
 
 begin
-  response = xero_client.accounting_api.get_folders(xeroTenantId, sort)
+  response = xero_client.accounting_api.get_folders(xero_tenant_id, sort)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_folders: #{e}"
@@ -2729,10 +2729,10 @@ values to sort by
                     <div class="tab-pane" id="examples-Files-getInbox-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'YOUR_XERO_TENANT_ID'
+xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 
 begin
-  response = xero_client.accounting_api.get_inbox(xeroTenantId)
+  response = xero_client.accounting_api.get_inbox(xero_tenant_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_inbox: #{e}"
@@ -2813,11 +2813,11 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-Files-updateFile-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'YOUR_XERO_TENANT_ID'
-fileId = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'YOUR_XERO_TENANT_ID'
+file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.update_file(xeroTenantId, fileId, fileObject)
+  response = xero_client.accounting_api.update_file(xero_tenant_id, file_id, fileObject)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_file: #{e}"
@@ -2958,11 +2958,11 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-Files-updateFolder-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'YOUR_XERO_TENANT_ID'
-folderId = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'YOUR_XERO_TENANT_ID'
+folder_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.update_folder(xeroTenantId, folderId, folder)
+  response = xero_client.accounting_api.update_folder(xero_tenant_id, folder_id, folder)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_folder: #{e}"
@@ -3107,14 +3107,14 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-Files-uploadFile-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'YOUR_XERO_TENANT_ID'
+xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 body = BYTE_ARRAY_DATA_HERE
 name = 'name_example'
 filename = 'filename_example'
 mimeType = 'mimeType_example'
 
 begin
-  response = xero_client.accounting_api.upload_file(xeroTenantId, body, name, filename, mimeType)
+  response = xero_client.accounting_api.upload_file(xero_tenant_id, body, name, filename, mimeType)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling upload_file: #{e}"
@@ -3289,15 +3289,15 @@ exact name of the file you are uploading
                     <div class="tab-pane" id="examples-Files-uploadFileToFolder-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'YOUR_XERO_TENANT_ID'
-folderId = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'YOUR_XERO_TENANT_ID'
+folder_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 body = BYTE_ARRAY_DATA_HERE
 name = 'name_example'
 filename = 'filename_example'
 mimeType = 'mimeType_example'
 
 begin
-  response = xero_client.accounting_api.upload_file_to_folder(xeroTenantId, folderId, body, name, filename, mimeType)
+  response = xero_client.accounting_api.upload_file_to_folder(xero_tenant_id, folder_id, body, name, filename, mimeType)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling upload_file_to_folder: #{e}"

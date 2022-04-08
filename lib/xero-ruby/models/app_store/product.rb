@@ -22,13 +22,17 @@ module XeroRuby::AppStore
     # The name of the product
     attr_accessor :name
     
-    # The pricing model of the product: * FIXED: Customers are charged a fixed amount for each billing period * PER_SEAT: Customers are charged based on the number of units they purchase 
+    # The unit of the per seat product. e.g. \"user\", \"organisation\", \"SMS\", etc
+    attr_accessor :seat_unit
+    
+    # The pricing model of the product: * FIXED: Customers are charged a fixed amount for each billing period * PER_SEAT: Customers are charged based on the number of units they purchase * METERED: Customers are charged per use of this product 
     attr_accessor :type
     FIXED ||= "FIXED".freeze
     PER_SEAT ||= "PER_SEAT".freeze
+    METERED ||= "METERED".freeze
     
-    # The unit of the per seat product. e.g. \"user\", \"organisation\", \"SMS\", etc
-    attr_accessor :seat_unit
+    # The unit of the usage product. e.g. \"user\", \"minutes\", \"SMS\", etc
+    attr_accessor :usage_unit
     
     class EnumAttributeValidator
       attr_reader :datatype
@@ -57,8 +61,9 @@ module XeroRuby::AppStore
       {
         :'id' => :'id',
         :'name' => :'name',
+        :'seat_unit' => :'seatUnit',
         :'type' => :'type',
-        :'seat_unit' => :'seatUnit'
+        :'usage_unit' => :'usageUnit'
       }
     end
 
@@ -67,8 +72,9 @@ module XeroRuby::AppStore
       {
         :'id' => :'String',
         :'name' => :'String',
+        :'seat_unit' => :'String',
         :'type' => :'String',
-        :'seat_unit' => :'String'
+        :'usage_unit' => :'String'
       }
     end
 
@@ -95,12 +101,16 @@ module XeroRuby::AppStore
         self.name = attributes[:'name']
       end
 
+      if attributes.key?(:'seat_unit')
+        self.seat_unit = attributes[:'seat_unit']
+      end
+
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
 
-      if attributes.key?(:'seat_unit')
-        self.seat_unit = attributes[:'seat_unit']
+      if attributes.key?(:'usage_unit')
+        self.usage_unit = attributes[:'usage_unit']
       end
     end
 
@@ -114,7 +124,7 @@ module XeroRuby::AppStore
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      type_validator = EnumAttributeValidator.new('String', ["FIXED", "PER_SEAT"])
+      type_validator = EnumAttributeValidator.new('String', ["FIXED", "PER_SEAT", "METERED"])
       return false unless type_validator.valid?(@type)
       true
     end
@@ -122,7 +132,7 @@ module XeroRuby::AppStore
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] type Object to be assigned
     def type=(type)
-      validator = EnumAttributeValidator.new('String', ["FIXED", "PER_SEAT"])
+      validator = EnumAttributeValidator.new('String', ["FIXED", "PER_SEAT", "METERED"])
       unless validator.valid?(type)
         fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
       end
@@ -136,8 +146,9 @@ module XeroRuby::AppStore
       self.class == o.class &&
           id == o.id &&
           name == o.name &&
+          seat_unit == o.seat_unit &&
           type == o.type &&
-          seat_unit == o.seat_unit
+          usage_unit == o.usage_unit
     end
 
     # @see the `==` method
@@ -149,7 +160,7 @@ module XeroRuby::AppStore
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, type, seat_unit].hash
+      [id, name, seat_unit, type, usage_unit].hash
     end
 
     # Builds the object from hash

@@ -1468,7 +1468,7 @@ ul.nav-tabs {
           <nav id="scrollingNav">
             <ul class="sidenav nav nav-list">
               <li class="nav-header" data-group="Project"><strong>SDK: </strong><span id='sdk-name'></span></li>
-              <li class="nav-header" data-group="Project"><strong>VSN: </strong>3.7.1</li>
+              <li class="nav-header" data-group="Project"><strong>VSN: </strong>3.8.0</li>
               <li class="nav-header" data-group="Project"><a href="#api-Project">Methods</a></li>
               <li data-group="Project" data-name="createProject" class="">
                 <a href="#api-Project-createProject">createProject</a>
@@ -1552,10 +1552,10 @@ ul.nav-tabs {
                     <div class="tab-pane" id="examples-Project-createProject-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
+xero_tenant_id = 'xeroTenantId_example'
 
 begin
-  response = xero_client.accounting_api.create_project(xeroTenantId, projectCreateOrUpdate)
+  response = xero_client.accounting_api.create_project(xero_tenant_id, projectCreateOrUpdate)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_project: #{e}"
@@ -1668,11 +1668,11 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-Project-createTimeEntry-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-projectId = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+xero_tenant_id = 'xeroTenantId_example'
+project_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
 
 begin
-  response = xero_client.accounting_api.create_time_entry(xeroTenantId, projectId, timeEntryCreateOrUpdate)
+  response = xero_client.accounting_api.create_time_entry(xero_tenant_id, project_id, timeEntryCreateOrUpdate)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_time_entry: #{e}"
@@ -1818,12 +1818,12 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-Project-deleteTimeEntry-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-projectId = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
-timeEntryId = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+xero_tenant_id = 'xeroTenantId_example'
+project_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+time_entry_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
 
 begin
-  response = xero_client.accounting_api.delete_time_entry(xeroTenantId, projectId, timeEntryId)
+  response = xero_client.accounting_api.delete_time_entry(xero_tenant_id, project_id, time_entry_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling delete_time_entry: #{e}"
@@ -1958,11 +1958,11 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-Project-getProject-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-projectId = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+xero_tenant_id = 'xeroTenantId_example'
+project_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
 
 begin
-  response = xero_client.accounting_api.get_project(xeroTenantId, projectId)
+  response = xero_client.accounting_api.get_project(xero_tenant_id, project_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_project: #{e}"
@@ -2076,12 +2076,12 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-Project-getProjectUsers-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
+xero_tenant_id = 'xeroTenantId_example'
 page = 1
-pageSize = 100
+page_size = 100
 
 begin
-  response = xero_client.accounting_api.get_project_users(xeroTenantId, page, pageSize)
+  response = xero_client.accounting_api.get_project_users(xero_tenant_id, page, page_size)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_project_users: #{e}"
@@ -2209,15 +2209,15 @@ Optional, it is set to 50 by default. The number of items to return per page in 
                     <div class="tab-pane" id="examples-Project-getProjects-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-projectIds = []
-contactID = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+xero_tenant_id = 'xeroTenantId_example'
+project_ids = []
+contact_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
 states = 'states_example'
 page = 1
-pageSize = 100
+page_size = 100
 
 begin
-  response = xero_client.accounting_api.get_projects(xeroTenantId, projectIds, contactID, states, page, pageSize)
+  response = xero_client.accounting_api.get_projects(xero_tenant_id, project_ids, contact_id, states, page, page_size)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_projects: #{e}"
@@ -2411,12 +2411,12 @@ Optional, it is set to 50 by default. The number of items to return per page in 
                     <div class="tab-pane" id="examples-Project-getTask-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-projectId = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
-taskId = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+xero_tenant_id = 'xeroTenantId_example'
+project_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+task_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
 
 begin
-  response = xero_client.accounting_api.get_task(xeroTenantId, projectId, taskId)
+  response = xero_client.accounting_api.get_task(xero_tenant_id, project_id, task_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_task: #{e}"
@@ -2556,15 +2556,15 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-Project-getTasks-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-projectId = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+xero_tenant_id = 'xeroTenantId_example'
+project_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
 page = 1
-pageSize = 10
-taskIds = 'taskIds_example'
-chargeType = 
+page_size = 10
+task_ids = 'taskIds_example'
+charge_type = 
 
 begin
-  response = xero_client.accounting_api.get_tasks(xeroTenantId, projectId, page, pageSize, taskIds, chargeType)
+  response = xero_client.accounting_api.get_tasks(xero_tenant_id, project_id, page, page_size, task_ids, charge_type)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_tasks: #{e}"
@@ -2765,21 +2765,21 @@ taskIdsSearch for all tasks that match a comma separated list of taskIds, i.e. G
                     <div class="tab-pane" id="examples-Project-getTimeEntries-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-projectId = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
-userId = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
-taskId = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
-invoiceId = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
-contactId = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+xero_tenant_id = 'xeroTenantId_example'
+project_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+user_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+task_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+invoice_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+contact_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
 page = 1
-pageSize = 10
+page_size = 10
 states = []
-isChargeable = true
-dateAfterUtc = "2013-10-20T19:20:30+01:00"
-dateBeforeUtc = "2013-10-20T19:20:30+01:00"
+is_chargeable = true
+date_after_utc = "2013-10-20T19:20:30+01:00"
+date_before_utc = "2013-10-20T19:20:30+01:00"
 
 begin
-  response = xero_client.accounting_api.get_time_entries(xeroTenantId, projectId, userId, taskId, invoiceId, contactId, page, pageSize, states, isChargeable, dateAfterUtc, dateBeforeUtc)
+  response = xero_client.accounting_api.get_time_entries(xero_tenant_id, project_id, user_id, task_id, invoice_id, contact_id, page, page_size, states, is_chargeable, date_after_utc, date_before_utc)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_time_entries: #{e}"
@@ -3118,12 +3118,12 @@ ISO 8601 UTC date. Finds all time entries on or before this date filtered on the
                     <div class="tab-pane" id="examples-Project-getTimeEntry-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-projectId = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
-timeEntryId = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+xero_tenant_id = 'xeroTenantId_example'
+project_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+time_entry_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
 
 begin
-  response = xero_client.accounting_api.get_time_entry(xeroTenantId, projectId, timeEntryId)
+  response = xero_client.accounting_api.get_time_entry(xero_tenant_id, project_id, time_entry_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_time_entry: #{e}"
@@ -3263,11 +3263,11 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-Project-patchProject-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-projectId = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+xero_tenant_id = 'xeroTenantId_example'
+project_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
 
 begin
-  response = xero_client.accounting_api.patch_project(xeroTenantId, projectId, projectPatch)
+  response = xero_client.accounting_api.patch_project(xero_tenant_id, project_id, projectPatch)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling patch_project: #{e}"
@@ -3413,11 +3413,11 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-Project-updateProject-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-projectId = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+xero_tenant_id = 'xeroTenantId_example'
+project_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
 
 begin
-  response = xero_client.accounting_api.update_project(xeroTenantId, projectId, projectCreateOrUpdate)
+  response = xero_client.accounting_api.update_project(xero_tenant_id, project_id, projectCreateOrUpdate)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_project: #{e}"
@@ -3563,12 +3563,12 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-Project-updateTimeEntry-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-projectId = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
-timeEntryId = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+xero_tenant_id = 'xeroTenantId_example'
+project_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+time_entry_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
 
 begin
-  response = xero_client.accounting_api.update_time_entry(xeroTenantId, projectId, timeEntryId, timeEntryCreateOrUpdate)
+  response = xero_client.accounting_api.update_time_entry(xero_tenant_id, project_id, time_entry_id, timeEntryCreateOrUpdate)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_time_entry: #{e}"

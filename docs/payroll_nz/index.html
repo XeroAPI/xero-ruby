@@ -3838,7 +3838,7 @@ ul.nav-tabs {
           <nav id="scrollingNav">
             <ul class="sidenav nav nav-list">
               <li class="nav-header" data-group="PayrollNz"><strong>SDK: </strong><span id='sdk-name'></span></li>
-              <li class="nav-header" data-group="PayrollNz"><strong>VSN: </strong>3.7.1</li>
+              <li class="nav-header" data-group="PayrollNz"><strong>VSN: </strong>3.8.0</li>
               <li class="nav-header" data-group="PayrollNz"><a href="#api-PayrollNz">Methods</a></li>
               <li data-group="PayrollNz" data-name="approveTimesheet" class="">
                 <a href="#api-PayrollNz-approveTimesheet">approveTimesheet</a>
@@ -4087,11 +4087,11 @@ ul.nav-tabs {
                     <div class="tab-pane" id="examples-PayrollNz-approveTimesheet-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-timesheetID = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+xero_tenant_id = 'xeroTenantId_example'
+timesheet_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
 
 begin
-  response = xero_client.accounting_api.approve_timesheet(xeroTenantId, timesheetID)
+  response = xero_client.accounting_api.approve_timesheet(xero_tenant_id, timesheet_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling approve_timesheet: #{e}"
@@ -4200,7 +4200,7 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-createDeduction-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
+xero_tenant_id = 'xeroTenantId_example'
 
 deduction = { 
   deduction_name: "Deduction test",
@@ -4209,7 +4209,7 @@ deduction = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_deduction(xeroTenantId, deduction)
+  response = xero_client.accounting_api.create_deduction(xero_tenant_id, deduction)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_deduction: #{e}"
@@ -4321,7 +4321,7 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-createEarningsRate-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
+xero_tenant_id = 'xeroTenantId_example'
 
 earnings_rate = { 
   earnings_type:  XeroRuby::PayrollNz::EarningsRate::EarningsTypeEnum::REGULAREARNINGS,
@@ -4330,7 +4330,7 @@ earnings_rate = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_earnings_rate(xeroTenantId, earningsRate)
+  response = xero_client.accounting_api.create_earnings_rate(xero_tenant_id, earningsRate)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_earnings_rate: #{e}"
@@ -4442,7 +4442,7 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-createEmployee-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
+xero_tenant_id = 'xeroTenantId_example'
 date_of_birth = 'YYYY-MM-DD'
 
 address = { 
@@ -4460,7 +4460,7 @@ employee = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_employee(xeroTenantId, employee)
+  response = xero_client.accounting_api.create_employee(xero_tenant_id, employee)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_employee: #{e}"
@@ -4572,8 +4572,8 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-createEmployeeEarningsTemplate-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'xeroTenantId_example'
+employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 earnings_template = { 
   pay_template_earning_id: "00000000-0000-0000-0000-000000000000",
@@ -4587,7 +4587,7 @@ earnings_templates = []
 earnings_templates << earnings_template
 
 begin
-  response = xero_client.accounting_api.create_employee_earnings_template(xeroTenantId, employeeID, earningsTemplate)
+  response = xero_client.accounting_api.create_employee_earnings_template(xero_tenant_id, employee_id, earningsTemplate)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_employee_earnings_template: #{e}"
@@ -4732,8 +4732,8 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-createEmployeeLeave-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'xeroTenantId_example'
+employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 start_date = 'YYYY-MM-DD'
 end_date = 'YYYY-MM-DD'
 
@@ -4744,7 +4744,7 @@ employee_leave = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_employee_leave(xeroTenantId, employeeID, employeeLeave)
+  response = xero_client.accounting_api.create_employee_leave(xero_tenant_id, employee_id, employeeLeave)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_employee_leave: #{e}"
@@ -4889,8 +4889,8 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-createEmployeeLeaveSetup-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'xeroTenantId_example'
+employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 employee_leave_setup = { 
   include_holiday_pay: false,
@@ -4902,7 +4902,7 @@ employee_leave_setup = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_employee_leave_setup(xeroTenantId, employeeID, employeeLeaveSetup)
+  response = xero_client.accounting_api.create_employee_leave_setup(xero_tenant_id, employee_id, employeeLeaveSetup)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_employee_leave_setup: #{e}"
@@ -5047,8 +5047,8 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-createEmployeeLeaveType-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'xeroTenantId_example'
+employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 employee_leave_type = { 
   leave_type_id: "00000000-0000-0000-0000-000000000000",
@@ -5057,7 +5057,7 @@ employee_leave_type = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_employee_leave_type(xeroTenantId, employeeID, employeeLeaveType)
+  response = xero_client.accounting_api.create_employee_leave_type(xero_tenant_id, employee_id, employeeLeaveType)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_employee_leave_type: #{e}"
@@ -5202,8 +5202,8 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-createEmployeeOpeningBalances-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'xeroTenantId_example'
+employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 period_end_date = 'YYYY-MM-DD'
 
 employee_opening_balance = { 
@@ -5216,7 +5216,7 @@ employee_opening_balances = []
 employee_opening_balances << employee_opening_balance
 
 begin
-  response = xero_client.accounting_api.create_employee_opening_balances(xeroTenantId, employeeID, employeeOpeningBalance)
+  response = xero_client.accounting_api.create_employee_opening_balances(xero_tenant_id, employee_id, employeeOpeningBalance)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_employee_opening_balances: #{e}"
@@ -5361,8 +5361,8 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-createEmployeePaymentMethod-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'xeroTenantId_example'
+employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 bank_account = { 
   account_name: "Charlotte Danes",
@@ -5377,7 +5377,7 @@ payment_method = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_employee_payment_method(xeroTenantId, employeeID, paymentMethod)
+  response = xero_client.accounting_api.create_employee_payment_method(xero_tenant_id, employee_id, paymentMethod)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_employee_payment_method: #{e}"
@@ -5521,8 +5521,8 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-createEmployeeSalaryAndWage-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'xeroTenantId_example'
+employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 salary_and_wage = { 
   earnings_rate_id: "00000000-0000-0000-0000-000000000000",
@@ -5532,7 +5532,7 @@ salary_and_wage = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_employee_salary_and_wage(xeroTenantId, employeeID, salaryAndWage)
+  response = xero_client.accounting_api.create_employee_salary_and_wage(xero_tenant_id, employee_id, salaryAndWage)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_employee_salary_and_wage: #{e}"
@@ -5677,8 +5677,8 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-createEmployment-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'xeroTenantId_example'
+employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 start_date = 'YYYY-MM-DD'
 
 employment = { 
@@ -5687,7 +5687,7 @@ employment = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_employment(xeroTenantId, employeeID, employment)
+  response = xero_client.accounting_api.create_employment(xero_tenant_id, employee_id, employment)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_employment: #{e}"
@@ -5832,7 +5832,7 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-createLeaveType-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
+xero_tenant_id = 'xeroTenantId_example'
 
 leave_type = { 
   name: "LeaveType",
@@ -5841,7 +5841,7 @@ leave_type = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_leave_type(xeroTenantId, leaveType)
+  response = xero_client.accounting_api.create_leave_type(xero_tenant_id, leaveType)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_leave_type: #{e}"
@@ -5953,8 +5953,8 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-createMultipleEmployeeEarningsTemplate-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'xeroTenantId_example'
+employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 earnings_template = { 
   pay_template_earning_id: "00000000-0000-0000-0000-000000000000",
@@ -5968,7 +5968,7 @@ earnings_templates = []
 earnings_templates << earnings_template
 
 begin
-  response = xero_client.accounting_api.create_multiple_employee_earnings_template(xeroTenantId, employeeID, earningsTemplate)
+  response = xero_client.accounting_api.create_multiple_employee_earnings_template(xero_tenant_id, employee_id, earningsTemplate)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_multiple_employee_earnings_template: #{e}"
@@ -6113,7 +6113,7 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-createPayRun-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
+xero_tenant_id = 'xeroTenantId_example'
 
 pay_run = { 
   pay_run_type:  XeroRuby::PayrollNz::PayRun::pay_run_type_enum::SCHEDULED,
@@ -6121,7 +6121,7 @@ pay_run = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_pay_run(xeroTenantId, payRun)
+  response = xero_client.accounting_api.create_pay_run(xero_tenant_id, payRun)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_pay_run: #{e}"
@@ -6233,7 +6233,7 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-createPayRunCalendar-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
+xero_tenant_id = 'xeroTenantId_example'
 start_date = 'YYYY-MM-DD'
 payment_date = 'YYYY-MM-DD'
 
@@ -6244,7 +6244,7 @@ pay_run_calendar = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_pay_run_calendar(xeroTenantId, payRunCalendar)
+  response = xero_client.accounting_api.create_pay_run_calendar(xero_tenant_id, payRunCalendar)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_pay_run_calendar: #{e}"
@@ -6356,7 +6356,7 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-createReimbursement-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
+xero_tenant_id = 'xeroTenantId_example'
 
 reimbursement = { 
   name: "Test Reimbursement",
@@ -6367,7 +6367,7 @@ reimbursement = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_reimbursement(xeroTenantId, reimbursement)
+  response = xero_client.accounting_api.create_reimbursement(xero_tenant_id, reimbursement)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_reimbursement: #{e}"
@@ -6479,7 +6479,7 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-createSuperannuation-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
+xero_tenant_id = 'xeroTenantId_example'
 
 benefit = { 
   category:  XeroRuby::PayrollNz::Benefit::CategoryEnum::COMPLYINGFUND,
@@ -6491,7 +6491,7 @@ benefit = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_superannuation(xeroTenantId, benefit)
+  response = xero_client.accounting_api.create_superannuation(xero_tenant_id, benefit)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_superannuation: #{e}"
@@ -6603,7 +6603,7 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-createTimesheet-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
+xero_tenant_id = 'xeroTenantId_example'
 start_date = 'YYYY-MM-DD'
 end_date = 'YYYY-MM-DD'
 
@@ -6615,7 +6615,7 @@ timesheet = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_timesheet(xeroTenantId, timesheet)
+  response = xero_client.accounting_api.create_timesheet(xero_tenant_id, timesheet)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_timesheet: #{e}"
@@ -6727,8 +6727,8 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-createTimesheetLine-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-timesheetID = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+xero_tenant_id = 'xeroTenantId_example'
+timesheet_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
 date = 'YYYY-MM-DD'
 
 timesheet_line = { 
@@ -6740,7 +6740,7 @@ timesheet_line = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_timesheet_line(xeroTenantId, timesheetID, timesheetLine)
+  response = xero_client.accounting_api.create_timesheet_line(xero_tenant_id, timesheet_id, timesheetLine)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_timesheet_line: #{e}"
@@ -6885,12 +6885,12 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-deleteEmployeeEarningsTemplate-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
-payTemplateEarningID = '3fa85f64-5717-4562-b3fc-2c963f66afa6'
+xero_tenant_id = 'xeroTenantId_example'
+employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+pay_template_earning_id = '3fa85f64-5717-4562-b3fc-2c963f66afa6'
 
 begin
-  response = xero_client.accounting_api.delete_employee_earnings_template(xeroTenantId, employeeID, payTemplateEarningID)
+  response = xero_client.accounting_api.delete_employee_earnings_template(xero_tenant_id, employee_id, pay_template_earning_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling delete_employee_earnings_template: #{e}"
@@ -7025,12 +7025,12 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-deleteEmployeeLeave-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
-leaveID = 'c4be24e5-e840-4c92-9eaa-2d86cd596314'
+xero_tenant_id = 'xeroTenantId_example'
+employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+leave_id = 'c4be24e5-e840-4c92-9eaa-2d86cd596314'
 
 begin
-  response = xero_client.accounting_api.delete_employee_leave(xeroTenantId, employeeID, leaveID)
+  response = xero_client.accounting_api.delete_employee_leave(xero_tenant_id, employee_id, leave_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling delete_employee_leave: #{e}"
@@ -7165,12 +7165,12 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-deleteEmployeeSalaryAndWage-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
-salaryAndWagesID = '3fa85f64-5717-4562-b3fc-2c963f66afa6'
+xero_tenant_id = 'xeroTenantId_example'
+employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+salary_and_wages_id = '3fa85f64-5717-4562-b3fc-2c963f66afa6'
 
 begin
-  response = xero_client.accounting_api.delete_employee_salary_and_wage(xeroTenantId, employeeID, salaryAndWagesID)
+  response = xero_client.accounting_api.delete_employee_salary_and_wage(xero_tenant_id, employee_id, salary_and_wages_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling delete_employee_salary_and_wage: #{e}"
@@ -7305,11 +7305,11 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-deleteTimesheet-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-timesheetID = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+xero_tenant_id = 'xeroTenantId_example'
+timesheet_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
 
 begin
-  response = xero_client.accounting_api.delete_timesheet(xeroTenantId, timesheetID)
+  response = xero_client.accounting_api.delete_timesheet(xero_tenant_id, timesheet_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling delete_timesheet: #{e}"
@@ -7418,12 +7418,12 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-deleteTimesheetLine-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-timesheetID = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
-timesheetLineID = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+xero_tenant_id = 'xeroTenantId_example'
+timesheet_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+timesheet_line_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
 
 begin
-  response = xero_client.accounting_api.delete_timesheet_line(xeroTenantId, timesheetID, timesheetLineID)
+  response = xero_client.accounting_api.delete_timesheet_line(xero_tenant_id, timesheet_id, timesheet_line_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling delete_timesheet_line: #{e}"
@@ -7558,11 +7558,11 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-getDeduction-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-deductionId = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+xero_tenant_id = 'xeroTenantId_example'
+deduction_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
 
 begin
-  response = xero_client.accounting_api.get_deduction(xeroTenantId, deductionId)
+  response = xero_client.accounting_api.get_deduction(xero_tenant_id, deduction_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_deduction: #{e}"
@@ -7676,11 +7676,11 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-getDeductions-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
+xero_tenant_id = 'xeroTenantId_example'
 page = 56
 
 begin
-  response = xero_client.accounting_api.get_deductions(xeroTenantId, page)
+  response = xero_client.accounting_api.get_deductions(xero_tenant_id, page)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_deductions: #{e}"
@@ -7788,11 +7788,11 @@ Page number which specifies the set of records to retrieve. By default the numbe
                     <div class="tab-pane" id="examples-PayrollNz-getEarningsRate-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-earningsRateID = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+xero_tenant_id = 'xeroTenantId_example'
+earnings_rate_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
 
 begin
-  response = xero_client.accounting_api.get_earnings_rate(xeroTenantId, earningsRateID)
+  response = xero_client.accounting_api.get_earnings_rate(xero_tenant_id, earnings_rate_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_earnings_rate: #{e}"
@@ -7906,11 +7906,11 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-getEarningsRates-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
+xero_tenant_id = 'xeroTenantId_example'
 page = 56
 
 begin
-  response = xero_client.accounting_api.get_earnings_rates(xeroTenantId, page)
+  response = xero_client.accounting_api.get_earnings_rates(xero_tenant_id, page)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_earnings_rates: #{e}"
@@ -8018,11 +8018,11 @@ Page number which specifies the set of records to retrieve. By default the numbe
                     <div class="tab-pane" id="examples-PayrollNz-getEmployee-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'xeroTenantId_example'
+employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.get_employee(xeroTenantId, employeeID)
+  response = xero_client.accounting_api.get_employee(xero_tenant_id, employee_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_employee: #{e}"
@@ -8136,11 +8136,11 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-getEmployeeLeaveBalances-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'xeroTenantId_example'
+employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.get_employee_leave_balances(xeroTenantId, employeeID)
+  response = xero_client.accounting_api.get_employee_leave_balances(xero_tenant_id, employee_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_employee_leave_balances: #{e}"
@@ -8254,13 +8254,13 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-getEmployeeLeavePeriods-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
-startDate = "2013-10-20"
-endDate = "Johnson"
+xero_tenant_id = 'xeroTenantId_example'
+employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+start_date = "2013-10-20"
+end_date = "Johnson"
 
 begin
-  response = xero_client.accounting_api.get_employee_leave_periods(xeroTenantId, employeeID, startDate, endDate)
+  response = xero_client.accounting_api.get_employee_leave_periods(xero_tenant_id, employee_id, start_date, end_date)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_employee_leave_periods: #{e}"
@@ -8427,11 +8427,11 @@ Filter by end date
                     <div class="tab-pane" id="examples-PayrollNz-getEmployeeLeaveTypes-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'xeroTenantId_example'
+employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.get_employee_leave_types(xeroTenantId, employeeID)
+  response = xero_client.accounting_api.get_employee_leave_types(xero_tenant_id, employee_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_employee_leave_types: #{e}"
@@ -8545,11 +8545,11 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-getEmployeeLeaves-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'xeroTenantId_example'
+employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.get_employee_leaves(xeroTenantId, employeeID)
+  response = xero_client.accounting_api.get_employee_leaves(xero_tenant_id, employee_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_employee_leaves: #{e}"
@@ -8663,11 +8663,11 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-getEmployeeOpeningBalances-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'xeroTenantId_example'
+employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.get_employee_opening_balances(xeroTenantId, employeeID)
+  response = xero_client.accounting_api.get_employee_opening_balances(xero_tenant_id, employee_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_employee_opening_balances: #{e}"
@@ -8781,11 +8781,11 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-getEmployeePayTemplates-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'xeroTenantId_example'
+employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.get_employee_pay_templates(xeroTenantId, employeeID)
+  response = xero_client.accounting_api.get_employee_pay_templates(xero_tenant_id, employee_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_employee_pay_templates: #{e}"
@@ -8899,11 +8899,11 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-getEmployeePaymentMethod-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'xeroTenantId_example'
+employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.get_employee_payment_method(xeroTenantId, employeeID)
+  response = xero_client.accounting_api.get_employee_payment_method(xero_tenant_id, employee_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_employee_payment_method: #{e}"
@@ -9017,12 +9017,12 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-getEmployeeSalaryAndWage-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
-salaryAndWagesID = '3fa85f64-5717-4562-b3fc-2c963f66afa6'
+xero_tenant_id = 'xeroTenantId_example'
+employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+salary_and_wages_id = '3fa85f64-5717-4562-b3fc-2c963f66afa6'
 
 begin
-  response = xero_client.accounting_api.get_employee_salary_and_wage(xeroTenantId, employeeID, salaryAndWagesID)
+  response = xero_client.accounting_api.get_employee_salary_and_wage(xero_tenant_id, employee_id, salary_and_wages_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_employee_salary_and_wage: #{e}"
@@ -9162,12 +9162,12 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-getEmployeeSalaryAndWages-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'xeroTenantId_example'
+employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 page = 56
 
 begin
-  response = xero_client.accounting_api.get_employee_salary_and_wages(xeroTenantId, employeeID, page)
+  response = xero_client.accounting_api.get_employee_salary_and_wages(xero_tenant_id, employee_id, page)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_employee_salary_and_wages: #{e}"
@@ -9308,11 +9308,11 @@ Page number which specifies the set of records to retrieve. By default the numbe
                     <div class="tab-pane" id="examples-PayrollNz-getEmployeeTax-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'xeroTenantId_example'
+employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.get_employee_tax(xeroTenantId, employeeID)
+  response = xero_client.accounting_api.get_employee_tax(xero_tenant_id, employee_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_employee_tax: #{e}"
@@ -9426,12 +9426,12 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-getEmployees-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
+xero_tenant_id = 'xeroTenantId_example'
 filter = 'firstName==John,lastName==Smith'
 page = 5
 
 begin
-  response = xero_client.accounting_api.get_employees(xeroTenantId, filter, page)
+  response = xero_client.accounting_api.get_employees(xero_tenant_id, filter, page)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_employees: #{e}"
@@ -9559,11 +9559,11 @@ Page number which specifies the set of records to retrieve. By default the numbe
                     <div class="tab-pane" id="examples-PayrollNz-getLeaveType-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-leaveTypeID = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+xero_tenant_id = 'xeroTenantId_example'
+leave_type_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
 
 begin
-  response = xero_client.accounting_api.get_leave_type(xeroTenantId, leaveTypeID)
+  response = xero_client.accounting_api.get_leave_type(xero_tenant_id, leave_type_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_leave_type: #{e}"
@@ -9677,12 +9677,12 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-getLeaveTypes-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
+xero_tenant_id = 'xeroTenantId_example'
 page = 56
-activeOnly = true
+active_only = true
 
 begin
-  response = xero_client.accounting_api.get_leave_types(xeroTenantId, page, activeOnly)
+  response = xero_client.accounting_api.get_leave_types(xero_tenant_id, page, active_only)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_leave_types: #{e}"
@@ -9810,11 +9810,11 @@ Filters leave types by active status. By default the API returns all leave types
                     <div class="tab-pane" id="examples-PayrollNz-getPayRun-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-payRunID = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+xero_tenant_id = 'xeroTenantId_example'
+pay_run_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
 
 begin
-  response = xero_client.accounting_api.get_pay_run(xeroTenantId, payRunID)
+  response = xero_client.accounting_api.get_pay_run(xero_tenant_id, pay_run_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_pay_run: #{e}"
@@ -9928,11 +9928,11 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-getPayRunCalendar-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-payrollCalendarID = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+xero_tenant_id = 'xeroTenantId_example'
+payroll_calendar_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
 
 begin
-  response = xero_client.accounting_api.get_pay_run_calendar(xeroTenantId, payrollCalendarID)
+  response = xero_client.accounting_api.get_pay_run_calendar(xero_tenant_id, payroll_calendar_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_pay_run_calendar: #{e}"
@@ -10046,11 +10046,11 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-getPayRunCalendars-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
+xero_tenant_id = 'xeroTenantId_example'
 page = 56
 
 begin
-  response = xero_client.accounting_api.get_pay_run_calendars(xeroTenantId, page)
+  response = xero_client.accounting_api.get_pay_run_calendars(xero_tenant_id, page)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_pay_run_calendars: #{e}"
@@ -10158,12 +10158,12 @@ Page number which specifies the set of records to retrieve. By default the numbe
                     <div class="tab-pane" id="examples-PayrollNz-getPayRuns-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
+xero_tenant_id = 'xeroTenantId_example'
 page = 56
 status = 'status_example'
 
 begin
-  response = xero_client.accounting_api.get_pay_runs(xeroTenantId, page, status)
+  response = xero_client.accounting_api.get_pay_runs(xero_tenant_id, page, status)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_pay_runs: #{e}"
@@ -10291,11 +10291,11 @@ By default get payruns will return all the payruns for an organization. You can 
                     <div class="tab-pane" id="examples-PayrollNz-getPaySlip-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-paySlipID = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+xero_tenant_id = 'xeroTenantId_example'
+pay_slip_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
 
 begin
-  response = xero_client.accounting_api.get_pay_slip(xeroTenantId, paySlipID)
+  response = xero_client.accounting_api.get_pay_slip(xero_tenant_id, pay_slip_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_pay_slip: #{e}"
@@ -10409,12 +10409,12 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-getPaySlips-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-payRunID = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+xero_tenant_id = 'xeroTenantId_example'
+pay_run_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
 page = 56
 
 begin
-  response = xero_client.accounting_api.get_pay_slips(xeroTenantId, payRunID, page)
+  response = xero_client.accounting_api.get_pay_slips(xero_tenant_id, pay_run_id, page)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_pay_slips: #{e}"
@@ -10548,11 +10548,11 @@ PayrunID which specifies the containing payrun of payslips to retrieve. By defau
                     <div class="tab-pane" id="examples-PayrollNz-getReimbursement-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-reimbursementID = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+xero_tenant_id = 'xeroTenantId_example'
+reimbursement_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
 
 begin
-  response = xero_client.accounting_api.get_reimbursement(xeroTenantId, reimbursementID)
+  response = xero_client.accounting_api.get_reimbursement(xero_tenant_id, reimbursement_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_reimbursement: #{e}"
@@ -10666,11 +10666,11 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-getReimbursements-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
+xero_tenant_id = 'xeroTenantId_example'
 page = 56
 
 begin
-  response = xero_client.accounting_api.get_reimbursements(xeroTenantId, page)
+  response = xero_client.accounting_api.get_reimbursements(xero_tenant_id, page)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_reimbursements: #{e}"
@@ -10778,10 +10778,10 @@ Page number which specifies the set of records to retrieve. By default the numbe
                     <div class="tab-pane" id="examples-PayrollNz-getSettings-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
+xero_tenant_id = 'xeroTenantId_example'
 
 begin
-  response = xero_client.accounting_api.get_settings(xeroTenantId)
+  response = xero_client.accounting_api.get_settings(xero_tenant_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_settings: #{e}"
@@ -10862,11 +10862,11 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-getStatutoryDeduction-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
+xero_tenant_id = 'xeroTenantId_example'
 id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
 
 begin
-  response = xero_client.accounting_api.get_statutory_deduction(xeroTenantId, id)
+  response = xero_client.accounting_api.get_statutory_deduction(xero_tenant_id, id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_statutory_deduction: #{e}"
@@ -10980,11 +10980,11 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-getStatutoryDeductions-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
+xero_tenant_id = 'xeroTenantId_example'
 page = 56
 
 begin
-  response = xero_client.accounting_api.get_statutory_deductions(xeroTenantId, page)
+  response = xero_client.accounting_api.get_statutory_deductions(xero_tenant_id, page)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_statutory_deductions: #{e}"
@@ -11092,11 +11092,11 @@ Page number which specifies the set of records to retrieve. By default the numbe
                     <div class="tab-pane" id="examples-PayrollNz-getSuperannuation-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-superannuationID = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+xero_tenant_id = 'xeroTenantId_example'
+superannuation_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
 
 begin
-  response = xero_client.accounting_api.get_superannuation(xeroTenantId, superannuationID)
+  response = xero_client.accounting_api.get_superannuation(xero_tenant_id, superannuation_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_superannuation: #{e}"
@@ -11210,11 +11210,11 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-getSuperannuations-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
+xero_tenant_id = 'xeroTenantId_example'
 page = 56
 
 begin
-  response = xero_client.accounting_api.get_superannuations(xeroTenantId, page)
+  response = xero_client.accounting_api.get_superannuations(xero_tenant_id, page)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_superannuations: #{e}"
@@ -11322,11 +11322,11 @@ Page number which specifies the set of records to retrieve. By default the numbe
                     <div class="tab-pane" id="examples-PayrollNz-getTimesheet-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-timesheetID = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+xero_tenant_id = 'xeroTenantId_example'
+timesheet_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
 
 begin
-  response = xero_client.accounting_api.get_timesheet(xeroTenantId, timesheetID)
+  response = xero_client.accounting_api.get_timesheet(xero_tenant_id, timesheet_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_timesheet: #{e}"
@@ -11440,16 +11440,16 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-getTimesheets-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
+xero_tenant_id = 'xeroTenantId_example'
 page = 5
 filter = 'employeeId==00000000-0000-0000-0000-000000000000,payrollCalendarId==00000000-0000-0000-0000-000000000000'
 status = 'Draft'
-startDate = '2019-01-02'
-endDate = '2020-01-02'
+start_date = '2019-01-02'
+end_date = '2020-01-02'
 sort = 'startDate'
 
 begin
-  response = xero_client.accounting_api.get_timesheets(xeroTenantId, page, filter, status, startDate, endDate, sort)
+  response = xero_client.accounting_api.get_timesheets(xero_tenant_id, page, filter, status, start_date, end_date, sort)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_timesheets: #{e}"
@@ -11657,10 +11657,10 @@ sort the order of timesheets returned. The default is based on the timesheets cr
                     <div class="tab-pane" id="examples-PayrollNz-getTrackingCategories-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
+xero_tenant_id = 'xeroTenantId_example'
 
 begin
-  response = xero_client.accounting_api.get_tracking_categories(xeroTenantId)
+  response = xero_client.accounting_api.get_tracking_categories(xero_tenant_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_tracking_categories: #{e}"
@@ -11741,11 +11741,11 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-revertTimesheet-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-timesheetID = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+xero_tenant_id = 'xeroTenantId_example'
+timesheet_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
 
 begin
-  response = xero_client.accounting_api.revert_timesheet(xeroTenantId, timesheetID)
+  response = xero_client.accounting_api.revert_timesheet(xero_tenant_id, timesheet_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling revert_timesheet: #{e}"
@@ -11854,8 +11854,8 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-updateEmployee-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'xeroTenantId_example'
+employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 date_of_birth = 'YYYY-MM-DD'
 
 address = { 
@@ -11873,7 +11873,7 @@ employee = {
 }  
 
 begin
-  response = xero_client.accounting_api.update_employee(xeroTenantId, employeeID, employee)
+  response = xero_client.accounting_api.update_employee(xero_tenant_id, employee_id, employee)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_employee: #{e}"
@@ -12018,9 +12018,9 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-updateEmployeeEarningsTemplate-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
-payTemplateEarningID = '3fa85f64-5717-4562-b3fc-2c963f66afa6'
+xero_tenant_id = 'xeroTenantId_example'
+employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+pay_template_earning_id = '3fa85f64-5717-4562-b3fc-2c963f66afa6'
 
 earnings_template = { 
   pay_template_earning_id: "00000000-0000-0000-0000-000000000000",
@@ -12034,7 +12034,7 @@ earnings_templates = []
 earnings_templates << earnings_template
 
 begin
-  response = xero_client.accounting_api.update_employee_earnings_template(xeroTenantId, employeeID, payTemplateEarningID, earningsTemplate)
+  response = xero_client.accounting_api.update_employee_earnings_template(xero_tenant_id, employee_id, pay_template_earning_id, earningsTemplate)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_employee_earnings_template: #{e}"
@@ -12205,9 +12205,9 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-updateEmployeeLeave-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
-leaveID = 'c4be24e5-e840-4c92-9eaa-2d86cd596314'
+xero_tenant_id = 'xeroTenantId_example'
+employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+leave_id = 'c4be24e5-e840-4c92-9eaa-2d86cd596314'
 start_date = 'YYYY-MM-DD'
 end_date = 'YYYY-MM-DD'
 
@@ -12218,7 +12218,7 @@ employee_leave = {
 }  
 
 begin
-  response = xero_client.accounting_api.update_employee_leave(xeroTenantId, employeeID, leaveID, employeeLeave)
+  response = xero_client.accounting_api.update_employee_leave(xero_tenant_id, employee_id, leave_id, employeeLeave)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_employee_leave: #{e}"
@@ -12389,9 +12389,9 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-updateEmployeeSalaryAndWage-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
-salaryAndWagesID = '3fa85f64-5717-4562-b3fc-2c963f66afa6'
+xero_tenant_id = 'xeroTenantId_example'
+employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+salary_and_wages_id = '3fa85f64-5717-4562-b3fc-2c963f66afa6'
 
 salary_and_wage = { 
   earnings_rate_id: "00000000-0000-0000-0000-000000000000",
@@ -12401,7 +12401,7 @@ salary_and_wage = {
 }  
 
 begin
-  response = xero_client.accounting_api.update_employee_salary_and_wage(xeroTenantId, employeeID, salaryAndWagesID, salaryAndWage)
+  response = xero_client.accounting_api.update_employee_salary_and_wage(xero_tenant_id, employee_id, salary_and_wages_id, salaryAndWage)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_employee_salary_and_wage: #{e}"
@@ -12572,8 +12572,8 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-updateEmployeeTax-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'xeroTenantId_example'
+employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 student_loan_as_at = 'YYYY-MM-DD'
 
 employee_tax = { 
@@ -12592,7 +12592,7 @@ employee_tax = {
 }  
 
 begin
-  response = xero_client.accounting_api.update_employee_tax(xeroTenantId, employeeID, employeeTax)
+  response = xero_client.accounting_api.update_employee_tax(xero_tenant_id, employee_id, employeeTax)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_employee_tax: #{e}"
@@ -12736,8 +12736,8 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-updatePayRun-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-payRunID = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+xero_tenant_id = 'xeroTenantId_example'
+pay_run_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
 start_date = 'YYYY-MM-DD'
 payment_date = 'YYYY-MM-DD'
 
@@ -12748,7 +12748,7 @@ pay_run_calendar = {
 }  
 
 begin
-  response = xero_client.accounting_api.update_pay_run(xeroTenantId, payRunID, payRun)
+  response = xero_client.accounting_api.update_pay_run(xero_tenant_id, pay_run_id, payRun)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_pay_run: #{e}"
@@ -12893,8 +12893,8 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-updatePaySlipLineItems-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-paySlipID = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+xero_tenant_id = 'xeroTenantId_example'
+pay_slip_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
 
 earnings_line = { 
   earnings_line_id: "00000000-0000-0000-0000-000000000000",
@@ -12912,7 +12912,7 @@ pay_slip = {
 }  
 
 begin
-  response = xero_client.accounting_api.update_pay_slip_line_items(xeroTenantId, paySlipID, paySlip)
+  response = xero_client.accounting_api.update_pay_slip_line_items(xero_tenant_id, pay_slip_id, paySlip)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_pay_slip_line_items: #{e}"
@@ -13057,9 +13057,9 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollNz-updateTimesheetLine-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-timesheetID = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
-timesheetLineID = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+xero_tenant_id = 'xeroTenantId_example'
+timesheet_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+timesheet_line_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
 date = 'YYYY-MM-DD'
 
 timesheet_line = { 
@@ -13071,7 +13071,7 @@ timesheet_line = {
 }  
 
 begin
-  response = xero_client.accounting_api.update_timesheet_line(xeroTenantId, timesheetID, timesheetLineID, timesheetLine)
+  response = xero_client.accounting_api.update_timesheet_line(xero_tenant_id, timesheet_id, timesheet_line_id, timesheetLine)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_timesheet_line: #{e}"
