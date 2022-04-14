@@ -1009,7 +1009,8 @@ ul.nav-tabs {
       "example" : 33
     }
   },
-  "description" : ""
+  "description" : "",
+  "x-snake" : "asset_type"
 };
       defs["Assets"] = {
   "title" : "",
@@ -1391,7 +1392,7 @@ ul.nav-tabs {
           <nav id="scrollingNav">
             <ul class="sidenav nav nav-list">
               <li class="nav-header" data-group="Asset"><strong>SDK: </strong><span id='sdk-name'></span></li>
-              <li class="nav-header" data-group="Asset"><strong>VSN: </strong>3.7.1</li>
+              <li class="nav-header" data-group="Asset"><strong>VSN: </strong>3.8.0</li>
               <li class="nav-header" data-group="Asset"><a href="#api-Asset">Methods</a></li>
               <li data-group="Asset" data-name="createAsset" class="">
                 <a href="#api-Asset-createAsset">createAsset</a>
@@ -1454,7 +1455,7 @@ ul.nav-tabs {
                     <div class="tab-pane" id="examples-Asset-createAsset-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'YOUR_XERO_TENANT_ID'
+xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 
 asset = { 
   asset_name: "Other Computer",
@@ -1463,7 +1464,7 @@ asset = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_asset(xeroTenantId, asset)
+  response = xero_client.accounting_api.create_asset(xero_tenant_id, asset)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_asset: #{e}"
@@ -1576,25 +1577,25 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-Asset-createAssetType-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'YOUR_XERO_TENANT_ID'
+xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 
-bookDepreciationSetting = { 
+book_depreciation_setting = { 
   depreciation_method: "DiminishingValue100",
   averaging_method: "ActualDays",
   deprecitation_rate: 40,
   depreciation_calculation_method: "None"
 }  
 
-assetType = { 
+asset_type = { 
   asset_type_name: "Computer Equipment",
   fixed_asset_account_id: "00000000-0000-0000-0000-000000000000",
   depreciation_expense_account_id: "00000000-0000-0000-0000-000000000000",
   accumulated_depreciation_account_id: "00000000-0000-0000-0000-000000000000",
-  bookDepreciationSetting:  book_depreciation_setting
+  book_depreciation_setting:  book_depreciation_setting
 }  
 
 begin
-  response = xero_client.accounting_api.create_asset_type(xeroTenantId, assetType)
+  response = xero_client.accounting_api.create_asset_type(xero_tenant_id, assetType)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_asset_type: #{e}"
@@ -1704,11 +1705,11 @@ a specific fixed asset in the system</p>
                     <div class="tab-pane" id="examples-Asset-getAssetById-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'YOUR_XERO_TENANT_ID'
+xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 id = '00000000-0000-0000-0000-000000000000'
 
 begin
-  response = xero_client.accounting_api.get_asset_by_id(xeroTenantId, id)
+  response = xero_client.accounting_api.get_asset_by_id(xero_tenant_id, id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_asset_by_id: #{e}"
@@ -1822,10 +1823,10 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-Asset-getAssetSettings-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'YOUR_XERO_TENANT_ID'
+xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 
 begin
-  response = xero_client.accounting_api.get_asset_settings(xeroTenantId)
+  response = xero_client.accounting_api.get_asset_settings(xero_tenant_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_asset_settings: #{e}"
@@ -1906,10 +1907,10 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-Asset-getAssetTypes-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'YOUR_XERO_TENANT_ID'
+xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 
 begin
-  response = xero_client.accounting_api.get_asset_types(xeroTenantId)
+  response = xero_client.accounting_api.get_asset_types(xero_tenant_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_asset_types: #{e}"
@@ -1990,16 +1991,16 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-Asset-getAssets-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'YOUR_XERO_TENANT_ID'
+xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 status = 
 page = 1
-pageSize = 5
-orderBy = 'AssetName'
-sortDirection = 'ASC'
-filterBy = 'Company Car'
+page_size = 5
+order_by = 'AssetName'
+sort_direction = 'ASC'
+filter_by = 'Company Car'
 
 begin
-  response = xero_client.accounting_api.get_assets(xeroTenantId, status, page, pageSize, orderBy, sortDirection, filterBy)
+  response = xero_client.accounting_api.get_assets(xero_tenant_id, status, page, page_size, order_by, sort_direction, filter_by)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_assets: #{e}"

@@ -3254,7 +3254,7 @@ ul.nav-tabs {
           <nav id="scrollingNav">
             <ul class="sidenav nav nav-list">
               <li class="nav-header" data-group="PayrollAu"><strong>SDK: </strong><span id='sdk-name'></span></li>
-              <li class="nav-header" data-group="PayrollAu"><strong>VSN: </strong>3.7.1</li>
+              <li class="nav-header" data-group="PayrollAu"><strong>VSN: </strong>3.8.0</li>
               <li class="nav-header" data-group="PayrollAu"><a href="#api-PayrollAu">Methods</a></li>
               <li data-group="PayrollAu" data-name="createEmployee" class="">
                 <a href="#api-PayrollAu-createEmployee">createEmployee</a>
@@ -3386,7 +3386,7 @@ ul.nav-tabs {
                     <div class="tab-pane" id="examples-PayrollAu-createEmployee-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
+xero_tenant_id = 'xeroTenantId_example'
 date_of_birth = 'YYYY-MM-DD'
 
 home_address = { 
@@ -3404,7 +3404,7 @@ employee = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_employee(xeroTenantId, employee)
+  response = xero_client.accounting_api.create_employee(xero_tenant_id, employee)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_employee: #{e}"
@@ -3519,7 +3519,7 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollAu-createLeaveApplication-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
+xero_tenant_id = 'xeroTenantId_example'
 start_date = 'YYYY-MM-DD'
 end_date = 'YYYY-MM-DD'
 
@@ -3532,7 +3532,7 @@ leaveApplication = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_leave_application(xeroTenantId, leaveApplication)
+  response = xero_client.accounting_api.create_leave_application(xero_tenant_id, leaveApplication)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_leave_application: #{e}"
@@ -3647,7 +3647,7 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollAu-createPayItem-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
+xero_tenant_id = 'xeroTenantId_example'
 
 earnings_rate = { 
   name: "Ordinary Hours 123",
@@ -3692,7 +3692,7 @@ pay_item = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_pay_item(xeroTenantId, payItem)
+  response = xero_client.accounting_api.create_pay_item(xero_tenant_id, payItem)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_pay_item: #{e}"
@@ -3804,14 +3804,14 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollAu-createPayRun-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
+xero_tenant_id = 'xeroTenantId_example'
 
 pay_run = { 
   payroll_calendar_id: "00000000-0000-0000-0000-000000000000"
 }  
 
 begin
-  response = xero_client.accounting_api.create_pay_run(xeroTenantId, payRun)
+  response = xero_client.accounting_api.create_pay_run(xero_tenant_id, payRun)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_pay_run: #{e}"
@@ -3926,7 +3926,7 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollAu-createPayrollCalendar-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
+xero_tenant_id = 'xeroTenantId_example'
 start_date = 'YYYY-MM-DD'
 payment_date = 'YYYY-MM-DD'
 
@@ -3940,7 +3940,7 @@ payroll_calendars = []
 payroll_calendars << payroll_calendar
 
 begin
-  response = xero_client.accounting_api.create_payroll_calendar(xeroTenantId, payrollCalendar)
+  response = xero_client.accounting_api.create_payroll_calendar(xero_tenant_id, payrollCalendar)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_payroll_calendar: #{e}"
@@ -4055,7 +4055,7 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollAu-createSuperfund-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
+xero_tenant_id = 'xeroTenantId_example'
 
 super_fund = { 
   type:  XeroRuby::PayrollAu::SuperFundType::REGULATED,
@@ -4063,7 +4063,7 @@ super_fund = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_superfund(xeroTenantId, superFund)
+  response = xero_client.accounting_api.create_superfund(xero_tenant_id, superFund)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_superfund: #{e}"
@@ -4178,7 +4178,7 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollAu-createTimesheet-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
+xero_tenant_id = 'xeroTenantId_example'
 start_date = 'YYYY-MM-DD'
 end_date = 'YYYY-MM-DD'
 
@@ -4190,7 +4190,7 @@ timesheet = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_timesheet(xeroTenantId, timesheet)
+  response = xero_client.accounting_api.create_timesheet(xero_tenant_id, timesheet)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_timesheet: #{e}"
@@ -4305,11 +4305,11 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollAu-getEmployee-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'xeroTenantId_example'
+employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.get_employee(xeroTenantId, employeeID)
+  response = xero_client.accounting_api.get_employee(xero_tenant_id, employee_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_employee: #{e}"
@@ -4423,14 +4423,14 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollAu-getEmployees-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-ifModifiedSince = "2020-02-06T12:17:43.202-08:00"
+xero_tenant_id = 'xeroTenantId_example'
+if_modified_since = "2020-02-06T12:17:43.202-08:00"
 where = 'Status=="ACTIVE"'
 order = 'EmailAddress%20DESC'
 page = 56
 
 begin
-  response = xero_client.accounting_api.get_employees(xeroTenantId, ifModifiedSince, where, order, page)
+  response = xero_client.accounting_api.get_employees(xero_tenant_id, if_modified_since, where, order, page)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_employees: #{e}"
@@ -4601,11 +4601,11 @@ e.g. page=1 – Up to 100 employees will be returned in a single API call
                     <div class="tab-pane" id="examples-PayrollAu-getLeaveApplication-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-leaveApplicationID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'xeroTenantId_example'
+leave_application_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.get_leave_application(xeroTenantId, leaveApplicationID)
+  response = xero_client.accounting_api.get_leave_application(xero_tenant_id, leave_application_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_leave_application: #{e}"
@@ -4719,14 +4719,14 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollAu-getLeaveApplications-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-ifModifiedSince = "2020-02-06T12:17:43.202-08:00"
+xero_tenant_id = 'xeroTenantId_example'
+if_modified_since = "2020-02-06T12:17:43.202-08:00"
 where = 'Status=="ACTIVE"'
 order = 'EmailAddress%20DESC'
 page = 56
 
 begin
-  response = xero_client.accounting_api.get_leave_applications(xeroTenantId, ifModifiedSince, where, order, page)
+  response = xero_client.accounting_api.get_leave_applications(xero_tenant_id, if_modified_since, where, order, page)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_leave_applications: #{e}"
@@ -4897,14 +4897,14 @@ e.g. page=1 – Up to 100 objects will be returned in a single API call
                     <div class="tab-pane" id="examples-PayrollAu-getPayItems-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-ifModifiedSince = "2020-02-06T12:17:43.202-08:00"
+xero_tenant_id = 'xeroTenantId_example'
+if_modified_since = "2020-02-06T12:17:43.202-08:00"
 where = 'Status=="ACTIVE"'
 order = 'EmailAddress%20DESC'
 page = 56
 
 begin
-  response = xero_client.accounting_api.get_pay_items(xeroTenantId, ifModifiedSince, where, order, page)
+  response = xero_client.accounting_api.get_pay_items(xero_tenant_id, if_modified_since, where, order, page)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_pay_items: #{e}"
@@ -5075,11 +5075,11 @@ e.g. page=1 – Up to 100 objects will be returned in a single API call
                     <div class="tab-pane" id="examples-PayrollAu-getPayRun-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-payRunID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'xeroTenantId_example'
+pay_run_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.get_pay_run(xeroTenantId, payRunID)
+  response = xero_client.accounting_api.get_pay_run(xero_tenant_id, pay_run_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_pay_run: #{e}"
@@ -5193,14 +5193,14 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollAu-getPayRuns-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-ifModifiedSince = "2020-02-06T12:17:43.202-08:00"
+xero_tenant_id = 'xeroTenantId_example'
+if_modified_since = "2020-02-06T12:17:43.202-08:00"
 where = 'Status=="ACTIVE"'
 order = 'EmailAddress%20DESC'
 page = 56
 
 begin
-  response = xero_client.accounting_api.get_pay_runs(xeroTenantId, ifModifiedSince, where, order, page)
+  response = xero_client.accounting_api.get_pay_runs(xero_tenant_id, if_modified_since, where, order, page)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_pay_runs: #{e}"
@@ -5371,11 +5371,11 @@ e.g. page=1 – Up to 100 PayRuns will be returned in a single API call
                     <div class="tab-pane" id="examples-PayrollAu-getPayrollCalendar-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-payrollCalendarID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'xeroTenantId_example'
+payroll_calendar_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.get_payroll_calendar(xeroTenantId, payrollCalendarID)
+  response = xero_client.accounting_api.get_payroll_calendar(xero_tenant_id, payroll_calendar_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_payroll_calendar: #{e}"
@@ -5489,14 +5489,14 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollAu-getPayrollCalendars-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-ifModifiedSince = "2020-02-06T12:17:43.202-08:00"
+xero_tenant_id = 'xeroTenantId_example'
+if_modified_since = "2020-02-06T12:17:43.202-08:00"
 where = 'Status=="ACTIVE"'
 order = 'EmailAddress%20DESC'
 page = 56
 
 begin
-  response = xero_client.accounting_api.get_payroll_calendars(xeroTenantId, ifModifiedSince, where, order, page)
+  response = xero_client.accounting_api.get_payroll_calendars(xero_tenant_id, if_modified_since, where, order, page)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_payroll_calendars: #{e}"
@@ -5667,11 +5667,11 @@ e.g. page=1 – Up to 100 objects will be returned in a single API call
                     <div class="tab-pane" id="examples-PayrollAu-getPayslip-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-payslipID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'xeroTenantId_example'
+payslip_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.get_payslip(xeroTenantId, payslipID)
+  response = xero_client.accounting_api.get_payslip(xero_tenant_id, payslip_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_payslip: #{e}"
@@ -5785,10 +5785,10 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollAu-getSettings-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
+xero_tenant_id = 'xeroTenantId_example'
 
 begin
-  response = xero_client.accounting_api.get_settings(xeroTenantId)
+  response = xero_client.accounting_api.get_settings(xero_tenant_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_settings: #{e}"
@@ -5869,11 +5869,11 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollAu-getSuperfund-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-superFundID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'xeroTenantId_example'
+super_fund_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.get_superfund(xeroTenantId, superFundID)
+  response = xero_client.accounting_api.get_superfund(xero_tenant_id, super_fund_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_superfund: #{e}"
@@ -5987,12 +5987,12 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollAu-getSuperfundProducts-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
+xero_tenant_id = 'xeroTenantId_example'
 aBN = '40022701955'
 uSI = 'OSF0001AU'
 
 begin
-  response = xero_client.accounting_api.get_superfund_products(xeroTenantId, aBN, uSI)
+  response = xero_client.accounting_api.get_superfund_products(xero_tenant_id, aBN, uSI)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_superfund_products: #{e}"
@@ -6120,14 +6120,14 @@ The USI of the Regulated SuperFund
                     <div class="tab-pane" id="examples-PayrollAu-getSuperfunds-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-ifModifiedSince = "2020-02-06T12:17:43.202-08:00"
+xero_tenant_id = 'xeroTenantId_example'
+if_modified_since = "2020-02-06T12:17:43.202-08:00"
 where = 'Status=="ACTIVE"'
 order = 'EmailAddress%20DESC'
 page = 56
 
 begin
-  response = xero_client.accounting_api.get_superfunds(xeroTenantId, ifModifiedSince, where, order, page)
+  response = xero_client.accounting_api.get_superfunds(xero_tenant_id, if_modified_since, where, order, page)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_superfunds: #{e}"
@@ -6298,11 +6298,11 @@ e.g. page=1 – Up to 100 SuperFunds will be returned in a single API call
                     <div class="tab-pane" id="examples-PayrollAu-getTimesheet-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-timesheetID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'xeroTenantId_example'
+timesheet_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.get_timesheet(xeroTenantId, timesheetID)
+  response = xero_client.accounting_api.get_timesheet(xero_tenant_id, timesheet_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_timesheet: #{e}"
@@ -6416,14 +6416,14 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollAu-getTimesheets-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-ifModifiedSince = "2020-02-06T12:17:43.202-08:00"
+xero_tenant_id = 'xeroTenantId_example'
+if_modified_since = "2020-02-06T12:17:43.202-08:00"
 where = 'Status=="ACTIVE"'
 order = 'EmailAddress%20DESC'
 page = 56
 
 begin
-  response = xero_client.accounting_api.get_timesheets(xeroTenantId, ifModifiedSince, where, order, page)
+  response = xero_client.accounting_api.get_timesheets(xero_tenant_id, if_modified_since, where, order, page)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_timesheets: #{e}"
@@ -6594,8 +6594,8 @@ e.g. page=1 – Up to 100 timesheets will be returned in a single API call
                     <div class="tab-pane" id="examples-PayrollAu-updateEmployee-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-employeeID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'xeroTenantId_example'
+employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 date_of_birth = 'YYYY-MM-DD'
 
 home_address = { 
@@ -6613,7 +6613,7 @@ employee = {
 }  
 
 begin
-  response = xero_client.accounting_api.update_employee(xeroTenantId, employeeID, employee)
+  response = xero_client.accounting_api.update_employee(xero_tenant_id, employee_id, employee)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_employee: #{e}"
@@ -6757,8 +6757,8 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollAu-updateLeaveApplication-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-leaveApplicationID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'xeroTenantId_example'
+leave_application_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 start_date = 'YYYY-MM-DD'
 end_date = 'YYYY-MM-DD'
 
@@ -6771,7 +6771,7 @@ leaveApplication = {
 }  
 
 begin
-  response = xero_client.accounting_api.update_leave_application(xeroTenantId, leaveApplicationID, leaveApplication)
+  response = xero_client.accounting_api.update_leave_application(xero_tenant_id, leave_application_id, leaveApplication)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_leave_application: #{e}"
@@ -6919,15 +6919,15 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollAu-updatePayRun-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-payRunID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'xeroTenantId_example'
+pay_run_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 pay_run = { 
   payroll_calendar_id: "00000000-0000-0000-0000-000000000000"
 }  
 
 begin
-  response = xero_client.accounting_api.update_pay_run(xeroTenantId, payRunID, payRun)
+  response = xero_client.accounting_api.update_pay_run(xero_tenant_id, pay_run_id, payRun)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_pay_run: #{e}"
@@ -7071,8 +7071,8 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollAu-updatePayslip-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-payslipID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'xeroTenantId_example'
+payslip_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 earnings_line = { 
   earnings_rate_id: "00000000-0000-0000-0000-000000000000",
@@ -7089,7 +7089,7 @@ payslip_lines = []
 payslip_lines << payslip_line
 
 begin
-  response = xero_client.accounting_api.update_payslip(xeroTenantId, payslipID, payslipLines)
+  response = xero_client.accounting_api.update_payslip(xero_tenant_id, payslip_id, payslipLines)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_payslip: #{e}"
@@ -7233,8 +7233,8 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollAu-updateSuperfund-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-superFundID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'xeroTenantId_example'
+super_fund_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 super_fund = { 
   type:  XeroRuby::PayrollAu::SuperFundType::REGULATED,
@@ -7242,7 +7242,7 @@ super_fund = {
 }  
 
 begin
-  response = xero_client.accounting_api.update_superfund(xeroTenantId, superFundID, superFund)
+  response = xero_client.accounting_api.update_superfund(xero_tenant_id, super_fund_id, superFund)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_superfund: #{e}"
@@ -7386,8 +7386,8 @@ Xero identifier for Tenant
                     <div class="tab-pane" id="examples-PayrollAu-updateTimesheet-0-ruby">
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
-xeroTenantId = 'xeroTenantId_example'
-timesheetID = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+xero_tenant_id = 'xeroTenantId_example'
+timesheet_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 start_date = 'YYYY-MM-DD'
 end_date = 'YYYY-MM-DD'
 
@@ -7399,7 +7399,7 @@ timesheet = {
 }  
 
 begin
-  response = xero_client.accounting_api.update_timesheet(xeroTenantId, timesheetID, timesheet)
+  response = xero_client.accounting_api.update_timesheet(xero_tenant_id, timesheet_id, timesheet)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_timesheet: #{e}"
