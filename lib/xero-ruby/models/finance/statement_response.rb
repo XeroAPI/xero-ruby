@@ -28,8 +28,14 @@ module XeroRuby::Finance
     # Utc date time of when the statement was imported in Xero
     attr_accessor :imported_date_time_utc
     
-    # Import source of statement (STMTIMPORTSRC/MANUAL, STMTIMPORTSRC/CSV, STMTIMPORTSRC/QIF, STMTIMPORTSRC/OFX, XeroApi)
+    # Indicates the source of the statement data. Either imported from 1) direct bank feed OR 2) manual customer entry or upload. Manual import sources are STMTIMPORTSRC/MANUAL, STMTIMPORTSRC/CSV, STMTIMPORTSRC/OFX, Ofx or STMTIMPORTSRC/QIF. All other import sources are direct and, depending on the direct solution, may contain the name of the financial institution.
     attr_accessor :import_source
+    
+    # Opening balance sourced from imported bank statements (if supplied). Note, for manually uploaded statements, this balance is also manual and usually not supplied.
+    attr_accessor :start_balance
+    
+    # Closing balance sourced from imported bank statements (if supplied). Note, for manually uploaded statements, this balance is also manual and usually not supplied.
+    attr_accessor :end_balance
     
     # List of statement lines
     attr_accessor :statement_lines
@@ -42,6 +48,8 @@ module XeroRuby::Finance
         :'end_date' => :'endDate',
         :'imported_date_time_utc' => :'importedDateTimeUtc',
         :'import_source' => :'importSource',
+        :'start_balance' => :'startBalance',
+        :'end_balance' => :'endBalance',
         :'statement_lines' => :'statementLines'
       }
     end
@@ -54,6 +62,8 @@ module XeroRuby::Finance
         :'end_date' => :'Date',
         :'imported_date_time_utc' => :'DateTime',
         :'import_source' => :'String',
+        :'start_balance' => :'BigDecimal',
+        :'end_balance' => :'BigDecimal',
         :'statement_lines' => :'Array<StatementLineResponse>'
       }
     end
@@ -93,6 +103,14 @@ module XeroRuby::Finance
         self.import_source = attributes[:'import_source']
       end
 
+      if attributes.key?(:'start_balance')
+        self.start_balance = attributes[:'start_balance']
+      end
+
+      if attributes.key?(:'end_balance')
+        self.end_balance = attributes[:'end_balance']
+      end
+
       if attributes.key?(:'statement_lines')
         if (value = attributes[:'statement_lines']).is_a?(Array)
           self.statement_lines = value
@@ -123,6 +141,8 @@ module XeroRuby::Finance
           end_date == o.end_date &&
           imported_date_time_utc == o.imported_date_time_utc &&
           import_source == o.import_source &&
+          start_balance == o.start_balance &&
+          end_balance == o.end_balance &&
           statement_lines == o.statement_lines
     end
 
@@ -135,7 +155,7 @@ module XeroRuby::Finance
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [statement_id, start_date, end_date, imported_date_time_utc, import_source, statement_lines].hash
+      [statement_id, start_date, end_date, imported_date_time_utc, import_source, start_balance, end_balance, statement_lines].hash
     end
 
     # Builds the object from hash
