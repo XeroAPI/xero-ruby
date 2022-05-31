@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **user_id** | **String** | The Xero identifier for the user | [optional] 
-**user_created_date_utc** | **Time** | Timestamp of user creation. | [optional] 
-**last_login_date_utc** | **Time** | Timestamp of user last login | [optional] 
+**user_created_date_utc** | **DateTime** | Timestamp of user creation. | [optional] 
+**last_login_date_utc** | **DateTime** | Timestamp of user last login | [optional] 
 **is_external_partner** | **Boolean** | User is external partner. | [optional] 
 **has_accountant_role** | **Boolean** | User has Accountant role. | [optional] 
 **month_period** | **String** | Month period in format  yyyy-MM. | [optional] 

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **hard_lock_date** | **Date** | Date the account hard lock was set | [optional] 
 **soft_lock_date** | **Date** | Date the account soft lock was set | [optional] 
-**updated_date_utc** | **Time** | The system date time that the lock was updated | [optional] 
+**updated_date_utc** | **DateTime** | The system date time that the lock was updated | [optional] 
 
 ## Code Sample
 

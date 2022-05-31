@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **detail** | **String** |  | [optional] 
-**extensions** | **Object** |  | [optional] 
+**extensions** | [**Object**](.md) |  | [optional] 
 **instance** | **String** |  | [optional] 
 **status** | **Integer** |  | [optional] 
 **title** | **String** |  | [optional] 

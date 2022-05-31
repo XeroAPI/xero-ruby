@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**current_period_end** | **Time** | End of the current period that the subscription has been invoiced for.  | 
-**end_date** | **Time** | If the subscription has been canceled, this is the date when the subscription ends. If null, the subscription is active and has not been cancelled | [optional] 
+**current_period_end** | **DateTime** | End of the current period that the subscription has been invoiced for.  | 
+**end_date** | **DateTime** | If the subscription has been canceled, this is the date when the subscription ends. If null, the subscription is active and has not been cancelled | [optional] 
 **id** | **String** | The unique identifier of the subscription | 
 **organisation_id** | **String** | The Xero generated unique identifier for the organisation | 
 **plans** | [**Array&lt;Plan&gt;**](Plan.md) | List of plans for the subscription. | 
-**start_date** | **Time** | Date when the subscription was first created. | 
+**start_date** | **DateTime** | Date when the subscription was first created. | 
 **status** | **String** | Status of the subscription. Available statuses are ACTIVE, CANCELED, and PAST_DUE. | 
 **test_mode** | **Boolean** | Boolean used to indicate if the subscription is in test mode | [optional] 
 
