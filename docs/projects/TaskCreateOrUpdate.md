@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **name** | **String** | Name of the task. Max length 100 characters. | 
 **rate** | [**Amount**](Amount.md) |  | 
 **charge_type** | [**ChargeType**](ChargeType.md) |  | 
-**estimate_minutes** | **Integer** | Estimated time to perform the task. EstimateMinutes has to be greater than 0 if provided. | [optional] 
+**estimate_minutes** | **Integer** | An estimated time to perform the task | [optional] 
 
 ## Code Sample
 

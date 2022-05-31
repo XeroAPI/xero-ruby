@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **end_date** | **Date** | The End Date of the Timesheet period (YYYY-MM-DD) | 
 **status** | **String** | Status of the timesheet | [optional] 
 **total_hours** | **BigDecimal** | The Total Hours of the Timesheet | [optional] 
-**updated_date_utc** | **DateTime** | The UTC date time that the Timesheet was last updated | [optional] 
+**updated_date_utc** | **Time** | The UTC date time that the Timesheet was last updated | [optional] 
 **timesheet_lines** | [**Array&lt;TimesheetLine&gt;**](TimesheetLine.md) |  | [optional] 
 
 ## Code Sample

@@ -106,8 +106,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-timesheet_id = 'timesheet_id_example' # String | Identifier for the timesheet
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+timesheet_id = 38400000-8cf0-11bd-b23e-10b96e4ef00d # String | Identifier for the timesheet
 begin
   #Approves a timesheet
   result = api_instance.approve_timesheet(xero_tenant_id, timesheet_id)
@@ -123,7 +123,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **timesheet_id** | [**String**](.md)| Identifier for the timesheet | 
+ **timesheet_id** | **String**| Identifier for the timesheet | 
 
 ### Return type
 
@@ -170,7 +170,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
 deduction = { "deductionName": "My new deduction", "deductionCategory": "NzOther", "liabilityAccountId": "568f2e9a-0870-46cc-8678-f83f132ed4e3" } # Deduction | 
 begin
   #Creates a new deduction for a specific employee
@@ -234,7 +234,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
 earnings_rate = { "name": "My Earnings Rate", "earningsType": "RegularEarnings", "rateType": "RatePerUnit", "typeOfUnits": "hours", "expenseAccountID": "e4eb36f6-97e3-4427-a394-dd4e1b355c2e" } # EarningsRate | 
 begin
   #Creates a new earnings rate
@@ -298,7 +298,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
 employee = { "title": "Mr", "firstName": "Mike", "lastName": "Johntzxzpxhmkgson", "dateOfBirth": "2000-01-01", "address": { "addressLine1": "101 Green St", "city": "San Francisco", "postCode": "4351", "countryName": "United Kingdom" }, "email": "83139@starkindustries.com", "gender": "M" } # Employee | 
 begin
   #Creates an employees
@@ -362,8 +362,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+employee_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | Employee id for single object
 earnings_template = { "ratePerUnit": 20, "numberOfUnits": 8, "earningsRateID": "f9d8f5b5-9049-47f4-8541-35e200f750a5", "name": "My New One" } # EarningsTemplate | 
 begin
   #Creates earnings template records for an employee
@@ -380,7 +380,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **employee_id** | [**String**](.md)| Employee id for single object | 
+ **employee_id** | **String**| Employee id for single object | 
  **earnings_template** | [**EarningsTemplate**](EarningsTemplate.md)|  | 
 
 ### Return type
@@ -428,8 +428,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+employee_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | Employee id for single object
 employee_leave = { "leaveTypeID": "b0b1b79e-2a25-46c2-ad08-ca25ef48d7e4", "description": "Creating a Description", "startDate": "2020-04-24", "endDate": "2020-04-26" } # EmployeeLeave | 
 begin
   #Creates leave records for a specific employee
@@ -446,7 +446,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **employee_id** | [**String**](.md)| Employee id for single object | 
+ **employee_id** | **String**| Employee id for single object | 
  **employee_leave** | [**EmployeeLeave**](EmployeeLeave.md)|  | 
 
 ### Return type
@@ -494,8 +494,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+employee_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | Employee id for single object
 employee_leave_setup = { "holidayPayOpeningBalance": 10, "annualLeaveOpeningBalance": 100, "sickLeaveHoursToAccrueAnnually": 20, "sickLeaveOpeningBalance": 10 } # EmployeeLeaveSetup | 
 begin
   #Creates a leave set-up for a specific employee. This is required before viewing, configuring and requesting leave for an employee
@@ -512,7 +512,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **employee_id** | [**String**](.md)| Employee id for single object | 
+ **employee_id** | **String**| Employee id for single object | 
  **employee_leave_setup** | [**EmployeeLeaveSetup**](EmployeeLeaveSetup.md)|  | 
 
 ### Return type
@@ -560,8 +560,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+employee_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | Employee id for single object
 employee_leave_type = { "leaveTypeID": "35da97ae-05b9-427f-9a98-69157ba42cec", "scheduleOfAccrual": "AnnuallyAfter6Months", "hoursAccruedAnnually": 10, "maximumToAccrue": 80, "openingBalance": 100, "rateAccruedHourly": 3.5 } # EmployeeLeaveType | 
 begin
   #Creates leave type records for a specific employee
@@ -578,7 +578,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **employee_id** | [**String**](.md)| Employee id for single object | 
+ **employee_id** | **String**| Employee id for single object | 
  **employee_leave_type** | [**EmployeeLeaveType**](EmployeeLeaveType.md)|  | 
 
 ### Return type
@@ -626,8 +626,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+employee_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | Employee id for single object
 employee_opening_balance = [{"periodEndDate":"2020-10-01","daysPaid":3,"unpaidWeeks":2,"grossEarnings":40.0}] # Array<EmployeeOpeningBalance> | 
 begin
   #Creates opening balances for a specific employee
@@ -644,7 +644,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **employee_id** | [**String**](.md)| Employee id for single object | 
+ **employee_id** | **String**| Employee id for single object | 
  **employee_opening_balance** | [**Array&lt;EmployeeOpeningBalance&gt;**](EmployeeOpeningBalance.md)|  | 
 
 ### Return type
@@ -692,9 +692,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
-payment_method = XeroRuby::PayrollNz::PaymentMethod.new # PaymentMethod | 
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+employee_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | Employee id for single object
+payment_method =  # PaymentMethod | 
 begin
   #Creates a payment method for an employee
   result = api_instance.create_employee_payment_method(xero_tenant_id, employee_id, payment_method)
@@ -710,7 +710,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **employee_id** | [**String**](.md)| Employee id for single object | 
+ **employee_id** | **String**| Employee id for single object | 
  **payment_method** | [**PaymentMethod**](PaymentMethod.md)|  | 
 
 ### Return type
@@ -758,8 +758,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+employee_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | Employee id for single object
 salary_and_wage = { "earningsRateID": "f9d8f5b5-9049-47f4-8541-35e200f750a5", "numberOfUnitsPerWeek": 2, "ratePerUnit": 10, "numberOfUnitsPerDay": 2, "daysPerWeek": 1, "effectiveFrom": "2020-05-01", "annualSalary": 100, "status": "Active", "paymentType": "Salary" } # SalaryAndWage | 
 begin
   #Creates an employee salary and wage record
@@ -776,7 +776,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **employee_id** | [**String**](.md)| Employee id for single object | 
+ **employee_id** | **String**| Employee id for single object | 
  **salary_and_wage** | [**SalaryAndWage**](SalaryAndWage.md)|  | 
 
 ### Return type
@@ -824,8 +824,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+employee_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | Employee id for single object
 employment = { "payrollCalendarID": "9aa56064-990f-4ad3-a189-d966d8f6a030", "startDate": "2020-09-02" } # Employment | 
 begin
   #Creates an employment detail for a specific employee
@@ -842,7 +842,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **employee_id** | [**String**](.md)| Employee id for single object | 
+ **employee_id** | **String**| Employee id for single object | 
  **employment** | [**Employment**](Employment.md)|  | 
 
 ### Return type
@@ -890,7 +890,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
 leave_type = { "name": "My wqwhhiktun Leave", "isPaidLeave": false, "showOnPayslip": true } # LeaveType | 
 begin
   #Creates a new leave type
@@ -954,8 +954,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+employee_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | Employee id for single object
 earnings_template = [{"ratePerUnit":20.0,"numberOfUnits":8.0,"earningsRateID":"f9d8f5b5-9049-47f4-8541-35e200f750a5"},{"ratePerUnit":0.0,"numberOfUnits":8.0,"earningsRateID":"65b83d94-f20f-45e1-85ae-387fcf460c26"}] # Array<EarningsTemplate> | 
 begin
   #Creates multiple employee earnings template records for a specific employee
@@ -972,7 +972,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **employee_id** | [**String**](.md)| Employee id for single object | 
+ **employee_id** | **String**| Employee id for single object | 
  **earnings_template** | [**Array&lt;EarningsTemplate&gt;**](EarningsTemplate.md)|  | 
 
 ### Return type
@@ -1020,7 +1020,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
 pay_run = { "payrollCalendarID": "9aa56064-990f-4ad3-a189-d966d8f6a030", "periodStartDate": "2020-09-08", "periodEndDate": "2020-09-15", "paymentDate": "2020-09-20", "payRunStatus": "Draft", "payRunType": "Scheduled", "calendarType": "Weekly" } # PayRun | 
 begin
   #Creates a pay run
@@ -1084,7 +1084,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
 pay_run_calendar = { "name": "My Weekly Cal", "calendarType": "Weekly", "periodStartDate": "2020-05-01", "paymentDate": "2020-05-15" } # PayRunCalendar | 
 begin
   #Creates a new payrun calendar
@@ -1148,7 +1148,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
 reimbursement = { "name": "My new Reimburse", "accountID": "fa5cdc43-643b-4ad8-b4ac-3ffe0d0f4488", "reimbursementCategory": "GSTInclusive", "calculationType": "FixedAmount" } # Reimbursement | 
 begin
   #Creates a new reimbursement
@@ -1212,7 +1212,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
 benefit = { "name": "SidSaver", "category": "Other", "liabilityAccountId": "568f2e9a-0870-46cc-8678-f83f132ed4e3", "expenseAccountId": "e4eb36f6-97e3-4427-a394-dd4e1b355c2e", "CalculationTypeNZ": "FixedAmount", "standardAmount": 10 } # Benefit | 
 begin
   #Creates a new superannuation
@@ -1276,7 +1276,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
 timesheet = { "payrollCalendarID": "9aa56064-990f-4ad3-a189-d966d8f6a030", "employeeID": "68342973-c405-4b86-b5d3-d7b877c27995", "startDate": "2020-04-13", "endDate": "2020-04-19", "timesheetLines": [ { "date": "2020-04-13", "earningsRateID": "f9d8f5b5-9049-47f4-8541-35e200f750a5", "numberOfUnits": 8 }, { "date": "2020-04-15", "earningsRateID": "f9d8f5b5-9049-47f4-8541-35e200f750a5", "numberOfUnits": 6 } ] } # Timesheet | 
 begin
   #Creates a new timesheet
@@ -1340,8 +1340,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-timesheet_id = 'timesheet_id_example' # String | Identifier for the timesheet
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+timesheet_id = 38400000-8cf0-11bd-b23e-10b96e4ef00d # String | Identifier for the timesheet
 timesheet_line = { "date": "2020-08-03", "earningsRateID": "f9d8f5b5-9049-47f4-8541-35e200f750a5", "numberOfUnits": 1 } # TimesheetLine | 
 begin
   #Create a new timesheet line for a specific time sheet
@@ -1358,7 +1358,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **timesheet_id** | [**String**](.md)| Identifier for the timesheet | 
+ **timesheet_id** | **String**| Identifier for the timesheet | 
  **timesheet_line** | [**TimesheetLine**](TimesheetLine.md)|  | 
 
 ### Return type
@@ -1406,9 +1406,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
-pay_template_earning_id = '3fa85f64-5717-4562-b3fc-2c963f66afa6' # String | Id for single pay template earnings object
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+employee_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | Employee id for single object
+pay_template_earning_id = 3fa85f64-5717-4562-b3fc-2c963f66afa6 # String | Id for single pay template earnings object
 begin
   #Deletes an employee's earnings template record
   result = api_instance.delete_employee_earnings_template(xero_tenant_id, employee_id, pay_template_earning_id)
@@ -1424,8 +1424,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **employee_id** | [**String**](.md)| Employee id for single object | 
- **pay_template_earning_id** | [**String**](.md)| Id for single pay template earnings object | 
+ **employee_id** | **String**| Employee id for single object | 
+ **pay_template_earning_id** | **String**| Id for single pay template earnings object | 
 
 ### Return type
 
@@ -1472,9 +1472,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
-leave_id = 'c4be24e5-e840-4c92-9eaa-2d86cd596314' # String | Leave id for single object
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+employee_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | Employee id for single object
+leave_id = c4be24e5-e840-4c92-9eaa-2d86cd596314 # String | Leave id for single object
 begin
   #Deletes a leave record for a specific employee
   result = api_instance.delete_employee_leave(xero_tenant_id, employee_id, leave_id)
@@ -1490,8 +1490,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **employee_id** | [**String**](.md)| Employee id for single object | 
- **leave_id** | [**String**](.md)| Leave id for single object | 
+ **employee_id** | **String**| Employee id for single object | 
+ **leave_id** | **String**| Leave id for single object | 
 
 ### Return type
 
@@ -1538,9 +1538,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
-salary_and_wages_id = '3fa85f64-5717-4562-b3fc-2c963f66afa6' # String | Id for single salary and wages object
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+employee_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | Employee id for single object
+salary_and_wages_id = 3fa85f64-5717-4562-b3fc-2c963f66afa6 # String | Id for single salary and wages object
 begin
   #Deletes an employee's salary and wages record
   result = api_instance.delete_employee_salary_and_wage(xero_tenant_id, employee_id, salary_and_wages_id)
@@ -1556,8 +1556,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **employee_id** | [**String**](.md)| Employee id for single object | 
- **salary_and_wages_id** | [**String**](.md)| Id for single salary and wages object | 
+ **employee_id** | **String**| Employee id for single object | 
+ **salary_and_wages_id** | **String**| Id for single salary and wages object | 
 
 ### Return type
 
@@ -1604,8 +1604,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-timesheet_id = 'timesheet_id_example' # String | Identifier for the timesheet
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+timesheet_id = 38400000-8cf0-11bd-b23e-10b96e4ef00d # String | Identifier for the timesheet
 begin
   #Deletes a timesheet
   result = api_instance.delete_timesheet(xero_tenant_id, timesheet_id)
@@ -1621,7 +1621,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **timesheet_id** | [**String**](.md)| Identifier for the timesheet | 
+ **timesheet_id** | **String**| Identifier for the timesheet | 
 
 ### Return type
 
@@ -1668,9 +1668,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-timesheet_id = 'timesheet_id_example' # String | Identifier for the timesheet
-timesheet_line_id = 'timesheet_line_id_example' # String | Identifier for the timesheet line
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+timesheet_id = 38400000-8cf0-11bd-b23e-10b96e4ef00d # String | Identifier for the timesheet
+timesheet_line_id = 38400000-8cf0-11bd-b23e-10b96e4ef00d # String | Identifier for the timesheet line
 begin
   #Deletes a timesheet line for a specific timesheet
   result = api_instance.delete_timesheet_line(xero_tenant_id, timesheet_id, timesheet_line_id)
@@ -1686,8 +1686,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **timesheet_id** | [**String**](.md)| Identifier for the timesheet | 
- **timesheet_line_id** | [**String**](.md)| Identifier for the timesheet line | 
+ **timesheet_id** | **String**| Identifier for the timesheet | 
+ **timesheet_line_id** | **String**| Identifier for the timesheet line | 
 
 ### Return type
 
@@ -1734,8 +1734,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-deduction_id = 'deduction_id_example' # String | Identifier for the deduction
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+deduction_id = 38400000-8cf0-11bd-b23e-10b96e4ef00d # String | Identifier for the deduction
 begin
   #Retrieves a single deduction by using a unique deduction ID
   result = api_instance.get_deduction(xero_tenant_id, deduction_id)
@@ -1751,7 +1751,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **deduction_id** | [**String**](.md)| Identifier for the deduction | 
+ **deduction_id** | **String**| Identifier for the deduction | 
 
 ### Return type
 
@@ -1798,7 +1798,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
 opts = {
   page: 56 # Integer | Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
 }
@@ -1865,8 +1865,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-earnings_rate_id = 'earnings_rate_id_example' # String | Identifier for the earnings rate
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+earnings_rate_id = 38400000-8cf0-11bd-b23e-10b96e4ef00d # String | Identifier for the earnings rate
 begin
   #Retrieves a specific earnings rates by using a unique earnings rate id
   result = api_instance.get_earnings_rate(xero_tenant_id, earnings_rate_id)
@@ -1882,7 +1882,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **earnings_rate_id** | [**String**](.md)| Identifier for the earnings rate | 
+ **earnings_rate_id** | **String**| Identifier for the earnings rate | 
 
 ### Return type
 
@@ -1929,7 +1929,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
 opts = {
   page: 56 # Integer | Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
 }
@@ -1996,8 +1996,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+employee_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | Employee id for single object
 begin
   #Retrieves an employees using a unique employee ID
   result = api_instance.get_employee(xero_tenant_id, employee_id)
@@ -2013,7 +2013,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **employee_id** | [**String**](.md)| Employee id for single object | 
+ **employee_id** | **String**| Employee id for single object | 
 
 ### Return type
 
@@ -2060,8 +2060,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+employee_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | Employee id for single object
 begin
   #Retrieves leave balances for a specific employee
   result = api_instance.get_employee_leave_balances(xero_tenant_id, employee_id)
@@ -2077,7 +2077,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **employee_id** | [**String**](.md)| Employee id for single object | 
+ **employee_id** | **String**| Employee id for single object | 
 
 ### Return type
 
@@ -2124,12 +2124,12 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+employee_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | Employee id for single object
 opts = {
-  start_date: Date.parse('2013-10-20'), # Date | Filter by start date
+  start_date: 2013-10-20, # Date | Filter by start date
 
-  end_date: Date.parse('Johnson') # Date | Filter by end date
+  end_date: Johnson # Date | Filter by end date
 }
 
 begin
@@ -2147,7 +2147,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **employee_id** | [**String**](.md)| Employee id for single object | 
+ **employee_id** | **String**| Employee id for single object | 
  **start_date** | **Date**| Filter by start date | [optional] 
  **end_date** | **Date**| Filter by end date | [optional] 
 
@@ -2196,8 +2196,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+employee_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | Employee id for single object
 begin
   #Retrieves leave types for a specific employee
   result = api_instance.get_employee_leave_types(xero_tenant_id, employee_id)
@@ -2213,7 +2213,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **employee_id** | [**String**](.md)| Employee id for single object | 
+ **employee_id** | **String**| Employee id for single object | 
 
 ### Return type
 
@@ -2260,8 +2260,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+employee_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | Employee id for single object
 begin
   #Retrieves leave records for a specific employee
   result = api_instance.get_employee_leaves(xero_tenant_id, employee_id)
@@ -2277,7 +2277,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **employee_id** | [**String**](.md)| Employee id for single object | 
+ **employee_id** | **String**| Employee id for single object | 
 
 ### Return type
 
@@ -2324,8 +2324,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+employee_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | Employee id for single object
 begin
   #Retrieves the opening balance for a specific employee
   result = api_instance.get_employee_opening_balances(xero_tenant_id, employee_id)
@@ -2341,7 +2341,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **employee_id** | [**String**](.md)| Employee id for single object | 
+ **employee_id** | **String**| Employee id for single object | 
 
 ### Return type
 
@@ -2388,8 +2388,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+employee_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | Employee id for single object
 begin
   #Retrieves pay templates for a specific employee
   result = api_instance.get_employee_pay_templates(xero_tenant_id, employee_id)
@@ -2405,7 +2405,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **employee_id** | [**String**](.md)| Employee id for single object | 
+ **employee_id** | **String**| Employee id for single object | 
 
 ### Return type
 
@@ -2452,8 +2452,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+employee_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | Employee id for single object
 begin
   #Retrieves available payment methods for a specific employee
   result = api_instance.get_employee_payment_method(xero_tenant_id, employee_id)
@@ -2469,7 +2469,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **employee_id** | [**String**](.md)| Employee id for single object | 
+ **employee_id** | **String**| Employee id for single object | 
 
 ### Return type
 
@@ -2516,9 +2516,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
-salary_and_wages_id = '3fa85f64-5717-4562-b3fc-2c963f66afa6' # String | Id for single pay template earnings object
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+employee_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | Employee id for single object
+salary_and_wages_id = 3fa85f64-5717-4562-b3fc-2c963f66afa6 # String | Id for single pay template earnings object
 begin
   #Retrieves an employee's salary and wages record by using a unique salary and wage ID
   result = api_instance.get_employee_salary_and_wage(xero_tenant_id, employee_id, salary_and_wages_id)
@@ -2534,8 +2534,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **employee_id** | [**String**](.md)| Employee id for single object | 
- **salary_and_wages_id** | [**String**](.md)| Id for single pay template earnings object | 
+ **employee_id** | **String**| Employee id for single object | 
+ **salary_and_wages_id** | **String**| Id for single pay template earnings object | 
 
 ### Return type
 
@@ -2582,8 +2582,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+employee_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | Employee id for single object
 opts = {
   page: 56 # Integer | Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
 }
@@ -2603,7 +2603,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **employee_id** | [**String**](.md)| Employee id for single object | 
+ **employee_id** | **String**| Employee id for single object | 
  **page** | **Integer**| Page number which specifies the set of records to retrieve. By default the number of the records per set is 100. | [optional] 
 
 ### Return type
@@ -2651,8 +2651,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+employee_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | Employee id for single object
 begin
   #Retrieves tax records for a specific employee
   result = api_instance.get_employee_tax(xero_tenant_id, employee_id)
@@ -2668,7 +2668,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **employee_id** | [**String**](.md)| Employee id for single object | 
+ **employee_id** | **String**| Employee id for single object | 
 
 ### Return type
 
@@ -2715,9 +2715,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
 opts = {
-  filter: 'firstName==John,lastName==Smith', # String | Filter by first name and/or lastname
+  filter: firstName==John,lastName==Smith, # String | Filter by first name and/or lastname
 
   page: 5 # Integer | Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
 }
@@ -2785,8 +2785,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-leave_type_id = 'leave_type_id_example' # String | Identifier for the leave type
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+leave_type_id = 38400000-8cf0-11bd-b23e-10b96e4ef00d # String | Identifier for the leave type
 begin
   #Retrieves a specific leave type by using a unique leave type ID
   result = api_instance.get_leave_type(xero_tenant_id, leave_type_id)
@@ -2802,7 +2802,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **leave_type_id** | [**String**](.md)| Identifier for the leave type | 
+ **leave_type_id** | **String**| Identifier for the leave type | 
 
 ### Return type
 
@@ -2849,7 +2849,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
 opts = {
   page: 56, # Integer | Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
 
@@ -2919,8 +2919,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-pay_run_id = 'pay_run_id_example' # String | Identifier for the pay run
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+pay_run_id = 38400000-8cf0-11bd-b23e-10b96e4ef00d # String | Identifier for the pay run
 begin
   #Retrieves a specific pay run by using a unique pay run ID
   result = api_instance.get_pay_run(xero_tenant_id, pay_run_id)
@@ -2936,7 +2936,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **pay_run_id** | [**String**](.md)| Identifier for the pay run | 
+ **pay_run_id** | **String**| Identifier for the pay run | 
 
 ### Return type
 
@@ -2983,8 +2983,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-payroll_calendar_id = 'payroll_calendar_id_example' # String | Identifier for the payrun calendars
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+payroll_calendar_id = 38400000-8cf0-11bd-b23e-10b96e4ef00d # String | Identifier for the payrun calendars
 begin
   #Retrieves a specific payrun calendar by using a unique payroll calendar ID
   result = api_instance.get_pay_run_calendar(xero_tenant_id, payroll_calendar_id)
@@ -3000,7 +3000,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **payroll_calendar_id** | [**String**](.md)| Identifier for the payrun calendars | 
+ **payroll_calendar_id** | **String**| Identifier for the payrun calendars | 
 
 ### Return type
 
@@ -3047,7 +3047,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
 opts = {
   page: 56 # Integer | Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
 }
@@ -3114,11 +3114,11 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
 opts = {
   page: 56, # Integer | Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
 
-  status: 'status_example' # String | By default get payruns will return all the payruns for an organization. You can add GET https://api.xero.com/payroll.xro/2.0/payRuns?statu={PayRunStatus} to filter the payruns by status.
+  status: Draft # String | By default get payruns will return all the payruns for an organization. You can add GET https://api.xero.com/payroll.xro/2.0/payRuns?statu={PayRunStatus} to filter the payruns by status.
 }
 
 begin
@@ -3184,8 +3184,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-pay_slip_id = 'pay_slip_id_example' # String | Identifier for the payslip
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+pay_slip_id = 38400000-8cf0-11bd-b23e-10b96e4ef00d # String | Identifier for the payslip
 begin
   #Retrieves a specific payslip by a unique pay slip ID
   result = api_instance.get_pay_slip(xero_tenant_id, pay_slip_id)
@@ -3201,7 +3201,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **pay_slip_id** | [**String**](.md)| Identifier for the payslip | 
+ **pay_slip_id** | **String**| Identifier for the payslip | 
 
 ### Return type
 
@@ -3248,8 +3248,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-pay_run_id = 'pay_run_id_example' # String | PayrunID which specifies the containing payrun of payslips to retrieve. By default, the API does not group payslips by payrun.
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+pay_run_id = 38400000-8cf0-11bd-b23e-10b96e4ef00d # String | PayrunID which specifies the containing payrun of payslips to retrieve. By default, the API does not group payslips by payrun.
 opts = {
   page: 56 # Integer | Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
 }
@@ -3269,7 +3269,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **pay_run_id** | [**String**](.md)| PayrunID which specifies the containing payrun of payslips to retrieve. By default, the API does not group payslips by payrun. | 
+ **pay_run_id** | **String**| PayrunID which specifies the containing payrun of payslips to retrieve. By default, the API does not group payslips by payrun. | 
  **page** | **Integer**| Page number which specifies the set of records to retrieve. By default the number of the records per set is 100. | [optional] 
 
 ### Return type
@@ -3317,8 +3317,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-reimbursement_id = 'reimbursement_id_example' # String | Identifier for the reimbursement
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+reimbursement_id = 38400000-8cf0-11bd-b23e-10b96e4ef00d # String | Identifier for the reimbursement
 begin
   #Retrieves a specific reimbursement by using a unique reimbursement ID
   result = api_instance.get_reimbursement(xero_tenant_id, reimbursement_id)
@@ -3334,7 +3334,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **reimbursement_id** | [**String**](.md)| Identifier for the reimbursement | 
+ **reimbursement_id** | **String**| Identifier for the reimbursement | 
 
 ### Return type
 
@@ -3381,7 +3381,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
 opts = {
   page: 56 # Integer | Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
 }
@@ -3448,7 +3448,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
 begin
   #Retrieves settings
   result = api_instance.get_settings(xero_tenant_id)
@@ -3510,8 +3510,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-id = 'id_example' # String | Identifier for the statutory deduction
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+id = 38400000-8cf0-11bd-b23e-10b96e4ef00d # String | Identifier for the statutory deduction
 begin
   #Retrieves a specific statutory deduction by using a unique statutory deductions id
   result = api_instance.get_statutory_deduction(xero_tenant_id, id)
@@ -3527,7 +3527,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **id** | [**String**](.md)| Identifier for the statutory deduction | 
+ **id** | **String**| Identifier for the statutory deduction | 
 
 ### Return type
 
@@ -3574,7 +3574,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
 opts = {
   page: 56 # Integer | Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
 }
@@ -3641,8 +3641,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-superannuation_id = 'superannuation_id_example' # String | Identifier for the superannuation
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+superannuation_id = 38400000-8cf0-11bd-b23e-10b96e4ef00d # String | Identifier for the superannuation
 begin
   #Retrieves a specific superannuation using a unique superannuation ID
   result = api_instance.get_superannuation(xero_tenant_id, superannuation_id)
@@ -3658,7 +3658,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **superannuation_id** | [**String**](.md)| Identifier for the superannuation | 
+ **superannuation_id** | **String**| Identifier for the superannuation | 
 
 ### Return type
 
@@ -3705,7 +3705,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
 opts = {
   page: 56 # Integer | Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
 }
@@ -3772,8 +3772,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-timesheet_id = 'timesheet_id_example' # String | Identifier for the timesheet
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+timesheet_id = 38400000-8cf0-11bd-b23e-10b96e4ef00d # String | Identifier for the timesheet
 begin
   #Retrieves a specific timesheet by using a unique timesheet ID
   result = api_instance.get_timesheet(xero_tenant_id, timesheet_id)
@@ -3789,7 +3789,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **timesheet_id** | [**String**](.md)| Identifier for the timesheet | 
+ **timesheet_id** | **String**| Identifier for the timesheet | 
 
 ### Return type
 
@@ -3836,19 +3836,19 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
 opts = {
   page: 5, # Integer | Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
 
-  filter: 'employeeId==00000000-0000-0000-0000-000000000000,payrollCalendarId==00000000-0000-0000-0000-000000000000', # String | Filter by employeeId and/or payrollCalendarId
+  filter: employeeId==00000000-0000-0000-0000-000000000000,payrollCalendarId==00000000-0000-0000-0000-000000000000, # String | Filter by employeeId and/or payrollCalendarId
 
-  status: 'Draft', # String | filter results by any timesheets with a matching timesheet status
+  status: Draft, # String | filter results by any timesheets with a matching timesheet status
 
-  start_date: '2019-01-02', # String | filter results by any timesheets with a startDate on or after the provided date
+  start_date: 2019-01-02, # String | filter results by any timesheets with a startDate on or after the provided date
 
-  end_date: '2020-01-02', # String | filter results by any timesheets with a endDate on or before the provided date
+  end_date: 2020-01-02, # String | filter results by any timesheets with a endDate on or before the provided date
 
-  sort: 'startDate' # String | sort the order of timesheets returned. The default is based on the timesheets createdDate, sorted oldest to newest. Currently, the only other option is to reverse the order based on the timesheets startDate, sorted newest to oldest.
+  sort: startDate # String | sort the order of timesheets returned. The default is based on the timesheets createdDate, sorted oldest to newest. Currently, the only other option is to reverse the order based on the timesheets startDate, sorted newest to oldest.
 }
 
 begin
@@ -3918,7 +3918,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
 begin
   #Retrieves tracking categories
   result = api_instance.get_tracking_categories(xero_tenant_id)
@@ -3980,8 +3980,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-timesheet_id = 'timesheet_id_example' # String | Identifier for the timesheet
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+timesheet_id = 38400000-8cf0-11bd-b23e-10b96e4ef00d # String | Identifier for the timesheet
 begin
   #Reverts a timesheet to draft
   result = api_instance.revert_timesheet(xero_tenant_id, timesheet_id)
@@ -3997,7 +3997,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **timesheet_id** | [**String**](.md)| Identifier for the timesheet | 
+ **timesheet_id** | **String**| Identifier for the timesheet | 
 
 ### Return type
 
@@ -4044,8 +4044,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+employee_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | Employee id for single object
 employee = { "title": "Mr", "firstName": "Tony", "lastName": "Starkgtrzgquusrson", "dateOfBirth": "1999-01-01", "address": { "addressLine1": "101 Green St", "city": "San Francisco", "postCode": "4432", "countryName": "United Kingdom" }, "email": "58315@starkindustries.com", "gender": "M" } # Employee | 
 begin
   #Updates an existing employee
@@ -4062,7 +4062,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **employee_id** | [**String**](.md)| Employee id for single object | 
+ **employee_id** | **String**| Employee id for single object | 
  **employee** | [**Employee**](Employee.md)|  | 
 
 ### Return type
@@ -4110,9 +4110,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
-pay_template_earning_id = '3fa85f64-5717-4562-b3fc-2c963f66afa6' # String | Id for single pay template earnings object
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+employee_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | Employee id for single object
+pay_template_earning_id = 3fa85f64-5717-4562-b3fc-2c963f66afa6 # String | Id for single pay template earnings object
 earnings_template = { "ratePerUnit": 25, "numberOfUnits": 4, "earningsRateID": "f9d8f5b5-9049-47f4-8541-35e200f750a5" } # EarningsTemplate | 
 begin
   #Updates an earnings template records for an employee
@@ -4129,8 +4129,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **employee_id** | [**String**](.md)| Employee id for single object | 
- **pay_template_earning_id** | [**String**](.md)| Id for single pay template earnings object | 
+ **employee_id** | **String**| Employee id for single object | 
+ **pay_template_earning_id** | **String**| Id for single pay template earnings object | 
  **earnings_template** | [**EarningsTemplate**](EarningsTemplate.md)|  | 
 
 ### Return type
@@ -4178,9 +4178,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
-leave_id = 'c4be24e5-e840-4c92-9eaa-2d86cd596314' # String | Leave id for single object
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+employee_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | Employee id for single object
+leave_id = c4be24e5-e840-4c92-9eaa-2d86cd596314 # String | Leave id for single object
 employee_leave = { "leaveTypeID": "b0b1b79e-2a25-46c2-ad08-ca25ef48d7e4", "description": "Creating a Description", "startDate": "2020-04-24", "endDate": "2020-04-26", "periods": [ { "periodStartDate": "2020-04-20", "periodEndDate": "2020-04-26", "numberOfUnits": 1, "periodStatus": "Approved" } ] } # EmployeeLeave | 
 begin
   #Updates leave records for a specific employee
@@ -4197,8 +4197,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **employee_id** | [**String**](.md)| Employee id for single object | 
- **leave_id** | [**String**](.md)| Leave id for single object | 
+ **employee_id** | **String**| Employee id for single object | 
+ **leave_id** | **String**| Leave id for single object | 
  **employee_leave** | [**EmployeeLeave**](EmployeeLeave.md)|  | 
 
 ### Return type
@@ -4246,9 +4246,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
-salary_and_wages_id = '3fa85f64-5717-4562-b3fc-2c963f66afa6' # String | Id for single pay template earnings object
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+employee_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | Employee id for single object
+salary_and_wages_id = 3fa85f64-5717-4562-b3fc-2c963f66afa6 # String | Id for single pay template earnings object
 salary_and_wage = { "earningsRateID": "f9d8f5b5-9049-47f4-8541-35e200f750a5", "numberOfUnitsPerWeek": 3, "ratePerUnit": 11, "numberOfUnitsPerDay": 3, "daysPerWeek": 1, "effectiveFrom": "2020-05-15", "annualSalary": 101, "status": "Active", "paymentType": "Salary" } # SalaryAndWage | 
 begin
   #Updates an employee's salary and wages record
@@ -4265,8 +4265,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **employee_id** | [**String**](.md)| Employee id for single object | 
- **salary_and_wages_id** | [**String**](.md)| Id for single pay template earnings object | 
+ **employee_id** | **String**| Employee id for single object | 
+ **salary_and_wages_id** | **String**| Id for single pay template earnings object | 
  **salary_and_wage** | [**SalaryAndWage**](SalaryAndWage.md)|  | 
 
 ### Return type
@@ -4314,9 +4314,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
-employee_tax = XeroRuby::PayrollNz::EmployeeTax.new # EmployeeTax | 
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+employee_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | Employee id for single object
+employee_tax =  # EmployeeTax | 
 begin
   #Updates the tax records for a specific employee
   result = api_instance.update_employee_tax(xero_tenant_id, employee_id, employee_tax)
@@ -4332,7 +4332,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **employee_id** | [**String**](.md)| Employee id for single object | 
+ **employee_id** | **String**| Employee id for single object | 
  **employee_tax** | [**EmployeeTax**](EmployeeTax.md)|  | 
 
 ### Return type
@@ -4380,8 +4380,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-pay_run_id = 'pay_run_id_example' # String | Identifier for the pay run
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+pay_run_id = 38400000-8cf0-11bd-b23e-10b96e4ef00d # String | Identifier for the pay run
 pay_run = { "paymentDate": "2019-07-01" } # PayRun | 
 begin
   #Updates a pay run
@@ -4398,7 +4398,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **pay_run_id** | [**String**](.md)| Identifier for the pay run | 
+ **pay_run_id** | **String**| Identifier for the pay run | 
  **pay_run** | [**PayRun**](PayRun.md)|  | 
 
 ### Return type
@@ -4446,8 +4446,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-pay_slip_id = 'pay_slip_id_example' # String | Identifier for the payslip
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+pay_slip_id = 38400000-8cf0-11bd-b23e-10b96e4ef00d # String | Identifier for the payslip
 pay_slip = { "earningsLines": [ { "earningsLineID": "f9d8f5b5-9049-47f4-8541-35e200f750a5", "earningsRateID": "f9d8f5b5-9049-47f4-8541-35e200f750a5", "displayName": "Ordinary Time", "ratePerUnit": 25, "numberOfUnits": 0, "amount": 0, "isLinkedToTimesheet": false, "isSystemGenerated": true }, { "earningsLineID": "65b83d94-f20f-45e1-85ae-387fcf460c26", "earningsRateID": "65b83d94-f20f-45e1-85ae-387fcf460c26", "displayName": "Salary", "ratePerUnit": 0, "numberOfUnits": 8, "amount": 0, "isLinkedToTimesheet": false, "isSystemGenerated": false } ], "leaveEarningsLines": [ { "earningsLineID": "0441497f-5dc7-4cd3-a90d-f2e07e21b2a6", "earningsRateID": "39b3560a-5d2f-4538-924a-4349dc86396e", "displayName": "Holiday Pay", "fixedAmount": 268.8, "amount": 268.8, "isLinkedToTimesheet": false, "isSystemGenerated": true } ], "deductionLines": [ { "deductionTypeID": "a3760fe4-68a4-4e38-8326-fe616af7dc74", "amount": 100 } ], "leaveAccrualLines": [ { "leaveTypeID": "0441497f-5dc7-4cd3-a90d-f2e07e21b2a6", "numberOfUnits": 268.8 }, { "leaveTypeID": "b0b1b79e-2a25-46c2-ad08-ca25ef48d7e4", "numberOfUnits": 0 }, { "leaveTypeID": "f2f994cf-1899-46f3-ad4f-5d92d78c3719", "numberOfUnits": 0 }, { "leaveTypeID": "34129765-11cb-4d8c-b568-84a2219beda3", "numberOfUnits": 0 } ], "superannuationLines": [ { "superannuationTypeID": "563273ea-0dae-4f82-86a4-e0db77c008ea", "displayName": "KiwiSaver", "amount": 108.86, "fixedAmount": 3, "percentage": 3, "manualAdjustment": false } ], "employeeTaxLines": [ { "taxLineID": "1084146b-e890-489c-aed3-06de80f63d84", "amount": 1057.22, "globalTaxTypeID": "11", "manualAdjustment": false } ], "employerTaxLines": [ { "taxLineID": "6f9eb8cd-0f4a-440b-939c-bdb0f6ad694c", "amount": 18.9, "globalTaxTypeID": "10", "manualAdjustment": false } ], "statutoryDeductionLines": [ { "statutoryDeductionTypeID": "b5efd8d1-0c93-4a14-a314-b5cba4a4e6b3", "amount": 108.86 } ], "grossEarningsHistory": { "daysPaid": 3, "unpaidWeeks": 0 } } # PaySlip | 
 begin
   #Creates an employee pay slip
@@ -4464,7 +4464,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **pay_slip_id** | [**String**](.md)| Identifier for the payslip | 
+ **pay_slip_id** | **String**| Identifier for the payslip | 
  **pay_slip** | [**PaySlip**](PaySlip.md)|  | 
 
 ### Return type
@@ -4512,9 +4512,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-timesheet_id = 'timesheet_id_example' # String | Identifier for the timesheet
-timesheet_line_id = 'timesheet_line_id_example' # String | Identifier for the timesheet line
+xero_tenant_id = xero_tenant_id_example # String | Xero identifier for Tenant
+timesheet_id = 38400000-8cf0-11bd-b23e-10b96e4ef00d # String | Identifier for the timesheet
+timesheet_line_id = 38400000-8cf0-11bd-b23e-10b96e4ef00d # String | Identifier for the timesheet line
 timesheet_line = { "date": "2020-08-04", "earningsRateID": "f9d8f5b5-9049-47f4-8541-35e200f750a5", "numberOfUnits": 2 } # TimesheetLine | 
 begin
   #Updates a timesheet line for a specific timesheet
@@ -4531,8 +4531,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **timesheet_id** | [**String**](.md)| Identifier for the timesheet | 
- **timesheet_line_id** | [**String**](.md)| Identifier for the timesheet line | 
+ **timesheet_id** | **String**| Identifier for the timesheet | 
+ **timesheet_line_id** | **String**| Identifier for the timesheet line | 
  **timesheet_line** | [**TimesheetLine**](TimesheetLine.md)|  | 
 
 ### Return type
