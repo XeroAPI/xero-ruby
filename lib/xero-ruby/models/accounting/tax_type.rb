@@ -80,6 +80,7 @@ module XeroRuby::Accounting
     TXRCN33_INPUT ||= "TXRCN33INPUT".freeze
     TXRCREINPUT ||= "TXRCREINPUT".freeze
     TXRCESSINPUT ||= "TXRCESSINPUT".freeze
+    TXRCTSINPUT ||= "TXRCTSINPUT".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

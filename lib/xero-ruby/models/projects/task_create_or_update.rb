@@ -25,7 +25,7 @@ module XeroRuby::Projects
 
     attr_accessor :charge_type
     
-    # Estimated time to perform the task. EstimateMinutes has to be greater than 0 if provided.
+    # An estimated time to perform the task
     attr_accessor :estimate_minutes
     
     # Attribute mapping from ruby-style variable name to JSON key.
