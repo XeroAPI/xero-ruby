@@ -57,8 +57,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | File id for single object
+xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+file_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | File id for single object
 opts = {
   association: { "ObjectId": "1270bf7c-5d18-473a-9231-1e36c4bd33ed", "ObjectGroup": "Contact", "ObjectType": "Business" } # Association | 
 }
@@ -78,7 +78,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **file_id** | [**String**](.md)| File id for single object | 
+ **file_id** | **String**| File id for single object | 
  **association** | [**Association**](Association.md)|  | [optional] 
 
 ### Return type
@@ -128,7 +128,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
 opts = {
   folder: { "Name": "My Docs" } # Folder | 
 }
@@ -197,8 +197,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | File id for single object
+xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+file_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | File id for single object
 begin
   #Deletes a specific file
   api_instance.delete_file(xero_tenant_id, file_id)
@@ -213,7 +213,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **file_id** | [**String**](.md)| File id for single object | 
+ **file_id** | **String**| File id for single object | 
 
 ### Return type
 
@@ -262,9 +262,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | File id for single object
-object_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Object id for single object
+xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+file_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | File id for single object
+object_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | Object id for single object
 begin
   #Deletes an existing file association
   api_instance.delete_file_association(xero_tenant_id, file_id, object_id)
@@ -279,8 +279,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **file_id** | [**String**](.md)| File id for single object | 
- **object_id** | [**String**](.md)| Object id for single object | 
+ **file_id** | **String**| File id for single object | 
+ **object_id** | **String**| Object id for single object | 
 
 ### Return type
 
@@ -329,8 +329,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-folder_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Folder id for single object
+xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+folder_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | Folder id for single object
 begin
   #Deletes a folder
   api_instance.delete_folder(xero_tenant_id, folder_id)
@@ -345,7 +345,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **folder_id** | [**String**](.md)| Folder id for single object | 
+ **folder_id** | **String**| Folder id for single object | 
 
 ### Return type
 
@@ -394,8 +394,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-object_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Object id for single object
+xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+object_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | Object id for single object
 begin
   #Retrieves an association object using a unique object ID
   result = api_instance.get_associations_by_object(xero_tenant_id, object_id)
@@ -411,7 +411,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **object_id** | [**String**](.md)| Object id for single object | 
+ **object_id** | **String**| Object id for single object | 
 
 ### Return type
 
@@ -458,8 +458,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | File id for single object
+xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+file_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | File id for single object
 begin
   #Retrieves a file by a unique file ID
   result = api_instance.get_file(xero_tenant_id, file_id)
@@ -475,7 +475,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **file_id** | [**String**](.md)| File id for single object | 
+ **file_id** | **String**| File id for single object | 
 
 ### Return type
 
@@ -524,8 +524,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | File id for single object
+xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+file_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | File id for single object
 begin
   #Retrieves a specific file associations
   result = api_instance.get_file_associations(xero_tenant_id, file_id)
@@ -541,7 +541,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **file_id** | [**String**](.md)| File id for single object | 
+ **file_id** | **String**| File id for single object | 
 
 ### Return type
 
@@ -590,8 +590,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | File id for single object
+xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+file_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | File id for single object
 begin
   #Retrieves the content of a specific file
   result = api_instance.get_file_content(xero_tenant_id, file_id)
@@ -607,7 +607,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **file_id** | [**String**](.md)| File id for single object | 
+ **file_id** | **String**| File id for single object | 
 
 ### Return type
 
@@ -654,13 +654,13 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
 opts = {
   pagesize: 50, # Integer | pass an optional page size value
 
   page: 2, # Integer | number of records to skip for pagination
 
-  sort: 'CreatedDateUTC DESC' # String | values to sort by
+  sort: Name # String | values to sort by
 }
 
 begin
@@ -729,8 +729,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-folder_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Folder id for single object
+xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+folder_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | Folder id for single object
 begin
   #Retrieves specific folder by using a unique folder ID
   result = api_instance.get_folder(xero_tenant_id, folder_id)
@@ -746,7 +746,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **folder_id** | [**String**](.md)| Folder id for single object | 
+ **folder_id** | **String**| Folder id for single object | 
 
 ### Return type
 
@@ -795,9 +795,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
 opts = {
-  sort: 'CreatedDateUTC DESC' # String | values to sort by
+  sort: Name # String | values to sort by
 }
 
 begin
@@ -864,7 +864,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
 begin
   #Retrieves inbox folder
   result = api_instance.get_inbox(xero_tenant_id)
@@ -928,8 +928,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | File id for single object
+xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+file_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | File id for single object
 opts = {
   file_object: { "FolderId": "bf924975-7097-46f2-a143-1ecfbab3c8c3" } # FileObject | 
 }
@@ -949,7 +949,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **file_id** | [**String**](.md)| File id for single object | 
+ **file_id** | **String**| File id for single object | 
  **file_object** | [**FileObject**](FileObject.md)|  | [optional] 
 
 ### Return type
@@ -999,8 +999,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-folder_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Folder id for single object
+xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+folder_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | Folder id for single object
 folder = { "Name": "Your Docs" } # Folder | 
 begin
   #Updates an existing folder
@@ -1017,7 +1017,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **folder_id** | [**String**](.md)| Folder id for single object | 
+ **folder_id** | **String**| Folder id for single object | 
  **folder** | [**Folder**](Folder.md)|  | 
 
 ### Return type
@@ -1065,12 +1065,12 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-body = 'body_example' # String | 
-name = 'name_example' # String | exact name of the file you are uploading
-filename = 'filename_example' # String | 
+xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+body = BYTE_ARRAY_DATA_HERE # String | 
+name = name_example # String | exact name of the file you are uploading
+filename = filename_example # String | 
 opts = {
-  mime_type: 'mime_type_example' # String | 
+  mime_type: mime_type_example # String | 
 }
 
 begin
@@ -1138,13 +1138,13 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-folder_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | pass required folder id to save file to specific folder
-body = 'body_example' # String | 
-name = 'name_example' # String | exact name of the file you are uploading
-filename = 'filename_example' # String | 
+xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+folder_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c # String | pass required folder id to save file to specific folder
+body = BYTE_ARRAY_DATA_HERE # String | 
+name = name_example # String | exact name of the file you are uploading
+filename = filename_example # String | 
 opts = {
-  mime_type: 'mime_type_example' # String | 
+  mime_type: mime_type_example # String | 
 }
 
 begin
@@ -1162,7 +1162,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **folder_id** | [**String**](.md)| pass required folder id to save file to specific folder | 
+ **folder_id** | **String**| pass required folder id to save file to specific folder | 
  **body** | **String**|  | 
  **name** | **String**| exact name of the file you are uploading | 
  **filename** | **String**|  | 

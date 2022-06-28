@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **contact_id** | **String** | Identifier of the contact this project was created for. | [optional] 
 **name** | **String** | Name of the project. | 
 **estimate_amount** | **BigDecimal** |  | [optional] 
-**deadline_utc** | **DateTime** | Deadline for the project. UTC Date Time in ISO-8601 format. | [optional] 
+**deadline_utc** | **Time** | Deadline for the project. UTC Date Time in ISO-8601 format. | [optional] 
 
 ## Code Sample
 

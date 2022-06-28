@@ -39,7 +39,7 @@ api_instance = xero_client.<api_set>
 
 
 
-subscription_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for Subscription object
+subscription_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for Subscription object
 begin
   #Retrieves a subscription for a given subscriptionId
   result = api_instance.get_subscription(subscription_id)
@@ -54,7 +54,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subscription_id** | [**String**](.md)| Unique identifier for Subscription object | 
+ **subscription_id** | **String**| Unique identifier for Subscription object | 
 
 ### Return type
 

@@ -18,8 +18,12 @@ Name | Type | Description | Notes
 **total** | **BigDecimal** | Total of Invoice tax inclusive (i.e. SubTotal + TotalTax) | [optional] 
 **repeating_invoice_id** | **String** | Xero generated unique identifier for repeating invoice template | [optional] 
 **id** | **String** | Xero generated unique identifier for repeating invoice template | [optional] 
-**has_attachments** | **Boolean** | boolean to indicate if an invoice has an attachment | [optional] [default to false]
+**has_attachments** | **Boolean** | Boolean to indicate if an invoice has an attachment | [optional] [default to false]
 **attachments** | [**Array&lt;Attachment&gt;**](Attachment.md) | Displays array of attachments from the API | [optional] 
+**approved_for_sending** | **Boolean** | Boolean to indicate whether the invoice has been approved for sending | [optional] [default to false]
+**send_copy** | **Boolean** | Boolean to indicate whether a copy is sent to sender&#39;s email | [optional] [default to false]
+**mark_as_sent** | **Boolean** | Boolean to indicate whether the invoice in the Xero app displays as \&quot;sent\&quot; | [optional] [default to false]
+**include_pdf** | **Boolean** | Boolean to indicate whether to include PDF attachment | [optional] [default to false]
 
 ## Code Sample
 
@@ -41,7 +45,11 @@ instance = XeroRuby::Accounting::RepeatingInvoice.new(type: null,
                                  repeating_invoice_id: null,
                                  id: null,
                                  has_attachments: false,
-                                 attachments: null)
+                                 attachments: null,
+                                 approved_for_sending: false,
+                                 send_copy: false,
+                                 mark_as_sent: false,
+                                 include_pdf: false)
 ```
 
 
