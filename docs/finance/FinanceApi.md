@@ -52,7 +52,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   start_month: 2020-09, # String | date, yyyy-MM                 If no parameter is provided, the month 12 months prior to the end month will be used.                Account usage for up to 12 months from this date will be returned.
 
@@ -124,7 +124,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   end_date: 2021-09-15 # String | date, yyyy-MM-dd                 If no parameter is provided, the current date will be used.                Any changes to hard or soft lock dates that were made within the period up to 12 months before this date will be returned.                Please be aware that there may be a delay of up to 3 days before a change is visible from this API.
 }
@@ -193,7 +193,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   end_date: 2021-09-15 # String | date, yyyy-MM-dd                 If no parameter is provided, the current date will be used.                Any reports that were published within the period up to 12 months before this date will be returned.                Please be aware that there may be a delay of up to 3 days before a published report is visible from this API.
 }
@@ -262,7 +262,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   data_month: 2021-09 # String | date, yyyy-MM                 The specified month must be complete (in the past); The current month cannot be specified since it is not complete.                If no parameter is provided, the month immediately previous to the current month will be used.                Any user activities occurring within the specified month will be returned.                Please be aware that there may be a delay of up to 3 days before a user activity is visible from this API.
 }
@@ -331,10 +331,10 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-bank_account_id = 38400000-8cf0-11bd-b23e-10b96e4ef00d # String | string, GUID    Bank account Id
-from_date = 2020-07-01 # String | date, yyyy-MM-dd     Specifies the start date of the query period.   The maximum range of the query period is 12 months. If the specified query period is more than 12 months the request will be rejected.
-to_date = 2021-06-30 # String | date, yyyy-MM-dd     Specifies the end date of the query period.   If the end date is a future date, the request will be rejected.
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | string, GUID    Bank account Id
+from_date = '2020-07-01' # String | date, yyyy-MM-dd     Specifies the start date of the query period.   The maximum range of the query period is 12 months. If the specified query period is more than 12 months the request will be rejected.
+to_date = '2021-06-30' # String | date, yyyy-MM-dd     Specifies the end date of the query period.   If the end date is a future date, the request will be rejected.
 opts = {
   summary_only: true # Boolean | boolean, true/false    The default value is true if no parameter is provided.    In summary mode, the response will exclude the computation-heavy LineItems fields from bank transaction, invoice, credit note, prepayment and overpayment data, making the API calls quicker and more efficient.
 }
@@ -406,7 +406,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   balance_date: 2021-09-15, # String | date, yyyy-MM-dd     If no parameter is provided, the current date will be used.    The ‘balance date’ will return transactions based on the accounting date entered by the user.  Transactions before the balanceDate will be included.  The user has discretion as to which accounting period the transaction relates to.    The ‘balance date’  will control the latest maximum date of transactions included in the aggregate numbers.  Balance date does not affect the CurrentStatement object, as this will always return the most recent statement before asAtSystemDate (if specified)
 
@@ -481,7 +481,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   balance_date: 2020-06-30 # String | Specifies the date for balance sheet report.    Format yyyy-MM-dd. If no parameter is provided, the current date will be used.
 }
@@ -550,7 +550,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   start_date: 2020-09-15, # String | Date e.g. yyyy-MM-dd    Specifies the start date for cash flow report.    If no parameter is provided, the date of 12 months before the end date will be used.
 
@@ -622,7 +622,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   contact_ids: ["00000000-0000-0000-0000-000000000000","00000000-0000-0000-0000-000000000000"], # Array<String> | Specifies the customer contacts to be included in the report.    If no parameter is provided, all customer contacts will be included
 
@@ -700,7 +700,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   contact_ids: ["00000000-0000-0000-0000-000000000000","00000000-0000-0000-0000-000000000000"], # Array<String> | Specifies the customer contacts to be included in the report.    If no parameter is provided, all customer contacts will be included
 
@@ -778,7 +778,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   start_date: 2020-09-15, # String | Date e.g. yyyy-MM-dd    Specifies the start date for profit and loss report    If no parameter is provided, the date of 12 months before the end date will be used.
 
@@ -850,7 +850,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   end_date: 2021-09-15 # String | Date e.g. yyyy-MM-dd     Specifies the end date for trial balance report     If no parameter is provided, the current date will be used.
 }

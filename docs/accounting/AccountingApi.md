@@ -268,7 +268,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 account = { "Code":"123456", "Name":"Foobar", "Type":"EXPENSE", "Description":"Hello World" } # Account | Account object in body of request
 begin
   #Creates a new chart of accounts
@@ -332,9 +332,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-account_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for Account object
-file_name = xero-dev.jpg # String | Name of the attachment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+account_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for Account object
+file_name = 'xero-dev.jpg' # String | Name of the attachment
 body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
 begin
   #Creates an attachment on a specific account
@@ -400,9 +400,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-bank_transaction_id = 00000000-0000-0000-0000-000000000000 # String | Xero generated unique identifier for a bank transaction
-file_name = xero-dev.jpg # String | Name of the attachment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transaction_id = '00000000-0000-0000-0000-000000000000' # String | Xero generated unique identifier for a bank transaction
+file_name = 'xero-dev.jpg' # String | Name of the attachment
 body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
 begin
   #Creates an attachment for a specific bank transaction by filename
@@ -468,8 +468,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-bank_transaction_id = 00000000-0000-0000-0000-000000000000 # String | Xero generated unique identifier for a bank transaction
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transaction_id = '00000000-0000-0000-0000-000000000000' # String | Xero generated unique identifier for a bank transaction
 history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 begin
   #Creates a history record for a specific bank transactions
@@ -534,7 +534,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transactions = { bankTransactions: [{ type: BankTransaction.TypeEnum.SPEND, contact: { contactID: "00000000-0000-0000-0000-000000000000" }, lineItems: [{ description: "Foobar", quantity: 1.0, unitAmount: 20.0, accountCode: "000" } ], bankAccount: { code: "000" }}]} # BankTransactions | BankTransactions with an array of BankTransaction objects in body of request
 opts = {
   summarize_errors: true, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
@@ -606,7 +606,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transfers = { "BankTransfers": [ { "FromBankAccount": { "Code": "090", "Name": "My Savings", "AccountID": "00000000-0000-0000-0000-000000000000", "Type": "BANK", "BankAccountNumber": "123455", "Status": "ACTIVE", "BankAccountType": "BANK", "CurrencyCode": "USD", "TaxType": "NONE", "EnablePaymentsToAccount": false, "ShowInExpenseClaims": false, "Class": "ASSET", "ReportingCode": "ASS", "ReportingCodeName": "Assets", "HasAttachments": false, "UpdatedDateUTC": "2016-10-17T13:45:33.993-07:00" }, "ToBankAccount": { "Code": "088", "Name": "Business Wells Fargo", "AccountID": "00000000-0000-0000-0000-000000000000", "Type": "BANK", "BankAccountNumber": "123455", "Status": "ACTIVE", "BankAccountType": "BANK", "CurrencyCode": "USD", "TaxType": "NONE", "EnablePaymentsToAccount": false, "ShowInExpenseClaims": false, "Class": "ASSET", "ReportingCode": "ASS", "ReportingCodeName": "Assets", "HasAttachments": false, "UpdatedDateUTC": "2016-06-03T08:31:14.517-07:00" }, "Amount": "50.00", "FromIsReconciled": true, "ToIsReconciled": true, "Reference": "Sub 098801" } ] } # BankTransfers | BankTransfers with array of BankTransfer objects in request body
 begin
   #Creates a bank transfer
@@ -670,9 +670,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-bank_transfer_id = 00000000-0000-0000-0000-000000000000 # String | Xero generated unique identifier for a bank transfer
-file_name = xero-dev.jpg # String | Name of the attachment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transfer_id = '00000000-0000-0000-0000-000000000000' # String | Xero generated unique identifier for a bank transfer
+file_name = 'xero-dev.jpg' # String | Name of the attachment
 body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
 begin
   result = api_instance.create_bank_transfer_attachment_by_file_name(xero_tenant_id, bank_transfer_id, file_name, body)
@@ -737,8 +737,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-bank_transfer_id = 00000000-0000-0000-0000-000000000000 # String | Xero generated unique identifier for a bank transfer
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transfer_id = '00000000-0000-0000-0000-000000000000' # String | Xero generated unique identifier for a bank transfer
 history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 begin
   #Creates a history record for a specific bank transfer
@@ -803,7 +803,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 batch_payments = { "BatchPayments": [ { "Account": { "AccountID": "00000000-0000-0000-0000-000000000000" }, "Reference": "ref", "Date": "2018-08-01", "Payments": [ { "Account": { "Code": "001" }, "Date": "2019-12-31", "Amount": 500, "Invoice": { "InvoiceID": "00000000-0000-0000-0000-000000000000", "LineItems": [], "Contact": {}, "Type": "ACCPAY" } } ] } ] } # BatchPayments | BatchPayments with an array of Payments in body of request
 opts = {
   summarize_errors: true # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
@@ -872,8 +872,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-batch_payment_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for BatchPayment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+batch_payment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for BatchPayment
 history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 begin
   #Creates a history record for a specific batch payment
@@ -938,8 +938,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-branding_theme_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Branding Theme
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+branding_theme_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Branding Theme
 payment_service = { "PaymentServiceID": "00000000-0000-0000-0000-000000000000", "PaymentServiceName": "Payments Service", "PaymentServiceUrl": "https://www.paymentservice.com/", "PayNowText": "Pay Now" } # PaymentService | PaymentService object in body of request
 begin
   #Creates a new custom payment service for a specific branding theme
@@ -1004,9 +1004,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-contact_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Contact
-file_name = xero-dev.jpg # String | Name of the attachment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contact_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Contact
+file_name = 'xero-dev.jpg' # String | Name of the attachment
 body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
 begin
   result = api_instance.create_contact_attachment_by_file_name(xero_tenant_id, contact_id, file_name, body)
@@ -1071,7 +1071,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_groups = { "ContactGroups": [{ "Name": "VIPs" }]} # ContactGroups | ContactGroups with an array of names in request body
 begin
   #Creates a contact group
@@ -1135,8 +1135,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-contact_group_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Contact Group
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contact_group_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Contact Group
 contacts = { "Contacts": [ { "ContactID": "a3675fc4-f8dd-4f03-ba5b-f1870566bcd7" }, { "ContactID": "4e1753b9-018a-4775-b6aa-1bc7871cfee3" } ] } # Contacts | Contacts with array of contacts specifying the ContactID to be added to ContactGroup in body of request
 begin
   #Creates contacts to a specific contact group
@@ -1201,8 +1201,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-contact_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Contact
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contact_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Contact
 history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 begin
   #Creates a new history record for a specific contact
@@ -1267,7 +1267,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contacts = { "Contacts": [ { "ContactID": "3ff6d40c-af9a-40a3-89ce-3c1556a25591", "ContactStatus": "ACTIVE", "Name": "Foo9987", "EmailAddress": "sid32476@blah.com", "BankAccountDetails": "", "Addresses": [ { "AddressType": "STREET", "City": "", "Region": "", "PostalCode": "", "Country": "" }, { "AddressType": "POBOX", "City": "", "Region": "", "PostalCode": "", "Country": "" } ], "Phones": [ { "PhoneType": "DEFAULT", "PhoneNumber": "", "PhoneAreaCode": "", "PhoneCountryCode": "" }, { "PhoneType": "DDI", "PhoneNumber": "", "PhoneAreaCode": "", "PhoneCountryCode": "" }, { "PhoneType": "FAX", "PhoneNumber": "", "PhoneAreaCode": "", "PhoneCountryCode": "" }, { "PhoneType": "MOBILE", "PhoneNumber": "555-1212", "PhoneAreaCode": "415", "PhoneCountryCode": "" } ], "UpdatedDateUTC": "/Date(1551399321043+0000)/", "ContactGroups": [], "IsSupplier": false, "IsCustomer": false, "SalesTrackingCategories": [], "PurchasesTrackingCategories": [], "PaymentTerms": { "Bills": { "Day": 15, "Type": "OFCURRENTMONTH" }, "Sales": { "Day": 10, "Type": "DAYSAFTERBILLMONTH" } }, "ContactPersons": [] } ] } # Contacts | Contacts with an array of Contact objects to create in body of request
 opts = {
   summarize_errors: true # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
@@ -1336,8 +1336,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-credit_note_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Credit Note
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+credit_note_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Credit Note
 allocations = { "Allocations": [ { "Invoice": { "LineItems": [], "InvoiceID": "c45720a1-ade3-4a38-a064-d15489be6841" }, "Amount": 1, "Date": "2019-03-05" } ] } # Allocations | Allocations with array of Allocation object in body of request.
 opts = {
   summarize_errors: true # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
@@ -1407,9 +1407,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-credit_note_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Credit Note
-file_name = xero-dev.jpg # String | Name of the attachment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+credit_note_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Credit Note
+file_name = 'xero-dev.jpg' # String | Name of the attachment
 body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
 opts = {
   include_online: true # Boolean | Allows an attachment to be seen by the end customer within their online invoice
@@ -1480,8 +1480,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-credit_note_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Credit Note
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+credit_note_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Credit Note
 history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 begin
   #Retrieves history records of a specific credit note
@@ -1546,7 +1546,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 credit_notes = { "CreditNotes":[ { "Type":"ACCPAYCREDIT", "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "Date":"2019-01-05", "LineItems":[ { "Description":"Foobar", "Quantity":2.0, "UnitAmount":20.0, "AccountCode":"400" } ] } ] } # CreditNotes | Credit Notes with array of CreditNote object in body of request
 opts = {
   summarize_errors: true, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
@@ -1618,7 +1618,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 currency = { "Code": "USD", "Description": "United States Dollar" } # Currency | Currency object in the body of request
 begin
   #Create a new currency for a Xero organisation
@@ -1682,7 +1682,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 employees = { "Employees": [ { "FirstName": "Nick", "LastName": "Fury", "ExternalLink": { "Url": "http://twitter.com/#!/search/Nick+Fury" } } ] } # Employees | Employees with array of Employee object in body of request
 opts = {
   summarize_errors: true # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
@@ -1751,8 +1751,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-expense_claim_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a ExpenseClaim
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+expense_claim_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a ExpenseClaim
 history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 begin
   #Creates a history record for a specific expense claim
@@ -1817,7 +1817,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 expense_claims = { "ExpenseClaims": [ { "Status": "SUBMITTED", "User": { "UserID": "d1164823-0ac1-41ad-987b-b4e30fe0b273" }, "Receipts": [ { "Lineitems": [], "ReceiptID": "dc1c7f6d-0a4c-402f-acac-551d62ce5816" } ] } ] } # ExpenseClaims | ExpenseClaims with array of ExpenseClaim object in body of request
 begin
   #Creates expense claims
@@ -1881,9 +1881,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-invoice_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Invoice
-file_name = xero-dev.jpg # String | Name of the attachment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Invoice
+file_name = 'xero-dev.jpg' # String | Name of the attachment
 body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
 opts = {
   include_online: true # Boolean | Allows an attachment to be seen by the end customer within their online invoice
@@ -1954,8 +1954,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-invoice_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Invoice
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Invoice
 history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 begin
   #Creates a history record for a specific invoice
@@ -2020,7 +2020,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 invoices = { "Invoices": [ { "Type": "ACCREC", "Contact": { "ContactID": "430fa14a-f945-44d3-9f97-5df5e28441b8" }, "LineItems": [ { "Description": "Acme Tires", "Quantity": 2, "UnitAmount": 20, "AccountCode": "200", "TaxType": "NONE", "LineAmount": 40 } ], "Date": "2019-03-11", "DueDate": "2018-12-10", "Reference": "Website Design", "Status": "AUTHORISED" } ] } # Invoices | Invoices with an array of invoice objects in body of request
 opts = {
   summarize_errors: true, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
@@ -2092,8 +2092,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-item_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Item
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+item_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Item
 history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 begin
   #Creates a history record for a specific item
@@ -2158,7 +2158,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 items = { "Items": [ { "Code": "code123", "Name": "Item Name XYZ", "Description": "Foobar", "InventoryAssetAccountCode": "140", "PurchaseDetails": { "COGSAccountCode": "500" } } ] } # Items | Items with an array of Item objects in body of request
 opts = {
   summarize_errors: true, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
@@ -2230,7 +2230,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 linked_transaction = { "LinkedTransactions": [ { "SourceTransactionID": "a848644a-f20f-4630-98c3-386bd7505631", "SourceLineItemID": "b0df260d-3cc8-4ced-9bd6-41924f624ed3" } ] } # LinkedTransaction | LinkedTransaction object in body of request
 begin
   #Creates linked transactions (billable expenses)
@@ -2294,9 +2294,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-manual_journal_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a ManualJournal
-file_name = xero-dev.jpg # String | Name of the attachment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+manual_journal_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a ManualJournal
+file_name = 'xero-dev.jpg' # String | Name of the attachment
 body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
 begin
   #Creates a specific attachment for a specific manual journal by file name
@@ -2362,8 +2362,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-manual_journal_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a ManualJournal
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+manual_journal_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a ManualJournal
 history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 begin
   #Creates a history record for a specific manual journal
@@ -2428,7 +2428,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 manual_journals = { "ManualJournals": [ { "Narration": "Journal Desc", "JournalLines": [ { "LineAmount": 100, "AccountCode": "400", "Description": "Money Movement" }, { "LineAmount": -100, "AccountCode": "400", "Description": "Prepayment of things", "Tracking": [ { "Name": "North", "Option": "Region" } ] } ], "Date": "2019-03-14" } ] } # ManualJournals | ManualJournals array with ManualJournal object in body of request
 opts = {
   summarize_errors: true # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
@@ -2497,8 +2497,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-overpayment_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Overpayment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+overpayment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Overpayment
 allocations = { "Allocations": [ { "Invoice": { "InvoiceID": "00000000-0000-0000-0000-000000000000", "LineItems": [], "Contact": {}, "Type": "ACCPAY" }, "Amount": 10.00, "Date": "2019-03-12" } ] } # Allocations | Allocations array with Allocation object in body of request
 opts = {
   summarize_errors: true # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
@@ -2568,8 +2568,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-overpayment_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Overpayment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+overpayment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Overpayment
 history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 begin
   #Creates a history record for a specific overpayment
@@ -2634,7 +2634,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 payment = { "Payments": [ { "Invoice": { "LineItems": [], "InvoiceID": "00000000-0000-0000-0000-000000000000" }, "Account": { "Code": "970" }, "Date": "2019-03-12", "Amount": 1 } ] } # Payment | Request body with a single Payment object
 begin
   #Creates a single payment for invoice or credit notes
@@ -2698,8 +2698,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-payment_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Payment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+payment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Payment
 history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 begin
   #Creates a history record for a specific payment
@@ -2764,7 +2764,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 payment_services = { "PaymentServices": [ { "PaymentServiceName": "PayUpNow", "PaymentServiceUrl": "https://www.payupnow.com/", "PayNowText": "Time To Pay" } ] } # PaymentServices | PaymentServices array with PaymentService object in body of request
 begin
   #Creates a payment service
@@ -2828,7 +2828,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 payments = { "Payments": [ { "Invoice": { "LineItems": [], "InvoiceID": "00000000-0000-0000-0000-000000000000" }, "Account": { "Code": "970" }, "Date": "2019-03-12", "Amount": 1 } ] } # Payments | Payments array with Payment object in body of request
 opts = {
   summarize_errors: true # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
@@ -2897,8 +2897,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-prepayment_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a PrePayment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+prepayment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a PrePayment
 allocations = { "Allocations": [ { "Invoice": { "LineItems": [], "InvoiceID": "00000000-0000-0000-0000-000000000000" }, "Amount": 1, "Date": "2019-01-10" } ] } # Allocations | Allocations with an array of Allocation object in body of request
 opts = {
   summarize_errors: true # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
@@ -2968,8 +2968,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-prepayment_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a PrePayment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+prepayment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a PrePayment
 history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 begin
   #Creates a history record for a specific prepayment
@@ -3034,9 +3034,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-purchase_order_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Purchase Order
-file_name = xero-dev.jpg # String | Name of the attachment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+purchase_order_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Purchase Order
+file_name = 'xero-dev.jpg' # String | Name of the attachment
 body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
 begin
   #Creates attachment for a specific purchase order
@@ -3102,8 +3102,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-purchase_order_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Purchase Order
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+purchase_order_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Purchase Order
 history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 begin
   #Creates a history record for a specific purchase orders
@@ -3168,7 +3168,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 purchase_orders = { "PurchaseOrders": [ { "Contact": { "ContactID": "00000000-0000-0000-0000-000000000000" }, "LineItems": [ { "Description": "Foobar", "Quantity": 1, "UnitAmount": 20, "AccountCode": "710" } ], "Date": "2019-03-13" } ] } # PurchaseOrders | PurchaseOrders with an array of PurchaseOrder object in body of request
 opts = {
   summarize_errors: true # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
@@ -3237,9 +3237,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-quote_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Quote
-file_name = xero-dev.jpg # String | Name of the attachment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+quote_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Quote
+file_name = 'xero-dev.jpg' # String | Name of the attachment
 body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
 begin
   #Creates attachment for a specific quote
@@ -3305,8 +3305,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-quote_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Quote
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+quote_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Quote
 history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 begin
   #Creates a history record for a specific quote
@@ -3371,7 +3371,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 quotes = { "Quotes": [ { "Contact": { "ContactID": "00000000-0000-0000-0000-000000000000" }, "LineItems": [ { "Description": "Foobar", "Quantity": 1, "UnitAmount": 20, "AccountCode": "12775" } ], "Date": "2020-02-01" } ] } # Quotes | Quotes with an array of Quote object in body of request
 opts = {
   summarize_errors: true # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
@@ -3440,7 +3440,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 receipts = { "Receipts": [ { "Contact": { "ContactID": "00000000-0000-0000-0000-000000000000" }, "Lineitems": [ { "Description": "Foobar", "Quantity": 2, "UnitAmount": 20, "AccountCode": "400", "TaxType": "NONE", "LineAmount": 40 } ], "User": { "UserID": "00000000-0000-0000-0000-000000000000" }, "LineAmountTypes": "NoTax", "Status": "DRAFT" } ] } # Receipts | Receipts with an array of Receipt object in body of request
 opts = {
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
@@ -3509,9 +3509,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-receipt_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Receipt
-file_name = xero-dev.jpg # String | Name of the attachment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+receipt_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Receipt
+file_name = 'xero-dev.jpg' # String | Name of the attachment
 body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
 begin
   #Creates an attachment on a specific expense claim receipts by file name
@@ -3577,8 +3577,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-receipt_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Receipt
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+receipt_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Receipt
 history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 begin
   #Creates a history record for a specific receipt
@@ -3643,9 +3643,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-repeating_invoice_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Repeating Invoice
-file_name = xero-dev.jpg # String | Name of the attachment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+repeating_invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Repeating Invoice
+file_name = 'xero-dev.jpg' # String | Name of the attachment
 body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
 begin
   #Creates an attachment from a specific repeating invoices by file name
@@ -3711,8 +3711,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-repeating_invoice_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Repeating Invoice
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+repeating_invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Repeating Invoice
 history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 begin
   #Creates a  history record for a specific repeating invoice
@@ -3777,7 +3777,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 repeating_invoices = { "RepeatingInvoices": [ { "Schedule": { "Period": 1, "Unit": "MONTHLY", "DueDate": 10, "DueDateType": "OFFOLLOWINGMONTH", "StartDate": "\/Date(1555286400000+0000)\/" }, "Type": "ACCREC", "Reference": "[Week]", "ApprovedForSending": false, "SendCopy": false, "MarkAsSent": false, "IncludePDF": false, "Contact": { "ContactID": "430fa14a-f945-44d3-9f97-5df5e28441b8", "Name": "Liam Gallagher" }, "Status": "AUTHORISED", "LineAmountTypes": "Exclusive", "LineItems": [ { "Description": "Guitars Fender Strat", "UnitAmount": 5000.00, "TaxType": "OUTPUT2", "TaxAmount": 750.00, "LineAmount": 5000.00, "AccountCode": "200", "Tracking": [], "Quantity": 1.0000, "LineItemID": "13a8353c-d2af-4d5b-920c-438449f08900", "DiscountEnteredAsPercent": true } ], "CurrencyCode": "NZD" } ] } # RepeatingInvoices | RepeatingInvoices with an array of repeating invoice objects in body of request
 opts = {
   summarize_errors: true # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
@@ -3846,7 +3846,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 tax_rates = { "TaxRates": [ { "Name": "CA State Tax", "TaxComponents": [ { "Name": "State Tax", "Rate": 2.25 } ] } ] } # TaxRates | TaxRates array with TaxRate object in body of request
 begin
   #Creates one or more tax rates
@@ -3910,7 +3910,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 tracking_category = { name: "FooBar" } # TrackingCategory | TrackingCategory object in body of request
 begin
   #Create tracking categories
@@ -3974,8 +3974,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-tracking_category_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a TrackingCategory
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+tracking_category_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a TrackingCategory
 tracking_option = { name: " Bar" } # TrackingOption | TrackingOption object in body of request
 begin
   #Creates options for a specific tracking category
@@ -4040,8 +4040,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-account_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for Account object
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+account_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for Account object
 begin
   #Deletes a chart of accounts
   result = api_instance.delete_account(xero_tenant_id, account_id)
@@ -4104,9 +4104,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-contact_group_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Contact Group
-contact_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Contact
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contact_group_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Contact Group
+contact_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Contact
 begin
   #Deletes a specific contact from a contact group using a unique contact Id
   api_instance.delete_contact_group_contact(xero_tenant_id, contact_group_id, contact_id)
@@ -4169,8 +4169,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-contact_group_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Contact Group
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contact_group_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Contact Group
 begin
   #Deletes all contacts from a specific contact group
   api_instance.delete_contact_group_contacts(xero_tenant_id, contact_group_id)
@@ -4232,8 +4232,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-item_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Item
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+item_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Item
 begin
   #Deletes a specific item
   api_instance.delete_item(xero_tenant_id, item_id)
@@ -4295,8 +4295,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-linked_transaction_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a LinkedTransaction
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+linked_transaction_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a LinkedTransaction
 begin
   #Deletes a specific linked transactions (billable expenses)
   api_instance.delete_linked_transaction(xero_tenant_id, linked_transaction_id)
@@ -4358,8 +4358,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-payment_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Payment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+payment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Payment
 payment_delete = { "Payments":[ { "Status":"DELETED" } ] } # PaymentDelete | 
 begin
   #Updates a specific payment for invoices and credit notes
@@ -4424,8 +4424,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-tracking_category_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a TrackingCategory
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+tracking_category_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a TrackingCategory
 begin
   #Deletes a specific tracking category
   result = api_instance.delete_tracking_category(xero_tenant_id, tracking_category_id)
@@ -4488,9 +4488,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-tracking_category_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a TrackingCategory
-tracking_option_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Tracking Option
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+tracking_category_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a TrackingCategory
+tracking_option_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Tracking Option
 begin
   #Deletes a specific option for a specific tracking category
   result = api_instance.delete_tracking_options(xero_tenant_id, tracking_category_id, tracking_option_id)
@@ -4554,8 +4554,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-invoice_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Invoice
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Invoice
 request_empty = {} # RequestEmpty | 
 begin
   #Sends a copy of a specific invoice to related contact via email
@@ -4619,8 +4619,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-account_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for Account object
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+account_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for Account object
 begin
   #Retrieves a single chart of accounts by using a unique account Id
   result = api_instance.get_account(xero_tenant_id, account_id)
@@ -4683,10 +4683,10 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-account_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for Account object
-file_name = xero-dev.jpg # String | Name of the attachment
-content_type = image/jpg # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+account_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for Account object
+file_name = 'xero-dev.jpg' # String | Name of the attachment
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 begin
   #Retrieves an attachment for a specific account by filename
   result = api_instance.get_account_attachment_by_file_name(xero_tenant_id, account_id, file_name, content_type)
@@ -4751,10 +4751,10 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-account_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for Account object
-attachment_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for Attachment object
-content_type = image/jpg # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+account_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for Account object
+attachment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for Attachment object
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 begin
   #Retrieves a specific attachment from a specific account using a unique attachment Id
   result = api_instance.get_account_attachment_by_id(xero_tenant_id, account_id, attachment_id, content_type)
@@ -4819,8 +4819,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-account_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for Account object
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+account_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for Account object
 begin
   #Retrieves attachments for a specific accounts by using a unique account Id
   result = api_instance.get_account_attachments(xero_tenant_id, account_id)
@@ -4883,7 +4883,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
 
@@ -4956,8 +4956,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-bank_transaction_id = 00000000-0000-0000-0000-000000000000 # String | Xero generated unique identifier for a bank transaction
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transaction_id = '00000000-0000-0000-0000-000000000000' # String | Xero generated unique identifier for a bank transaction
 opts = {
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
@@ -5025,10 +5025,10 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-bank_transaction_id = 00000000-0000-0000-0000-000000000000 # String | Xero generated unique identifier for a bank transaction
-file_name = xero-dev.jpg # String | Name of the attachment
-content_type = image/jpg # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transaction_id = '00000000-0000-0000-0000-000000000000' # String | Xero generated unique identifier for a bank transaction
+file_name = 'xero-dev.jpg' # String | Name of the attachment
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 begin
   #Retrieves a specific attachment from a specific bank transaction by filename
   result = api_instance.get_bank_transaction_attachment_by_file_name(xero_tenant_id, bank_transaction_id, file_name, content_type)
@@ -5093,10 +5093,10 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-bank_transaction_id = 00000000-0000-0000-0000-000000000000 # String | Xero generated unique identifier for a bank transaction
-attachment_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for Attachment object
-content_type = image/jpg # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transaction_id = '00000000-0000-0000-0000-000000000000' # String | Xero generated unique identifier for a bank transaction
+attachment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for Attachment object
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 begin
   #Retrieves specific attachments from a specific BankTransaction using a unique attachment Id
   result = api_instance.get_bank_transaction_attachment_by_id(xero_tenant_id, bank_transaction_id, attachment_id, content_type)
@@ -5161,8 +5161,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-bank_transaction_id = 00000000-0000-0000-0000-000000000000 # String | Xero generated unique identifier for a bank transaction
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transaction_id = '00000000-0000-0000-0000-000000000000' # String | Xero generated unique identifier for a bank transaction
 begin
   #Retrieves any attachments from a specific bank transactions
   result = api_instance.get_bank_transaction_attachments(xero_tenant_id, bank_transaction_id)
@@ -5225,7 +5225,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
 
@@ -5304,8 +5304,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-bank_transaction_id = 00000000-0000-0000-0000-000000000000 # String | Xero generated unique identifier for a bank transaction
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transaction_id = '00000000-0000-0000-0000-000000000000' # String | Xero generated unique identifier for a bank transaction
 begin
   #Retrieves history from a specific bank transaction using a unique bank transaction Id
   result = api_instance.get_bank_transactions_history(xero_tenant_id, bank_transaction_id)
@@ -5368,8 +5368,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-bank_transfer_id = 00000000-0000-0000-0000-000000000000 # String | Xero generated unique identifier for a bank transfer
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transfer_id = '00000000-0000-0000-0000-000000000000' # String | Xero generated unique identifier for a bank transfer
 begin
   #Retrieves specific bank transfers by using a unique bank transfer Id
   result = api_instance.get_bank_transfer(xero_tenant_id, bank_transfer_id)
@@ -5432,10 +5432,10 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-bank_transfer_id = 00000000-0000-0000-0000-000000000000 # String | Xero generated unique identifier for a bank transfer
-file_name = xero-dev.jpg # String | Name of the attachment
-content_type = image/jpg # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transfer_id = '00000000-0000-0000-0000-000000000000' # String | Xero generated unique identifier for a bank transfer
+file_name = 'xero-dev.jpg' # String | Name of the attachment
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 begin
   #Retrieves a specific attachment on a specific bank transfer by file name
   result = api_instance.get_bank_transfer_attachment_by_file_name(xero_tenant_id, bank_transfer_id, file_name, content_type)
@@ -5500,10 +5500,10 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-bank_transfer_id = 00000000-0000-0000-0000-000000000000 # String | Xero generated unique identifier for a bank transfer
-attachment_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for Attachment object
-content_type = image/jpg # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transfer_id = '00000000-0000-0000-0000-000000000000' # String | Xero generated unique identifier for a bank transfer
+attachment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for Attachment object
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 begin
   #Retrieves a specific attachment from a specific bank transfer using a unique attachment ID
   result = api_instance.get_bank_transfer_attachment_by_id(xero_tenant_id, bank_transfer_id, attachment_id, content_type)
@@ -5568,8 +5568,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-bank_transfer_id = 00000000-0000-0000-0000-000000000000 # String | Xero generated unique identifier for a bank transfer
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transfer_id = '00000000-0000-0000-0000-000000000000' # String | Xero generated unique identifier for a bank transfer
 begin
   #Retrieves attachments from a specific bank transfer
   result = api_instance.get_bank_transfer_attachments(xero_tenant_id, bank_transfer_id)
@@ -5632,8 +5632,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-bank_transfer_id = 00000000-0000-0000-0000-000000000000 # String | Xero generated unique identifier for a bank transfer
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transfer_id = '00000000-0000-0000-0000-000000000000' # String | Xero generated unique identifier for a bank transfer
 begin
   #Retrieves history from a specific bank transfer using a unique bank transfer Id
   result = api_instance.get_bank_transfer_history(xero_tenant_id, bank_transfer_id)
@@ -5696,7 +5696,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
 
@@ -5769,8 +5769,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-batch_payment_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for BatchPayment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+batch_payment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for BatchPayment
 begin
   #Retrieves history from a specific batch payment
   result = api_instance.get_batch_payment_history(xero_tenant_id, batch_payment_id)
@@ -5833,7 +5833,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
 
@@ -5906,8 +5906,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-branding_theme_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Branding Theme
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+branding_theme_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Branding Theme
 begin
   #Retrieves a specific branding theme using a unique branding theme Id
   result = api_instance.get_branding_theme(xero_tenant_id, branding_theme_id)
@@ -5970,8 +5970,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-branding_theme_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Branding Theme
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+branding_theme_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Branding Theme
 begin
   #Retrieves the payment services for a specific branding theme
   result = api_instance.get_branding_theme_payment_services(xero_tenant_id, branding_theme_id)
@@ -6034,7 +6034,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 begin
   #Retrieves all the branding themes
   result = api_instance.get_branding_themes(xero_tenant_id)
@@ -6096,8 +6096,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-budget_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for Budgets
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+budget_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for Budgets
 opts = {
   date_to: 2019-10-31, # Date | Filter by start date
 
@@ -6168,7 +6168,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   ids: &quot;00000000-0000-0000-0000-000000000000&quot;, # Array<String> | Filter by BudgetID. Allows you to retrieve a specific individual budget.
 
@@ -6241,8 +6241,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-contact_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Contact
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contact_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Contact
 begin
   #Retrieves a specific contacts in a Xero organisation using a unique contact Id
   result = api_instance.get_contact(xero_tenant_id, contact_id)
@@ -6305,10 +6305,10 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-contact_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Contact
-file_name = xero-dev.jpg # String | Name of the attachment
-content_type = image/jpg # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contact_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Contact
+file_name = 'xero-dev.jpg' # String | Name of the attachment
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 begin
   #Retrieves a specific attachment from a specific contact by file name
   result = api_instance.get_contact_attachment_by_file_name(xero_tenant_id, contact_id, file_name, content_type)
@@ -6373,10 +6373,10 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-contact_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Contact
-attachment_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for Attachment object
-content_type = image/jpg # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contact_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Contact
+attachment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for Attachment object
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 begin
   #Retrieves a specific attachment from a specific contact using a unique attachment Id
   result = api_instance.get_contact_attachment_by_id(xero_tenant_id, contact_id, attachment_id, content_type)
@@ -6441,8 +6441,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-contact_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Contact
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contact_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Contact
 begin
   #Retrieves attachments for a specific contact in a Xero organisation
   result = api_instance.get_contact_attachments(xero_tenant_id, contact_id)
@@ -6505,8 +6505,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-contact_number = SB2 # String | This field is read only on the Xero contact screen, used to identify contacts in external systems (max length = 50).
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contact_number = 'SB2' # String | This field is read only on the Xero contact screen, used to identify contacts in external systems (max length = 50).
 begin
   #Retrieves a specific contact by contact number in a Xero organisation
   result = api_instance.get_contact_by_contact_number(xero_tenant_id, contact_number)
@@ -6569,8 +6569,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-contact_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Contact
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contact_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Contact
 begin
   #Retrieves CIS settings for a specific contact in a Xero organisation
   result = api_instance.get_contact_cis_settings(xero_tenant_id, contact_id)
@@ -6633,8 +6633,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-contact_group_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Contact Group
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contact_group_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Contact Group
 begin
   #Retrieves a specific contact group by using a unique contact group Id
   result = api_instance.get_contact_group(xero_tenant_id, contact_group_id)
@@ -6697,7 +6697,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   where: Status=="ACTIVE", # String | Filter by an any element
 
@@ -6767,8 +6767,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-contact_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Contact
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contact_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Contact
 begin
   #Retrieves history records for a specific contact
   result = api_instance.get_contact_history(xero_tenant_id, contact_id)
@@ -6831,7 +6831,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
 
@@ -6919,8 +6919,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-credit_note_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Credit Note
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+credit_note_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Credit Note
 opts = {
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
@@ -6988,8 +6988,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-credit_note_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Credit Note
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+credit_note_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Credit Note
 begin
   #Retrieves credit notes as PDF files
   result = api_instance.get_credit_note_as_pdf(xero_tenant_id, credit_note_id)
@@ -7052,10 +7052,10 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-credit_note_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Credit Note
-file_name = xero-dev.jpg # String | Name of the attachment
-content_type = image/jpg # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+credit_note_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Credit Note
+file_name = 'xero-dev.jpg' # String | Name of the attachment
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 begin
   #Retrieves a specific attachment on a specific credit note by file name
   result = api_instance.get_credit_note_attachment_by_file_name(xero_tenant_id, credit_note_id, file_name, content_type)
@@ -7120,10 +7120,10 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-credit_note_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Credit Note
-attachment_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for Attachment object
-content_type = image/jpg # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+credit_note_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Credit Note
+attachment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for Attachment object
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 begin
   #Retrieves a specific attachment from a specific credit note using a unique attachment Id
   result = api_instance.get_credit_note_attachment_by_id(xero_tenant_id, credit_note_id, attachment_id, content_type)
@@ -7188,8 +7188,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-credit_note_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Credit Note
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+credit_note_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Credit Note
 begin
   #Retrieves attachments for a specific credit notes
   result = api_instance.get_credit_note_attachments(xero_tenant_id, credit_note_id)
@@ -7252,8 +7252,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-credit_note_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Credit Note
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+credit_note_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Credit Note
 begin
   #Retrieves history records of a specific credit note
   result = api_instance.get_credit_note_history(xero_tenant_id, credit_note_id)
@@ -7316,7 +7316,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
 
@@ -7395,7 +7395,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   where: Code=="USD", # String | Filter by an any element
 
@@ -7465,8 +7465,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-employee_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Employee
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+employee_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Employee
 begin
   #Retrieves a specific employee used in Xero payrun using a unique employee Id
   result = api_instance.get_employee(xero_tenant_id, employee_id)
@@ -7529,7 +7529,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
 
@@ -7602,8 +7602,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-expense_claim_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a ExpenseClaim
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+expense_claim_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a ExpenseClaim
 begin
   #Retrieves a specific expense claim using a unique expense claim Id
   result = api_instance.get_expense_claim(xero_tenant_id, expense_claim_id)
@@ -7666,8 +7666,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-expense_claim_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a ExpenseClaim
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+expense_claim_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a ExpenseClaim
 begin
   #Retrieves history records of a specific expense claim
   result = api_instance.get_expense_claim_history(xero_tenant_id, expense_claim_id)
@@ -7730,7 +7730,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
 
@@ -7803,8 +7803,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-invoice_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Invoice
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Invoice
 opts = {
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
@@ -7872,8 +7872,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-invoice_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Invoice
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Invoice
 begin
   #Retrieves invoices or purchase bills as PDF files
   result = api_instance.get_invoice_as_pdf(xero_tenant_id, invoice_id)
@@ -7936,10 +7936,10 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-invoice_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Invoice
-file_name = xero-dev.jpg # String | Name of the attachment
-content_type = image/jpg # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Invoice
+file_name = 'xero-dev.jpg' # String | Name of the attachment
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 begin
   #Retrieves an attachment from a specific invoice or purchase bill by filename
   result = api_instance.get_invoice_attachment_by_file_name(xero_tenant_id, invoice_id, file_name, content_type)
@@ -8004,10 +8004,10 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-invoice_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Invoice
-attachment_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for Attachment object
-content_type = image/jpg # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Invoice
+attachment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for Attachment object
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 begin
   #Retrieves a specific attachment from a specific invoices or purchase bills by using a unique attachment Id
   result = api_instance.get_invoice_attachment_by_id(xero_tenant_id, invoice_id, attachment_id, content_type)
@@ -8072,8 +8072,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-invoice_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Invoice
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Invoice
 begin
   #Retrieves attachments for a specific invoice or purchase bill
   result = api_instance.get_invoice_attachments(xero_tenant_id, invoice_id)
@@ -8136,8 +8136,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-invoice_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Invoice
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Invoice
 begin
   #Retrieves history records for a specific invoice
   result = api_instance.get_invoice_history(xero_tenant_id, invoice_id)
@@ -8200,7 +8200,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 begin
   #Retrieves invoice reminder settings
   result = api_instance.get_invoice_reminders(xero_tenant_id)
@@ -8262,7 +8262,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
 
@@ -8362,8 +8362,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-item_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Item
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+item_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Item
 opts = {
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
@@ -8431,8 +8431,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-item_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Item
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+item_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Item
 begin
   #Retrieves history for a specific item
   result = api_instance.get_item_history(xero_tenant_id, item_id)
@@ -8495,7 +8495,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
 
@@ -8571,8 +8571,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-journal_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Journal
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+journal_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Journal
 begin
   #Retrieves a specific journal using a unique journal Id.
   result = api_instance.get_journal(xero_tenant_id, journal_id)
@@ -8635,7 +8635,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 journal_number = 1000 # Integer | Number of a Journal
 begin
   #Retrieves a specific journal using a unique journal number.
@@ -8699,7 +8699,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
 
@@ -8772,8 +8772,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-linked_transaction_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a LinkedTransaction
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+linked_transaction_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a LinkedTransaction
 begin
   #Retrieves a specific linked transaction (billable expenses) using a unique linked transaction Id
   result = api_instance.get_linked_transaction(xero_tenant_id, linked_transaction_id)
@@ -8836,7 +8836,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   page: 1, # Integer | Up to 100 linked transactions will be returned in a single API call. Use the page parameter to specify the page to be returned e.g. page=1.
 
@@ -8918,8 +8918,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-manual_journal_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a ManualJournal
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+manual_journal_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a ManualJournal
 begin
   #Retrieves a specific manual journal
   result = api_instance.get_manual_journal(xero_tenant_id, manual_journal_id)
@@ -8982,10 +8982,10 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-manual_journal_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a ManualJournal
-file_name = xero-dev.jpg # String | Name of the attachment
-content_type = image/jpg # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+manual_journal_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a ManualJournal
+file_name = 'xero-dev.jpg' # String | Name of the attachment
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 begin
   #Retrieves a specific attachment from a specific manual journal by file name
   result = api_instance.get_manual_journal_attachment_by_file_name(xero_tenant_id, manual_journal_id, file_name, content_type)
@@ -9050,10 +9050,10 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-manual_journal_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a ManualJournal
-attachment_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for Attachment object
-content_type = image/jpg # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+manual_journal_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a ManualJournal
+attachment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for Attachment object
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 begin
   #Allows you to retrieve a specific attachment from a specific manual journal using a unique attachment Id
   result = api_instance.get_manual_journal_attachment_by_id(xero_tenant_id, manual_journal_id, attachment_id, content_type)
@@ -9118,8 +9118,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-manual_journal_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a ManualJournal
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+manual_journal_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a ManualJournal
 begin
   #Retrieves attachment for a specific manual journal
   result = api_instance.get_manual_journal_attachments(xero_tenant_id, manual_journal_id)
@@ -9182,7 +9182,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
 
@@ -9258,8 +9258,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-manual_journal_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a ManualJournal
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+manual_journal_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a ManualJournal
 begin
   #Retrieves history for a specific manual journal
   result = api_instance.get_manual_journals_history(xero_tenant_id, manual_journal_id)
@@ -9322,8 +9322,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-invoice_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Invoice
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Invoice
 begin
   #Retrieves a URL to an online invoice
   result = api_instance.get_online_invoice(xero_tenant_id, invoice_id)
@@ -9386,7 +9386,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 begin
   #Retrieves a list of the key actions your app has permission to perform in the connected Xero organisation.
   result = api_instance.get_organisation_actions(xero_tenant_id)
@@ -9448,8 +9448,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-organisation_id = 00000000-0000-0000-0000-000000000000 # String | The unique Xero identifier for an organisation
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+organisation_id = '00000000-0000-0000-0000-000000000000' # String | The unique Xero identifier for an organisation
 begin
   #Retrieves the CIS settings for the Xero organistaion.
   result = api_instance.get_organisation_cis_settings(xero_tenant_id, organisation_id)
@@ -9512,7 +9512,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 begin
   #Retrieves Xero organisation details
   result = api_instance.get_organisations(xero_tenant_id)
@@ -9574,8 +9574,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-overpayment_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Overpayment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+overpayment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Overpayment
 begin
   #Retrieves a specific overpayment using a unique overpayment Id
   result = api_instance.get_overpayment(xero_tenant_id, overpayment_id)
@@ -9638,8 +9638,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-overpayment_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Overpayment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+overpayment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Overpayment
 begin
   #Retrieves history records of a specific overpayment
   result = api_instance.get_overpayment_history(xero_tenant_id, overpayment_id)
@@ -9702,7 +9702,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
 
@@ -9781,8 +9781,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-payment_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Payment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+payment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Payment
 begin
   #Retrieves a specific payment for invoices and credit notes using a unique payment Id
   result = api_instance.get_payment(xero_tenant_id, payment_id)
@@ -9845,8 +9845,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-payment_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Payment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+payment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Payment
 begin
   #Retrieves history records of a specific payment
   result = api_instance.get_payment_history(xero_tenant_id, payment_id)
@@ -9909,7 +9909,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 begin
   #Retrieves payment services
   result = api_instance.get_payment_services(xero_tenant_id)
@@ -9971,7 +9971,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
 
@@ -10047,8 +10047,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-prepayment_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a PrePayment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+prepayment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a PrePayment
 begin
   #Allows you to retrieve a specified prepayments
   result = api_instance.get_prepayment(xero_tenant_id, prepayment_id)
@@ -10111,8 +10111,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-prepayment_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a PrePayment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+prepayment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a PrePayment
 begin
   #Retrieves history record for a specific prepayment
   result = api_instance.get_prepayment_history(xero_tenant_id, prepayment_id)
@@ -10175,7 +10175,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
 
@@ -10254,8 +10254,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-purchase_order_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Purchase Order
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+purchase_order_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Purchase Order
 begin
   #Retrieves a specific purchase order using a unique purchase order Id
   result = api_instance.get_purchase_order(xero_tenant_id, purchase_order_id)
@@ -10318,8 +10318,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-purchase_order_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Purchase Order
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+purchase_order_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Purchase Order
 begin
   #Retrieves specific purchase order as PDF files using a unique purchase order Id
   result = api_instance.get_purchase_order_as_pdf(xero_tenant_id, purchase_order_id)
@@ -10382,10 +10382,10 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-purchase_order_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Purchase Order
-file_name = xero-dev.jpg # String | Name of the attachment
-content_type = image/jpg # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+purchase_order_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Purchase Order
+file_name = 'xero-dev.jpg' # String | Name of the attachment
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 begin
   #Retrieves a specific attachment for a specific purchase order by filename
   result = api_instance.get_purchase_order_attachment_by_file_name(xero_tenant_id, purchase_order_id, file_name, content_type)
@@ -10450,10 +10450,10 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-purchase_order_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Purchase Order
-attachment_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for Attachment object
-content_type = image/jpg # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+purchase_order_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Purchase Order
+attachment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for Attachment object
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 begin
   #Retrieves specific attachment for a specific purchase order using a unique attachment Id
   result = api_instance.get_purchase_order_attachment_by_id(xero_tenant_id, purchase_order_id, attachment_id, content_type)
@@ -10518,8 +10518,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-purchase_order_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Purchase Order
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+purchase_order_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Purchase Order
 begin
   #Retrieves attachments for a specific purchase order
   result = api_instance.get_purchase_order_attachments(xero_tenant_id, purchase_order_id)
@@ -10582,8 +10582,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-purchase_order_number = PO1234 # String | Unique identifier for a PurchaseOrder
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+purchase_order_number = 'PO1234' # String | Unique identifier for a PurchaseOrder
 begin
   #Retrieves a specific purchase order using purchase order number
   result = api_instance.get_purchase_order_by_number(xero_tenant_id, purchase_order_number)
@@ -10646,8 +10646,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-purchase_order_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Purchase Order
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+purchase_order_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Purchase Order
 begin
   #Retrieves history for a specific purchase order
   result = api_instance.get_purchase_order_history(xero_tenant_id, purchase_order_id)
@@ -10710,7 +10710,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
 
@@ -10792,8 +10792,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-quote_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Quote
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+quote_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Quote
 begin
   #Retrieves a specific quote using a unique quote Id
   result = api_instance.get_quote(xero_tenant_id, quote_id)
@@ -10856,8 +10856,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-quote_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Quote
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+quote_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Quote
 begin
   #Retrieves a specific quote as a PDF file using a unique quote Id
   result = api_instance.get_quote_as_pdf(xero_tenant_id, quote_id)
@@ -10920,10 +10920,10 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-quote_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Quote
-file_name = xero-dev.jpg # String | Name of the attachment
-content_type = image/jpg # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+quote_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Quote
+file_name = 'xero-dev.jpg' # String | Name of the attachment
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 begin
   #Retrieves a specific attachment from a specific quote by filename
   result = api_instance.get_quote_attachment_by_file_name(xero_tenant_id, quote_id, file_name, content_type)
@@ -10988,10 +10988,10 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-quote_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Quote
-attachment_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for Attachment object
-content_type = image/jpg # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+quote_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Quote
+attachment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for Attachment object
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 begin
   #Retrieves a specific attachment from a specific quote using a unique attachment Id
   result = api_instance.get_quote_attachment_by_id(xero_tenant_id, quote_id, attachment_id, content_type)
@@ -11056,8 +11056,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-quote_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Quote
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+quote_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Quote
 begin
   #Retrieves attachments for a specific quote
   result = api_instance.get_quote_attachments(xero_tenant_id, quote_id)
@@ -11120,8 +11120,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-quote_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Quote
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+quote_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Quote
 begin
   #Retrieves history records of a specific quote
   result = api_instance.get_quote_history(xero_tenant_id, quote_id)
@@ -11184,7 +11184,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
 
@@ -11278,8 +11278,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-receipt_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Receipt
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+receipt_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Receipt
 opts = {
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
@@ -11347,10 +11347,10 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-receipt_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Receipt
-file_name = xero-dev.jpg # String | Name of the attachment
-content_type = image/jpg # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+receipt_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Receipt
+file_name = 'xero-dev.jpg' # String | Name of the attachment
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 begin
   #Retrieves a specific attachment from a specific expense claim receipts by file name
   result = api_instance.get_receipt_attachment_by_file_name(xero_tenant_id, receipt_id, file_name, content_type)
@@ -11415,10 +11415,10 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-receipt_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Receipt
-attachment_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for Attachment object
-content_type = image/jpg # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+receipt_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Receipt
+attachment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for Attachment object
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 begin
   #Retrieves a specific attachments from a specific expense claim receipts by using a unique attachment Id
   result = api_instance.get_receipt_attachment_by_id(xero_tenant_id, receipt_id, attachment_id, content_type)
@@ -11483,8 +11483,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-receipt_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Receipt
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+receipt_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Receipt
 begin
   #Retrieves attachments for a specific expense claim receipt
   result = api_instance.get_receipt_attachments(xero_tenant_id, receipt_id)
@@ -11547,8 +11547,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-receipt_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Receipt
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+receipt_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Receipt
 begin
   #Retrieves a history record for a specific receipt
   result = api_instance.get_receipt_history(xero_tenant_id, receipt_id)
@@ -11611,7 +11611,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
 
@@ -11687,8 +11687,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-repeating_invoice_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Repeating Invoice
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+repeating_invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Repeating Invoice
 begin
   #Retrieves a specific repeating invoice by using a unique repeating invoice Id
   result = api_instance.get_repeating_invoice(xero_tenant_id, repeating_invoice_id)
@@ -11751,10 +11751,10 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-repeating_invoice_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Repeating Invoice
-file_name = xero-dev.jpg # String | Name of the attachment
-content_type = image/jpg # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+repeating_invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Repeating Invoice
+file_name = 'xero-dev.jpg' # String | Name of the attachment
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 begin
   #Retrieves a specific attachment from a specific repeating invoices by file name
   result = api_instance.get_repeating_invoice_attachment_by_file_name(xero_tenant_id, repeating_invoice_id, file_name, content_type)
@@ -11819,10 +11819,10 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-repeating_invoice_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Repeating Invoice
-attachment_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for Attachment object
-content_type = image/jpg # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+repeating_invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Repeating Invoice
+attachment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for Attachment object
+content_type = 'image/jpg' # String | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 begin
   #Retrieves a specific attachment from a specific repeating invoice
   result = api_instance.get_repeating_invoice_attachment_by_id(xero_tenant_id, repeating_invoice_id, attachment_id, content_type)
@@ -11887,8 +11887,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-repeating_invoice_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Repeating Invoice
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+repeating_invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Repeating Invoice
 begin
   #Retrieves attachments from a specific repeating invoice
   result = api_instance.get_repeating_invoice_attachments(xero_tenant_id, repeating_invoice_id)
@@ -11951,8 +11951,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-repeating_invoice_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Repeating Invoice
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+repeating_invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Repeating Invoice
 begin
   #Retrieves history record for a specific repeating invoice
   result = api_instance.get_repeating_invoice_history(xero_tenant_id, repeating_invoice_id)
@@ -12015,7 +12015,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   where: Status=="DRAFT", # String | Filter by an any element
 
@@ -12085,8 +12085,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-contact_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Contact
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contact_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Contact
 opts = {
   date: 2019-10-31, # Date | The date of the Aged Payables By Contact report
 
@@ -12160,8 +12160,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-contact_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Contact
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contact_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Contact
 opts = {
   date: 2019-10-31, # Date | The date of the Aged Receivables By Contact report
 
@@ -12235,7 +12235,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   date: 2019-11-01, # Date | The date of the Balance Sheet report
 
@@ -12320,7 +12320,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   from_date: 2019-10-31, # Date | filter by the from date of the report e.g. 2021-02-01
 
@@ -12390,7 +12390,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   date: 2019-03-31, # Date | The date for the Bank Summary report e.g. 2018-03-31
 
@@ -12463,7 +12463,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   date: 2019-03-31 # Date | The date for the Bank Summary report e.g. 2018-03-31
 }
@@ -12530,8 +12530,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-report_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Report
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+report_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Report
 begin
   #Retrieves a specific report using a unique ReportID
   result = api_instance.get_report_from_id(xero_tenant_id, report_id)
@@ -12594,7 +12594,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   from_date: 2019-10-31, # Date | filter by the from date of the report e.g. 2021-02-01
 
@@ -12688,7 +12688,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   report_year: 2019 # String | The year of the 1099 report
 }
@@ -12755,7 +12755,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   date: 2019-10-31, # Date | The date for the Trial Balance report e.g. 2018-03-31
 
@@ -12825,7 +12825,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 begin
   #Retrieves a list of the organistaions unique reports that require a uuid to fetch
   result = api_instance.get_reports_list(xero_tenant_id)
@@ -12887,7 +12887,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   where: Status=="ACTIVE", # String | Filter by an any element
 
@@ -12960,7 +12960,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   where: Status=="ACTIVE", # String | Filter by an any element
 
@@ -13033,8 +13033,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-tracking_category_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a TrackingCategory
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+tracking_category_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a TrackingCategory
 begin
   #Retrieves specific tracking categories and options using a unique tracking category Id
   result = api_instance.get_tracking_category(xero_tenant_id, tracking_category_id)
@@ -13097,8 +13097,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-user_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a User
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+user_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a User
 begin
   #Retrieves a specific user
   result = api_instance.get_user(xero_tenant_id, user_id)
@@ -13161,7 +13161,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
 
@@ -13234,7 +13234,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 setup = { "ConversionDate": {}, "ConversionBalances": [], "Accounts": [ { "Code": "200", "Name": "Sales", "Type": "SALES", "ReportingCode": "REV.TRA.GOO" }, { "Code": "400", "Name": "Advertising", "Type": "OVERHEADS", "ReportingCode": "EXP" }, { "Code": "610", "Name": "Accounts Receivable", "Type": "CURRENT", "SystemAccount": "DEBTORS", "ReportingCode": "ASS.CUR.REC.TRA" }, { "Code": "800", "Name": "Accounts Payable", "Type": "CURRLIAB", "SystemAccount": "CREDITORS", "ReportingCode": "LIA.CUR.PAY" } ] } # Setup | Object including an accounts array, a conversion balances array and a conversion date object in body of request
 begin
   #Sets the chart of accounts, the conversion date and conversion balances
@@ -13298,8 +13298,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-account_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for Account object
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+account_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for Account object
 accounts = { "Accounts":[ { "Code":"123456", "Name":"BarFoo", "AccountID":"99ce6032-0678-4aa0-8148-240c75fee33a", "Type":"EXPENSE", "Description":"GoodBye World", "TaxType":"INPUT", "EnablePaymentsToAccount":false, "ShowInExpenseClaims":false, "Class":"EXPENSE", "ReportingCode":"EXP", "ReportingCodeName":"Expense", "UpdatedDateUTC":"2019-02-21T16:29:47.96-08:00" } ] } # Accounts | Request of type Accounts array with one Account
 begin
   #Updates a chart of accounts
@@ -13364,9 +13364,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-account_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for Account object
-file_name = xero-dev.jpg # String | Name of the attachment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+account_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for Account object
+file_name = 'xero-dev.jpg' # String | Name of the attachment
 body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
 begin
   #Updates attachment on a specific account by filename
@@ -13432,8 +13432,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-bank_transaction_id = 00000000-0000-0000-0000-000000000000 # String | Xero generated unique identifier for a bank transaction
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transaction_id = '00000000-0000-0000-0000-000000000000' # String | Xero generated unique identifier for a bank transaction
 bank_transactions = { "BankTransactions": [ { "Type": "SPEND", "Contact": { "ContactID": "00000000-0000-0000-0000-000000000000", "ContactStatus": "ACTIVE", "Name": "Buzz Lightyear", "FirstName": "Buzz", "LastName": "Lightyear", "EmailAddress": "buzz.Lightyear@email.com", "ContactPersons": [], "BankAccountDetails": "", "Addresses": [ { "AddressType": "STREET", "City": "", "Region": "", "PostalCode": "", "Country": "" }, { "AddressType": "POBOX", "AddressLine1": "", "AddressLine2": "", "AddressLine3": "", "AddressLine4": "", "City": "Palo Alto", "Region": "CA", "PostalCode": "94020", "Country": "United States" } ], "Phones": [ { "PhoneType": "DEFAULT", "PhoneNumber": "847-1294", "PhoneAreaCode": "(626)", "PhoneCountryCode": "" }, { "PhoneType": "DDI", "PhoneNumber": "", "PhoneAreaCode": "", "PhoneCountryCode": "" }, { "PhoneType": "FAX", "PhoneNumber": "", "PhoneAreaCode": "", "PhoneCountryCode": "" }, { "PhoneType": "MOBILE", "PhoneNumber": "", "PhoneAreaCode": "", "PhoneCountryCode": "" } ], "UpdatedDateUTC": "2017-08-21T13:49:04.227-07:00", "ContactGroups": [] }, "Lineitems": [], "BankAccount": { "Code": "088", "Name": "Business Wells Fargo", "AccountID": "00000000-0000-0000-0000-000000000000" }, "IsReconciled": false, "Date": "2019-02-25", "Reference": "You just updated", "CurrencyCode": "USD", "CurrencyRate": 1, "Status": "AUTHORISED", "LineAmountTypes": "Inclusive", "TotalTax": 1.74, "BankTransactionID": "00000000-0000-0000-0000-000000000000", "UpdatedDateUTC": "2019-02-26T12:39:27.813-08:00" } ] } # BankTransactions | 
 opts = {
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
@@ -13503,9 +13503,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-bank_transaction_id = 00000000-0000-0000-0000-000000000000 # String | Xero generated unique identifier for a bank transaction
-file_name = xero-dev.jpg # String | Name of the attachment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transaction_id = '00000000-0000-0000-0000-000000000000' # String | Xero generated unique identifier for a bank transaction
+file_name = 'xero-dev.jpg' # String | Name of the attachment
 body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
 begin
   #Updates a specific attachment from a specific bank transaction by filename
@@ -13571,9 +13571,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-bank_transfer_id = 00000000-0000-0000-0000-000000000000 # String | Xero generated unique identifier for a bank transfer
-file_name = xero-dev.jpg # String | Name of the attachment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+bank_transfer_id = '00000000-0000-0000-0000-000000000000' # String | Xero generated unique identifier for a bank transfer
+file_name = 'xero-dev.jpg' # String | Name of the attachment
 body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
 begin
   result = api_instance.update_bank_transfer_attachment_by_file_name(xero_tenant_id, bank_transfer_id, file_name, body)
@@ -13638,8 +13638,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-contact_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Contact
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contact_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Contact
 contacts = { "Contacts": [{ "ContactID": "00000000-0000-0000-0000-000000000000", "Name": "Thanos" }]} # Contacts | an array of Contacts containing single Contact object with properties to update
 begin
   #Updates a specific contact in a Xero organisation
@@ -13704,9 +13704,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-contact_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Contact
-file_name = xero-dev.jpg # String | Name of the attachment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contact_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Contact
+file_name = 'xero-dev.jpg' # String | Name of the attachment
 body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
 begin
   result = api_instance.update_contact_attachment_by_file_name(xero_tenant_id, contact_id, file_name, body)
@@ -13771,8 +13771,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-contact_group_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Contact Group
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+contact_group_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Contact Group
 contact_groups = { "ContactGroups":[ { "Name":"Suppliers" } ] } # ContactGroups | an array of Contact groups with Name of specific group to update
 begin
   #Updates a specific contact group
@@ -13837,8 +13837,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-credit_note_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Credit Note
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+credit_note_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Credit Note
 credit_notes = { "CreditNotes": [ { "Type": "ACCPAYCREDIT", "Contact": { "ContactID": "430fa14a-f945-44d3-9f97-5df5e28441b8" }, "Date": "2019-01-05", "Status": "AUTHORISED", "Reference": "HelloWorld", "LineItems": [ { "Description": "Foobar", "Quantity": 2, "UnitAmount": 20, "AccountCode": "400" } ] } ] } # CreditNotes | an array of Credit Notes containing credit note details to update
 opts = {
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
@@ -13908,9 +13908,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-credit_note_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Credit Note
-file_name = xero-dev.jpg # String | Name of the attachment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+credit_note_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Credit Note
+file_name = 'xero-dev.jpg' # String | Name of the attachment
 body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
 begin
   #Updates attachments on a specific credit note by file name
@@ -13976,8 +13976,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-expense_claim_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a ExpenseClaim
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+expense_claim_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a ExpenseClaim
 expense_claims = { "ExpenseClaims": [ { "Status": "SUBMITTED", "User": { "UserID": "d1164823-0ac1-41ad-987b-b4e30fe0b273" }, "Receipts": [ { "Lineitems": [], "ReceiptID": "dc1c7f6d-0a4c-402f-acac-551d62ce5816" } ] } ] } # ExpenseClaims | 
 begin
   #Updates a specific expense claims
@@ -14042,8 +14042,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-invoice_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Invoice
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Invoice
 invoices = { "Invoices": [{ Reference: "May the force be with you", "InvoiceID": "00000000-0000-0000-0000-000000000000", "LineItems": [], "Contact": {}, "Type": "ACCPAY" }]} # Invoices | 
 opts = {
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
@@ -14113,9 +14113,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-invoice_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Invoice
-file_name = xero-dev.jpg # String | Name of the attachment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Invoice
+file_name = 'xero-dev.jpg' # String | Name of the attachment
 body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
 begin
   #Updates an attachment from a specific invoices or purchase bill by filename
@@ -14181,8 +14181,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-item_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Item
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+item_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Item
 items = { "Items": [ { "Code": "ItemCode123", "Description": "Description 123" } ] } # Items | 
 opts = {
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
@@ -14252,8 +14252,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-linked_transaction_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a LinkedTransaction
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+linked_transaction_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a LinkedTransaction
 linked_transactions = { "LinkedTransactions": [ { "SourceTransactionID": "00000000-0000-0000-0000-000000000000", "SourceLineItemID": "00000000-0000-0000-0000-000000000000" } ] } # LinkedTransactions | 
 begin
   #Updates a specific linked transactions (billable expenses)
@@ -14318,8 +14318,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-manual_journal_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a ManualJournal
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+manual_journal_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a ManualJournal
 manual_journals = { "ManualJournals": [ { "Narration": "Hello Xero", "ManualJournalID": "00000000-0000-0000-0000-000000000000", "JournalLines": [] } ] } # ManualJournals | 
 begin
   #Updates a specific manual journal
@@ -14384,9 +14384,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-manual_journal_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a ManualJournal
-file_name = xero-dev.jpg # String | Name of the attachment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+manual_journal_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a ManualJournal
+file_name = 'xero-dev.jpg' # String | Name of the attachment
 body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
 begin
   #Updates a specific attachment from a specific manual journal by file name
@@ -14452,7 +14452,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transactions = { "BankTransactions": [ { "Type": "SPEND", "Contact": { "ContactID": "00000000-0000-0000-0000-000000000000" }, "Lineitems": [ { "Description": "Foobar", "Quantity": 1, "UnitAmount": 20, "AccountCode": "400" } ], "BankAccount": { "Code": "088" } } ] } # BankTransactions | 
 opts = {
   summarize_errors: true, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
@@ -14524,7 +14524,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contacts = { "Contacts": [ { "Name": "Bruce Banner", "EmailAddress": "hulk@avengers.com", "Phones": [ { "PhoneType": "MOBILE", "PhoneNumber": "555-1212", "PhoneAreaCode": "415" } ], "PaymentTerms": { "Bills": { "Day": 15, "Type": "OFCURRENTMONTH" }, "Sales": { "Day": 10, "Type": "DAYSAFTERBILLMONTH" } } } ] } # Contacts | 
 opts = {
   summarize_errors: true # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
@@ -14593,7 +14593,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 credit_notes = { "CreditNotes":[ { "Type":"ACCPAYCREDIT", "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "Date":"2019-01-05", "Status":"AUTHORISED", "Reference": "HelloWorld", "LineItems":[ { "Description":"Foobar", "Quantity":2.0, "UnitAmount":20.0, "AccountCode":"400" } ] } ] } # CreditNotes | an array of Credit Notes with a single CreditNote object.
 opts = {
   summarize_errors: true, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
@@ -14665,7 +14665,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 employees = { "Employees": [ { "FirstName": "Nick", "LastName": "Fury", "ExternalLink": { "Url": "http://twitter.com/#!/search/Nick+Fury" } } ] } # Employees | Employees with array of Employee object in body of request
 opts = {
   summarize_errors: true # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
@@ -14734,7 +14734,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 invoices = { "Invoices": [ { "Type": "ACCREC", "Contact": { "ContactID": "430fa14a-f945-44d3-9f97-5df5e28441b8" }, "LineItems": [ { "Description": "Acme Tires", "Quantity": 2, "UnitAmount": 20, "AccountCode": "200", "TaxType": "NONE", "LineAmount": 40 } ], "Date": "2019-03-11", "DueDate": "2018-12-10", "Reference": "Website Design", "Status": "AUTHORISED" } ] } # Invoices | 
 opts = {
   summarize_errors: true, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
@@ -14806,7 +14806,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 items = { "Items": [ { "Code": "ItemCode123", "Name": "ItemName XYZ", "Description": "Item Description ABC" } ] } # Items | 
 opts = {
   summarize_errors: true, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
@@ -14878,7 +14878,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 manual_journals = { "ManualJournals": [ { "Narration": "Journal Desc", "JournalLines": [ { "LineAmount": 100, "AccountCode": "400", "Description": "Money Movement" }, { "LineAmount": -100, "AccountCode": "400", "Description": "Prepayment of things", "Tracking": [ { "Name": "North", "Option": "Region" } ] } ], "Date": "2019-03-14" } ] } # ManualJournals | ManualJournals array with ManualJournal object in body of request
 opts = {
   summarize_errors: true # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
@@ -14947,7 +14947,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 purchase_orders = { "PurchaseOrders": [ { "Contact": { "ContactID": "00000000-0000-0000-0000-000000000000" }, "LineItems": [ { "Description": "Foobar", "Quantity": 1, "UnitAmount": 20, "AccountCode": "710" } ], "Date": "2019-03-13" } ] } # PurchaseOrders | 
 opts = {
   summarize_errors: true # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
@@ -15016,7 +15016,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 quotes = { "Quotes": [ { "Contact": { "ContactID": "00000000-0000-0000-0000-000000000000" }, "LineItems": [ { "Description": "Foobar", "Quantity": 1, "UnitAmount": 20, "AccountCode": "12775" } ], "Date": "2020-02-01" } ] } # Quotes | 
 opts = {
   summarize_errors: true # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
@@ -15085,7 +15085,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 repeating_invoices = { "RepeatingInvoices": [ { "Schedule": { "Period": 1, "Unit": "MONTHLY", "DueDate": 10, "DueDateType": "OFFOLLOWINGMONTH", "StartDate": "\/Date(1555286400000+0000)\/" }, "Type": "ACCREC", "Reference": "[Week]", "ApprovedForSending": false, "SendCopy": false, "MarkAsSent": false, "IncludePDF": false, "Contact": { "ContactID": "430fa14a-f945-44d3-9f97-5df5e28441b8", "Name": "Liam Gallagher" }, "Status": "AUTHORISED", "LineAmountTypes": "Exclusive", "LineItems": [ { "Description": "Guitars Fender Strat", "UnitAmount": 5000.00, "TaxType": "OUTPUT2", "TaxAmount": 750.00, "LineAmount": 5000.00, "AccountCode": "200", "Tracking": [], "Quantity": 1.0000, "LineItemID": "13a8353c-d2af-4d5b-920c-438449f08900", "DiscountEnteredAsPercent": true } ], "CurrencyCode": "NZD" } ] } # RepeatingInvoices | RepeatingInvoices with an array of repeating invoice objects in body of request
 opts = {
   summarize_errors: true # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
@@ -15154,8 +15154,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-purchase_order_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Purchase Order
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+purchase_order_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Purchase Order
 purchase_orders = { "PurchaseOrders": [ { "AttentionTo": "Peter Parker", "LineItems": [], "Contact": {} } ] } # PurchaseOrders | 
 begin
   #Updates a specific purchase order
@@ -15220,9 +15220,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-purchase_order_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Purchase Order
-file_name = xero-dev.jpg # String | Name of the attachment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+purchase_order_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Purchase Order
+file_name = 'xero-dev.jpg' # String | Name of the attachment
 body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
 begin
   #Updates a specific attachment for a specific purchase order by filename
@@ -15288,8 +15288,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-quote_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Quote
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+quote_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Quote
 quotes = { "Quotes": [ { "Reference": "I am an update", "Contact": { "ContactID": "00000000-0000-0000-0000-000000000000" }, "Date": "2020-02-01" } ] } # Quotes | 
 begin
   #Updates a specific quote
@@ -15354,9 +15354,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-quote_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for an Quote
-file_name = xero-dev.jpg # String | Name of the attachment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+quote_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Quote
+file_name = 'xero-dev.jpg' # String | Name of the attachment
 body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
 begin
   #Updates a specific attachment from a specific quote by filename
@@ -15422,8 +15422,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-receipt_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Receipt
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+receipt_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Receipt
 receipts = { "Receipts": [ { "Lineitems": [], "User": { "UserID": "00000000-0000-0000-0000-000000000000" }, "Reference": "Foobar" } ] } # Receipts | 
 opts = {
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
@@ -15493,9 +15493,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-receipt_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Receipt
-file_name = xero-dev.jpg # String | Name of the attachment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+receipt_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Receipt
+file_name = 'xero-dev.jpg' # String | Name of the attachment
 body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
 begin
   #Updates a specific attachment on a specific expense claim receipts by file name
@@ -15561,8 +15561,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-repeating_invoice_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Repeating Invoice
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+repeating_invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Repeating Invoice
 repeating_invoices = { "Status": "DELETED" } # RepeatingInvoices | 
 begin
   #Deletes a specific repeating invoice template
@@ -15627,9 +15627,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-repeating_invoice_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Repeating Invoice
-file_name = xero-dev.jpg # String | Name of the attachment
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+repeating_invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Repeating Invoice
+file_name = 'xero-dev.jpg' # String | Name of the attachment
 body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
 begin
   #Updates a specific attachment from a specific repeating invoices by file name
@@ -15695,7 +15695,7 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 tax_rates = { "TaxRates": [ { "Name": "State Tax NY", "TaxComponents": [ { "Name": "State Tax", "Rate": 2.25 } ], "Status": "DELETED", "ReportTaxType": "INPUT" } ] } # TaxRates | 
 begin
   #Updates tax rates
@@ -15759,8 +15759,8 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-tracking_category_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a TrackingCategory
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+tracking_category_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a TrackingCategory
 tracking_category = { "Name": "Avengers" } # TrackingCategory | 
 begin
   #Updates a specific tracking category
@@ -15825,9 +15825,9 @@ api_instance = xero_client.<api_set>
 
 
 
-xero_tenant_id = YOUR_XERO_TENANT_ID # String | Xero identifier for Tenant
-tracking_category_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a TrackingCategory
-tracking_option_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for a Tracking Option
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+tracking_category_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a TrackingCategory
+tracking_option_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Tracking Option
 tracking_option = { name: "Vision" } # TrackingOption | 
 begin
   #Updates a specific option for a specific tracking category
