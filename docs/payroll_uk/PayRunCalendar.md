@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **period_start_date** | **Date** | Period start date of the calendar | 
 **period_end_date** | **Date** | Period end date of the calendar | [optional] 
 **payment_date** | **Date** | Payment date of the calendar | 
-**updated_date_utc** | **Time** | UTC timestamp of the last update to the pay run calendar | [optional] 
+**updated_date_utc** | **DateTime** | UTC timestamp of the last update to the pay run calendar | [optional] 
 
 ## Code Sample
 

@@ -16,8 +16,8 @@ Name | Type | Description | Notes
 **start_date** | **Date** | Employment start date of the employee at the time it was requested | [optional] 
 **end_date** | **Date** | Employment end date of the employee at the time it was requested | [optional] 
 **payroll_calendar_id** | **String** | Xero unique identifier for the payroll calendar of the employee | [optional] 
-**updated_date_utc** | **Time** | UTC timestamp of last update to the employee | [optional] 
-**created_date_utc** | **Time** | UTC timestamp when the employee was created in Xero | [optional] 
+**updated_date_utc** | **DateTime** | UTC timestamp of last update to the employee | [optional] 
+**created_date_utc** | **DateTime** | UTC timestamp when the employee was created in Xero | [optional] 
 
 ## Code Sample
 

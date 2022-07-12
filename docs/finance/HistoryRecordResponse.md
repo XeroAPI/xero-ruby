@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **changes** | **String** | The type of change recorded against the document | [optional] 
 **date_utc_string** | **String** | UTC date that the history record was created | [optional] 
-**date_utc** | **Time** | UTC date that the history record was created | [optional] 
+**date_utc** | **DateTime** | UTC date that the history record was created | [optional] 
 **user** | **String** | The users first and last name | [optional] 
 **details** | **String** | Description of the change event or transaction | [optional] 
 

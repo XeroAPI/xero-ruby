@@ -15563,7 +15563,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 repeating_invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Repeating Invoice
-repeating_invoices = { "Status": "DELETED" } # RepeatingInvoices | 
+repeating_invoices = { "Schedule": { "Period": 1, "Unit": "MONTHLY", "DueDate": 10, "DueDateType": "OFFOLLOWINGMONTH", "StartDate": "\/Date(1555286400000+0000)\/", "EndDate": "\/Date(1569801600000+0000)\/", "NextScheduledDate": "\/Date(1555286400000+0000)\/" }, "RepeatingInvoiceID": "428c0d75-909f-4b04-8403-a48dc27283b0", "Type": "ACCREC", "Reference": "[Week]", "HasAttachments": true, "ApprovedForSending": false, "SendCopy": false, "MarkAsSent": false, "IncludePDF": false, "ID": "428c0d75-909f-4b04-8403-a48dc27283b0", "Contact": { "ContactID": "430fa14a-f945-44d3-9f97-5df5e28441b8", "Name": "Liam Gallagher", "Addresses": [], "Phones": [], "ContactGroups": [], "ContactPersons": [], "HasValidationErrors": false }, "Status": "DELETED", "LineAmountTypes": "Exclusive", "LineItems": [ { "Description": "Guitars Fender Strat", "UnitAmount": 5000.00, "TaxType": "OUTPUT2", "TaxAmount": 750.00, "LineAmount": 5000.00, "AccountCode": "200", "Tracking": [], "Quantity": 1.0000, "LineItemID": "13a8353c-d2af-4d5b-920c-438449f08900", "DiscountEnteredAsPercent": true } ], "SubTotal": 5000.00, "TotalTax": 750.00, "Total": 5750.00, "CurrencyCode": "NZD" } # RepeatingInvoices | 
 begin
   #Deletes a specific repeating invoice template
   result = api_instance.update_repeating_invoice(xero_tenant_id, repeating_invoice_id, repeating_invoices)
