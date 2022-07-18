@@ -335,7 +335,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 account_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for Account object
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 begin
   #Creates an attachment on a specific account
   result = api_instance.create_account_attachment_by_file_name(xero_tenant_id, account_id, file_name, body)
@@ -403,7 +403,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transaction_id = '00000000-0000-0000-0000-000000000000' # String | Xero generated unique identifier for a bank transaction
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 begin
   #Creates an attachment for a specific bank transaction by filename
   result = api_instance.create_bank_transaction_attachment_by_file_name(xero_tenant_id, bank_transaction_id, file_name, body)
@@ -673,7 +673,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transfer_id = '00000000-0000-0000-0000-000000000000' # String | Xero generated unique identifier for a bank transfer
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 begin
   result = api_instance.create_bank_transfer_attachment_by_file_name(xero_tenant_id, bank_transfer_id, file_name, body)
   p result
@@ -1007,7 +1007,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Contact
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 begin
   result = api_instance.create_contact_attachment_by_file_name(xero_tenant_id, contact_id, file_name, body)
   p result
@@ -1410,7 +1410,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 credit_note_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Credit Note
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 opts = {
   include_online: true # Boolean | Allows an attachment to be seen by the end customer within their online invoice
 }
@@ -1884,7 +1884,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Invoice
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 opts = {
   include_online: true # Boolean | Allows an attachment to be seen by the end customer within their online invoice
 }
@@ -2297,7 +2297,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 manual_journal_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a ManualJournal
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 begin
   #Creates a specific attachment for a specific manual journal by file name
   result = api_instance.create_manual_journal_attachment_by_file_name(xero_tenant_id, manual_journal_id, file_name, body)
@@ -3037,7 +3037,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 purchase_order_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Purchase Order
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 begin
   #Creates attachment for a specific purchase order
   result = api_instance.create_purchase_order_attachment_by_file_name(xero_tenant_id, purchase_order_id, file_name, body)
@@ -3240,7 +3240,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 quote_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Quote
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 begin
   #Creates attachment for a specific quote
   result = api_instance.create_quote_attachment_by_file_name(xero_tenant_id, quote_id, file_name, body)
@@ -3512,7 +3512,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 receipt_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Receipt
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 begin
   #Creates an attachment on a specific expense claim receipts by file name
   result = api_instance.create_receipt_attachment_by_file_name(xero_tenant_id, receipt_id, file_name, body)
@@ -3646,7 +3646,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 repeating_invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Repeating Invoice
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 begin
   #Creates an attachment from a specific repeating invoices by file name
   result = api_instance.create_repeating_invoice_attachment_by_file_name(xero_tenant_id, repeating_invoice_id, file_name, body)
@@ -13367,7 +13367,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 account_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for Account object
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 begin
   #Updates attachment on a specific account by filename
   result = api_instance.update_account_attachment_by_file_name(xero_tenant_id, account_id, file_name, body)
@@ -13506,7 +13506,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transaction_id = '00000000-0000-0000-0000-000000000000' # String | Xero generated unique identifier for a bank transaction
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 begin
   #Updates a specific attachment from a specific bank transaction by filename
   result = api_instance.update_bank_transaction_attachment_by_file_name(xero_tenant_id, bank_transaction_id, file_name, body)
@@ -13574,7 +13574,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transfer_id = '00000000-0000-0000-0000-000000000000' # String | Xero generated unique identifier for a bank transfer
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 begin
   result = api_instance.update_bank_transfer_attachment_by_file_name(xero_tenant_id, bank_transfer_id, file_name, body)
   p result
@@ -13707,7 +13707,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Contact
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 begin
   result = api_instance.update_contact_attachment_by_file_name(xero_tenant_id, contact_id, file_name, body)
   p result
@@ -13911,7 +13911,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 credit_note_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Credit Note
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 begin
   #Updates attachments on a specific credit note by file name
   result = api_instance.update_credit_note_attachment_by_file_name(xero_tenant_id, credit_note_id, file_name, body)
@@ -14116,7 +14116,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Invoice
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 begin
   #Updates an attachment from a specific invoices or purchase bill by filename
   result = api_instance.update_invoice_attachment_by_file_name(xero_tenant_id, invoice_id, file_name, body)
@@ -14387,7 +14387,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 manual_journal_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a ManualJournal
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 begin
   #Updates a specific attachment from a specific manual journal by file name
   result = api_instance.update_manual_journal_attachment_by_file_name(xero_tenant_id, manual_journal_id, file_name, body)
@@ -15223,7 +15223,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 purchase_order_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Purchase Order
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 begin
   #Updates a specific attachment for a specific purchase order by filename
   result = api_instance.update_purchase_order_attachment_by_file_name(xero_tenant_id, purchase_order_id, file_name, body)
@@ -15357,7 +15357,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 quote_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Quote
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 begin
   #Updates a specific attachment from a specific quote by filename
   result = api_instance.update_quote_attachment_by_file_name(xero_tenant_id, quote_id, file_name, body)
@@ -15496,7 +15496,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 receipt_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Receipt
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 begin
   #Updates a specific attachment on a specific expense claim receipts by file name
   result = api_instance.update_receipt_attachment_by_file_name(xero_tenant_id, receipt_id, file_name, body)
@@ -15630,7 +15630,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 repeating_invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Repeating Invoice
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = BYTE_ARRAY_DATA_HERE # String | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 begin
   #Updates a specific attachment from a specific repeating invoices by file name
   result = api_instance.update_repeating_invoice_attachment_by_file_name(xero_tenant_id, repeating_invoice_id, file_name, body)

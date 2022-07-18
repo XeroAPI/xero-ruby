@@ -1066,7 +1066,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-body = BYTE_ARRAY_DATA_HERE # String | 
+body = 'body_example' # String | 
 name = 'name_example' # String | exact name of the file you are uploading
 filename = 'filename_example' # String | 
 opts = {
@@ -1140,7 +1140,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 folder_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | pass required folder id to save file to specific folder
-body = BYTE_ARRAY_DATA_HERE # String | 
+body = 'body_example' # String | 
 name = 'name_example' # String | exact name of the file you are uploading
 filename = 'filename_example' # String | 
 opts = {
