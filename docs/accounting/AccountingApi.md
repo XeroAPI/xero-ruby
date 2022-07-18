@@ -4907,7 +4907,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **if_modified_since** | **Time**| Only records created or modified since this timestamp will be returned | [optional] 
+ **if_modified_since** | **DateTime**| Only records created or modified since this timestamp will be returned | [optional] 
  **where** | **String**| Filter by an any element | [optional] 
  **order** | **String**| Order by an any element | [optional] 
 
@@ -5253,7 +5253,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **if_modified_since** | **Time**| Only records created or modified since this timestamp will be returned | [optional] 
+ **if_modified_since** | **DateTime**| Only records created or modified since this timestamp will be returned | [optional] 
  **where** | **String**| Filter by an any element | [optional] 
  **order** | **String**| Order by an any element | [optional] 
  **page** | **Integer**| Up to 100 bank transactions will be returned in a single API call with line items details | [optional] 
@@ -5720,7 +5720,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **if_modified_since** | **Time**| Only records created or modified since this timestamp will be returned | [optional] 
+ **if_modified_since** | **DateTime**| Only records created or modified since this timestamp will be returned | [optional] 
  **where** | **String**| Filter by an any element | [optional] 
  **order** | **String**| Order by an any element | [optional] 
 
@@ -5857,7 +5857,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **if_modified_since** | **Time**| Only records created or modified since this timestamp will be returned | [optional] 
+ **if_modified_since** | **DateTime**| Only records created or modified since this timestamp will be returned | [optional] 
  **where** | **String**| Filter by an any element | [optional] 
  **order** | **String**| Order by an any element | [optional] 
 
@@ -6865,7 +6865,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **if_modified_since** | **Time**| Only records created or modified since this timestamp will be returned | [optional] 
+ **if_modified_since** | **DateTime**| Only records created or modified since this timestamp will be returned | [optional] 
  **where** | **String**| Filter by an any element | [optional] 
  **order** | **String**| Order by an any element | [optional] 
  **ids** | [**Array&lt;String&gt;**](String.md)| Filter by a comma separated list of ContactIDs. Allows you to retrieve a specific set of contacts in a single call. | [optional] 
@@ -7344,7 +7344,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **if_modified_since** | **Time**| Only records created or modified since this timestamp will be returned | [optional] 
+ **if_modified_since** | **DateTime**| Only records created or modified since this timestamp will be returned | [optional] 
  **where** | **String**| Filter by an any element | [optional] 
  **order** | **String**| Order by an any element | [optional] 
  **page** | **Integer**| e.g. page&#x3D;1 – Up to 100 credit notes will be returned in a single API call with line items shown for each credit note | [optional] 
@@ -7553,7 +7553,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **if_modified_since** | **Time**| Only records created or modified since this timestamp will be returned | [optional] 
+ **if_modified_since** | **DateTime**| Only records created or modified since this timestamp will be returned | [optional] 
  **where** | **String**| Filter by an any element | [optional] 
  **order** | **String**| Order by an any element | [optional] 
 
@@ -7754,7 +7754,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **if_modified_since** | **Time**| Only records created or modified since this timestamp will be returned | [optional] 
+ **if_modified_since** | **DateTime**| Only records created or modified since this timestamp will be returned | [optional] 
  **where** | **String**| Filter by an any element | [optional] 
  **order** | **String**| Order by an any element | [optional] 
 
@@ -8304,7 +8304,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **if_modified_since** | **Time**| Only records created or modified since this timestamp will be returned | [optional] 
+ **if_modified_since** | **DateTime**| Only records created or modified since this timestamp will be returned | [optional] 
  **where** | **String**| Filter by an any element | [optional] 
  **order** | **String**| Order by an any element | [optional] 
  **ids** | [**Array&lt;String&gt;**](String.md)| Filter by a comma-separated list of InvoicesIDs. | [optional] 
@@ -8521,7 +8521,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **if_modified_since** | **Time**| Only records created or modified since this timestamp will be returned | [optional] 
+ **if_modified_since** | **DateTime**| Only records created or modified since this timestamp will be returned | [optional] 
  **where** | **String**| Filter by an any element | [optional] 
  **order** | **String**| Order by an any element | [optional] 
  **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
@@ -8723,7 +8723,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **if_modified_since** | **Time**| Only records created or modified since this timestamp will be returned | [optional] 
+ **if_modified_since** | **DateTime**| Only records created or modified since this timestamp will be returned | [optional] 
  **offset** | **Integer**| Offset by a specified journal number. e.g. journals with a JournalNumber greater than the offset will be returned | [optional] 
  **payments_only** | **Boolean**| Filter to retrieve journals on a cash basis. Journals are returned on an accrual basis by default. | [optional] 
 
@@ -9208,7 +9208,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **if_modified_since** | **Time**| Only records created or modified since this timestamp will be returned | [optional] 
+ **if_modified_since** | **DateTime**| Only records created or modified since this timestamp will be returned | [optional] 
  **where** | **String**| Filter by an any element | [optional] 
  **order** | **String**| Order by an any element | [optional] 
  **page** | **Integer**| e.g. page&#x3D;1 – Up to 100 manual journals will be returned in a single API call with line items shown for each overpayment | [optional] 
@@ -9730,7 +9730,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **if_modified_since** | **Time**| Only records created or modified since this timestamp will be returned | [optional] 
+ **if_modified_since** | **DateTime**| Only records created or modified since this timestamp will be returned | [optional] 
  **where** | **String**| Filter by an any element | [optional] 
  **order** | **String**| Order by an any element | [optional] 
  **page** | **Integer**| e.g. page&#x3D;1 – Up to 100 overpayments will be returned in a single API call with line items shown for each overpayment | [optional] 
@@ -9997,7 +9997,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **if_modified_since** | **Time**| Only records created or modified since this timestamp will be returned | [optional] 
+ **if_modified_since** | **DateTime**| Only records created or modified since this timestamp will be returned | [optional] 
  **where** | **String**| Filter by an any element | [optional] 
  **order** | **String**| Order by an any element | [optional] 
  **page** | **Integer**| Up to 100 payments will be returned in a single API call | [optional] 
@@ -10203,7 +10203,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **if_modified_since** | **Time**| Only records created or modified since this timestamp will be returned | [optional] 
+ **if_modified_since** | **DateTime**| Only records created or modified since this timestamp will be returned | [optional] 
  **where** | **String**| Filter by an any element | [optional] 
  **order** | **String**| Order by an any element | [optional] 
  **page** | **Integer**| e.g. page&#x3D;1 – Up to 100 prepayments will be returned in a single API call with line items shown for each overpayment | [optional] 
@@ -10740,7 +10740,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **if_modified_since** | **Time**| Only records created or modified since this timestamp will be returned | [optional] 
+ **if_modified_since** | **DateTime**| Only records created or modified since this timestamp will be returned | [optional] 
  **status** | **String**| Filter by purchase order status | [optional] 
  **date_from** | **String**| Filter by purchase order date (e.g. GET https://.../PurchaseOrders?DateFrom&#x3D;2015-12-01&amp;DateTo&#x3D;2015-12-31 | [optional] 
  **date_to** | **String**| Filter by purchase order date (e.g. GET https://.../PurchaseOrders?DateFrom&#x3D;2015-12-01&amp;DateTo&#x3D;2015-12-31 | [optional] 
@@ -11222,7 +11222,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **if_modified_since** | **Time**| Only records created or modified since this timestamp will be returned | [optional] 
+ **if_modified_since** | **DateTime**| Only records created or modified since this timestamp will be returned | [optional] 
  **date_from** | **Date**| Filter for quotes after a particular date | [optional] 
  **date_to** | **Date**| Filter for quotes before a particular date | [optional] 
  **expiry_date_from** | **Date**| Filter for quotes expiring after a particular date | [optional] 
@@ -11637,7 +11637,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **if_modified_since** | **Time**| Only records created or modified since this timestamp will be returned | [optional] 
+ **if_modified_since** | **DateTime**| Only records created or modified since this timestamp will be returned | [optional] 
  **where** | **String**| Filter by an any element | [optional] 
  **order** | **String**| Order by an any element | [optional] 
  **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
@@ -13185,7 +13185,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **if_modified_since** | **Time**| Only records created or modified since this timestamp will be returned | [optional] 
+ **if_modified_since** | **DateTime**| Only records created or modified since this timestamp will be returned | [optional] 
  **where** | **String**| Filter by an any element | [optional] 
  **order** | **String**| Order by an any element | [optional] 
 

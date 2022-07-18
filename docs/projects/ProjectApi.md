@@ -804,8 +804,8 @@ Name | Type | Description  | Notes
  **page_size** | **Integer**| Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500. | [optional] 
  **states** | [**Array&lt;String&gt;**](String.md)| Comma-separated list of states to find. Will find all time entries that are in the status of whatever is specified. | [optional] 
  **is_chargeable** | **Boolean**| Finds all time entries which relate to tasks with the charge type &#x60;TIME&#x60; or &#x60;FIXED&#x60;. | [optional] 
- **date_after_utc** | **Time**| ISO 8601 UTC date. Finds all time entries on or after this date filtered on the &#x60;dateUtc&#x60; field. | [optional] 
- **date_before_utc** | **Time**| ISO 8601 UTC date. Finds all time entries on or before this date filtered on the &#x60;dateUtc&#x60; field. | [optional] 
+ **date_after_utc** | **DateTime**| ISO 8601 UTC date. Finds all time entries on or after this date filtered on the &#x60;dateUtc&#x60; field. | [optional] 
+ **date_before_utc** | **DateTime**| ISO 8601 UTC date. Finds all time entries on or before this date filtered on the &#x60;dateUtc&#x60; field. | [optional] 
 
 ### Return type
 
