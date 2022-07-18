@@ -4885,7 +4885,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
   where: Status==&quot;ACTIVE&quot; AND Type==&quot;BANK&quot;, # String | Filter by an any element
 
@@ -5227,7 +5227,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
   where: Status=="AUTHORISED", # String | Filter by an any element
 
@@ -5698,7 +5698,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
   where: HasAttachments==true, # String | Filter by an any element
 
@@ -5835,7 +5835,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
   where: Status=="AUTHORISED", # String | Filter by an any element
 
@@ -6170,7 +6170,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  ids: &quot;00000000-0000-0000-0000-000000000000&quot;, # Array<String> | Filter by BudgetID. Allows you to retrieve a specific individual budget.
+  ids: &quot;00000000-0000-0000-0000-000000000000&quot;, # Array&lt;String&gt; | Filter by BudgetID. Allows you to retrieve a specific individual budget.
 
   date_to: 2019-10-31, # Date | Filter by start date
 
@@ -6833,13 +6833,13 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
   where: ContactStatus==&quot;ACTIVE&quot;, # String | Filter by an any element
 
   order: Name ASC, # String | Order by an any element
 
-  ids: &quot;00000000-0000-0000-0000-000000000000&quot;, # Array<String> | Filter by a comma separated list of ContactIDs. Allows you to retrieve a specific set of contacts in a single call.
+  ids: &quot;00000000-0000-0000-0000-000000000000&quot;, # Array&lt;String&gt; | Filter by a comma separated list of ContactIDs. Allows you to retrieve a specific set of contacts in a single call.
 
   page: 1, # Integer | e.g. page=1 - Up to 100 contacts will be returned in a single API call.
 
@@ -7318,7 +7318,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
   where: Status=="DRAFT", # String | Filter by an any element
 
@@ -7531,7 +7531,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
   where: Status=="ACTIVE", # String | Filter by an any element
 
@@ -7732,7 +7732,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
   where: Status=="SUBMITTED", # String | Filter by an any element
 
@@ -8264,19 +8264,19 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
   where: Status=="DRAFT", # String | Filter by an any element
 
   order: InvoiceNumber ASC, # String | Order by an any element
 
-  ids: &quot;00000000-0000-0000-0000-000000000000&quot;, # Array<String> | Filter by a comma-separated list of InvoicesIDs.
+  ids: &quot;00000000-0000-0000-0000-000000000000&quot;, # Array&lt;String&gt; | Filter by a comma-separated list of InvoicesIDs.
 
-  invoice_numbers: &quot;INV-001&quot;, &quot;INV-002&quot;, # Array<String> | Filter by a comma-separated list of InvoiceNumbers.
+  invoice_numbers: &quot;INV-001&quot;, &quot;INV-002&quot;, # Array&lt;String&gt; | Filter by a comma-separated list of InvoiceNumbers.
 
-  contact_ids: &quot;00000000-0000-0000-0000-000000000000&quot;, # Array<String> | Filter by a comma-separated list of ContactIDs.
+  contact_ids: &quot;00000000-0000-0000-0000-000000000000&quot;, # Array&lt;String&gt; | Filter by a comma-separated list of ContactIDs.
 
-  statuses: &quot;DRAFT&quot;, &quot;SUBMITTED&quot;, # Array<String> | Filter by a comma-separated list Statuses. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter.
+  statuses: &quot;DRAFT&quot;, &quot;SUBMITTED&quot;, # Array&lt;String&gt; | Filter by a comma-separated list Statuses. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter.
 
   page: 1, # Integer | e.g. page=1 – Up to 100 invoices will be returned in a single API call with line items shown for each invoice
 
@@ -8497,7 +8497,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
   where: IsSold==true, # String | Filter by an any element
 
@@ -8701,7 +8701,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
   offset: 10, # Integer | Offset by a specified journal number. e.g. journals with a JournalNumber greater than the offset will be returned
 
@@ -9184,7 +9184,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
   where: Status=="DRAFT", # String | Filter by an any element
 
@@ -9704,7 +9704,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
   where: Status=="AUTHORISED", # String | Filter by an any element
 
@@ -9973,7 +9973,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
   where: Status=="AUTHORISED", # String | Filter by an any element
 
@@ -10177,7 +10177,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
   where: Status=="AUTHORISED", # String | Filter by an any element
 
@@ -10712,7 +10712,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
   status: DRAFT, # String | Filter by purchase order status
 
@@ -11186,7 +11186,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
   date_from: 2019-10-31, # Date | Filter for quotes after a particular date
 
@@ -11613,7 +11613,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
   where: Status=="DRAFT", # String | Filter by an any element
 
@@ -13163,7 +13163,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
   where: IsSubscriber==true, # String | Filter by an any element
 

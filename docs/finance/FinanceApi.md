@@ -624,7 +624,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  contact_ids: ["00000000-0000-0000-0000-000000000000","00000000-0000-0000-0000-000000000000"], # Array<String> | Specifies the customer contacts to be included in the report.    If no parameter is provided, all customer contacts will be included
+  contact_ids: ["00000000-0000-0000-0000-000000000000","00000000-0000-0000-0000-000000000000"], # Array&lt;String&gt; | Specifies the customer contacts to be included in the report.    If no parameter is provided, all customer contacts will be included
 
   include_manual_journals: true, # Boolean | Specifies whether to include the manual journals in the report.                If no parameter is provided, manual journals will not be included.
 
@@ -702,7 +702,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  contact_ids: ["00000000-0000-0000-0000-000000000000","00000000-0000-0000-0000-000000000000"], # Array<String> | Specifies the customer contacts to be included in the report.    If no parameter is provided, all customer contacts will be included
+  contact_ids: ["00000000-0000-0000-0000-000000000000","00000000-0000-0000-0000-000000000000"], # Array&lt;String&gt; | Specifies the customer contacts to be included in the report.    If no parameter is provided, all customer contacts will be included
 
   include_manual_journals: true, # Boolean | Specifies whether to include the manual journals in the report.                If no parameter is provided, manual journals will not be included.
 

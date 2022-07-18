@@ -581,7 +581,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
   where: Status=="ACTIVE", # String | Filter by an any element
 
@@ -721,7 +721,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
   where: Status=="ACTIVE", # String | Filter by an any element
 
@@ -797,7 +797,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
   where: Status=="ACTIVE", # String | Filter by an any element
 
@@ -937,7 +937,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
   where: Status=="ACTIVE", # String | Filter by an any element
 
@@ -1077,7 +1077,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
   where: Status=="ACTIVE", # String | Filter by an any element
 
@@ -1413,7 +1413,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
   where: Status=="ACTIVE", # String | Filter by an any element
 
@@ -1553,7 +1553,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
-  if_modified_since: 2020-02-06T12:17:43.202-08:00, # Time | Only records created or modified since this timestamp will be returned
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
   where: Status=="ACTIVE", # String | Filter by an any element
 
@@ -1632,7 +1632,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
 opts = {
-  employee: [ { "MiddleNames": "Frank" } ] # Array<Employee> | 
+  employee: [ { "MiddleNames": "Frank" } ] # Array&lt;Employee&gt; | 
 }
 
 begin
@@ -1769,7 +1769,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 pay_run_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | PayRun id for single object
 opts = {
-  pay_run:  # Array<PayRun> | 
+  pay_run:  # Array&lt;PayRun&gt; | 
 }
 
 begin
@@ -1840,7 +1840,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 payslip_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Payslip id for single object
 opts = {
-  payslip_lines: { "Payslip": { "EmployeeID": "cdfb8371-0b21-4b8a-8903-1024df6c391e", "DeductionLines": [ { "DeductionTypeID": "727af5e8-b347-4ae7-85fc-9b82266d0aec", "CalculationType": "FIXEDAMOUNT", "NumberOfUnits": 10 } ] } } # Array<PayslipLines> | 
+  payslip_lines: { "Payslip": { "EmployeeID": "cdfb8371-0b21-4b8a-8903-1024df6c391e", "DeductionLines": [ { "DeductionTypeID": "727af5e8-b347-4ae7-85fc-9b82266d0aec", "CalculationType": "FIXEDAMOUNT", "NumberOfUnits": 10 } ] } } # Array&lt;PayslipLines&gt; | 
 }
 
 begin
@@ -1911,7 +1911,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 super_fund_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Superfund id for single object
 opts = {
-  super_fund:  [ { "Type":"REGULATED", "Name":"Nice23534" } ] # Array<SuperFund> | 
+  super_fund:  [ { "Type":"REGULATED", "Name":"Nice23534" } ] # Array&lt;SuperFund&gt; | 
 }
 
 begin
@@ -1982,7 +1982,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 timesheet_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Timesheet id for single object
 opts = {
-  timesheet: [ { "EmployeeID":"b34e89ff-770d-4099-b7e5-f968767118bc", "StartDate":"/Date(1573171200000+0000)/", "EndDate":"/Date(1573689600000+0000)/", "Status":"APPROVED", "Hours":22.0, "TimesheetID":"a7eb0a79-8511-4ee7-b473-3a25f28abcb9", "TimesheetLines":[ { "EarningsRateID":"ab874dfb-ab09-4c91-954e-43acf6fc23b4", "TrackingItemID":"af5e9ce2-2349-4136-be99-3561b189f473", "NumberOfUnits":[ 2.0, 10.0, 0.0, 0.0, 5.0, 0.0, 5.0 ], "UpdatedDateUTC":"/Date(1573516185127+0000)/" } ] } ] # Array<Timesheet> | 
+  timesheet: [ { "EmployeeID":"b34e89ff-770d-4099-b7e5-f968767118bc", "StartDate":"/Date(1573171200000+0000)/", "EndDate":"/Date(1573689600000+0000)/", "Status":"APPROVED", "Hours":22.0, "TimesheetID":"a7eb0a79-8511-4ee7-b473-3a25f28abcb9", "TimesheetLines":[ { "EarningsRateID":"ab874dfb-ab09-4c91-954e-43acf6fc23b4", "TrackingItemID":"af5e9ce2-2349-4136-be99-3561b189f473", "NumberOfUnits":[ 2.0, 10.0, 0.0, 0.0, 5.0, 0.0, 5.0 ], "UpdatedDateUTC":"/Date(1573516185127+0000)/" } ] } ] # Array&lt;Timesheet&gt; | 
 }
 
 begin

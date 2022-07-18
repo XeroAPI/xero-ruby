@@ -529,7 +529,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
-  project_ids: , # Array<String> | Search for all projects that match a comma separated list of projectIds
+  project_ids: , # Array&lt;String&gt; | Search for all projects that match a comma separated list of projectIds
 
   contact_id: 38400000-8cf0-11bd-b23e-10b96e4ef00d, # String | Filter for projects for a specific contact
 
@@ -771,13 +771,13 @@ opts = {
 
   page_size: 10, # Integer | Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500.
 
-  states: , # Array<String> | Comma-separated list of states to find. Will find all time entries that are in the status of whatever is specified.
+  states: , # Array&lt;String&gt; | Comma-separated list of states to find. Will find all time entries that are in the status of whatever is specified.
 
   is_chargeable: true, # Boolean | Finds all time entries which relate to tasks with the charge type `TIME` or `FIXED`.
 
-  date_after_utc: 2013-10-20T19:20:30+01:00, # Time | ISO 8601 UTC date. Finds all time entries on or after this date filtered on the `dateUtc` field.
+  date_after_utc: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | ISO 8601 UTC date. Finds all time entries on or after this date filtered on the `dateUtc` field.
 
-  date_before_utc: 2013-10-20T19:20:30+01:00 # Time | ISO 8601 UTC date. Finds all time entries on or before this date filtered on the `dateUtc` field.
+  date_before_utc: DateTime.parse('2013-10-20T19:20:30+01:00') # DateTime | ISO 8601 UTC date. Finds all time entries on or before this date filtered on the `dateUtc` field.
 }
 
 begin
