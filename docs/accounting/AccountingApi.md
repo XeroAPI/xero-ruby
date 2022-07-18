@@ -4887,9 +4887,9 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  where: Status==&quot;ACTIVE&quot; AND Type==&quot;BANK&quot;, # String | Filter by an any element
+  where: 'Status==&quot;ACTIVE&quot; AND Type==&quot;BANK&quot;', # String | Filter by an any element
 
-  order: Name ASC # String | Order by an any element
+  order: 'Name ASC' # String | Order by an any element
 }
 
 begin
@@ -5229,9 +5229,9 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  where: Status=="AUTHORISED", # String | Filter by an any element
+  where: 'Status=="AUTHORISED"', # String | Filter by an any element
 
-  order: Type ASC, # String | Order by an any element
+  order: 'Type ASC', # String | Order by an any element
 
   page: 1, # Integer | Up to 100 bank transactions will be returned in a single API call with line items details
 
@@ -5700,9 +5700,9 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  where: HasAttachments==true, # String | Filter by an any element
+  where: 'HasAttachments==true', # String | Filter by an any element
 
-  order: Amount ASC # String | Order by an any element
+  order: 'Amount ASC' # String | Order by an any element
 }
 
 begin
@@ -5837,9 +5837,9 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  where: Status=="AUTHORISED", # String | Filter by an any element
+  where: 'Status=="AUTHORISED"', # String | Filter by an any element
 
-  order: Date ASC # String | Order by an any element
+  order: 'Date ASC' # String | Order by an any element
 }
 
 begin
@@ -6699,9 +6699,9 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  where: Status=="ACTIVE", # String | Filter by an any element
+  where: 'Status=="ACTIVE"', # String | Filter by an any element
 
-  order: Name ASC # String | Order by an any element
+  order: 'Name ASC' # String | Order by an any element
 }
 
 begin
@@ -6835,9 +6835,9 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  where: ContactStatus==&quot;ACTIVE&quot;, # String | Filter by an any element
+  where: 'ContactStatus==&quot;ACTIVE&quot;', # String | Filter by an any element
 
-  order: Name ASC, # String | Order by an any element
+  order: 'Name ASC', # String | Order by an any element
 
   ids: &quot;00000000-0000-0000-0000-000000000000&quot;, # Array&lt;String&gt; | Filter by a comma separated list of ContactIDs. Allows you to retrieve a specific set of contacts in a single call.
 
@@ -6847,7 +6847,7 @@ opts = {
 
   summary_only: true, # Boolean | Use summaryOnly=true in GET Contacts and Invoices endpoint to retrieve a smaller version of the response object. This returns only lightweight fields, excluding computation-heavy fields from the response, making the API calls quick and efficient.
 
-  search_term: searchTerm=Joe Bloggs # String | Search parameter that performs a case-insensitive text search across the Name, FirstName, LastName, ContactNumber and EmailAddress fields.
+  search_term: 'searchTerm=Joe Bloggs' # String | Search parameter that performs a case-insensitive text search across the Name, FirstName, LastName, ContactNumber and EmailAddress fields.
 }
 
 begin
@@ -7320,9 +7320,9 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  where: Status=="DRAFT", # String | Filter by an any element
+  where: 'Status=="DRAFT"', # String | Filter by an any element
 
-  order: CreditNoteNumber ASC, # String | Order by an any element
+  order: 'CreditNoteNumber ASC', # String | Order by an any element
 
   page: 1, # Integer | e.g. page=1 – Up to 100 credit notes will be returned in a single API call with line items shown for each credit note
 
@@ -7397,9 +7397,9 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  where: Code=="USD", # String | Filter by an any element
+  where: 'Code=="USD"', # String | Filter by an any element
 
-  order: Code ASC # String | Order by an any element
+  order: 'Code ASC' # String | Order by an any element
 }
 
 begin
@@ -7533,9 +7533,9 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  where: Status=="ACTIVE", # String | Filter by an any element
+  where: 'Status=="ACTIVE"', # String | Filter by an any element
 
-  order: LastName ASC # String | Order by an any element
+  order: 'LastName ASC' # String | Order by an any element
 }
 
 begin
@@ -7734,9 +7734,9 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  where: Status=="SUBMITTED", # String | Filter by an any element
+  where: 'Status=="SUBMITTED"', # String | Filter by an any element
 
-  order: Status ASC # String | Order by an any element
+  order: 'Status ASC' # String | Order by an any element
 }
 
 begin
@@ -8266,9 +8266,9 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  where: Status=="DRAFT", # String | Filter by an any element
+  where: 'Status=="DRAFT"', # String | Filter by an any element
 
-  order: InvoiceNumber ASC, # String | Order by an any element
+  order: 'InvoiceNumber ASC', # String | Order by an any element
 
   ids: &quot;00000000-0000-0000-0000-000000000000&quot;, # Array&lt;String&gt; | Filter by a comma-separated list of InvoicesIDs.
 
@@ -8499,9 +8499,9 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  where: IsSold==true, # String | Filter by an any element
+  where: 'IsSold==true', # String | Filter by an any element
 
-  order: Code ASC, # String | Order by an any element
+  order: 'Code ASC', # String | Order by an any element
 
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
@@ -8840,15 +8840,15 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   page: 1, # Integer | Up to 100 linked transactions will be returned in a single API call. Use the page parameter to specify the page to be returned e.g. page=1.
 
-  linked_transaction_id: 00000000-0000-0000-0000-000000000000, # String | The Xero identifier for an Linked Transaction
+  linked_transaction_id: '00000000-0000-0000-0000-000000000000', # String | The Xero identifier for an Linked Transaction
 
-  source_transaction_id: 00000000-0000-0000-0000-000000000000, # String | Filter by the SourceTransactionID. Get the linked transactions created from a particular ACCPAY invoice
+  source_transaction_id: '00000000-0000-0000-0000-000000000000', # String | Filter by the SourceTransactionID. Get the linked transactions created from a particular ACCPAY invoice
 
-  contact_id: 00000000-0000-0000-0000-000000000000, # String | Filter by the ContactID. Get all the linked transactions that have been assigned to a particular customer.
+  contact_id: '00000000-0000-0000-0000-000000000000', # String | Filter by the ContactID. Get all the linked transactions that have been assigned to a particular customer.
 
-  status: APPROVED, # String | Filter by the combination of ContactID and Status. Get  the linked transactions associated to a  customer and with a status
+  status: 'APPROVED', # String | Filter by the combination of ContactID and Status. Get  the linked transactions associated to a  customer and with a status
 
-  target_transaction_id: 00000000-0000-0000-0000-000000000000 # String | Filter by the TargetTransactionID. Get all the linked transactions allocated to a particular ACCREC invoice
+  target_transaction_id: '00000000-0000-0000-0000-000000000000' # String | Filter by the TargetTransactionID. Get all the linked transactions allocated to a particular ACCREC invoice
 }
 
 begin
@@ -9186,9 +9186,9 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  where: Status=="DRAFT", # String | Filter by an any element
+  where: 'Status=="DRAFT"', # String | Filter by an any element
 
-  order: Date ASC, # String | Order by an any element
+  order: 'Date ASC', # String | Order by an any element
 
   page: 1 # Integer | e.g. page=1 – Up to 100 manual journals will be returned in a single API call with line items shown for each overpayment
 }
@@ -9706,9 +9706,9 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  where: Status=="AUTHORISED", # String | Filter by an any element
+  where: 'Status=="AUTHORISED"', # String | Filter by an any element
 
-  order: Status ASC, # String | Order by an any element
+  order: 'Status ASC', # String | Order by an any element
 
   page: 1, # Integer | e.g. page=1 – Up to 100 overpayments will be returned in a single API call with line items shown for each overpayment
 
@@ -9975,9 +9975,9 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  where: Status=="AUTHORISED", # String | Filter by an any element
+  where: 'Status=="AUTHORISED"', # String | Filter by an any element
 
-  order: Amount ASC, # String | Order by an any element
+  order: 'Amount ASC', # String | Order by an any element
 
   page: 1 # Integer | Up to 100 payments will be returned in a single API call
 }
@@ -10179,9 +10179,9 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  where: Status=="AUTHORISED", # String | Filter by an any element
+  where: 'Status=="AUTHORISED"', # String | Filter by an any element
 
-  order: Reference ASC, # String | Order by an any element
+  order: 'Reference ASC', # String | Order by an any element
 
   page: 1, # Integer | e.g. page=1 – Up to 100 prepayments will be returned in a single API call with line items shown for each overpayment
 
@@ -10714,13 +10714,13 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  status: DRAFT, # String | Filter by purchase order status
+  status: 'DRAFT', # String | Filter by purchase order status
 
-  date_from: 2019-12-01, # String | Filter by purchase order date (e.g. GET https://.../PurchaseOrders?DateFrom=2015-12-01&DateTo=2015-12-31
+  date_from: '2019-12-01', # String | Filter by purchase order date (e.g. GET https://.../PurchaseOrders?DateFrom=2015-12-01&DateTo=2015-12-31
 
-  date_to: 2019-12-31, # String | Filter by purchase order date (e.g. GET https://.../PurchaseOrders?DateFrom=2015-12-01&DateTo=2015-12-31
+  date_to: '2019-12-31', # String | Filter by purchase order date (e.g. GET https://.../PurchaseOrders?DateFrom=2015-12-01&DateTo=2015-12-31
 
-  order: PurchaseOrderNumber ASC, # String | Order by an any element
+  order: 'PurchaseOrderNumber ASC', # String | Order by an any element
 
   page: 1 # Integer | To specify a page, append the page parameter to the URL e.g. ?page=1. If there are 100 records in the response you will need to check if there is any more data by fetching the next page e.g ?page=2 and continuing this process until no more results are returned.
 }
@@ -11196,15 +11196,15 @@ opts = {
 
   expiry_date_to: 2019-10-31, # Date | Filter for quotes before a particular date
 
-  contact_id: 00000000-0000-0000-0000-000000000000, # String | Filter for quotes belonging to a particular contact
+  contact_id: '00000000-0000-0000-0000-000000000000', # String | Filter for quotes belonging to a particular contact
 
-  status: DRAFT, # String | Filter for quotes of a particular Status
+  status: 'DRAFT', # String | Filter for quotes of a particular Status
 
   page: 1, # Integer | e.g. page=1 – Up to 100 Quotes will be returned in a single API call with line items shown for each quote
 
-  order: Status ASC, # String | Order by an any element
+  order: 'Status ASC', # String | Order by an any element
 
-  quote_number: QU-0001 # String | Filter by quote number (e.g. GET https://.../Quotes?QuoteNumber=QU-0001)
+  quote_number: 'QU-0001' # String | Filter by quote number (e.g. GET https://.../Quotes?QuoteNumber=QU-0001)
 }
 
 begin
@@ -11615,9 +11615,9 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  where: Status=="DRAFT", # String | Filter by an any element
+  where: 'Status=="DRAFT"', # String | Filter by an any element
 
-  order: ReceiptNumber ASC, # String | Order by an any element
+  order: 'ReceiptNumber ASC', # String | Order by an any element
 
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
@@ -12017,9 +12017,9 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  where: Status=="DRAFT", # String | Filter by an any element
+  where: 'Status=="DRAFT"', # String | Filter by an any element
 
-  order: Total ASC # String | Order by an any element
+  order: 'Total ASC' # String | Order by an any element
 }
 
 begin
@@ -12241,11 +12241,11 @@ opts = {
 
   periods: 3, # Integer | The number of periods for the Balance Sheet report
 
-  timeframe: MONTH, # String | The period size to compare to (MONTH, QUARTER, YEAR)
+  timeframe: 'MONTH', # String | The period size to compare to (MONTH, QUARTER, YEAR)
 
-  tracking_option_id1: 00000000-0000-0000-0000-000000000000, # String | The tracking option 1 for the Balance Sheet report
+  tracking_option_id1: '00000000-0000-0000-0000-000000000000', # String | The tracking option 1 for the Balance Sheet report
 
-  tracking_option_id2: 00000000-0000-0000-0000-000000000000, # String | The tracking option 2 for the Balance Sheet report
+  tracking_option_id2: '00000000-0000-0000-0000-000000000000', # String | The tracking option 2 for the Balance Sheet report
 
   standard_layout: true, # Boolean | The standard layout boolean for the Balance Sheet report
 
@@ -12602,15 +12602,15 @@ opts = {
 
   periods: 3, # Integer | The number of periods to compare (integer between 1 and 12)
 
-  timeframe: MONTH, # String | The period size to compare to (MONTH, QUARTER, YEAR)
+  timeframe: 'MONTH', # String | The period size to compare to (MONTH, QUARTER, YEAR)
 
-  tracking_category_id: 00000000-0000-0000-0000-000000000000, # String | The trackingCategory 1 for the ProfitAndLoss report
+  tracking_category_id: '00000000-0000-0000-0000-000000000000', # String | The trackingCategory 1 for the ProfitAndLoss report
 
-  tracking_category_id2: 00000000-0000-0000-0000-000000000000, # String | The trackingCategory 2 for the ProfitAndLoss report
+  tracking_category_id2: '00000000-0000-0000-0000-000000000000', # String | The trackingCategory 2 for the ProfitAndLoss report
 
-  tracking_option_id: 00000000-0000-0000-0000-000000000000, # String | The tracking option 1 for the ProfitAndLoss report
+  tracking_option_id: '00000000-0000-0000-0000-000000000000', # String | The tracking option 1 for the ProfitAndLoss report
 
-  tracking_option_id2: 00000000-0000-0000-0000-000000000000, # String | The tracking option 2 for the ProfitAndLoss report
+  tracking_option_id2: '00000000-0000-0000-0000-000000000000', # String | The tracking option 2 for the ProfitAndLoss report
 
   standard_layout: true, # Boolean | Return the standard layout for the ProfitAndLoss report
 
@@ -12690,7 +12690,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  report_year: 2019 # String | The year of the 1099 report
+  report_year: '2019' # String | The year of the 1099 report
 }
 
 begin
@@ -12889,11 +12889,11 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  where: Status=="ACTIVE", # String | Filter by an any element
+  where: 'Status=="ACTIVE"', # String | Filter by an any element
 
-  order: Name ASC, # String | Order by an any element
+  order: 'Name ASC', # String | Order by an any element
 
-  tax_type: INPUT # String | Filter by tax type
+  tax_type: 'INPUT' # String | Filter by tax type
 }
 
 begin
@@ -12962,9 +12962,9 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  where: Status=="ACTIVE", # String | Filter by an any element
+  where: 'Status=="ACTIVE"', # String | Filter by an any element
 
-  order: Name ASC, # String | Order by an any element
+  order: 'Name ASC', # String | Order by an any element
 
   include_archived: true # Boolean | e.g. includeArchived=true - Categories and options with a status of ARCHIVED will be included in the response
 }
@@ -13165,9 +13165,9 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  where: IsSubscriber==true, # String | Filter by an any element
+  where: 'IsSubscriber==true', # String | Filter by an any element
 
-  order: LastName ASC # String | Order by an any element
+  order: 'LastName ASC' # String | Order by an any element
 }
 
 begin

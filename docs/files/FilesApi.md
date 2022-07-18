@@ -660,7 +660,7 @@ opts = {
 
   page: 2, # Integer | number of records to skip for pagination
 
-  sort: Name # String | values to sort by
+  sort: 'Name' # String | values to sort by
 }
 
 begin
@@ -797,7 +797,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  sort: Name # String | values to sort by
+  sort: 'Name' # String | values to sort by
 }
 
 begin
@@ -1070,7 +1070,7 @@ body = 'body_example' # String |
 name = 'name_example' # String | exact name of the file you are uploading
 filename = 'filename_example' # String | 
 opts = {
-  mime_type: mime_type_example # String | 
+  mime_type: 'mime_type_example' # String | 
 }
 
 begin
@@ -1144,7 +1144,7 @@ body = 'body_example' # String |
 name = 'name_example' # String | exact name of the file you are uploading
 filename = 'filename_example' # String | 
 opts = {
-  mime_type: mime_type_example # String | 
+  mime_type: 'mime_type_example' # String | 
 }
 
 begin

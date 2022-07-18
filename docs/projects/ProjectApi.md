@@ -531,9 +531,9 @@ xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
   project_ids: , # Array&lt;String&gt; | Search for all projects that match a comma separated list of projectIds
 
-  contact_id: 38400000-8cf0-11bd-b23e-10b96e4ef00d, # String | Filter for projects for a specific contact
+  contact_id: '38400000-8cf0-11bd-b23e-10b96e4ef00d', # String | Filter for projects for a specific contact
 
-  states: states_example, # String | Filter for projects in a particular state (INPROGRESS or CLOSED)
+  states: 'states_example', # String | Filter for projects in a particular state (INPROGRESS or CLOSED)
 
   page: 1, # Integer | set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0.
 
@@ -683,7 +683,7 @@ opts = {
 
   page_size: 10, # Integer | Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500.
 
-  task_ids: task_ids_example, # String | taskIdsSearch for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds={taskID},{taskID}
+  task_ids: 'task_ids_example', # String | taskIdsSearch for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds={taskID},{taskID}
 
   charge_type:  # ChargeType | 
 }
@@ -759,13 +759,13 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 project_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | Identifier of the project, that the task (which the time entry is logged against) belongs to.
 opts = {
-  user_id: 38400000-8cf0-11bd-b23e-10b96e4ef00d, # String | The xero user identifier of the person who logged time.
+  user_id: '38400000-8cf0-11bd-b23e-10b96e4ef00d', # String | The xero user identifier of the person who logged time.
 
-  task_id: 38400000-8cf0-11bd-b23e-10b96e4ef00d, # String | Identifier of the task that time entry is logged against.
+  task_id: '38400000-8cf0-11bd-b23e-10b96e4ef00d', # String | Identifier of the task that time entry is logged against.
 
-  invoice_id: 38400000-8cf0-11bd-b23e-10b96e4ef00d, # String | Finds all time entries for this invoice.
+  invoice_id: '38400000-8cf0-11bd-b23e-10b96e4ef00d', # String | Finds all time entries for this invoice.
 
-  contact_id: 38400000-8cf0-11bd-b23e-10b96e4ef00d, # String | Finds all time entries for this contact identifier.
+  contact_id: '38400000-8cf0-11bd-b23e-10b96e4ef00d', # String | Finds all time entries for this contact identifier.
 
   page: 1, # Integer | Set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0.
 

@@ -583,9 +583,9 @@ xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  where: Status=="ACTIVE", # String | Filter by an any element
+  where: 'Status=="ACTIVE"', # String | Filter by an any element
 
-  order: EmailAddress%20DESC, # String | Order by an any element
+  order: 'EmailAddress%20DESC', # String | Order by an any element
 
   page: 56 # Integer | e.g. page=1 – Up to 100 employees will be returned in a single API call
 }
@@ -723,9 +723,9 @@ xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  where: Status=="ACTIVE", # String | Filter by an any element
+  where: 'Status=="ACTIVE"', # String | Filter by an any element
 
-  order: EmailAddress%20DESC, # String | Order by an any element
+  order: 'EmailAddress%20DESC', # String | Order by an any element
 
   page: 56 # Integer | e.g. page=1 – Up to 100 objects will be returned in a single API call
 }
@@ -799,9 +799,9 @@ xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  where: Status=="ACTIVE", # String | Filter by an any element
+  where: 'Status=="ACTIVE"', # String | Filter by an any element
 
-  order: EmailAddress%20DESC, # String | Order by an any element
+  order: 'EmailAddress%20DESC', # String | Order by an any element
 
   page: 56 # Integer | e.g. page=1 – Up to 100 objects will be returned in a single API call
 }
@@ -939,9 +939,9 @@ xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  where: Status=="ACTIVE", # String | Filter by an any element
+  where: 'Status=="ACTIVE"', # String | Filter by an any element
 
-  order: EmailAddress%20DESC, # String | Order by an any element
+  order: 'EmailAddress%20DESC', # String | Order by an any element
 
   page: 56 # Integer | e.g. page=1 – Up to 100 PayRuns will be returned in a single API call
 }
@@ -1079,9 +1079,9 @@ xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  where: Status=="ACTIVE", # String | Filter by an any element
+  where: 'Status=="ACTIVE"', # String | Filter by an any element
 
-  order: EmailAddress%20DESC, # String | Order by an any element
+  order: 'EmailAddress%20DESC', # String | Order by an any element
 
   page: 56 # Integer | e.g. page=1 – Up to 100 objects will be returned in a single API call
 }
@@ -1343,9 +1343,9 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
-  abn: 40022701955, # String | The ABN of the Regulated SuperFund
+  abn: '40022701955', # String | The ABN of the Regulated SuperFund
 
-  usi: OSF0001AU # String | The USI of the Regulated SuperFund
+  usi: 'OSF0001AU' # String | The USI of the Regulated SuperFund
 }
 
 begin
@@ -1415,9 +1415,9 @@ xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  where: Status=="ACTIVE", # String | Filter by an any element
+  where: 'Status=="ACTIVE"', # String | Filter by an any element
 
-  order: EmailAddress%20DESC, # String | Order by an any element
+  order: 'EmailAddress%20DESC', # String | Order by an any element
 
   page: 56 # Integer | e.g. page=1 – Up to 100 SuperFunds will be returned in a single API call
 }
@@ -1555,9 +1555,9 @@ xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  where: Status=="ACTIVE", # String | Filter by an any element
+  where: 'Status=="ACTIVE"', # String | Filter by an any element
 
-  order: EmailAddress%20DESC, # String | Order by an any element
+  order: 'EmailAddress%20DESC', # String | Order by an any element
 
   page: 56 # Integer | e.g. page=1 – Up to 100 timesheets will be returned in a single API call
 }

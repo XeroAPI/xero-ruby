@@ -2717,7 +2717,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
-  filter: firstName==John,lastName==Smith, # String | Filter by first name and/or lastname
+  filter: 'firstName==John,lastName==Smith', # String | Filter by first name and/or lastname
 
   page: 5 # Integer | Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
 }
@@ -3118,7 +3118,7 @@ xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
   page: 56, # Integer | Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
 
-  status: Draft # String | By default get payruns will return all the payruns for an organization. You can add GET https://api.xero.com/payroll.xro/2.0/payRuns?statu={PayRunStatus} to filter the payruns by status.
+  status: 'Draft' # String | By default get payruns will return all the payruns for an organization. You can add GET https://api.xero.com/payroll.xro/2.0/payRuns?statu={PayRunStatus} to filter the payruns by status.
 }
 
 begin
@@ -3840,15 +3840,15 @@ xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
   page: 5, # Integer | Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
 
-  filter: employeeId==00000000-0000-0000-0000-000000000000,payrollCalendarId==00000000-0000-0000-0000-000000000000, # String | Filter by employeeId and/or payrollCalendarId
+  filter: 'employeeId==00000000-0000-0000-0000-000000000000,payrollCalendarId==00000000-0000-0000-0000-000000000000', # String | Filter by employeeId and/or payrollCalendarId
 
-  status: Draft, # String | filter results by any timesheets with a matching timesheet status
+  status: 'Draft', # String | filter results by any timesheets with a matching timesheet status
 
-  start_date: 2019-01-02, # String | filter results by any timesheets with a startDate on or after the provided date
+  start_date: '2019-01-02', # String | filter results by any timesheets with a startDate on or after the provided date
 
-  end_date: 2020-01-02, # String | filter results by any timesheets with a endDate on or before the provided date
+  end_date: '2020-01-02', # String | filter results by any timesheets with a endDate on or before the provided date
 
-  sort: startDate # String | sort the order of timesheets returned. The default is based on the timesheets createdDate, sorted oldest to newest. Currently, the only other option is to reverse the order based on the timesheets startDate, sorted newest to oldest.
+  sort: 'startDate' # String | sort the order of timesheets returned. The default is based on the timesheets createdDate, sorted oldest to newest. Currently, the only other option is to reverse the order based on the timesheets startDate, sorted newest to oldest.
 }
 
 begin

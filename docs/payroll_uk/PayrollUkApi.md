@@ -2916,7 +2916,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
 opts = {
-  leave_type: sick, # String | Filter by the type of statutory leave
+  leave_type: 'sick', # String | Filter by the type of statutory leave
 
   as_of_date: 2013-10-20 # Date | The date from which to calculate balance remaining. If not specified, current date UTC is used.
 }
@@ -3115,7 +3115,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
-  filter: firstName==John,lastName==Smith,isOffPayrollWorker==false, # String | Filter by first name, lastname, and/or whether they are an off-payroll worker
+  filter: 'firstName==John,lastName==Smith,isOffPayrollWorker==false', # String | Filter by first name, lastname, and/or whether they are an off-payroll worker
 
   page: 5 # Integer | Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
 }
@@ -3516,7 +3516,7 @@ xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
   page: 56, # Integer | Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
 
-  status: Draft # String | By default get payruns will return all the payruns for an organization. You can add GET https://api.xero.com/payroll.xro/2.0/payRuns?statu={PayRunStatus} to filter the payruns by status.
+  status: 'Draft' # String | By default get payruns will return all the payruns for an organization. You can add GET https://api.xero.com/payroll.xro/2.0/payRuns?statu={PayRunStatus} to filter the payruns by status.
 }
 
 begin
@@ -4045,15 +4045,15 @@ xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
   page: 5, # Integer | Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
 
-  filter: employeeId==00000000-0000-0000-0000-000000000000,payrollCalendarId==00000000-0000-0000-0000-000000000000, # String | Filter by employeeId and/or payrollCalendarId
+  filter: 'employeeId==00000000-0000-0000-0000-000000000000,payrollCalendarId==00000000-0000-0000-0000-000000000000', # String | Filter by employeeId and/or payrollCalendarId
 
-  status: Draft, # String | filter results by any timesheets with a matching timesheet status
+  status: 'Draft', # String | filter results by any timesheets with a matching timesheet status
 
-  start_date: 2019-01-02, # String | filter results by any timesheets with a startDate on or after the provided date
+  start_date: '2019-01-02', # String | filter results by any timesheets with a startDate on or after the provided date
 
-  end_date: 2020-01-02, # String | filter results by any timesheets with a endDate on or before the provided date
+  end_date: '2020-01-02', # String | filter results by any timesheets with a endDate on or before the provided date
 
-  sort: startDate # String | sort the order of timesheets returned. The default is based on the timesheets createdDate, sorted oldest to newest. Currently, the only other option is to reverse the order based on the timesheets startDate, sorted newest to oldest.
+  sort: 'startDate' # String | sort the order of timesheets returned. The default is based on the timesheets createdDate, sorted oldest to newest. Currently, the only other option is to reverse the order based on the timesheets startDate, sorted newest to oldest.
 }
 
 begin

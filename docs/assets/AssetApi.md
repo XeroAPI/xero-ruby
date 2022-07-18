@@ -382,11 +382,11 @@ opts = {
 
   page_size: 5, # Integer | The number of records returned per page. By default the number of records returned is 10.
 
-  order_by: AssetType, # String | Requests can be ordered by AssetType, AssetName, AssetNumber, PurchaseDate and PurchasePrice. If the asset status is DISPOSED it also allows DisposalDate and DisposalPrice.
+  order_by: 'AssetType', # String | Requests can be ordered by AssetType, AssetName, AssetNumber, PurchaseDate and PurchasePrice. If the asset status is DISPOSED it also allows DisposalDate and DisposalPrice.
 
-  sort_direction: asc, # String | ASC or DESC
+  sort_direction: 'asc', # String | ASC or DESC
 
-  filter_by: Company Car # String | A string that can be used to filter the list to only return assets containing the text. Checks it against the AssetName, AssetNumber, Description and AssetTypeName fields.
+  filter_by: 'Company Car' # String | A string that can be used to filter the list to only return assets containing the text. Checks it against the AssetName, AssetNumber, Description and AssetTypeName fields.
 }
 
 begin
