@@ -2389,9 +2389,9 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 employee_id = '00000000-0000-0000-0000-000000000000' # String | Employee id for single object
 opts = {
-  start_date: 2013-10-20, # Date | Filter by start date
+  start_date: Date.parse('2013-10-20'), # Date | Filter by start date
 
-  end_date: 2013-10-20 # Date | Filter by end date
+  end_date: Date.parse('2013-10-20') # Date | Filter by end date
 }
 
 begin
@@ -2918,7 +2918,7 @@ employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for 
 opts = {
   leave_type: 'sick', # String | Filter by the type of statutory leave
 
-  as_of_date: 2013-10-20 # Date | The date from which to calculate balance remaining. If not specified, current date UTC is used.
+  as_of_date: Date.parse('2013-10-20') # Date | The date from which to calculate balance remaining. If not specified, current date UTC is used.
 }
 
 begin

@@ -6099,9 +6099,9 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 budget_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for Budgets
 opts = {
-  date_to: 2019-10-31, # Date | Filter by start date
+  date_to: Date.parse('2019-10-31'), # Date | Filter by start date
 
-  date_from: 2019-10-31 # Date | Filter by end date
+  date_from: Date.parse('2019-10-31') # Date | Filter by end date
 }
 
 begin
@@ -6172,9 +6172,9 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   ids: &quot;00000000-0000-0000-0000-000000000000&quot;, # Array&lt;String&gt; | Filter by BudgetID. Allows you to retrieve a specific individual budget.
 
-  date_to: 2019-10-31, # Date | Filter by start date
+  date_to: Date.parse('2019-10-31'), # Date | Filter by start date
 
-  date_from: 2019-10-31 # Date | Filter by end date
+  date_from: Date.parse('2019-10-31') # Date | Filter by end date
 }
 
 begin
@@ -11188,13 +11188,13 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  date_from: 2019-10-31, # Date | Filter for quotes after a particular date
+  date_from: Date.parse('2019-10-31'), # Date | Filter for quotes after a particular date
 
-  date_to: 2019-10-31, # Date | Filter for quotes before a particular date
+  date_to: Date.parse('2019-10-31'), # Date | Filter for quotes before a particular date
 
-  expiry_date_from: 2019-10-31, # Date | Filter for quotes expiring after a particular date
+  expiry_date_from: Date.parse('2019-10-31'), # Date | Filter for quotes expiring after a particular date
 
-  expiry_date_to: 2019-10-31, # Date | Filter for quotes before a particular date
+  expiry_date_to: Date.parse('2019-10-31'), # Date | Filter for quotes before a particular date
 
   contact_id: '00000000-0000-0000-0000-000000000000', # String | Filter for quotes belonging to a particular contact
 
@@ -12088,11 +12088,11 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Contact
 opts = {
-  date: 2019-10-31, # Date | The date of the Aged Payables By Contact report
+  date: Date.parse('2019-10-31'), # Date | The date of the Aged Payables By Contact report
 
-  from_date: 2019-10-31, # Date | filter by the from date of the report e.g. 2021-02-01
+  from_date: Date.parse('2019-10-31'), # Date | filter by the from date of the report e.g. 2021-02-01
 
-  to_date: 2019-10-31 # Date | filter by the to date of the report e.g. 2021-02-28
+  to_date: Date.parse('2019-10-31') # Date | filter by the to date of the report e.g. 2021-02-28
 }
 
 begin
@@ -12163,11 +12163,11 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Contact
 opts = {
-  date: 2019-10-31, # Date | The date of the Aged Receivables By Contact report
+  date: Date.parse('2019-10-31'), # Date | The date of the Aged Receivables By Contact report
 
-  from_date: 2019-10-31, # Date | filter by the from date of the report e.g. 2021-02-01
+  from_date: Date.parse('2019-10-31'), # Date | filter by the from date of the report e.g. 2021-02-01
 
-  to_date: 2019-10-31 # Date | filter by the to date of the report e.g. 2021-02-28
+  to_date: Date.parse('2019-10-31') # Date | filter by the to date of the report e.g. 2021-02-28
 }
 
 begin
@@ -12237,7 +12237,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  date: 2019-11-01, # Date | The date of the Balance Sheet report
+  date: Date.parse('2019-11-01'), # Date | The date of the Balance Sheet report
 
   periods: 3, # Integer | The number of periods for the Balance Sheet report
 
@@ -12322,9 +12322,9 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  from_date: 2019-10-31, # Date | filter by the from date of the report e.g. 2021-02-01
+  from_date: Date.parse('2019-10-31'), # Date | filter by the from date of the report e.g. 2021-02-01
 
-  to_date: 2019-10-31 # Date | filter by the to date of the report e.g. 2021-02-28
+  to_date: Date.parse('2019-10-31') # Date | filter by the to date of the report e.g. 2021-02-28
 }
 
 begin
@@ -12392,7 +12392,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  date: 2019-03-31, # Date | The date for the Bank Summary report e.g. 2018-03-31
+  date: Date.parse('2019-03-31'), # Date | The date for the Bank Summary report e.g. 2018-03-31
 
   periods: 2, # Integer | The number of periods to compare (integer between 1 and 12)
 
@@ -12465,7 +12465,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  date: 2019-03-31 # Date | The date for the Bank Summary report e.g. 2018-03-31
+  date: Date.parse('2019-03-31') # Date | The date for the Bank Summary report e.g. 2018-03-31
 }
 
 begin
@@ -12596,9 +12596,9 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  from_date: 2019-10-31, # Date | filter by the from date of the report e.g. 2021-02-01
+  from_date: Date.parse('2019-10-31'), # Date | filter by the from date of the report e.g. 2021-02-01
 
-  to_date: 2019-10-31, # Date | filter by the to date of the report e.g. 2021-02-28
+  to_date: Date.parse('2019-10-31'), # Date | filter by the to date of the report e.g. 2021-02-28
 
   periods: 3, # Integer | The number of periods to compare (integer between 1 and 12)
 
@@ -12757,7 +12757,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  date: 2019-10-31, # Date | The date for the Trial Balance report e.g. 2018-03-31
+  date: Date.parse('2019-10-31'), # Date | The date for the Trial Balance report e.g. 2018-03-31
 
   payments_only: true # Boolean | Return cash only basis for the Trial Balance report
 }
