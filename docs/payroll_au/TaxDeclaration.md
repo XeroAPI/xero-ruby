@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **eligible_to_receive_leave_loading** | **Boolean** | If the employee is eligible to receive an additional percentage on top of ordinary earnings when they take leave (typically 17.5%). e.g true or false | [optional] 
 **approved_withholding_variation_percentage** | **Float** | If the employee has approved withholding variation. e.g (0 - 100) | [optional] 
 **has_student_startup_loan** | **Boolean** | If the employee is eligible for student startup loan rules | [optional] 
+**has_loan_or_student_debt** | **Boolean** | If the employee has any of the following loans or debts: Higher Education Loan Program (HELP/HECS), VET Student Loan (VSL), Financial Supplement (FS), Student Start-up Loan (SSL), or Trade Support Loan (TSL) | [optional] 
 **updated_date_utc** | **DateTime** | Last modified timestamp | [optional] 
 
 ## Code Sample
@@ -41,6 +42,7 @@ instance = XeroRuby::PayrollAu::TaxDeclaration.new(employee_id: null,
                                  eligible_to_receive_leave_loading: false,
                                  approved_withholding_variation_percentage: 75,
                                  has_student_startup_loan: true,
+                                 has_loan_or_student_debt: true,
                                  updated_date_utc: /Date(1583967733054+0000)/)
 ```
 
