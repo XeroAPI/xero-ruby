@@ -61,6 +61,9 @@ module XeroRuby::PayrollAu
     # If the employee is eligible for student startup loan rules
     attr_accessor :has_student_startup_loan
     
+    # If the employee has any of the following loans or debts: Higher Education Loan Program (HELP/HECS), VET Student Loan (VSL), Financial Supplement (FS), Student Start-up Loan (SSL), or Trade Support Loan (TSL)
+    attr_accessor :has_loan_or_student_debt
+    
     # Last modified timestamp
     attr_accessor :updated_date_utc
     
@@ -82,6 +85,7 @@ module XeroRuby::PayrollAu
         :'eligible_to_receive_leave_loading' => :'EligibleToReceiveLeaveLoading',
         :'approved_withholding_variation_percentage' => :'ApprovedWithholdingVariationPercentage',
         :'has_student_startup_loan' => :'HasStudentStartupLoan',
+        :'has_loan_or_student_debt' => :'HasLoanOrStudentDebt',
         :'updated_date_utc' => :'UpdatedDateUTC'
       }
     end
@@ -104,6 +108,7 @@ module XeroRuby::PayrollAu
         :'eligible_to_receive_leave_loading' => :'Boolean',
         :'approved_withholding_variation_percentage' => :'Float',
         :'has_student_startup_loan' => :'Boolean',
+        :'has_loan_or_student_debt' => :'Boolean',
         :'updated_date_utc' => :'DateTime'
       }
     end
@@ -183,6 +188,10 @@ module XeroRuby::PayrollAu
         self.has_student_startup_loan = attributes[:'has_student_startup_loan']
       end
 
+      if attributes.key?(:'has_loan_or_student_debt')
+        self.has_loan_or_student_debt = attributes[:'has_loan_or_student_debt']
+      end
+
       if attributes.key?(:'updated_date_utc')
         self.updated_date_utc = attributes[:'updated_date_utc']
       end
@@ -221,6 +230,7 @@ module XeroRuby::PayrollAu
           eligible_to_receive_leave_loading == o.eligible_to_receive_leave_loading &&
           approved_withholding_variation_percentage == o.approved_withholding_variation_percentage &&
           has_student_startup_loan == o.has_student_startup_loan &&
+          has_loan_or_student_debt == o.has_loan_or_student_debt &&
           updated_date_utc == o.updated_date_utc
     end
 
@@ -233,7 +243,7 @@ module XeroRuby::PayrollAu
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [employee_id, employment_basis, tfn_exemption_type, tax_file_number, australian_resident_for_tax_purposes, residency_status, tax_free_threshold_claimed, tax_offset_estimated_amount, has_help_debt, has_sfss_debt, has_trade_support_loan_debt, upward_variation_tax_withholding_amount, eligible_to_receive_leave_loading, approved_withholding_variation_percentage, has_student_startup_loan, updated_date_utc].hash
+      [employee_id, employment_basis, tfn_exemption_type, tax_file_number, australian_resident_for_tax_purposes, residency_status, tax_free_threshold_claimed, tax_offset_estimated_amount, has_help_debt, has_sfss_debt, has_trade_support_loan_debt, upward_variation_tax_withholding_amount, eligible_to_receive_leave_loading, approved_withholding_variation_percentage, has_student_startup_loan, has_loan_or_student_debt, updated_date_utc].hash
     end
 
     # Builds the object from hash

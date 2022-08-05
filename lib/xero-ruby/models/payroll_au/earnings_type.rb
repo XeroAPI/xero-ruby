@@ -26,6 +26,8 @@ module XeroRuby::PayrollAu
     LUMPSUME ||= "LUMPSUME".freeze
     LUMPSUMW ||= "LUMPSUMW".freeze
     DIRECTORSFEES ||= "DIRECTORSFEES".freeze
+    PAIDPARENTALLEAVE ||= "PAIDPARENTALLEAVE".freeze
+    WORKERSCOMPENSATION ||= "WORKERSCOMPENSATION".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

@@ -56,10 +56,13 @@ Method | HTTP request | Description
 [**create_receipt_history**](AccountingApi.md#create_receipt_history) | **PUT** /Receipts/{ReceiptID}/History | Creates a history record for a specific receipt
 [**create_repeating_invoice_attachment_by_file_name**](AccountingApi.md#create_repeating_invoice_attachment_by_file_name) | **PUT** /RepeatingInvoices/{RepeatingInvoiceID}/Attachments/{FileName} | Creates an attachment from a specific repeating invoices by file name
 [**create_repeating_invoice_history**](AccountingApi.md#create_repeating_invoice_history) | **PUT** /RepeatingInvoices/{RepeatingInvoiceID}/History | Creates a  history record for a specific repeating invoice
+[**create_repeating_invoices**](AccountingApi.md#create_repeating_invoices) | **PUT** /RepeatingInvoices | Creates one or more repeating invoice templates
 [**create_tax_rates**](AccountingApi.md#create_tax_rates) | **PUT** /TaxRates | Creates one or more tax rates
 [**create_tracking_category**](AccountingApi.md#create_tracking_category) | **PUT** /TrackingCategories | Create tracking categories
 [**create_tracking_options**](AccountingApi.md#create_tracking_options) | **PUT** /TrackingCategories/{TrackingCategoryID}/Options | Creates options for a specific tracking category
 [**delete_account**](AccountingApi.md#delete_account) | **DELETE** /Accounts/{AccountID} | Deletes a chart of accounts
+[**delete_batch_payment**](AccountingApi.md#delete_batch_payment) | **POST** /BatchPayments | Updates a specific batch payment for invoices and credit notes
+[**delete_batch_payment_by_url_param**](AccountingApi.md#delete_batch_payment_by_url_param) | **POST** /BatchPayments/{BatchPaymentID} | Updates a specific batch payment for invoices and credit notes
 [**delete_contact_group_contact**](AccountingApi.md#delete_contact_group_contact) | **DELETE** /ContactGroups/{ContactGroupID}/Contacts/{ContactID} | Deletes a specific contact from a contact group using a unique contact Id
 [**delete_contact_group_contacts**](AccountingApi.md#delete_contact_group_contacts) | **DELETE** /ContactGroups/{ContactGroupID}/Contacts | Deletes all contacts from a specific contact group
 [**delete_item**](AccountingApi.md#delete_item) | **DELETE** /Items/{ItemID} | Deletes a specific item
@@ -221,12 +224,14 @@ Method | HTTP request | Description
 [**update_or_create_manual_journals**](AccountingApi.md#update_or_create_manual_journals) | **POST** /ManualJournals | Updates or creates a single manual journal
 [**update_or_create_purchase_orders**](AccountingApi.md#update_or_create_purchase_orders) | **POST** /PurchaseOrders | Updates or creates one or more purchase orders
 [**update_or_create_quotes**](AccountingApi.md#update_or_create_quotes) | **POST** /Quotes | Updates or creates one or more quotes
+[**update_or_create_repeating_invoices**](AccountingApi.md#update_or_create_repeating_invoices) | **POST** /RepeatingInvoices | Creates or deletes one or more repeating invoice templates
 [**update_purchase_order**](AccountingApi.md#update_purchase_order) | **POST** /PurchaseOrders/{PurchaseOrderID} | Updates a specific purchase order
 [**update_purchase_order_attachment_by_file_name**](AccountingApi.md#update_purchase_order_attachment_by_file_name) | **POST** /PurchaseOrders/{PurchaseOrderID}/Attachments/{FileName} | Updates a specific attachment for a specific purchase order by filename
 [**update_quote**](AccountingApi.md#update_quote) | **POST** /Quotes/{QuoteID} | Updates a specific quote
 [**update_quote_attachment_by_file_name**](AccountingApi.md#update_quote_attachment_by_file_name) | **POST** /Quotes/{QuoteID}/Attachments/{FileName} | Updates a specific attachment from a specific quote by filename
 [**update_receipt**](AccountingApi.md#update_receipt) | **POST** /Receipts/{ReceiptID} | Updates a specific draft expense claim receipts
 [**update_receipt_attachment_by_file_name**](AccountingApi.md#update_receipt_attachment_by_file_name) | **POST** /Receipts/{ReceiptID}/Attachments/{FileName} | Updates a specific attachment on a specific expense claim receipts by file name
+[**update_repeating_invoice**](AccountingApi.md#update_repeating_invoice) | **POST** /RepeatingInvoices/{RepeatingInvoiceID} | Deletes a specific repeating invoice template
 [**update_repeating_invoice_attachment_by_file_name**](AccountingApi.md#update_repeating_invoice_attachment_by_file_name) | **POST** /RepeatingInvoices/{RepeatingInvoiceID}/Attachments/{FileName} | Updates a specific attachment from a specific repeating invoices by file name
 [**update_tax_rate**](AccountingApi.md#update_tax_rate) | **POST** /TaxRates | Updates tax rates
 [**update_tracking_category**](AccountingApi.md#update_tracking_category) | **POST** /TrackingCategories/{TrackingCategoryID} | Updates a specific tracking category
@@ -3743,6 +3748,75 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## create_repeating_invoices
+
+> RepeatingInvoices create_repeating_invoices(xero_tenant_id, repeating_invoices, opts)
+
+Creates one or more repeating invoice templates
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# You need to namespace your api method call to one of the following api sets
+# [:accounting_api, :assets_api, :projects_api, :files_api, :payroll_au_api, :payroll_nz_api, :payroll_uk_api, :app_store_api]
+
+api_instance = xero_client.<api_set>
+
+
+
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+repeating_invoices = { "RepeatingInvoices": [ { "Schedule": { "Period": 1, "Unit": "MONTHLY", "DueDate": 10, "DueDateType": "OFFOLLOWINGMONTH", "StartDate": "\/Date(1555286400000+0000)\/" }, "Type": "ACCREC", "Reference": "[Week]", "ApprovedForSending": false, "SendCopy": false, "MarkAsSent": false, "IncludePDF": false, "Contact": { "ContactID": "430fa14a-f945-44d3-9f97-5df5e28441b8", "Name": "Liam Gallagher" }, "Status": "AUTHORISED", "LineAmountTypes": "Exclusive", "LineItems": [ { "Description": "Guitars Fender Strat", "UnitAmount": 5000.00, "TaxType": "OUTPUT2", "TaxAmount": 750.00, "LineAmount": 5000.00, "AccountCode": "200", "Tracking": [], "Quantity": 1.0000, "LineItemID": "13a8353c-d2af-4d5b-920c-438449f08900", "DiscountEnteredAsPercent": true } ], "CurrencyCode": "NZD" } ] } # RepeatingInvoices | RepeatingInvoices with an array of repeating invoice objects in body of request
+opts = {
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
+}
+
+begin
+  #Creates one or more repeating invoice templates
+  result = api_instance.create_repeating_invoices(xero_tenant_id, repeating_invoices, opts)
+  p result
+rescue XeroRuby::Accounting::ApiError => e
+  puts "Exception when calling AccountingApi->create_repeating_invoices: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **repeating_invoices** | [**RepeatingInvoices**](RepeatingInvoices.md)| RepeatingInvoices with an array of repeating invoice objects in body of request | 
+ **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
+
+### Return type
+
+[**RepeatingInvoices**](RepeatingInvoices.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## create_tax_rates
 
 > TaxRates create_tax_rates(xero_tenant_id, tax_rates)
@@ -3998,6 +4072,136 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## delete_batch_payment
+
+> BatchPayments delete_batch_payment(xero_tenant_id, batch_payment_delete)
+
+Updates a specific batch payment for invoices and credit notes
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# You need to namespace your api method call to one of the following api sets
+# [:accounting_api, :assets_api, :projects_api, :files_api, :payroll_au_api, :payroll_nz_api, :payroll_uk_api, :app_store_api]
+
+api_instance = xero_client.<api_set>
+
+
+
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+batch_payment_delete = { "BatchPaymentID": "9bf296e9-0748-4d29-a3dc-24dde1098030", "Status":"DELETED" } # BatchPaymentDelete | 
+begin
+  #Updates a specific batch payment for invoices and credit notes
+  result = api_instance.delete_batch_payment(xero_tenant_id, batch_payment_delete)
+  p result
+rescue XeroRuby::Accounting::ApiError => e
+  puts "Exception when calling AccountingApi->delete_batch_payment: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **batch_payment_delete** | [**BatchPaymentDelete**](BatchPaymentDelete.md)|  | 
+
+### Return type
+
+[**BatchPayments**](BatchPayments.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## delete_batch_payment_by_url_param
+
+> BatchPayments delete_batch_payment_by_url_param(xero_tenant_id, batch_payment_id, batch_payment_delete_by_url_param)
+
+Updates a specific batch payment for invoices and credit notes
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# You need to namespace your api method call to one of the following api sets
+# [:accounting_api, :assets_api, :projects_api, :files_api, :payroll_au_api, :payroll_nz_api, :payroll_uk_api, :app_store_api]
+
+api_instance = xero_client.<api_set>
+
+
+
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+batch_payment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for BatchPayment
+batch_payment_delete_by_url_param = { "Status":"DELETED" } # BatchPaymentDeleteByUrlParam | 
+begin
+  #Updates a specific batch payment for invoices and credit notes
+  result = api_instance.delete_batch_payment_by_url_param(xero_tenant_id, batch_payment_id, batch_payment_delete_by_url_param)
+  p result
+rescue XeroRuby::Accounting::ApiError => e
+  puts "Exception when calling AccountingApi->delete_batch_payment_by_url_param: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **batch_payment_id** | [**String**](.md)| Unique identifier for BatchPayment | 
+ **batch_payment_delete_by_url_param** | [**BatchPaymentDeleteByUrlParam**](BatchPaymentDeleteByUrlParam.md)|  | 
+
+### Return type
+
+[**BatchPayments**](BatchPayments.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -14982,6 +15186,75 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## update_or_create_repeating_invoices
+
+> RepeatingInvoices update_or_create_repeating_invoices(xero_tenant_id, repeating_invoices, opts)
+
+Creates or deletes one or more repeating invoice templates
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# You need to namespace your api method call to one of the following api sets
+# [:accounting_api, :assets_api, :projects_api, :files_api, :payroll_au_api, :payroll_nz_api, :payroll_uk_api, :app_store_api]
+
+api_instance = xero_client.<api_set>
+
+
+
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+repeating_invoices = { "RepeatingInvoices": [ { "Schedule": { "Period": 1, "Unit": "MONTHLY", "DueDate": 10, "DueDateType": "OFFOLLOWINGMONTH", "StartDate": "\/Date(1555286400000+0000)\/" }, "Type": "ACCREC", "Reference": "[Week]", "ApprovedForSending": false, "SendCopy": false, "MarkAsSent": false, "IncludePDF": false, "Contact": { "ContactID": "430fa14a-f945-44d3-9f97-5df5e28441b8", "Name": "Liam Gallagher" }, "Status": "AUTHORISED", "LineAmountTypes": "Exclusive", "LineItems": [ { "Description": "Guitars Fender Strat", "UnitAmount": 5000.00, "TaxType": "OUTPUT2", "TaxAmount": 750.00, "LineAmount": 5000.00, "AccountCode": "200", "Tracking": [], "Quantity": 1.0000, "LineItemID": "13a8353c-d2af-4d5b-920c-438449f08900", "DiscountEnteredAsPercent": true } ], "CurrencyCode": "NZD" } ] } # RepeatingInvoices | RepeatingInvoices with an array of repeating invoice objects in body of request
+opts = {
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
+}
+
+begin
+  #Creates or deletes one or more repeating invoice templates
+  result = api_instance.update_or_create_repeating_invoices(xero_tenant_id, repeating_invoices, opts)
+  p result
+rescue XeroRuby::Accounting::ApiError => e
+  puts "Exception when calling AccountingApi->update_or_create_repeating_invoices: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **repeating_invoices** | [**RepeatingInvoices**](RepeatingInvoices.md)| RepeatingInvoices with an array of repeating invoice objects in body of request | 
+ **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
+
+### Return type
+
+[**RepeatingInvoices**](RepeatingInvoices.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## update_purchase_order
 
 > PurchaseOrders update_purchase_order(xero_tenant_id, purchase_order_id, purchase_orders)
@@ -15386,6 +15659,72 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/octet-stream
+- **Accept**: application/json
+
+
+## update_repeating_invoice
+
+> RepeatingInvoices update_repeating_invoice(xero_tenant_id, repeating_invoice_id, repeating_invoices)
+
+Deletes a specific repeating invoice template
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# You need to namespace your api method call to one of the following api sets
+# [:accounting_api, :assets_api, :projects_api, :files_api, :payroll_au_api, :payroll_nz_api, :payroll_uk_api, :app_store_api]
+
+api_instance = xero_client.<api_set>
+
+
+
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+repeating_invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Repeating Invoice
+repeating_invoices = { "Schedule": { "Period": 1, "Unit": "MONTHLY", "DueDate": 10, "DueDateType": "OFFOLLOWINGMONTH", "StartDate": "\/Date(1555286400000+0000)\/", "EndDate": "\/Date(1569801600000+0000)\/", "NextScheduledDate": "\/Date(1555286400000+0000)\/" }, "RepeatingInvoiceID": "428c0d75-909f-4b04-8403-a48dc27283b0", "Type": "ACCREC", "Reference": "[Week]", "HasAttachments": true, "ApprovedForSending": false, "SendCopy": false, "MarkAsSent": false, "IncludePDF": false, "ID": "428c0d75-909f-4b04-8403-a48dc27283b0", "Contact": { "ContactID": "430fa14a-f945-44d3-9f97-5df5e28441b8", "Name": "Liam Gallagher", "Addresses": [], "Phones": [], "ContactGroups": [], "ContactPersons": [], "HasValidationErrors": false }, "Status": "DELETED", "LineAmountTypes": "Exclusive", "LineItems": [ { "Description": "Guitars Fender Strat", "UnitAmount": 5000.00, "TaxType": "OUTPUT2", "TaxAmount": 750.00, "LineAmount": 5000.00, "AccountCode": "200", "Tracking": [], "Quantity": 1.0000, "LineItemID": "13a8353c-d2af-4d5b-920c-438449f08900", "DiscountEnteredAsPercent": true } ], "SubTotal": 5000.00, "TotalTax": 750.00, "Total": 5750.00, "CurrencyCode": "NZD" } # RepeatingInvoices | 
+begin
+  #Deletes a specific repeating invoice template
+  result = api_instance.update_repeating_invoice(xero_tenant_id, repeating_invoice_id, repeating_invoices)
+  p result
+rescue XeroRuby::Accounting::ApiError => e
+  puts "Exception when calling AccountingApi->update_repeating_invoice: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **repeating_invoice_id** | [**String**](.md)| Unique identifier for a Repeating Invoice | 
+ **repeating_invoices** | [**RepeatingInvoices**](RepeatingInvoices.md)|  | 
+
+### Return type
+
+[**RepeatingInvoices**](RepeatingInvoices.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
