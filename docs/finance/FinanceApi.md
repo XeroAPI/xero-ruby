@@ -332,7 +332,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-bank_account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | string, GUID    Bank account Id
+bank_account_id = 'bank_account_id_example' # String | string, GUID    Bank account Id
 from_date = '2020-07-01' # String | date, yyyy-MM-dd     Specifies the start date of the query period.   The maximum range of the query period is 12 months. If the specified query period is more than 12 months the request will be rejected.
 to_date = '2021-06-30' # String | date, yyyy-MM-dd     Specifies the end date of the query period.   If the end date is a future date, the request will be rejected.
 opts = {
@@ -354,7 +354,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **bank_account_id** | **String**| string, GUID    Bank account Id | 
+ **bank_account_id** | [**String**](.md)| string, GUID    Bank account Id | 
  **from_date** | **String**| date, yyyy-MM-dd     Specifies the start date of the query period.   The maximum range of the query period is 12 months. If the specified query period is more than 12 months the request will be rejected. | 
  **to_date** | **String**| date, yyyy-MM-dd     Specifies the end date of the query period.   If the end date is a future date, the request will be rejected. | 
  **summary_only** | **Boolean**| boolean, true/false    The default value is true if no parameter is provided.    In summary mode, the response will exclude the computation-heavy LineItems fields from bank transaction, invoice, credit note, prepayment and overpayment data, making the API calls quicker and more efficient. | [optional] 
@@ -624,7 +624,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  contact_ids: ["00000000-0000-0000-0000-000000000000","00000000-0000-0000-0000-000000000000"], # Array&lt;String&gt; | Specifies the customer contacts to be included in the report.    If no parameter is provided, all customer contacts will be included
+  contact_ids: ['[\"00000000-0000-0000-0000-000000000000\",\"00000000-0000-0000-0000-000000000000\"]'], # Array<String> | Specifies the customer contacts to be included in the report.    If no parameter is provided, all customer contacts will be included
 
   include_manual_journals: true, # Boolean | Specifies whether to include the manual journals in the report.                If no parameter is provided, manual journals will not be included.
 
@@ -702,7 +702,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  contact_ids: ["00000000-0000-0000-0000-000000000000","00000000-0000-0000-0000-000000000000"], # Array&lt;String&gt; | Specifies the customer contacts to be included in the report.    If no parameter is provided, all customer contacts will be included
+  contact_ids: ['[\"00000000-0000-0000-0000-000000000000\",\"00000000-0000-0000-0000-000000000000\"]'], # Array<String> | Specifies the customer contacts to be included in the report.    If no parameter is provided, all customer contacts will be included
 
   include_manual_journals: true, # Boolean | Specifies whether to include the manual journals in the report.                If no parameter is provided, manual journals will not be included.
 

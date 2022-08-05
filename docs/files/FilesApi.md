@@ -78,7 +78,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **file_id** | **String**| File id for single object | 
+ **file_id** | [**String**](.md)| File id for single object | 
  **association** | [**Association**](Association.md)|  | [optional] 
 
 ### Return type
@@ -213,7 +213,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **file_id** | **String**| File id for single object | 
+ **file_id** | [**String**](.md)| File id for single object | 
 
 ### Return type
 
@@ -279,8 +279,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **file_id** | **String**| File id for single object | 
- **object_id** | **String**| Object id for single object | 
+ **file_id** | [**String**](.md)| File id for single object | 
+ **object_id** | [**String**](.md)| Object id for single object | 
 
 ### Return type
 
@@ -345,7 +345,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **folder_id** | **String**| Folder id for single object | 
+ **folder_id** | [**String**](.md)| Folder id for single object | 
 
 ### Return type
 
@@ -411,7 +411,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **object_id** | **String**| Object id for single object | 
+ **object_id** | [**String**](.md)| Object id for single object | 
 
 ### Return type
 
@@ -475,7 +475,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **file_id** | **String**| File id for single object | 
+ **file_id** | [**String**](.md)| File id for single object | 
 
 ### Return type
 
@@ -541,7 +541,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **file_id** | **String**| File id for single object | 
+ **file_id** | [**String**](.md)| File id for single object | 
 
 ### Return type
 
@@ -607,7 +607,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **file_id** | **String**| File id for single object | 
+ **file_id** | [**String**](.md)| File id for single object | 
 
 ### Return type
 
@@ -660,7 +660,7 @@ opts = {
 
   page: 2, # Integer | number of records to skip for pagination
 
-  sort: 'Name' # String | values to sort by
+  sort: 'CreatedDateUTC DESC' # String | values to sort by
 }
 
 begin
@@ -746,7 +746,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **folder_id** | **String**| Folder id for single object | 
+ **folder_id** | [**String**](.md)| Folder id for single object | 
 
 ### Return type
 
@@ -797,7 +797,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  sort: 'Name' # String | values to sort by
+  sort: 'CreatedDateUTC DESC' # String | values to sort by
 }
 
 begin
@@ -949,7 +949,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **file_id** | **String**| File id for single object | 
+ **file_id** | [**String**](.md)| File id for single object | 
  **file_object** | [**FileObject**](FileObject.md)|  | [optional] 
 
 ### Return type
@@ -1017,7 +1017,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **folder_id** | **String**| Folder id for single object | 
+ **folder_id** | [**String**](.md)| Folder id for single object | 
  **folder** | [**Folder**](Folder.md)|  | 
 
 ### Return type
@@ -1162,7 +1162,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **folder_id** | **String**| pass required folder id to save file to specific folder | 
+ **folder_id** | [**String**](.md)| pass required folder id to save file to specific folder | 
  **body** | **String**|  | 
  **name** | **String**| exact name of the file you are uploading | 
  **filename** | **String**|  | 

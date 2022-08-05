@@ -61,6 +61,8 @@ Method | HTTP request | Description
 [**create_tracking_category**](AccountingApi.md#create_tracking_category) | **PUT** /TrackingCategories | Create tracking categories
 [**create_tracking_options**](AccountingApi.md#create_tracking_options) | **PUT** /TrackingCategories/{TrackingCategoryID}/Options | Creates options for a specific tracking category
 [**delete_account**](AccountingApi.md#delete_account) | **DELETE** /Accounts/{AccountID} | Deletes a chart of accounts
+[**delete_batch_payment**](AccountingApi.md#delete_batch_payment) | **POST** /BatchPayments | Updates a specific batch payment for invoices and credit notes
+[**delete_batch_payment_by_url_param**](AccountingApi.md#delete_batch_payment_by_url_param) | **POST** /BatchPayments/{BatchPaymentID} | Updates a specific batch payment for invoices and credit notes
 [**delete_contact_group_contact**](AccountingApi.md#delete_contact_group_contact) | **DELETE** /ContactGroups/{ContactGroupID}/Contacts/{ContactID} | Deletes a specific contact from a contact group using a unique contact Id
 [**delete_contact_group_contacts**](AccountingApi.md#delete_contact_group_contacts) | **DELETE** /ContactGroups/{ContactGroupID}/Contacts | Deletes all contacts from a specific contact group
 [**delete_item**](AccountingApi.md#delete_item) | **DELETE** /Items/{ItemID} | Deletes a specific item
@@ -351,7 +353,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **account_id** | **String**| Unique identifier for Account object | 
+ **account_id** | [**String**](.md)| Unique identifier for Account object | 
  **file_name** | **String**| Name of the attachment | 
  **body** | **String**| Byte array of file in body of request | 
 
@@ -419,7 +421,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **bank_transaction_id** | **String**| Xero generated unique identifier for a bank transaction | 
+ **bank_transaction_id** | [**String**](.md)| Xero generated unique identifier for a bank transaction | 
  **file_name** | **String**| Name of the attachment | 
  **body** | **String**| Byte array of file in body of request | 
 
@@ -486,7 +488,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **bank_transaction_id** | **String**| Xero generated unique identifier for a bank transaction | 
+ **bank_transaction_id** | [**String**](.md)| Xero generated unique identifier for a bank transaction | 
  **history_records** | [**HistoryRecords**](HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request | 
 
 ### Return type
@@ -537,7 +539,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transactions = { bankTransactions: [{ type: BankTransaction.TypeEnum.SPEND, contact: { contactID: "00000000-0000-0000-0000-000000000000" }, lineItems: [{ description: "Foobar", quantity: 1.0, unitAmount: 20.0, accountCode: "000" } ], bankAccount: { code: "000" }}]} # BankTransactions | BankTransactions with an array of BankTransaction objects in body of request
 opts = {
-  summarize_errors: true, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
+  summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
@@ -688,7 +690,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **bank_transfer_id** | **String**| Xero generated unique identifier for a bank transfer | 
+ **bank_transfer_id** | [**String**](.md)| Xero generated unique identifier for a bank transfer | 
  **file_name** | **String**| Name of the attachment | 
  **body** | **String**| Byte array of file in body of request | 
 
@@ -755,7 +757,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **bank_transfer_id** | **String**| Xero generated unique identifier for a bank transfer | 
+ **bank_transfer_id** | [**String**](.md)| Xero generated unique identifier for a bank transfer | 
  **history_records** | [**HistoryRecords**](HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request | 
 
 ### Return type
@@ -806,7 +808,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 batch_payments = { "BatchPayments": [ { "Account": { "AccountID": "00000000-0000-0000-0000-000000000000" }, "Reference": "ref", "Date": "2018-08-01", "Payments": [ { "Account": { "Code": "001" }, "Date": "2019-12-31", "Amount": 500, "Invoice": { "InvoiceID": "00000000-0000-0000-0000-000000000000", "LineItems": [], "Contact": {}, "Type": "ACCPAY" } } ] } ] } # BatchPayments | BatchPayments with an array of Payments in body of request
 opts = {
-  summarize_errors: true # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 }
 
 begin
@@ -890,7 +892,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **batch_payment_id** | **String**| Unique identifier for BatchPayment | 
+ **batch_payment_id** | [**String**](.md)| Unique identifier for BatchPayment | 
  **history_records** | [**HistoryRecords**](HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request | 
 
 ### Return type
@@ -956,7 +958,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **branding_theme_id** | **String**| Unique identifier for a Branding Theme | 
+ **branding_theme_id** | [**String**](.md)| Unique identifier for a Branding Theme | 
  **payment_service** | [**PaymentService**](PaymentService.md)| PaymentService object in body of request | 
 
 ### Return type
@@ -1022,7 +1024,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **contact_id** | **String**| Unique identifier for a Contact | 
+ **contact_id** | [**String**](.md)| Unique identifier for a Contact | 
  **file_name** | **String**| Name of the attachment | 
  **body** | **String**| Byte array of file in body of request | 
 
@@ -1153,7 +1155,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **contact_group_id** | **String**| Unique identifier for a Contact Group | 
+ **contact_group_id** | [**String**](.md)| Unique identifier for a Contact Group | 
  **contacts** | [**Contacts**](Contacts.md)| Contacts with array of contacts specifying the ContactID to be added to ContactGroup in body of request | 
 
 ### Return type
@@ -1219,7 +1221,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **contact_id** | **String**| Unique identifier for a Contact | 
+ **contact_id** | [**String**](.md)| Unique identifier for a Contact | 
  **history_records** | [**HistoryRecords**](HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request | 
 
 ### Return type
@@ -1270,7 +1272,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contacts = { "Contacts": [ { "ContactID": "3ff6d40c-af9a-40a3-89ce-3c1556a25591", "ContactStatus": "ACTIVE", "Name": "Foo9987", "EmailAddress": "sid32476@blah.com", "BankAccountDetails": "", "Addresses": [ { "AddressType": "STREET", "City": "", "Region": "", "PostalCode": "", "Country": "" }, { "AddressType": "POBOX", "City": "", "Region": "", "PostalCode": "", "Country": "" } ], "Phones": [ { "PhoneType": "DEFAULT", "PhoneNumber": "", "PhoneAreaCode": "", "PhoneCountryCode": "" }, { "PhoneType": "DDI", "PhoneNumber": "", "PhoneAreaCode": "", "PhoneCountryCode": "" }, { "PhoneType": "FAX", "PhoneNumber": "", "PhoneAreaCode": "", "PhoneCountryCode": "" }, { "PhoneType": "MOBILE", "PhoneNumber": "555-1212", "PhoneAreaCode": "415", "PhoneCountryCode": "" } ], "UpdatedDateUTC": "/Date(1551399321043+0000)/", "ContactGroups": [], "IsSupplier": false, "IsCustomer": false, "SalesTrackingCategories": [], "PurchasesTrackingCategories": [], "PaymentTerms": { "Bills": { "Day": 15, "Type": "OFCURRENTMONTH" }, "Sales": { "Day": 10, "Type": "DAYSAFTERBILLMONTH" } }, "ContactPersons": [] } ] } # Contacts | Contacts with an array of Contact objects to create in body of request
 opts = {
-  summarize_errors: true # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 }
 
 begin
@@ -1340,7 +1342,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 credit_note_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Credit Note
 allocations = { "Allocations": [ { "Invoice": { "LineItems": [], "InvoiceID": "c45720a1-ade3-4a38-a064-d15489be6841" }, "Amount": 1, "Date": "2019-03-05" } ] } # Allocations | Allocations with array of Allocation object in body of request.
 opts = {
-  summarize_errors: true # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 }
 
 begin
@@ -1358,7 +1360,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **credit_note_id** | **String**| Unique identifier for a Credit Note | 
+ **credit_note_id** | [**String**](.md)| Unique identifier for a Credit Note | 
  **allocations** | [**Allocations**](Allocations.md)| Allocations with array of Allocation object in body of request. | 
  **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
 
@@ -1412,7 +1414,7 @@ credit_note_id = '00000000-0000-0000-0000-000000000000' # String | Unique identi
 file_name = 'xero-dev.jpg' # String | Name of the attachment
 body = 'body_example' # String | Byte array of file in body of request
 opts = {
-  include_online: true # Boolean | Allows an attachment to be seen by the end customer within their online invoice
+  include_online: false # Boolean | Allows an attachment to be seen by the end customer within their online invoice
 }
 
 begin
@@ -1430,7 +1432,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **credit_note_id** | **String**| Unique identifier for a Credit Note | 
+ **credit_note_id** | [**String**](.md)| Unique identifier for a Credit Note | 
  **file_name** | **String**| Name of the attachment | 
  **body** | **String**| Byte array of file in body of request | 
  **include_online** | **Boolean**| Allows an attachment to be seen by the end customer within their online invoice | [optional] [default to false]
@@ -1498,7 +1500,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **credit_note_id** | **String**| Unique identifier for a Credit Note | 
+ **credit_note_id** | [**String**](.md)| Unique identifier for a Credit Note | 
  **history_records** | [**HistoryRecords**](HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request | 
 
 ### Return type
@@ -1549,7 +1551,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 credit_notes = { "CreditNotes":[ { "Type":"ACCPAYCREDIT", "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "Date":"2019-01-05", "LineItems":[ { "Description":"Foobar", "Quantity":2.0, "UnitAmount":20.0, "AccountCode":"400" } ] } ] } # CreditNotes | Credit Notes with array of CreditNote object in body of request
 opts = {
-  summarize_errors: true, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
+  summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
@@ -1685,7 +1687,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 employees = { "Employees": [ { "FirstName": "Nick", "LastName": "Fury", "ExternalLink": { "Url": "http://twitter.com/#!/search/Nick+Fury" } } ] } # Employees | Employees with array of Employee object in body of request
 opts = {
-  summarize_errors: true # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 }
 
 begin
@@ -1769,7 +1771,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **expense_claim_id** | **String**| Unique identifier for a ExpenseClaim | 
+ **expense_claim_id** | [**String**](.md)| Unique identifier for a ExpenseClaim | 
  **history_records** | [**HistoryRecords**](HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request | 
 
 ### Return type
@@ -1886,7 +1888,7 @@ invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier
 file_name = 'xero-dev.jpg' # String | Name of the attachment
 body = 'body_example' # String | Byte array of file in body of request
 opts = {
-  include_online: true # Boolean | Allows an attachment to be seen by the end customer within their online invoice
+  include_online: false # Boolean | Allows an attachment to be seen by the end customer within their online invoice
 }
 
 begin
@@ -1904,7 +1906,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **invoice_id** | **String**| Unique identifier for an Invoice | 
+ **invoice_id** | [**String**](.md)| Unique identifier for an Invoice | 
  **file_name** | **String**| Name of the attachment | 
  **body** | **String**| Byte array of file in body of request | 
  **include_online** | **Boolean**| Allows an attachment to be seen by the end customer within their online invoice | [optional] [default to false]
@@ -1972,7 +1974,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **invoice_id** | **String**| Unique identifier for an Invoice | 
+ **invoice_id** | [**String**](.md)| Unique identifier for an Invoice | 
  **history_records** | [**HistoryRecords**](HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request | 
 
 ### Return type
@@ -2023,7 +2025,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 invoices = { "Invoices": [ { "Type": "ACCREC", "Contact": { "ContactID": "430fa14a-f945-44d3-9f97-5df5e28441b8" }, "LineItems": [ { "Description": "Acme Tires", "Quantity": 2, "UnitAmount": 20, "AccountCode": "200", "TaxType": "NONE", "LineAmount": 40 } ], "Date": "2019-03-11", "DueDate": "2018-12-10", "Reference": "Website Design", "Status": "AUTHORISED" } ] } # Invoices | Invoices with an array of invoice objects in body of request
 opts = {
-  summarize_errors: true, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
+  summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
@@ -2110,7 +2112,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **item_id** | **String**| Unique identifier for an Item | 
+ **item_id** | [**String**](.md)| Unique identifier for an Item | 
  **history_records** | [**HistoryRecords**](HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request | 
 
 ### Return type
@@ -2161,7 +2163,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 items = { "Items": [ { "Code": "code123", "Name": "Item Name XYZ", "Description": "Foobar", "InventoryAssetAccountCode": "140", "PurchaseDetails": { "COGSAccountCode": "500" } } ] } # Items | Items with an array of Item objects in body of request
 opts = {
-  summarize_errors: true, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
+  summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
@@ -2313,7 +2315,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **manual_journal_id** | **String**| Unique identifier for a ManualJournal | 
+ **manual_journal_id** | [**String**](.md)| Unique identifier for a ManualJournal | 
  **file_name** | **String**| Name of the attachment | 
  **body** | **String**| Byte array of file in body of request | 
 
@@ -2380,7 +2382,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **manual_journal_id** | **String**| Unique identifier for a ManualJournal | 
+ **manual_journal_id** | [**String**](.md)| Unique identifier for a ManualJournal | 
  **history_records** | [**HistoryRecords**](HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request | 
 
 ### Return type
@@ -2431,7 +2433,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 manual_journals = { "ManualJournals": [ { "Narration": "Journal Desc", "JournalLines": [ { "LineAmount": 100, "AccountCode": "400", "Description": "Money Movement" }, { "LineAmount": -100, "AccountCode": "400", "Description": "Prepayment of things", "Tracking": [ { "Name": "North", "Option": "Region" } ] } ], "Date": "2019-03-14" } ] } # ManualJournals | ManualJournals array with ManualJournal object in body of request
 opts = {
-  summarize_errors: true # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 }
 
 begin
@@ -2501,7 +2503,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 overpayment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Overpayment
 allocations = { "Allocations": [ { "Invoice": { "InvoiceID": "00000000-0000-0000-0000-000000000000", "LineItems": [], "Contact": {}, "Type": "ACCPAY" }, "Amount": 10.00, "Date": "2019-03-12" } ] } # Allocations | Allocations array with Allocation object in body of request
 opts = {
-  summarize_errors: true # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 }
 
 begin
@@ -2519,7 +2521,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **overpayment_id** | **String**| Unique identifier for a Overpayment | 
+ **overpayment_id** | [**String**](.md)| Unique identifier for a Overpayment | 
  **allocations** | [**Allocations**](Allocations.md)| Allocations array with Allocation object in body of request | 
  **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
 
@@ -2586,7 +2588,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **overpayment_id** | **String**| Unique identifier for a Overpayment | 
+ **overpayment_id** | [**String**](.md)| Unique identifier for a Overpayment | 
  **history_records** | [**HistoryRecords**](HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request | 
 
 ### Return type
@@ -2716,7 +2718,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **payment_id** | **String**| Unique identifier for a Payment | 
+ **payment_id** | [**String**](.md)| Unique identifier for a Payment | 
  **history_records** | [**HistoryRecords**](HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request | 
 
 ### Return type
@@ -2831,7 +2833,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 payments = { "Payments": [ { "Invoice": { "LineItems": [], "InvoiceID": "00000000-0000-0000-0000-000000000000" }, "Account": { "Code": "970" }, "Date": "2019-03-12", "Amount": 1 } ] } # Payments | Payments array with Payment object in body of request
 opts = {
-  summarize_errors: true # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 }
 
 begin
@@ -2901,7 +2903,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 prepayment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a PrePayment
 allocations = { "Allocations": [ { "Invoice": { "LineItems": [], "InvoiceID": "00000000-0000-0000-0000-000000000000" }, "Amount": 1, "Date": "2019-01-10" } ] } # Allocations | Allocations with an array of Allocation object in body of request
 opts = {
-  summarize_errors: true # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 }
 
 begin
@@ -2919,7 +2921,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **prepayment_id** | **String**| Unique identifier for a PrePayment | 
+ **prepayment_id** | [**String**](.md)| Unique identifier for a PrePayment | 
  **allocations** | [**Allocations**](Allocations.md)| Allocations with an array of Allocation object in body of request | 
  **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
 
@@ -2986,7 +2988,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **prepayment_id** | **String**| Unique identifier for a PrePayment | 
+ **prepayment_id** | [**String**](.md)| Unique identifier for a PrePayment | 
  **history_records** | [**HistoryRecords**](HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request | 
 
 ### Return type
@@ -3053,7 +3055,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **purchase_order_id** | **String**| Unique identifier for an Purchase Order | 
+ **purchase_order_id** | [**String**](.md)| Unique identifier for an Purchase Order | 
  **file_name** | **String**| Name of the attachment | 
  **body** | **String**| Byte array of file in body of request | 
 
@@ -3120,7 +3122,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **purchase_order_id** | **String**| Unique identifier for an Purchase Order | 
+ **purchase_order_id** | [**String**](.md)| Unique identifier for an Purchase Order | 
  **history_records** | [**HistoryRecords**](HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request | 
 
 ### Return type
@@ -3171,7 +3173,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 purchase_orders = { "PurchaseOrders": [ { "Contact": { "ContactID": "00000000-0000-0000-0000-000000000000" }, "LineItems": [ { "Description": "Foobar", "Quantity": 1, "UnitAmount": 20, "AccountCode": "710" } ], "Date": "2019-03-13" } ] } # PurchaseOrders | PurchaseOrders with an array of PurchaseOrder object in body of request
 opts = {
-  summarize_errors: true # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 }
 
 begin
@@ -3256,7 +3258,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **quote_id** | **String**| Unique identifier for an Quote | 
+ **quote_id** | [**String**](.md)| Unique identifier for an Quote | 
  **file_name** | **String**| Name of the attachment | 
  **body** | **String**| Byte array of file in body of request | 
 
@@ -3323,7 +3325,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **quote_id** | **String**| Unique identifier for an Quote | 
+ **quote_id** | [**String**](.md)| Unique identifier for an Quote | 
  **history_records** | [**HistoryRecords**](HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request | 
 
 ### Return type
@@ -3374,7 +3376,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 quotes = { "Quotes": [ { "Contact": { "ContactID": "00000000-0000-0000-0000-000000000000" }, "LineItems": [ { "Description": "Foobar", "Quantity": 1, "UnitAmount": 20, "AccountCode": "12775" } ], "Date": "2020-02-01" } ] } # Quotes | Quotes with an array of Quote object in body of request
 opts = {
-  summarize_errors: true # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 }
 
 begin
@@ -3528,7 +3530,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **receipt_id** | **String**| Unique identifier for a Receipt | 
+ **receipt_id** | [**String**](.md)| Unique identifier for a Receipt | 
  **file_name** | **String**| Name of the attachment | 
  **body** | **String**| Byte array of file in body of request | 
 
@@ -3595,7 +3597,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **receipt_id** | **String**| Unique identifier for a Receipt | 
+ **receipt_id** | [**String**](.md)| Unique identifier for a Receipt | 
  **history_records** | [**HistoryRecords**](HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request | 
 
 ### Return type
@@ -3662,7 +3664,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **repeating_invoice_id** | **String**| Unique identifier for a Repeating Invoice | 
+ **repeating_invoice_id** | [**String**](.md)| Unique identifier for a Repeating Invoice | 
  **file_name** | **String**| Name of the attachment | 
  **body** | **String**| Byte array of file in body of request | 
 
@@ -3729,7 +3731,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **repeating_invoice_id** | **String**| Unique identifier for a Repeating Invoice | 
+ **repeating_invoice_id** | [**String**](.md)| Unique identifier for a Repeating Invoice | 
  **history_records** | [**HistoryRecords**](HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request | 
 
 ### Return type
@@ -3780,7 +3782,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 repeating_invoices = { "RepeatingInvoices": [ { "Schedule": { "Period": 1, "Unit": "MONTHLY", "DueDate": 10, "DueDateType": "OFFOLLOWINGMONTH", "StartDate": "\/Date(1555286400000+0000)\/" }, "Type": "ACCREC", "Reference": "[Week]", "ApprovedForSending": false, "SendCopy": false, "MarkAsSent": false, "IncludePDF": false, "Contact": { "ContactID": "430fa14a-f945-44d3-9f97-5df5e28441b8", "Name": "Liam Gallagher" }, "Status": "AUTHORISED", "LineAmountTypes": "Exclusive", "LineItems": [ { "Description": "Guitars Fender Strat", "UnitAmount": 5000.00, "TaxType": "OUTPUT2", "TaxAmount": 750.00, "LineAmount": 5000.00, "AccountCode": "200", "Tracking": [], "Quantity": 1.0000, "LineItemID": "13a8353c-d2af-4d5b-920c-438449f08900", "DiscountEnteredAsPercent": true } ], "CurrencyCode": "NZD" } ] } # RepeatingInvoices | RepeatingInvoices with an array of repeating invoice objects in body of request
 opts = {
-  summarize_errors: true # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 }
 
 begin
@@ -3992,7 +3994,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **tracking_category_id** | **String**| Unique identifier for a TrackingCategory | 
+ **tracking_category_id** | [**String**](.md)| Unique identifier for a TrackingCategory | 
  **tracking_option** | [**TrackingOption**](TrackingOption.md)| TrackingOption object in body of request | 
 
 ### Return type
@@ -4057,7 +4059,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **account_id** | **String**| Unique identifier for Account object | 
+ **account_id** | [**String**](.md)| Unique identifier for Account object | 
 
 ### Return type
 
@@ -4070,6 +4072,136 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## delete_batch_payment
+
+> BatchPayments delete_batch_payment(xero_tenant_id, batch_payment_delete)
+
+Updates a specific batch payment for invoices and credit notes
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# You need to namespace your api method call to one of the following api sets
+# [:accounting_api, :assets_api, :projects_api, :files_api, :payroll_au_api, :payroll_nz_api, :payroll_uk_api, :app_store_api]
+
+api_instance = xero_client.<api_set>
+
+
+
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+batch_payment_delete = { "BatchPaymentID": "9bf296e9-0748-4d29-a3dc-24dde1098030", "Status":"DELETED" } # BatchPaymentDelete | 
+begin
+  #Updates a specific batch payment for invoices and credit notes
+  result = api_instance.delete_batch_payment(xero_tenant_id, batch_payment_delete)
+  p result
+rescue XeroRuby::Accounting::ApiError => e
+  puts "Exception when calling AccountingApi->delete_batch_payment: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **batch_payment_delete** | [**BatchPaymentDelete**](BatchPaymentDelete.md)|  | 
+
+### Return type
+
+[**BatchPayments**](BatchPayments.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## delete_batch_payment_by_url_param
+
+> BatchPayments delete_batch_payment_by_url_param(xero_tenant_id, batch_payment_id, batch_payment_delete_by_url_param)
+
+Updates a specific batch payment for invoices and credit notes
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# You need to namespace your api method call to one of the following api sets
+# [:accounting_api, :assets_api, :projects_api, :files_api, :payroll_au_api, :payroll_nz_api, :payroll_uk_api, :app_store_api]
+
+api_instance = xero_client.<api_set>
+
+
+
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+batch_payment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for BatchPayment
+batch_payment_delete_by_url_param = { "Status":"DELETED" } # BatchPaymentDeleteByUrlParam | 
+begin
+  #Updates a specific batch payment for invoices and credit notes
+  result = api_instance.delete_batch_payment_by_url_param(xero_tenant_id, batch_payment_id, batch_payment_delete_by_url_param)
+  p result
+rescue XeroRuby::Accounting::ApiError => e
+  puts "Exception when calling AccountingApi->delete_batch_payment_by_url_param: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **batch_payment_id** | [**String**](.md)| Unique identifier for BatchPayment | 
+ **batch_payment_delete_by_url_param** | [**BatchPaymentDeleteByUrlParam**](BatchPaymentDeleteByUrlParam.md)|  | 
+
+### Return type
+
+[**BatchPayments**](BatchPayments.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -4121,8 +4253,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **contact_group_id** | **String**| Unique identifier for a Contact Group | 
- **contact_id** | **String**| Unique identifier for a Contact | 
+ **contact_group_id** | [**String**](.md)| Unique identifier for a Contact Group | 
+ **contact_id** | [**String**](.md)| Unique identifier for a Contact | 
 
 ### Return type
 
@@ -4185,7 +4317,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **contact_group_id** | **String**| Unique identifier for a Contact Group | 
+ **contact_group_id** | [**String**](.md)| Unique identifier for a Contact Group | 
 
 ### Return type
 
@@ -4248,7 +4380,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **item_id** | **String**| Unique identifier for an Item | 
+ **item_id** | [**String**](.md)| Unique identifier for an Item | 
 
 ### Return type
 
@@ -4311,7 +4443,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **linked_transaction_id** | **String**| Unique identifier for a LinkedTransaction | 
+ **linked_transaction_id** | [**String**](.md)| Unique identifier for a LinkedTransaction | 
 
 ### Return type
 
@@ -4376,7 +4508,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **payment_id** | **String**| Unique identifier for a Payment | 
+ **payment_id** | [**String**](.md)| Unique identifier for a Payment | 
  **payment_delete** | [**PaymentDelete**](PaymentDelete.md)|  | 
 
 ### Return type
@@ -4441,7 +4573,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **tracking_category_id** | **String**| Unique identifier for a TrackingCategory | 
+ **tracking_category_id** | [**String**](.md)| Unique identifier for a TrackingCategory | 
 
 ### Return type
 
@@ -4506,8 +4638,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **tracking_category_id** | **String**| Unique identifier for a TrackingCategory | 
- **tracking_option_id** | **String**| Unique identifier for a Tracking Option | 
+ **tracking_category_id** | [**String**](.md)| Unique identifier for a TrackingCategory | 
+ **tracking_option_id** | [**String**](.md)| Unique identifier for a Tracking Option | 
 
 ### Return type
 
@@ -4571,7 +4703,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **invoice_id** | **String**| Unique identifier for an Invoice | 
+ **invoice_id** | [**String**](.md)| Unique identifier for an Invoice | 
  **request_empty** | [**RequestEmpty**](RequestEmpty.md)|  | 
 
 ### Return type
@@ -4636,7 +4768,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **account_id** | **String**| Unique identifier for Account object | 
+ **account_id** | [**String**](.md)| Unique identifier for Account object | 
 
 ### Return type
 
@@ -4702,7 +4834,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **account_id** | **String**| Unique identifier for Account object | 
+ **account_id** | [**String**](.md)| Unique identifier for Account object | 
  **file_name** | **String**| Name of the attachment | 
  **content_type** | **String**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf | 
 
@@ -4770,8 +4902,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **account_id** | **String**| Unique identifier for Account object | 
- **attachment_id** | **String**| Unique identifier for Attachment object | 
+ **account_id** | [**String**](.md)| Unique identifier for Account object | 
+ **attachment_id** | [**String**](.md)| Unique identifier for Attachment object | 
  **content_type** | **String**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf | 
 
 ### Return type
@@ -4836,7 +4968,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **account_id** | **String**| Unique identifier for Account object | 
+ **account_id** | [**String**](.md)| Unique identifier for Account object | 
 
 ### Return type
 
@@ -4977,7 +5109,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **bank_transaction_id** | **String**| Xero generated unique identifier for a bank transaction | 
+ **bank_transaction_id** | [**String**](.md)| Xero generated unique identifier for a bank transaction | 
  **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
 
 ### Return type
@@ -5044,7 +5176,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **bank_transaction_id** | **String**| Xero generated unique identifier for a bank transaction | 
+ **bank_transaction_id** | [**String**](.md)| Xero generated unique identifier for a bank transaction | 
  **file_name** | **String**| Name of the attachment | 
  **content_type** | **String**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf | 
 
@@ -5112,8 +5244,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **bank_transaction_id** | **String**| Xero generated unique identifier for a bank transaction | 
- **attachment_id** | **String**| Unique identifier for Attachment object | 
+ **bank_transaction_id** | [**String**](.md)| Xero generated unique identifier for a bank transaction | 
+ **attachment_id** | [**String**](.md)| Unique identifier for Attachment object | 
  **content_type** | **String**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf | 
 
 ### Return type
@@ -5178,7 +5310,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **bank_transaction_id** | **String**| Xero generated unique identifier for a bank transaction | 
+ **bank_transaction_id** | [**String**](.md)| Xero generated unique identifier for a bank transaction | 
 
 ### Return type
 
@@ -5229,7 +5361,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  where: 'Status=="AUTHORISED"', # String | Filter by an any element
+  where: 'Status==\"AUTHORISED\"', # String | Filter by an any element
 
   order: 'Type ASC', # String | Order by an any element
 
@@ -5321,7 +5453,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **bank_transaction_id** | **String**| Xero generated unique identifier for a bank transaction | 
+ **bank_transaction_id** | [**String**](.md)| Xero generated unique identifier for a bank transaction | 
 
 ### Return type
 
@@ -5385,7 +5517,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **bank_transfer_id** | **String**| Xero generated unique identifier for a bank transfer | 
+ **bank_transfer_id** | [**String**](.md)| Xero generated unique identifier for a bank transfer | 
 
 ### Return type
 
@@ -5451,7 +5583,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **bank_transfer_id** | **String**| Xero generated unique identifier for a bank transfer | 
+ **bank_transfer_id** | [**String**](.md)| Xero generated unique identifier for a bank transfer | 
  **file_name** | **String**| Name of the attachment | 
  **content_type** | **String**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf | 
 
@@ -5519,8 +5651,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **bank_transfer_id** | **String**| Xero generated unique identifier for a bank transfer | 
- **attachment_id** | **String**| Unique identifier for Attachment object | 
+ **bank_transfer_id** | [**String**](.md)| Xero generated unique identifier for a bank transfer | 
+ **attachment_id** | [**String**](.md)| Unique identifier for Attachment object | 
  **content_type** | **String**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf | 
 
 ### Return type
@@ -5585,7 +5717,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **bank_transfer_id** | **String**| Xero generated unique identifier for a bank transfer | 
+ **bank_transfer_id** | [**String**](.md)| Xero generated unique identifier for a bank transfer | 
 
 ### Return type
 
@@ -5649,7 +5781,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **bank_transfer_id** | **String**| Xero generated unique identifier for a bank transfer | 
+ **bank_transfer_id** | [**String**](.md)| Xero generated unique identifier for a bank transfer | 
 
 ### Return type
 
@@ -5786,7 +5918,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **batch_payment_id** | **String**| Unique identifier for BatchPayment | 
+ **batch_payment_id** | [**String**](.md)| Unique identifier for BatchPayment | 
 
 ### Return type
 
@@ -5837,7 +5969,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  where: 'Status=="AUTHORISED"', # String | Filter by an any element
+  where: 'Status==\"AUTHORISED\"', # String | Filter by an any element
 
   order: 'Date ASC' # String | Order by an any element
 }
@@ -5923,7 +6055,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **branding_theme_id** | **String**| Unique identifier for a Branding Theme | 
+ **branding_theme_id** | [**String**](.md)| Unique identifier for a Branding Theme | 
 
 ### Return type
 
@@ -5987,7 +6119,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **branding_theme_id** | **String**| Unique identifier for a Branding Theme | 
+ **branding_theme_id** | [**String**](.md)| Unique identifier for a Branding Theme | 
 
 ### Return type
 
@@ -6119,7 +6251,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **budget_id** | **String**| Unique identifier for Budgets | 
+ **budget_id** | [**String**](.md)| Unique identifier for Budgets | 
  **date_to** | **Date**| Filter by start date | [optional] 
  **date_from** | **Date**| Filter by end date | [optional] 
 
@@ -6170,7 +6302,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  ids: &quot;00000000-0000-0000-0000-000000000000&quot;, # Array&lt;String&gt; | Filter by BudgetID. Allows you to retrieve a specific individual budget.
+  i_ds: ['&quot;00000000-0000-0000-0000-000000000000&quot;'], # Array<String> | Filter by BudgetID. Allows you to retrieve a specific individual budget.
 
   date_to: Date.parse('2019-10-31'), # Date | Filter by start date
 
@@ -6192,7 +6324,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **ids** | [**Array&lt;String&gt;**](String.md)| Filter by BudgetID. Allows you to retrieve a specific individual budget. | [optional] 
+ **i_ds** | [**Array&lt;String&gt;**](String.md)| Filter by BudgetID. Allows you to retrieve a specific individual budget. | [optional] 
  **date_to** | **Date**| Filter by start date | [optional] 
  **date_from** | **Date**| Filter by end date | [optional] 
 
@@ -6258,7 +6390,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **contact_id** | **String**| Unique identifier for a Contact | 
+ **contact_id** | [**String**](.md)| Unique identifier for a Contact | 
 
 ### Return type
 
@@ -6324,7 +6456,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **contact_id** | **String**| Unique identifier for a Contact | 
+ **contact_id** | [**String**](.md)| Unique identifier for a Contact | 
  **file_name** | **String**| Name of the attachment | 
  **content_type** | **String**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf | 
 
@@ -6392,8 +6524,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **contact_id** | **String**| Unique identifier for a Contact | 
- **attachment_id** | **String**| Unique identifier for Attachment object | 
+ **contact_id** | [**String**](.md)| Unique identifier for a Contact | 
+ **attachment_id** | [**String**](.md)| Unique identifier for Attachment object | 
  **content_type** | **String**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf | 
 
 ### Return type
@@ -6458,7 +6590,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **contact_id** | **String**| Unique identifier for a Contact | 
+ **contact_id** | [**String**](.md)| Unique identifier for a Contact | 
 
 ### Return type
 
@@ -6586,7 +6718,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **contact_id** | **String**| Unique identifier for a Contact | 
+ **contact_id** | [**String**](.md)| Unique identifier for a Contact | 
 
 ### Return type
 
@@ -6650,7 +6782,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **contact_group_id** | **String**| Unique identifier for a Contact Group | 
+ **contact_group_id** | [**String**](.md)| Unique identifier for a Contact Group | 
 
 ### Return type
 
@@ -6699,7 +6831,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  where: 'Status=="ACTIVE"', # String | Filter by an any element
+  where: 'Status==\"ACTIVE\"', # String | Filter by an any element
 
   order: 'Name ASC' # String | Order by an any element
 }
@@ -6784,7 +6916,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **contact_id** | **String**| Unique identifier for a Contact | 
+ **contact_id** | [**String**](.md)| Unique identifier for a Contact | 
 
 ### Return type
 
@@ -6839,13 +6971,13 @@ opts = {
 
   order: 'Name ASC', # String | Order by an any element
 
-  ids: &quot;00000000-0000-0000-0000-000000000000&quot;, # Array&lt;String&gt; | Filter by a comma separated list of ContactIDs. Allows you to retrieve a specific set of contacts in a single call.
+  i_ds: ['&quot;00000000-0000-0000-0000-000000000000&quot;'], # Array<String> | Filter by a comma separated list of ContactIDs. Allows you to retrieve a specific set of contacts in a single call.
 
   page: 1, # Integer | e.g. page=1 - Up to 100 contacts will be returned in a single API call.
 
   include_archived: true, # Boolean | e.g. includeArchived=true - Contacts with a status of ARCHIVED will be included in the response
 
-  summary_only: true, # Boolean | Use summaryOnly=true in GET Contacts and Invoices endpoint to retrieve a smaller version of the response object. This returns only lightweight fields, excluding computation-heavy fields from the response, making the API calls quick and efficient.
+  summary_only: false, # Boolean | Use summaryOnly=true in GET Contacts and Invoices endpoint to retrieve a smaller version of the response object. This returns only lightweight fields, excluding computation-heavy fields from the response, making the API calls quick and efficient.
 
   search_term: 'searchTerm=Joe Bloggs' # String | Search parameter that performs a case-insensitive text search across the Name, FirstName, LastName, ContactNumber and EmailAddress fields.
 }
@@ -6868,7 +7000,7 @@ Name | Type | Description  | Notes
  **if_modified_since** | **DateTime**| Only records created or modified since this timestamp will be returned | [optional] 
  **where** | **String**| Filter by an any element | [optional] 
  **order** | **String**| Order by an any element | [optional] 
- **ids** | [**Array&lt;String&gt;**](String.md)| Filter by a comma separated list of ContactIDs. Allows you to retrieve a specific set of contacts in a single call. | [optional] 
+ **i_ds** | [**Array&lt;String&gt;**](String.md)| Filter by a comma separated list of ContactIDs. Allows you to retrieve a specific set of contacts in a single call. | [optional] 
  **page** | **Integer**| e.g. page&#x3D;1 - Up to 100 contacts will be returned in a single API call. | [optional] 
  **include_archived** | **Boolean**| e.g. includeArchived&#x3D;true - Contacts with a status of ARCHIVED will be included in the response | [optional] 
  **summary_only** | **Boolean**| Use summaryOnly&#x3D;true in GET Contacts and Invoices endpoint to retrieve a smaller version of the response object. This returns only lightweight fields, excluding computation-heavy fields from the response, making the API calls quick and efficient. | [optional] [default to false]
@@ -6940,7 +7072,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **credit_note_id** | **String**| Unique identifier for a Credit Note | 
+ **credit_note_id** | [**String**](.md)| Unique identifier for a Credit Note | 
  **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
 
 ### Return type
@@ -7005,7 +7137,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **credit_note_id** | **String**| Unique identifier for a Credit Note | 
+ **credit_note_id** | [**String**](.md)| Unique identifier for a Credit Note | 
 
 ### Return type
 
@@ -7071,7 +7203,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **credit_note_id** | **String**| Unique identifier for a Credit Note | 
+ **credit_note_id** | [**String**](.md)| Unique identifier for a Credit Note | 
  **file_name** | **String**| Name of the attachment | 
  **content_type** | **String**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf | 
 
@@ -7139,8 +7271,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **credit_note_id** | **String**| Unique identifier for a Credit Note | 
- **attachment_id** | **String**| Unique identifier for Attachment object | 
+ **credit_note_id** | [**String**](.md)| Unique identifier for a Credit Note | 
+ **attachment_id** | [**String**](.md)| Unique identifier for Attachment object | 
  **content_type** | **String**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf | 
 
 ### Return type
@@ -7205,7 +7337,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **credit_note_id** | **String**| Unique identifier for a Credit Note | 
+ **credit_note_id** | [**String**](.md)| Unique identifier for a Credit Note | 
 
 ### Return type
 
@@ -7269,7 +7401,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **credit_note_id** | **String**| Unique identifier for a Credit Note | 
+ **credit_note_id** | [**String**](.md)| Unique identifier for a Credit Note | 
 
 ### Return type
 
@@ -7320,7 +7452,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  where: 'Status=="DRAFT"', # String | Filter by an any element
+  where: 'Status==\"DRAFT\"', # String | Filter by an any element
 
   order: 'CreditNoteNumber ASC', # String | Order by an any element
 
@@ -7397,7 +7529,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  where: 'Code=="USD"', # String | Filter by an any element
+  where: 'Code==\"USD\"', # String | Filter by an any element
 
   order: 'Code ASC' # String | Order by an any element
 }
@@ -7482,7 +7614,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **employee_id** | **String**| Unique identifier for a Employee | 
+ **employee_id** | [**String**](.md)| Unique identifier for a Employee | 
 
 ### Return type
 
@@ -7533,7 +7665,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  where: 'Status=="ACTIVE"', # String | Filter by an any element
+  where: 'Status==\"ACTIVE\"', # String | Filter by an any element
 
   order: 'LastName ASC' # String | Order by an any element
 }
@@ -7619,7 +7751,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **expense_claim_id** | **String**| Unique identifier for a ExpenseClaim | 
+ **expense_claim_id** | [**String**](.md)| Unique identifier for a ExpenseClaim | 
 
 ### Return type
 
@@ -7683,7 +7815,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **expense_claim_id** | **String**| Unique identifier for a ExpenseClaim | 
+ **expense_claim_id** | [**String**](.md)| Unique identifier for a ExpenseClaim | 
 
 ### Return type
 
@@ -7734,7 +7866,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  where: 'Status=="SUBMITTED"', # String | Filter by an any element
+  where: 'Status==\"SUBMITTED\"', # String | Filter by an any element
 
   order: 'Status ASC' # String | Order by an any element
 }
@@ -7824,7 +7956,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **invoice_id** | **String**| Unique identifier for an Invoice | 
+ **invoice_id** | [**String**](.md)| Unique identifier for an Invoice | 
  **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
 
 ### Return type
@@ -7889,7 +8021,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **invoice_id** | **String**| Unique identifier for an Invoice | 
+ **invoice_id** | [**String**](.md)| Unique identifier for an Invoice | 
 
 ### Return type
 
@@ -7955,7 +8087,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **invoice_id** | **String**| Unique identifier for an Invoice | 
+ **invoice_id** | [**String**](.md)| Unique identifier for an Invoice | 
  **file_name** | **String**| Name of the attachment | 
  **content_type** | **String**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf | 
 
@@ -8023,8 +8155,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **invoice_id** | **String**| Unique identifier for an Invoice | 
- **attachment_id** | **String**| Unique identifier for Attachment object | 
+ **invoice_id** | [**String**](.md)| Unique identifier for an Invoice | 
+ **attachment_id** | [**String**](.md)| Unique identifier for Attachment object | 
  **content_type** | **String**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf | 
 
 ### Return type
@@ -8089,7 +8221,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **invoice_id** | **String**| Unique identifier for an Invoice | 
+ **invoice_id** | [**String**](.md)| Unique identifier for an Invoice | 
 
 ### Return type
 
@@ -8153,7 +8285,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **invoice_id** | **String**| Unique identifier for an Invoice | 
+ **invoice_id** | [**String**](.md)| Unique identifier for an Invoice | 
 
 ### Return type
 
@@ -8266,17 +8398,17 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  where: 'Status=="DRAFT"', # String | Filter by an any element
+  where: 'Status==\"DRAFT\"', # String | Filter by an any element
 
   order: 'InvoiceNumber ASC', # String | Order by an any element
 
-  ids: &quot;00000000-0000-0000-0000-000000000000&quot;, # Array&lt;String&gt; | Filter by a comma-separated list of InvoicesIDs.
+  i_ds: ['&quot;00000000-0000-0000-0000-000000000000&quot;'], # Array<String> | Filter by a comma-separated list of InvoicesIDs.
 
-  invoice_numbers: &quot;INV-001&quot;, &quot;INV-002&quot;, # Array&lt;String&gt; | Filter by a comma-separated list of InvoiceNumbers.
+  invoice_numbers: ['&quot;INV-001&quot;, &quot;INV-002&quot;'], # Array<String> | Filter by a comma-separated list of InvoiceNumbers.
 
-  contact_ids: &quot;00000000-0000-0000-0000-000000000000&quot;, # Array&lt;String&gt; | Filter by a comma-separated list of ContactIDs.
+  contact_i_ds: ['&quot;00000000-0000-0000-0000-000000000000&quot;'], # Array<String> | Filter by a comma-separated list of ContactIDs.
 
-  statuses: &quot;DRAFT&quot;, &quot;SUBMITTED&quot;, # Array&lt;String&gt; | Filter by a comma-separated list Statuses. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter.
+  statuses: ['&quot;DRAFT&quot;, &quot;SUBMITTED&quot;'], # Array<String> | Filter by a comma-separated list Statuses. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter.
 
   page: 1, # Integer | e.g. page=1 – Up to 100 invoices will be returned in a single API call with line items shown for each invoice
 
@@ -8286,7 +8418,7 @@ opts = {
 
   unitdp: 4, # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
-  summary_only: true # Boolean | Use summaryOnly=true in GET Contacts and Invoices endpoint to retrieve a smaller version of the response object. This returns only lightweight fields, excluding computation-heavy fields from the response, making the API calls quick and efficient.
+  summary_only: false # Boolean | Use summaryOnly=true in GET Contacts and Invoices endpoint to retrieve a smaller version of the response object. This returns only lightweight fields, excluding computation-heavy fields from the response, making the API calls quick and efficient.
 }
 
 begin
@@ -8307,9 +8439,9 @@ Name | Type | Description  | Notes
  **if_modified_since** | **DateTime**| Only records created or modified since this timestamp will be returned | [optional] 
  **where** | **String**| Filter by an any element | [optional] 
  **order** | **String**| Order by an any element | [optional] 
- **ids** | [**Array&lt;String&gt;**](String.md)| Filter by a comma-separated list of InvoicesIDs. | [optional] 
+ **i_ds** | [**Array&lt;String&gt;**](String.md)| Filter by a comma-separated list of InvoicesIDs. | [optional] 
  **invoice_numbers** | [**Array&lt;String&gt;**](String.md)| Filter by a comma-separated list of InvoiceNumbers. | [optional] 
- **contact_ids** | [**Array&lt;String&gt;**](String.md)| Filter by a comma-separated list of ContactIDs. | [optional] 
+ **contact_i_ds** | [**Array&lt;String&gt;**](String.md)| Filter by a comma-separated list of ContactIDs. | [optional] 
  **statuses** | [**Array&lt;String&gt;**](String.md)| Filter by a comma-separated list Statuses. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. | [optional] 
  **page** | **Integer**| e.g. page&#x3D;1 – Up to 100 invoices will be returned in a single API call with line items shown for each invoice | [optional] 
  **include_archived** | **Boolean**| e.g. includeArchived&#x3D;true - Invoices with a status of ARCHIVED will be included in the response | [optional] 
@@ -8383,7 +8515,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **item_id** | **String**| Unique identifier for an Item | 
+ **item_id** | [**String**](.md)| Unique identifier for an Item | 
  **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
 
 ### Return type
@@ -8448,7 +8580,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **item_id** | **String**| Unique identifier for an Item | 
+ **item_id** | [**String**](.md)| Unique identifier for an Item | 
 
 ### Return type
 
@@ -8588,7 +8720,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **journal_id** | **String**| Unique identifier for a Journal | 
+ **journal_id** | [**String**](.md)| Unique identifier for a Journal | 
 
 ### Return type
 
@@ -8789,7 +8921,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **linked_transaction_id** | **String**| Unique identifier for a LinkedTransaction | 
+ **linked_transaction_id** | [**String**](.md)| Unique identifier for a LinkedTransaction | 
 
 ### Return type
 
@@ -8867,11 +8999,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **page** | **Integer**| Up to 100 linked transactions will be returned in a single API call. Use the page parameter to specify the page to be returned e.g. page&#x3D;1. | [optional] 
- **linked_transaction_id** | **String**| The Xero identifier for an Linked Transaction | [optional] 
- **source_transaction_id** | **String**| Filter by the SourceTransactionID. Get the linked transactions created from a particular ACCPAY invoice | [optional] 
- **contact_id** | **String**| Filter by the ContactID. Get all the linked transactions that have been assigned to a particular customer. | [optional] 
+ **linked_transaction_id** | [**String**](.md)| The Xero identifier for an Linked Transaction | [optional] 
+ **source_transaction_id** | [**String**](.md)| Filter by the SourceTransactionID. Get the linked transactions created from a particular ACCPAY invoice | [optional] 
+ **contact_id** | [**String**](.md)| Filter by the ContactID. Get all the linked transactions that have been assigned to a particular customer. | [optional] 
  **status** | **String**| Filter by the combination of ContactID and Status. Get  the linked transactions associated to a  customer and with a status | [optional] 
- **target_transaction_id** | **String**| Filter by the TargetTransactionID. Get all the linked transactions allocated to a particular ACCREC invoice | [optional] 
+ **target_transaction_id** | [**String**](.md)| Filter by the TargetTransactionID. Get all the linked transactions allocated to a particular ACCREC invoice | [optional] 
 
 ### Return type
 
@@ -8935,7 +9067,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **manual_journal_id** | **String**| Unique identifier for a ManualJournal | 
+ **manual_journal_id** | [**String**](.md)| Unique identifier for a ManualJournal | 
 
 ### Return type
 
@@ -9001,7 +9133,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **manual_journal_id** | **String**| Unique identifier for a ManualJournal | 
+ **manual_journal_id** | [**String**](.md)| Unique identifier for a ManualJournal | 
  **file_name** | **String**| Name of the attachment | 
  **content_type** | **String**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf | 
 
@@ -9069,8 +9201,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **manual_journal_id** | **String**| Unique identifier for a ManualJournal | 
- **attachment_id** | **String**| Unique identifier for Attachment object | 
+ **manual_journal_id** | [**String**](.md)| Unique identifier for a ManualJournal | 
+ **attachment_id** | [**String**](.md)| Unique identifier for Attachment object | 
  **content_type** | **String**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf | 
 
 ### Return type
@@ -9135,7 +9267,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **manual_journal_id** | **String**| Unique identifier for a ManualJournal | 
+ **manual_journal_id** | [**String**](.md)| Unique identifier for a ManualJournal | 
 
 ### Return type
 
@@ -9186,7 +9318,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  where: 'Status=="DRAFT"', # String | Filter by an any element
+  where: 'Status==\"DRAFT\"', # String | Filter by an any element
 
   order: 'Date ASC', # String | Order by an any element
 
@@ -9275,7 +9407,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **manual_journal_id** | **String**| Unique identifier for a ManualJournal | 
+ **manual_journal_id** | [**String**](.md)| Unique identifier for a ManualJournal | 
 
 ### Return type
 
@@ -9339,7 +9471,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **invoice_id** | **String**| Unique identifier for an Invoice | 
+ **invoice_id** | [**String**](.md)| Unique identifier for an Invoice | 
 
 ### Return type
 
@@ -9465,7 +9597,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **organisation_id** | **String**| The unique Xero identifier for an organisation | 
+ **organisation_id** | [**String**](.md)| The unique Xero identifier for an organisation | 
 
 ### Return type
 
@@ -9591,7 +9723,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **overpayment_id** | **String**| Unique identifier for a Overpayment | 
+ **overpayment_id** | [**String**](.md)| Unique identifier for a Overpayment | 
 
 ### Return type
 
@@ -9655,7 +9787,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **overpayment_id** | **String**| Unique identifier for a Overpayment | 
+ **overpayment_id** | [**String**](.md)| Unique identifier for a Overpayment | 
 
 ### Return type
 
@@ -9706,7 +9838,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  where: 'Status=="AUTHORISED"', # String | Filter by an any element
+  where: 'Status==\"AUTHORISED\"', # String | Filter by an any element
 
   order: 'Status ASC', # String | Order by an any element
 
@@ -9798,7 +9930,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **payment_id** | **String**| Unique identifier for a Payment | 
+ **payment_id** | [**String**](.md)| Unique identifier for a Payment | 
 
 ### Return type
 
@@ -9862,7 +9994,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **payment_id** | **String**| Unique identifier for a Payment | 
+ **payment_id** | [**String**](.md)| Unique identifier for a Payment | 
 
 ### Return type
 
@@ -9975,7 +10107,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  where: 'Status=="AUTHORISED"', # String | Filter by an any element
+  where: 'Status==\"AUTHORISED\"', # String | Filter by an any element
 
   order: 'Amount ASC', # String | Order by an any element
 
@@ -10064,7 +10196,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **prepayment_id** | **String**| Unique identifier for a PrePayment | 
+ **prepayment_id** | [**String**](.md)| Unique identifier for a PrePayment | 
 
 ### Return type
 
@@ -10128,7 +10260,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **prepayment_id** | **String**| Unique identifier for a PrePayment | 
+ **prepayment_id** | [**String**](.md)| Unique identifier for a PrePayment | 
 
 ### Return type
 
@@ -10179,7 +10311,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  where: 'Status=="AUTHORISED"', # String | Filter by an any element
+  where: 'Status==\"AUTHORISED\"', # String | Filter by an any element
 
   order: 'Reference ASC', # String | Order by an any element
 
@@ -10271,7 +10403,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **purchase_order_id** | **String**| Unique identifier for an Purchase Order | 
+ **purchase_order_id** | [**String**](.md)| Unique identifier for an Purchase Order | 
 
 ### Return type
 
@@ -10335,7 +10467,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **purchase_order_id** | **String**| Unique identifier for an Purchase Order | 
+ **purchase_order_id** | [**String**](.md)| Unique identifier for an Purchase Order | 
 
 ### Return type
 
@@ -10401,7 +10533,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **purchase_order_id** | **String**| Unique identifier for an Purchase Order | 
+ **purchase_order_id** | [**String**](.md)| Unique identifier for an Purchase Order | 
  **file_name** | **String**| Name of the attachment | 
  **content_type** | **String**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf | 
 
@@ -10469,8 +10601,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **purchase_order_id** | **String**| Unique identifier for an Purchase Order | 
- **attachment_id** | **String**| Unique identifier for Attachment object | 
+ **purchase_order_id** | [**String**](.md)| Unique identifier for an Purchase Order | 
+ **attachment_id** | [**String**](.md)| Unique identifier for Attachment object | 
  **content_type** | **String**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf | 
 
 ### Return type
@@ -10535,7 +10667,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **purchase_order_id** | **String**| Unique identifier for an Purchase Order | 
+ **purchase_order_id** | [**String**](.md)| Unique identifier for an Purchase Order | 
 
 ### Return type
 
@@ -10663,7 +10795,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **purchase_order_id** | **String**| Unique identifier for an Purchase Order | 
+ **purchase_order_id** | [**String**](.md)| Unique identifier for an Purchase Order | 
 
 ### Return type
 
@@ -10714,7 +10846,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  status: 'DRAFT', # String | Filter by purchase order status
+  status: 'SUBMITTED', # String | Filter by purchase order status
 
   date_from: '2019-12-01', # String | Filter by purchase order date (e.g. GET https://.../PurchaseOrders?DateFrom=2015-12-01&DateTo=2015-12-31
 
@@ -10809,7 +10941,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **quote_id** | **String**| Unique identifier for an Quote | 
+ **quote_id** | [**String**](.md)| Unique identifier for an Quote | 
 
 ### Return type
 
@@ -10873,7 +11005,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **quote_id** | **String**| Unique identifier for an Quote | 
+ **quote_id** | [**String**](.md)| Unique identifier for an Quote | 
 
 ### Return type
 
@@ -10939,7 +11071,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **quote_id** | **String**| Unique identifier for an Quote | 
+ **quote_id** | [**String**](.md)| Unique identifier for an Quote | 
  **file_name** | **String**| Name of the attachment | 
  **content_type** | **String**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf | 
 
@@ -11007,8 +11139,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **quote_id** | **String**| Unique identifier for an Quote | 
- **attachment_id** | **String**| Unique identifier for Attachment object | 
+ **quote_id** | [**String**](.md)| Unique identifier for an Quote | 
+ **attachment_id** | [**String**](.md)| Unique identifier for Attachment object | 
  **content_type** | **String**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf | 
 
 ### Return type
@@ -11073,7 +11205,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **quote_id** | **String**| Unique identifier for an Quote | 
+ **quote_id** | [**String**](.md)| Unique identifier for an Quote | 
 
 ### Return type
 
@@ -11137,7 +11269,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **quote_id** | **String**| Unique identifier for an Quote | 
+ **quote_id** | [**String**](.md)| Unique identifier for an Quote | 
 
 ### Return type
 
@@ -11227,7 +11359,7 @@ Name | Type | Description  | Notes
  **date_to** | **Date**| Filter for quotes before a particular date | [optional] 
  **expiry_date_from** | **Date**| Filter for quotes expiring after a particular date | [optional] 
  **expiry_date_to** | **Date**| Filter for quotes before a particular date | [optional] 
- **contact_id** | **String**| Filter for quotes belonging to a particular contact | [optional] 
+ **contact_id** | [**String**](.md)| Filter for quotes belonging to a particular contact | [optional] 
  **status** | **String**| Filter for quotes of a particular Status | [optional] 
  **page** | **Integer**| e.g. page&#x3D;1 – Up to 100 Quotes will be returned in a single API call with line items shown for each quote | [optional] 
  **order** | **String**| Order by an any element | [optional] 
@@ -11299,7 +11431,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **receipt_id** | **String**| Unique identifier for a Receipt | 
+ **receipt_id** | [**String**](.md)| Unique identifier for a Receipt | 
  **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
 
 ### Return type
@@ -11366,7 +11498,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **receipt_id** | **String**| Unique identifier for a Receipt | 
+ **receipt_id** | [**String**](.md)| Unique identifier for a Receipt | 
  **file_name** | **String**| Name of the attachment | 
  **content_type** | **String**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf | 
 
@@ -11434,8 +11566,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **receipt_id** | **String**| Unique identifier for a Receipt | 
- **attachment_id** | **String**| Unique identifier for Attachment object | 
+ **receipt_id** | [**String**](.md)| Unique identifier for a Receipt | 
+ **attachment_id** | [**String**](.md)| Unique identifier for Attachment object | 
  **content_type** | **String**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf | 
 
 ### Return type
@@ -11500,7 +11632,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **receipt_id** | **String**| Unique identifier for a Receipt | 
+ **receipt_id** | [**String**](.md)| Unique identifier for a Receipt | 
 
 ### Return type
 
@@ -11564,7 +11696,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **receipt_id** | **String**| Unique identifier for a Receipt | 
+ **receipt_id** | [**String**](.md)| Unique identifier for a Receipt | 
 
 ### Return type
 
@@ -11615,7 +11747,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
 
-  where: 'Status=="DRAFT"', # String | Filter by an any element
+  where: 'Status==\"DRAFT\"', # String | Filter by an any element
 
   order: 'ReceiptNumber ASC', # String | Order by an any element
 
@@ -11704,7 +11836,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **repeating_invoice_id** | **String**| Unique identifier for a Repeating Invoice | 
+ **repeating_invoice_id** | [**String**](.md)| Unique identifier for a Repeating Invoice | 
 
 ### Return type
 
@@ -11770,7 +11902,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **repeating_invoice_id** | **String**| Unique identifier for a Repeating Invoice | 
+ **repeating_invoice_id** | [**String**](.md)| Unique identifier for a Repeating Invoice | 
  **file_name** | **String**| Name of the attachment | 
  **content_type** | **String**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf | 
 
@@ -11838,8 +11970,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **repeating_invoice_id** | **String**| Unique identifier for a Repeating Invoice | 
- **attachment_id** | **String**| Unique identifier for Attachment object | 
+ **repeating_invoice_id** | [**String**](.md)| Unique identifier for a Repeating Invoice | 
+ **attachment_id** | [**String**](.md)| Unique identifier for Attachment object | 
  **content_type** | **String**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf | 
 
 ### Return type
@@ -11904,7 +12036,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **repeating_invoice_id** | **String**| Unique identifier for a Repeating Invoice | 
+ **repeating_invoice_id** | [**String**](.md)| Unique identifier for a Repeating Invoice | 
 
 ### Return type
 
@@ -11968,7 +12100,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **repeating_invoice_id** | **String**| Unique identifier for a Repeating Invoice | 
+ **repeating_invoice_id** | [**String**](.md)| Unique identifier for a Repeating Invoice | 
 
 ### Return type
 
@@ -12017,7 +12149,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  where: 'Status=="DRAFT"', # String | Filter by an any element
+  where: 'Status==\"DRAFT\"', # String | Filter by an any element
 
   order: 'Total ASC' # String | Order by an any element
 }
@@ -12110,7 +12242,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **contact_id** | **String**| Unique identifier for a Contact | 
+ **contact_id** | [**String**](.md)| Unique identifier for a Contact | 
  **date** | **Date**| The date of the Aged Payables By Contact report | [optional] 
  **from_date** | **Date**| filter by the from date of the report e.g. 2021-02-01 | [optional] 
  **to_date** | **Date**| filter by the to date of the report e.g. 2021-02-28 | [optional] 
@@ -12185,7 +12317,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **contact_id** | **String**| Unique identifier for a Contact | 
+ **contact_id** | [**String**](.md)| Unique identifier for a Contact | 
  **date** | **Date**| The date of the Aged Receivables By Contact report | [optional] 
  **from_date** | **Date**| filter by the from date of the report e.g. 2021-02-01 | [optional] 
  **to_date** | **Date**| filter by the to date of the report e.g. 2021-02-28 | [optional] 
@@ -12889,7 +13021,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  where: 'Status=="ACTIVE"', # String | Filter by an any element
+  where: 'Status==\"ACTIVE\"', # String | Filter by an any element
 
   order: 'Name ASC', # String | Order by an any element
 
@@ -12962,7 +13094,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
-  where: 'Status=="ACTIVE"', # String | Filter by an any element
+  where: 'Status==\"ACTIVE\"', # String | Filter by an any element
 
   order: 'Name ASC', # String | Order by an any element
 
@@ -13050,7 +13182,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **tracking_category_id** | **String**| Unique identifier for a TrackingCategory | 
+ **tracking_category_id** | [**String**](.md)| Unique identifier for a TrackingCategory | 
 
 ### Return type
 
@@ -13114,7 +13246,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **user_id** | **String**| Unique identifier for a User | 
+ **user_id** | [**String**](.md)| Unique identifier for a User | 
 
 ### Return type
 
@@ -13316,7 +13448,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **account_id** | **String**| Unique identifier for Account object | 
+ **account_id** | [**String**](.md)| Unique identifier for Account object | 
  **accounts** | [**Accounts**](Accounts.md)| Request of type Accounts array with one Account | 
 
 ### Return type
@@ -13383,7 +13515,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **account_id** | **String**| Unique identifier for Account object | 
+ **account_id** | [**String**](.md)| Unique identifier for Account object | 
  **file_name** | **String**| Name of the attachment | 
  **body** | **String**| Byte array of file in body of request | 
 
@@ -13454,7 +13586,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **bank_transaction_id** | **String**| Xero generated unique identifier for a bank transaction | 
+ **bank_transaction_id** | [**String**](.md)| Xero generated unique identifier for a bank transaction | 
  **bank_transactions** | [**BankTransactions**](BankTransactions.md)|  | 
  **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
 
@@ -13522,7 +13654,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **bank_transaction_id** | **String**| Xero generated unique identifier for a bank transaction | 
+ **bank_transaction_id** | [**String**](.md)| Xero generated unique identifier for a bank transaction | 
  **file_name** | **String**| Name of the attachment | 
  **body** | **String**| Byte array of file in body of request | 
 
@@ -13589,7 +13721,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **bank_transfer_id** | **String**| Xero generated unique identifier for a bank transfer | 
+ **bank_transfer_id** | [**String**](.md)| Xero generated unique identifier for a bank transfer | 
  **file_name** | **String**| Name of the attachment | 
  **body** | **String**| Byte array of file in body of request | 
 
@@ -13656,7 +13788,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **contact_id** | **String**| Unique identifier for a Contact | 
+ **contact_id** | [**String**](.md)| Unique identifier for a Contact | 
  **contacts** | [**Contacts**](Contacts.md)| an array of Contacts containing single Contact object with properties to update | 
 
 ### Return type
@@ -13722,7 +13854,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **contact_id** | **String**| Unique identifier for a Contact | 
+ **contact_id** | [**String**](.md)| Unique identifier for a Contact | 
  **file_name** | **String**| Name of the attachment | 
  **body** | **String**| Byte array of file in body of request | 
 
@@ -13789,7 +13921,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **contact_group_id** | **String**| Unique identifier for a Contact Group | 
+ **contact_group_id** | [**String**](.md)| Unique identifier for a Contact Group | 
  **contact_groups** | [**ContactGroups**](ContactGroups.md)| an array of Contact groups with Name of specific group to update | 
 
 ### Return type
@@ -13859,7 +13991,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **credit_note_id** | **String**| Unique identifier for a Credit Note | 
+ **credit_note_id** | [**String**](.md)| Unique identifier for a Credit Note | 
  **credit_notes** | [**CreditNotes**](CreditNotes.md)| an array of Credit Notes containing credit note details to update | 
  **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
 
@@ -13927,7 +14059,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **credit_note_id** | **String**| Unique identifier for a Credit Note | 
+ **credit_note_id** | [**String**](.md)| Unique identifier for a Credit Note | 
  **file_name** | **String**| Name of the attachment | 
  **body** | **String**| Byte array of file in body of request | 
 
@@ -13994,7 +14126,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **expense_claim_id** | **String**| Unique identifier for a ExpenseClaim | 
+ **expense_claim_id** | [**String**](.md)| Unique identifier for a ExpenseClaim | 
  **expense_claims** | [**ExpenseClaims**](ExpenseClaims.md)|  | 
 
 ### Return type
@@ -14064,7 +14196,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **invoice_id** | **String**| Unique identifier for an Invoice | 
+ **invoice_id** | [**String**](.md)| Unique identifier for an Invoice | 
  **invoices** | [**Invoices**](Invoices.md)|  | 
  **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
 
@@ -14132,7 +14264,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **invoice_id** | **String**| Unique identifier for an Invoice | 
+ **invoice_id** | [**String**](.md)| Unique identifier for an Invoice | 
  **file_name** | **String**| Name of the attachment | 
  **body** | **String**| Byte array of file in body of request | 
 
@@ -14203,7 +14335,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **item_id** | **String**| Unique identifier for an Item | 
+ **item_id** | [**String**](.md)| Unique identifier for an Item | 
  **items** | [**Items**](Items.md)|  | 
  **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
 
@@ -14270,7 +14402,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **linked_transaction_id** | **String**| Unique identifier for a LinkedTransaction | 
+ **linked_transaction_id** | [**String**](.md)| Unique identifier for a LinkedTransaction | 
  **linked_transactions** | [**LinkedTransactions**](LinkedTransactions.md)|  | 
 
 ### Return type
@@ -14336,7 +14468,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **manual_journal_id** | **String**| Unique identifier for a ManualJournal | 
+ **manual_journal_id** | [**String**](.md)| Unique identifier for a ManualJournal | 
  **manual_journals** | [**ManualJournals**](ManualJournals.md)|  | 
 
 ### Return type
@@ -14403,7 +14535,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **manual_journal_id** | **String**| Unique identifier for a ManualJournal | 
+ **manual_journal_id** | [**String**](.md)| Unique identifier for a ManualJournal | 
  **file_name** | **String**| Name of the attachment | 
  **body** | **String**| Byte array of file in body of request | 
 
@@ -14455,7 +14587,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transactions = { "BankTransactions": [ { "Type": "SPEND", "Contact": { "ContactID": "00000000-0000-0000-0000-000000000000" }, "Lineitems": [ { "Description": "Foobar", "Quantity": 1, "UnitAmount": 20, "AccountCode": "400" } ], "BankAccount": { "Code": "088" } } ] } # BankTransactions | 
 opts = {
-  summarize_errors: true, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
+  summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
@@ -14527,7 +14659,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contacts = { "Contacts": [ { "Name": "Bruce Banner", "EmailAddress": "hulk@avengers.com", "Phones": [ { "PhoneType": "MOBILE", "PhoneNumber": "555-1212", "PhoneAreaCode": "415" } ], "PaymentTerms": { "Bills": { "Day": 15, "Type": "OFCURRENTMONTH" }, "Sales": { "Day": 10, "Type": "DAYSAFTERBILLMONTH" } } } ] } # Contacts | 
 opts = {
-  summarize_errors: true # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 }
 
 begin
@@ -14596,7 +14728,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 credit_notes = { "CreditNotes":[ { "Type":"ACCPAYCREDIT", "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "Date":"2019-01-05", "Status":"AUTHORISED", "Reference": "HelloWorld", "LineItems":[ { "Description":"Foobar", "Quantity":2.0, "UnitAmount":20.0, "AccountCode":"400" } ] } ] } # CreditNotes | an array of Credit Notes with a single CreditNote object.
 opts = {
-  summarize_errors: true, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
+  summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
@@ -14668,7 +14800,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 employees = { "Employees": [ { "FirstName": "Nick", "LastName": "Fury", "ExternalLink": { "Url": "http://twitter.com/#!/search/Nick+Fury" } } ] } # Employees | Employees with array of Employee object in body of request
 opts = {
-  summarize_errors: true # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 }
 
 begin
@@ -14737,7 +14869,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 invoices = { "Invoices": [ { "Type": "ACCREC", "Contact": { "ContactID": "430fa14a-f945-44d3-9f97-5df5e28441b8" }, "LineItems": [ { "Description": "Acme Tires", "Quantity": 2, "UnitAmount": 20, "AccountCode": "200", "TaxType": "NONE", "LineAmount": 40 } ], "Date": "2019-03-11", "DueDate": "2018-12-10", "Reference": "Website Design", "Status": "AUTHORISED" } ] } # Invoices | 
 opts = {
-  summarize_errors: true, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
+  summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
@@ -14809,7 +14941,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 items = { "Items": [ { "Code": "ItemCode123", "Name": "ItemName XYZ", "Description": "Item Description ABC" } ] } # Items | 
 opts = {
-  summarize_errors: true, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
+  summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 
   unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 }
@@ -14881,7 +15013,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 manual_journals = { "ManualJournals": [ { "Narration": "Journal Desc", "JournalLines": [ { "LineAmount": 100, "AccountCode": "400", "Description": "Money Movement" }, { "LineAmount": -100, "AccountCode": "400", "Description": "Prepayment of things", "Tracking": [ { "Name": "North", "Option": "Region" } ] } ], "Date": "2019-03-14" } ] } # ManualJournals | ManualJournals array with ManualJournal object in body of request
 opts = {
-  summarize_errors: true # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 }
 
 begin
@@ -14950,7 +15082,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 purchase_orders = { "PurchaseOrders": [ { "Contact": { "ContactID": "00000000-0000-0000-0000-000000000000" }, "LineItems": [ { "Description": "Foobar", "Quantity": 1, "UnitAmount": 20, "AccountCode": "710" } ], "Date": "2019-03-13" } ] } # PurchaseOrders | 
 opts = {
-  summarize_errors: true # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 }
 
 begin
@@ -15019,7 +15151,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 quotes = { "Quotes": [ { "Contact": { "ContactID": "00000000-0000-0000-0000-000000000000" }, "LineItems": [ { "Description": "Foobar", "Quantity": 1, "UnitAmount": 20, "AccountCode": "12775" } ], "Date": "2020-02-01" } ] } # Quotes | 
 opts = {
-  summarize_errors: true # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 }
 
 begin
@@ -15088,7 +15220,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 repeating_invoices = { "RepeatingInvoices": [ { "Schedule": { "Period": 1, "Unit": "MONTHLY", "DueDate": 10, "DueDateType": "OFFOLLOWINGMONTH", "StartDate": "\/Date(1555286400000+0000)\/" }, "Type": "ACCREC", "Reference": "[Week]", "ApprovedForSending": false, "SendCopy": false, "MarkAsSent": false, "IncludePDF": false, "Contact": { "ContactID": "430fa14a-f945-44d3-9f97-5df5e28441b8", "Name": "Liam Gallagher" }, "Status": "AUTHORISED", "LineAmountTypes": "Exclusive", "LineItems": [ { "Description": "Guitars Fender Strat", "UnitAmount": 5000.00, "TaxType": "OUTPUT2", "TaxAmount": 750.00, "LineAmount": 5000.00, "AccountCode": "200", "Tracking": [], "Quantity": 1.0000, "LineItemID": "13a8353c-d2af-4d5b-920c-438449f08900", "DiscountEnteredAsPercent": true } ], "CurrencyCode": "NZD" } ] } # RepeatingInvoices | RepeatingInvoices with an array of repeating invoice objects in body of request
 opts = {
-  summarize_errors: true # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 }
 
 begin
@@ -15172,7 +15304,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **purchase_order_id** | **String**| Unique identifier for an Purchase Order | 
+ **purchase_order_id** | [**String**](.md)| Unique identifier for an Purchase Order | 
  **purchase_orders** | [**PurchaseOrders**](PurchaseOrders.md)|  | 
 
 ### Return type
@@ -15239,7 +15371,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **purchase_order_id** | **String**| Unique identifier for an Purchase Order | 
+ **purchase_order_id** | [**String**](.md)| Unique identifier for an Purchase Order | 
  **file_name** | **String**| Name of the attachment | 
  **body** | **String**| Byte array of file in body of request | 
 
@@ -15306,7 +15438,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **quote_id** | **String**| Unique identifier for an Quote | 
+ **quote_id** | [**String**](.md)| Unique identifier for an Quote | 
  **quotes** | [**Quotes**](Quotes.md)|  | 
 
 ### Return type
@@ -15373,7 +15505,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **quote_id** | **String**| Unique identifier for an Quote | 
+ **quote_id** | [**String**](.md)| Unique identifier for an Quote | 
  **file_name** | **String**| Name of the attachment | 
  **body** | **String**| Byte array of file in body of request | 
 
@@ -15444,7 +15576,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **receipt_id** | **String**| Unique identifier for a Receipt | 
+ **receipt_id** | [**String**](.md)| Unique identifier for a Receipt | 
  **receipts** | [**Receipts**](Receipts.md)|  | 
  **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
 
@@ -15512,7 +15644,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **receipt_id** | **String**| Unique identifier for a Receipt | 
+ **receipt_id** | [**String**](.md)| Unique identifier for a Receipt | 
  **file_name** | **String**| Name of the attachment | 
  **body** | **String**| Byte array of file in body of request | 
 
@@ -15579,7 +15711,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **repeating_invoice_id** | **String**| Unique identifier for a Repeating Invoice | 
+ **repeating_invoice_id** | [**String**](.md)| Unique identifier for a Repeating Invoice | 
  **repeating_invoices** | [**RepeatingInvoices**](RepeatingInvoices.md)|  | 
 
 ### Return type
@@ -15646,7 +15778,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **repeating_invoice_id** | **String**| Unique identifier for a Repeating Invoice | 
+ **repeating_invoice_id** | [**String**](.md)| Unique identifier for a Repeating Invoice | 
  **file_name** | **String**| Name of the attachment | 
  **body** | **String**| Byte array of file in body of request | 
 
@@ -15777,7 +15909,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **tracking_category_id** | **String**| Unique identifier for a TrackingCategory | 
+ **tracking_category_id** | [**String**](.md)| Unique identifier for a TrackingCategory | 
  **tracking_category** | [**TrackingCategory**](TrackingCategory.md)|  | 
 
 ### Return type
@@ -15844,8 +15976,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **tracking_category_id** | **String**| Unique identifier for a TrackingCategory | 
- **tracking_option_id** | **String**| Unique identifier for a Tracking Option | 
+ **tracking_category_id** | [**String**](.md)| Unique identifier for a TrackingCategory | 
+ **tracking_option_id** | [**String**](.md)| Unique identifier for a Tracking Option | 
  **tracking_option** | [**TrackingOption**](TrackingOption.md)|  | 
 
 ### Return type

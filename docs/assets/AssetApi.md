@@ -198,7 +198,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **id** | **String**| fixed asset id for single object | 
+ **id** | [**String**](.md)| fixed asset id for single object | 
 
 ### Return type
 
@@ -376,15 +376,15 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-status =  # AssetStatusQueryParam | Required when retrieving a collection of assets. See Asset Status Codes
+status = XeroRuby::Assets::AssetStatusQueryParam.new # AssetStatusQueryParam | Required when retrieving a collection of assets. See Asset Status Codes
 opts = {
   page: 1, # Integer | Results are paged. This specifies which page of the results to return. The default page is 1.
 
   page_size: 5, # Integer | The number of records returned per page. By default the number of records returned is 10.
 
-  order_by: 'AssetType', # String | Requests can be ordered by AssetType, AssetName, AssetNumber, PurchaseDate and PurchasePrice. If the asset status is DISPOSED it also allows DisposalDate and DisposalPrice.
+  order_by: 'AssetName', # String | Requests can be ordered by AssetType, AssetName, AssetNumber, PurchaseDate and PurchasePrice. If the asset status is DISPOSED it also allows DisposalDate and DisposalPrice.
 
-  sort_direction: 'asc', # String | ASC or DESC
+  sort_direction: 'ASC', # String | ASC or DESC
 
   filter_by: 'Company Car' # String | A string that can be used to filter the list to only return assets containing the text. Checks it against the AssetName, AssetNumber, Description and AssetTypeName fields.
 }

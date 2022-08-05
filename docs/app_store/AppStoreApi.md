@@ -54,7 +54,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subscription_id** | **String**| Unique identifier for Subscription object | 
+ **subscription_id** | [**String**](.md)| Unique identifier for Subscription object | 
 
 ### Return type
 

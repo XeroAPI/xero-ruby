@@ -121,7 +121,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-project_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | You can create a task on a specified projectId
+project_id = 'project_id_example' # String | You can create a task on a specified projectId
 task_create_or_update = { "status": "INPROGRESS" } # TaskCreateOrUpdate | The task object you are creating
 begin
   #Allows you to create a task
@@ -137,7 +137,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **project_id** | **String**| You can create a task on a specified projectId | 
+ **project_id** | [**String**](.md)| You can create a task on a specified projectId | 
  **task_create_or_update** | [**TaskCreateOrUpdate**](TaskCreateOrUpdate.md)| The task object you are creating | 
 
 ### Return type
@@ -188,7 +188,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-project_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | You can specify an individual project by appending the projectId to the endpoint
+project_id = 'project_id_example' # String | You can specify an individual project by appending the projectId to the endpoint
 time_entry_create_or_update = { "userId": "00000000-0000-0000-0000-000000000000", "taskId": "00000000-0000-0000-0000-000000000000", "dateUtc": "2020-02-26T15:00:00Z", "duration":30, "description": "My description" } # TimeEntryCreateOrUpdate | The time entry object you are creating
 begin
   #Creates a time entry for a specific project
@@ -205,7 +205,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **project_id** | **String**| You can specify an individual project by appending the projectId to the endpoint | 
+ **project_id** | [**String**](.md)| You can specify an individual project by appending the projectId to the endpoint | 
  **time_entry_create_or_update** | [**TimeEntryCreateOrUpdate**](TimeEntryCreateOrUpdate.md)| The time entry object you are creating | 
 
 ### Return type
@@ -256,8 +256,8 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-project_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | You can specify an individual project by appending the projectId to the endpoint
-task_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | You can specify an individual task by appending the id to the endpoint
+project_id = 'project_id_example' # String | You can specify an individual project by appending the projectId to the endpoint
+task_id = 'task_id_example' # String | You can specify an individual task by appending the id to the endpoint
 begin
   #Allows you to delete a task
   api_instance.delete_task(xero_tenant_id, project_id, task_id)
@@ -272,8 +272,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **project_id** | **String**| You can specify an individual project by appending the projectId to the endpoint | 
- **task_id** | **String**| You can specify an individual task by appending the id to the endpoint | 
+ **project_id** | [**String**](.md)| You can specify an individual project by appending the projectId to the endpoint | 
+ **task_id** | [**String**](.md)| You can specify an individual task by appending the id to the endpoint | 
 
 ### Return type
 
@@ -323,8 +323,8 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-project_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | You can specify an individual project by appending the projectId to the endpoint
-time_entry_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | You can specify an individual task by appending the id to the endpoint
+project_id = 'project_id_example' # String | You can specify an individual project by appending the projectId to the endpoint
+time_entry_id = 'time_entry_id_example' # String | You can specify an individual task by appending the id to the endpoint
 begin
   #Deletes a time entry for a specific project
   api_instance.delete_time_entry(xero_tenant_id, project_id, time_entry_id)
@@ -339,8 +339,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **project_id** | **String**| You can specify an individual project by appending the projectId to the endpoint | 
- **time_entry_id** | **String**| You can specify an individual task by appending the id to the endpoint | 
+ **project_id** | [**String**](.md)| You can specify an individual project by appending the projectId to the endpoint | 
+ **time_entry_id** | [**String**](.md)| You can specify an individual task by appending the id to the endpoint | 
 
 ### Return type
 
@@ -390,7 +390,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-project_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | You can specify an individual project by appending the projectId to the endpoint
+project_id = 'project_id_example' # String | You can specify an individual project by appending the projectId to the endpoint
 begin
   #Retrieves a single project
   result = api_instance.get_project(xero_tenant_id, project_id)
@@ -406,7 +406,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **project_id** | **String**| You can specify an individual project by appending the projectId to the endpoint | 
+ **project_id** | [**String**](.md)| You can specify an individual project by appending the projectId to the endpoint | 
 
 ### Return type
 
@@ -459,7 +459,7 @@ xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
   page: 1, # Integer | set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0.
 
-  page_size: 100 # Integer | Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500.
+  page_size: 50 # Integer | Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500.
 }
 
 begin
@@ -529,15 +529,15 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 opts = {
-  project_ids: , # Array&lt;String&gt; | Search for all projects that match a comma separated list of projectIds
+  project_ids: ['project_ids_example'], # Array<String> | Search for all projects that match a comma separated list of projectIds
 
-  contact_id: '38400000-8cf0-11bd-b23e-10b96e4ef00d', # String | Filter for projects for a specific contact
+  contact_id: 'contact_id_example', # String | Filter for projects for a specific contact
 
   states: 'states_example', # String | Filter for projects in a particular state (INPROGRESS or CLOSED)
 
   page: 1, # Integer | set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0.
 
-  page_size: 100 # Integer | Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500.
+  page_size: 50 # Integer | Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500.
 }
 
 begin
@@ -556,7 +556,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **project_ids** | [**Array&lt;String&gt;**](String.md)| Search for all projects that match a comma separated list of projectIds | [optional] 
- **contact_id** | **String**| Filter for projects for a specific contact | [optional] 
+ **contact_id** | [**String**](.md)| Filter for projects for a specific contact | [optional] 
  **states** | **String**| Filter for projects in a particular state (INPROGRESS or CLOSED) | [optional] 
  **page** | **Integer**| set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0. | [optional] [default to 1]
  **page_size** | **Integer**| Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500. | [optional] [default to 50]
@@ -609,8 +609,8 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-project_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | You can specify an individual project by appending the projectId to the endpoint
-task_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | You can specify an individual task by appending the taskId to the endpoint, i.e. GET https://.../tasks/{taskID}
+project_id = 'project_id_example' # String | You can specify an individual project by appending the projectId to the endpoint
+task_id = 'task_id_example' # String | You can specify an individual task by appending the taskId to the endpoint, i.e. GET https://.../tasks/{taskID}
 begin
   #Retrieves a single project task
   result = api_instance.get_task(xero_tenant_id, project_id, task_id)
@@ -626,8 +626,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **project_id** | **String**| You can specify an individual project by appending the projectId to the endpoint | 
- **task_id** | **String**| You can specify an individual task by appending the taskId to the endpoint, i.e. GET https://.../tasks/{taskID} | 
+ **project_id** | [**String**](.md)| You can specify an individual project by appending the projectId to the endpoint | 
+ **task_id** | [**String**](.md)| You can specify an individual task by appending the taskId to the endpoint, i.e. GET https://.../tasks/{taskID} | 
 
 ### Return type
 
@@ -677,7 +677,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-project_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | You can specify an individual project by appending the projectId to the endpoint
+project_id = 'project_id_example' # String | You can specify an individual project by appending the projectId to the endpoint
 opts = {
   page: 1, # Integer | Set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0.
 
@@ -685,7 +685,7 @@ opts = {
 
   task_ids: 'task_ids_example', # String | taskIdsSearch for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds={taskID},{taskID}
 
-  charge_type:  # ChargeType | 
+  charge_type: XeroRuby::Projects::ChargeType.new # ChargeType | 
 }
 
 begin
@@ -703,7 +703,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **project_id** | **String**| You can specify an individual project by appending the projectId to the endpoint | 
+ **project_id** | [**String**](.md)| You can specify an individual project by appending the projectId to the endpoint | 
  **page** | **Integer**| Set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0. | [optional] 
  **page_size** | **Integer**| Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500. | [optional] 
  **task_ids** | **String**| taskIdsSearch for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds&#x3D;{taskID},{taskID} | [optional] 
@@ -757,21 +757,21 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-project_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | Identifier of the project, that the task (which the time entry is logged against) belongs to.
+project_id = 'project_id_example' # String | Identifier of the project, that the task (which the time entry is logged against) belongs to.
 opts = {
-  user_id: '38400000-8cf0-11bd-b23e-10b96e4ef00d', # String | The xero user identifier of the person who logged time.
+  user_id: 'user_id_example', # String | The xero user identifier of the person who logged time.
 
-  task_id: '38400000-8cf0-11bd-b23e-10b96e4ef00d', # String | Identifier of the task that time entry is logged against.
+  task_id: 'task_id_example', # String | Identifier of the task that time entry is logged against.
 
-  invoice_id: '38400000-8cf0-11bd-b23e-10b96e4ef00d', # String | Finds all time entries for this invoice.
+  invoice_id: 'invoice_id_example', # String | Finds all time entries for this invoice.
 
-  contact_id: '38400000-8cf0-11bd-b23e-10b96e4ef00d', # String | Finds all time entries for this contact identifier.
+  contact_id: 'contact_id_example', # String | Finds all time entries for this contact identifier.
 
   page: 1, # Integer | Set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0.
 
   page_size: 10, # Integer | Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500.
 
-  states: , # Array&lt;String&gt; | Comma-separated list of states to find. Will find all time entries that are in the status of whatever is specified.
+  states: ['states_example'], # Array<String> | Comma-separated list of states to find. Will find all time entries that are in the status of whatever is specified.
 
   is_chargeable: true, # Boolean | Finds all time entries which relate to tasks with the charge type `TIME` or `FIXED`.
 
@@ -795,11 +795,11 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **project_id** | **String**| Identifier of the project, that the task (which the time entry is logged against) belongs to. | 
- **user_id** | **String**| The xero user identifier of the person who logged time. | [optional] 
- **task_id** | **String**| Identifier of the task that time entry is logged against. | [optional] 
- **invoice_id** | **String**| Finds all time entries for this invoice. | [optional] 
- **contact_id** | **String**| Finds all time entries for this contact identifier. | [optional] 
+ **project_id** | [**String**](.md)| Identifier of the project, that the task (which the time entry is logged against) belongs to. | 
+ **user_id** | [**String**](.md)| The xero user identifier of the person who logged time. | [optional] 
+ **task_id** | [**String**](.md)| Identifier of the task that time entry is logged against. | [optional] 
+ **invoice_id** | [**String**](.md)| Finds all time entries for this invoice. | [optional] 
+ **contact_id** | [**String**](.md)| Finds all time entries for this contact identifier. | [optional] 
  **page** | **Integer**| Set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0. | [optional] 
  **page_size** | **Integer**| Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500. | [optional] 
  **states** | [**Array&lt;String&gt;**](String.md)| Comma-separated list of states to find. Will find all time entries that are in the status of whatever is specified. | [optional] 
@@ -855,8 +855,8 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-project_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | You can specify an individual project by appending the projectId to the endpoint
-time_entry_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | You can specify an individual time entry by appending the id to the endpoint
+project_id = 'project_id_example' # String | You can specify an individual project by appending the projectId to the endpoint
+time_entry_id = 'time_entry_id_example' # String | You can specify an individual time entry by appending the id to the endpoint
 begin
   #Retrieves a single time entry for a specific project
   result = api_instance.get_time_entry(xero_tenant_id, project_id, time_entry_id)
@@ -872,8 +872,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **project_id** | **String**| You can specify an individual project by appending the projectId to the endpoint | 
- **time_entry_id** | **String**| You can specify an individual time entry by appending the id to the endpoint | 
+ **project_id** | [**String**](.md)| You can specify an individual project by appending the projectId to the endpoint | 
+ **time_entry_id** | [**String**](.md)| You can specify an individual time entry by appending the id to the endpoint | 
 
 ### Return type
 
@@ -923,7 +923,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-project_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | You can specify an individual project by appending the projectId to the endpoint
+project_id = 'project_id_example' # String | You can specify an individual project by appending the projectId to the endpoint
 project_patch = { "status": "INPROGRESS" } # ProjectPatch | Update the status of an existing Project
 begin
   #creates a project for the specified contact
@@ -939,7 +939,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **project_id** | **String**| You can specify an individual project by appending the projectId to the endpoint | 
+ **project_id** | [**String**](.md)| You can specify an individual project by appending the projectId to the endpoint | 
  **project_patch** | [**ProjectPatch**](ProjectPatch.md)| Update the status of an existing Project | 
 
 ### Return type
@@ -990,7 +990,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-project_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | You can specify an individual project by appending the projectId to the endpoint
+project_id = 'project_id_example' # String | You can specify an individual project by appending the projectId to the endpoint
 project_create_or_update = { "name": "New Kitchen", "deadlineUtc": "2017-04-23T18:25:43.511Z", "estimateAmount": 99.99 } # ProjectCreateOrUpdate | Request of type ProjectCreateOrUpdate
 begin
   #Updates a specific project
@@ -1006,7 +1006,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **project_id** | **String**| You can specify an individual project by appending the projectId to the endpoint | 
+ **project_id** | [**String**](.md)| You can specify an individual project by appending the projectId to the endpoint | 
  **project_create_or_update** | [**ProjectCreateOrUpdate**](ProjectCreateOrUpdate.md)| Request of type ProjectCreateOrUpdate | 
 
 ### Return type
@@ -1057,9 +1057,9 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-project_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | You can specify an individual project by appending the projectId to the endpoint
-task_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | You can specify an individual task by appending the id to the endpoint
-task_create_or_update =  # TaskCreateOrUpdate | The task object you are updating
+project_id = 'project_id_example' # String | You can specify an individual project by appending the projectId to the endpoint
+task_id = 'task_id_example' # String | You can specify an individual task by appending the id to the endpoint
+task_create_or_update = XeroRuby::Projects::TaskCreateOrUpdate.new # TaskCreateOrUpdate | The task object you are updating
 begin
   #Allows you to update a task
   api_instance.update_task(xero_tenant_id, project_id, task_id, task_create_or_update)
@@ -1074,8 +1074,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **project_id** | **String**| You can specify an individual project by appending the projectId to the endpoint | 
- **task_id** | **String**| You can specify an individual task by appending the id to the endpoint | 
+ **project_id** | [**String**](.md)| You can specify an individual project by appending the projectId to the endpoint | 
+ **task_id** | [**String**](.md)| You can specify an individual task by appending the id to the endpoint | 
  **task_create_or_update** | [**TaskCreateOrUpdate**](TaskCreateOrUpdate.md)| The task object you are updating | 
 
 ### Return type
@@ -1126,8 +1126,8 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-project_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | You can specify an individual project by appending the projectId to the endpoint
-time_entry_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | You can specify an individual time entry by appending the id to the endpoint
+project_id = 'project_id_example' # String | You can specify an individual project by appending the projectId to the endpoint
+time_entry_id = 'time_entry_id_example' # String | You can specify an individual time entry by appending the id to the endpoint
 time_entry_create_or_update = { "userId": "00000000-0000-0000-0000-000000000000", "taskId": "00000000-0000-0000-0000-000000000000", "dateUtc": "2020-02-27T15:00:00Z", "duration":45, "description": "My UPDATED description" } # TimeEntryCreateOrUpdate | The time entry object you are updating
 begin
   #Updates a time entry for a specific project
@@ -1143,8 +1143,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **project_id** | **String**| You can specify an individual project by appending the projectId to the endpoint | 
- **time_entry_id** | **String**| You can specify an individual time entry by appending the id to the endpoint | 
+ **project_id** | [**String**](.md)| You can specify an individual project by appending the projectId to the endpoint | 
+ **time_entry_id** | [**String**](.md)| You can specify an individual time entry by appending the id to the endpoint | 
  **time_entry_create_or_update** | [**TimeEntryCreateOrUpdate**](TimeEntryCreateOrUpdate.md)| The time entry object you are updating | 
 
 ### Return type
