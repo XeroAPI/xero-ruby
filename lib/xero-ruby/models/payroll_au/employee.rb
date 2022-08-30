@@ -40,7 +40,7 @@ module XeroRuby::PayrollAu
     # The email address for the employee
     attr_accessor :email
     
-    # The employee’s gender. See Employee Gender
+    # The employee’s gender. See Employee Gender
     attr_accessor :gender
     N ||= "N".freeze
     M ||= "M".freeze

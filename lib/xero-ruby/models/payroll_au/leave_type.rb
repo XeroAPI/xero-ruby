@@ -43,6 +43,12 @@ module XeroRuby::PayrollAu
     # Is the current record
     attr_accessor :current_record
     
+
+    attr_accessor :leave_category_code
+    
+    # Set this to indicate that the leave type is exempt from superannuation guarantee contribution
+    attr_accessor :sgc_exempt
+    
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -54,7 +60,9 @@ module XeroRuby::PayrollAu
         :'updated_date_utc' => :'UpdatedDateUTC',
         :'is_paid_leave' => :'IsPaidLeave',
         :'show_on_payslip' => :'ShowOnPayslip',
-        :'current_record' => :'CurrentRecord'
+        :'current_record' => :'CurrentRecord',
+        :'leave_category_code' => :'LeaveCategoryCode',
+        :'sgc_exempt' => :'SGCExempt'
       }
     end
 
@@ -69,7 +77,9 @@ module XeroRuby::PayrollAu
         :'updated_date_utc' => :'DateTime',
         :'is_paid_leave' => :'Boolean',
         :'show_on_payslip' => :'Boolean',
-        :'current_record' => :'Boolean'
+        :'current_record' => :'Boolean',
+        :'leave_category_code' => :'LeaveCategoryCode',
+        :'sgc_exempt' => :'Boolean'
       }
     end
 
@@ -123,6 +133,14 @@ module XeroRuby::PayrollAu
       if attributes.key?(:'current_record')
         self.current_record = attributes[:'current_record']
       end
+
+      if attributes.key?(:'leave_category_code')
+        self.leave_category_code = attributes[:'leave_category_code']
+      end
+
+      if attributes.key?(:'sgc_exempt')
+        self.sgc_exempt = attributes[:'sgc_exempt']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -166,7 +184,9 @@ module XeroRuby::PayrollAu
           updated_date_utc == o.updated_date_utc &&
           is_paid_leave == o.is_paid_leave &&
           show_on_payslip == o.show_on_payslip &&
-          current_record == o.current_record
+          current_record == o.current_record &&
+          leave_category_code == o.leave_category_code &&
+          sgc_exempt == o.sgc_exempt
     end
 
     # @see the `==` method
@@ -178,7 +198,7 @@ module XeroRuby::PayrollAu
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, type_of_units, leave_type_id, normal_entitlement, leave_loading_rate, updated_date_utc, is_paid_leave, show_on_payslip, current_record].hash
+      [name, type_of_units, leave_type_id, normal_entitlement, leave_loading_rate, updated_date_utc, is_paid_leave, show_on_payslip, current_record, leave_category_code, sgc_exempt].hash
     end
 
     # Builds the object from hash

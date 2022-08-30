@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **is_paid_leave** | **Boolean** | Set this to indicate that an employee will be paid when taking this type of leave | [optional] 
 **show_on_payslip** | **Boolean** | Set this if you want a balance for this leave type to be shown on your employee’s payslips | [optional] 
 **current_record** | **Boolean** | Is the current record | [optional] 
+**leave_category_code** | [**LeaveCategoryCode**](LeaveCategoryCode.md) |  | [optional] 
+**sgc_exempt** | **Boolean** | Set this to indicate that the leave type is exempt from superannuation guarantee contribution | [optional] 
 
 ## Code Sample
 
@@ -27,7 +29,9 @@ instance = XeroRuby::PayrollAu::LeaveType.new(name: PTO,
                                  updated_date_utc: /Date(1583967733054+0000)/,
                                  is_paid_leave: true,
                                  show_on_payslip: true,
-                                 current_record: true)
+                                 current_record: true,
+                                 leave_category_code: null,
+                                 sgc_exempt: true)
 ```
 
 

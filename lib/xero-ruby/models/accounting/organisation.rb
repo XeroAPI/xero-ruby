@@ -167,6 +167,7 @@ module XeroRuby::Accounting
     GST_CASHBOOK ||= "GST_CASHBOOK".freeze
     NON_GST_CASHBOOK ||= "NON_GST_CASHBOOK".freeze
     ULTIMATE ||= "ULTIMATE".freeze
+    LITE ||= "LITE".freeze
     
     # BUSINESS or PARTNER. Partner edition organisations are sold exclusively through accounting partners and have restricted functionality (e.g. no access to invoicing)
     attr_accessor :edition
@@ -462,7 +463,7 @@ module XeroRuby::Accounting
       return false unless sales_tax_period_validator.valid?(@sales_tax_period)
       organisation_entity_type_validator = EnumAttributeValidator.new('String', ["ACCOUNTING_PRACTICE", "COMPANY", "CHARITY", "CLUB_OR_SOCIETY", "INDIVIDUAL", "LOOK_THROUGH_COMPANY", "NOT_FOR_PROFIT", "PARTNERSHIP", "S_CORPORATION", "SELF_MANAGED_SUPERANNUATION_FUND", "SOLE_TRADER", "SUPERANNUATION_FUND", "TRUST"])
       return false unless organisation_entity_type_validator.valid?(@organisation_entity_type)
-      _class_validator = EnumAttributeValidator.new('String', ["DEMO", "TRIAL", "STARTER", "STANDARD", "PREMIUM", "PREMIUM_20", "PREMIUM_50", "PREMIUM_100", "LEDGER", "GST_CASHBOOK", "NON_GST_CASHBOOK", "ULTIMATE"])
+      _class_validator = EnumAttributeValidator.new('String', ["DEMO", "TRIAL", "STARTER", "STANDARD", "PREMIUM", "PREMIUM_20", "PREMIUM_50", "PREMIUM_100", "LEDGER", "GST_CASHBOOK", "NON_GST_CASHBOOK", "ULTIMATE", "LITE"])
       return false unless _class_validator.valid?(@_class)
       edition_validator = EnumAttributeValidator.new('String', ["BUSINESS", "PARTNER"])
       return false unless edition_validator.valid?(@edition)
@@ -522,7 +523,7 @@ module XeroRuby::Accounting
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] _class Object to be assigned
     def _class=(_class)
-      validator = EnumAttributeValidator.new('String', ["DEMO", "TRIAL", "STARTER", "STANDARD", "PREMIUM", "PREMIUM_20", "PREMIUM_50", "PREMIUM_100", "LEDGER", "GST_CASHBOOK", "NON_GST_CASHBOOK", "ULTIMATE"])
+      validator = EnumAttributeValidator.new('String', ["DEMO", "TRIAL", "STARTER", "STANDARD", "PREMIUM", "PREMIUM_20", "PREMIUM_50", "PREMIUM_100", "LEDGER", "GST_CASHBOOK", "NON_GST_CASHBOOK", "ULTIMATE", "LITE"])
       unless validator.valid?(_class)
         fail ArgumentError, "invalid value for \"_class\", must be one of #{validator.allowable_values}."
       end
