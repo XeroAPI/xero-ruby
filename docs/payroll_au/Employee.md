@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **title** | **String** | Title of the employee | [optional] 
 **middle_names** | **String** | Middle name(s) of the employee | [optional] 
 **email** | **String** | The email address for the employee | [optional] 
-**gender** | **String** | The employee’s gender. See Employee Gender | [optional] 
+**gender** | **String** | The employee’s gender. See Employee Gender | [optional] 
 **phone** | **String** | Employee phone number | [optional] 
 **mobile** | **String** | Employee mobile number | [optional] 
 **twitter_user_name** | **String** | Employee’s twitter name | [optional] 
