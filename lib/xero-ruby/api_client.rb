@@ -230,6 +230,7 @@ module XeroRuby
       response = Faraday.post("#{@config.token_url}#{path}") do |req|
         req.headers['Authorization'] = "Basic " + Base64.strict_encode64("#{@client_id}:#{@client_secret}")
         req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+        req.headers['User-Agent'] = @user_agent
         req.body = URI.encode_www_form(data)
       end
       return_error(response) unless response.success?
