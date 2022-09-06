@@ -6886,6 +6886,81 @@ module XeroRuby
       return data, status_code, headers
     end
 
+    # Retrieves a specific batch payment using a unique batch payment Id
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param batch_payment_id [String] Unique identifier for BatchPayment
+    # @param [Hash] opts the optional parameters
+    # @return [BatchPayments]
+    def get_batch_payment(xero_tenant_id, batch_payment_id, opts = {})
+      data, _status_code, _headers = get_batch_payment_with_http_info(xero_tenant_id, batch_payment_id, opts)
+      data
+    end
+
+    # Retrieves a specific batch payment using a unique batch payment Id
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param batch_payment_id [String] Unique identifier for BatchPayment
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(BatchPayments, Integer, Hash)>] BatchPayments data, response status code and response headers
+    def get_batch_payment_with_http_info(xero_tenant_id, batch_payment_id, options = {})
+      opts = options.dup
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AccountingApi.get_batch_payment ...'
+      end
+      # verify the required parameter 'xero_tenant_id' is set
+      if @api_client.config.client_side_validation && xero_tenant_id.nil?
+        fail ArgumentError, "Missing the required parameter 'xero_tenant_id' when calling AccountingApi.get_batch_payment"
+      end
+      # verify the required parameter 'batch_payment_id' is set
+      if @api_client.config.client_side_validation && batch_payment_id.nil?
+        fail ArgumentError, "Missing the required parameter 'batch_payment_id' when calling AccountingApi.get_batch_payment"
+      end
+      # resource path
+      local_var_path = '/BatchPayments/{BatchPaymentID}'.sub('{' + 'BatchPaymentID' + '}', batch_payment_id.to_s)
+
+      # camelize keys of incoming `where` opts
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      
+      # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
+      query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+      query_params[:'ContactIDs'] = @api_client.build_collection_param(opts[:'contact_ids'], :csv) if !opts[:'contact_ids'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'xero-tenant-id'] = xero_tenant_id
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'BatchPayments' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['OAuth2']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AccountingApi#get_batch_payment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Retrieves history from a specific batch payment
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param batch_payment_id [String] Unique identifier for BatchPayment

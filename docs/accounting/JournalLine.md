@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **net_amount** | **BigDecimal** | Net amount of journal line. This will be a positive value for a debit and negative for a credit | [optional] 
 **gross_amount** | **BigDecimal** | Gross amount of journal line (NetAmount + TaxAmount). | [optional] 
 **tax_amount** | **BigDecimal** | Total tax on a journal line | [optional] 
-**tax_type** | **String** | The tax type from TaxRates | [optional] 
+**tax_type** | **String** | The tax type from taxRates | [optional] 
 **tax_name** | **String** | see TaxRates | [optional] 
 **tracking_categories** | [**Array&lt;TrackingCategory&gt;**](TrackingCategory.md) | Optional Tracking Category – see Tracking. Any JournalLine can have a maximum of 2 &lt;TrackingCategory&gt; elements. | [optional] 
 
