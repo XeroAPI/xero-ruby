@@ -56,6 +56,10 @@ module XeroRuby
       config
     end
 
+    def client_id_valid?
+      @client_id.match?(/^[A-F,0-9]{32}$/)
+    end
+
     def authorization_url
       url = URI.parse(@config.login_url)
       url.query = URI.encode_www_form(
