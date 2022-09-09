@@ -99,7 +99,7 @@ module XeroRuby
       @config.base_url = @config.payroll_nz_url
       XeroRuby::PayrollNzApi.new(self)
     end
-    
+
     def payroll_uk_api
       @config.base_url = @config.payroll_uk_url
       XeroRuby::PayrollUkApi.new(self)
@@ -142,7 +142,7 @@ module XeroRuby
 
       set_access_token(token_set[:access_token]) if token_set[:access_token]
       set_id_token(token_set[:id_token]) if token_set[:id_token]
-      
+
       return true
     end
 
@@ -196,7 +196,11 @@ module XeroRuby
 
     def decode_jwt(tkn, verify=true)
       if verify == true
-        jwks_data = JSON.parse(Faraday.get('https://identity.xero.com/.well-known/openid-configuration/jwks').body)
+        response = Faraday.get('https://identity.xero.com/.well-known/openid-configuration/jwks') do |req|
+          req.headers['User-Agent'] = @user_agent
+        end
+
+        jwks_data = JSON.parse(response.body)
         jwk_set = JSON::JWK::Set.new(jwks_data)
         JSON::JWT.decode(tkn, jwk_set)
       else
@@ -461,7 +465,7 @@ module XeroRuby
         else
           raise e
         end
-      end 
+      end
 
       convert_to_type(data, return_type, api_client)
     end
