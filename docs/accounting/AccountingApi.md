@@ -88,6 +88,7 @@ Method | HTTP request | Description
 [**get_bank_transfer_attachments**](AccountingApi.md#get_bank_transfer_attachments) | **GET** /BankTransfers/{BankTransferID}/Attachments | Retrieves attachments from a specific bank transfer
 [**get_bank_transfer_history**](AccountingApi.md#get_bank_transfer_history) | **GET** /BankTransfers/{BankTransferID}/History | Retrieves history from a specific bank transfer using a unique bank transfer Id
 [**get_bank_transfers**](AccountingApi.md#get_bank_transfers) | **GET** /BankTransfers | Retrieves all bank transfers
+[**get_batch_payment**](AccountingApi.md#get_batch_payment) | **GET** /BatchPayments/{BatchPaymentID} | Retrieves a specific batch payment using a unique batch payment Id
 [**get_batch_payment_history**](AccountingApi.md#get_batch_payment_history) | **GET** /BatchPayments/{BatchPaymentID}/History | Retrieves history from a specific batch payment
 [**get_batch_payments**](AccountingApi.md#get_batch_payments) | **GET** /BatchPayments | Retrieves either one or many batch payments for invoices
 [**get_branding_theme**](AccountingApi.md#get_branding_theme) | **GET** /BrandingThemes/{BrandingThemeID} | Retrieves a specific branding theme using a unique branding theme Id
@@ -5859,6 +5860,70 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**BankTransfers**](BankTransfers.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_batch_payment
+
+> BatchPayments get_batch_payment(xero_tenant_id, batch_payment_id)
+
+Retrieves a specific batch payment using a unique batch payment Id
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# You need to namespace your api method call to one of the following api sets
+# [:accounting_api, :assets_api, :projects_api, :files_api, :payroll_au_api, :payroll_nz_api, :payroll_uk_api, :app_store_api]
+
+api_instance = xero_client.<api_set>
+
+
+
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+batch_payment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for BatchPayment
+begin
+  #Retrieves a specific batch payment using a unique batch payment Id
+  result = api_instance.get_batch_payment(xero_tenant_id, batch_payment_id)
+  p result
+rescue XeroRuby::Accounting::ApiError => e
+  puts "Exception when calling AccountingApi->get_batch_payment: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **batch_payment_id** | [**String**](.md)| Unique identifier for BatchPayment | 
+
+### Return type
+
+[**BatchPayments**](BatchPayments.md)
 
 ### Authorization
 
