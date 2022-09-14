@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 
 ## create_task
 
-> create_task(xero_tenant_id, project_id, task_create_or_update)
+> Task create_task(xero_tenant_id, project_id, task_create_or_update)
 
 Allows you to create a task
 
@@ -125,7 +125,8 @@ project_id = 'project_id_example' # String | You can create a task on a specifie
 task_create_or_update = { "status": "INPROGRESS" } # TaskCreateOrUpdate | The task object you are creating
 begin
   #Allows you to create a task
-  api_instance.create_task(xero_tenant_id, project_id, task_create_or_update)
+  result = api_instance.create_task(xero_tenant_id, project_id, task_create_or_update)
+  p result
 rescue XeroRuby::Projects::ApiError => e
   puts "Exception when calling ProjectApi->create_task: #{e}"
 end
@@ -142,7 +143,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-nil (empty response body)
+[**Task**](Task.md)
 
 ### Authorization
 
