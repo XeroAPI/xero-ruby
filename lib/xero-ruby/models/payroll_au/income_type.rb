@@ -13,13 +13,12 @@ require 'time'
 require 'date'
 
 module XeroRuby::PayrollAu
-  class EmploymentBasis
-    FULLTIME ||= "FULLTIME".freeze
-    PARTTIME ||= "PARTTIME".freeze
-    CASUAL ||= "CASUAL".freeze
-    LABOURHIRE ||= "LABOURHIRE".freeze
-    SUPERINCOMESTREAM ||= "SUPERINCOMESTREAM".freeze
+  class IncomeType
+    SALARYANDWAGES ||= "SALARYANDWAGES".freeze
+    WORKINGHOLIDAYMAKER ||= "WORKINGHOLIDAYMAKER".freeze
     NONEMPLOYEE ||= "NONEMPLOYEE".freeze
+    CLOSELYHELDPAYEES ||= "CLOSELYHELDPAYEES".freeze
+    LABOURHIRE ||= "LABOURHIRE".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
@@ -32,8 +31,8 @@ module XeroRuby::PayrollAu
     # @param [String] The enum value in the form of the string
     # @return [String] The enum value
     def build_from_hash(value)
-      constantValues = EmploymentBasis.constants.select { |c| EmploymentBasis::const_get(c) == value }
-      raise "Invalid ENUM value #{value} for class #EmploymentBasis" if constantValues.empty?
+      constantValues = IncomeType.constants.select { |c| IncomeType::const_get(c) == value }
+      raise "Invalid ENUM value #{value} for class #IncomeType" if constantValues.empty?
       value
     end
   end
