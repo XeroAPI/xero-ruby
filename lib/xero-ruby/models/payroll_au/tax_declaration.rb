@@ -28,11 +28,23 @@ module XeroRuby::PayrollAu
     # The tax file number e.g 123123123.
     attr_accessor :tax_file_number
     
+    # 11-digit Australian Business Number e.g 21006819692 or an empty string (\"\") to unset a previously set value. Only applicable, and mandatory if income type is NONEMPLOYEE.
+    attr_accessor :abn
+    
     # If the employee is Australian resident for tax purposes. e.g true or false
     attr_accessor :australian_resident_for_tax_purposes
     
 
     attr_accessor :residency_status
+    
+
+    attr_accessor :tax_scale_type
+    
+
+    attr_accessor :work_condition
+    
+
+    attr_accessor :senior_marital_status
     
     # If tax free threshold claimed. e.g true or false
     attr_accessor :tax_free_threshold_claimed
@@ -74,8 +86,12 @@ module XeroRuby::PayrollAu
         :'employment_basis' => :'EmploymentBasis',
         :'tfn_exemption_type' => :'TFNExemptionType',
         :'tax_file_number' => :'TaxFileNumber',
+        :'abn' => :'ABN',
         :'australian_resident_for_tax_purposes' => :'AustralianResidentForTaxPurposes',
         :'residency_status' => :'ResidencyStatus',
+        :'tax_scale_type' => :'TaxScaleType',
+        :'work_condition' => :'WorkCondition',
+        :'senior_marital_status' => :'SeniorMaritalStatus',
         :'tax_free_threshold_claimed' => :'TaxFreeThresholdClaimed',
         :'tax_offset_estimated_amount' => :'TaxOffsetEstimatedAmount',
         :'has_help_debt' => :'HasHELPDebt',
@@ -97,8 +113,12 @@ module XeroRuby::PayrollAu
         :'employment_basis' => :'EmploymentBasis',
         :'tfn_exemption_type' => :'TFNExemptionType',
         :'tax_file_number' => :'String',
+        :'abn' => :'String',
         :'australian_resident_for_tax_purposes' => :'Boolean',
         :'residency_status' => :'ResidencyStatus',
+        :'tax_scale_type' => :'TaxScaleType',
+        :'work_condition' => :'WorkCondition',
+        :'senior_marital_status' => :'SeniorMaritalStatus',
         :'tax_free_threshold_claimed' => :'Boolean',
         :'tax_offset_estimated_amount' => :'Float',
         :'has_help_debt' => :'Boolean',
@@ -144,12 +164,28 @@ module XeroRuby::PayrollAu
         self.tax_file_number = attributes[:'tax_file_number']
       end
 
+      if attributes.key?(:'abn')
+        self.abn = attributes[:'abn']
+      end
+
       if attributes.key?(:'australian_resident_for_tax_purposes')
         self.australian_resident_for_tax_purposes = attributes[:'australian_resident_for_tax_purposes']
       end
 
       if attributes.key?(:'residency_status')
         self.residency_status = attributes[:'residency_status']
+      end
+
+      if attributes.key?(:'tax_scale_type')
+        self.tax_scale_type = attributes[:'tax_scale_type']
+      end
+
+      if attributes.key?(:'work_condition')
+        self.work_condition = attributes[:'work_condition']
+      end
+
+      if attributes.key?(:'senior_marital_status')
+        self.senior_marital_status = attributes[:'senior_marital_status']
       end
 
       if attributes.key?(:'tax_free_threshold_claimed')
@@ -219,8 +255,12 @@ module XeroRuby::PayrollAu
           employment_basis == o.employment_basis &&
           tfn_exemption_type == o.tfn_exemption_type &&
           tax_file_number == o.tax_file_number &&
+          abn == o.abn &&
           australian_resident_for_tax_purposes == o.australian_resident_for_tax_purposes &&
           residency_status == o.residency_status &&
+          tax_scale_type == o.tax_scale_type &&
+          work_condition == o.work_condition &&
+          senior_marital_status == o.senior_marital_status &&
           tax_free_threshold_claimed == o.tax_free_threshold_claimed &&
           tax_offset_estimated_amount == o.tax_offset_estimated_amount &&
           has_help_debt == o.has_help_debt &&
@@ -243,7 +283,7 @@ module XeroRuby::PayrollAu
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [employee_id, employment_basis, tfn_exemption_type, tax_file_number, australian_resident_for_tax_purposes, residency_status, tax_free_threshold_claimed, tax_offset_estimated_amount, has_help_debt, has_sfss_debt, has_trade_support_loan_debt, upward_variation_tax_withholding_amount, eligible_to_receive_leave_loading, approved_withholding_variation_percentage, has_student_startup_loan, has_loan_or_student_debt, updated_date_utc].hash
+      [employee_id, employment_basis, tfn_exemption_type, tax_file_number, abn, australian_resident_for_tax_purposes, residency_status, tax_scale_type, work_condition, senior_marital_status, tax_free_threshold_claimed, tax_offset_estimated_amount, has_help_debt, has_sfss_debt, has_trade_support_loan_debt, upward_variation_tax_withholding_amount, eligible_to_receive_leave_loading, approved_withholding_variation_percentage, has_student_startup_loan, has_loan_or_student_debt, updated_date_utc].hash
     end
 
     # Builds the object from hash
