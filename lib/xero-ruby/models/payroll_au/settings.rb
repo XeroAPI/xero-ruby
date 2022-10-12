@@ -25,12 +25,16 @@ module XeroRuby::PayrollAu
     # Number of days in the Payroll year
     attr_accessor :days_in_payroll_year
     
+    # Indicates if the organisation has been enabled for STP Phase 2 editing of employees.
+    attr_accessor :employees_are_stp2
+    
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'accounts' => :'Accounts',
         :'tracking_categories' => :'TrackingCategories',
-        :'days_in_payroll_year' => :'DaysInPayrollYear'
+        :'days_in_payroll_year' => :'DaysInPayrollYear',
+        :'employees_are_stp2' => :'EmployeesAreSTP2'
       }
     end
 
@@ -39,7 +43,8 @@ module XeroRuby::PayrollAu
       {
         :'accounts' => :'Array<Account>',
         :'tracking_categories' => :'SettingsTrackingCategories',
-        :'days_in_payroll_year' => :'Integer'
+        :'days_in_payroll_year' => :'Integer',
+        :'employees_are_stp2' => :'Boolean'
       }
     end
 
@@ -71,6 +76,10 @@ module XeroRuby::PayrollAu
       if attributes.key?(:'days_in_payroll_year')
         self.days_in_payroll_year = attributes[:'days_in_payroll_year']
       end
+
+      if attributes.key?(:'employees_are_stp2')
+        self.employees_are_stp2 = attributes[:'employees_are_stp2']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -93,7 +102,8 @@ module XeroRuby::PayrollAu
       self.class == o.class &&
           accounts == o.accounts &&
           tracking_categories == o.tracking_categories &&
-          days_in_payroll_year == o.days_in_payroll_year
+          days_in_payroll_year == o.days_in_payroll_year &&
+          employees_are_stp2 == o.employees_are_stp2
     end
 
     # @see the `==` method
@@ -105,7 +115,7 @@ module XeroRuby::PayrollAu
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [accounts, tracking_categories, days_in_payroll_year].hash
+      [accounts, tracking_categories, days_in_payroll_year, employees_are_stp2].hash
     end
 
     # Builds the object from hash

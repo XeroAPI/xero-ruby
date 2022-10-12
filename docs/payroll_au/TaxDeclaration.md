@@ -8,8 +8,12 @@ Name | Type | Description | Notes
 **employment_basis** | [**EmploymentBasis**](EmploymentBasis.md) |  | [optional] 
 **tfn_exemption_type** | [**TFNExemptionType**](TFNExemptionType.md) |  | [optional] 
 **tax_file_number** | **String** | The tax file number e.g 123123123. | [optional] 
+**abn** | **String** | 11-digit Australian Business Number e.g 21006819692 or an empty string (\&quot;\&quot;) to unset a previously set value. Only applicable, and mandatory if income type is NONEMPLOYEE. | [optional] 
 **australian_resident_for_tax_purposes** | **Boolean** | If the employee is Australian resident for tax purposes. e.g true or false | [optional] 
 **residency_status** | [**ResidencyStatus**](ResidencyStatus.md) |  | [optional] 
+**tax_scale_type** | [**TaxScaleType**](TaxScaleType.md) |  | [optional] 
+**work_condition** | [**WorkCondition**](WorkCondition.md) |  | [optional] 
+**senior_marital_status** | [**SeniorMaritalStatus**](SeniorMaritalStatus.md) |  | [optional] 
 **tax_free_threshold_claimed** | **Boolean** | If tax free threshold claimed. e.g true or false | [optional] 
 **tax_offset_estimated_amount** | **Float** | If has tax offset estimated then the tax offset estimated amount. e.g 100 | [optional] 
 **has_help_debt** | **Boolean** | If employee has HECS or HELP debt. e.g true or false | [optional] 
@@ -31,8 +35,12 @@ instance = XeroRuby::PayrollAu::TaxDeclaration.new(employee_id: null,
                                  employment_basis: null,
                                  tfn_exemption_type: null,
                                  tax_file_number: 123123123,
+                                 abn: 21006819692,
                                  australian_resident_for_tax_purposes: true,
                                  residency_status: null,
+                                 tax_scale_type: null,
+                                 work_condition: null,
+                                 senior_marital_status: null,
                                  tax_free_threshold_claimed: false,
                                  tax_offset_estimated_amount: 100,
                                  has_help_debt: false,

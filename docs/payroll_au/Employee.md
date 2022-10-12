@@ -30,6 +30,10 @@ Name | Type | Description | Notes
 **pay_template** | [**PayTemplate**](PayTemplate.md) |  | [optional] 
 **opening_balances** | [**OpeningBalances**](OpeningBalances.md) |  | [optional] 
 **tax_declaration** | [**TaxDeclaration**](TaxDeclaration.md) |  | [optional] 
+**income_type** | [**IncomeType**](IncomeType.md) |  | [optional] 
+**employment_type** | [**EmploymentType**](EmploymentType.md) |  | [optional] 
+**country_of_residence** | [**CountryOfResidence**](CountryOfResidence.md) |  | [optional] 
+**is_stp2_qualified** | **Boolean** | Indicates if the employee has been updated for STP Phase 2 compliance. Doesn&#39;t indicate that the employee is payable. | [optional] 
 **leave_balances** | [**Array&lt;LeaveBalance&gt;**](LeaveBalance.md) |  | [optional] 
 **leave_lines** | [**Array&lt;LeaveLine&gt;**](LeaveLine.md) |  | [optional] 
 **super_memberships** | [**Array&lt;SuperMembership&gt;**](SuperMembership.md) |  | [optional] 
@@ -68,6 +72,10 @@ instance = XeroRuby::PayrollAu::Employee.new(first_name: Karen,
                                  pay_template: null,
                                  opening_balances: null,
                                  tax_declaration: null,
+                                 income_type: null,
+                                 employment_type: null,
+                                 country_of_residence: null,
+                                 is_stp2_qualified: true,
                                  leave_balances: null,
                                  leave_lines: null,
                                  super_memberships: null,
