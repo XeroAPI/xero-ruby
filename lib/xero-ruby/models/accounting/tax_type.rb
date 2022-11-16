@@ -73,6 +73,14 @@ module XeroRuby::Accounting
     DRCHARGE20 ||= "DRCHARGE20".freeze
     DRCHARGESUPPLY5 ||= "DRCHARGESUPPLY5".freeze
     DRCHARGE5 ||= "DRCHARGE5".freeze
+    BADDEBTRELIEF ||= "BADDEBTRELIEF".freeze
+    IGDSINPUT3 ||= "IGDSINPUT3".freeze
+    SROVR ||= "SROVR".freeze
+    TOURISTREFUND ||= "TOURISTREFUND".freeze
+    TXRCN33_INPUT ||= "TXRCN33INPUT".freeze
+    TXRCREINPUT ||= "TXRCREINPUT".freeze
+    TXRCESSINPUT ||= "TXRCESSINPUT".freeze
+    TXRCTSINPUT ||= "TXRCTSINPUT".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

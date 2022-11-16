@@ -51,7 +51,7 @@ module XeroRuby::Accounting
 
     attr_accessor :currency_code
     
-    # The tax type from TaxRates
+    # The tax type from taxRates
     attr_accessor :tax_type
     
     # Boolean – describes whether account can have payments applied to it

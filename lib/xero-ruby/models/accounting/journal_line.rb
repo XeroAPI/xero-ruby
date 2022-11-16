@@ -43,7 +43,7 @@ module XeroRuby::Accounting
     # Total tax on a journal line
     attr_accessor :tax_amount
     
-    # The tax type from TaxRates
+    # The tax type from taxRates
     attr_accessor :tax_type
     
     # see TaxRates

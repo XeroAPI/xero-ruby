@@ -30,11 +30,16 @@ module XeroRuby::PayrollUk
     A ||= "A".freeze
     B ||= "B".freeze
     C ||= "C".freeze
+    F ||= "F".freeze
     H ||= "H".freeze
+    I ||= "I".freeze
     J ||= "J".freeze
+    L ||= "L".freeze
     M ||= "M".freeze
-    Z ||= "Z".freeze
+    S ||= "S".freeze
+    V ||= "V".freeze
     X ||= "X".freeze
+    Z ||= "Z".freeze
     
     class EnumAttributeValidator
       attr_reader :datatype
@@ -120,7 +125,7 @@ module XeroRuby::PayrollUk
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      ni_category_validator = EnumAttributeValidator.new('String', ["A", "B", "C", "H", "J", "M", "Z", "X"])
+      ni_category_validator = EnumAttributeValidator.new('String', ["A", "B", "C", "F", "H", "I", "J", "L", "M", "S", "V", "X", "Z"])
       return false unless ni_category_validator.valid?(@ni_category)
       true
     end
@@ -128,7 +133,7 @@ module XeroRuby::PayrollUk
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] ni_category Object to be assigned
     def ni_category=(ni_category)
-      validator = EnumAttributeValidator.new('String', ["A", "B", "C", "H", "J", "M", "Z", "X"])
+      validator = EnumAttributeValidator.new('String', ["A", "B", "C", "F", "H", "I", "J", "L", "M", "S", "V", "X", "Z"])
       unless validator.valid?(ni_category)
         fail ArgumentError, "invalid value for \"ni_category\", must be one of #{validator.allowable_values}."
       end

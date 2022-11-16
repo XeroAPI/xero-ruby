@@ -175,7 +175,7 @@ xero_app_store_client ||= XeroRuby::ApiClient.new(credentials: {
   client_id: ENV['CLIENT_ID'],
   client_secret: ENV['CLIENT_SECRET'],
   grant_type: 'client_credentials'
-  scopes: ['marketplace.billing']
+  scopes: 'marketplace.billing openid profile email'
 })
 
 xero_app_store_client.get_client_credentials_token

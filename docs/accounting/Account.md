@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **description** | **String** | Description of the Account. Valid for all types of accounts except bank accounts (max length &#x3D; 4000) | [optional] 
 **bank_account_type** | **String** | For bank accounts only. See Bank Account types | [optional] 
 **currency_code** | [**CurrencyCode**](CurrencyCode.md) |  | [optional] 
-**tax_type** | **String** | The tax type from TaxRates | [optional] 
+**tax_type** | **String** | The tax type from taxRates | [optional] 
 **enable_payments_to_account** | **Boolean** | Boolean – describes whether account can have payments applied to it | [optional] 
 **show_in_expense_claims** | **Boolean** | Boolean – describes whether account code is available for use with expense claims | [optional] 
 **_class** | **String** | See Account Class Types | [optional] 

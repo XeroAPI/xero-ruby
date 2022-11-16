@@ -28,6 +28,9 @@ module XeroRuby::AppStore
 
     attr_accessor :product
     
+    # The quantity of the item. For a fixed product, it is 1. For a per-seat product, it is a positive integer. For metered products, it is always null.
+    attr_accessor :quantity
+    
     # Date the subscription started, or will start. Note: this could be in the future for downgrades or reduced number of seats that haven't taken effect yet. 
     attr_accessor :start_date
     
@@ -69,6 +72,7 @@ module XeroRuby::AppStore
         :'id' => :'id',
         :'price' => :'price',
         :'product' => :'product',
+        :'quantity' => :'quantity',
         :'start_date' => :'startDate',
         :'status' => :'status',
         :'test_mode' => :'testMode'
@@ -82,6 +86,7 @@ module XeroRuby::AppStore
         :'id' => :'String',
         :'price' => :'Price',
         :'product' => :'Product',
+        :'quantity' => :'Integer',
         :'start_date' => :'DateTime',
         :'status' => :'String',
         :'test_mode' => :'Boolean'
@@ -117,6 +122,10 @@ module XeroRuby::AppStore
 
       if attributes.key?(:'product')
         self.product = attributes[:'product']
+      end
+
+      if attributes.key?(:'quantity')
+        self.quantity = attributes[:'quantity']
       end
 
       if attributes.key?(:'start_date')
@@ -191,6 +200,7 @@ module XeroRuby::AppStore
           id == o.id &&
           price == o.price &&
           product == o.product &&
+          quantity == o.quantity &&
           start_date == o.start_date &&
           status == o.status &&
           test_mode == o.test_mode
@@ -205,7 +215,7 @@ module XeroRuby::AppStore
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [end_date, id, price, product, start_date, status, test_mode].hash
+      [end_date, id, price, product, quantity, start_date, status, test_mode].hash
     end
 
     # Builds the object from hash

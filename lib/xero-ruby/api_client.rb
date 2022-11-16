@@ -196,7 +196,12 @@ module XeroRuby
 
     def decode_jwt(tkn, verify=true)
       if verify == true
-        jwks_data = JSON.parse(Faraday.get('https://identity.xero.com/.well-known/openid-configuration/jwks').body)
+
+        response = Faraday.get('https://identity.xero.com/.well-known/openid-configuration/jwks') do |req|
+          req.headers['User-Agent'] = @user_agent
+        end
+
+        jwks_data = JSON.parse(response.body)
         jwk_set = JSON::JWK::Set.new(jwks_data)
         JSON::JWT.decode(tkn, jwk_set)
       else
@@ -230,6 +235,7 @@ module XeroRuby
       response = Faraday.post("#{@config.token_url}#{path}") do |req|
         req.headers['Authorization'] = "Basic " + Base64.strict_encode64("#{@client_id}:#{@client_secret}")
         req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+        req.headers['User-Agent'] = @user_agent
         req.body = URI.encode_www_form(data)
       end
       return_error(response) unless response.success?
