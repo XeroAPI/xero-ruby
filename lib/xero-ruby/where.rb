@@ -44,6 +44,8 @@ module XeroRuby
         'Contact.ContactID'
       when :contact_number
         'Contact.ContactNumber'
+      when :invoice_id
+        'Invoice.InvoiceId'
       else
         camelize_key(key)
       end
