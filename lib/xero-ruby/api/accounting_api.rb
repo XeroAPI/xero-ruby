@@ -850,21 +850,21 @@ module XeroRuby
     # Creates a new custom payment service for a specific branding theme
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param branding_theme_id [String] Unique identifier for a Branding Theme
-    # @param payment_service [PaymentService] PaymentService object in body of request
+    # @param payment_services [PaymentServices] PaymentServices array with PaymentService object in body of request
     # @param [Hash] opts the optional parameters
     # @return [PaymentServices]
-    def create_branding_theme_payment_services(xero_tenant_id, branding_theme_id, payment_service, opts = {})
-      data, _status_code, _headers = create_branding_theme_payment_services_with_http_info(xero_tenant_id, branding_theme_id, payment_service, opts)
+    def create_branding_theme_payment_services(xero_tenant_id, branding_theme_id, payment_services, opts = {})
+      data, _status_code, _headers = create_branding_theme_payment_services_with_http_info(xero_tenant_id, branding_theme_id, payment_services, opts)
       data
     end
 
     # Creates a new custom payment service for a specific branding theme
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param branding_theme_id [String] Unique identifier for a Branding Theme
-    # @param payment_service [PaymentService] PaymentService object in body of request
+    # @param payment_services [PaymentServices] PaymentServices array with PaymentService object in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(PaymentServices, Integer, Hash)>] PaymentServices data, response status code and response headers
-    def create_branding_theme_payment_services_with_http_info(xero_tenant_id, branding_theme_id, payment_service, options = {})
+    def create_branding_theme_payment_services_with_http_info(xero_tenant_id, branding_theme_id, payment_services, options = {})
       opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_branding_theme_payment_services ...'
@@ -877,9 +877,9 @@ module XeroRuby
       if @api_client.config.client_side_validation && branding_theme_id.nil?
         fail ArgumentError, "Missing the required parameter 'branding_theme_id' when calling AccountingApi.create_branding_theme_payment_services"
       end
-      # verify the required parameter 'payment_service' is set
-      if @api_client.config.client_side_validation && payment_service.nil?
-        fail ArgumentError, "Missing the required parameter 'payment_service' when calling AccountingApi.create_branding_theme_payment_services"
+      # verify the required parameter 'payment_services' is set
+      if @api_client.config.client_side_validation && payment_services.nil?
+        fail ArgumentError, "Missing the required parameter 'payment_services' when calling AccountingApi.create_branding_theme_payment_services"
       end
       # resource path
       local_var_path = '/BrandingThemes/{BrandingThemeID}/PaymentServices'.sub('{' + 'BrandingThemeID' + '}', branding_theme_id.to_s)
@@ -906,7 +906,7 @@ module XeroRuby
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:body] || @api_client.object_to_http_body(payment_service) 
+      post_body = opts[:body] || @api_client.object_to_http_body(payment_services) 
 
       # return_type
       return_type = opts[:return_type] || 'PaymentServices' 

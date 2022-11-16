@@ -8449,8 +8449,12 @@ payment_service = {
   pay_now_text: "Pay Now"
 }  
 
+paymentServices = {  
+  paymentServices: [paymentService]
+} 
+
 begin
-  response = xero_client.accounting_api.create_branding_theme_payment_services(xero_tenant_id, branding_theme_id, paymentService)
+  response = xero_client.accounting_api.create_branding_theme_payment_services(xero_tenant_id, branding_theme_id, paymentServices)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_branding_theme_payment_services: #{e}"
@@ -8538,15 +8542,15 @@ Xero identifier for Tenant
                       <th>Description</th>
                     </tr>
                     <tr>
-  <td style="width:150px;">paymentService <span style="color:red;">*</span></td>
+  <td style="width:150px;">paymentServices <span style="color:red;">*</span></td>
   <td>
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        PaymentService
+        PaymentServices
         </span>
         <div class="inner description marked">
-          PaymentService object in body of request
+          PaymentServices array with PaymentService object in body of request
         </div>
       </div>
       <div class="inner required">
@@ -8555,13 +8559,13 @@ Xero identifier for Tenant
     </div>
     <script type="application/ld+json">
       {
-  "description" : "PaymentService object in body of request",
+  "description" : "PaymentServices array with PaymentService object in body of request",
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/components/schemas/PaymentService"
+        "$ref" : "#/components/schemas/PaymentServices"
       },
-      "example" : "{ \"PaymentServiceID\": \"00000000-0000-0000-0000-000000000000\", \"PaymentServiceName\": \"Payments Service\", \"PaymentServiceUrl\": \"https://www.paymentservice.com/\", \"PayNowText\": \"Pay Now\" }"
+      "example" : "{ \"PaymentServices\": [ { \"PaymentServiceID\": \"54b3b4f6-0443-4fba-bcd1-61ec0c35ca55\", \"PaymentServiceName\": \"PayUpNow\", \"PaymentServiceUrl\": \"https://www.payupnow.com/\", \"PaymentServiceType\": \"Custom\", \"PayNowText\": \"Time To Pay\" } ] }"
     }
   },
   "required" : true
