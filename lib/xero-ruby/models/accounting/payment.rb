@@ -35,6 +35,9 @@ module XeroRuby::Accounting
     attr_accessor :credit_note_number
     
 
+    attr_accessor :batch_payment
+    
+
     attr_accessor :account
     
     # Code of account you are using to make the payment e.g. 001 (note- not all accounts have a code value)
@@ -135,6 +138,7 @@ module XeroRuby::Accounting
         :'overpayment' => :'Overpayment',
         :'invoice_number' => :'InvoiceNumber',
         :'credit_note_number' => :'CreditNoteNumber',
+        :'batch_payment' => :'BatchPayment',
         :'account' => :'Account',
         :'code' => :'Code',
         :'date' => :'Date',
@@ -167,6 +171,7 @@ module XeroRuby::Accounting
         :'overpayment' => :'Overpayment',
         :'invoice_number' => :'String',
         :'credit_note_number' => :'String',
+        :'batch_payment' => :'BatchPayment',
         :'account' => :'Account',
         :'code' => :'String',
         :'date' => :'Date',
@@ -227,6 +232,10 @@ module XeroRuby::Accounting
 
       if attributes.key?(:'credit_note_number')
         self.credit_note_number = attributes[:'credit_note_number']
+      end
+
+      if attributes.key?(:'batch_payment')
+        self.batch_payment = attributes[:'batch_payment']
       end
 
       if attributes.key?(:'account')
@@ -364,6 +373,7 @@ module XeroRuby::Accounting
           overpayment == o.overpayment &&
           invoice_number == o.invoice_number &&
           credit_note_number == o.credit_note_number &&
+          batch_payment == o.batch_payment &&
           account == o.account &&
           code == o.code &&
           date == o.date &&
@@ -395,7 +405,7 @@ module XeroRuby::Accounting
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [invoice, credit_note, prepayment, overpayment, invoice_number, credit_note_number, account, code, date, currency_rate, amount, bank_amount, reference, is_reconciled, status, payment_type, updated_date_utc, payment_id, batch_payment_id, bank_account_number, particulars, details, has_account, has_validation_errors, status_attribute_string, validation_errors].hash
+      [invoice, credit_note, prepayment, overpayment, invoice_number, credit_note_number, batch_payment, account, code, date, currency_rate, amount, bank_amount, reference, is_reconciled, status, payment_type, updated_date_utc, payment_id, batch_payment_id, bank_account_number, particulars, details, has_account, has_validation_errors, status_attribute_string, validation_errors].hash
     end
 
     # Builds the object from hash

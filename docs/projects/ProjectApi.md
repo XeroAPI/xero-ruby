@@ -684,7 +684,7 @@ opts = {
 
   page_size: 10, # Integer | Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500.
 
-  task_ids: 'task_ids_example', # String | taskIdsSearch for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds={taskID},{taskID}
+  task_ids: 'task_ids_example', # String | Search for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds={taskID},{taskID}
 
   charge_type: XeroRuby::Projects::ChargeType.new # ChargeType | 
 }
@@ -707,7 +707,7 @@ Name | Type | Description  | Notes
  **project_id** | [**String**](.md)| You can specify an individual project by appending the projectId to the endpoint | 
  **page** | **Integer**| Set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0. | [optional] 
  **page_size** | **Integer**| Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500. | [optional] 
- **task_ids** | **String**| taskIdsSearch for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds&#x3D;{taskID},{taskID} | [optional] 
+ **task_ids** | **String**| Search for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds&#x3D;{taskID},{taskID} | [optional] 
  **charge_type** | [**ChargeType**](.md)|  | [optional] 
 
 ### Return type

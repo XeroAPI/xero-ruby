@@ -132,9 +132,9 @@ module XeroRuby::Accounting
         :'payments' => :'Array<Payment>',
         :'type' => :'String',
         :'status' => :'String',
-        :'total_amount' => :'String',
+        :'total_amount' => :'BigDecimal',
         :'updated_date_utc' => :'DateTime',
-        :'is_reconciled' => :'String',
+        :'is_reconciled' => :'Boolean',
         :'validation_errors' => :'Array<ValidationError>'
       }
     end
