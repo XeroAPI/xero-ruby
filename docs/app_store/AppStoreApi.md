@@ -168,7 +168,7 @@ api_instance = xero_client.<api_set>
 
 subscription_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for Subscription object
 subscription_item_id = '00000000-0000-0000-0000-000000000000' # String | The unique identifier of the subscriptionItem
-create_usage_record = { "timestamp": "2022-01-21T13:01:00Z", "quantity": 10 } # CreateUsageRecord | Contains the quantity for the usage record to create
+create_usage_record = { "timestamp": "2022-01-21T13:01:00", "quantity": 10 } # CreateUsageRecord | Contains the quantity for the usage record to create
 begin
   #Send metered usage belonging to this subscription and subscription item
   result = api_instance.post_usage_records(subscription_id, subscription_item_id, create_usage_record)
