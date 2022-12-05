@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 
 ## create_task
 
-> create_task(xero_tenant_id, project_id, task_create_or_update)
+> Task create_task(xero_tenant_id, project_id, task_create_or_update)
 
 Allows you to create a task
 
@@ -125,7 +125,8 @@ project_id = 'project_id_example' # String | You can create a task on a specifie
 task_create_or_update = { "status": "INPROGRESS" } # TaskCreateOrUpdate | The task object you are creating
 begin
   #Allows you to create a task
-  api_instance.create_task(xero_tenant_id, project_id, task_create_or_update)
+  result = api_instance.create_task(xero_tenant_id, project_id, task_create_or_update)
+  p result
 rescue XeroRuby::Projects::ApiError => e
   puts "Exception when calling ProjectApi->create_task: #{e}"
 end
@@ -142,7 +143,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-nil (empty response body)
+[**Task**](Task.md)
 
 ### Authorization
 
@@ -683,7 +684,7 @@ opts = {
 
   page_size: 10, # Integer | Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500.
 
-  task_ids: 'task_ids_example', # String | taskIdsSearch for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds={taskID},{taskID}
+  task_ids: 'task_ids_example', # String | Search for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds={taskID},{taskID}
 
   charge_type: XeroRuby::Projects::ChargeType.new # ChargeType | 
 }
@@ -706,7 +707,7 @@ Name | Type | Description  | Notes
  **project_id** | [**String**](.md)| You can specify an individual project by appending the projectId to the endpoint | 
  **page** | **Integer**| Set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0. | [optional] 
  **page_size** | **Integer**| Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500. | [optional] 
- **task_ids** | **String**| taskIdsSearch for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds&#x3D;{taskID},{taskID} | [optional] 
+ **task_ids** | **String**| Search for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds&#x3D;{taskID},{taskID} | [optional] 
  **charge_type** | [**ChargeType**](.md)|  | [optional] 
 
 ### Return type

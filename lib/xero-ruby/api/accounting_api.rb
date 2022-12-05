@@ -850,21 +850,21 @@ module XeroRuby
     # Creates a new custom payment service for a specific branding theme
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param branding_theme_id [String] Unique identifier for a Branding Theme
-    # @param payment_service [PaymentService] PaymentService object in body of request
+    # @param payment_services [PaymentServices] PaymentServices array with PaymentService object in body of request
     # @param [Hash] opts the optional parameters
     # @return [PaymentServices]
-    def create_branding_theme_payment_services(xero_tenant_id, branding_theme_id, payment_service, opts = {})
-      data, _status_code, _headers = create_branding_theme_payment_services_with_http_info(xero_tenant_id, branding_theme_id, payment_service, opts)
+    def create_branding_theme_payment_services(xero_tenant_id, branding_theme_id, payment_services, opts = {})
+      data, _status_code, _headers = create_branding_theme_payment_services_with_http_info(xero_tenant_id, branding_theme_id, payment_services, opts)
       data
     end
 
     # Creates a new custom payment service for a specific branding theme
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param branding_theme_id [String] Unique identifier for a Branding Theme
-    # @param payment_service [PaymentService] PaymentService object in body of request
+    # @param payment_services [PaymentServices] PaymentServices array with PaymentService object in body of request
     # @param [Hash] opts the optional parameters
     # @return [Array<(PaymentServices, Integer, Hash)>] PaymentServices data, response status code and response headers
-    def create_branding_theme_payment_services_with_http_info(xero_tenant_id, branding_theme_id, payment_service, options = {})
+    def create_branding_theme_payment_services_with_http_info(xero_tenant_id, branding_theme_id, payment_services, options = {})
       opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountingApi.create_branding_theme_payment_services ...'
@@ -877,9 +877,9 @@ module XeroRuby
       if @api_client.config.client_side_validation && branding_theme_id.nil?
         fail ArgumentError, "Missing the required parameter 'branding_theme_id' when calling AccountingApi.create_branding_theme_payment_services"
       end
-      # verify the required parameter 'payment_service' is set
-      if @api_client.config.client_side_validation && payment_service.nil?
-        fail ArgumentError, "Missing the required parameter 'payment_service' when calling AccountingApi.create_branding_theme_payment_services"
+      # verify the required parameter 'payment_services' is set
+      if @api_client.config.client_side_validation && payment_services.nil?
+        fail ArgumentError, "Missing the required parameter 'payment_services' when calling AccountingApi.create_branding_theme_payment_services"
       end
       # resource path
       local_var_path = '/BrandingThemes/{BrandingThemeID}/PaymentServices'.sub('{' + 'BrandingThemeID' + '}', branding_theme_id.to_s)
@@ -906,7 +906,7 @@ module XeroRuby
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:body] || @api_client.object_to_http_body(payment_service) 
+      post_body = opts[:body] || @api_client.object_to_http_body(payment_services) 
 
       # return_type
       return_type = opts[:return_type] || 'PaymentServices' 
@@ -4337,6 +4337,86 @@ module XeroRuby
       return data, status_code, headers
     end
 
+    # Creates one or more repeating invoice templates
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param repeating_invoices [RepeatingInvoices] RepeatingInvoices with an array of repeating invoice objects in body of request
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @return [RepeatingInvoices]
+    def create_repeating_invoices(xero_tenant_id, repeating_invoices, opts = {})
+      data, _status_code, _headers = create_repeating_invoices_with_http_info(xero_tenant_id, repeating_invoices, opts)
+      data
+    end
+
+    # Creates one or more repeating invoice templates
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param repeating_invoices [RepeatingInvoices] RepeatingInvoices with an array of repeating invoice objects in body of request
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @return [Array<(RepeatingInvoices, Integer, Hash)>] RepeatingInvoices data, response status code and response headers
+    def create_repeating_invoices_with_http_info(xero_tenant_id, repeating_invoices, options = {})
+      opts = options.dup
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AccountingApi.create_repeating_invoices ...'
+      end
+      # verify the required parameter 'xero_tenant_id' is set
+      if @api_client.config.client_side_validation && xero_tenant_id.nil?
+        fail ArgumentError, "Missing the required parameter 'xero_tenant_id' when calling AccountingApi.create_repeating_invoices"
+      end
+      # verify the required parameter 'repeating_invoices' is set
+      if @api_client.config.client_side_validation && repeating_invoices.nil?
+        fail ArgumentError, "Missing the required parameter 'repeating_invoices' when calling AccountingApi.create_repeating_invoices"
+      end
+      # resource path
+      local_var_path = '/RepeatingInvoices'
+
+      # camelize keys of incoming `where` opts
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
+      
+      # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
+      query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+      query_params[:'ContactIDs'] = @api_client.build_collection_param(opts[:'contact_ids'], :csv) if !opts[:'contact_ids'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      header_params[:'xero-tenant-id'] = xero_tenant_id
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] || @api_client.object_to_http_body(repeating_invoices) 
+
+      # return_type
+      return_type = opts[:return_type] || 'RepeatingInvoices' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['OAuth2']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, "AccountingApi", new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AccountingApi#create_repeating_invoices\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Creates one or more tax rates
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param tax_rates [TaxRates] TaxRates array with TaxRate object in body of request
@@ -4645,6 +4725,166 @@ module XeroRuby
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#delete_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Updates a specific batch payment for invoices and credit notes
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param batch_payment_delete [BatchPaymentDelete] 
+    # @param [Hash] opts the optional parameters
+    # @return [BatchPayments]
+    def delete_batch_payment(xero_tenant_id, batch_payment_delete, opts = {})
+      data, _status_code, _headers = delete_batch_payment_with_http_info(xero_tenant_id, batch_payment_delete, opts)
+      data
+    end
+
+    # Updates a specific batch payment for invoices and credit notes
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param batch_payment_delete [BatchPaymentDelete] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(BatchPayments, Integer, Hash)>] BatchPayments data, response status code and response headers
+    def delete_batch_payment_with_http_info(xero_tenant_id, batch_payment_delete, options = {})
+      opts = options.dup
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AccountingApi.delete_batch_payment ...'
+      end
+      # verify the required parameter 'xero_tenant_id' is set
+      if @api_client.config.client_side_validation && xero_tenant_id.nil?
+        fail ArgumentError, "Missing the required parameter 'xero_tenant_id' when calling AccountingApi.delete_batch_payment"
+      end
+      # verify the required parameter 'batch_payment_delete' is set
+      if @api_client.config.client_side_validation && batch_payment_delete.nil?
+        fail ArgumentError, "Missing the required parameter 'batch_payment_delete' when calling AccountingApi.delete_batch_payment"
+      end
+      # resource path
+      local_var_path = '/BatchPayments'
+
+      # camelize keys of incoming `where` opts
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      
+      # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
+      query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+      query_params[:'ContactIDs'] = @api_client.build_collection_param(opts[:'contact_ids'], :csv) if !opts[:'contact_ids'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      header_params[:'xero-tenant-id'] = xero_tenant_id
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] || @api_client.object_to_http_body(batch_payment_delete) 
+
+      # return_type
+      return_type = opts[:return_type] || 'BatchPayments' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['OAuth2']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AccountingApi#delete_batch_payment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Updates a specific batch payment for invoices and credit notes
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param batch_payment_id [String] Unique identifier for BatchPayment
+    # @param batch_payment_delete_by_url_param [BatchPaymentDeleteByUrlParam] 
+    # @param [Hash] opts the optional parameters
+    # @return [BatchPayments]
+    def delete_batch_payment_by_url_param(xero_tenant_id, batch_payment_id, batch_payment_delete_by_url_param, opts = {})
+      data, _status_code, _headers = delete_batch_payment_by_url_param_with_http_info(xero_tenant_id, batch_payment_id, batch_payment_delete_by_url_param, opts)
+      data
+    end
+
+    # Updates a specific batch payment for invoices and credit notes
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param batch_payment_id [String] Unique identifier for BatchPayment
+    # @param batch_payment_delete_by_url_param [BatchPaymentDeleteByUrlParam] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(BatchPayments, Integer, Hash)>] BatchPayments data, response status code and response headers
+    def delete_batch_payment_by_url_param_with_http_info(xero_tenant_id, batch_payment_id, batch_payment_delete_by_url_param, options = {})
+      opts = options.dup
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AccountingApi.delete_batch_payment_by_url_param ...'
+      end
+      # verify the required parameter 'xero_tenant_id' is set
+      if @api_client.config.client_side_validation && xero_tenant_id.nil?
+        fail ArgumentError, "Missing the required parameter 'xero_tenant_id' when calling AccountingApi.delete_batch_payment_by_url_param"
+      end
+      # verify the required parameter 'batch_payment_id' is set
+      if @api_client.config.client_side_validation && batch_payment_id.nil?
+        fail ArgumentError, "Missing the required parameter 'batch_payment_id' when calling AccountingApi.delete_batch_payment_by_url_param"
+      end
+      # verify the required parameter 'batch_payment_delete_by_url_param' is set
+      if @api_client.config.client_side_validation && batch_payment_delete_by_url_param.nil?
+        fail ArgumentError, "Missing the required parameter 'batch_payment_delete_by_url_param' when calling AccountingApi.delete_batch_payment_by_url_param"
+      end
+      # resource path
+      local_var_path = '/BatchPayments/{BatchPaymentID}'.sub('{' + 'BatchPaymentID' + '}', batch_payment_id.to_s)
+
+      # camelize keys of incoming `where` opts
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      
+      # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
+      query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+      query_params[:'ContactIDs'] = @api_client.build_collection_param(opts[:'contact_ids'], :csv) if !opts[:'contact_ids'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      header_params[:'xero-tenant-id'] = xero_tenant_id
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] || @api_client.object_to_http_body(batch_payment_delete_by_url_param) 
+
+      # return_type
+      return_type = opts[:return_type] || 'BatchPayments' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['OAuth2']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AccountingApi#delete_batch_payment_by_url_param\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -6642,6 +6882,81 @@ module XeroRuby
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#get_bank_transfers\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieves a specific batch payment using a unique batch payment Id
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param batch_payment_id [String] Unique identifier for BatchPayment
+    # @param [Hash] opts the optional parameters
+    # @return [BatchPayments]
+    def get_batch_payment(xero_tenant_id, batch_payment_id, opts = {})
+      data, _status_code, _headers = get_batch_payment_with_http_info(xero_tenant_id, batch_payment_id, opts)
+      data
+    end
+
+    # Retrieves a specific batch payment using a unique batch payment Id
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param batch_payment_id [String] Unique identifier for BatchPayment
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(BatchPayments, Integer, Hash)>] BatchPayments data, response status code and response headers
+    def get_batch_payment_with_http_info(xero_tenant_id, batch_payment_id, options = {})
+      opts = options.dup
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AccountingApi.get_batch_payment ...'
+      end
+      # verify the required parameter 'xero_tenant_id' is set
+      if @api_client.config.client_side_validation && xero_tenant_id.nil?
+        fail ArgumentError, "Missing the required parameter 'xero_tenant_id' when calling AccountingApi.get_batch_payment"
+      end
+      # verify the required parameter 'batch_payment_id' is set
+      if @api_client.config.client_side_validation && batch_payment_id.nil?
+        fail ArgumentError, "Missing the required parameter 'batch_payment_id' when calling AccountingApi.get_batch_payment"
+      end
+      # resource path
+      local_var_path = '/BatchPayments/{BatchPaymentID}'.sub('{' + 'BatchPaymentID' + '}', batch_payment_id.to_s)
+
+      # camelize keys of incoming `where` opts
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      
+      # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
+      query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+      query_params[:'ContactIDs'] = @api_client.build_collection_param(opts[:'contact_ids'], :csv) if !opts[:'contact_ids'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'xero-tenant-id'] = xero_tenant_id
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'BatchPayments' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['OAuth2']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AccountingApi#get_batch_payment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -17520,6 +17835,86 @@ module XeroRuby
       return data, status_code, headers
     end
 
+    # Creates or deletes one or more repeating invoice templates
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param repeating_invoices [RepeatingInvoices] RepeatingInvoices with an array of repeating invoice objects in body of request
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @return [RepeatingInvoices]
+    def update_or_create_repeating_invoices(xero_tenant_id, repeating_invoices, opts = {})
+      data, _status_code, _headers = update_or_create_repeating_invoices_with_http_info(xero_tenant_id, repeating_invoices, opts)
+      data
+    end
+
+    # Creates or deletes one or more repeating invoice templates
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param repeating_invoices [RepeatingInvoices] RepeatingInvoices with an array of repeating invoice objects in body of request
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @return [Array<(RepeatingInvoices, Integer, Hash)>] RepeatingInvoices data, response status code and response headers
+    def update_or_create_repeating_invoices_with_http_info(xero_tenant_id, repeating_invoices, options = {})
+      opts = options.dup
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AccountingApi.update_or_create_repeating_invoices ...'
+      end
+      # verify the required parameter 'xero_tenant_id' is set
+      if @api_client.config.client_side_validation && xero_tenant_id.nil?
+        fail ArgumentError, "Missing the required parameter 'xero_tenant_id' when calling AccountingApi.update_or_create_repeating_invoices"
+      end
+      # verify the required parameter 'repeating_invoices' is set
+      if @api_client.config.client_side_validation && repeating_invoices.nil?
+        fail ArgumentError, "Missing the required parameter 'repeating_invoices' when calling AccountingApi.update_or_create_repeating_invoices"
+      end
+      # resource path
+      local_var_path = '/RepeatingInvoices'
+
+      # camelize keys of incoming `where` opts
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
+      
+      # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
+      query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+      query_params[:'ContactIDs'] = @api_client.build_collection_param(opts[:'contact_ids'], :csv) if !opts[:'contact_ids'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      header_params[:'xero-tenant-id'] = xero_tenant_id
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] || @api_client.object_to_http_body(repeating_invoices) 
+
+      # return_type
+      return_type = opts[:return_type] || 'RepeatingInvoices' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['OAuth2']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AccountingApi#update_or_create_repeating_invoices\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Updates a specific purchase order
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param purchase_order_id [String] Unique identifier for an Purchase Order
@@ -18035,6 +18430,89 @@ module XeroRuby
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#update_receipt_attachment_by_file_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Deletes a specific repeating invoice template
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param repeating_invoice_id [String] Unique identifier for a Repeating Invoice
+    # @param repeating_invoices [RepeatingInvoices] 
+    # @param [Hash] opts the optional parameters
+    # @return [RepeatingInvoices]
+    def update_repeating_invoice(xero_tenant_id, repeating_invoice_id, repeating_invoices, opts = {})
+      data, _status_code, _headers = update_repeating_invoice_with_http_info(xero_tenant_id, repeating_invoice_id, repeating_invoices, opts)
+      data
+    end
+
+    # Deletes a specific repeating invoice template
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param repeating_invoice_id [String] Unique identifier for a Repeating Invoice
+    # @param repeating_invoices [RepeatingInvoices] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RepeatingInvoices, Integer, Hash)>] RepeatingInvoices data, response status code and response headers
+    def update_repeating_invoice_with_http_info(xero_tenant_id, repeating_invoice_id, repeating_invoices, options = {})
+      opts = options.dup
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AccountingApi.update_repeating_invoice ...'
+      end
+      # verify the required parameter 'xero_tenant_id' is set
+      if @api_client.config.client_side_validation && xero_tenant_id.nil?
+        fail ArgumentError, "Missing the required parameter 'xero_tenant_id' when calling AccountingApi.update_repeating_invoice"
+      end
+      # verify the required parameter 'repeating_invoice_id' is set
+      if @api_client.config.client_side_validation && repeating_invoice_id.nil?
+        fail ArgumentError, "Missing the required parameter 'repeating_invoice_id' when calling AccountingApi.update_repeating_invoice"
+      end
+      # verify the required parameter 'repeating_invoices' is set
+      if @api_client.config.client_side_validation && repeating_invoices.nil?
+        fail ArgumentError, "Missing the required parameter 'repeating_invoices' when calling AccountingApi.update_repeating_invoice"
+      end
+      # resource path
+      local_var_path = '/RepeatingInvoices/{RepeatingInvoiceID}'.sub('{' + 'RepeatingInvoiceID' + '}', repeating_invoice_id.to_s)
+
+      # camelize keys of incoming `where` opts
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      
+      # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
+      query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+      query_params[:'ContactIDs'] = @api_client.build_collection_param(opts[:'contact_ids'], :csv) if !opts[:'contact_ids'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      header_params[:'xero-tenant-id'] = xero_tenant_id
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] || @api_client.object_to_http_body(repeating_invoices) 
+
+      # return_type
+      return_type = opts[:return_type] || 'RepeatingInvoices' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['OAuth2']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AccountingApi#update_repeating_invoice\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

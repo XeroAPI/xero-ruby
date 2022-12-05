@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **overpayment** | [**Overpayment**](Overpayment.md) |  | [optional] 
 **invoice_number** | **String** | Number of invoice or credit note you are applying payment to e.g.INV-4003 | [optional] 
 **credit_note_number** | **String** | Number of invoice or credit note you are applying payment to e.g. INV-4003 | [optional] 
+**batch_payment** | [**BatchPayment**](BatchPayment.md) |  | [optional] 
 **account** | [**Account**](Account.md) |  | [optional] 
 **code** | **String** | Code of account you are using to make the payment e.g. 001 (note- not all accounts have a code value) | [optional] 
 **date** | **Date** | Date the payment is being made (YYYY-MM-DD) e.g. 2009-09-06 | [optional] 
@@ -42,6 +43,7 @@ instance = XeroRuby::Accounting::Payment.new(invoice: null,
                                  overpayment: null,
                                  invoice_number: null,
                                  credit_note_number: null,
+                                 batch_payment: null,
                                  account: null,
                                  code: null,
                                  date: null,

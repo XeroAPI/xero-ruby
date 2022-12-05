@@ -99,10 +99,10 @@ module XeroRuby
     # @param project_id [String] You can create a task on a specified projectId
     # @param task_create_or_update [TaskCreateOrUpdate] The task object you are creating
     # @param [Hash] opts the optional parameters
-    # @return [nil]
+    # @return [Task]
     def create_task(xero_tenant_id, project_id, task_create_or_update, opts = {})
-      create_task_with_http_info(xero_tenant_id, project_id, task_create_or_update, opts)
-      nil
+      data, _status_code, _headers = create_task_with_http_info(xero_tenant_id, project_id, task_create_or_update, opts)
+      data
     end
 
     # Allows you to create a task
@@ -111,7 +111,7 @@ module XeroRuby
     # @param project_id [String] You can create a task on a specified projectId
     # @param task_create_or_update [TaskCreateOrUpdate] The task object you are creating
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(Task, Integer, Hash)>] Task data, response status code and response headers
     def create_task_with_http_info(xero_tenant_id, project_id, task_create_or_update, options = {})
       opts = options.dup
       if @api_client.config.debugging
@@ -157,7 +157,7 @@ module XeroRuby
       post_body = opts[:body] || @api_client.object_to_http_body(task_create_or_update) 
 
       # return_type
-      return_type = opts[:return_type] 
+      return_type = opts[:return_type] || 'Task' 
 
       # auth_names
       auth_names = opts[:auth_names] || ['OAuth2']
@@ -775,7 +775,7 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0.
     # @option opts [Integer] :page_size Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500.
-    # @option opts [String] :task_ids taskIdsSearch for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds&#x3D;{taskID},{taskID}
+    # @option opts [String] :task_ids Search for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds&#x3D;{taskID},{taskID}
     # @option opts [ChargeType] :charge_type 
     # @return [Tasks]
     def get_tasks(xero_tenant_id, project_id, opts = {})
@@ -790,7 +790,7 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0.
     # @option opts [Integer] :page_size Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500.
-    # @option opts [String] :task_ids taskIdsSearch for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds&#x3D;{taskID},{taskID}
+    # @option opts [String] :task_ids Search for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds&#x3D;{taskID},{taskID}
     # @option opts [ChargeType] :charge_type 
     # @return [Array<(Tasks, Integer, Hash)>] Tasks data, response status code and response headers
     def get_tasks_with_http_info(xero_tenant_id, project_id, options = {})
