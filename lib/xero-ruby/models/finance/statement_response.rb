@@ -31,11 +31,17 @@ module XeroRuby::Finance
     # Indicates the source of the statement data. Either imported from 1) direct bank feed OR 2) manual customer entry or upload. Manual import sources are STMTIMPORTSRC/MANUAL, STMTIMPORTSRC/CSV, STMTIMPORTSRC/OFX, Ofx or STMTIMPORTSRC/QIF. All other import sources are direct and, depending on the direct solution, may contain the name of the financial institution.
     attr_accessor :import_source
     
-    # Opening balance sourced from imported bank statements (if supplied). Note, for manually uploaded statements, this balance is also manual and usually not supplied.
+    # Opening balance sourced from imported bank statements (if supplied). Note, for manually uploaded statements, this balance is also manual and usually not supplied. Where not supplied, the value will be 0.
     attr_accessor :start_balance
     
-    # Closing balance sourced from imported bank statements (if supplied). Note, for manually uploaded statements, this balance is also manual and usually not supplied.
+    # Closing balance sourced from imported bank statements (if supplied). Note, for manually uploaded statements, this balance is also manual and usually not supplied. Where not supplied, the value will be 0.
     attr_accessor :end_balance
+    
+    # Opening statement balance calculated in Xero (= bank account conversion balance plus sum of imported bank statement lines). Note: If indicative statement balance doesn't match imported statement balance for the same date, either the conversion (opening at inception) balance in Xero is wrong or there's an error in the bank statement lines in Xero. Ref: https://central.xero.com/s/article/Compare-the-statement-balance-in-Xero-to-your-actual-bank-balance?userregion=true 
+    attr_accessor :indicative_start_balance
+    
+    # Closing statement balance calculated in Xero (= bank account conversion balance plus sum of imported bank statement lines). Note: If indicative statement balance doesn't match imported statement balance for the same date, either the conversion (opening at inception) balance in Xero is wrong or there's an error in the bank statement lines in Xero. Ref: https://central.xero.com/s/article/Compare-the-statement-balance-in-Xero-to-your-actual-bank-balance?userregion=true  
+    attr_accessor :indicative_end_balance
     
     # List of statement lines
     attr_accessor :statement_lines
@@ -50,6 +56,8 @@ module XeroRuby::Finance
         :'import_source' => :'importSource',
         :'start_balance' => :'startBalance',
         :'end_balance' => :'endBalance',
+        :'indicative_start_balance' => :'indicativeStartBalance',
+        :'indicative_end_balance' => :'indicativeEndBalance',
         :'statement_lines' => :'statementLines'
       }
     end
@@ -64,6 +72,8 @@ module XeroRuby::Finance
         :'import_source' => :'String',
         :'start_balance' => :'BigDecimal',
         :'end_balance' => :'BigDecimal',
+        :'indicative_start_balance' => :'BigDecimal',
+        :'indicative_end_balance' => :'BigDecimal',
         :'statement_lines' => :'Array<StatementLineResponse>'
       }
     end
@@ -111,6 +121,14 @@ module XeroRuby::Finance
         self.end_balance = attributes[:'end_balance']
       end
 
+      if attributes.key?(:'indicative_start_balance')
+        self.indicative_start_balance = attributes[:'indicative_start_balance']
+      end
+
+      if attributes.key?(:'indicative_end_balance')
+        self.indicative_end_balance = attributes[:'indicative_end_balance']
+      end
+
       if attributes.key?(:'statement_lines')
         if (value = attributes[:'statement_lines']).is_a?(Array)
           self.statement_lines = value
@@ -143,6 +161,8 @@ module XeroRuby::Finance
           import_source == o.import_source &&
           start_balance == o.start_balance &&
           end_balance == o.end_balance &&
+          indicative_start_balance == o.indicative_start_balance &&
+          indicative_end_balance == o.indicative_end_balance &&
           statement_lines == o.statement_lines
     end
 
@@ -155,7 +175,7 @@ module XeroRuby::Finance
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [statement_id, start_date, end_date, imported_date_time_utc, import_source, start_balance, end_balance, statement_lines].hash
+      [statement_id, start_date, end_date, imported_date_time_utc, import_source, start_balance, end_balance, indicative_start_balance, indicative_end_balance, statement_lines].hash
     end
 
     # Builds the object from hash
