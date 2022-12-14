@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **statement_line_id** | **String** | Xero Identifier of statement line | [optional] 
 **posted_date** | **Date** | Date of when statement line was posted | [optional] 
+**payee** | **String** | Payee description of statement line | [optional] 
 **reference** | **String** | Reference description of statement line | [optional] 
 **notes** | **String** | Notes description of statement line | [optional] 
 **cheque_no** | **String** | Cheque number of statement line | [optional] 
@@ -25,6 +26,7 @@ require 'XeroRuby::Finance'
 
 instance = XeroRuby::Finance::StatementLineResponse.new(statement_line_id: null,
                                  posted_date: null,
+                                 payee: null,
                                  reference: null,
                                  notes: null,
                                  cheque_no: null,

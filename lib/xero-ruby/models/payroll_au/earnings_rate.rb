@@ -34,6 +34,12 @@ module XeroRuby::PayrollAu
     # Boolean to determine if the earnings rate is reportable or exempt from W1
     attr_accessor :is_reportable_as_w1
     
+    # Boolean to determine if the allowance earnings rate contributes towards annual leave rate. Only applicable if EarningsType is ALLOWANCE and RateType is RATEPERUNIT
+    attr_accessor :allowance_contributes_to_annual_leave_rate
+    
+    # Boolean to determine if the allowance earnings rate contributes towards overtime allowance rate. Only applicable if EarningsType is ALLOWANCE and RateType is RATEPERUNIT
+    attr_accessor :allowance_contributes_to_overtime_rate
+    
 
     attr_accessor :earnings_type
     
@@ -79,6 +85,8 @@ module XeroRuby::PayrollAu
         :'is_exempt_from_tax' => :'IsExemptFromTax',
         :'is_exempt_from_super' => :'IsExemptFromSuper',
         :'is_reportable_as_w1' => :'IsReportableAsW1',
+        :'allowance_contributes_to_annual_leave_rate' => :'AllowanceContributesToAnnualLeaveRate',
+        :'allowance_contributes_to_overtime_rate' => :'AllowanceContributesToOvertimeRate',
         :'earnings_type' => :'EarningsType',
         :'earnings_rate_id' => :'EarningsRateID',
         :'rate_type' => :'RateType',
@@ -103,6 +111,8 @@ module XeroRuby::PayrollAu
         :'is_exempt_from_tax' => :'Boolean',
         :'is_exempt_from_super' => :'Boolean',
         :'is_reportable_as_w1' => :'Boolean',
+        :'allowance_contributes_to_annual_leave_rate' => :'Boolean',
+        :'allowance_contributes_to_overtime_rate' => :'Boolean',
         :'earnings_type' => :'EarningsType',
         :'earnings_rate_id' => :'String',
         :'rate_type' => :'RateType',
@@ -155,6 +165,14 @@ module XeroRuby::PayrollAu
 
       if attributes.key?(:'is_reportable_as_w1')
         self.is_reportable_as_w1 = attributes[:'is_reportable_as_w1']
+      end
+
+      if attributes.key?(:'allowance_contributes_to_annual_leave_rate')
+        self.allowance_contributes_to_annual_leave_rate = attributes[:'allowance_contributes_to_annual_leave_rate']
+      end
+
+      if attributes.key?(:'allowance_contributes_to_overtime_rate')
+        self.allowance_contributes_to_overtime_rate = attributes[:'allowance_contributes_to_overtime_rate']
       end
 
       if attributes.key?(:'earnings_type')
@@ -260,6 +278,8 @@ module XeroRuby::PayrollAu
           is_exempt_from_tax == o.is_exempt_from_tax &&
           is_exempt_from_super == o.is_exempt_from_super &&
           is_reportable_as_w1 == o.is_reportable_as_w1 &&
+          allowance_contributes_to_annual_leave_rate == o.allowance_contributes_to_annual_leave_rate &&
+          allowance_contributes_to_overtime_rate == o.allowance_contributes_to_overtime_rate &&
           earnings_type == o.earnings_type &&
           earnings_rate_id == o.earnings_rate_id &&
           rate_type == o.rate_type &&
@@ -283,7 +303,7 @@ module XeroRuby::PayrollAu
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, account_code, type_of_units, is_exempt_from_tax, is_exempt_from_super, is_reportable_as_w1, earnings_type, earnings_rate_id, rate_type, rate_per_unit, multiplier, accrue_leave, amount, employment_termination_payment_type, updated_date_utc, current_record, allowance_type, allowance_category].hash
+      [name, account_code, type_of_units, is_exempt_from_tax, is_exempt_from_super, is_reportable_as_w1, allowance_contributes_to_annual_leave_rate, allowance_contributes_to_overtime_rate, earnings_type, earnings_rate_id, rate_type, rate_per_unit, multiplier, accrue_leave, amount, employment_termination_payment_type, updated_date_utc, current_record, allowance_type, allowance_category].hash
     end
 
     # Builds the object from hash

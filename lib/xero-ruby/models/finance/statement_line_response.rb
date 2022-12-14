@@ -22,6 +22,9 @@ module XeroRuby::Finance
     # Date of when statement line was posted
     attr_accessor :posted_date
     
+    # Payee description of statement line
+    attr_accessor :payee
+    
     # Reference description of statement line
     attr_accessor :reference
     
@@ -60,6 +63,7 @@ module XeroRuby::Finance
       {
         :'statement_line_id' => :'statementLineId',
         :'posted_date' => :'postedDate',
+        :'payee' => :'payee',
         :'reference' => :'reference',
         :'notes' => :'notes',
         :'cheque_no' => :'chequeNo',
@@ -79,6 +83,7 @@ module XeroRuby::Finance
       {
         :'statement_line_id' => :'String',
         :'posted_date' => :'Date',
+        :'payee' => :'String',
         :'reference' => :'String',
         :'notes' => :'String',
         :'cheque_no' => :'String',
@@ -114,6 +119,10 @@ module XeroRuby::Finance
 
       if attributes.key?(:'posted_date')
         self.posted_date = attributes[:'posted_date']
+      end
+
+      if attributes.key?(:'payee')
+        self.payee = attributes[:'payee']
       end
 
       if attributes.key?(:'reference')
@@ -185,6 +194,7 @@ module XeroRuby::Finance
       self.class == o.class &&
           statement_line_id == o.statement_line_id &&
           posted_date == o.posted_date &&
+          payee == o.payee &&
           reference == o.reference &&
           notes == o.notes &&
           cheque_no == o.cheque_no &&
@@ -207,7 +217,7 @@ module XeroRuby::Finance
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [statement_line_id, posted_date, reference, notes, cheque_no, amount, transaction_date, type, is_reconciled, is_duplicate, is_deleted, payments, bank_transactions].hash
+      [statement_line_id, posted_date, payee, reference, notes, cheque_no, amount, transaction_date, type, is_reconciled, is_duplicate, is_deleted, payments, bank_transactions].hash
     end
 
     # Builds the object from hash
