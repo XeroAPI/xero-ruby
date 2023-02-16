@@ -25,12 +25,16 @@ module XeroRuby::PayrollAu
     # Earnings rate number of units.
     attr_accessor :number_of_units
     
+
+    attr_accessor :pay_out_type
+    
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'earnings_rate_id' => :'EarningsRateID',
         :'rate_per_unit' => :'RatePerUnit',
-        :'number_of_units' => :'NumberOfUnits'
+        :'number_of_units' => :'NumberOfUnits',
+        :'pay_out_type' => :'PayOutType'
       }
     end
 
@@ -39,7 +43,8 @@ module XeroRuby::PayrollAu
       {
         :'earnings_rate_id' => :'String',
         :'rate_per_unit' => :'BigDecimal',
-        :'number_of_units' => :'BigDecimal'
+        :'number_of_units' => :'BigDecimal',
+        :'pay_out_type' => :'PayOutType'
       }
     end
 
@@ -69,6 +74,10 @@ module XeroRuby::PayrollAu
       if attributes.key?(:'number_of_units')
         self.number_of_units = attributes[:'number_of_units']
       end
+
+      if attributes.key?(:'pay_out_type')
+        self.pay_out_type = attributes[:'pay_out_type']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -91,7 +100,8 @@ module XeroRuby::PayrollAu
       self.class == o.class &&
           earnings_rate_id == o.earnings_rate_id &&
           rate_per_unit == o.rate_per_unit &&
-          number_of_units == o.number_of_units
+          number_of_units == o.number_of_units &&
+          pay_out_type == o.pay_out_type
     end
 
     # @see the `==` method
@@ -103,7 +113,7 @@ module XeroRuby::PayrollAu
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [earnings_rate_id, rate_per_unit, number_of_units].hash
+      [earnings_rate_id, rate_per_unit, number_of_units, pay_out_type].hash
     end
 
     # Builds the object from hash
