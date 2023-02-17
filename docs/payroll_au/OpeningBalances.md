@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **super_lines** | [**Array&lt;SuperLine&gt;**](SuperLine.md) |  | [optional] 
 **reimbursement_lines** | [**Array&lt;ReimbursementLine&gt;**](ReimbursementLine.md) |  | [optional] 
 **leave_lines** | [**Array&lt;LeaveLine&gt;**](LeaveLine.md) |  | [optional] 
+**paid_leave_earnings_lines** | [**Array&lt;PaidLeaveEarningsLine&gt;**](PaidLeaveEarningsLine.md) |  | [optional] 
 
 ## Code Sample
 
@@ -23,7 +24,8 @@ instance = XeroRuby::PayrollAu::OpeningBalances.new(opening_balance_date: /Date(
                                  deduction_lines: null,
                                  super_lines: null,
                                  reimbursement_lines: null,
-                                 leave_lines: null)
+                                 leave_lines: null,
+                                 paid_leave_earnings_lines: null)
 ```
 
 

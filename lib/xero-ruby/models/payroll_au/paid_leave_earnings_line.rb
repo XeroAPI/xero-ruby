@@ -15,71 +15,41 @@ require 'date'
 module XeroRuby::PayrollAu
   require 'bigdecimal'
 
-  class LeaveApplication
-    # The Xero identifier for Payroll Employee
-    attr_accessor :leave_application_id
-    
-    # The Xero identifier for Payroll Employee
-    attr_accessor :employee_id
-    
-    # The Xero identifier for Leave Type
+  class PaidLeaveEarningsLine
+    # Xero leave type identifier
     attr_accessor :leave_type_id
     
-    # The title of the leave
-    attr_accessor :title
+    # Paid leave amount
+    attr_accessor :amount
     
-    # Start date of the leave (YYYY-MM-DD)
-    attr_accessor :start_date
+    # The amount of leave loading applied for the leave type that is subject to Superannuation Guarantee Contributions. *Only applicable for Leave Types with Annual Leave Categories
+    attr_accessor :sgc_applied_leave_loading_amount
     
-    # End date of the leave (YYYY-MM-DD)
-    attr_accessor :end_date
+    # The amount of leave loading applied for the leave type that is exempt from Superannuation Guarantee Contributions. *Only applicable for Leave Types with Annual Leave Categories
+    attr_accessor :sgc_exempted_leave_loading_amount
     
-    # The Description of the Leave
-    attr_accessor :description
-    
-
-    attr_accessor :pay_out_type
-    
-
-    attr_accessor :leave_periods
-    
-    # Last modified timestamp
-    attr_accessor :updated_date_utc
-    
-    # Displays array of validation error messages from the API
-    attr_accessor :validation_errors
+    # Reset the STP categorisations for the leave type. *Only applicable for Leave Types with Annual Leave Categories
+    attr_accessor :reset_stp_categorisation
     
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'leave_application_id' => :'LeaveApplicationID',
-        :'employee_id' => :'EmployeeID',
         :'leave_type_id' => :'LeaveTypeID',
-        :'title' => :'Title',
-        :'start_date' => :'StartDate',
-        :'end_date' => :'EndDate',
-        :'description' => :'Description',
-        :'pay_out_type' => :'PayOutType',
-        :'leave_periods' => :'LeavePeriods',
-        :'updated_date_utc' => :'UpdatedDateUTC',
-        :'validation_errors' => :'ValidationErrors'
+        :'amount' => :'Amount',
+        :'sgc_applied_leave_loading_amount' => :'SGCAppliedLeaveLoadingAmount',
+        :'sgc_exempted_leave_loading_amount' => :'SGCExemptedLeaveLoadingAmount',
+        :'reset_stp_categorisation' => :'ResetSTPCategorisation'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'leave_application_id' => :'String',
-        :'employee_id' => :'String',
         :'leave_type_id' => :'String',
-        :'title' => :'String',
-        :'start_date' => :'Date',
-        :'end_date' => :'Date',
-        :'description' => :'String',
-        :'pay_out_type' => :'PayOutType',
-        :'leave_periods' => :'Array<LeavePeriod>',
-        :'updated_date_utc' => :'DateTime',
-        :'validation_errors' => :'Array<ValidationError>'
+        :'amount' => :'BigDecimal',
+        :'sgc_applied_leave_loading_amount' => :'BigDecimal',
+        :'sgc_exempted_leave_loading_amount' => :'BigDecimal',
+        :'reset_stp_categorisation' => :'Boolean'
       }
     end
 
@@ -87,63 +57,35 @@ module XeroRuby::PayrollAu
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `XeroRuby::PayrollAu::LeaveApplication` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `XeroRuby::PayrollAu::PaidLeaveEarningsLine` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `XeroRuby::PayrollAu::LeaveApplication`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `XeroRuby::PayrollAu::PaidLeaveEarningsLine`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
-
-      if attributes.key?(:'leave_application_id')
-        self.leave_application_id = attributes[:'leave_application_id']
-      end
-
-      if attributes.key?(:'employee_id')
-        self.employee_id = attributes[:'employee_id']
-      end
 
       if attributes.key?(:'leave_type_id')
         self.leave_type_id = attributes[:'leave_type_id']
       end
 
-      if attributes.key?(:'title')
-        self.title = attributes[:'title']
+      if attributes.key?(:'amount')
+        self.amount = attributes[:'amount']
       end
 
-      if attributes.key?(:'start_date')
-        self.start_date = attributes[:'start_date']
+      if attributes.key?(:'sgc_applied_leave_loading_amount')
+        self.sgc_applied_leave_loading_amount = attributes[:'sgc_applied_leave_loading_amount']
       end
 
-      if attributes.key?(:'end_date')
-        self.end_date = attributes[:'end_date']
+      if attributes.key?(:'sgc_exempted_leave_loading_amount')
+        self.sgc_exempted_leave_loading_amount = attributes[:'sgc_exempted_leave_loading_amount']
       end
 
-      if attributes.key?(:'description')
-        self.description = attributes[:'description']
-      end
-
-      if attributes.key?(:'pay_out_type')
-        self.pay_out_type = attributes[:'pay_out_type']
-      end
-
-      if attributes.key?(:'leave_periods')
-        if (value = attributes[:'leave_periods']).is_a?(Array)
-          self.leave_periods = value
-        end
-      end
-
-      if attributes.key?(:'updated_date_utc')
-        self.updated_date_utc = attributes[:'updated_date_utc']
-      end
-
-      if attributes.key?(:'validation_errors')
-        if (value = attributes[:'validation_errors']).is_a?(Array)
-          self.validation_errors = value
-        end
+      if attributes.key?(:'reset_stp_categorisation')
+        self.reset_stp_categorisation = attributes[:'reset_stp_categorisation']
       end
     end
 
@@ -151,12 +93,22 @@ module XeroRuby::PayrollAu
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @leave_type_id.nil?
+        invalid_properties.push('invalid value for "leave_type_id", leave_type_id cannot be nil.')
+      end
+
+      if @amount.nil?
+        invalid_properties.push('invalid value for "amount", amount cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @leave_type_id.nil?
+      return false if @amount.nil?
       true
     end
 
@@ -165,17 +117,11 @@ module XeroRuby::PayrollAu
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          leave_application_id == o.leave_application_id &&
-          employee_id == o.employee_id &&
           leave_type_id == o.leave_type_id &&
-          title == o.title &&
-          start_date == o.start_date &&
-          end_date == o.end_date &&
-          description == o.description &&
-          pay_out_type == o.pay_out_type &&
-          leave_periods == o.leave_periods &&
-          updated_date_utc == o.updated_date_utc &&
-          validation_errors == o.validation_errors
+          amount == o.amount &&
+          sgc_applied_leave_loading_amount == o.sgc_applied_leave_loading_amount &&
+          sgc_exempted_leave_loading_amount == o.sgc_exempted_leave_loading_amount &&
+          reset_stp_categorisation == o.reset_stp_categorisation
     end
 
     # @see the `==` method
@@ -187,7 +133,7 @@ module XeroRuby::PayrollAu
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [leave_application_id, employee_id, leave_type_id, title, start_date, end_date, description, pay_out_type, leave_periods, updated_date_utc, validation_errors].hash
+      [leave_type_id, amount, sgc_applied_leave_loading_amount, sgc_exempted_leave_loading_amount, reset_stp_categorisation].hash
     end
 
     # Builds the object from hash

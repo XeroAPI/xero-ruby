@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**delete_file_association**](FilesApi.md#delete_file_association) | **DELETE** /Files/{FileId}/Associations/{ObjectId} | Deletes an existing file association
 [**delete_folder**](FilesApi.md#delete_folder) | **DELETE** /Folders/{FolderId} | Deletes a folder
 [**get_associations_by_object**](FilesApi.md#get_associations_by_object) | **GET** /Associations/{ObjectId} | Retrieves an association object using a unique object ID
+[**get_associations_count**](FilesApi.md#get_associations_count) | **GET** /Associations/Count | Retrieves a count of associations for a list of objects.
 [**get_file**](FilesApi.md#get_file) | **GET** /Files/{FileId} | Retrieves a file by a unique file ID
 [**get_file_associations**](FilesApi.md#get_file_associations) | **GET** /Files/{FileId}/Associations | Retrieves a specific file associations
 [**get_file_content**](FilesApi.md#get_file_content) | **GET** /Files/{FileId}/Content | Retrieves the content of a specific file
@@ -367,7 +368,7 @@ nil (empty response body)
 
 Retrieves an association object using a unique object ID
 
-By passing in the appropriate options,
+By passing in the appropriate options, you can retrieve an association
 
 ### Example
 
@@ -416,6 +417,72 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Array&lt;Association&gt;**](Association.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_associations_count
+
+> Object get_associations_count(xero_tenant_id, object_ids)
+
+Retrieves a count of associations for a list of objects.
+
+By passing in the appropriate options, you can retrieve the association count for objects
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# You need to namespace your api method call to one of the following api sets
+# [:accounting_api, :assets_api, :projects_api, :files_api, :payroll_au_api, :payroll_nz_api, :payroll_uk_api, :app_store_api]
+
+api_instance = xero_client.<api_set>
+
+
+
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+object_ids = ['object_ids_example'] # Array<String> | A comma-separated list of object ids
+begin
+  #Retrieves a count of associations for a list of objects.
+  result = api_instance.get_associations_count(xero_tenant_id, object_ids)
+  p result
+rescue XeroRuby::Files::ApiError => e
+  puts "Exception when calling FilesApi->get_associations_count: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **object_ids** | [**Array&lt;String&gt;**](String.md)| A comma-separated list of object ids | 
+
+### Return type
+
+**Object**
 
 ### Authorization
 

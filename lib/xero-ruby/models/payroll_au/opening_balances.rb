@@ -37,6 +37,9 @@ module XeroRuby::PayrollAu
 
     attr_accessor :leave_lines
     
+
+    attr_accessor :paid_leave_earnings_lines
+    
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -46,7 +49,8 @@ module XeroRuby::PayrollAu
         :'deduction_lines' => :'DeductionLines',
         :'super_lines' => :'SuperLines',
         :'reimbursement_lines' => :'ReimbursementLines',
-        :'leave_lines' => :'LeaveLines'
+        :'leave_lines' => :'LeaveLines',
+        :'paid_leave_earnings_lines' => :'PaidLeaveEarningsLines'
       }
     end
 
@@ -59,7 +63,8 @@ module XeroRuby::PayrollAu
         :'deduction_lines' => :'Array<DeductionLine>',
         :'super_lines' => :'Array<SuperLine>',
         :'reimbursement_lines' => :'Array<ReimbursementLine>',
-        :'leave_lines' => :'Array<LeaveLine>'
+        :'leave_lines' => :'Array<LeaveLine>',
+        :'paid_leave_earnings_lines' => :'Array<PaidLeaveEarningsLine>'
       }
     end
 
@@ -115,6 +120,12 @@ module XeroRuby::PayrollAu
           self.leave_lines = value
         end
       end
+
+      if attributes.key?(:'paid_leave_earnings_lines')
+        if (value = attributes[:'paid_leave_earnings_lines']).is_a?(Array)
+          self.paid_leave_earnings_lines = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -141,7 +152,8 @@ module XeroRuby::PayrollAu
           deduction_lines == o.deduction_lines &&
           super_lines == o.super_lines &&
           reimbursement_lines == o.reimbursement_lines &&
-          leave_lines == o.leave_lines
+          leave_lines == o.leave_lines &&
+          paid_leave_earnings_lines == o.paid_leave_earnings_lines
     end
 
     # @see the `==` method
@@ -153,7 +165,7 @@ module XeroRuby::PayrollAu
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [opening_balance_date, tax, earnings_lines, deduction_lines, super_lines, reimbursement_lines, leave_lines].hash
+      [opening_balance_date, tax, earnings_lines, deduction_lines, super_lines, reimbursement_lines, leave_lines, paid_leave_earnings_lines].hash
     end
 
     # Builds the object from hash
