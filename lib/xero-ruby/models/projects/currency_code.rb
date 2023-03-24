@@ -38,6 +38,7 @@ module XeroRuby::Projects
     BTN ||= "BTN".freeze
     BWP ||= "BWP".freeze
     BYN ||= "BYN".freeze
+    BYR ||= "BYR".freeze
     BZD ||= "BZD".freeze
     CAD ||= "CAD".freeze
     CDF ||= "CDF".freeze
@@ -54,6 +55,7 @@ module XeroRuby::Projects
     DKK ||= "DKK".freeze
     DOP ||= "DOP".freeze
     DZD ||= "DZD".freeze
+    EEK ||= "EEK".freeze
     EGP ||= "EGP".freeze
     ERN ||= "ERN".freeze
     ETB ||= "ETB".freeze
@@ -99,6 +101,8 @@ module XeroRuby::Projects
     LKR ||= "LKR".freeze
     LRD ||= "LRD".freeze
     LSL ||= "LSL".freeze
+    LTL ||= "LTL".freeze
+    LVL ||= "LVL".freeze
     LYD ||= "LYD".freeze
     MAD ||= "MAD".freeze
     MDL ||= "MDL".freeze
@@ -107,11 +111,13 @@ module XeroRuby::Projects
     MMK ||= "MMK".freeze
     MNT ||= "MNT".freeze
     MOP ||= "MOP".freeze
+    MRO ||= "MRO".freeze
     MRU ||= "MRU".freeze
     MUR ||= "MUR".freeze
     MVR ||= "MVR".freeze
     MWK ||= "MWK".freeze
     MXN ||= "MXN".freeze
+    MXV ||= "MXV".freeze
     MYR ||= "MYR".freeze
     MZN ||= "MZN".freeze
     NAD ||= "NAD".freeze
