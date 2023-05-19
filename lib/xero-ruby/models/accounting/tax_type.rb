@@ -77,10 +77,10 @@ module XeroRuby::Accounting
     IGDSINPUT3 ||= "IGDSINPUT3".freeze
     SROVR ||= "SROVR".freeze
     TOURISTREFUND ||= "TOURISTREFUND".freeze
-    TXRCN33_INPUT ||= "TXRCN33INPUT".freeze
-    TXRCREINPUT ||= "TXRCREINPUT".freeze
-    TXRCESSINPUT ||= "TXRCESSINPUT".freeze
-    TXRCTSINPUT ||= "TXRCTSINPUT".freeze
+    TXRCN33 ||= "TXRCN33".freeze
+    TXRCRE ||= "TXRCRE".freeze
+    TXRCESS ||= "TXRCESS".freeze
+    TXRCTS ||= "TXRCTS".freeze
     OUTPUTY23 ||= "OUTPUTY23".freeze
     DSOUTPUTY23 ||= "DSOUTPUTY23".freeze
     INPUTY23 ||= "INPUTY23".freeze
@@ -96,6 +96,10 @@ module XeroRuby::Accounting
     SROVRRSY23 ||= "SROVRRSY23".freeze
     SROVRLVGY23 ||= "SROVRLVGY23".freeze
     SRLVGY23 ||= "SRLVGY23".freeze
+    TXRCN33_Y23 ||= "TXRCN33Y23".freeze
+    TXRCREY23 ||= "TXRCREY23".freeze
+    TXRCESSY23 ||= "TXRCESSY23".freeze
+    TXRCTSY23 ||= "TXRCTSY23".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

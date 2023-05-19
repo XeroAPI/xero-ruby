@@ -257,7 +257,7 @@ module XeroRuby
     end
 
     def last_connection
-      connections.sort { |a,b| DateTime.parse(a['updatedDateUtc']) <=> DateTime.parse(b['updatedDateUtc'])}.first
+      connections.sort { |a,b| DateTime.parse(a['updatedDateUtc']) <=> DateTime.parse(b['updatedDateUtc'])}.last
     end
 
     def disconnect(connection_id)
