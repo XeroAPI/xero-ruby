@@ -4,6 +4,7 @@ All URIs are relative to *https://api.xero.com/payroll.xro/1.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**approve_leave_application**](PayrollAuApi.md#approve_leave_application) | **POST** /LeaveApplications/{LeaveApplicationID}/approve | Approve a requested leave application by a unique leave application id
 [**create_employee**](PayrollAuApi.md#create_employee) | **POST** /Employees | Creates a payroll employee
 [**create_leave_application**](PayrollAuApi.md#create_leave_application) | **POST** /LeaveApplications | Creates a leave application
 [**create_pay_item**](PayrollAuApi.md#create_pay_item) | **POST** /PayItems | Creates a pay item
@@ -15,6 +16,7 @@ Method | HTTP request | Description
 [**get_employees**](PayrollAuApi.md#get_employees) | **GET** /Employees | Searches payroll employees
 [**get_leave_application**](PayrollAuApi.md#get_leave_application) | **GET** /LeaveApplications/{LeaveApplicationID} | Retrieves a leave application by a unique leave application id
 [**get_leave_applications**](PayrollAuApi.md#get_leave_applications) | **GET** /LeaveApplications | Retrieves leave applications
+[**get_leave_applications_v2**](PayrollAuApi.md#get_leave_applications_v2) | **GET** /LeaveApplications/v2 | Retrieves leave applications including leave requests
 [**get_pay_items**](PayrollAuApi.md#get_pay_items) | **GET** /PayItems | Retrieves pay items
 [**get_pay_run**](PayrollAuApi.md#get_pay_run) | **GET** /PayRuns/{PayRunID} | Retrieves a pay run by using a unique pay run id
 [**get_pay_runs**](PayrollAuApi.md#get_pay_runs) | **GET** /PayRuns | Retrieves pay runs
@@ -27,6 +29,7 @@ Method | HTTP request | Description
 [**get_superfunds**](PayrollAuApi.md#get_superfunds) | **GET** /Superfunds | Retrieves superfunds
 [**get_timesheet**](PayrollAuApi.md#get_timesheet) | **GET** /Timesheets/{TimesheetID} | Retrieves a timesheet by using a unique timesheet id
 [**get_timesheets**](PayrollAuApi.md#get_timesheets) | **GET** /Timesheets | Retrieves timesheets
+[**reject_leave_application**](PayrollAuApi.md#reject_leave_application) | **POST** /LeaveApplications/{LeaveApplicationID}/reject | Reject a leave application by a unique leave application id
 [**update_employee**](PayrollAuApi.md#update_employee) | **POST** /Employees/{EmployeeID} | Updates an employee&#39;s detail
 [**update_leave_application**](PayrollAuApi.md#update_leave_application) | **POST** /LeaveApplications/{LeaveApplicationID} | Updates a specific leave application
 [**update_pay_run**](PayrollAuApi.md#update_pay_run) | **POST** /PayRuns/{PayRunID} | Updates a pay run
@@ -34,6 +37,70 @@ Method | HTTP request | Description
 [**update_superfund**](PayrollAuApi.md#update_superfund) | **POST** /Superfunds/{SuperFundID} | Updates a superfund
 [**update_timesheet**](PayrollAuApi.md#update_timesheet) | **POST** /Timesheets/{TimesheetID} | Updates a timesheet
 
+
+
+## approve_leave_application
+
+> LeaveApplications approve_leave_application(xero_tenant_id, leave_application_id)
+
+Approve a requested leave application by a unique leave application id
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# You need to namespace your api method call to one of the following api sets
+# [:accounting_api, :assets_api, :projects_api, :files_api, :payroll_au_api, :payroll_nz_api, :payroll_uk_api, :app_store_api]
+
+api_instance = xero_client.<api_set>
+
+
+
+xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+leave_application_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Leave Application id for single object
+begin
+  #Approve a requested leave application by a unique leave application id
+  result = api_instance.approve_leave_application(xero_tenant_id, leave_application_id)
+  p result
+rescue XeroRuby::PayrollAu::ApiError => e
+  puts "Exception when calling PayrollAuApi->approve_leave_application: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **leave_application_id** | [**String**](.md)| Leave Application id for single object | 
+
+### Return type
+
+[**LeaveApplications**](LeaveApplications.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## create_employee
@@ -736,6 +803,82 @@ begin
   p result
 rescue XeroRuby::PayrollAu::ApiError => e
   puts "Exception when calling PayrollAuApi->get_leave_applications: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **if_modified_since** | **DateTime**| Only records created or modified since this timestamp will be returned | [optional] 
+ **where** | **String**| Filter by an any element | [optional] 
+ **order** | **String**| Order by an any element | [optional] 
+ **page** | **Integer**| e.g. page&#x3D;1 – Up to 100 objects will be returned in a single API call | [optional] 
+
+### Return type
+
+[**LeaveApplications**](LeaveApplications.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_leave_applications_v2
+
+> LeaveApplications get_leave_applications_v2(xero_tenant_id, opts)
+
+Retrieves leave applications including leave requests
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# You need to namespace your api method call to one of the following api sets
+# [:accounting_api, :assets_api, :projects_api, :files_api, :payroll_au_api, :payroll_nz_api, :payroll_uk_api, :app_store_api]
+
+api_instance = xero_client.<api_set>
+
+
+
+xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+opts = {
+  if_modified_since: DateTime.parse('2020-02-06T12:17:43.202-08:00'), # DateTime | Only records created or modified since this timestamp will be returned
+
+  where: 'Status==\"ACTIVE\"', # String | Filter by an any element
+
+  order: 'EmailAddress%20DESC', # String | Order by an any element
+
+  page: 56 # Integer | e.g. page=1 – Up to 100 objects will be returned in a single API call
+}
+
+begin
+  #Retrieves leave applications including leave requests
+  result = api_instance.get_leave_applications_v2(xero_tenant_id, opts)
+  p result
+rescue XeroRuby::PayrollAu::ApiError => e
+  puts "Exception when calling PayrollAuApi->get_leave_applications_v2: #{e}"
 end
 ```
 
@@ -1596,6 +1739,70 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## reject_leave_application
+
+> LeaveApplications reject_leave_application(xero_tenant_id, leave_application_id)
+
+Reject a leave application by a unique leave application id
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# You need to namespace your api method call to one of the following api sets
+# [:accounting_api, :assets_api, :projects_api, :files_api, :payroll_au_api, :payroll_nz_api, :payroll_uk_api, :app_store_api]
+
+api_instance = xero_client.<api_set>
+
+
+
+xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+leave_application_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Leave Application id for single object
+begin
+  #Reject a leave application by a unique leave application id
+  result = api_instance.reject_leave_application(xero_tenant_id, leave_application_id)
+  p result
+rescue XeroRuby::PayrollAu::ApiError => e
+  puts "Exception when calling PayrollAuApi->reject_leave_application: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **leave_application_id** | [**String**](.md)| Leave Application id for single object | 
+
+### Return type
+
+[**LeaveApplications**](LeaveApplications.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## update_employee
 
 > Employees update_employee(xero_tenant_id, employee_id, opts)
@@ -1700,7 +1907,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 leave_application_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Leave Application id for single object
-leave_application = [ { "EmployeeID": "cdfb8371-0b21-4b8a-8903-1024df6c391e", "LeaveTypeID": "184ea8f7-d143-46dd-bef3-0c60e1aa6fca", "StartDate": "/Date(1572559200000+0000)/", "EndDate": "/Date(1572645600000+0000)/", "Description": "My updated Description" } ] # Array<LeaveApplication> | 
+leave_application = [ { "EmployeeID": "cdfb8371-0b21-4b8a-8903-1024df6c391e", "LeaveApplicationID": "1d4cd583-0107-4386-936b-672eb3d1f624", "LeaveTypeID": "184ea8f7-d143-46dd-bef3-0c60e1aa6fca", "LeavePeriods": [ { "PayPeriodStartDate": "/Date(1572566400000+0000)/", "PayPeriodEndDate": "/Date(1573084800000+0000)/", "LeavePeriodStatus": "SCHEDULED", "NumberOfUnits": 7.6 } ], "Title": "vacation", "Description": "My updated Description", "StartDate": "/Date(1572559200000+0000)/", "EndDate": "/Date(1572645600000+0000)/", "PayOutType": "DEFAULT" } ] # Array<LeaveApplication> | 
 begin
   #Updates a specific leave application
   result = api_instance.update_leave_application(xero_tenant_id, leave_application_id, leave_application)

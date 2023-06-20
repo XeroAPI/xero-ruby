@@ -100,6 +100,16 @@ module XeroRuby::Accounting
     TXRCREY23 ||= "TXRCREY23".freeze
     TXRCESSY23 ||= "TXRCESSY23".freeze
     TXRCTSY23 ||= "TXRCTSY23".freeze
+    IM ||= "IM".freeze
+    IMY23 ||= "IMY23".freeze
+    IMESS ||= "IMESS".freeze
+    IMESSY23 ||= "IMESSY23".freeze
+    IMN33 ||= "IMN33".freeze
+    IMN33_Y23 ||= "IMN33Y23".freeze
+    IMRE ||= "IMRE".freeze
+    IMREY23 ||= "IMREY23".freeze
+    BADDEBTRECOVERY ||= "BADDEBTRECOVERY".freeze
+    BADDEBTRECOVERYY23 ||= "BADDEBTRECOVERYY23".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

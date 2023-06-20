@@ -16,6 +16,81 @@ module XeroRuby
     def initialize(api_client = ApiClient.new)
       @api_client = api_client
     end
+    # Approve a requested leave application by a unique leave application id
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param leave_application_id [String] Leave Application id for single object
+    # @param [Hash] opts the optional parameters
+    # @return [LeaveApplications]
+    def approve_leave_application(xero_tenant_id, leave_application_id, opts = {})
+      data, _status_code, _headers = approve_leave_application_with_http_info(xero_tenant_id, leave_application_id, opts)
+      data
+    end
+
+    # Approve a requested leave application by a unique leave application id
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param leave_application_id [String] Leave Application id for single object
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(LeaveApplications, Integer, Hash)>] LeaveApplications data, response status code and response headers
+    def approve_leave_application_with_http_info(xero_tenant_id, leave_application_id, options = {})
+      opts = options.dup
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: PayrollAuApi.approve_leave_application ...'
+      end
+      # verify the required parameter 'xero_tenant_id' is set
+      if @api_client.config.client_side_validation && xero_tenant_id.nil?
+        fail ArgumentError, "Missing the required parameter 'xero_tenant_id' when calling PayrollAuApi.approve_leave_application"
+      end
+      # verify the required parameter 'leave_application_id' is set
+      if @api_client.config.client_side_validation && leave_application_id.nil?
+        fail ArgumentError, "Missing the required parameter 'leave_application_id' when calling PayrollAuApi.approve_leave_application"
+      end
+      # resource path
+      local_var_path = '/LeaveApplications/{LeaveApplicationID}/approve'.sub('{' + 'LeaveApplicationID' + '}', leave_application_id.to_s)
+
+      # camelize keys of incoming `where` opts
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      
+      # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
+      query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+      query_params[:'ContactIDs'] = @api_client.build_collection_param(opts[:'contact_ids'], :csv) if !opts[:'contact_ids'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'Xero-Tenant-Id'] = xero_tenant_id
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'LeaveApplications' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['OAuth2']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "PayrollAuApi", new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PayrollAuApi#approve_leave_application\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Creates a payroll employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee [Array<Employee>] 
@@ -863,6 +938,87 @@ module XeroRuby
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, "PayrollAuApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PayrollAuApi#get_leave_applications\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieves leave applications including leave requests
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param [Hash] opts the optional parameters
+    # @option opts [DateTime] :if_modified_since Only records created or modified since this timestamp will be returned
+    # @option opts [String] :where Filter by an any element
+    # @option opts [String] :order Order by an any element
+    # @option opts [Integer] :page e.g. page&#x3D;1 – Up to 100 objects will be returned in a single API call
+    # @return [LeaveApplications]
+    def get_leave_applications_v2(xero_tenant_id, opts = {})
+      data, _status_code, _headers = get_leave_applications_v2_with_http_info(xero_tenant_id, opts)
+      data
+    end
+
+    # Retrieves leave applications including leave requests
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param [Hash] opts the optional parameters
+    # @option opts [DateTime] :if_modified_since Only records created or modified since this timestamp will be returned
+    # @option opts [String] :where Filter by an any element
+    # @option opts [String] :order Order by an any element
+    # @option opts [Integer] :page e.g. page&#x3D;1 – Up to 100 objects will be returned in a single API call
+    # @return [Array<(LeaveApplications, Integer, Hash)>] LeaveApplications data, response status code and response headers
+    def get_leave_applications_v2_with_http_info(xero_tenant_id, options = {})
+      opts = options.dup
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: PayrollAuApi.get_leave_applications_v2 ...'
+      end
+      # verify the required parameter 'xero_tenant_id' is set
+      if @api_client.config.client_side_validation && xero_tenant_id.nil?
+        fail ArgumentError, "Missing the required parameter 'xero_tenant_id' when calling PayrollAuApi.get_leave_applications_v2"
+      end
+      # resource path
+      local_var_path = '/LeaveApplications/v2'
+
+      # camelize keys of incoming `where` opts
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'where'] = opts[:'where'] if !opts[:'where'].nil?
+      query_params[:'order'] = opts[:'order'] if !opts[:'order'].nil?
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      
+      # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
+      query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+      query_params[:'ContactIDs'] = @api_client.build_collection_param(opts[:'contact_ids'], :csv) if !opts[:'contact_ids'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'Xero-Tenant-Id'] = xero_tenant_id
+      header_params[:'If-Modified-Since'] = opts[:'if_modified_since'] if !opts[:'if_modified_since'].nil?
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'LeaveApplications' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['OAuth2']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "PayrollAuApi", new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PayrollAuApi#get_leave_applications_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1787,6 +1943,81 @@ module XeroRuby
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, "PayrollAuApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PayrollAuApi#get_timesheets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Reject a leave application by a unique leave application id
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param leave_application_id [String] Leave Application id for single object
+    # @param [Hash] opts the optional parameters
+    # @return [LeaveApplications]
+    def reject_leave_application(xero_tenant_id, leave_application_id, opts = {})
+      data, _status_code, _headers = reject_leave_application_with_http_info(xero_tenant_id, leave_application_id, opts)
+      data
+    end
+
+    # Reject a leave application by a unique leave application id
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param leave_application_id [String] Leave Application id for single object
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(LeaveApplications, Integer, Hash)>] LeaveApplications data, response status code and response headers
+    def reject_leave_application_with_http_info(xero_tenant_id, leave_application_id, options = {})
+      opts = options.dup
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: PayrollAuApi.reject_leave_application ...'
+      end
+      # verify the required parameter 'xero_tenant_id' is set
+      if @api_client.config.client_side_validation && xero_tenant_id.nil?
+        fail ArgumentError, "Missing the required parameter 'xero_tenant_id' when calling PayrollAuApi.reject_leave_application"
+      end
+      # verify the required parameter 'leave_application_id' is set
+      if @api_client.config.client_side_validation && leave_application_id.nil?
+        fail ArgumentError, "Missing the required parameter 'leave_application_id' when calling PayrollAuApi.reject_leave_application"
+      end
+      # resource path
+      local_var_path = '/LeaveApplications/{LeaveApplicationID}/reject'.sub('{' + 'LeaveApplicationID' + '}', leave_application_id.to_s)
+
+      # camelize keys of incoming `where` opts
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      
+      # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
+      query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+      query_params[:'ContactIDs'] = @api_client.build_collection_param(opts[:'contact_ids'], :csv) if !opts[:'contact_ids'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'Xero-Tenant-Id'] = xero_tenant_id
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'LeaveApplications' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['OAuth2']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "PayrollAuApi", new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PayrollAuApi#reject_leave_application\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
