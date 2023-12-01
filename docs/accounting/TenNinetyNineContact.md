@@ -26,6 +26,9 @@ Name | Type | Description | Notes
 **street_address** | **String** | Contact address on 1099 Form | [optional] 
 **tax_id** | **String** | Contact tax id on 1099 Form | [optional] 
 **contact_id** | **String** | Contact contact id | [optional] 
+**legal_name** | **String** | Contact legal name | [optional] 
+**business_name** | **String** | Contact business name | [optional] 
+**federal_tax_classification** | **String** | Contact federal tax classification | [optional] 
 
 ## Code Sample
 
@@ -53,7 +56,10 @@ instance = XeroRuby::Accounting::TenNinetyNineContact.new(box1: null,
                                  email: null,
                                  street_address: null,
                                  tax_id: null,
-                                 contact_id: null)
+                                 contact_id: null,
+                                 legal_name: null,
+                                 business_name: null,
+                                 federal_tax_classification: null)
 ```
 
 

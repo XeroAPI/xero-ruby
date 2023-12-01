@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **deposit** | [**Amount**](Amount.md) |  | [optional] 
 **deposit_applied** | [**Amount**](Amount.md) |  | [optional] 
 **credit_note_amount** | [**Amount**](Amount.md) |  | [optional] 
-**deadline_utc** | **DateTime** | Deadline for the project. UTC Date Time in ISO-8601 format. | [optional] 
+**deadline_utc** | **Time** | Deadline for the project. UTC Date Time in ISO-8601 format. | [optional] 
 **total_invoiced** | [**Amount**](Amount.md) |  | [optional] 
 **total_to_be_invoiced** | [**Amount**](Amount.md) |  | [optional] 
 **estimate** | [**Amount**](Amount.md) |  | [optional] 

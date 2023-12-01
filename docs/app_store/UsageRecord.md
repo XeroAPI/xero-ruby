@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **subscription_id** | **String** | The unique identifier of the Subscription. | 
 **subscription_item_id** | **String** | The unique identifier of the SubscriptionItem. | 
 **test_mode** | **Boolean** | If the subscription is a test subscription | 
-**recorded_at** | **DateTime** | The time when this usage was recorded in UTC | 
+**recorded_at** | **Time** | The time when this usage was recorded in UTC | 
 **usage_record_id** | **String** | The unique identifier of the usageRecord. | 
 **price_per_unit** | **Float** | The price per unit | 
 **product_id** | **String** | The unique identifier of the linked Product | 

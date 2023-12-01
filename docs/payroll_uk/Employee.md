@@ -16,8 +16,8 @@ Name | Type | Description | Notes
 **start_date** | **Date** | Employment start date of the employee at the time it was requested | [optional] 
 **end_date** | **Date** | Employment end date of the employee at the time it was requested | [optional] 
 **payroll_calendar_id** | **String** | Xero unique identifier for the payroll calendar of the employee | [optional] 
-**updated_date_utc** | **DateTime** | UTC timestamp of last update to the employee | [optional] 
-**created_date_utc** | **DateTime** | UTC timestamp when the employee was created in Xero | [optional] 
+**updated_date_utc** | **Time** | UTC timestamp of last update to the employee | [optional] 
+**created_date_utc** | **Time** | UTC timestamp when the employee was created in Xero | [optional] 
 **national_insurance_number** | **String** | National insurance number of the employee | [optional] 
 **is_off_payroll_worker** | **Boolean** | Whether the employee is an off payroll worker | [optional] 
 
@@ -30,13 +30,13 @@ instance = XeroRuby::PayrollUk::Employee.new(employee_id: d90457c4-f1be-4f2e-b4e
                                  title: Mrs,
                                  first_name: Karen,
                                  last_name: Jones,
-                                 date_of_birth: Wed Jan 02 00:00:00 GMT 2019,
+                                 date_of_birth: Wed Jan 02 00:00:00 UTC 2019,
                                  address: null,
                                  email: developer@me.com,
                                  gender: F,
                                  phone_number: 415-555-1212,
-                                 start_date: Sun Jan 19 00:00:00 GMT 2020,
-                                 end_date: Sun Jan 19 00:00:00 GMT 2020,
+                                 start_date: Sun Jan 19 00:00:00 UTC 2020,
+                                 end_date: Sun Jan 19 00:00:00 UTC 2020,
                                  payroll_calendar_id: null,
                                  updated_date_utc: null,
                                  created_date_utc: null,

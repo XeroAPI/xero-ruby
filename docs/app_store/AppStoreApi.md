@@ -42,7 +42,7 @@ api_instance = xero_client.<api_set>
 
 
 
-subscription_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for Subscription object
+subscription_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for Subscription object
 begin
   #Retrieves a subscription for a given subscriptionId
   result = api_instance.get_subscription(subscription_id)
@@ -57,7 +57,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subscription_id** | [**String**](.md)| Unique identifier for Subscription object | 
+ **subscription_id** | **String**| Unique identifier for Subscription object | 
 
 ### Return type
 
@@ -104,7 +104,7 @@ api_instance = xero_client.<api_set>
 
 
 
-subscription_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for Subscription object
+subscription_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for Subscription object
 begin
   #Gets all usage records related to the subscription
   result = api_instance.get_usage_records(subscription_id)
@@ -119,7 +119,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subscription_id** | [**String**](.md)| Unique identifier for Subscription object | 
+ **subscription_id** | **String**| Unique identifier for Subscription object | 
 
 ### Return type
 
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 
 ## post_usage_records
 
-> UsageRecord post_usage_records(subscription_id, subscription_item_id, create_usage_record)
+> UsageRecord post_usage_records(subscription_id, subscription_item_id, create_usage_record, opts)
 
 Send metered usage belonging to this subscription and subscription item
 
@@ -166,12 +166,16 @@ api_instance = xero_client.<api_set>
 
 
 
-subscription_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for Subscription object
-subscription_item_id = '00000000-0000-0000-0000-000000000000' # String | The unique identifier of the subscriptionItem
+subscription_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for Subscription object
+subscription_item_id = 00000000-0000-0000-0000-000000000000 # String | The unique identifier of the subscriptionItem
 create_usage_record = { "timestamp": "2022-01-21T13:01:00", "quantity": 10 } # CreateUsageRecord | Contains the quantity for the usage record to create
+opts = {
+  idempotency_key: KEY_VALUE # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+}
+
 begin
   #Send metered usage belonging to this subscription and subscription item
-  result = api_instance.post_usage_records(subscription_id, subscription_item_id, create_usage_record)
+  result = api_instance.post_usage_records(subscription_id, subscription_item_id, create_usage_record, opts)
   p result
 rescue XeroRuby::AppStore::ApiError => e
   puts "Exception when calling AppStoreApi->post_usage_records: #{e}"
@@ -183,9 +187,10 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subscription_id** | [**String**](.md)| Unique identifier for Subscription object | 
- **subscription_item_id** | [**String**](.md)| The unique identifier of the subscriptionItem | 
+ **subscription_id** | **String**| Unique identifier for Subscription object | 
+ **subscription_item_id** | **String**| The unique identifier of the subscriptionItem | 
  **create_usage_record** | [**CreateUsageRecord**](CreateUsageRecord.md)| Contains the quantity for the usage record to create | 
+ **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
 
 ### Return type
 
@@ -203,7 +208,7 @@ Name | Type | Description  | Notes
 
 ## put_usage_records
 
-> UsageRecord put_usage_records(subscription_id, subscription_item_id, usage_record_id, update_usage_record)
+> UsageRecord put_usage_records(subscription_id, subscription_item_id, usage_record_id, update_usage_record, opts)
 
 Update and existing metered usage belonging to this subscription and subscription item
 
@@ -232,13 +237,17 @@ api_instance = xero_client.<api_set>
 
 
 
-subscription_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for Subscription object
-subscription_item_id = '00000000-0000-0000-0000-000000000000' # String | The unique identifier of the subscriptionItem
-usage_record_id = '00000000-0000-0000-0000-000000000000' # String | The unique identifier of the usage record
+subscription_id = 00000000-0000-0000-0000-000000000000 # String | Unique identifier for Subscription object
+subscription_item_id = 00000000-0000-0000-0000-000000000000 # String | The unique identifier of the subscriptionItem
+usage_record_id = 00000000-0000-0000-0000-000000000000 # String | The unique identifier of the usage record
 update_usage_record = { "quantity": 10 } # UpdateUsageRecord | Contains the quantity for the usage record to update
+opts = {
+  idempotency_key: KEY_VALUE # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+}
+
 begin
   #Update and existing metered usage belonging to this subscription and subscription item
-  result = api_instance.put_usage_records(subscription_id, subscription_item_id, usage_record_id, update_usage_record)
+  result = api_instance.put_usage_records(subscription_id, subscription_item_id, usage_record_id, update_usage_record, opts)
   p result
 rescue XeroRuby::AppStore::ApiError => e
   puts "Exception when calling AppStoreApi->put_usage_records: #{e}"
@@ -250,10 +259,11 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subscription_id** | [**String**](.md)| Unique identifier for Subscription object | 
- **subscription_item_id** | [**String**](.md)| The unique identifier of the subscriptionItem | 
- **usage_record_id** | [**String**](.md)| The unique identifier of the usage record | 
+ **subscription_id** | **String**| Unique identifier for Subscription object | 
+ **subscription_item_id** | **String**| The unique identifier of the subscriptionItem | 
+ **usage_record_id** | **String**| The unique identifier of the usage record | 
  **update_usage_record** | [**UpdateUsageRecord**](UpdateUsageRecord.md)| Contains the quantity for the usage record to update | 
+ **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
 
 ### Return type
 
