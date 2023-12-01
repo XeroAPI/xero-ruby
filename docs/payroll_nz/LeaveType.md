@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **name** | **String** | Name of the leave type | 
 **is_paid_leave** | **Boolean** | Indicate that an employee will be paid when taking this type of leave | 
 **show_on_payslip** | **Boolean** | Indicate that a balance for this leave type to be shown on the employee’s payslips | 
-**updated_date_utc** | **DateTime** | UTC timestamp of last update to the leave type note | [optional] 
+**updated_date_utc** | **Time** | UTC timestamp of last update to the leave type note | [optional] 
 **is_active** | **Boolean** | Shows whether the leave type is active or not | [optional] 
 
 ## Code Sample

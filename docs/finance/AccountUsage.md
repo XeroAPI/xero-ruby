@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **account_name** | **String** | The name of the account | [optional] 
 **reporting_code** | **String** | Shown if set | [optional] 
 **reporting_code_name** | **String** | Shown if set | [optional] 
-**report_code_updated_date_utc** | **DateTime** | Last modified date UTC format | [optional] 
+**report_code_updated_date_utc** | **Time** | Last modified date UTC format | [optional] 
 
 ## Code Sample
 
