@@ -25,7 +25,7 @@ Method | HTTP request | Description
 
 ## create_project
 
-> Project create_project(xero_tenant_id, project_create_or_update)
+> Project create_project(xero_tenant_id, project_create_or_update, opts)
 
 Create one or more new projects
 
@@ -56,9 +56,13 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 project_create_or_update = { "contactId": "00000000-0000-0000-000-000000000000", "name": "New Kitchen", "deadlineUtc": "2019-12-10T12:59:59Z", "estimateAmount": "99.99" } # ProjectCreateOrUpdate | Create a new project with ProjectCreateOrUpdate object
+opts = {
+  idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+}
+
 begin
   #Create one or more new projects
-  result = api_instance.create_project(xero_tenant_id, project_create_or_update)
+  result = api_instance.create_project(xero_tenant_id, project_create_or_update, opts)
   p result
 rescue XeroRuby::Projects::ApiError => e
   puts "Exception when calling ProjectApi->create_project: #{e}"
@@ -72,6 +76,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **project_create_or_update** | [**ProjectCreateOrUpdate**](ProjectCreateOrUpdate.md)| Create a new project with ProjectCreateOrUpdate object | 
+ **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
 
 ### Return type
 
@@ -89,7 +94,7 @@ Name | Type | Description  | Notes
 
 ## create_task
 
-> Task create_task(xero_tenant_id, project_id, task_create_or_update)
+> Task create_task(xero_tenant_id, project_id, task_create_or_update, opts)
 
 Allows you to create a task
 
@@ -123,9 +128,13 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 project_id = 'project_id_example' # String | You can create a task on a specified projectId
 task_create_or_update = { "status": "INPROGRESS" } # TaskCreateOrUpdate | The task object you are creating
+opts = {
+  idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+}
+
 begin
   #Allows you to create a task
-  result = api_instance.create_task(xero_tenant_id, project_id, task_create_or_update)
+  result = api_instance.create_task(xero_tenant_id, project_id, task_create_or_update, opts)
   p result
 rescue XeroRuby::Projects::ApiError => e
   puts "Exception when calling ProjectApi->create_task: #{e}"
@@ -140,6 +149,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **project_id** | [**String**](.md)| You can create a task on a specified projectId | 
  **task_create_or_update** | [**TaskCreateOrUpdate**](TaskCreateOrUpdate.md)| The task object you are creating | 
+ **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
 
 ### Return type
 
@@ -157,7 +167,7 @@ Name | Type | Description  | Notes
 
 ## create_time_entry
 
-> TimeEntry create_time_entry(xero_tenant_id, project_id, time_entry_create_or_update)
+> TimeEntry create_time_entry(xero_tenant_id, project_id, time_entry_create_or_update, opts)
 
 Creates a time entry for a specific project
 
@@ -191,9 +201,13 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 project_id = 'project_id_example' # String | You can specify an individual project by appending the projectId to the endpoint
 time_entry_create_or_update = { "userId": "00000000-0000-0000-0000-000000000000", "taskId": "00000000-0000-0000-0000-000000000000", "dateUtc": "2020-02-26T15:00:00Z", "duration":30, "description": "My description" } # TimeEntryCreateOrUpdate | The time entry object you are creating
+opts = {
+  idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+}
+
 begin
   #Creates a time entry for a specific project
-  result = api_instance.create_time_entry(xero_tenant_id, project_id, time_entry_create_or_update)
+  result = api_instance.create_time_entry(xero_tenant_id, project_id, time_entry_create_or_update, opts)
   p result
 rescue XeroRuby::Projects::ApiError => e
   puts "Exception when calling ProjectApi->create_time_entry: #{e}"
@@ -208,6 +222,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **project_id** | [**String**](.md)| You can specify an individual project by appending the projectId to the endpoint | 
  **time_entry_create_or_update** | [**TimeEntryCreateOrUpdate**](TimeEntryCreateOrUpdate.md)| The time entry object you are creating | 
+ **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
 
 ### Return type
 
@@ -892,7 +907,7 @@ Name | Type | Description  | Notes
 
 ## patch_project
 
-> patch_project(xero_tenant_id, project_id, project_patch)
+> patch_project(xero_tenant_id, project_id, project_patch, opts)
 
 creates a project for the specified contact
 
@@ -926,9 +941,13 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 project_id = 'project_id_example' # String | You can specify an individual project by appending the projectId to the endpoint
 project_patch = { "status": "INPROGRESS" } # ProjectPatch | Update the status of an existing Project
+opts = {
+  idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+}
+
 begin
   #creates a project for the specified contact
-  api_instance.patch_project(xero_tenant_id, project_id, project_patch)
+  api_instance.patch_project(xero_tenant_id, project_id, project_patch, opts)
 rescue XeroRuby::Projects::ApiError => e
   puts "Exception when calling ProjectApi->patch_project: #{e}"
 end
@@ -942,6 +961,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **project_id** | [**String**](.md)| You can specify an individual project by appending the projectId to the endpoint | 
  **project_patch** | [**ProjectPatch**](ProjectPatch.md)| Update the status of an existing Project | 
+ **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
 
 ### Return type
 
@@ -959,7 +979,7 @@ nil (empty response body)
 
 ## update_project
 
-> update_project(xero_tenant_id, project_id, project_create_or_update)
+> update_project(xero_tenant_id, project_id, project_create_or_update, opts)
 
 Updates a specific project
 
@@ -993,9 +1013,13 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 project_id = 'project_id_example' # String | You can specify an individual project by appending the projectId to the endpoint
 project_create_or_update = { "name": "New Kitchen", "deadlineUtc": "2017-04-23T18:25:43.511Z", "estimateAmount": 99.99 } # ProjectCreateOrUpdate | Request of type ProjectCreateOrUpdate
+opts = {
+  idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+}
+
 begin
   #Updates a specific project
-  api_instance.update_project(xero_tenant_id, project_id, project_create_or_update)
+  api_instance.update_project(xero_tenant_id, project_id, project_create_or_update, opts)
 rescue XeroRuby::Projects::ApiError => e
   puts "Exception when calling ProjectApi->update_project: #{e}"
 end
@@ -1009,6 +1033,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **project_id** | [**String**](.md)| You can specify an individual project by appending the projectId to the endpoint | 
  **project_create_or_update** | [**ProjectCreateOrUpdate**](ProjectCreateOrUpdate.md)| Request of type ProjectCreateOrUpdate | 
+ **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
 
 ### Return type
 
@@ -1026,7 +1051,7 @@ nil (empty response body)
 
 ## update_task
 
-> update_task(xero_tenant_id, project_id, task_id, task_create_or_update)
+> update_task(xero_tenant_id, project_id, task_id, task_create_or_update, opts)
 
 Allows you to update a task
 
@@ -1061,9 +1086,13 @@ xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 project_id = 'project_id_example' # String | You can specify an individual project by appending the projectId to the endpoint
 task_id = 'task_id_example' # String | You can specify an individual task by appending the id to the endpoint
 task_create_or_update = XeroRuby::Projects::TaskCreateOrUpdate.new # TaskCreateOrUpdate | The task object you are updating
+opts = {
+  idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+}
+
 begin
   #Allows you to update a task
-  api_instance.update_task(xero_tenant_id, project_id, task_id, task_create_or_update)
+  api_instance.update_task(xero_tenant_id, project_id, task_id, task_create_or_update, opts)
 rescue XeroRuby::Projects::ApiError => e
   puts "Exception when calling ProjectApi->update_task: #{e}"
 end
@@ -1078,6 +1107,7 @@ Name | Type | Description  | Notes
  **project_id** | [**String**](.md)| You can specify an individual project by appending the projectId to the endpoint | 
  **task_id** | [**String**](.md)| You can specify an individual task by appending the id to the endpoint | 
  **task_create_or_update** | [**TaskCreateOrUpdate**](TaskCreateOrUpdate.md)| The task object you are updating | 
+ **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
 
 ### Return type
 
@@ -1095,7 +1125,7 @@ nil (empty response body)
 
 ## update_time_entry
 
-> update_time_entry(xero_tenant_id, project_id, time_entry_id, time_entry_create_or_update)
+> update_time_entry(xero_tenant_id, project_id, time_entry_id, time_entry_create_or_update, opts)
 
 Updates a time entry for a specific project
 
@@ -1130,9 +1160,13 @@ xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 project_id = 'project_id_example' # String | You can specify an individual project by appending the projectId to the endpoint
 time_entry_id = 'time_entry_id_example' # String | You can specify an individual time entry by appending the id to the endpoint
 time_entry_create_or_update = { "userId": "00000000-0000-0000-0000-000000000000", "taskId": "00000000-0000-0000-0000-000000000000", "dateUtc": "2020-02-27T15:00:00Z", "duration":45, "description": "My UPDATED description" } # TimeEntryCreateOrUpdate | The time entry object you are updating
+opts = {
+  idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+}
+
 begin
   #Updates a time entry for a specific project
-  api_instance.update_time_entry(xero_tenant_id, project_id, time_entry_id, time_entry_create_or_update)
+  api_instance.update_time_entry(xero_tenant_id, project_id, time_entry_id, time_entry_create_or_update, opts)
 rescue XeroRuby::Projects::ApiError => e
   puts "Exception when calling ProjectApi->update_time_entry: #{e}"
 end
@@ -1147,6 +1181,7 @@ Name | Type | Description  | Notes
  **project_id** | [**String**](.md)| You can specify an individual project by appending the projectId to the endpoint | 
  **time_entry_id** | [**String**](.md)| You can specify an individual time entry by appending the id to the endpoint | 
  **time_entry_create_or_update** | [**TimeEntryCreateOrUpdate**](TimeEntryCreateOrUpdate.md)| The time entry object you are updating | 
+ **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
 
 ### Return type
 

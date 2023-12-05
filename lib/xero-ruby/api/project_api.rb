@@ -20,6 +20,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param project_create_or_update [ProjectCreateOrUpdate] Create a new project with ProjectCreateOrUpdate object
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Project]
     def create_project(xero_tenant_id, project_create_or_update, opts = {})
       data, _status_code, _headers = create_project_with_http_info(xero_tenant_id, project_create_or_update, opts)
@@ -30,6 +31,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param project_create_or_update [ProjectCreateOrUpdate] Create a new project with ProjectCreateOrUpdate object
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Project, Integer, Hash)>] Project data, response status code and response headers
     def create_project_with_http_info(xero_tenant_id, project_create_or_update, options = {})
       opts = options.dup
@@ -64,6 +66,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Xero-Tenant-Id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -99,6 +102,7 @@ module XeroRuby
     # @param project_id [String] You can create a task on a specified projectId
     # @param task_create_or_update [TaskCreateOrUpdate] The task object you are creating
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Task]
     def create_task(xero_tenant_id, project_id, task_create_or_update, opts = {})
       data, _status_code, _headers = create_task_with_http_info(xero_tenant_id, project_id, task_create_or_update, opts)
@@ -111,6 +115,7 @@ module XeroRuby
     # @param project_id [String] You can create a task on a specified projectId
     # @param task_create_or_update [TaskCreateOrUpdate] The task object you are creating
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Task, Integer, Hash)>] Task data, response status code and response headers
     def create_task_with_http_info(xero_tenant_id, project_id, task_create_or_update, options = {})
       opts = options.dup
@@ -149,6 +154,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Xero-Tenant-Id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -184,6 +190,7 @@ module XeroRuby
     # @param project_id [String] You can specify an individual project by appending the projectId to the endpoint
     # @param time_entry_create_or_update [TimeEntryCreateOrUpdate] The time entry object you are creating
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [TimeEntry]
     def create_time_entry(xero_tenant_id, project_id, time_entry_create_or_update, opts = {})
       data, _status_code, _headers = create_time_entry_with_http_info(xero_tenant_id, project_id, time_entry_create_or_update, opts)
@@ -196,6 +203,7 @@ module XeroRuby
     # @param project_id [String] You can specify an individual project by appending the projectId to the endpoint
     # @param time_entry_create_or_update [TimeEntryCreateOrUpdate] The time entry object you are creating
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(TimeEntry, Integer, Hash)>] TimeEntry data, response status code and response headers
     def create_time_entry_with_http_info(xero_tenant_id, project_id, time_entry_create_or_update, options = {})
       opts = options.dup
@@ -234,6 +242,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Xero-Tenant-Id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -1053,6 +1062,7 @@ module XeroRuby
     # @param project_id [String] You can specify an individual project by appending the projectId to the endpoint
     # @param project_patch [ProjectPatch] Update the status of an existing Project
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [nil]
     def patch_project(xero_tenant_id, project_id, project_patch, opts = {})
       patch_project_with_http_info(xero_tenant_id, project_id, project_patch, opts)
@@ -1065,6 +1075,7 @@ module XeroRuby
     # @param project_id [String] You can specify an individual project by appending the projectId to the endpoint
     # @param project_patch [ProjectPatch] Update the status of an existing Project
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def patch_project_with_http_info(xero_tenant_id, project_id, project_patch, options = {})
       opts = options.dup
@@ -1103,6 +1114,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Xero-Tenant-Id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -1138,6 +1150,7 @@ module XeroRuby
     # @param project_id [String] You can specify an individual project by appending the projectId to the endpoint
     # @param project_create_or_update [ProjectCreateOrUpdate] Request of type ProjectCreateOrUpdate
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [nil]
     def update_project(xero_tenant_id, project_id, project_create_or_update, opts = {})
       update_project_with_http_info(xero_tenant_id, project_id, project_create_or_update, opts)
@@ -1150,6 +1163,7 @@ module XeroRuby
     # @param project_id [String] You can specify an individual project by appending the projectId to the endpoint
     # @param project_create_or_update [ProjectCreateOrUpdate] Request of type ProjectCreateOrUpdate
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def update_project_with_http_info(xero_tenant_id, project_id, project_create_or_update, options = {})
       opts = options.dup
@@ -1188,6 +1202,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Xero-Tenant-Id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -1224,6 +1239,7 @@ module XeroRuby
     # @param task_id [String] You can specify an individual task by appending the id to the endpoint
     # @param task_create_or_update [TaskCreateOrUpdate] The task object you are updating
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [nil]
     def update_task(xero_tenant_id, project_id, task_id, task_create_or_update, opts = {})
       update_task_with_http_info(xero_tenant_id, project_id, task_id, task_create_or_update, opts)
@@ -1237,6 +1253,7 @@ module XeroRuby
     # @param task_id [String] You can specify an individual task by appending the id to the endpoint
     # @param task_create_or_update [TaskCreateOrUpdate] The task object you are updating
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def update_task_with_http_info(xero_tenant_id, project_id, task_id, task_create_or_update, options = {})
       opts = options.dup
@@ -1279,6 +1296,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Xero-Tenant-Id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -1315,6 +1333,7 @@ module XeroRuby
     # @param time_entry_id [String] You can specify an individual time entry by appending the id to the endpoint
     # @param time_entry_create_or_update [TimeEntryCreateOrUpdate] The time entry object you are updating
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [nil]
     def update_time_entry(xero_tenant_id, project_id, time_entry_id, time_entry_create_or_update, opts = {})
       update_time_entry_with_http_info(xero_tenant_id, project_id, time_entry_id, time_entry_create_or_update, opts)
@@ -1328,6 +1347,7 @@ module XeroRuby
     # @param time_entry_id [String] You can specify an individual time entry by appending the id to the endpoint
     # @param time_entry_create_or_update [TimeEntryCreateOrUpdate] The time entry object you are updating
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def update_time_entry_with_http_info(xero_tenant_id, project_id, time_entry_id, time_entry_create_or_update, options = {})
       opts = options.dup
@@ -1370,6 +1390,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Xero-Tenant-Id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}

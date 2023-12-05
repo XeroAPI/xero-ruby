@@ -3510,7 +3510,7 @@ ul.nav-tabs {
           <nav id="scrollingNav">
             <ul class="sidenav nav nav-list">
               <li class="nav-header" data-group="PayrollUk"><strong>SDK: </strong><span id='sdk-name'></span></li>
-              <li class="nav-header" data-group="PayrollUk"><strong>VSN: </strong>4.3.0</li>
+              <li class="nav-header" data-group="PayrollUk"><strong>VSN: </strong>4.2.0</li>
               <li class="nav-header" data-group="PayrollUk"><a href="#api-PayrollUk">Methods</a></li>
               <li data-group="PayrollUk" data-name="approveTimesheet" class="">
                 <a href="#api-PayrollUk-approveTimesheet">approveTimesheet</a>
@@ -3767,9 +3767,10 @@ ul.nav-tabs {
 
 xero_tenant_id = 'xeroTenantId_example'
 timesheet_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+idempotency_key = 'KEY_VALUE'
 
 begin
-  response = xero_client.accounting_api.approve_timesheet(xero_tenant_id, timesheet_id)
+  response = xero_client.accounting_api.approve_timesheet(xero_tenant_id, timesheet_id, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling approve_timesheet: #{e}"
@@ -3849,6 +3850,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_approveTimesheet_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                 </article>
               </div>
@@ -3879,6 +3900,7 @@ Xero identifier for Tenant
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xero_tenant_id = 'xeroTenantId_example'
+idempotency_key = 'KEY_VALUE'
 
 benefit = { 
   name: "Benefit Name",
@@ -3888,7 +3910,7 @@ benefit = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_benefit(xero_tenant_id, benefit)
+  response = xero_client.accounting_api.create_benefit(xero_tenant_id, benefit, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_benefit: #{e}"
@@ -3930,6 +3952,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createBenefit_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -4001,6 +4043,7 @@ Xero identifier for Tenant
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xero_tenant_id = 'xeroTenantId_example'
+idempotency_key = 'KEY_VALUE'
 
 deduction = { 
   deduction_name: "Test Deduction",
@@ -4010,7 +4053,7 @@ deduction = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_deduction(xero_tenant_id, deduction)
+  response = xero_client.accounting_api.create_deduction(xero_tenant_id, deduction, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_deduction: #{e}"
@@ -4052,6 +4095,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createDeduction_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -4123,6 +4186,7 @@ Xero identifier for Tenant
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xero_tenant_id = 'xeroTenantId_example'
+idempotency_key = 'KEY_VALUE'
 
 earnings_rate = { 
   earnings_type:  XeroRuby::PayrollUk::EarningsRate::earnings_type_enum::REGULAREARNINGS,
@@ -4132,7 +4196,7 @@ earnings_rate = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_earnings_rate(xero_tenant_id, earningsRate)
+  response = xero_client.accounting_api.create_earnings_rate(xero_tenant_id, earningsRate, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_earnings_rate: #{e}"
@@ -4174,6 +4238,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createEarningsRate_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -4245,6 +4329,7 @@ Xero identifier for Tenant
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xero_tenant_id = 'xeroTenantId_example'
+idempotency_key = 'KEY_VALUE'
 date_of_birth = 'YYYY-MM-DD'
 
 address = { 
@@ -4262,7 +4347,7 @@ employee = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_employee(xero_tenant_id, employee)
+  response = xero_client.accounting_api.create_employee(xero_tenant_id, employee, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_employee: #{e}"
@@ -4304,6 +4389,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createEmployee_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -4376,6 +4481,7 @@ Xero identifier for Tenant
 
 xero_tenant_id = 'xeroTenantId_example'
 employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+idempotency_key = 'KEY_VALUE'
 
 earnings_template = { 
   pay_template_earning_id: "00000000-0000-0000-0000-000000000000",
@@ -4389,7 +4495,7 @@ earnings_templates = []
 earnings_templates << earnings_template
 
 begin
-  response = xero_client.accounting_api.create_employee_earnings_template(xero_tenant_id, employee_id, earningsTemplate)
+  response = xero_client.accounting_api.create_employee_earnings_template(xero_tenant_id, employee_id, earningsTemplate, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_employee_earnings_template: #{e}"
@@ -4469,6 +4575,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createEmployeeEarningsTemplate_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -4535,6 +4661,7 @@ Xero identifier for Tenant
 
 xero_tenant_id = 'xeroTenantId_example'
 employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+idempotency_key = 'KEY_VALUE'
 start_date = 'YYYY-MM-DD'
 end_date = 'YYYY-MM-DD'
 
@@ -4545,7 +4672,7 @@ employee_leave = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_employee_leave(xero_tenant_id, employee_id, employeeLeave)
+  response = xero_client.accounting_api.create_employee_leave(xero_tenant_id, employee_id, employeeLeave, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_employee_leave: #{e}"
@@ -4625,6 +4752,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createEmployeeLeave_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -4692,6 +4839,7 @@ Xero identifier for Tenant
 
 xero_tenant_id = 'xeroTenantId_example'
 employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+idempotency_key = 'KEY_VALUE'
 
 employee_leave_type = { 
   leave_type_id: "00000000-0000-0000-0000-000000000000",
@@ -4700,7 +4848,7 @@ employee_leave_type = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_employee_leave_type(xero_tenant_id, employee_id, employeeLeaveType)
+  response = xero_client.accounting_api.create_employee_leave_type(xero_tenant_id, employee_id, employeeLeaveType, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_employee_leave_type: #{e}"
@@ -4780,6 +4928,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createEmployeeLeaveType_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -4847,6 +5015,7 @@ Xero identifier for Tenant
 
 xero_tenant_id = 'xeroTenantId_example'
 employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+idempotency_key = 'KEY_VALUE'
 
 employee_opening_balances = { 
   statutory_maternity_pay: 0.0,
@@ -4857,7 +5026,7 @@ employee_opening_balances = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_employee_opening_balances(xero_tenant_id, employee_id, employeeOpeningBalances)
+  response = xero_client.accounting_api.create_employee_opening_balances(xero_tenant_id, employee_id, employeeOpeningBalances, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_employee_opening_balances: #{e}"
@@ -4937,6 +5106,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createEmployeeOpeningBalances_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -5004,6 +5193,7 @@ Xero identifier for Tenant
 
 xero_tenant_id = 'xeroTenantId_example'
 employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+idempotency_key = 'KEY_VALUE'
 
 bank_account = { 
   account_name: "Charlotte Danes",
@@ -5018,7 +5208,7 @@ payment_method = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_employee_payment_method(xero_tenant_id, employee_id, paymentMethod)
+  response = xero_client.accounting_api.create_employee_payment_method(xero_tenant_id, employee_id, paymentMethod, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_employee_payment_method: #{e}"
@@ -5098,6 +5288,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createEmployeePaymentMethod_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -5165,6 +5375,7 @@ Xero identifier for Tenant
 
 xero_tenant_id = 'xeroTenantId_example'
 employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+idempotency_key = 'KEY_VALUE'
 
 salary_and_wage = { 
   earnings_rate_id: "00000000-0000-0000-0000-000000000000",
@@ -5175,7 +5386,7 @@ salary_and_wage = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_employee_salary_and_wage(xero_tenant_id, employee_id, salaryAndWage)
+  response = xero_client.accounting_api.create_employee_salary_and_wage(xero_tenant_id, employee_id, salaryAndWage, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_employee_salary_and_wage: #{e}"
@@ -5255,6 +5466,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createEmployeeSalaryAndWage_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -5321,6 +5552,7 @@ Xero identifier for Tenant
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xero_tenant_id = 'xeroTenantId_example'
+idempotency_key = 'KEY_VALUE'
 start_date = 'YYYY-MM-DD'
 end_date = 'YYYY-MM-DD'
 
@@ -5332,7 +5564,7 @@ employee_statutory_sick_leave = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_employee_statutory_sick_leave(xero_tenant_id, employeeStatutorySickLeave)
+  response = xero_client.accounting_api.create_employee_statutory_sick_leave(xero_tenant_id, employeeStatutorySickLeave, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_employee_statutory_sick_leave: #{e}"
@@ -5374,6 +5606,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createEmployeeStatutorySickLeave_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -5446,6 +5698,7 @@ Xero identifier for Tenant
 
 xero_tenant_id = 'xeroTenantId_example'
 employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+idempotency_key = 'KEY_VALUE'
 start_date = 'YYYY-MM-DD'
 
 employment = { 
@@ -5454,7 +5707,7 @@ employment = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_employment(xero_tenant_id, employee_id, employment)
+  response = xero_client.accounting_api.create_employment(xero_tenant_id, employee_id, employment, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_employment: #{e}"
@@ -5534,6 +5787,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createEmployment_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -5600,6 +5873,7 @@ Xero identifier for Tenant
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xero_tenant_id = 'xeroTenantId_example'
+idempotency_key = 'KEY_VALUE'
 
 leave_type = { 
   name: "LeaveType",
@@ -5608,7 +5882,7 @@ leave_type = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_leave_type(xero_tenant_id, leaveType)
+  response = xero_client.accounting_api.create_leave_type(xero_tenant_id, leaveType, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_leave_type: #{e}"
@@ -5650,6 +5924,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createLeaveType_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -5722,6 +6016,7 @@ Xero identifier for Tenant
 
 xero_tenant_id = 'xeroTenantId_example'
 employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+idempotency_key = 'KEY_VALUE'
 
 earnings_template = { 
   pay_template_earning_id: "00000000-0000-0000-0000-000000000000",
@@ -5735,7 +6030,7 @@ earnings_templates = []
 earnings_templates << earnings_template
 
 begin
-  response = xero_client.accounting_api.create_multiple_employee_earnings_template(xero_tenant_id, employee_id, earningsTemplate)
+  response = xero_client.accounting_api.create_multiple_employee_earnings_template(xero_tenant_id, employee_id, earningsTemplate, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_multiple_employee_earnings_template: #{e}"
@@ -5815,6 +6110,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createMultipleEmployeeEarningsTemplate_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -5881,6 +6196,7 @@ Xero identifier for Tenant
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xero_tenant_id = 'xeroTenantId_example'
+idempotency_key = 'KEY_VALUE'
 start_date = 'YYYY-MM-DD'
 payment_date = 'YYYY-MM-DD'
 
@@ -5891,7 +6207,7 @@ pay_run_calendar = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_pay_run_calendar(xero_tenant_id, payRunCalendar)
+  response = xero_client.accounting_api.create_pay_run_calendar(xero_tenant_id, payRunCalendar, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_pay_run_calendar: #{e}"
@@ -5933,6 +6249,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createPayRunCalendar_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -6004,6 +6340,7 @@ Xero identifier for Tenant
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xero_tenant_id = 'xeroTenantId_example'
+idempotency_key = 'KEY_VALUE'
 
 reimbursement = { 
   name: "Test Reimbursement",
@@ -6011,7 +6348,7 @@ reimbursement = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_reimbursement(xero_tenant_id, reimbursement)
+  response = xero_client.accounting_api.create_reimbursement(xero_tenant_id, reimbursement, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_reimbursement: #{e}"
@@ -6053,6 +6390,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createReimbursement_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -6124,6 +6481,7 @@ Xero identifier for Tenant
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xero_tenant_id = 'xeroTenantId_example'
+idempotency_key = 'KEY_VALUE'
 start_date = 'YYYY-MM-DD'
 end_date = 'YYYY-MM-DD'
 
@@ -6135,7 +6493,7 @@ timesheet = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_timesheet(xero_tenant_id, timesheet)
+  response = xero_client.accounting_api.create_timesheet(xero_tenant_id, timesheet, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_timesheet: #{e}"
@@ -6177,6 +6535,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createTimesheet_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -6249,6 +6627,7 @@ Xero identifier for Tenant
 
 xero_tenant_id = 'xeroTenantId_example'
 timesheet_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+idempotency_key = 'KEY_VALUE'
 date = 'YYYY-MM-DD'
 
 timesheet_line = { 
@@ -6260,7 +6639,7 @@ timesheet_line = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_timesheet_line(xero_tenant_id, timesheet_id, timesheetLine)
+  response = xero_client.accounting_api.create_timesheet_line(xero_tenant_id, timesheet_id, timesheetLine, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_timesheet_line: #{e}"
@@ -6335,6 +6714,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createTimesheetLine_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -11842,9 +12241,10 @@ Xero identifier for Tenant
 
 xero_tenant_id = 'xeroTenantId_example'
 timesheet_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+idempotency_key = 'KEY_VALUE'
 
 begin
-  response = xero_client.accounting_api.revert_timesheet(xero_tenant_id, timesheet_id)
+  response = xero_client.accounting_api.revert_timesheet(xero_tenant_id, timesheet_id, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling revert_timesheet: #{e}"
@@ -11924,6 +12324,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_revertTimesheet_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                 </article>
               </div>
@@ -11955,6 +12375,7 @@ Xero identifier for Tenant
 
 xero_tenant_id = 'xeroTenantId_example'
 employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+idempotency_key = 'KEY_VALUE'
 date_of_birth = 'YYYY-MM-DD'
 
 address = { 
@@ -11972,7 +12393,7 @@ employee = {
 }  
 
 begin
-  response = xero_client.accounting_api.update_employee(xero_tenant_id, employee_id, employee)
+  response = xero_client.accounting_api.update_employee(xero_tenant_id, employee_id, employee, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_employee: #{e}"
@@ -12052,6 +12473,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateEmployee_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -12120,6 +12561,7 @@ Xero identifier for Tenant
 xero_tenant_id = 'xeroTenantId_example'
 employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 pay_template_earning_id = '3fa85f64-5717-4562-b3fc-2c963f66afa6'
+idempotency_key = 'KEY_VALUE'
 
 earnings_template = { 
   pay_template_earning_id: "00000000-0000-0000-0000-000000000000",
@@ -12133,7 +12575,7 @@ earnings_templates = []
 earnings_templates << earnings_template
 
 begin
-  response = xero_client.accounting_api.update_employee_earnings_template(xero_tenant_id, employee_id, pay_template_earning_id, earningsTemplate)
+  response = xero_client.accounting_api.update_employee_earnings_template(xero_tenant_id, employee_id, pay_template_earning_id, earningsTemplate, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_employee_earnings_template: #{e}"
@@ -12239,6 +12681,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateEmployeeEarningsTemplate_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -12307,6 +12769,7 @@ Xero identifier for Tenant
 xero_tenant_id = 'xeroTenantId_example'
 employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 leave_id = 'c4be24e5-e840-4c92-9eaa-2d86cd596314'
+idempotency_key = 'KEY_VALUE'
 start_date = 'YYYY-MM-DD'
 end_date = 'YYYY-MM-DD'
 
@@ -12317,7 +12780,7 @@ employee_leave = {
 }  
 
 begin
-  response = xero_client.accounting_api.update_employee_leave(xero_tenant_id, employee_id, leave_id, employeeLeave)
+  response = xero_client.accounting_api.update_employee_leave(xero_tenant_id, employee_id, leave_id, employeeLeave, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_employee_leave: #{e}"
@@ -12423,6 +12886,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateEmployeeLeave_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -12490,6 +12973,7 @@ Xero identifier for Tenant
 
 xero_tenant_id = 'xeroTenantId_example'
 employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+idempotency_key = 'KEY_VALUE'
 
 employee_opening_balances = { 
   statutory_maternity_pay: 0.0,
@@ -12500,7 +12984,7 @@ employee_opening_balances = {
 }  
 
 begin
-  response = xero_client.accounting_api.update_employee_opening_balances(xero_tenant_id, employee_id, employeeOpeningBalances)
+  response = xero_client.accounting_api.update_employee_opening_balances(xero_tenant_id, employee_id, employeeOpeningBalances, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_employee_opening_balances: #{e}"
@@ -12580,6 +13064,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateEmployeeOpeningBalances_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -12648,6 +13152,7 @@ Xero identifier for Tenant
 xero_tenant_id = 'xeroTenantId_example'
 employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 salary_and_wages_id = '3fa85f64-5717-4562-b3fc-2c963f66afa6'
+idempotency_key = 'KEY_VALUE'
 
 salary_and_wage = { 
   earnings_rate_id: "00000000-0000-0000-0000-000000000000",
@@ -12658,7 +13163,7 @@ salary_and_wage = {
 }  
 
 begin
-  response = xero_client.accounting_api.update_employee_salary_and_wage(xero_tenant_id, employee_id, salary_and_wages_id, salaryAndWage)
+  response = xero_client.accounting_api.update_employee_salary_and_wage(xero_tenant_id, employee_id, salary_and_wages_id, salaryAndWage, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_employee_salary_and_wage: #{e}"
@@ -12764,6 +13269,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateEmployeeSalaryAndWage_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -12831,6 +13356,7 @@ Xero identifier for Tenant
 
 xero_tenant_id = 'xeroTenantId_example'
 pay_run_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+idempotency_key = 'KEY_VALUE'
 start_date = 'YYYY-MM-DD'
 payment_date = 'YYYY-MM-DD'
 
@@ -12841,7 +13367,7 @@ pay_run_calendar = {
 }  
 
 begin
-  response = xero_client.accounting_api.update_pay_run(xero_tenant_id, pay_run_id, payRun)
+  response = xero_client.accounting_api.update_pay_run(xero_tenant_id, pay_run_id, payRun, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_pay_run: #{e}"
@@ -12921,6 +13447,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updatePayRun_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -12989,6 +13535,7 @@ Xero identifier for Tenant
 xero_tenant_id = 'xeroTenantId_example'
 timesheet_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
 timesheet_line_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+idempotency_key = 'KEY_VALUE'
 date = 'YYYY-MM-DD'
 
 timesheet_line = { 
@@ -13000,7 +13547,7 @@ timesheet_line = {
 }  
 
 begin
-  response = xero_client.accounting_api.update_timesheet_line(xero_tenant_id, timesheet_id, timesheet_line_id, timesheetLine)
+  response = xero_client.accounting_api.update_timesheet_line(xero_tenant_id, timesheet_id, timesheet_line_id, timesheetLine, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_timesheet_line: #{e}"
@@ -13101,6 +13648,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateTimesheetLine_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
