@@ -24,6 +24,7 @@ module XeroRuby::Finance
     REQUEST_TIMEOUT ||= "request-timeout".freeze
     SERVICE_UNAVAILABLE ||= "service-unavailable".freeze
     UNAUTHORIZED ||= "unauthorized".freeze
+    RATE_LIMIT_ERROR ||= "rate-limit-error".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

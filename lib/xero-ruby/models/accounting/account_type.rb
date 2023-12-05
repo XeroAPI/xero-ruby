@@ -31,11 +31,7 @@ module XeroRuby::Accounting
     REVENUE ||= "REVENUE".freeze
     SALES ||= "SALES".freeze
     TERMLIAB ||= "TERMLIAB".freeze
-    PAYGLIABILITY ||= "PAYGLIABILITY".freeze
     PAYG ||= "PAYG".freeze
-    SUPERANNUATIONEXPENSE ||= "SUPERANNUATIONEXPENSE".freeze
-    SUPERANNUATIONLIABILITY ||= "SUPERANNUATIONLIABILITY".freeze
-    WAGESEXPENSE ||= "WAGESEXPENSE".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

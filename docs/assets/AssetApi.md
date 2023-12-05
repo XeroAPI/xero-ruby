@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## create_asset
 
-> Asset create_asset(xero_tenant_id, asset)
+> Asset create_asset(xero_tenant_id, asset, opts)
 
 adds a fixed asset
 
@@ -48,9 +48,13 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 asset = { "assetName":"Computer74863", "assetNumber":"123477544", "purchaseDate":"2020-01-01", "purchasePrice":100.0, "disposalPrice":23.23, "assetStatus":"Draft", "bookDepreciationSetting":{ "depreciationMethod":"StraightLine", "averagingMethod":"ActualDays", "depreciationRate":0.5, "depreciationCalculationMethod":"None" }, "bookDepreciationDetail":{ "currentCapitalGain":5.32, "currentGainLoss":3.88, "depreciationStartDate":"2020-01-02", "costLimit":100.0, "currentAccumDepreciationAmount":2.25 }, "AccountingBookValue":99.5 } # Asset | Fixed asset you are creating
+opts = {
+  idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+}
+
 begin
   #adds a fixed asset
-  result = api_instance.create_asset(xero_tenant_id, asset)
+  result = api_instance.create_asset(xero_tenant_id, asset, opts)
   p result
 rescue XeroRuby::Assets::ApiError => e
   puts "Exception when calling AssetApi->create_asset: #{e}"
@@ -64,6 +68,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **asset** | [**Asset**](Asset.md)| Fixed asset you are creating | 
+ **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
 
 ### Return type
 
@@ -114,6 +119,8 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
+  idempotency_key: 'KEY_VALUE', # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+
   asset_type: { "assetTypeName":"Machinery11004", "fixedAssetAccountId":"3d8d063a-c148-4bb8-8b3c-a5e2ad3b1e82", "depreciationExpenseAccountId":"d1602f69-f900-4616-8d34-90af393fa368", "accumulatedDepreciationAccountId":"9195cadd-8645-41e6-9f67-7bcd421defe8", "bookDepreciationSetting":{ "depreciationMethod":"DiminishingValue100", "averagingMethod":"ActualDays", "depreciationRate":0.05, "depreciationCalculationMethod":"None" } } # AssetType | Asset type to add
 }
 
@@ -132,6 +139,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
  **asset_type** | [**AssetType**](AssetType.md)| Asset type to add | [optional] 
 
 ### Return type

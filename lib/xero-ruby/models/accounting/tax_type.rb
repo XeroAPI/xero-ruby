@@ -110,6 +110,30 @@ module XeroRuby::Accounting
     IMREY23 ||= "IMREY23".freeze
     BADDEBTRECOVERY ||= "BADDEBTRECOVERY".freeze
     BADDEBTRECOVERYY23 ||= "BADDEBTRECOVERYY23".freeze
+    OUTPUTY24 ||= "OUTPUTY24".freeze
+    DSOUTPUTY24 ||= "DSOUTPUTY24".freeze
+    INPUTY24 ||= "INPUTY24".freeze
+    IGDSINPUT2_Y24 ||= "IGDSINPUT2Y24".freeze
+    TXPETINPUTY24 ||= "TXPETINPUTY24".freeze
+    TXESSINPUTY24 ||= "TXESSINPUTY24".freeze
+    TXN33_INPUTY24 ||= "TXN33INPUTY24".freeze
+    TXREINPUTY24 ||= "TXREINPUTY24".freeze
+    TXCAY24 ||= "TXCAY24".freeze
+    BADDEBTRELIEFY24 ||= "BADDEBTRELIEFY24".freeze
+    IGDSINPUT3_Y24 ||= "IGDSINPUT3Y24".freeze
+    SROVRRSY24 ||= "SROVRRSY24".freeze
+    SROVRLVGY24 ||= "SROVRLVGY24".freeze
+    SRLVGY24 ||= "SRLVGY24".freeze
+    TXRCTSY24 ||= "TXRCTSY24".freeze
+    TXRCESSY24 ||= "TXRCESSY24".freeze
+    TXRCN33_Y24 ||= "TXRCN33Y24".freeze
+    TXRCREY24 ||= "TXRCREY24".freeze
+    IMY24 ||= "IMY24".freeze
+    IMESSY24 ||= "IMESSY24".freeze
+    IMN33_Y24 ||= "IMN33Y24".freeze
+    IMREY24 ||= "IMREY24".freeze
+    BADDEBTRECOVERYY24 ||= "BADDEBTRECOVERYY24".freeze
+    OSOUTPUT2 ||= "OSOUTPUT2".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

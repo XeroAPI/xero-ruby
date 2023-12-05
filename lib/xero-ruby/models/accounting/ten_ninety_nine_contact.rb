@@ -82,6 +82,44 @@ module XeroRuby::Accounting
     # Contact contact id
     attr_accessor :contact_id
     
+    # Contact legal name
+    attr_accessor :legal_name
+    
+    # Contact business name
+    attr_accessor :business_name
+    
+    # Contact federal tax classification
+    attr_accessor :federal_tax_classification
+    SOLE_PROPRIETOR ||= "SOLE_PROPRIETOR".freeze
+    PARTNERSHIP ||= "PARTNERSHIP".freeze
+    TRUST_OR_ESTATE ||= "TRUST_OR_ESTATE".freeze
+    NONPROFIT ||= "NONPROFIT".freeze
+    C_CORP ||= "C_CORP".freeze
+    S_CORP ||= "S_CORP".freeze
+    OTHER ||= "OTHER".freeze
+    
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -106,7 +144,10 @@ module XeroRuby::Accounting
         :'email' => :'Email',
         :'street_address' => :'StreetAddress',
         :'tax_id' => :'TaxID',
-        :'contact_id' => :'ContactId'
+        :'contact_id' => :'ContactId',
+        :'legal_name' => :'LegalName',
+        :'business_name' => :'BusinessName',
+        :'federal_tax_classification' => :'FederalTaxClassification'
       }
     end
 
@@ -134,7 +175,10 @@ module XeroRuby::Accounting
         :'email' => :'String',
         :'street_address' => :'String',
         :'tax_id' => :'String',
-        :'contact_id' => :'String'
+        :'contact_id' => :'String',
+        :'legal_name' => :'String',
+        :'business_name' => :'String',
+        :'federal_tax_classification' => :'String'
       }
     end
 
@@ -240,6 +284,18 @@ module XeroRuby::Accounting
       if attributes.key?(:'contact_id')
         self.contact_id = attributes[:'contact_id']
       end
+
+      if attributes.key?(:'legal_name')
+        self.legal_name = attributes[:'legal_name']
+      end
+
+      if attributes.key?(:'business_name')
+        self.business_name = attributes[:'business_name']
+      end
+
+      if attributes.key?(:'federal_tax_classification')
+        self.federal_tax_classification = attributes[:'federal_tax_classification']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -252,7 +308,19 @@ module XeroRuby::Accounting
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      federal_tax_classification_validator = EnumAttributeValidator.new('String', ["SOLE_PROPRIETOR", "PARTNERSHIP", "TRUST_OR_ESTATE", "NONPROFIT", "C_CORP", "S_CORP", "OTHER"])
+      return false unless federal_tax_classification_validator.valid?(@federal_tax_classification)
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] federal_tax_classification Object to be assigned
+    def federal_tax_classification=(federal_tax_classification)
+      validator = EnumAttributeValidator.new('String', ["SOLE_PROPRIETOR", "PARTNERSHIP", "TRUST_OR_ESTATE", "NONPROFIT", "C_CORP", "S_CORP", "OTHER"])
+      unless validator.valid?(federal_tax_classification)
+        fail ArgumentError, "invalid value for \"federal_tax_classification\", must be one of #{validator.allowable_values}."
+      end
+      @federal_tax_classification = federal_tax_classification
     end
 
     # Checks equality by comparing each attribute.
@@ -281,7 +349,10 @@ module XeroRuby::Accounting
           email == o.email &&
           street_address == o.street_address &&
           tax_id == o.tax_id &&
-          contact_id == o.contact_id
+          contact_id == o.contact_id &&
+          legal_name == o.legal_name &&
+          business_name == o.business_name &&
+          federal_tax_classification == o.federal_tax_classification
     end
 
     # @see the `==` method
@@ -293,7 +364,7 @@ module XeroRuby::Accounting
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11, box13, box14, name, federal_tax_id_type, city, zip, state, email, street_address, tax_id, contact_id].hash
+      [box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11, box13, box14, name, federal_tax_id_type, city, zip, state, email, street_address, tax_id, contact_id, legal_name, business_name, federal_tax_classification].hash
     end
 
     # Builds the object from hash
