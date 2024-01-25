@@ -14,7 +14,6 @@ Name | Type | Description | Notes
 **last_name** | **String** | Last name of contact person (max length &#x3D; 255) | [optional] 
 **company_number** | **String** | Company registration number (max length &#x3D; 50) | [optional] 
 **email_address** | **String** | Email address of contact person (umlauts not supported) (max length  &#x3D; 255) | [optional] 
-**skype_user_name** | **String** | Skype user name of contact | [optional] 
 **contact_persons** | [**Array&lt;ContactPerson&gt;**](ContactPerson.md) | See contact persons | [optional] 
 **bank_account_details** | **String** | Bank account number of contact | [optional] 
 **tax_number** | **String** | Tax number of contact – this is also known as the ABN (Australia), GST Number (New Zealand), VAT Number (UK) or Tax ID Number (US and global) in the Xero UI depending on which regionalized version of Xero you are using (max length &#x3D; 50) | [optional] 
@@ -63,7 +62,6 @@ instance = XeroRuby::Accounting::Contact.new(contact_id: null,
                                  last_name: null,
                                  company_number: null,
                                  email_address: null,
-                                 skype_user_name: null,
                                  contact_persons: null,
                                  bank_account_details: null,
                                  tax_number: null,

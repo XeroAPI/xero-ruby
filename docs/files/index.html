@@ -1155,7 +1155,7 @@ ul.nav-tabs {
           <nav id="scrollingNav">
             <ul class="sidenav nav nav-list">
               <li class="nav-header" data-group="Files"><strong>SDK: </strong><span id='sdk-name'></span></li>
-              <li class="nav-header" data-group="Files"><strong>VSN: </strong>4.3.0</li>
+              <li class="nav-header" data-group="Files"><strong>VSN: </strong>4.4.0</li>
               <li class="nav-header" data-group="Files"><a href="#api-Files">Methods</a></li>
               <li data-group="Files" data-name="createFileAssociation" class="">
                 <a href="#api-Files-createFileAssociation">createFileAssociation</a>
@@ -1256,9 +1256,10 @@ ul.nav-tabs {
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+idempotency_key = 'KEY_VALUE'
 
 begin
-  response = xero_client.accounting_api.create_file_association(xero_tenant_id, file_id, association)
+  response = xero_client.accounting_api.create_file_association(xero_tenant_id, file_id, idempotency_key, association)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_file_association: #{e}"
@@ -1338,6 +1339,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createFileAssociation_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -1400,9 +1421,10 @@ Xero identifier for Tenant
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
+idempotency_key = 'KEY_VALUE'
 
 begin
-  response = xero_client.accounting_api.create_folder(xero_tenant_id, folder)
+  response = xero_client.accounting_api.create_folder(xero_tenant_id, idempotency_key, folder)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_folder: #{e}"
@@ -1444,6 +1466,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createFolder_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -1878,9 +1920,13 @@ Xero identifier for Tenant
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 object_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+pagesize = 50
+page = 2
+sort = 'Associations/{ObjectId}?sort=CreatedDateUtc'
+direction = 'Associations/{ObjectId}?sort=CreatedDateUtc&direction=DESC'
 
 begin
-  response = xero_client.accounting_api.get_associations_by_object(xero_tenant_id, object_id)
+  response = xero_client.accounting_api.get_associations_by_object(xero_tenant_id, object_id, pagesize, page, sort, direction)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_associations_by_object: #{e}"
@@ -1960,6 +2006,93 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                  </table>
+                  <div class="methodsubtabletitle">Query parameters</div>
+                  <table id="methodsubtable">
+                    <tr>
+                      <th width="150px">Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr><td style="width:150px;">pagesize</td>
+<td>
+
+
+    <div id="d2e199_getAssociationsByObject_pagesize">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description marked">
+pass an optional page size value
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">page</td>
+<td>
+
+
+    <div id="d2e199_getAssociationsByObject_page">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description marked">
+number of records to skip for pagination
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">sort</td>
+<td>
+
+
+    <div id="d2e199_getAssociationsByObject_sort">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+values to sort by
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">direction</td>
+<td>
+
+
+    <div id="d2e199_getAssociationsByObject_direction">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+direction to sort by
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -2936,9 +3069,10 @@ Xero identifier for Tenant
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+idempotency_key = 'KEY_VALUE'
 
 begin
-  response = xero_client.accounting_api.update_file(xero_tenant_id, file_id, fileObject)
+  response = xero_client.accounting_api.update_file(xero_tenant_id, file_id, idempotency_key, fileObject)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_file: #{e}"
@@ -3018,6 +3152,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateFile_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -3081,9 +3235,10 @@ Xero identifier for Tenant
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 folder_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+idempotency_key = 'KEY_VALUE'
 
 begin
-  response = xero_client.accounting_api.update_folder(xero_tenant_id, folder_id, folder)
+  response = xero_client.accounting_api.update_folder(xero_tenant_id, folder_id, folder, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_folder: #{e}"
@@ -3163,6 +3318,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateFolder_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -3232,10 +3407,11 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 body = BYTE_ARRAY_DATA_HERE
 name = 'name_example'
 filename = 'filename_example'
+idempotency_key = 'KEY_VALUE'
 mimeType = 'mimeType_example'
 
 begin
-  response = xero_client.accounting_api.upload_file(xero_tenant_id, body, name, filename, mimeType)
+  response = xero_client.accounting_api.upload_file(xero_tenant_id, body, name, filename, idempotency_key, mimeType)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling upload_file: #{e}"
@@ -3277,6 +3453,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_uploadFile_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -3415,10 +3611,11 @@ folder_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 body = BYTE_ARRAY_DATA_HERE
 name = 'name_example'
 filename = 'filename_example'
+idempotency_key = 'KEY_VALUE'
 mimeType = 'mimeType_example'
 
 begin
-  response = xero_client.accounting_api.upload_file_to_folder(xero_tenant_id, folder_id, body, name, filename, mimeType)
+  response = xero_client.accounting_api.upload_file_to_folder(xero_tenant_id, folder_id, body, name, filename, idempotency_key, mimeType)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling upload_file_to_folder: #{e}"
@@ -3493,6 +3690,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_uploadFileToFolder_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
