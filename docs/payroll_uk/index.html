@@ -953,110 +953,8 @@ ul.nav-tabs {
   },
   "description" : ""
 };
-      defs["Benefit"] = {
-  "title" : "",
-  "required" : [ "calculationType", "category", "expenseAccountId", "liabilityAccountId", "name", "percentage" ],
-  "type" : "object",
-  "properties" : {
-    "id" : {
-      "type" : "string",
-      "description" : "unique identifier in Xero",
-      "format" : "uuid"
-    },
-    "name" : {
-      "type" : "string",
-      "description" : "Name of the employer pension"
-    },
-    "category" : {
-      "type" : "string",
-      "description" : "Category type of the employer pension",
-      "enum" : [ "StakeholderPension", "Other" ]
-    },
-    "liabilityAccountId" : {
-      "type" : "string",
-      "description" : "Xero identifier for Liability Account",
-      "format" : "uuid"
-    },
-    "expenseAccountId" : {
-      "type" : "string",
-      "description" : "Xero identifier for Expense Account",
-      "format" : "uuid"
-    },
-    "standardAmount" : {
-      "type" : "number",
-      "description" : "Standard amount of the employer pension",
-      "format" : "double",
-      "x-is-money" : true
-    },
-    "percentage" : {
-      "type" : "number",
-      "description" : "Percentage of gross of the employer pension",
-      "format" : "double",
-      "x-is-money" : true
-    },
-    "calculationType" : {
-      "type" : "string",
-      "description" : "Calculation Type of the employer pension (FixedAmount or PercentageOfGross).",
-      "enum" : [ "FixedAmount", "PercentageOfGross" ]
-    },
-    "currentRecord" : {
-      "type" : "boolean",
-      "description" : "Identifier of a record is active or not."
-    },
-    "subjectToNIC" : {
-      "type" : "boolean",
-      "description" : "Identifier of subject To NIC"
-    },
-    "subjectToPension" : {
-      "type" : "boolean",
-      "description" : "Identifier of subject To pension"
-    },
-    "subjectToTax" : {
-      "type" : "boolean",
-      "description" : "Identifier of subject To Tax"
-    },
-    "isCalculatingOnQualifyingEarnings" : {
-      "type" : "boolean",
-      "description" : "Identifier of calculating on qualifying earnings"
-    },
-    "showBalanceToEmployee" : {
-      "type" : "boolean",
-      "description" : "display the balance to employee"
-    }
-  },
-  "description" : ""
-};
-      defs["BenefitLine"] = {
-  "title" : "",
-  "type" : "object",
-  "properties" : {
-    "benefitTypeID" : {
-      "type" : "string",
-      "description" : "Xero identifier for payroll benefit type",
-      "format" : "uuid"
-    },
-    "displayName" : {
-      "type" : "string",
-      "description" : "Benefit display name"
-    },
-    "amount" : {
-      "type" : "number",
-      "description" : "The amount of the benefit line.",
-      "format" : "double"
-    },
-    "fixedAmount" : {
-      "type" : "number",
-      "description" : "Benefit fixed amount",
-      "format" : "double"
-    },
-    "percentage" : {
-      "type" : "number",
-      "description" : "Benefit rate percentage",
-      "format" : "double"
-    }
-  },
-  "description" : ""
-};
+      defs["Benefit"] = ;
+      defs["BenefitLine"] = ;
       defs["BenefitObject"] = {
   "title" : "",
   "type" : "object",
@@ -1092,129 +990,9 @@ ul.nav-tabs {
   },
   "description" : ""
 };
-      defs["CourtOrderLine"] = {
-  "title" : "",
-  "type" : "object",
-  "properties" : {
-    "courtOrderTypeID" : {
-      "type" : "string",
-      "description" : "Xero identifier for payroll court order type",
-      "format" : "uuid"
-    },
-    "amount" : {
-      "type" : "number",
-      "description" : "Amount",
-      "format" : "double"
-    }
-  },
-  "description" : ""
-};
-      defs["Deduction"] = {
-  "title" : "",
-  "required" : [ "deductionName", "liabilityAccountId" ],
-  "type" : "object",
-  "properties" : {
-    "deductionId" : {
-      "type" : "string",
-      "description" : "The Xero identifier for Deduction",
-      "format" : "uuid"
-    },
-    "deductionName" : {
-      "type" : "string",
-      "description" : "Name of the deduction"
-    },
-    "deductionCategory" : {
-      "type" : "string",
-      "description" : "Deduction Category type",
-      "enum" : [ "CapitalContributions", "ChildCareVoucher", "MakingGood", "PostgraduateLoanDeductions", "PrivateUsePayments", "SalarySacrifice", "StakeholderPension", "StakeholderPensionPostTax", "StudentLoanDeductions", "UkOther" ]
-    },
-    "liabilityAccountId" : {
-      "type" : "string",
-      "description" : "Xero identifier for Liability Account",
-      "format" : "uuid"
-    },
-    "currentRecord" : {
-      "type" : "boolean",
-      "description" : "Identifier of a record is active or not."
-    },
-    "standardAmount" : {
-      "type" : "number",
-      "description" : "Standard amount of the deduction",
-      "format" : "double",
-      "x-is-money" : true
-    },
-    "reducesSuperLiability" : {
-      "type" : "boolean",
-      "description" : "Identifier of reduces super liability"
-    },
-    "reducesTaxLiability" : {
-      "type" : "boolean",
-      "description" : "Identifier of reduces tax liability"
-    },
-    "calculationType" : {
-      "type" : "string",
-      "description" : "determine the calculation type whether fixed amount or percentage of gross",
-      "enum" : [ "FixedAmount", "PercentageOfGross" ]
-    },
-    "percentage" : {
-      "type" : "number",
-      "description" : "Percentage of gross",
-      "format" : "double",
-      "x-is-money" : true
-    },
-    "subjectToNIC" : {
-      "type" : "boolean",
-      "description" : "Identifier of subject To NIC"
-    },
-    "subjectToTax" : {
-      "type" : "boolean",
-      "description" : "Identifier of subject To Tax"
-    },
-    "isReducedByBasicRate" : {
-      "type" : "boolean",
-      "description" : "Identifier of reduced by basic rate applicable or not"
-    },
-    "applyToPensionCalculations" : {
-      "type" : "boolean",
-      "description" : "Identifier for apply to pension calculations"
-    },
-    "isCalculatingOnQualifyingEarnings" : {
-      "type" : "boolean",
-      "description" : "Identifier of calculating on qualifying earnings"
-    },
-    "isPension" : {
-      "type" : "boolean",
-      "description" : "Identifier of applicable for pension or not"
-    }
-  },
-  "description" : ""
-};
-      defs["DeductionLine"] = {
-  "title" : "",
-  "type" : "object",
-  "properties" : {
-    "deductionTypeID" : {
-      "type" : "string",
-      "description" : "Xero identifier for payroll deduction",
-      "format" : "uuid"
-    },
-    "amount" : {
-      "type" : "number",
-      "description" : "The amount of the deduction line",
-      "format" : "double"
-    },
-    "subjectToTax" : {
-      "type" : "boolean",
-      "description" : "Identifies if the deduction is subject to tax"
-    },
-    "percentage" : {
-      "type" : "number",
-      "description" : "Deduction rate percentage",
-      "format" : "double"
-    }
-  },
-  "description" : ""
-};
+      defs["CourtOrderLine"] = ;
+      defs["Deduction"] = ;
+      defs["DeductionLine"] = ;
       defs["DeductionObject"] = {
   "title" : "",
   "type" : "object",
@@ -1250,55 +1028,7 @@ ul.nav-tabs {
   },
   "description" : ""
 };
-      defs["EarningsLine"] = {
-  "title" : "",
-  "type" : "object",
-  "properties" : {
-    "earningsLineID" : {
-      "type" : "string",
-      "description" : "Xero identifier for payroll earnings line",
-      "format" : "uuid"
-    },
-    "earningsRateID" : {
-      "type" : "string",
-      "description" : "Xero identifier for payroll earnings rate",
-      "format" : "uuid"
-    },
-    "displayName" : {
-      "type" : "string",
-      "description" : "name of earnings rate for display in UI"
-    },
-    "ratePerUnit" : {
-      "type" : "number",
-      "description" : "Rate per unit for earnings line",
-      "format" : "double"
-    },
-    "numberOfUnits" : {
-      "type" : "number",
-      "description" : "Earnings number of units",
-      "format" : "double"
-    },
-    "fixedAmount" : {
-      "type" : "number",
-      "description" : "Earnings fixed amount. Only applicable if the EarningsRate RateType is Fixed",
-      "format" : "double"
-    },
-    "amount" : {
-      "type" : "number",
-      "description" : "The amount of the earnings line.",
-      "format" : "double"
-    },
-    "isLinkedToTimesheet" : {
-      "type" : "boolean",
-      "description" : "Identifies if the earnings is taken from the timesheet. False for earnings line"
-    },
-    "isAverageDailyPayRate" : {
-      "type" : "boolean",
-      "description" : "Identifies if the earnings is using an average daily pay rate"
-    }
-  },
-  "description" : ""
-};
+      defs["EarningsLine"] = ;
       defs["EarningsOrder"] = {
   "title" : "",
   "required" : [ "name" ],
@@ -1364,64 +1094,7 @@ ul.nav-tabs {
   },
   "description" : ""
 };
-      defs["EarningsRate"] = {
-  "title" : "",
-  "required" : [ "earningsType", "expenseAccountID", "name", "rateType", "typeOfUnits" ],
-  "type" : "object",
-  "properties" : {
-    "earningsRateID" : {
-      "type" : "string",
-      "description" : "Xero unique identifier for an earning rate",
-      "format" : "uuid"
-    },
-    "name" : {
-      "type" : "string",
-      "description" : "Name of the earning rate"
-    },
-    "earningsType" : {
-      "type" : "string",
-      "description" : "Indicates how an employee will be paid when taking this type of earning",
-      "enum" : [ "Allowance", "BackPay", "Bonus", "Commission", "LumpSum", "OtherEarnings", "OvertimeEarnings", "RegularEarnings", "StatutoryAdoptionPay", "StatutoryAdoptionPayNonPensionable", "StatutoryBereavementPay", "StatutoryMaternityPay", "StatutoryMaternityPayNonPensionable", "StatutoryPaternityPay", "StatutoryPaternityPayNonPensionable", "StatutoryParentalBereavementPayNonPensionable", "StatutorySharedParentalPay", "StatutorySharedParentalPayNonPensionable", "StatutorySickPay", "StatutorySickPayNonPensionable", "TipsNonDirect", "TipsDirect", "TerminationPay" ]
-    },
-    "rateType" : {
-      "type" : "string",
-      "description" : "Indicates the type of the earning rate",
-      "enum" : [ "RatePerUnit", "MultipleOfOrdinaryEarningsRate", "FixedAmount" ]
-    },
-    "typeOfUnits" : {
-      "type" : "string",
-      "description" : "The type of units used to record earnings"
-    },
-    "currentRecord" : {
-      "type" : "boolean",
-      "description" : "Indicates whether an earning type is active"
-    },
-    "expenseAccountID" : {
-      "type" : "string",
-      "description" : "The account that will be used for the earnings rate",
-      "format" : "uuid"
-    },
-    "ratePerUnit" : {
-      "type" : "number",
-      "description" : "Default rate per unit (optional). Only applicable if RateType is RatePerUnit",
-      "format" : "double",
-      "x-is-money" : true
-    },
-    "multipleOfOrdinaryEarningsRate" : {
-      "type" : "number",
-      "description" : "This is the multiplier used to calculate the rate per unit, based on the employee’s ordinary earnings rate. For example, for time and a half enter 1.5. Only applicable if RateType is MultipleOfOrdinaryEarningsRate",
-      "format" : "double",
-      "x-is-money" : true
-    },
-    "fixedAmount" : {
-      "type" : "number",
-      "description" : "Optional Fixed Rate Amount. Applicable for FixedAmount Rate",
-      "format" : "double",
-      "x-is-money" : true
-    }
-  },
-  "description" : ""
-};
+      defs["EarningsRate"] = ;
       defs["EarningsRateObject"] = {
   "title" : "",
   "type" : "object",
@@ -1457,45 +1130,7 @@ ul.nav-tabs {
   },
   "description" : ""
 };
-      defs["EarningsTemplate"] = {
-  "title" : "",
-  "type" : "object",
-  "properties" : {
-    "payTemplateEarningID" : {
-      "type" : "string",
-      "description" : "The Xero identifier for the earnings template",
-      "format" : "uuid"
-    },
-    "ratePerUnit" : {
-      "type" : "number",
-      "description" : "The rate per unit",
-      "format" : "double",
-      "x-is-money" : true
-    },
-    "numberOfUnits" : {
-      "type" : "number",
-      "description" : "The rate per unit",
-      "format" : "double",
-      "x-is-money" : true
-    },
-    "fixedAmount" : {
-      "type" : "number",
-      "description" : "The fixed amount per period",
-      "format" : "double",
-      "x-is-money" : true
-    },
-    "earningsRateID" : {
-      "type" : "string",
-      "description" : "The corresponding earnings rate identifier",
-      "format" : "uuid"
-    },
-    "name" : {
-      "type" : "string",
-      "description" : "The read-only name of the Earning Template."
-    }
-  },
-  "description" : ""
-};
+      defs["EarningsTemplate"] = ;
       defs["EarningsTemplateObject"] = {
   "title" : "",
   "type" : "object",
@@ -1654,33 +1289,7 @@ ul.nav-tabs {
   },
   "description" : ""
 };
-      defs["EmployeeLeaveBalance"] = {
-  "title" : "",
-  "type" : "object",
-  "properties" : {
-    "name" : {
-      "type" : "string",
-      "description" : "Name of the leave type.",
-      "example" : "Holiday"
-    },
-    "leaveTypeID" : {
-      "type" : "string",
-      "description" : "The Xero identifier for leave type",
-      "format" : "uuid"
-    },
-    "balance" : {
-      "type" : "number",
-      "description" : "The employees current balance for the corresponding leave type.",
-      "format" : "double"
-    },
-    "typeOfUnits" : {
-      "type" : "string",
-      "description" : "The type of the units of the leave.",
-      "example" : "hours"
-    }
-  },
-  "description" : ""
-};
+      defs["EmployeeLeaveBalance"] = ;
       defs["EmployeeLeaveBalances"] = {
   "title" : "",
   "type" : "object",
@@ -1716,44 +1325,7 @@ ul.nav-tabs {
   },
   "description" : ""
 };
-      defs["EmployeeLeaveType"] = {
-  "title" : "",
-  "required" : [ "leaveTypeID", "scheduleOfAccrual" ],
-  "type" : "object",
-  "properties" : {
-    "leaveTypeID" : {
-      "type" : "string",
-      "description" : "The Xero identifier for leave type",
-      "format" : "uuid"
-    },
-    "scheduleOfAccrual" : {
-      "type" : "string",
-      "description" : "The schedule of accrual",
-      "enum" : [ "BeginningOfCalendarYear", "OnAnniversaryDate", "EachPayPeriod", "OnHourWorked" ]
-    },
-    "hoursAccruedAnnually" : {
-      "type" : "number",
-      "description" : "The number of hours accrued for the leave annually. This is 0 when the scheduleOfAccrual chosen is \"OnHourWorked\"",
-      "format" : "double"
-    },
-    "maximumToAccrue" : {
-      "type" : "number",
-      "description" : "The maximum number of hours that can be accrued for the leave",
-      "format" : "double"
-    },
-    "openingBalance" : {
-      "type" : "number",
-      "description" : "The initial number of hours assigned when the leave was added to the employee",
-      "format" : "double"
-    },
-    "rateAccruedHourly" : {
-      "type" : "number",
-      "description" : "The number of hours added to the leave balance for every hour worked by the employee. This is normally 0, unless the scheduleOfAccrual chosen is \"OnHourWorked\"",
-      "format" : "double"
-    }
-  },
-  "description" : ""
-};
+      defs["EmployeeLeaveType"] = ;
       defs["EmployeeLeaveTypeObject"] = {
   "title" : "",
   "type" : "object",
@@ -1824,48 +1396,7 @@ ul.nav-tabs {
   },
   "description" : ""
 };
-      defs["EmployeeOpeningBalances"] = {
-  "title" : "",
-  "type" : "object",
-  "properties" : {
-    "statutoryAdoptionPay" : {
-      "type" : "number",
-      "description" : "The total accumulated statutory adoption pay amount received by the employee for current fiscal year to date",
-      "format" : "double",
-      "x-is-money" : true
-    },
-    "statutoryMaternityPay" : {
-      "type" : "number",
-      "description" : "The total accumulated statutory maternity pay amount received by the employee for current fiscal year to date",
-      "format" : "double",
-      "x-is-money" : true
-    },
-    "statutoryPaternityPay" : {
-      "type" : "number",
-      "description" : "The total accumulated statutory paternity pay amount received by the employee for current fiscal year to date",
-      "format" : "double",
-      "x-is-money" : true
-    },
-    "statutorySharedParentalPay" : {
-      "type" : "number",
-      "description" : "The total accumulated statutory shared parental pay amount received by the employee for current fiscal year to date",
-      "format" : "double",
-      "x-is-money" : true
-    },
-    "statutorySickPay" : {
-      "type" : "number",
-      "description" : "The total accumulated statutory sick pay amount received by the employee for current fiscal year to date",
-      "format" : "double",
-      "x-is-money" : true
-    },
-    "priorEmployeeNumber" : {
-      "type" : "number",
-      "description" : "The unique employee number issued by the employee's former employer",
-      "format" : "double"
-    }
-  },
-  "description" : ""
-};
+      defs["EmployeeOpeningBalances"] = ;
       defs["EmployeeOpeningBalancesObject"] = {
   "title" : "",
   "type" : "object",
@@ -1930,28 +1461,7 @@ ul.nav-tabs {
   },
   "description" : ""
 };
-      defs["EmployeeStatutoryLeaveBalance"] = {
-  "title" : "",
-  "type" : "object",
-  "properties" : {
-    "leaveType" : {
-      "type" : "string",
-      "description" : "The type of statutory leave",
-      "enum" : [ "Sick", "Adoption", "Maternity", "Paternity", "Sharedparental" ]
-    },
-    "balanceRemaining" : {
-      "type" : "number",
-      "description" : "The balance remaining for the corresponding leave type as of specified date.",
-      "format" : "double"
-    },
-    "units" : {
-      "type" : "string",
-      "description" : "The units will be \"Hours\"",
-      "enum" : [ "Hours" ]
-    }
-  },
-  "description" : ""
-};
+      defs["EmployeeStatutoryLeaveBalance"] = ;
       defs["EmployeeStatutoryLeaveBalanceObject"] = {
   "title" : "",
   "type" : "object",
@@ -2030,97 +1540,7 @@ ul.nav-tabs {
   },
   "description" : ""
 };
-      defs["EmployeeStatutorySickLeave"] = {
-  "title" : "",
-  "required" : [ "employeeID", "endDate", "isPregnancyRelated", "leaveTypeID", "startDate", "sufficientNotice", "workPattern" ],
-  "type" : "object",
-  "properties" : {
-    "statutoryLeaveID" : {
-      "type" : "string",
-      "description" : "The unique identifier (guid) of a statutory leave",
-      "format" : "uuid"
-    },
-    "employeeID" : {
-      "type" : "string",
-      "description" : "The unique identifier (guid) of the employee",
-      "format" : "uuid"
-    },
-    "leaveTypeID" : {
-      "type" : "string",
-      "description" : "The unique identifier (guid) of the \"Statutory Sick Leave (non-pensionable)\" pay item",
-      "format" : "uuid"
-    },
-    "startDate" : {
-      "type" : "string",
-      "description" : "The date when the leave starts",
-      "format" : "date",
-      "x-is-date" : true
-    },
-    "endDate" : {
-      "type" : "string",
-      "description" : "The date when the leave ends",
-      "format" : "date",
-      "x-is-date" : true
-    },
-    "type" : {
-      "type" : "string",
-      "description" : "the type of statutory leave",
-      "example" : "Sick"
-    },
-    "status" : {
-      "type" : "string",
-      "description" : "the type of statutory leave",
-      "example" : "Pending"
-    },
-    "workPattern" : {
-      "type" : "array",
-      "description" : "The days of the work week the employee is scheduled to work at the time the leave is taken",
-      "items" : {
-        "type" : "string"
-      }
-    },
-    "isPregnancyRelated" : {
-      "type" : "boolean",
-      "description" : "Whether the sick leave was pregnancy related"
-    },
-    "sufficientNotice" : {
-      "type" : "boolean",
-      "description" : "Whether the employee provided sufficient notice and documentation as required by the employer supporting the sick leave request"
-    },
-    "isEntitled" : {
-      "type" : "boolean",
-      "description" : "Whether the leave was entitled to receive payment"
-    },
-    "entitlementWeeksRequested" : {
-      "type" : "number",
-      "description" : "The amount of requested time (in weeks)",
-      "format" : "double"
-    },
-    "entitlementWeeksQualified" : {
-      "type" : "number",
-      "description" : "The amount of statutory sick leave time off (in weeks) that is available to take at the time the leave was requested",
-      "format" : "double"
-    },
-    "entitlementWeeksRemaining" : {
-      "type" : "number",
-      "description" : "A calculated amount of time (in weeks) that remains for the statutory sick leave period",
-      "format" : "double"
-    },
-    "overlapsWithOtherLeave" : {
-      "type" : "boolean",
-      "description" : "Whether another leave (Paternity, Shared Parental specifically) occurs during the requested leave's period. While this is allowed it could affect payment amounts"
-    },
-    "entitlementFailureReasons" : {
-      "type" : "array",
-      "description" : "If the leave requested was considered \"not entitled\", the reasons why are listed here.",
-      "items" : {
-        "type" : "string",
-        "enum" : [ "UnableToCalculateAwe", "AweLowerThanLel", "NotQualifiedInPreviousPiw", "ExceededMaximumEntitlementWeeksOfSsp", "ExceededMaximumDurationOfPiw", "SufficientNoticeNotGiven" ]
-      }
-    }
-  },
-  "description" : ""
-};
+      defs["EmployeeStatutorySickLeave"] = ;
       defs["EmployeeStatutorySickLeaveObject"] = {
   "title" : "",
   "type" : "object",
@@ -2156,68 +1576,7 @@ ul.nav-tabs {
   },
   "description" : ""
 };
-      defs["EmployeeTax"] = {
-  "title" : "",
-  "type" : "object",
-  "properties" : {
-    "starterType" : {
-      "type" : "string",
-      "description" : "The Starter type.",
-      "example" : "New Employee with P45"
-    },
-    "starterDeclaration" : {
-      "type" : "string",
-      "description" : "Starter declaration.",
-      "example" : "B.) This is currently their only job"
-    },
-    "taxCode" : {
-      "type" : "string",
-      "description" : "The Tax code.",
-      "example" : "1185L"
-    },
-    "w1M1" : {
-      "type" : "boolean",
-      "description" : "Describes whether the tax settings is W1M1"
-    },
-    "previousTaxablePay" : {
-      "type" : "number",
-      "description" : "The previous taxable pay",
-      "format" : "double",
-      "x-is-money" : true
-    },
-    "previousTaxPaid" : {
-      "type" : "number",
-      "description" : "The tax amount previously paid",
-      "format" : "double",
-      "x-is-money" : true
-    },
-    "studentLoanDeduction" : {
-      "type" : "string",
-      "description" : "The employee's student loan deduction type",
-      "example" : "Plan Type 2"
-    },
-    "hasPostGraduateLoans" : {
-      "type" : "boolean",
-      "description" : "Describes whether the employee has post graduate loans"
-    },
-    "isDirector" : {
-      "type" : "boolean",
-      "description" : "Describes whether the employee is director"
-    },
-    "directorshipStartDate" : {
-      "type" : "string",
-      "description" : "The directorship start date",
-      "format" : "date",
-      "x-is-date" : true
-    },
-    "nicCalculationMethod" : {
-      "type" : "string",
-      "description" : "NICs calculation method",
-      "example" : "Annualized"
-    }
-  },
-  "description" : ""
-};
+      defs["EmployeeTax"] = ;
       defs["EmployeeTaxObject"] = {
   "title" : "",
   "type" : "object",
@@ -2316,88 +1675,9 @@ ul.nav-tabs {
   },
   "description" : ""
 };
-      defs["LeaveAccrualLine"] = {
-  "title" : "",
-  "type" : "object",
-  "properties" : {
-    "leaveTypeID" : {
-      "type" : "string",
-      "description" : "Xero identifier for the Leave type",
-      "format" : "uuid"
-    },
-    "numberOfUnits" : {
-      "type" : "number",
-      "description" : "Leave accrual number of units",
-      "format" : "double"
-    }
-  },
-  "description" : ""
-};
-      defs["LeaveEarningsLine"] = {
-  "title" : "",
-  "type" : "object",
-  "properties" : {
-    "earningsRateID" : {
-      "type" : "string",
-      "description" : "Xero identifier for payroll leave earnings rate",
-      "format" : "uuid"
-    },
-    "ratePerUnit" : {
-      "type" : "number",
-      "description" : "Rate per unit for leave earnings line",
-      "format" : "double"
-    },
-    "numberOfUnits" : {
-      "type" : "number",
-      "description" : "Leave earnings number of units",
-      "format" : "double"
-    },
-    "fixedAmount" : {
-      "type" : "number",
-      "description" : "Leave earnings fixed amount. Only applicable if the EarningsRate RateType is Fixed",
-      "format" : "double"
-    },
-    "amount" : {
-      "type" : "number",
-      "description" : "The amount of the earnings line.",
-      "format" : "double"
-    },
-    "isLinkedToTimesheet" : {
-      "type" : "boolean",
-      "description" : "Identifies if the leave earnings is taken from the timesheet. False for leave earnings line"
-    }
-  },
-  "description" : ""
-};
-      defs["LeavePeriod"] = {
-  "title" : "",
-  "type" : "object",
-  "properties" : {
-    "periodStartDate" : {
-      "type" : "string",
-      "description" : "The Pay Period Start Date (YYYY-MM-DD)",
-      "format" : "date",
-      "x-is-date" : true
-    },
-    "periodEndDate" : {
-      "type" : "string",
-      "description" : "The Pay Period End Date (YYYY-MM-DD)",
-      "format" : "date",
-      "x-is-date" : true
-    },
-    "numberOfUnits" : {
-      "type" : "number",
-      "description" : "The Number of Units for the leave",
-      "format" : "double"
-    },
-    "periodStatus" : {
-      "type" : "string",
-      "description" : "Period Status",
-      "enum" : [ "Approved", "Completed" ]
-    }
-  },
-  "description" : ""
-};
+      defs["LeaveAccrualLine"] = ;
+      defs["LeaveEarningsLine"] = ;
+      defs["LeavePeriod"] = ;
       defs["LeavePeriods"] = {
   "title" : "",
   "type" : "object",
@@ -2518,78 +1798,7 @@ ul.nav-tabs {
   },
   "description" : ""
 };
-      defs["PayRun"] = {
-  "title" : "",
-  "type" : "object",
-  "properties" : {
-    "payRunID" : {
-      "type" : "string",
-      "description" : "Xero unique identifier for the pay run",
-      "format" : "uuid"
-    },
-    "payrollCalendarID" : {
-      "type" : "string",
-      "description" : "Xero unique identifier for the payroll calendar",
-      "format" : "uuid"
-    },
-    "periodStartDate" : {
-      "type" : "string",
-      "description" : "Period start date of the payroll calendar",
-      "format" : "date",
-      "x-is-date" : true
-    },
-    "periodEndDate" : {
-      "type" : "string",
-      "description" : "Period end date of the payroll calendar",
-      "format" : "date",
-      "x-is-date" : true
-    },
-    "paymentDate" : {
-      "type" : "string",
-      "description" : "Payment date of the pay run",
-      "format" : "date",
-      "x-is-date" : true
-    },
-    "totalCost" : {
-      "type" : "number",
-      "description" : "Total cost of the pay run",
-      "format" : "double"
-    },
-    "totalPay" : {
-      "type" : "number",
-      "description" : "Total pay of the pay run",
-      "format" : "double"
-    },
-    "payRunStatus" : {
-      "type" : "string",
-      "description" : "Pay run status",
-      "enum" : [ "Draft", "Posted" ]
-    },
-    "payRunType" : {
-      "type" : "string",
-      "description" : "Pay run type",
-      "enum" : [ "Scheduled", "Unscheduled", "EarlierYearUpdate" ]
-    },
-    "calendarType" : {
-      "type" : "string",
-      "description" : "Calendar type of the pay run",
-      "enum" : [ "Weekly", "Fortnightly", "FourWeekly", "Monthly", "Annual", "Quarterly" ]
-    },
-    "postedDateTime" : {
-      "type" : "string",
-      "description" : "Posted date time of the pay run",
-      "format" : "date",
-      "x-is-date" : true
-    },
-    "paySlips" : {
-      "type" : "array",
-      "items" : {
-        "$ref" : "#/components/schemas/Payslip"
-      }
-    }
-  },
-  "description" : ""
-};
+      defs["PayRun"] = ;
       defs["PayRunCalendar"] = {
   "title" : "",
   "required" : [ "calendarType", "name", "paymentDate", "periodStartDate" ],
@@ -2706,35 +1915,7 @@ ul.nav-tabs {
   },
   "description" : ""
 };
-      defs["PaymentLine"] = {
-  "title" : "",
-  "type" : "object",
-  "properties" : {
-    "paymentLineID" : {
-      "type" : "string",
-      "description" : "Xero identifier for payroll payment line",
-      "format" : "uuid"
-    },
-    "amount" : {
-      "type" : "number",
-      "description" : "The amount of the payment line",
-      "format" : "double"
-    },
-    "accountNumber" : {
-      "type" : "string",
-      "description" : "The account number"
-    },
-    "sortCode" : {
-      "type" : "string",
-      "description" : "The account sort code"
-    },
-    "accountName" : {
-      "type" : "string",
-      "description" : "The account name"
-    }
-  },
-  "description" : ""
-};
+      defs["PaymentLine"] = ;
       defs["PaymentMethod"] = {
   "title" : "",
   "required" : [ "paymentMethod" ],
@@ -2770,129 +1951,7 @@ ul.nav-tabs {
   },
   "description" : ""
 };
-      defs["Payslip"] = {
-  "title" : "",
-  "type" : "object",
-  "properties" : {
-    "paySlipID" : {
-      "type" : "string",
-      "description" : "The Xero identifier for a Payslip",
-      "format" : "uuid"
-    },
-    "employeeID" : {
-      "type" : "string",
-      "description" : "The Xero identifier for payroll employee",
-      "format" : "uuid"
-    },
-    "payRunID" : {
-      "type" : "string",
-      "description" : "The Xero identifier for the associated payrun",
-      "format" : "uuid"
-    },
-    "lastEdited" : {
-      "type" : "string",
-      "description" : "The date payslip was last updated",
-      "format" : "date",
-      "x-is-datetime" : true
-    },
-    "firstName" : {
-      "type" : "string",
-      "description" : "Employee first name"
-    },
-    "lastName" : {
-      "type" : "string",
-      "description" : "Employee last name"
-    },
-    "totalEarnings" : {
-      "type" : "number",
-      "description" : "Total earnings before any deductions. Same as gross earnings for UK.",
-      "format" : "double"
-    },
-    "grossEarnings" : {
-      "type" : "number",
-      "description" : "Total earnings before any deductions. Same as total earnings for UK.",
-      "format" : "double"
-    },
-    "totalPay" : {
-      "type" : "number",
-      "description" : "The employee net pay",
-      "format" : "double"
-    },
-    "totalEmployerTaxes" : {
-      "type" : "number",
-      "description" : "The employer's tax obligation",
-      "format" : "double"
-    },
-    "totalEmployeeTaxes" : {
-      "type" : "number",
-      "description" : "The part of an employee's earnings that is deducted for tax purposes",
-      "format" : "double"
-    },
-    "totalDeductions" : {
-      "type" : "number",
-      "description" : "Total amount subtracted from an employee's earnings to reach total pay",
-      "format" : "double"
-    },
-    "totalReimbursements" : {
-      "type" : "number",
-      "description" : "Total reimbursements are nontaxable payments to an employee used to repay out-of-pocket expenses when the person incurs those expenses through employment",
-      "format" : "double"
-    },
-    "totalCourtOrders" : {
-      "type" : "number",
-      "description" : "Total amounts required by law to subtract from the employee's earnings",
-      "format" : "double"
-    },
-    "totalBenefits" : {
-      "type" : "number",
-      "description" : "Benefits (also called fringe benefits, perquisites or perks) are various non-earnings compensations provided to employees in addition to their normal earnings or salaries",
-      "format" : "double"
-    },
-    "bacsHash" : {
-      "type" : "string",
-      "description" : "BACS Service User Number"
-    },
-    "paymentMethod" : {
-      "type" : "string",
-      "description" : "The payment method code",
-      "enum" : [ "Cheque", "Electronically", "Manual" ]
-    },
-    "earningsLines" : {
-      "$ref" : "#/components/schemas/EarningsLines"
-    },
-    "leaveEarningsLines" : {
-      "$ref" : "#/components/schemas/LeaveEarningsLines"
-    },
-    "timesheetEarningsLines" : {
-      "$ref" : "#/components/schemas/TimesheetEarningsLines"
-    },
-    "deductionLines" : {
-      "$ref" : "#/components/schemas/DeductionLines"
-    },
-    "reimbursementLines" : {
-      "$ref" : "#/components/schemas/ReimbursementLines"
-    },
-    "leaveAccrualLines" : {
-      "$ref" : "#/components/schemas/LeaveAccrualLines"
-    },
-    "benefitLines" : {
-      "$ref" : "#/components/schemas/BenefitLines"
-    },
-    "paymentLines" : {
-      "$ref" : "#/components/schemas/PaymentLines"
-    },
-    "employeeTaxLines" : {
-      "$ref" : "#/components/schemas/TaxLines"
-    },
-    "employerTaxLines" : {
-      "$ref" : "#/components/schemas/TaxLines"
-    },
-    "courtOrderLines" : {
-      "$ref" : "#/components/schemas/CourtOrderLines"
-    }
-  },
-  "description" : ""
-};
+      defs["Payslip"] = ;
       defs["PayslipObject"] = {
   "title" : "",
   "type" : "object",
@@ -2990,28 +2049,7 @@ ul.nav-tabs {
   },
   "description" : ""
 };
-      defs["ReimbursementLine"] = {
-  "title" : "",
-  "type" : "object",
-  "properties" : {
-    "reimbursementTypeID" : {
-      "type" : "string",
-      "description" : "Xero identifier for payroll reimbursement",
-      "format" : "uuid"
-    },
-    "description" : {
-      "type" : "string",
-      "description" : "Reimbursement line description"
-    },
-    "amount" : {
-      "type" : "number",
-      "description" : "Reimbursement amount",
-      "format" : "double",
-      "x-is-money" : true
-    }
-  },
-  "description" : ""
-};
+      defs["ReimbursementLine"] = ;
       defs["ReimbursementObject"] = {
   "title" : "",
   "type" : "object",
@@ -3047,60 +2085,7 @@ ul.nav-tabs {
   },
   "description" : ""
 };
-      defs["SalaryAndWage"] = {
-  "title" : "",
-  "required" : [ "annualSalary", "earningsRateID", "effectiveFrom", "numberOfUnitsPerWeek", "paymentType", "status" ],
-  "type" : "object",
-  "properties" : {
-    "salaryAndWagesID" : {
-      "type" : "string",
-      "description" : "Xero unique identifier for a salary and wages record",
-      "format" : "uuid"
-    },
-    "earningsRateID" : {
-      "type" : "string",
-      "description" : "Xero unique identifier for an earnings rate",
-      "format" : "uuid"
-    },
-    "numberOfUnitsPerWeek" : {
-      "type" : "number",
-      "description" : "The Number of Units per week for the corresponding salary and wages",
-      "format" : "double"
-    },
-    "ratePerUnit" : {
-      "type" : "number",
-      "description" : "The rate of each unit for the corresponding salary and wages",
-      "format" : "double"
-    },
-    "numberOfUnitsPerDay" : {
-      "type" : "number",
-      "description" : "The Number of Units per day for the corresponding salary and wages",
-      "format" : "double"
-    },
-    "effectiveFrom" : {
-      "type" : "string",
-      "description" : "The effective date of the corresponding salary and wages",
-      "format" : "date",
-      "x-is-date" : true
-    },
-    "annualSalary" : {
-      "type" : "number",
-      "description" : "The annual salary",
-      "format" : "double"
-    },
-    "status" : {
-      "type" : "string",
-      "description" : "The current status of the corresponding salary and wages",
-      "enum" : [ "Active", "Pending", "History" ]
-    },
-    "paymentType" : {
-      "type" : "string",
-      "description" : "The type of the payment of the corresponding salary and wages",
-      "enum" : [ "Salary", "Hourly" ]
-    }
-  },
-  "description" : ""
-};
+      defs["SalaryAndWage"] = ;
       defs["SalaryAndWageObject"] = {
   "title" : "",
   "type" : "object",
@@ -3186,163 +2171,10 @@ ul.nav-tabs {
   "description" : "Statutory Deduction Category",
   "enum" : [ "AdditionalStudentLoan", "ChildSupport", "CourtFines", "Creditor", "FederalLevy", "InlandRevenueArrears", "KiwiSaver", "MsdRepayments", "NonPriorityOrder", "PriorityOrder", "TableBased", "StudentLoan", "VoluntaryStudentLoan", "USChildSupport" ]
 };
-      defs["TaxLine"] = {
-  "title" : "",
-  "type" : "object",
-  "properties" : {
-    "taxLineID" : {
-      "type" : "string",
-      "description" : "Xero identifier for payroll tax line",
-      "format" : "uuid"
-    },
-    "description" : {
-      "type" : "string",
-      "description" : "Tax line description"
-    },
-    "isEmployerTax" : {
-      "type" : "boolean",
-      "description" : "Identifies if the amount is paid for by the employee or employer. True if employer pays the tax"
-    },
-    "amount" : {
-      "type" : "number",
-      "description" : "The amount of the tax line",
-      "format" : "double"
-    },
-    "globalTaxTypeID" : {
-      "type" : "string",
-      "description" : "Tax type ID"
-    },
-    "manualAdjustment" : {
-      "type" : "boolean",
-      "description" : "Identifies if the tax line is a manual adjustment"
-    }
-  },
-  "description" : ""
-};
-      defs["Timesheet"] = {
-  "title" : "",
-  "required" : [ "employeeID", "endDate", "payrollCalendarID", "startDate" ],
-  "type" : "object",
-  "properties" : {
-    "timesheetID" : {
-      "type" : "string",
-      "description" : "The Xero identifier for a Timesheet",
-      "format" : "uuid"
-    },
-    "payrollCalendarID" : {
-      "type" : "string",
-      "description" : "The Xero identifier for the Payroll Calendar that the Timesheet applies to",
-      "format" : "uuid"
-    },
-    "employeeID" : {
-      "type" : "string",
-      "description" : "The Xero identifier for the Employee that the Timesheet is for",
-      "format" : "uuid"
-    },
-    "startDate" : {
-      "type" : "string",
-      "description" : "The Start Date of the Timesheet period (YYYY-MM-DD)",
-      "format" : "date",
-      "x-is-date" : true
-    },
-    "endDate" : {
-      "type" : "string",
-      "description" : "The End Date of the Timesheet period (YYYY-MM-DD)",
-      "format" : "date",
-      "x-is-date" : true
-    },
-    "status" : {
-      "type" : "string",
-      "description" : "Status of the timesheet",
-      "enum" : [ "Draft", "Approved", "Completed" ]
-    },
-    "totalHours" : {
-      "type" : "number",
-      "description" : "The Total Hours of the Timesheet",
-      "format" : "double"
-    },
-    "updatedDateUTC" : {
-      "type" : "string",
-      "description" : "The UTC date time that the Timesheet was last updated",
-      "format" : "date-time",
-      "x-is-datetime" : true
-    },
-    "timesheetLines" : {
-      "$ref" : "#/components/schemas/TimesheetLines"
-    }
-  },
-  "description" : ""
-};
-      defs["TimesheetEarningsLine"] = {
-  "title" : "",
-  "type" : "object",
-  "properties" : {
-    "earningsRateID" : {
-      "type" : "string",
-      "description" : "Xero identifier for payroll timesheet earnings rate",
-      "format" : "uuid"
-    },
-    "ratePerUnit" : {
-      "type" : "number",
-      "description" : "Rate per unit for timesheet earnings line",
-      "format" : "double"
-    },
-    "numberOfUnits" : {
-      "type" : "number",
-      "description" : "Timesheet earnings number of units",
-      "format" : "double"
-    },
-    "fixedAmount" : {
-      "type" : "number",
-      "description" : "Timesheet earnings fixed amount. Only applicable if the EarningsRate RateType is Fixed",
-      "format" : "double"
-    },
-    "amount" : {
-      "type" : "number",
-      "description" : "The amount of the timesheet earnings line.",
-      "format" : "double"
-    },
-    "isLinkedToTimesheet" : {
-      "type" : "boolean",
-      "description" : "Identifies if the timesheet earnings is taken from the timesheet. False for leave earnings line"
-    }
-  },
-  "description" : ""
-};
-      defs["TimesheetLine"] = {
-  "title" : "",
-  "required" : [ "date", "earningsRateID", "numberOfUnits" ],
-  "type" : "object",
-  "properties" : {
-    "timesheetLineID" : {
-      "type" : "string",
-      "description" : "The Xero identifier for a Timesheet Line",
-      "format" : "uuid"
-    },
-    "date" : {
-      "type" : "string",
-      "description" : "The Date that this Timesheet Line is for (YYYY-MM-DD)",
-      "format" : "date",
-      "x-is-date" : true
-    },
-    "earningsRateID" : {
-      "type" : "string",
-      "description" : "The Xero identifier for the Earnings Rate that the Timesheet is for",
-      "format" : "uuid"
-    },
-    "trackingItemID" : {
-      "type" : "string",
-      "description" : "The Xero identifier for the Tracking Item that the Timesheet is for",
-      "format" : "uuid"
-    },
-    "numberOfUnits" : {
-      "type" : "number",
-      "description" : "The Number of Units of the Timesheet Line",
-      "format" : "double"
-    }
-  },
-  "description" : ""
-};
+      defs["TaxLine"] = ;
+      defs["Timesheet"] = ;
+      defs["TimesheetEarningsLine"] = ;
+      defs["TimesheetLine"] = ;
       defs["TimesheetLineObject"] = {
   "title" : "",
   "type" : "object",
@@ -3510,7 +2342,7 @@ ul.nav-tabs {
           <nav id="scrollingNav">
             <ul class="sidenav nav nav-list">
               <li class="nav-header" data-group="PayrollUk"><strong>SDK: </strong><span id='sdk-name'></span></li>
-              <li class="nav-header" data-group="PayrollUk"><strong>VSN: </strong>4.4.0</li>
+              <li class="nav-header" data-group="PayrollUk"><strong>VSN: </strong>5.0.0</li>
               <li class="nav-header" data-group="PayrollUk"><a href="#api-PayrollUk">Methods</a></li>
               <li data-group="PayrollUk" data-name="approveTimesheet" class="">
                 <a href="#api-PayrollUk-approveTimesheet">approveTimesheet</a>
@@ -4001,17 +2833,7 @@ This allows you to safely retry requests without the risk of duplicate processin
       </div>
     </div>
     <script type="application/ld+json">
-      {
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/Benefit"
-      },
-      "example" : "{ \"name\": \"My Big Bennie\", \"category\": \"StakeholderPension\", \"liabilityAccountId\": \"e0faa299-ca0d-4b0a-9e32-0dfabdf9179a\", \"expenseAccountId\": \"4b03500d-32fd-4616-8d70-e1e56e0519c6\", \"standardAmount\": 50, \"percentage\": 25, \"calculationType\": \"PercentageOfGross\" }"
-    }
-  },
-  "required" : true
-}
+      
     </script>
                   </table>
                 </article>
@@ -4144,17 +2966,7 @@ This allows you to safely retry requests without the risk of duplicate processin
       </div>
     </div>
     <script type="application/ld+json">
-      {
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/Deduction"
-      },
-      "example" : "{ \"deductionName\": \"My new deduction\", \"deductionCategory\": \"SalarySacrifice\", \"liabilityAccountId\": \"e0faa299-ca0d-4b0a-9e32-0dfabdf9179a\", \"calculationType\": \"FixedAmount\" }"
-    }
-  },
-  "required" : true
-}
+      
     </script>
                   </table>
                 </article>
@@ -4287,17 +3099,7 @@ This allows you to safely retry requests without the risk of duplicate processin
       </div>
     </div>
     <script type="application/ld+json">
-      {
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/EarningsRate"
-      },
-      "example" : "{ \"name\": \"My Earnings Rate\", \"earningsType\": \"RegularEarnings\", \"rateType\": \"RatePerUnit\", \"typeOfUnits\": \"hours\", \"expenseAccountID\": \"4b03500d-32fd-4616-8d70-e1e56e0519c6\" }"
-    }
-  },
-  "required" : true
-}
+      
     </script>
                   </table>
                 </article>
@@ -4438,17 +3240,7 @@ This allows you to safely retry requests without the risk of duplicate processin
       </div>
     </div>
     <script type="application/ld+json">
-      {
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/Employee"
-      },
-      "example" : "{ \"title\":\"Mr\", \"firstName\":\"Mike\", \"lastName\":\"Fancy\", \"dateOfBirth\":\"1999-01-01T00:00:00\", \"gender\":\"M\", \"email\":\"mike@starkindustries.com\", \"isOffPayrollWorker\": false, \"address\": { \"addressLine1\": \"171 Midsummer\", \"city\": \"Milton Keyness\", \"postCode\": \"MK9 1EB\" } }"
-    }
-  },
-  "required" : true
-}
+      
     </script>
                   </table>
                 </article>
@@ -4619,16 +3411,7 @@ This allows you to safely retry requests without the risk of duplicate processin
       </div>
     </div>
     <script type="application/ld+json">
-      {
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/EarningsTemplate"
-      }
-    }
-  },
-  "required" : true
-}
+      
     </script>
                   </table>
                 </article>
@@ -4796,17 +3579,7 @@ This allows you to safely retry requests without the risk of duplicate processin
       </div>
     </div>
     <script type="application/ld+json">
-      {
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/EmployeeLeave"
-      },
-      "example" : "{ \"leaveTypeID\": \"1d2778ee-86ea-45c0-bbf8-1045485f6b3f\", \"description\": \"Creating a Description\", \"startDate\": \"2020-03-24\", \"endDate\": \"2020-03-26\" }"
-    }
-  },
-  "required" : true
-}
+      
     </script>
                   </table>
                 </article>
@@ -4972,17 +3745,7 @@ This allows you to safely retry requests without the risk of duplicate processin
       </div>
     </div>
     <script type="application/ld+json">
-      {
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/EmployeeLeaveType"
-      },
-      "example" : "{ \"leaveTypeID\": \"4918f233-bd31-43f9-9633-bcc6de1178f2\", \"scheduleOfAccrual\": \"BeginningOfCalendarYear\", \"hoursAccruedAnnually\": 10 }"
-    }
-  },
-  "required" : true
-}
+      
     </script>
                   </table>
                 </article>
@@ -5150,17 +3913,7 @@ This allows you to safely retry requests without the risk of duplicate processin
       </div>
     </div>
     <script type="application/ld+json">
-      {
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/EmployeeOpeningBalances"
-      },
-      "example" : "{ \"statutoryAdoptionPay\": 10, \"statutoryMaternityPay\": 10, \"statutoryPaternityPay\": 10, \"statutorySharedParentalPay\": 10, \"statutorySickPay\": 10, \"priorEmployeeNumber\": 10 }"
-    }
-  },
-  "required" : true
-}
+      
     </script>
                   </table>
                 </article>
@@ -5332,17 +4085,7 @@ This allows you to safely retry requests without the risk of duplicate processin
       </div>
     </div>
     <script type="application/ld+json">
-      {
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/PaymentMethod"
-      },
-      "example" : "{ \"paymentMethod\": \"Electronically\", \"bankAccounts\": [ { \"accountName\": \"Sid BofA\", \"accountNumber\": \"24987654\", \"sortCode\": \"287654\" } ] }"
-    }
-  },
-  "required" : true
-}
+      
     </script>
                   </table>
                 </article>
@@ -5510,17 +4253,7 @@ This allows you to safely retry requests without the risk of duplicate processin
       </div>
     </div>
     <script type="application/ld+json">
-      {
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/SalaryAndWage"
-      },
-      "example" : "{ \"earningsRateID\": \"87f5b43a-cf51-4b74-92de-94c819e82d27\", \"numberOfUnitsPerWeek\": 2, \"ratePerUnit\": 10, \"numberOfUnitsPerDay\": 2, \"effectiveFrom\": \"2020-05-01\", \"annualSalary\": 100, \"status\": \"ACTIVE\", \"paymentType\": \"Salary\" }"
-    }
-  },
-  "required" : true
-}
+      
     </script>
                   </table>
                 </article>
@@ -5655,17 +4388,7 @@ This allows you to safely retry requests without the risk of duplicate processin
       </div>
     </div>
     <script type="application/ld+json">
-      {
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/EmployeeStatutorySickLeave"
-      },
-      "example" : "{ \"employeeID\": \"aad6b292-7b94-408b-93f6-e489867e3fb0\", \"leaveTypeID\": \"aab78802-e9d3-4bbd-bc87-df858054988f\", \"startDate\": \"2020-04-21\", \"endDate\": \"2020-04-24\", \"workPattern\": [ \"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\" ], \"isPregnancyRelated\": false, \"sufficientNotice\": true }"
-    }
-  },
-  "required" : true
-}
+      
     </script>
                   </table>
                 </article>
@@ -5831,17 +4554,7 @@ This allows you to safely retry requests without the risk of duplicate processin
       </div>
     </div>
     <script type="application/ld+json">
-      {
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/Employment"
-      },
-      "example" : "{ \"PayrollCalendarID\": \"216d80e6-af55-47b1-b718-9457c3f5d2fe\", \"StartDate\": \"2020-04-01\", \"EmployeeNumber\": \"123ABC\", \"NICategory\": \"A\" }"
-    }
-  },
-  "required" : true
-}
+      
     </script>
                   </table>
                 </article>
@@ -5973,17 +4686,7 @@ This allows you to safely retry requests without the risk of duplicate processin
       </div>
     </div>
     <script type="application/ld+json">
-      {
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/LeaveType"
-      },
-      "example" : "{ \"name\": \"My opebvwbfxf Leave\", \"isPaidLeave\": false, \"showOnPayslip\": true }"
-    }
-  },
-  "required" : true
-}
+      
     </script>
                   </table>
                 </article>
@@ -6154,17 +4857,7 @@ This allows you to safely retry requests without the risk of duplicate processin
       </div>
     </div>
     <script type="application/ld+json">
-      {
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/EarningsTemplates"
-      },
-      "example" : "[ { \"ratePerUnit\":20.0, \"numberOfUnits\":8.0, \"earningsRateID\":\"87f5b43a-cf51-4b74-92de-94c819e82d27\" }, { \"ratePerUnit\":20.0, \"numberOfUnits\":8.0, \"earningsRateID\":\"973365f3-66b2-4c33-8ae6-14b75f78f68b\" } ]"
-    }
-  },
-  "required" : true
-}
+      
     </script>
                   </table>
                 </article>
@@ -6298,17 +4991,7 @@ This allows you to safely retry requests without the risk of duplicate processin
       </div>
     </div>
     <script type="application/ld+json">
-      {
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/PayRunCalendar"
-      },
-      "example" : "{ \"name\": \"My Weekly Cal\", \"calendarType\": \"Weekly\", \"periodStartDate\": \"2020-05-01\", \"paymentDate\": \"2020-05-15\" }"
-    }
-  },
-  "required" : true
-}
+      
     </script>
                   </table>
                 </article>
@@ -6439,17 +5122,7 @@ This allows you to safely retry requests without the risk of duplicate processin
       </div>
     </div>
     <script type="application/ld+json">
-      {
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/Reimbursement"
-      },
-      "example" : "{ \"name\": \"My new Reimburse\", \"accountID\": \"9ee28149-32a9-4661-8eab-a28738696983\" }"
-    }
-  },
-  "required" : true
-}
+      
     </script>
                   </table>
                 </article>
@@ -6584,17 +5257,7 @@ This allows you to safely retry requests without the risk of duplicate processin
       </div>
     </div>
     <script type="application/ld+json">
-      {
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/Timesheet"
-      },
-      "example" : "{ \"payrollCalendarID\": \"216d80e6-af55-47b1-b718-9457c3f5d2fe\", \"employeeID\": \"aad6b292-7b94-408b-93f6-e489867e3fb0\", \"startDate\": \"2020-04-13\", \"endDate\": \"2020-04-19\", \"timesheetLines\": [ { \"date\": \"2020-04-13\", \"earningsRateID\": \"87f5b43a-cf51-4b74-92de-94c819e82d27\", \"numberOfUnits\": 8 }, { \"date\": \"2020-04-15\", \"earningsRateID\": \"87f5b43a-cf51-4b74-92de-94c819e82d27\", \"numberOfUnits\": 6 } ] }"
-    }
-  },
-  "required" : true
-}
+      
     </script>
                   </table>
                 </article>
@@ -6763,17 +5426,7 @@ This allows you to safely retry requests without the risk of duplicate processin
       </div>
     </div>
     <script type="application/ld+json">
-      {
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/TimesheetLine"
-      },
-      "example" : "{ \"date\": \"2020-04-14\", \"earningsRateID\": \"87f5b43a-cf51-4b74-92de-94c819e82d27\", \"numberOfUnits\": 1 }"
-    }
-  },
-  "required" : true
-}
+      
     </script>
                   </table>
                 </article>
@@ -12517,17 +11170,7 @@ This allows you to safely retry requests without the risk of duplicate processin
       </div>
     </div>
     <script type="application/ld+json">
-      {
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/Employee"
-      },
-      "example" : "{ \"title\": \"Mr.\", \"firstName\": \"TestDataUK\", \"lastName\": \"Tester\", \"dateOfBirth\": \"1992-11-22T00:00:00\", \"gender\": \"M\", \"email\": \"tester@gmail.com\", \"phoneNumber\": \"0400123456\", \"isOffPayrollWorker\": false, \"address\": { \"addressLine1\": \"171 Midsummer\", \"city\": \"Milton Keyness\", \"postCode\": \"MK9 1EB\" } }"
-    }
-  },
-  "required" : true
-}
+      
     </script>
                   </table>
                 </article>
@@ -12725,17 +11368,7 @@ This allows you to safely retry requests without the risk of duplicate processin
       </div>
     </div>
     <script type="application/ld+json">
-      {
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/EarningsTemplate"
-      },
-      "example" : "{ \"ratePerUnit\": 30, \"numberOfUnits\": 4, \"earningsRateID\": \"87f5b43a-cf51-4b74-92de-94c819e82d27\" }"
-    }
-  },
-  "required" : true
-}
+      
     </script>
                   </table>
                 </article>
@@ -12930,17 +11563,7 @@ This allows you to safely retry requests without the risk of duplicate processin
       </div>
     </div>
     <script type="application/ld+json">
-      {
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/EmployeeLeave"
-      },
-      "example" : "{ \"leaveTypeID\": \"ed08dffe-788e-4b24-9630-f0fa2f4d164c\", \"description\": \"Creating a Description\", \"startDate\": \"2020-04-24\", \"endDate\": \"2020-04-26\", \"periods\": [ { \"periodStartDate\": \"2020-04-20\", \"periodEndDate\": \"2020-04-26\", \"numberOfUnits\": 1, \"periodStatus\": \"Approved\" } ] }"
-    }
-  },
-  "required" : true
-}
+      
     </script>
                   </table>
                 </article>
@@ -13108,17 +11731,7 @@ This allows you to safely retry requests without the risk of duplicate processin
       </div>
     </div>
     <script type="application/ld+json">
-      {
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/EmployeeOpeningBalances"
-      },
-      "example" : "{ \"statutoryAdoptionPay\": 20, \"statutoryMaternityPay\": 20, \"statutoryPaternityPay\": 20, \"statutorySharedParentalPay\": 20, \"statutorySickPay\": 20, \"priorEmployeeNumber\": 20 }"
-    }
-  },
-  "required" : true
-}
+      
     </script>
                   </table>
                 </article>
@@ -13313,17 +11926,7 @@ This allows you to safely retry requests without the risk of duplicate processin
       </div>
     </div>
     <script type="application/ld+json">
-      {
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/SalaryAndWage"
-      },
-      "example" : "{ \"earningsRateID\": \"87f5b43a-cf51-4b74-92de-94c819e82d27\", \"numberOfUnitsPerWeek\": 3, \"ratePerUnit\": 11, \"effectiveFrom\": \"2020-05-15\", \"annualSalary\": 101, \"status\": \"ACTIVE\", \"paymentType\": \"Salary\" }"
-    }
-  },
-  "required" : true
-}
+      
     </script>
                   </table>
                 </article>
@@ -13491,17 +12094,7 @@ This allows you to safely retry requests without the risk of duplicate processin
       </div>
     </div>
     <script type="application/ld+json">
-      {
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/PayRun"
-      },
-      "example" : "{ \"paymentDate\": \"2020-05-01\" }"
-    }
-  },
-  "required" : true
-}
+      
     </script>
                   </table>
                 </article>
@@ -13697,17 +12290,7 @@ This allows you to safely retry requests without the risk of duplicate processin
       </div>
     </div>
     <script type="application/ld+json">
-      {
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/TimesheetLine"
-      },
-      "example" : "{ \"date\": \"2020-04-14\", \"earningsRateID\": \"87f5b43a-cf51-4b74-92de-94c819e82d27\", \"numberOfUnits\": 2 }"
-    }
-  },
-  "required" : true
-}
+      
     </script>
                   </table>
                 </article>

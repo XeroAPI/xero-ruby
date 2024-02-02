@@ -1850,7 +1850,7 @@ Name | Type | Description  | Notes
 
 ## update_employee
 
-> Employees update_employee(xero_tenant_id, employee_id, opts)
+> Employees update_employee(xero_tenant_id, employee_id, employee, opts)
 
 Updates an employee's detail
 
@@ -1883,15 +1883,14 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
+employee = [ { "MiddleNames": "Frank" } ] # Array<Employee> | 
 opts = {
-  idempotency_key: 'KEY_VALUE', # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
-
-  employee: [ { "MiddleNames": "Frank" } ] # Array<Employee> | 
+  idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
 
 begin
   #Updates an employee's detail
-  result = api_instance.update_employee(xero_tenant_id, employee_id, opts)
+  result = api_instance.update_employee(xero_tenant_id, employee_id, employee, opts)
   p result
 rescue XeroRuby::PayrollAu::ApiError => e
   puts "Exception when calling PayrollAuApi->update_employee: #{e}"
@@ -1905,8 +1904,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **employee_id** | [**String**](.md)| Employee id for single object | 
+ **employee** | [**Array&lt;Employee&gt;**](Employee.md)|  | 
  **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
- **employee** | [**Array&lt;Employee&gt;**](Employee.md)|  | [optional] 
 
 ### Return type
 
@@ -1995,7 +1994,7 @@ Name | Type | Description  | Notes
 
 ## update_pay_run
 
-> PayRuns update_pay_run(xero_tenant_id, pay_run_id, opts)
+> PayRuns update_pay_run(xero_tenant_id, pay_run_id, pay_run, opts)
 
 Updates a pay run
 
@@ -2028,15 +2027,14 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 pay_run_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | PayRun id for single object
+pay_run = [XeroRuby::PayrollAu::PayRun.new] # Array<PayRun> | 
 opts = {
-  idempotency_key: 'KEY_VALUE', # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
-
-  pay_run: [XeroRuby::PayrollAu::PayRun.new] # Array<PayRun> | 
+  idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
 
 begin
   #Updates a pay run
-  result = api_instance.update_pay_run(xero_tenant_id, pay_run_id, opts)
+  result = api_instance.update_pay_run(xero_tenant_id, pay_run_id, pay_run, opts)
   p result
 rescue XeroRuby::PayrollAu::ApiError => e
   puts "Exception when calling PayrollAuApi->update_pay_run: #{e}"
@@ -2050,8 +2048,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **pay_run_id** | [**String**](.md)| PayRun id for single object | 
+ **pay_run** | [**Array&lt;PayRun&gt;**](PayRun.md)|  | 
  **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
- **pay_run** | [**Array&lt;PayRun&gt;**](PayRun.md)|  | [optional] 
 
 ### Return type
 
@@ -2069,7 +2067,7 @@ Name | Type | Description  | Notes
 
 ## update_payslip
 
-> Payslips update_payslip(xero_tenant_id, payslip_id, opts)
+> Payslips update_payslip(xero_tenant_id, payslip_id, payslip_lines, opts)
 
 Updates a payslip
 
@@ -2102,15 +2100,14 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 payslip_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Payslip id for single object
+payslip_lines = { "Payslip": { "EmployeeID": "cdfb8371-0b21-4b8a-8903-1024df6c391e", "DeductionLines": [ { "DeductionTypeID": "727af5e8-b347-4ae7-85fc-9b82266d0aec", "CalculationType": "FIXEDAMOUNT", "NumberOfUnits": 10 } ] } } # Array<PayslipLines> | 
 opts = {
-  idempotency_key: 'KEY_VALUE', # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
-
-  payslip_lines: { "Payslip": { "EmployeeID": "cdfb8371-0b21-4b8a-8903-1024df6c391e", "DeductionLines": [ { "DeductionTypeID": "727af5e8-b347-4ae7-85fc-9b82266d0aec", "CalculationType": "FIXEDAMOUNT", "NumberOfUnits": 10 } ] } } # Array<PayslipLines> | 
+  idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
 
 begin
   #Updates a payslip
-  result = api_instance.update_payslip(xero_tenant_id, payslip_id, opts)
+  result = api_instance.update_payslip(xero_tenant_id, payslip_id, payslip_lines, opts)
   p result
 rescue XeroRuby::PayrollAu::ApiError => e
   puts "Exception when calling PayrollAuApi->update_payslip: #{e}"
@@ -2124,8 +2121,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **payslip_id** | [**String**](.md)| Payslip id for single object | 
+ **payslip_lines** | [**Array&lt;PayslipLines&gt;**](PayslipLines.md)|  | 
  **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
- **payslip_lines** | [**Array&lt;PayslipLines&gt;**](PayslipLines.md)|  | [optional] 
 
 ### Return type
 
@@ -2143,7 +2140,7 @@ Name | Type | Description  | Notes
 
 ## update_superfund
 
-> SuperFunds update_superfund(xero_tenant_id, super_fund_id, opts)
+> SuperFunds update_superfund(xero_tenant_id, super_fund_id, super_fund, opts)
 
 Updates a superfund
 
@@ -2176,15 +2173,14 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 super_fund_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Superfund id for single object
+super_fund =  [ { "Type":"REGULATED", "Name":"Nice23534" } ] # Array<SuperFund> | 
 opts = {
-  idempotency_key: 'KEY_VALUE', # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
-
-  super_fund:  [ { "Type":"REGULATED", "Name":"Nice23534" } ] # Array<SuperFund> | 
+  idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
 
 begin
   #Updates a superfund
-  result = api_instance.update_superfund(xero_tenant_id, super_fund_id, opts)
+  result = api_instance.update_superfund(xero_tenant_id, super_fund_id, super_fund, opts)
   p result
 rescue XeroRuby::PayrollAu::ApiError => e
   puts "Exception when calling PayrollAuApi->update_superfund: #{e}"
@@ -2198,8 +2194,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **super_fund_id** | [**String**](.md)| Superfund id for single object | 
+ **super_fund** | [**Array&lt;SuperFund&gt;**](SuperFund.md)|  | 
  **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
- **super_fund** | [**Array&lt;SuperFund&gt;**](SuperFund.md)|  | [optional] 
 
 ### Return type
 
@@ -2217,7 +2213,7 @@ Name | Type | Description  | Notes
 
 ## update_timesheet
 
-> Timesheets update_timesheet(xero_tenant_id, timesheet_id, opts)
+> Timesheets update_timesheet(xero_tenant_id, timesheet_id, timesheet, opts)
 
 Updates a timesheet
 
@@ -2250,15 +2246,14 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 timesheet_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Timesheet id for single object
+timesheet = [ { "EmployeeID":"b34e89ff-770d-4099-b7e5-f968767118bc", "StartDate":"/Date(1573171200000+0000)/", "EndDate":"/Date(1573689600000+0000)/", "Status":"APPROVED", "Hours":22.0, "TimesheetID":"a7eb0a79-8511-4ee7-b473-3a25f28abcb9", "TimesheetLines":[ { "EarningsRateID":"ab874dfb-ab09-4c91-954e-43acf6fc23b4", "TrackingItemID":"af5e9ce2-2349-4136-be99-3561b189f473", "NumberOfUnits":[ 2.0, 10.0, 0.0, 0.0, 5.0, 0.0, 5.0 ], "UpdatedDateUTC":"/Date(1573516185127+0000)/" } ] } ] # Array<Timesheet> | 
 opts = {
-  idempotency_key: 'KEY_VALUE', # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
-
-  timesheet: [ { "EmployeeID":"b34e89ff-770d-4099-b7e5-f968767118bc", "StartDate":"/Date(1573171200000+0000)/", "EndDate":"/Date(1573689600000+0000)/", "Status":"APPROVED", "Hours":22.0, "TimesheetID":"a7eb0a79-8511-4ee7-b473-3a25f28abcb9", "TimesheetLines":[ { "EarningsRateID":"ab874dfb-ab09-4c91-954e-43acf6fc23b4", "TrackingItemID":"af5e9ce2-2349-4136-be99-3561b189f473", "NumberOfUnits":[ 2.0, 10.0, 0.0, 0.0, 5.0, 0.0, 5.0 ], "UpdatedDateUTC":"/Date(1573516185127+0000)/" } ] } ] # Array<Timesheet> | 
+  idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
 
 begin
   #Updates a timesheet
-  result = api_instance.update_timesheet(xero_tenant_id, timesheet_id, opts)
+  result = api_instance.update_timesheet(xero_tenant_id, timesheet_id, timesheet, opts)
   p result
 rescue XeroRuby::PayrollAu::ApiError => e
   puts "Exception when calling PayrollAuApi->update_timesheet: #{e}"
@@ -2272,8 +2267,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **timesheet_id** | [**String**](.md)| Timesheet id for single object | 
+ **timesheet** | [**Array&lt;Timesheet&gt;**](Timesheet.md)|  | 
  **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
- **timesheet** | [**Array&lt;Timesheet&gt;**](Timesheet.md)|  | [optional] 
 
 ### Return type
 

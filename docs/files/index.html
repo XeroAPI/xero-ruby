@@ -1016,28 +1016,6 @@ ul.nav-tabs {
   "description" : "The Object Type",
   "enum" : [ "Unknown", "Accpay", "AccPayCredit", "AccPayPayment", "AccRec", "AccRecCredit", "AccRecPayment", "Adjustment", "ApCreditPayment", "ApOverPayment", "ApOverPaymentPayment", "ApOverPaymentSourcePayment", "ApPrepayment", "ApPrepaymentPayment", "ApPrepaymentSourcePayment", "ArCreditPayment", "ArOverPayment", "ArOverpaymentPayment", "ArOverpaymentSourcePayment", "ArPrepayment", "ArPrepaymentPayment", "ArPrepaymentSourcePayment", "CashPaid", "CashRec", "ExpPayment", "ManJournal", "PurchaseOrder", "Receipt", "Transfer", "Account", "Contact", "Business", "Employee", "Person", "User", "Org", "FixedAsset", "PayRun", "PriceListItem", "Bank", "Current", "Equity", "Expense", "Fixed", "Liability", "Prepayment", "Revenue", "Sales", "Overheads", "Depreciatn", "OtherIncome", "DirectCosts", "Currliab", "Termliab", "NonCurrent", "SalesQuote" ]
 };
-      defs["UploadObject"] = {
-  "title" : "",
-  "required" : [ "body", "filename", "name" ],
-  "type" : "object",
-  "properties" : {
-    "body" : {
-      "type" : "string",
-      "format" : "byte"
-    },
-    "name" : {
-      "type" : "string",
-      "description" : "exact name of the file you are uploading"
-    },
-    "filename" : {
-      "type" : "string"
-    },
-    "mimeType" : {
-      "type" : "string"
-    }
-  },
-  "description" : ""
-};
       defs["User"] = {
   "title" : "",
   "required" : [ "Id" ],
@@ -1155,7 +1133,7 @@ ul.nav-tabs {
           <nav id="scrollingNav">
             <ul class="sidenav nav nav-list">
               <li class="nav-header" data-group="Files"><strong>SDK: </strong><span id='sdk-name'></span></li>
-              <li class="nav-header" data-group="Files"><strong>VSN: </strong>4.4.0</li>
+              <li class="nav-header" data-group="Files"><strong>VSN: </strong>5.0.0</li>
               <li class="nav-header" data-group="Files"><a href="#api-Files">Methods</a></li>
               <li data-group="Files" data-name="createFileAssociation" class="">
                 <a href="#api-Files-createFileAssociation">createFileAssociation</a>
@@ -1256,10 +1234,11 @@ ul.nav-tabs {
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 idempotency_key = 'KEY_VALUE'
 
 begin
-  response = xero_client.accounting_api.create_file_association(xero_tenant_id, file_id, idempotency_key, association)
+  response = xero_client.accounting_api.create_file_association(xero_tenant_idfile_idassociation, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_file_association: #{e}"
@@ -1367,7 +1346,7 @@ This allows you to safely retry requests without the risk of duplicate processin
                       <th>Description</th>
                     </tr>
                     <tr>
-  <td style="width:150px;">association </td>
+  <td style="width:150px;">association <span style="color:red;">*</span></td>
   <td>
     <div class="json-schema-view">
       <div class="primitive">
@@ -1377,6 +1356,9 @@ This allows you to safely retry requests without the risk of duplicate processin
         <div class="inner description marked">
           
         </div>
+      </div>
+      <div class="inner required">
+        Required
       </div>
     </div>
     <script type="application/ld+json">
@@ -1388,7 +1370,8 @@ This allows you to safely retry requests without the risk of duplicate processin
       },
       "example" : "{ \"ObjectId\": \"1270bf7c-5d18-473a-9231-1e36c4bd33ed\", \"ObjectGroup\": \"Contact\", \"ObjectType\": \"Business\" }"
     }
-  }
+  },
+  "required" : true
 }
     </script>
                   </table>
@@ -1424,7 +1407,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 idempotency_key = 'KEY_VALUE'
 
 begin
-  response = xero_client.accounting_api.create_folder(xero_tenant_id, idempotency_key, folder)
+  response = xero_client.accounting_api.create_folder(xero_tenant_idfolder, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_folder: #{e}"
@@ -1499,7 +1482,7 @@ This allows you to safely retry requests without the risk of duplicate processin
                       <th>Description</th>
                     </tr>
                     <tr>
-  <td style="width:150px;">folder </td>
+  <td style="width:150px;">folder <span style="color:red;">*</span></td>
   <td>
     <div class="json-schema-view">
       <div class="primitive">
@@ -1509,6 +1492,9 @@ This allows you to safely retry requests without the risk of duplicate processin
         <div class="inner description marked">
           
         </div>
+      </div>
+      <div class="inner required">
+        Required
       </div>
     </div>
     <script type="application/ld+json">
@@ -1520,7 +1506,8 @@ This allows you to safely retry requests without the risk of duplicate processin
       },
       "example" : "{ \"Name\": \"My Docs\" }"
     }
-  }
+  },
+  "required" : true
 }
     </script>
                   </table>
@@ -1554,9 +1541,10 @@ This allows you to safely retry requests without the risk of duplicate processin
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.delete_file(xero_tenant_id, file_id)
+  response = xero_client.accounting_api.delete_file(xero_tenant_idfile_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling delete_file: #{e}"
@@ -1667,10 +1655,12 @@ Xero identifier for Tenant
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+object_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 object_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.delete_file_association(xero_tenant_id, file_id, object_id)
+  response = xero_client.accounting_api.delete_file_association(xero_tenant_idfile_idobject_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling delete_file_association: #{e}"
@@ -1807,9 +1797,10 @@ Xero identifier for Tenant
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 folder_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+folder_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.delete_folder(xero_tenant_id, folder_id)
+  response = xero_client.accounting_api.delete_folder(xero_tenant_idfolder_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling delete_folder: #{e}"
@@ -1920,13 +1911,14 @@ Xero identifier for Tenant
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 object_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+object_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 pagesize = 50
 page = 2
 sort = 'Associations/{ObjectId}?sort=CreatedDateUtc'
 direction = 'Associations/{ObjectId}?sort=CreatedDateUtc&direction=DESC'
 
 begin
-  response = xero_client.accounting_api.get_associations_by_object(xero_tenant_id, object_id, pagesize, page, sort, direction)
+  response = xero_client.accounting_api.get_associations_by_object(xero_tenant_idobject_id, pagesizepagesortdirection)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_associations_by_object: #{e}"
@@ -2128,10 +2120,10 @@ direction to sort by
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
-objectIds = []
+objectIds = 
 
 begin
-  response = xero_client.accounting_api.get_associations_count(xero_tenant_id, objectIds)
+  response = xero_client.accounting_api.get_associations_count(xero_tenant_idobjectIds)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_associations_count: #{e}"
@@ -2247,9 +2239,10 @@ A comma-separated list of object ids
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.get_file(xero_tenant_id, file_id)
+  response = xero_client.accounting_api.get_file(xero_tenant_idfile_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_file: #{e}"
@@ -2365,9 +2358,10 @@ Xero identifier for Tenant
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.get_file_associations(xero_tenant_id, file_id)
+  response = xero_client.accounting_api.get_file_associations(xero_tenant_idfile_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_file_associations: #{e}"
@@ -2483,9 +2477,10 @@ Xero identifier for Tenant
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.get_file_content(xero_tenant_id, file_id)
+  response = xero_client.accounting_api.get_file_content(xero_tenant_idfile_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_file_content: #{e}"
@@ -2605,7 +2600,7 @@ page = 2
 sort = 'CreatedDateUTC DESC'
 
 begin
-  response = xero_client.accounting_api.get_files(xero_tenant_id, pagesize, page, sort)
+  response = xero_client.accounting_api.get_files(xero_tenant_id, pagesizepagesort)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_files: #{e}"
@@ -2755,9 +2750,10 @@ values to sort by
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 folder_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+folder_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.get_folder(xero_tenant_id, folder_id)
+  response = xero_client.accounting_api.get_folder(xero_tenant_idfolder_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_folder: #{e}"
@@ -3069,10 +3065,11 @@ Xero identifier for Tenant
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 idempotency_key = 'KEY_VALUE'
 
 begin
-  response = xero_client.accounting_api.update_file(xero_tenant_id, file_id, idempotency_key, fileObject)
+  response = xero_client.accounting_api.update_file(xero_tenant_idfile_idfileObject, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_file: #{e}"
@@ -3180,7 +3177,7 @@ This allows you to safely retry requests without the risk of duplicate processin
                       <th>Description</th>
                     </tr>
                     <tr>
-  <td style="width:150px;">fileObject </td>
+  <td style="width:150px;">fileObject <span style="color:red;">*</span></td>
   <td>
     <div class="json-schema-view">
       <div class="primitive">
@@ -3190,6 +3187,9 @@ This allows you to safely retry requests without the risk of duplicate processin
         <div class="inner description marked">
           
         </div>
+      </div>
+      <div class="inner required">
+        Required
       </div>
     </div>
     <script type="application/ld+json">
@@ -3201,7 +3201,8 @@ This allows you to safely retry requests without the risk of duplicate processin
       },
       "example" : "{ \"FolderId\": \"bf924975-7097-46f2-a143-1ecfbab3c8c3\" }"
     }
-  }
+  },
+  "required" : true
 }
     </script>
                   </table>
@@ -3235,10 +3236,11 @@ This allows you to safely retry requests without the risk of duplicate processin
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 folder_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+folder_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 idempotency_key = 'KEY_VALUE'
 
 begin
-  response = xero_client.accounting_api.update_folder(xero_tenant_id, folder_id, folder, idempotency_key)
+  response = xero_client.accounting_api.update_folder(xero_tenant_idfolder_idfolder, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_folder: #{e}"
@@ -3411,7 +3413,7 @@ idempotency_key = 'KEY_VALUE'
 mimeType = 'mimeType_example'
 
 begin
-  response = xero_client.accounting_api.upload_file(xero_tenant_id, body, name, filename, idempotency_key, mimeType)
+  response = xero_client.accounting_api.upload_file(xero_tenant_idbodynamefilename, idempotency_keymimeType)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling upload_file: #{e}"
@@ -3608,6 +3610,7 @@ exact name of the file you are uploading
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 folder_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
+folder_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 body = BYTE_ARRAY_DATA_HERE
 name = 'name_example'
 filename = 'filename_example'
@@ -3615,7 +3618,7 @@ idempotency_key = 'KEY_VALUE'
 mimeType = 'mimeType_example'
 
 begin
-  response = xero_client.accounting_api.upload_file_to_folder(xero_tenant_id, folder_id, body, name, filename, idempotency_key, mimeType)
+  response = xero_client.accounting_api.upload_file_to_folder(xero_tenant_idfolder_idbodynamefilename, idempotency_keymimeType)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling upload_file_to_folder: #{e}"

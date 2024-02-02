@@ -6093,7 +6093,7 @@ ul.nav-tabs {
           <nav id="scrollingNav">
             <ul class="sidenav nav nav-list">
               <li class="nav-header" data-group="Accounting"><strong>SDK: </strong><span id='sdk-name'></span></li>
-              <li class="nav-header" data-group="Accounting"><strong>VSN: </strong>4.4.0</li>
+              <li class="nav-header" data-group="Accounting"><strong>VSN: </strong>5.0.0</li>
               <li class="nav-header" data-group="Accounting"><a href="#api-Accounting">Methods</a></li>
               <li data-group="Accounting" data-name="createAccount" class="">
                 <a href="#api-Accounting-createAccount">createAccount</a>
@@ -7560,9 +7560,9 @@ This allows you to safely retry requests without the risk of duplicate processin
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
-idempotency_key = 'KEY_VALUE'
 summarize_errors = true
 unitdp = 4
+idempotency_key = 'KEY_VALUE'
 
 contact = { 
   contact_id: "00000000-0000-0000-0000-000000000000"
@@ -7593,7 +7593,7 @@ bankTransactions = {
 } 
 
 begin
-  response = xero_client.accounting_api.create_bank_transactions(xero_tenant_id, bankTransactions, idempotency_key, summarize_errors, unitdp)
+  response = xero_client.accounting_api.create_bank_transactions(xero_tenant_id, bankTransactions, summarize_errors, unitdp, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_bank_transactions: #{e}"
@@ -9560,8 +9560,8 @@ This allows you to safely retry requests without the risk of duplicate processin
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
-idempotency_key = 'KEY_VALUE'
 summarize_errors = true
+idempotency_key = 'KEY_VALUE'
 
 phone = { 
   phone_number: "555-1212",
@@ -9581,7 +9581,7 @@ contacts = {
 } 
 
 begin
-  response = xero_client.accounting_api.create_contacts(xero_tenant_id, contacts, idempotency_key, summarize_errors)
+  response = xero_client.accounting_api.create_contacts(xero_tenant_id, contacts, summarize_errors, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_contacts: #{e}"
@@ -9743,8 +9743,8 @@ If false return 200 OK and mix of successfully created objects and any with vali
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 credit_note_id = '00000000-0000-0000-0000-000000000000'
-idempotency_key = 'KEY_VALUE'
 summarize_errors = true
+idempotency_key = 'KEY_VALUE'
 curr_date = 'YYYY-MM-DD'
 
 invoice = { 
@@ -9762,7 +9762,7 @@ allocations = {
 } 
 
 begin
-  response = xero_client.accounting_api.create_credit_note_allocation(xero_tenant_id, credit_note_id, allocations, idempotency_key, summarize_errors)
+  response = xero_client.accounting_api.create_credit_note_allocation(xero_tenant_id, credit_note_id, allocations, summarize_errors, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_credit_note_allocation: #{e}"
@@ -9958,11 +9958,11 @@ If false return 200 OK and mix of successfully created objects and any with vali
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 credit_note_id = '00000000-0000-0000-0000-000000000000'
 file_name = 'xero-dev.jpg'
-idempotency_key = 'KEY_VALUE'
 include_online = true
+idempotency_key = 'KEY_VALUE'
 body = File.read('assets/images/xero-api.png')
 begin
-  response = xero_client.accounting_api.create_credit_note_attachment_by_file_name(xero_tenant_id, credit_note_id, file_name, body, idempotency_key, include_online)
+  response = xero_client.accounting_api.create_credit_note_attachment_by_file_name(xero_tenant_id, credit_note_id, file_name, body, include_online, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_credit_note_attachment_by_file_name: #{e}"
@@ -10358,9 +10358,9 @@ This allows you to safely retry requests without the risk of duplicate processin
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
-idempotency_key = 'KEY_VALUE'
 summarize_errors = true
 unitdp = 4
+idempotency_key = 'KEY_VALUE'
 curr_date = 'YYYY-MM-DD'
 
 contact = { 
@@ -10388,7 +10388,7 @@ creditNotes = {
 } 
 
 begin
-  response = xero_client.accounting_api.create_credit_notes(xero_tenant_id, creditNotes, idempotency_key, summarize_errors, unitdp)
+  response = xero_client.accounting_api.create_credit_notes(xero_tenant_id, creditNotes, summarize_errors, unitdp, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_credit_notes: #{e}"
@@ -10711,8 +10711,8 @@ This allows you to safely retry requests without the risk of duplicate processin
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
-idempotency_key = 'KEY_VALUE'
 summarize_errors = true
+idempotency_key = 'KEY_VALUE'
 
 employee = { 
   first_name: "Nick",
@@ -10724,7 +10724,7 @@ employees = {
 } 
 
 begin
-  response = xero_client.accounting_api.create_employees(xero_tenant_id, employees, idempotency_key, summarize_errors)
+  response = xero_client.accounting_api.create_employees(xero_tenant_id, employees, summarize_errors, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_employees: #{e}"
@@ -11225,11 +11225,11 @@ This allows you to safely retry requests without the risk of duplicate processin
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 invoice_id = '00000000-0000-0000-0000-000000000000'
 file_name = 'xero-dev.jpg'
-idempotency_key = 'KEY_VALUE'
 include_online = true
+idempotency_key = 'KEY_VALUE'
 body = File.read('assets/images/xero-api.png')
 begin
-  response = xero_client.accounting_api.create_invoice_attachment_by_file_name(xero_tenant_id, invoice_id, file_name, body, idempotency_key, include_online)
+  response = xero_client.accounting_api.create_invoice_attachment_by_file_name(xero_tenant_id, invoice_id, file_name, body, include_online, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_invoice_attachment_by_file_name: #{e}"
@@ -11625,9 +11625,9 @@ This allows you to safely retry requests without the risk of duplicate processin
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
-idempotency_key = 'KEY_VALUE'
 summarize_errors = true
 unitdp = 4
+idempotency_key = 'KEY_VALUE'
 date_value = 'YYYY-MM-DD'
 due_date_value = 'YYYY-MM-DD'
 
@@ -11667,7 +11667,7 @@ invoices = {
 } 
 
 begin
-  response = xero_client.accounting_api.create_invoices(xero_tenant_id, invoices, idempotency_key, summarize_errors, unitdp)
+  response = xero_client.accounting_api.create_invoices(xero_tenant_id, invoices, summarize_errors, unitdp, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_invoices: #{e}"
@@ -12027,9 +12027,9 @@ This allows you to safely retry requests without the risk of duplicate processin
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
-idempotency_key = 'KEY_VALUE'
 summarize_errors = true
 unitdp = 4
+idempotency_key = 'KEY_VALUE'
 
 purchase_details = { 
   cogs_account_code: "500"
@@ -12048,7 +12048,7 @@ items = {
 } 
 
 begin
-  response = xero_client.accounting_api.create_items(xero_tenant_id, items, idempotency_key, summarize_errors, unitdp)
+  response = xero_client.accounting_api.create_items(xero_tenant_id, items, summarize_errors, unitdp, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_items: #{e}"
@@ -12745,8 +12745,8 @@ This allows you to safely retry requests without the risk of duplicate processin
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
-idempotency_key = 'KEY_VALUE'
 summarize_errors = true
+idempotency_key = 'KEY_VALUE'
 date_value = 'YYYY-MM-DD'  
 manual_journal_lines = []
 
@@ -12775,7 +12775,7 @@ manualJournals = {
 } 
 
 begin
-  response = xero_client.accounting_api.create_manual_journals(xero_tenant_id, manualJournals, idempotency_key, summarize_errors)
+  response = xero_client.accounting_api.create_manual_journals(xero_tenant_id, manualJournals, summarize_errors, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_manual_journals: #{e}"
@@ -12937,8 +12937,8 @@ If false return 200 OK and mix of successfully created objects and any with vali
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 overpayment_id = '00000000-0000-0000-0000-000000000000'
-idempotency_key = 'KEY_VALUE'
 summarize_errors = true
+idempotency_key = 'KEY_VALUE'
 curr_date = 'YYYY-MM-DD'
 
 invoice = { 
@@ -12956,7 +12956,7 @@ allocations = {
 } 
 
 begin
-  response = xero_client.accounting_api.create_overpayment_allocations(xero_tenant_id, overpayment_id, allocations, idempotency_key, summarize_errors)
+  response = xero_client.accounting_api.create_overpayment_allocations(xero_tenant_id, overpayment_id, allocations, summarize_errors, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_overpayment_allocations: #{e}"
@@ -13812,8 +13812,8 @@ This allows you to safely retry requests without the risk of duplicate processin
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
-idempotency_key = 'KEY_VALUE'
 summarize_errors = true
+idempotency_key = 'KEY_VALUE'
 date_value = 'YYYY-MM-DD'
 
 invoice = { 
@@ -13836,7 +13836,7 @@ payments = {
 } 
 
 begin
-  response = xero_client.accounting_api.create_payments(xero_tenant_id, payments, idempotency_key, summarize_errors)
+  response = xero_client.accounting_api.create_payments(xero_tenant_id, payments, summarize_errors, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_payments: #{e}"
@@ -13998,8 +13998,8 @@ If false return 200 OK and mix of successfully created objects and any with vali
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 prepayment_id = '00000000-0000-0000-0000-000000000000'
-idempotency_key = 'KEY_VALUE'
 summarize_errors = true
+idempotency_key = 'KEY_VALUE'
 curr_date = 'YYYY-MM-DD'
 
 invoice = { 
@@ -14017,7 +14017,7 @@ allocations = {
 } 
 
 begin
-  response = xero_client.accounting_api.create_prepayment_allocations(xero_tenant_id, prepayment_id, allocations, idempotency_key, summarize_errors)
+  response = xero_client.accounting_api.create_prepayment_allocations(xero_tenant_id, prepayment_id, allocations, summarize_errors, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_prepayment_allocations: #{e}"
@@ -14764,8 +14764,8 @@ This allows you to safely retry requests without the risk of duplicate processin
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
-idempotency_key = 'KEY_VALUE'
 summarize_errors = true
+idempotency_key = 'KEY_VALUE'
 date_value = 'YYYY-MM-DD'
 
 contact = { 
@@ -14792,7 +14792,7 @@ purchaseOrders = {
 } 
 
 begin
-  response = xero_client.accounting_api.create_purchase_orders(xero_tenant_id, purchaseOrders, idempotency_key, summarize_errors)
+  response = xero_client.accounting_api.create_purchase_orders(xero_tenant_id, purchaseOrders, summarize_errors, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_purchase_orders: #{e}"
@@ -15327,8 +15327,8 @@ This allows you to safely retry requests without the risk of duplicate processin
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
-idempotency_key = 'KEY_VALUE'
 summarize_errors = true
+idempotency_key = 'KEY_VALUE'
 date_value = 'YYYY-MM-DD'
 
 contact = { 
@@ -15355,7 +15355,7 @@ quotes = {
 } 
 
 begin
-  response = xero_client.accounting_api.create_quotes(xero_tenant_id, quotes, idempotency_key, summarize_errors)
+  response = xero_client.accounting_api.create_quotes(xero_tenant_id, quotes, summarize_errors, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_quotes: #{e}"
@@ -15516,8 +15516,8 @@ If false return 200 OK and mix of successfully created objects and any with vali
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
-idempotency_key = 'KEY_VALUE'
 unitdp = 4
+idempotency_key = 'KEY_VALUE'
 
 contact = { 
   contact_id: "00000000-0000-0000-0000-000000000000"
@@ -15549,7 +15549,7 @@ receipts = {
 } 
 
 begin
-  response = xero_client.accounting_api.create_receipt(xero_tenant_id, receipts, idempotency_key, unitdp)
+  response = xero_client.accounting_api.create_receipt(xero_tenant_id, receipts, unitdp, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_receipt: #{e}"
@@ -16458,11 +16458,11 @@ This allows you to safely retry requests without the risk of duplicate processin
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
-idempotency_key = 'KEY_VALUE'
 summarize_errors = true
+idempotency_key = 'KEY_VALUE'
 
 begin
-  response = xero_client.accounting_api.create_repeating_invoices(xero_tenant_id, repeatingInvoices, idempotency_key, summarize_errors)
+  response = xero_client.accounting_api.create_repeating_invoices(xero_tenant_id, repeatingInvoices, summarize_errors, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_repeating_invoices: #{e}"
@@ -37838,8 +37838,8 @@ This allows you to safely retry requests without the risk of duplicate processin
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 bank_transaction_id = '00000000-0000-0000-0000-000000000000'
-idempotency_key = 'KEY_VALUE'
 unitdp = 4
+idempotency_key = 'KEY_VALUE'
 
 contact = { 
   contact_id: "00000000-0000-0000-0000-000000000000"
@@ -37871,7 +37871,7 @@ bankTransactions = {
 } 
 
 begin
-  response = xero_client.accounting_api.update_bank_transaction(xero_tenant_id, bank_transaction_id, bankTransactions, idempotency_key, unitdp)
+  response = xero_client.accounting_api.update_bank_transaction(xero_tenant_id, bank_transaction_id, bankTransactions, unitdp, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_bank_transaction: #{e}"
@@ -39009,8 +39009,8 @@ This allows you to safely retry requests without the risk of duplicate processin
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 credit_note_id = '00000000-0000-0000-0000-000000000000'
-idempotency_key = 'KEY_VALUE'
 unitdp = 4
+idempotency_key = 'KEY_VALUE'
 curr_date = 'YYYY-MM-DD'
 
 contact = { 
@@ -39040,7 +39040,7 @@ creditNotes = {
 } 
 
 begin
-  response = xero_client.accounting_api.update_credit_note(xero_tenant_id, credit_note_id, creditNotes, idempotency_key, unitdp)
+  response = xero_client.accounting_api.update_credit_note(xero_tenant_id, credit_note_id, creditNotes, unitdp, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_credit_note: #{e}"
@@ -39622,8 +39622,8 @@ This allows you to safely retry requests without the risk of duplicate processin
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 invoice_id = '00000000-0000-0000-0000-000000000000'
-idempotency_key = 'KEY_VALUE'
 unitdp = 4
+idempotency_key = 'KEY_VALUE'
 
 invoice = { 
   reference: "I am Iron man"
@@ -39634,7 +39634,7 @@ invoices = {
 } 
 
 begin
-  response = xero_client.accounting_api.update_invoice(xero_tenant_id, invoice_id, invoices, idempotency_key, unitdp)
+  response = xero_client.accounting_api.update_invoice(xero_tenant_id, invoice_id, invoices, unitdp, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_invoice: #{e}"
@@ -40023,8 +40023,8 @@ This allows you to safely retry requests without the risk of duplicate processin
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 item_id = '00000000-0000-0000-0000-000000000000'
-idempotency_key = 'KEY_VALUE'
 unitdp = 4
+idempotency_key = 'KEY_VALUE'
 
 item = { 
   code: "ItemCode123",
@@ -40036,7 +40036,7 @@ items = {
 } 
 
 begin
-  response = xero_client.accounting_api.update_item(xero_tenant_id, item_id, items, idempotency_key, unitdp)
+  response = xero_client.accounting_api.update_item(xero_tenant_id, item_id, items, unitdp, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_item: #{e}"
@@ -40799,9 +40799,9 @@ This allows you to safely retry requests without the risk of duplicate processin
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
-idempotency_key = 'KEY_VALUE'
 summarize_errors = true
 unitdp = 4
+idempotency_key = 'KEY_VALUE'
 
 contact = { 
   contact_id: "00000000-0000-0000-0000-000000000000"
@@ -40832,7 +40832,7 @@ bankTransactions = {
 } 
 
 begin
-  response = xero_client.accounting_api.update_or_create_bank_transactions(xero_tenant_id, bankTransactions, idempotency_key, summarize_errors, unitdp)
+  response = xero_client.accounting_api.update_or_create_bank_transactions(xero_tenant_id, bankTransactions, summarize_errors, unitdp, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_or_create_bank_transactions: #{e}"
@@ -41012,8 +41012,8 @@ e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal place
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
-idempotency_key = 'KEY_VALUE'
 summarize_errors = true
+idempotency_key = 'KEY_VALUE'
 
 phone = { 
   phone_number: "555-1212",
@@ -41033,7 +41033,7 @@ contacts = {
 } 
 
 begin
-  response = xero_client.accounting_api.update_or_create_contacts(xero_tenant_id, contacts, idempotency_key, summarize_errors)
+  response = xero_client.accounting_api.update_or_create_contacts(xero_tenant_id, contacts, summarize_errors, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_or_create_contacts: #{e}"
@@ -41193,9 +41193,9 @@ If false return 200 OK and mix of successfully created objects and any with vali
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
-idempotency_key = 'KEY_VALUE'
 summarize_errors = true
 unitdp = 4
+idempotency_key = 'KEY_VALUE'
 curr_date = 'YYYY-MM-DD'
 
 contact = { 
@@ -41223,7 +41223,7 @@ creditNotes = {
 } 
 
 begin
-  response = xero_client.accounting_api.update_or_create_credit_notes(xero_tenant_id, creditNotes, idempotency_key, summarize_errors, unitdp)
+  response = xero_client.accounting_api.update_or_create_credit_notes(xero_tenant_id, creditNotes, summarize_errors, unitdp, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_or_create_credit_notes: #{e}"
@@ -41404,8 +41404,8 @@ e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal place
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
-idempotency_key = 'KEY_VALUE'
 summarize_errors = true
+idempotency_key = 'KEY_VALUE'
 
 employee = { 
   first_name: "Nick",
@@ -41417,7 +41417,7 @@ employees = {
 } 
 
 begin
-  response = xero_client.accounting_api.update_or_create_employees(xero_tenant_id, employees, idempotency_key, summarize_errors)
+  response = xero_client.accounting_api.update_or_create_employees(xero_tenant_id, employees, summarize_errors, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_or_create_employees: #{e}"
@@ -41578,9 +41578,9 @@ If false return 200 OK and mix of successfully created objects and any with vali
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
-idempotency_key = 'KEY_VALUE'
 summarize_errors = true
 unitdp = 4
+idempotency_key = 'KEY_VALUE'
 date_value = 'YYYY-MM-DD'
 due_date_value = 'YYYY-MM-DD'
 
@@ -41612,7 +41612,7 @@ invoices = {
 } 
 
 begin
-  response = xero_client.accounting_api.update_or_create_invoices(xero_tenant_id, invoices, idempotency_key, summarize_errors, unitdp)
+  response = xero_client.accounting_api.update_or_create_invoices(xero_tenant_id, invoices, summarize_errors, unitdp, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_or_create_invoices: #{e}"
@@ -41792,9 +41792,9 @@ e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal place
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
-idempotency_key = 'KEY_VALUE'
 summarize_errors = true
 unitdp = 4
+idempotency_key = 'KEY_VALUE'
 
 item = { 
   code: "abcXYZ123",
@@ -41807,7 +41807,7 @@ items = {
 } 
 
 begin
-  response = xero_client.accounting_api.update_or_create_items(xero_tenant_id, items, idempotency_key, summarize_errors, unitdp)
+  response = xero_client.accounting_api.update_or_create_items(xero_tenant_id, items, summarize_errors, unitdp, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_or_create_items: #{e}"
@@ -41987,8 +41987,8 @@ e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal place
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
-idempotency_key = 'KEY_VALUE'
 summarize_errors = true
+idempotency_key = 'KEY_VALUE'
 date_value = 'YYYY-MM-DD'  
 manual_journal_lines = []
 
@@ -42017,7 +42017,7 @@ manualJournals = {
 } 
 
 begin
-  response = xero_client.accounting_api.update_or_create_manual_journals(xero_tenant_id, manualJournals, idempotency_key, summarize_errors)
+  response = xero_client.accounting_api.update_or_create_manual_journals(xero_tenant_id, manualJournals, summarize_errors, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_or_create_manual_journals: #{e}"
@@ -42178,8 +42178,8 @@ If false return 200 OK and mix of successfully created objects and any with vali
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
-idempotency_key = 'KEY_VALUE'
 summarize_errors = true
+idempotency_key = 'KEY_VALUE'
 date_value = 'YYYY-MM-DD'
 
 contact = { 
@@ -42206,7 +42206,7 @@ purchaseOrders = {
 } 
 
 begin
-  response = xero_client.accounting_api.update_or_create_purchase_orders(xero_tenant_id, purchaseOrders, idempotency_key, summarize_errors)
+  response = xero_client.accounting_api.update_or_create_purchase_orders(xero_tenant_id, purchaseOrders, summarize_errors, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_or_create_purchase_orders: #{e}"
@@ -42366,8 +42366,8 @@ If false return 200 OK and mix of successfully created objects and any with vali
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
-idempotency_key = 'KEY_VALUE'
 summarize_errors = true
+idempotency_key = 'KEY_VALUE'
 date_value = 'YYYY-MM-DD'
 
 contact = { 
@@ -42394,7 +42394,7 @@ quotes = {
 } 
 
 begin
-  response = xero_client.accounting_api.update_or_create_quotes(xero_tenant_id, quotes, idempotency_key, summarize_errors)
+  response = xero_client.accounting_api.update_or_create_quotes(xero_tenant_id, quotes, summarize_errors, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_or_create_quotes: #{e}"
@@ -42554,11 +42554,11 @@ If false return 200 OK and mix of successfully created objects and any with vali
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
-idempotency_key = 'KEY_VALUE'
 summarize_errors = true
+idempotency_key = 'KEY_VALUE'
 
 begin
-  response = xero_client.accounting_api.update_or_create_repeating_invoices(xero_tenant_id, repeatingInvoices, idempotency_key, summarize_errors)
+  response = xero_client.accounting_api.update_or_create_repeating_invoices(xero_tenant_id, repeatingInvoices, summarize_errors, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_or_create_repeating_invoices: #{e}"
@@ -43473,8 +43473,8 @@ This allows you to safely retry requests without the risk of duplicate processin
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 receipt_id = '00000000-0000-0000-0000-000000000000'
-idempotency_key = 'KEY_VALUE'
 unitdp = 4
+idempotency_key = 'KEY_VALUE'
 dateValue = 'YYYY-MM-DD'
 
 user = { 
@@ -43492,7 +43492,7 @@ receipts = {
 } 
 
 begin
-  response = xero_client.accounting_api.update_receipt(xero_tenant_id, receipt_id, receipts, idempotency_key, unitdp)
+  response = xero_client.accounting_api.update_receipt(xero_tenant_id, receipt_id, receipts, unitdp, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_receipt: #{e}"

@@ -370,9 +370,9 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param bank_transactions [BankTransactions] BankTransactions with an array of BankTransaction objects in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [BankTransactions]
     def create_bank_transactions(xero_tenant_id, bank_transactions, opts = {})
       data, _status_code, _headers = create_bank_transactions_with_http_info(xero_tenant_id, bank_transactions, opts)
@@ -383,9 +383,9 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param bank_transactions [BankTransactions] BankTransactions with an array of BankTransaction objects in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(BankTransactions, Integer, Hash)>] BankTransactions data, response status code and response headers
     def create_bank_transactions_with_http_info(xero_tenant_id, bank_transactions, options = {})
       opts = options.dup
@@ -1309,8 +1309,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param contacts [Contacts] Contacts with an array of Contact objects to create in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Contacts]
     def create_contacts(xero_tenant_id, contacts, opts = {})
       data, _status_code, _headers = create_contacts_with_http_info(xero_tenant_id, contacts, opts)
@@ -1321,8 +1321,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param contacts [Contacts] Contacts with an array of Contact objects to create in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Contacts, Integer, Hash)>] Contacts data, response status code and response headers
     def create_contacts_with_http_info(xero_tenant_id, contacts, options = {})
       opts = options.dup
@@ -1393,8 +1393,8 @@ module XeroRuby
     # @param credit_note_id [String] Unique identifier for a Credit Note
     # @param allocations [Allocations] Allocations with array of Allocation object in body of request.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Allocations]
     def create_credit_note_allocation(xero_tenant_id, credit_note_id, allocations, opts = {})
       data, _status_code, _headers = create_credit_note_allocation_with_http_info(xero_tenant_id, credit_note_id, allocations, opts)
@@ -1406,8 +1406,8 @@ module XeroRuby
     # @param credit_note_id [String] Unique identifier for a Credit Note
     # @param allocations [Allocations] Allocations with array of Allocation object in body of request.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Allocations, Integer, Hash)>] Allocations data, response status code and response headers
     def create_credit_note_allocation_with_http_info(xero_tenant_id, credit_note_id, allocations, options = {})
       opts = options.dup
@@ -1483,8 +1483,8 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :include_online Allows an attachment to be seen by the end customer within their online invoice (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
     def create_credit_note_attachment_by_file_name(xero_tenant_id, credit_note_id, file_name, body, opts = {})
       data, _status_code, _headers = create_credit_note_attachment_by_file_name_with_http_info(xero_tenant_id, credit_note_id, file_name, body, opts)
@@ -1497,8 +1497,8 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :include_online Allows an attachment to be seen by the end customer within their online invoice
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
     def create_credit_note_attachment_by_file_name_with_http_info(xero_tenant_id, credit_note_id, file_name, body, options = {})
       opts = options.dup
@@ -1662,9 +1662,9 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param credit_notes [CreditNotes] Credit Notes with array of CreditNote object in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [CreditNotes]
     def create_credit_notes(xero_tenant_id, credit_notes, opts = {})
       data, _status_code, _headers = create_credit_notes_with_http_info(xero_tenant_id, credit_notes, opts)
@@ -1675,9 +1675,9 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param credit_notes [CreditNotes] Credit Notes with array of CreditNote object in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(CreditNotes, Integer, Hash)>] CreditNotes data, response status code and response headers
     def create_credit_notes_with_http_info(xero_tenant_id, credit_notes, options = {})
       opts = options.dup
@@ -1828,8 +1828,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employees [Employees] Employees with array of Employee object in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Employees]
     def create_employees(xero_tenant_id, employees, opts = {})
       data, _status_code, _headers = create_employees_with_http_info(xero_tenant_id, employees, opts)
@@ -1840,8 +1840,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employees [Employees] Employees with array of Employee object in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Employees, Integer, Hash)>] Employees data, response status code and response headers
     def create_employees_with_http_info(xero_tenant_id, employees, options = {})
       opts = options.dup
@@ -2079,8 +2079,8 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :include_online Allows an attachment to be seen by the end customer within their online invoice (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
     def create_invoice_attachment_by_file_name(xero_tenant_id, invoice_id, file_name, body, opts = {})
       data, _status_code, _headers = create_invoice_attachment_by_file_name_with_http_info(xero_tenant_id, invoice_id, file_name, body, opts)
@@ -2093,8 +2093,8 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :include_online Allows an attachment to be seen by the end customer within their online invoice
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
     def create_invoice_attachment_by_file_name_with_http_info(xero_tenant_id, invoice_id, file_name, body, options = {})
       opts = options.dup
@@ -2258,9 +2258,9 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param invoices [Invoices] Invoices with an array of invoice objects in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Invoices]
     def create_invoices(xero_tenant_id, invoices, opts = {})
       data, _status_code, _headers = create_invoices_with_http_info(xero_tenant_id, invoices, opts)
@@ -2271,9 +2271,9 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param invoices [Invoices] Invoices with an array of invoice objects in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Invoices, Integer, Hash)>] Invoices data, response status code and response headers
     def create_invoices_with_http_info(xero_tenant_id, invoices, options = {})
       opts = options.dup
@@ -2430,9 +2430,9 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param items [Items] Items with an array of Item objects in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Items]
     def create_items(xero_tenant_id, items, opts = {})
       data, _status_code, _headers = create_items_with_http_info(xero_tenant_id, items, opts)
@@ -2443,9 +2443,9 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param items [Items] Items with an array of Item objects in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Items, Integer, Hash)>] Items data, response status code and response headers
     def create_items_with_http_info(xero_tenant_id, items, options = {})
       opts = options.dup
@@ -2774,8 +2774,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param manual_journals [ManualJournals] ManualJournals array with ManualJournal object in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [ManualJournals]
     def create_manual_journals(xero_tenant_id, manual_journals, opts = {})
       data, _status_code, _headers = create_manual_journals_with_http_info(xero_tenant_id, manual_journals, opts)
@@ -2786,8 +2786,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param manual_journals [ManualJournals] ManualJournals array with ManualJournal object in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(ManualJournals, Integer, Hash)>] ManualJournals data, response status code and response headers
     def create_manual_journals_with_http_info(xero_tenant_id, manual_journals, options = {})
       opts = options.dup
@@ -2858,8 +2858,8 @@ module XeroRuby
     # @param overpayment_id [String] Unique identifier for a Overpayment
     # @param allocations [Allocations] Allocations array with Allocation object in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Allocations]
     def create_overpayment_allocations(xero_tenant_id, overpayment_id, allocations, opts = {})
       data, _status_code, _headers = create_overpayment_allocations_with_http_info(xero_tenant_id, overpayment_id, allocations, opts)
@@ -2871,8 +2871,8 @@ module XeroRuby
     # @param overpayment_id [String] Unique identifier for a Overpayment
     # @param allocations [Allocations] Allocations array with Allocation object in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Allocations, Integer, Hash)>] Allocations data, response status code and response headers
     def create_overpayment_allocations_with_http_info(xero_tenant_id, overpayment_id, allocations, options = {})
       opts = options.dup
@@ -3278,8 +3278,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param payments [Payments] Payments array with Payment object in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Payments]
     def create_payments(xero_tenant_id, payments, opts = {})
       data, _status_code, _headers = create_payments_with_http_info(xero_tenant_id, payments, opts)
@@ -3290,8 +3290,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param payments [Payments] Payments array with Payment object in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Payments, Integer, Hash)>] Payments data, response status code and response headers
     def create_payments_with_http_info(xero_tenant_id, payments, options = {})
       opts = options.dup
@@ -3362,8 +3362,8 @@ module XeroRuby
     # @param prepayment_id [String] Unique identifier for a PrePayment
     # @param allocations [Allocations] Allocations with an array of Allocation object in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Allocations]
     def create_prepayment_allocations(xero_tenant_id, prepayment_id, allocations, opts = {})
       data, _status_code, _headers = create_prepayment_allocations_with_http_info(xero_tenant_id, prepayment_id, allocations, opts)
@@ -3375,8 +3375,8 @@ module XeroRuby
     # @param prepayment_id [String] Unique identifier for a PrePayment
     # @param allocations [Allocations] Allocations with an array of Allocation object in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Allocations, Integer, Hash)>] Allocations data, response status code and response headers
     def create_prepayment_allocations_with_http_info(xero_tenant_id, prepayment_id, allocations, options = {})
       opts = options.dup
@@ -3714,8 +3714,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param purchase_orders [PurchaseOrders] PurchaseOrders with an array of PurchaseOrder object in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [PurchaseOrders]
     def create_purchase_orders(xero_tenant_id, purchase_orders, opts = {})
       data, _status_code, _headers = create_purchase_orders_with_http_info(xero_tenant_id, purchase_orders, opts)
@@ -3726,8 +3726,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param purchase_orders [PurchaseOrders] PurchaseOrders with an array of PurchaseOrder object in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(PurchaseOrders, Integer, Hash)>] PurchaseOrders data, response status code and response headers
     def create_purchase_orders_with_http_info(xero_tenant_id, purchase_orders, options = {})
       opts = options.dup
@@ -3975,8 +3975,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param quotes [Quotes] Quotes with an array of Quote object in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Quotes]
     def create_quotes(xero_tenant_id, quotes, opts = {})
       data, _status_code, _headers = create_quotes_with_http_info(xero_tenant_id, quotes, opts)
@@ -3987,8 +3987,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param quotes [Quotes] Quotes with an array of Quote object in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Quotes, Integer, Hash)>] Quotes data, response status code and response headers
     def create_quotes_with_http_info(xero_tenant_id, quotes, options = {})
       opts = options.dup
@@ -4058,8 +4058,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param receipts [Receipts] Receipts with an array of Receipt object in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Receipts]
     def create_receipt(xero_tenant_id, receipts, opts = {})
       data, _status_code, _headers = create_receipt_with_http_info(xero_tenant_id, receipts, opts)
@@ -4070,8 +4070,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param receipts [Receipts] Receipts with an array of Receipt object in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Receipts, Integer, Hash)>] Receipts data, response status code and response headers
     def create_receipt_with_http_info(xero_tenant_id, receipts, options = {})
       opts = options.dup
@@ -4497,8 +4497,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param repeating_invoices [RepeatingInvoices] RepeatingInvoices with an array of repeating invoice objects in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [RepeatingInvoices]
     def create_repeating_invoices(xero_tenant_id, repeating_invoices, opts = {})
       data, _status_code, _headers = create_repeating_invoices_with_http_info(xero_tenant_id, repeating_invoices, opts)
@@ -4509,8 +4509,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param repeating_invoices [RepeatingInvoices] RepeatingInvoices with an array of repeating invoice objects in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(RepeatingInvoices, Integer, Hash)>] RepeatingInvoices data, response status code and response headers
     def create_repeating_invoices_with_http_info(xero_tenant_id, repeating_invoices, options = {})
       opts = options.dup
@@ -16251,8 +16251,8 @@ module XeroRuby
     # @param bank_transaction_id [String] Xero generated unique identifier for a bank transaction
     # @param bank_transactions [BankTransactions] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [BankTransactions]
     def update_bank_transaction(xero_tenant_id, bank_transaction_id, bank_transactions, opts = {})
       data, _status_code, _headers = update_bank_transaction_with_http_info(xero_tenant_id, bank_transaction_id, bank_transactions, opts)
@@ -16264,8 +16264,8 @@ module XeroRuby
     # @param bank_transaction_id [String] Xero generated unique identifier for a bank transaction
     # @param bank_transactions [BankTransactions] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(BankTransactions, Integer, Hash)>] BankTransactions data, response status code and response headers
     def update_bank_transaction_with_http_info(xero_tenant_id, bank_transaction_id, bank_transactions, options = {})
       opts = options.dup
@@ -16784,8 +16784,8 @@ module XeroRuby
     # @param credit_note_id [String] Unique identifier for a Credit Note
     # @param credit_notes [CreditNotes] an array of Credit Notes containing credit note details to update
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [CreditNotes]
     def update_credit_note(xero_tenant_id, credit_note_id, credit_notes, opts = {})
       data, _status_code, _headers = update_credit_note_with_http_info(xero_tenant_id, credit_note_id, credit_notes, opts)
@@ -16797,8 +16797,8 @@ module XeroRuby
     # @param credit_note_id [String] Unique identifier for a Credit Note
     # @param credit_notes [CreditNotes] an array of Credit Notes containing credit note details to update
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(CreditNotes, Integer, Hash)>] CreditNotes data, response status code and response headers
     def update_credit_note_with_http_info(xero_tenant_id, credit_note_id, credit_notes, options = {})
       opts = options.dup
@@ -17051,8 +17051,8 @@ module XeroRuby
     # @param invoice_id [String] Unique identifier for an Invoice
     # @param invoices [Invoices] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Invoices]
     def update_invoice(xero_tenant_id, invoice_id, invoices, opts = {})
       data, _status_code, _headers = update_invoice_with_http_info(xero_tenant_id, invoice_id, invoices, opts)
@@ -17064,8 +17064,8 @@ module XeroRuby
     # @param invoice_id [String] Unique identifier for an Invoice
     # @param invoices [Invoices] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Invoices, Integer, Hash)>] Invoices data, response status code and response headers
     def update_invoice_with_http_info(xero_tenant_id, invoice_id, invoices, options = {})
       opts = options.dup
@@ -17232,8 +17232,8 @@ module XeroRuby
     # @param item_id [String] Unique identifier for an Item
     # @param items [Items] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Items]
     def update_item(xero_tenant_id, item_id, items, opts = {})
       data, _status_code, _headers = update_item_with_http_info(xero_tenant_id, item_id, items, opts)
@@ -17245,8 +17245,8 @@ module XeroRuby
     # @param item_id [String] Unique identifier for an Item
     # @param items [Items] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Items, Integer, Hash)>] Items data, response status code and response headers
     def update_item_with_http_info(xero_tenant_id, item_id, items, options = {})
       opts = options.dup
@@ -17584,9 +17584,9 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param bank_transactions [BankTransactions] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [BankTransactions]
     def update_or_create_bank_transactions(xero_tenant_id, bank_transactions, opts = {})
       data, _status_code, _headers = update_or_create_bank_transactions_with_http_info(xero_tenant_id, bank_transactions, opts)
@@ -17597,9 +17597,9 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param bank_transactions [BankTransactions] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(BankTransactions, Integer, Hash)>] BankTransactions data, response status code and response headers
     def update_or_create_bank_transactions_with_http_info(xero_tenant_id, bank_transactions, options = {})
       opts = options.dup
@@ -17670,8 +17670,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param contacts [Contacts] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Contacts]
     def update_or_create_contacts(xero_tenant_id, contacts, opts = {})
       data, _status_code, _headers = update_or_create_contacts_with_http_info(xero_tenant_id, contacts, opts)
@@ -17682,8 +17682,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param contacts [Contacts] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Contacts, Integer, Hash)>] Contacts data, response status code and response headers
     def update_or_create_contacts_with_http_info(xero_tenant_id, contacts, options = {})
       opts = options.dup
@@ -17753,9 +17753,9 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param credit_notes [CreditNotes] an array of Credit Notes with a single CreditNote object.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [CreditNotes]
     def update_or_create_credit_notes(xero_tenant_id, credit_notes, opts = {})
       data, _status_code, _headers = update_or_create_credit_notes_with_http_info(xero_tenant_id, credit_notes, opts)
@@ -17766,9 +17766,9 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param credit_notes [CreditNotes] an array of Credit Notes with a single CreditNote object.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(CreditNotes, Integer, Hash)>] CreditNotes data, response status code and response headers
     def update_or_create_credit_notes_with_http_info(xero_tenant_id, credit_notes, options = {})
       opts = options.dup
@@ -17839,8 +17839,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employees [Employees] Employees with array of Employee object in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Employees]
     def update_or_create_employees(xero_tenant_id, employees, opts = {})
       data, _status_code, _headers = update_or_create_employees_with_http_info(xero_tenant_id, employees, opts)
@@ -17851,8 +17851,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employees [Employees] Employees with array of Employee object in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Employees, Integer, Hash)>] Employees data, response status code and response headers
     def update_or_create_employees_with_http_info(xero_tenant_id, employees, options = {})
       opts = options.dup
@@ -17922,9 +17922,9 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param invoices [Invoices] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Invoices]
     def update_or_create_invoices(xero_tenant_id, invoices, opts = {})
       data, _status_code, _headers = update_or_create_invoices_with_http_info(xero_tenant_id, invoices, opts)
@@ -17935,9 +17935,9 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param invoices [Invoices] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Invoices, Integer, Hash)>] Invoices data, response status code and response headers
     def update_or_create_invoices_with_http_info(xero_tenant_id, invoices, options = {})
       opts = options.dup
@@ -18008,9 +18008,9 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param items [Items] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Items]
     def update_or_create_items(xero_tenant_id, items, opts = {})
       data, _status_code, _headers = update_or_create_items_with_http_info(xero_tenant_id, items, opts)
@@ -18021,9 +18021,9 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param items [Items] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Items, Integer, Hash)>] Items data, response status code and response headers
     def update_or_create_items_with_http_info(xero_tenant_id, items, options = {})
       opts = options.dup
@@ -18094,8 +18094,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param manual_journals [ManualJournals] ManualJournals array with ManualJournal object in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [ManualJournals]
     def update_or_create_manual_journals(xero_tenant_id, manual_journals, opts = {})
       data, _status_code, _headers = update_or_create_manual_journals_with_http_info(xero_tenant_id, manual_journals, opts)
@@ -18106,8 +18106,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param manual_journals [ManualJournals] ManualJournals array with ManualJournal object in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(ManualJournals, Integer, Hash)>] ManualJournals data, response status code and response headers
     def update_or_create_manual_journals_with_http_info(xero_tenant_id, manual_journals, options = {})
       opts = options.dup
@@ -18177,8 +18177,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param purchase_orders [PurchaseOrders] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [PurchaseOrders]
     def update_or_create_purchase_orders(xero_tenant_id, purchase_orders, opts = {})
       data, _status_code, _headers = update_or_create_purchase_orders_with_http_info(xero_tenant_id, purchase_orders, opts)
@@ -18189,8 +18189,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param purchase_orders [PurchaseOrders] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(PurchaseOrders, Integer, Hash)>] PurchaseOrders data, response status code and response headers
     def update_or_create_purchase_orders_with_http_info(xero_tenant_id, purchase_orders, options = {})
       opts = options.dup
@@ -18260,8 +18260,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param quotes [Quotes] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Quotes]
     def update_or_create_quotes(xero_tenant_id, quotes, opts = {})
       data, _status_code, _headers = update_or_create_quotes_with_http_info(xero_tenant_id, quotes, opts)
@@ -18272,8 +18272,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param quotes [Quotes] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Quotes, Integer, Hash)>] Quotes data, response status code and response headers
     def update_or_create_quotes_with_http_info(xero_tenant_id, quotes, options = {})
       opts = options.dup
@@ -18343,8 +18343,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param repeating_invoices [RepeatingInvoices] RepeatingInvoices with an array of repeating invoice objects in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [RepeatingInvoices]
     def update_or_create_repeating_invoices(xero_tenant_id, repeating_invoices, opts = {})
       data, _status_code, _headers = update_or_create_repeating_invoices_with_http_info(xero_tenant_id, repeating_invoices, opts)
@@ -18355,8 +18355,8 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param repeating_invoices [RepeatingInvoices] RepeatingInvoices with an array of repeating invoice objects in body of request
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(RepeatingInvoices, Integer, Hash)>] RepeatingInvoices data, response status code and response headers
     def update_or_create_repeating_invoices_with_http_info(xero_tenant_id, repeating_invoices, options = {})
       opts = options.dup
@@ -18783,8 +18783,8 @@ module XeroRuby
     # @param receipt_id [String] Unique identifier for a Receipt
     # @param receipts [Receipts] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Receipts]
     def update_receipt(xero_tenant_id, receipt_id, receipts, opts = {})
       data, _status_code, _headers = update_receipt_with_http_info(xero_tenant_id, receipt_id, receipts, opts)
@@ -18796,8 +18796,8 @@ module XeroRuby
     # @param receipt_id [String] Unique identifier for a Receipt
     # @param receipts [Receipts] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Receipts, Integer, Hash)>] Receipts data, response status code and response headers
     def update_receipt_with_http_info(xero_tenant_id, receipt_id, receipts, options = {})
       opts = options.dup

@@ -20,12 +20,12 @@ module XeroRuby
     # By passing in the appropriate options, you can create a new folder
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param file_id [String] File id for single object
+    # @param association [Association] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
-    # @option opts [Association] :association 
     # @return [Association]
-    def create_file_association(xero_tenant_id, file_id, opts = {})
-      data, _status_code, _headers = create_file_association_with_http_info(xero_tenant_id, file_id, opts)
+    def create_file_association(xero_tenant_id, file_id, association, opts = {})
+      data, _status_code, _headers = create_file_association_with_http_info(xero_tenant_id, file_id, association, opts)
       data
     end
 
@@ -33,11 +33,11 @@ module XeroRuby
     # By passing in the appropriate options, you can create a new folder
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param file_id [String] File id for single object
+    # @param association [Association] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
-    # @option opts [Association] :association 
     # @return [Array<(Association, Integer, Hash)>] Association data, response status code and response headers
-    def create_file_association_with_http_info(xero_tenant_id, file_id, options = {})
+    def create_file_association_with_http_info(xero_tenant_id, file_id, association, options = {})
       opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FilesApi.create_file_association ...'
@@ -49,6 +49,10 @@ module XeroRuby
       # verify the required parameter 'file_id' is set
       if @api_client.config.client_side_validation && file_id.nil?
         fail ArgumentError, "Missing the required parameter 'file_id' when calling FilesApi.create_file_association"
+      end
+      # verify the required parameter 'association' is set
+      if @api_client.config.client_side_validation && association.nil?
+        fail ArgumentError, "Missing the required parameter 'association' when calling FilesApi.create_file_association"
       end
       # resource path
       local_var_path = '/Files/{FileId}/Associations'.sub('{' + 'FileId' + '}', file_id.to_s)
@@ -76,7 +80,7 @@ module XeroRuby
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:body] || @api_client.object_to_http_body(opts[:'association']) 
+      post_body = opts[:body] || @api_client.object_to_http_body(association) 
 
       # return_type
       return_type = opts[:return_type] || 'Association' 
@@ -103,23 +107,23 @@ module XeroRuby
     # Creates a new folder
     # By passing in the appropriate properties, you can create a new folder
     # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param folder [Folder] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
-    # @option opts [Folder] :folder 
     # @return [Folder]
-    def create_folder(xero_tenant_id, opts = {})
-      data, _status_code, _headers = create_folder_with_http_info(xero_tenant_id, opts)
+    def create_folder(xero_tenant_id, folder, opts = {})
+      data, _status_code, _headers = create_folder_with_http_info(xero_tenant_id, folder, opts)
       data
     end
 
     # Creates a new folder
     # By passing in the appropriate properties, you can create a new folder
     # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param folder [Folder] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
-    # @option opts [Folder] :folder 
     # @return [Array<(Folder, Integer, Hash)>] Folder data, response status code and response headers
-    def create_folder_with_http_info(xero_tenant_id, options = {})
+    def create_folder_with_http_info(xero_tenant_id, folder, options = {})
       opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FilesApi.create_folder ...'
@@ -127,6 +131,10 @@ module XeroRuby
       # verify the required parameter 'xero_tenant_id' is set
       if @api_client.config.client_side_validation && xero_tenant_id.nil?
         fail ArgumentError, "Missing the required parameter 'xero_tenant_id' when calling FilesApi.create_folder"
+      end
+      # verify the required parameter 'folder' is set
+      if @api_client.config.client_side_validation && folder.nil?
+        fail ArgumentError, "Missing the required parameter 'folder' when calling FilesApi.create_folder"
       end
       # resource path
       local_var_path = '/Folders'
@@ -154,7 +162,7 @@ module XeroRuby
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:body] || @api_client.object_to_http_body(opts[:'folder']) 
+      post_body = opts[:body] || @api_client.object_to_http_body(folder) 
 
       # return_type
       return_type = opts[:return_type] || 'Folder' 
@@ -1141,12 +1149,12 @@ module XeroRuby
     # Updates file properties of a single file
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param file_id [String] File id for single object
+    # @param file_object [FileObject] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
-    # @option opts [FileObject] :file_object 
     # @return [FileObject]
-    def update_file(xero_tenant_id, file_id, opts = {})
-      data, _status_code, _headers = update_file_with_http_info(xero_tenant_id, file_id, opts)
+    def update_file(xero_tenant_id, file_id, file_object, opts = {})
+      data, _status_code, _headers = update_file_with_http_info(xero_tenant_id, file_id, file_object, opts)
       data
     end
 
@@ -1154,11 +1162,11 @@ module XeroRuby
     # Updates file properties of a single file
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param file_id [String] File id for single object
+    # @param file_object [FileObject] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
-    # @option opts [FileObject] :file_object 
     # @return [Array<(FileObject, Integer, Hash)>] FileObject data, response status code and response headers
-    def update_file_with_http_info(xero_tenant_id, file_id, options = {})
+    def update_file_with_http_info(xero_tenant_id, file_id, file_object, options = {})
       opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FilesApi.update_file ...'
@@ -1170,6 +1178,10 @@ module XeroRuby
       # verify the required parameter 'file_id' is set
       if @api_client.config.client_side_validation && file_id.nil?
         fail ArgumentError, "Missing the required parameter 'file_id' when calling FilesApi.update_file"
+      end
+      # verify the required parameter 'file_object' is set
+      if @api_client.config.client_side_validation && file_object.nil?
+        fail ArgumentError, "Missing the required parameter 'file_object' when calling FilesApi.update_file"
       end
       # resource path
       local_var_path = '/Files/{FileId}'.sub('{' + 'FileId' + '}', file_id.to_s)
@@ -1197,7 +1209,7 @@ module XeroRuby
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:body] || @api_client.object_to_http_body(opts[:'file_object']) 
+      post_body = opts[:body] || @api_client.object_to_http_body(file_object) 
 
       # return_type
       return_type = opts[:return_type] || 'FileObject' 

@@ -2734,7 +2734,7 @@ ul.nav-tabs {
           <nav id="scrollingNav">
             <ul class="sidenav nav nav-list">
               <li class="nav-header" data-group="Finance"><strong>SDK: </strong><span id='sdk-name'></span></li>
-              <li class="nav-header" data-group="Finance"><strong>VSN: </strong>4.4.0</li>
+              <li class="nav-header" data-group="Finance"><strong>VSN: </strong>5.0.0</li>
               <li class="nav-header" data-group="Finance"><a href="#api-Finance">Methods</a></li>
               <li data-group="Finance" data-name="getAccountingActivityAccountUsage" class="">
                 <a href="#api-Finance-getAccountingActivityAccountUsage">getAccountingActivityAccountUsage</a>
@@ -2820,7 +2820,7 @@ start_month = '2020-09'
 end_month = '2021-09'
 
 begin
-  response = xero_client.accounting_api.get_accounting_activity_account_usage(xero_tenant_id, start_month, end_month)
+  response = xero_client.accounting_api.get_accounting_activity_account_usage(xero_tenant_id, start_monthend_month)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_accounting_activity_account_usage: #{e}"
@@ -3285,12 +3285,13 @@ Xero identifier for Tenant
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 bank_account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+bank_account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
 from_date = '2020-07-01'
 to_date = '2021-06-30'
 summary_only = true
 
 begin
-  response = xero_client.accounting_api.get_bank_statement_accounting(xero_tenant_id, bank_account_id, from_date, to_date, summary_only)
+  response = xero_client.accounting_api.get_bank_statement_accounting(xero_tenant_idbank_account_idfrom_dateto_date, summary_only)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_bank_statement_accounting: #{e}"
@@ -3482,7 +3483,7 @@ as_at_system_date = '2021-09-15'
 begin_date = '2021-09-15'
 
 begin
-  response = xero_client.accounting_api.get_cash_validation(xero_tenant_id, balance_date, as_at_system_date, begin_date)
+  response = xero_client.accounting_api.get_cash_validation(xero_tenant_id, balance_dateas_at_system_datebegin_date)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_cash_validation: #{e}"
@@ -3754,7 +3755,7 @@ start_date = '2020-09-15'
 end_date = '2021-09-15'
 
 begin
-  response = xero_client.accounting_api.get_financial_statement_cashflow(xero_tenant_id, start_date, end_date)
+  response = xero_client.accounting_api.get_financial_statement_cashflow(xero_tenant_id, start_dateend_date)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_financial_statement_cashflow: #{e}"
@@ -3884,13 +3885,13 @@ Xero identifier for Tenant
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
-contact_ids = [["00000000-0000-0000-0000-000000000000","00000000-0000-0000-0000-000000000000"]]
+contact_ids = ["00000000-0000-0000-0000-000000000000","00000000-0000-0000-0000-000000000000"]
 include_manual_journals = true
 start_date = '2020-09-15'
 end_date = '2020-09-15'
 
 begin
-  response = xero_client.accounting_api.get_financial_statement_contacts_expense(xero_tenant_id, contact_ids, include_manual_journals, start_date, end_date)
+  response = xero_client.accounting_api.get_financial_statement_contacts_expense(xero_tenant_id, contact_idsinclude_manual_journalsstart_dateend_date)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_financial_statement_contacts_expense: #{e}"
@@ -4069,13 +4070,13 @@ Xero identifier for Tenant
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
-contact_ids = [["00000000-0000-0000-0000-000000000000","00000000-0000-0000-0000-000000000000"]]
+contact_ids = ["00000000-0000-0000-0000-000000000000","00000000-0000-0000-0000-000000000000"]
 include_manual_journals = true
 start_date = '2020-09-15'
 end_date = '2020-09-15'
 
 begin
-  response = xero_client.accounting_api.get_financial_statement_contacts_revenue(xero_tenant_id, contact_ids, include_manual_journals, start_date, end_date)
+  response = xero_client.accounting_api.get_financial_statement_contacts_revenue(xero_tenant_id, contact_idsinclude_manual_journalsstart_dateend_date)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_financial_statement_contacts_revenue: #{e}"
@@ -4258,7 +4259,7 @@ start_date = '2020-09-15'
 end_date = '2021-09-15'
 
 begin
-  response = xero_client.accounting_api.get_financial_statement_profit_and_loss(xero_tenant_id, start_date, end_date)
+  response = xero_client.accounting_api.get_financial_statement_profit_and_loss(xero_tenant_id, start_dateend_date)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_financial_statement_profit_and_loss: #{e}"

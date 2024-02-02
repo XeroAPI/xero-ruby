@@ -2053,12 +2053,12 @@ module XeroRuby
     # Update properties on a single employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
+    # @param employee [Array<Employee>] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
-    # @option opts [Array<Employee>] :employee 
     # @return [Employees]
-    def update_employee(xero_tenant_id, employee_id, opts = {})
-      data, _status_code, _headers = update_employee_with_http_info(xero_tenant_id, employee_id, opts)
+    def update_employee(xero_tenant_id, employee_id, employee, opts = {})
+      data, _status_code, _headers = update_employee_with_http_info(xero_tenant_id, employee_id, employee, opts)
       data
     end
 
@@ -2066,11 +2066,11 @@ module XeroRuby
     # Update properties on a single employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
+    # @param employee [Array<Employee>] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
-    # @option opts [Array<Employee>] :employee 
     # @return [Array<(Employees, Integer, Hash)>] Employees data, response status code and response headers
-    def update_employee_with_http_info(xero_tenant_id, employee_id, options = {})
+    def update_employee_with_http_info(xero_tenant_id, employee_id, employee, options = {})
       opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollAuApi.update_employee ...'
@@ -2082,6 +2082,10 @@ module XeroRuby
       # verify the required parameter 'employee_id' is set
       if @api_client.config.client_side_validation && employee_id.nil?
         fail ArgumentError, "Missing the required parameter 'employee_id' when calling PayrollAuApi.update_employee"
+      end
+      # verify the required parameter 'employee' is set
+      if @api_client.config.client_side_validation && employee.nil?
+        fail ArgumentError, "Missing the required parameter 'employee' when calling PayrollAuApi.update_employee"
       end
       # resource path
       local_var_path = '/Employees/{EmployeeID}'.sub('{' + 'EmployeeID' + '}', employee_id.to_s)
@@ -2109,7 +2113,7 @@ module XeroRuby
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:body] || @api_client.object_to_http_body(opts[:'employee']) 
+      post_body = opts[:body] || @api_client.object_to_http_body(employee) 
 
       # return_type
       return_type = opts[:return_type] || 'Employees' 
@@ -2223,12 +2227,12 @@ module XeroRuby
     # Update properties on a single PayRun
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param pay_run_id [String] PayRun id for single object
+    # @param pay_run [Array<PayRun>] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
-    # @option opts [Array<PayRun>] :pay_run 
     # @return [PayRuns]
-    def update_pay_run(xero_tenant_id, pay_run_id, opts = {})
-      data, _status_code, _headers = update_pay_run_with_http_info(xero_tenant_id, pay_run_id, opts)
+    def update_pay_run(xero_tenant_id, pay_run_id, pay_run, opts = {})
+      data, _status_code, _headers = update_pay_run_with_http_info(xero_tenant_id, pay_run_id, pay_run, opts)
       data
     end
 
@@ -2236,11 +2240,11 @@ module XeroRuby
     # Update properties on a single PayRun
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param pay_run_id [String] PayRun id for single object
+    # @param pay_run [Array<PayRun>] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
-    # @option opts [Array<PayRun>] :pay_run 
     # @return [Array<(PayRuns, Integer, Hash)>] PayRuns data, response status code and response headers
-    def update_pay_run_with_http_info(xero_tenant_id, pay_run_id, options = {})
+    def update_pay_run_with_http_info(xero_tenant_id, pay_run_id, pay_run, options = {})
       opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollAuApi.update_pay_run ...'
@@ -2252,6 +2256,10 @@ module XeroRuby
       # verify the required parameter 'pay_run_id' is set
       if @api_client.config.client_side_validation && pay_run_id.nil?
         fail ArgumentError, "Missing the required parameter 'pay_run_id' when calling PayrollAuApi.update_pay_run"
+      end
+      # verify the required parameter 'pay_run' is set
+      if @api_client.config.client_side_validation && pay_run.nil?
+        fail ArgumentError, "Missing the required parameter 'pay_run' when calling PayrollAuApi.update_pay_run"
       end
       # resource path
       local_var_path = '/PayRuns/{PayRunID}'.sub('{' + 'PayRunID' + '}', pay_run_id.to_s)
@@ -2279,7 +2287,7 @@ module XeroRuby
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:body] || @api_client.object_to_http_body(opts[:'pay_run']) 
+      post_body = opts[:body] || @api_client.object_to_http_body(pay_run) 
 
       # return_type
       return_type = opts[:return_type] || 'PayRuns' 
@@ -2307,12 +2315,12 @@ module XeroRuby
     # Update lines on a single payslips
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param payslip_id [String] Payslip id for single object
+    # @param payslip_lines [Array<PayslipLines>] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
-    # @option opts [Array<PayslipLines>] :payslip_lines 
     # @return [Payslips]
-    def update_payslip(xero_tenant_id, payslip_id, opts = {})
-      data, _status_code, _headers = update_payslip_with_http_info(xero_tenant_id, payslip_id, opts)
+    def update_payslip(xero_tenant_id, payslip_id, payslip_lines, opts = {})
+      data, _status_code, _headers = update_payslip_with_http_info(xero_tenant_id, payslip_id, payslip_lines, opts)
       data
     end
 
@@ -2320,11 +2328,11 @@ module XeroRuby
     # Update lines on a single payslips
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param payslip_id [String] Payslip id for single object
+    # @param payslip_lines [Array<PayslipLines>] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
-    # @option opts [Array<PayslipLines>] :payslip_lines 
     # @return [Array<(Payslips, Integer, Hash)>] Payslips data, response status code and response headers
-    def update_payslip_with_http_info(xero_tenant_id, payslip_id, options = {})
+    def update_payslip_with_http_info(xero_tenant_id, payslip_id, payslip_lines, options = {})
       opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollAuApi.update_payslip ...'
@@ -2336,6 +2344,10 @@ module XeroRuby
       # verify the required parameter 'payslip_id' is set
       if @api_client.config.client_side_validation && payslip_id.nil?
         fail ArgumentError, "Missing the required parameter 'payslip_id' when calling PayrollAuApi.update_payslip"
+      end
+      # verify the required parameter 'payslip_lines' is set
+      if @api_client.config.client_side_validation && payslip_lines.nil?
+        fail ArgumentError, "Missing the required parameter 'payslip_lines' when calling PayrollAuApi.update_payslip"
       end
       # resource path
       local_var_path = '/Payslip/{PayslipID}'.sub('{' + 'PayslipID' + '}', payslip_id.to_s)
@@ -2363,7 +2375,7 @@ module XeroRuby
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:body] || @api_client.object_to_http_body(opts[:'payslip_lines']) 
+      post_body = opts[:body] || @api_client.object_to_http_body(payslip_lines) 
 
       # return_type
       return_type = opts[:return_type] || 'Payslips' 
@@ -2391,12 +2403,12 @@ module XeroRuby
     # Update properties on a single Superfund
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param super_fund_id [String] Superfund id for single object
+    # @param super_fund [Array<SuperFund>] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
-    # @option opts [Array<SuperFund>] :super_fund 
     # @return [SuperFunds]
-    def update_superfund(xero_tenant_id, super_fund_id, opts = {})
-      data, _status_code, _headers = update_superfund_with_http_info(xero_tenant_id, super_fund_id, opts)
+    def update_superfund(xero_tenant_id, super_fund_id, super_fund, opts = {})
+      data, _status_code, _headers = update_superfund_with_http_info(xero_tenant_id, super_fund_id, super_fund, opts)
       data
     end
 
@@ -2404,11 +2416,11 @@ module XeroRuby
     # Update properties on a single Superfund
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param super_fund_id [String] Superfund id for single object
+    # @param super_fund [Array<SuperFund>] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
-    # @option opts [Array<SuperFund>] :super_fund 
     # @return [Array<(SuperFunds, Integer, Hash)>] SuperFunds data, response status code and response headers
-    def update_superfund_with_http_info(xero_tenant_id, super_fund_id, options = {})
+    def update_superfund_with_http_info(xero_tenant_id, super_fund_id, super_fund, options = {})
       opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollAuApi.update_superfund ...'
@@ -2420,6 +2432,10 @@ module XeroRuby
       # verify the required parameter 'super_fund_id' is set
       if @api_client.config.client_side_validation && super_fund_id.nil?
         fail ArgumentError, "Missing the required parameter 'super_fund_id' when calling PayrollAuApi.update_superfund"
+      end
+      # verify the required parameter 'super_fund' is set
+      if @api_client.config.client_side_validation && super_fund.nil?
+        fail ArgumentError, "Missing the required parameter 'super_fund' when calling PayrollAuApi.update_superfund"
       end
       # resource path
       local_var_path = '/Superfunds/{SuperFundID}'.sub('{' + 'SuperFundID' + '}', super_fund_id.to_s)
@@ -2447,7 +2463,7 @@ module XeroRuby
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:body] || @api_client.object_to_http_body(opts[:'super_fund']) 
+      post_body = opts[:body] || @api_client.object_to_http_body(super_fund) 
 
       # return_type
       return_type = opts[:return_type] || 'SuperFunds' 
@@ -2475,12 +2491,12 @@ module XeroRuby
     # Update properties on a single timesheet
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param timesheet_id [String] Timesheet id for single object
+    # @param timesheet [Array<Timesheet>] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
-    # @option opts [Array<Timesheet>] :timesheet 
     # @return [Timesheets]
-    def update_timesheet(xero_tenant_id, timesheet_id, opts = {})
-      data, _status_code, _headers = update_timesheet_with_http_info(xero_tenant_id, timesheet_id, opts)
+    def update_timesheet(xero_tenant_id, timesheet_id, timesheet, opts = {})
+      data, _status_code, _headers = update_timesheet_with_http_info(xero_tenant_id, timesheet_id, timesheet, opts)
       data
     end
 
@@ -2488,11 +2504,11 @@ module XeroRuby
     # Update properties on a single timesheet
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param timesheet_id [String] Timesheet id for single object
+    # @param timesheet [Array<Timesheet>] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
-    # @option opts [Array<Timesheet>] :timesheet 
     # @return [Array<(Timesheets, Integer, Hash)>] Timesheets data, response status code and response headers
-    def update_timesheet_with_http_info(xero_tenant_id, timesheet_id, options = {})
+    def update_timesheet_with_http_info(xero_tenant_id, timesheet_id, timesheet, options = {})
       opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PayrollAuApi.update_timesheet ...'
@@ -2504,6 +2520,10 @@ module XeroRuby
       # verify the required parameter 'timesheet_id' is set
       if @api_client.config.client_side_validation && timesheet_id.nil?
         fail ArgumentError, "Missing the required parameter 'timesheet_id' when calling PayrollAuApi.update_timesheet"
+      end
+      # verify the required parameter 'timesheet' is set
+      if @api_client.config.client_side_validation && timesheet.nil?
+        fail ArgumentError, "Missing the required parameter 'timesheet' when calling PayrollAuApi.update_timesheet"
       end
       # resource path
       local_var_path = '/Timesheets/{TimesheetID}'.sub('{' + 'TimesheetID' + '}', timesheet_id.to_s)
@@ -2531,7 +2551,7 @@ module XeroRuby
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:body] || @api_client.object_to_http_body(opts[:'timesheet']) 
+      post_body = opts[:body] || @api_client.object_to_http_body(timesheet) 
 
       # return_type
       return_type = opts[:return_type] || 'Timesheets' 
