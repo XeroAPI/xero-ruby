@@ -1,10 +1,10 @@
 PATH
   remote: .
   specs:
-    xero-ruby (4.0.0)
+    xero-ruby (5.0.0)
       faraday (>= 2.0, < 3.0)
       json (~> 2.1, >= 2.1.0)
-      json-jwt (~> 1.5, >= 1.5.2)
+      json-jwt (~> 1.16, >= 1.16.3)
 
 GEM
   remote: https://rubygems.org/

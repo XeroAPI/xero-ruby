@@ -889,7 +889,7 @@ ul.nav-tabs {
   "type" : "string",
   "description" : "3 letter alpha code for the ISO-4217 currency code, e.g. USD, AUD.",
   "example" : "AUD",
-  "enum" : [ "AED", "AFN", "ALL", "AMD", "ANG", "AOA", "ARS", "AUD", "AWG", "AZN", "BAM", "BBD", "BDT", "BGN", "BHD", "BIF", "BMD", "BND", "BOB", "BRL", "BSD", "BTN", "BWP", "BYN", "BZD", "CAD", "CDF", "CHF", "CLP", "CNY", "COP", "CRC", "CUC", "CUP", "CVE", "CZK", "DJF", "DKK", "DOP", "DZD", "EGP", "ERN", "ETB", "EUR", "FJD", "FKP", "GBP", "GEL", "GGP", "GHS", "GIP", "GMD", "GNF", "GTQ", "GYD", "HKD", "HNL", "HRK", "HTG", "HUF", "IDR", "ILS", "IMP", "INR", "IQD", "IRR", "ISK", "JEP", "JMD", "JOD", "JPY", "KES", "KGS", "KHR", "KMF", "KPW", "KRW", "KWD", "KYD", "KZT", "LAK", "LBP", "LKR", "LRD", "LSL", "LYD", "MAD", "MDL", "MGA", "MKD", "MMK", "MNT", "MOP", "MRU", "MUR", "MVR", "MWK", "MXN", "MYR", "MZN", "NAD", "NGN", "NIO", "NOK", "NPR", "NZD", "OMR", "PAB", "PEN", "PGK", "PHP", "PKR", "PLN", "PYG", "QAR", "RON", "RSD", "RUB", "RWF", "SAR", "SBD", "SCR", "SDG", "SEK", "SGD", "SHP", "SLL", "SOS", "SPL", "SRD", "STN", "SVC", "SYP", "SZL", "THB", "TJS", "TMT", "TND", "TOP", "TRY", "TTD", "TVD", "TWD", "TZS", "UAH", "UGX", "USD", "UYU", "UZS", "VEF", "VND", "VUV", "WST", "XAF", "XCD", "XDR", "XOF", "XPF", "YER", "ZAR", "ZMW", "ZMK", "ZWD", "" ]
+  "enum" : [ "AED", "AFN", "ALL", "AMD", "ANG", "AOA", "ARS", "AUD", "AWG", "AZN", "BAM", "BBD", "BDT", "BGN", "BHD", "BIF", "BMD", "BND", "BOB", "BRL", "BSD", "BTN", "BWP", "BYN", "BZD", "CAD", "CDF", "CHF", "CLP", "CNY", "COP", "CRC", "CUC", "CUP", "CVE", "CZK", "DJF", "DKK", "DOP", "DZD", "EGP", "ERN", "ETB", "EUR", "FJD", "FKP", "GBP", "GEL", "GGP", "GHS", "GIP", "GMD", "GNF", "GTQ", "GYD", "HKD", "HNL", "HRK", "HTG", "HUF", "IDR", "ILS", "IMP", "INR", "IQD", "IRR", "ISK", "JEP", "JMD", "JOD", "JPY", "KES", "KGS", "KHR", "KMF", "KPW", "KRW", "KWD", "KYD", "KZT", "LAK", "LBP", "LKR", "LRD", "LSL", "LYD", "MAD", "MDL", "MGA", "MKD", "MMK", "MNT", "MOP", "MRU", "MUR", "MVR", "MWK", "MXN", "MYR", "MZN", "NAD", "NGN", "NIO", "NOK", "NPR", "NZD", "OMR", "PAB", "PEN", "PGK", "PHP", "PKR", "PLN", "PYG", "QAR", "RON", "RSD", "RUB", "RWF", "SAR", "SBD", "SCR", "SDG", "SEK", "SGD", "SHP", "SLL", "SOS", "SPL", "SRD", "STN", "SVC", "SYP", "SZL", "THB", "TJS", "TMT", "TND", "TOP", "TRY", "TTD", "TVD", "TWD", "TZS", "UAH", "UGX", "USD", "UYU", "UZS", "VEF", "VND", "VUV", "WST", "XAF", "XCD", "XDR", "XOF", "XPF", "YER", "ZAR", "ZMW", "ZMK", "ZWD" ]
 };
       defs["Error"] = {
   "title" : "",
@@ -1462,7 +1462,7 @@ ul.nav-tabs {
           <nav id="scrollingNav">
             <ul class="sidenav nav nav-list">
               <li class="nav-header" data-group="Project"><strong>SDK: </strong><span id='sdk-name'></span></li>
-              <li class="nav-header" data-group="Project"><strong>VSN: </strong>4.3.0</li>
+              <li class="nav-header" data-group="Project"><strong>VSN: </strong>5.0.0</li>
               <li class="nav-header" data-group="Project"><a href="#api-Project">Methods</a></li>
               <li data-group="Project" data-name="createProject" class="">
                 <a href="#api-Project-createProject">createProject</a>
@@ -1556,9 +1556,10 @@ ul.nav-tabs {
                       <pre class="prettyprint"><code class="language-ruby">xero_client.set_token_set(user.token_set)
 
 xero_tenant_id = 'xeroTenantId_example'
+idempotency_key = 'KEY_VALUE'
 
 begin
-  response = xero_client.accounting_api.create_project(xero_tenant_id, projectCreateOrUpdate)
+  response = xero_client.accounting_api.create_project(xero_tenant_id, projectCreateOrUpdate, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_project: #{e}"
@@ -1600,6 +1601,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createProject_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -1673,9 +1694,10 @@ Xero identifier for Tenant
 
 xero_tenant_id = 'xeroTenantId_example'
 project_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+idempotency_key = 'KEY_VALUE'
 
 begin
-  response = xero_client.accounting_api.create_task(xero_tenant_id, project_id, taskCreateOrUpdate)
+  response = xero_client.accounting_api.create_task(xero_tenant_id, project_id, taskCreateOrUpdate, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_task: #{e}"
@@ -1755,6 +1777,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createTask_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -1823,9 +1865,10 @@ Xero identifier for Tenant
 
 xero_tenant_id = 'xeroTenantId_example'
 project_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+idempotency_key = 'KEY_VALUE'
 
 begin
-  response = xero_client.accounting_api.create_time_entry(xero_tenant_id, project_id, timeEntryCreateOrUpdate)
+  response = xero_client.accounting_api.create_time_entry(xero_tenant_id, project_id, timeEntryCreateOrUpdate, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_time_entry: #{e}"
@@ -1900,6 +1943,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createTimeEntry_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -3558,9 +3621,10 @@ Xero identifier for Tenant
 
 xero_tenant_id = 'xeroTenantId_example'
 project_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+idempotency_key = 'KEY_VALUE'
 
 begin
-  response = xero_client.accounting_api.patch_project(xero_tenant_id, project_id, projectPatch)
+  response = xero_client.accounting_api.patch_project(xero_tenant_id, project_id, projectPatch, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling patch_project: #{e}"
@@ -3640,6 +3704,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_patchProject_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -3708,9 +3792,10 @@ Xero identifier for Tenant
 
 xero_tenant_id = 'xeroTenantId_example'
 project_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+idempotency_key = 'KEY_VALUE'
 
 begin
-  response = xero_client.accounting_api.update_project(xero_tenant_id, project_id, projectCreateOrUpdate)
+  response = xero_client.accounting_api.update_project(xero_tenant_id, project_id, projectCreateOrUpdate, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_project: #{e}"
@@ -3790,6 +3875,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateProject_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -3859,9 +3964,10 @@ Xero identifier for Tenant
 xero_tenant_id = 'xeroTenantId_example'
 project_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
 task_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+idempotency_key = 'KEY_VALUE'
 
 begin
-  response = xero_client.accounting_api.update_task(xero_tenant_id, project_id, task_id, taskCreateOrUpdate)
+  response = xero_client.accounting_api.update_task(xero_tenant_id, project_id, task_id, taskCreateOrUpdate, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_task: #{e}"
@@ -3967,6 +4073,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateTask_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -4035,9 +4161,10 @@ Xero identifier for Tenant
 xero_tenant_id = 'xeroTenantId_example'
 project_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
 time_entry_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d'
+idempotency_key = 'KEY_VALUE'
 
 begin
-  response = xero_client.accounting_api.update_time_entry(xero_tenant_id, project_id, time_entry_id, timeEntryCreateOrUpdate)
+  response = xero_client.accounting_api.update_time_entry(xero_tenant_id, project_id, time_entry_id, timeEntryCreateOrUpdate, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_time_entry: #{e}"
@@ -4138,6 +4265,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateTimeEntry_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>

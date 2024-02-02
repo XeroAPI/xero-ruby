@@ -1241,7 +1241,7 @@ ul.nav-tabs {
           <nav id="scrollingNav">
             <ul class="sidenav nav nav-list">
               <li class="nav-header" data-group="AppStore"><strong>SDK: </strong><span id='sdk-name'></span></li>
-              <li class="nav-header" data-group="AppStore"><strong>VSN: </strong>4.3.0</li>
+              <li class="nav-header" data-group="AppStore"><strong>VSN: </strong>5.0.0</li>
               <li class="nav-header" data-group="AppStore"><a href="#api-AppStore">Methods</a></li>
               <li data-group="AppStore" data-name="getSubscription" class="">
                 <a href="#api-AppStore-getSubscription">getSubscription</a>
@@ -1464,9 +1464,10 @@ Unique identifier for Subscription object
 
 subscription_id = '00000000-0000-0000-0000-000000000000'
 subscription_item_id = '00000000-0000-0000-0000-000000000000'
+idempotency_key = 'KEY_VALUE'
 
 begin
-  response = xero_client.accounting_api.post_usage_records(subscription_id, subscription_item_id, createUsageRecord)
+  response = xero_client.accounting_api.post_usage_records(subscription_id, subscription_item_id, createUsageRecord, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling post_usage_records: #{e}"
@@ -1543,6 +1544,33 @@ The unique identifier of the subscriptionItem
 </tr>
 
                   </table>
+                  <div class="methodsubtabletitle">Header parameters</div>
+                  <table id="methodsubtable">
+                    <tr>
+                      <th width="150px">Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_postUsageRecords_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                  </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
                     <tr>
@@ -1611,9 +1639,10 @@ The unique identifier of the subscriptionItem
 subscription_id = '00000000-0000-0000-0000-000000000000'
 subscription_item_id = '00000000-0000-0000-0000-000000000000'
 usage_record_id = '00000000-0000-0000-0000-000000000000'
+idempotency_key = 'KEY_VALUE'
 
 begin
-  response = xero_client.accounting_api.put_usage_records(subscription_id, subscription_item_id, usage_record_id, updateUsageRecord)
+  response = xero_client.accounting_api.put_usage_records(subscription_id, subscription_item_id, usage_record_id, updateUsageRecord, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling put_usage_records: #{e}"
@@ -1710,6 +1739,33 @@ The unique identifier of the usage record
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                  </table>
+                  <div class="methodsubtabletitle">Header parameters</div>
+                  <table id="methodsubtable">
+                    <tr>
+                      <th width="150px">Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_putUsageRecords_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>

@@ -182,7 +182,6 @@ module XeroRuby::Accounting
     ZMW ||= "ZMW".freeze
     ZMK ||= "ZMK".freeze
     ZWD ||= "ZWD".freeze
-    EMPTY_CURRENCY ||= "".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

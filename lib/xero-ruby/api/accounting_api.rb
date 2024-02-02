@@ -20,6 +20,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param account [Account] Account object in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Accounts]
     def create_account(xero_tenant_id, account, opts = {})
       data, _status_code, _headers = create_account_with_http_info(xero_tenant_id, account, opts)
@@ -30,6 +31,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param account [Account] Account object in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Accounts, Integer, Hash)>] Accounts data, response status code and response headers
     def create_account_with_http_info(xero_tenant_id, account, options = {})
       opts = options.dup
@@ -64,6 +66,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -99,6 +102,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
     def create_account_attachment_by_file_name(xero_tenant_id, account_id, file_name, body, opts = {})
       data, _status_code, _headers = create_account_attachment_by_file_name_with_http_info(xero_tenant_id, account_id, file_name, body, opts)
@@ -111,6 +115,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
     def create_account_attachment_by_file_name_with_http_info(xero_tenant_id, account_id, file_name, body, options = {})
       opts = options.dup
@@ -153,6 +158,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/octet-stream'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -188,6 +194,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
     def create_bank_transaction_attachment_by_file_name(xero_tenant_id, bank_transaction_id, file_name, body, opts = {})
       data, _status_code, _headers = create_bank_transaction_attachment_by_file_name_with_http_info(xero_tenant_id, bank_transaction_id, file_name, body, opts)
@@ -200,6 +207,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
     def create_bank_transaction_attachment_by_file_name_with_http_info(xero_tenant_id, bank_transaction_id, file_name, body, options = {})
       opts = options.dup
@@ -242,6 +250,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/octet-stream'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -276,6 +285,7 @@ module XeroRuby
     # @param bank_transaction_id [String] Xero generated unique identifier for a bank transaction
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [HistoryRecords]
     def create_bank_transaction_history_record(xero_tenant_id, bank_transaction_id, history_records, opts = {})
       data, _status_code, _headers = create_bank_transaction_history_record_with_http_info(xero_tenant_id, bank_transaction_id, history_records, opts)
@@ -287,6 +297,7 @@ module XeroRuby
     # @param bank_transaction_id [String] Xero generated unique identifier for a bank transaction
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
     def create_bank_transaction_history_record_with_http_info(xero_tenant_id, bank_transaction_id, history_records, options = {})
       opts = options.dup
@@ -325,6 +336,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -360,6 +372,7 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [BankTransactions]
     def create_bank_transactions(xero_tenant_id, bank_transactions, opts = {})
       data, _status_code, _headers = create_bank_transactions_with_http_info(xero_tenant_id, bank_transactions, opts)
@@ -372,6 +385,7 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(BankTransactions, Integer, Hash)>] BankTransactions data, response status code and response headers
     def create_bank_transactions_with_http_info(xero_tenant_id, bank_transactions, options = {})
       opts = options.dup
@@ -408,6 +422,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -441,6 +456,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param bank_transfers [BankTransfers] BankTransfers with array of BankTransfer objects in request body
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [BankTransfers]
     def create_bank_transfer(xero_tenant_id, bank_transfers, opts = {})
       data, _status_code, _headers = create_bank_transfer_with_http_info(xero_tenant_id, bank_transfers, opts)
@@ -451,6 +467,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param bank_transfers [BankTransfers] BankTransfers with array of BankTransfer objects in request body
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(BankTransfers, Integer, Hash)>] BankTransfers data, response status code and response headers
     def create_bank_transfer_with_http_info(xero_tenant_id, bank_transfers, options = {})
       opts = options.dup
@@ -485,6 +502,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -519,6 +537,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
     def create_bank_transfer_attachment_by_file_name(xero_tenant_id, bank_transfer_id, file_name, body, opts = {})
       data, _status_code, _headers = create_bank_transfer_attachment_by_file_name_with_http_info(xero_tenant_id, bank_transfer_id, file_name, body, opts)
@@ -530,6 +549,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
     def create_bank_transfer_attachment_by_file_name_with_http_info(xero_tenant_id, bank_transfer_id, file_name, body, options = {})
       opts = options.dup
@@ -572,6 +592,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/octet-stream'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -606,6 +627,7 @@ module XeroRuby
     # @param bank_transfer_id [String] Xero generated unique identifier for a bank transfer
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [HistoryRecords]
     def create_bank_transfer_history_record(xero_tenant_id, bank_transfer_id, history_records, opts = {})
       data, _status_code, _headers = create_bank_transfer_history_record_with_http_info(xero_tenant_id, bank_transfer_id, history_records, opts)
@@ -617,6 +639,7 @@ module XeroRuby
     # @param bank_transfer_id [String] Xero generated unique identifier for a bank transfer
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
     def create_bank_transfer_history_record_with_http_info(xero_tenant_id, bank_transfer_id, history_records, options = {})
       opts = options.dup
@@ -655,6 +678,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -689,6 +713,7 @@ module XeroRuby
     # @param batch_payments [BatchPayments] BatchPayments with an array of Payments in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [BatchPayments]
     def create_batch_payment(xero_tenant_id, batch_payments, opts = {})
       data, _status_code, _headers = create_batch_payment_with_http_info(xero_tenant_id, batch_payments, opts)
@@ -700,6 +725,7 @@ module XeroRuby
     # @param batch_payments [BatchPayments] BatchPayments with an array of Payments in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(BatchPayments, Integer, Hash)>] BatchPayments data, response status code and response headers
     def create_batch_payment_with_http_info(xero_tenant_id, batch_payments, options = {})
       opts = options.dup
@@ -735,6 +761,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -769,6 +796,7 @@ module XeroRuby
     # @param batch_payment_id [String] Unique identifier for BatchPayment
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [HistoryRecords]
     def create_batch_payment_history_record(xero_tenant_id, batch_payment_id, history_records, opts = {})
       data, _status_code, _headers = create_batch_payment_history_record_with_http_info(xero_tenant_id, batch_payment_id, history_records, opts)
@@ -780,6 +808,7 @@ module XeroRuby
     # @param batch_payment_id [String] Unique identifier for BatchPayment
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
     def create_batch_payment_history_record_with_http_info(xero_tenant_id, batch_payment_id, history_records, options = {})
       opts = options.dup
@@ -818,6 +847,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -852,6 +882,7 @@ module XeroRuby
     # @param branding_theme_id [String] Unique identifier for a Branding Theme
     # @param payment_services [PaymentServices] PaymentServices array with PaymentService object in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [PaymentServices]
     def create_branding_theme_payment_services(xero_tenant_id, branding_theme_id, payment_services, opts = {})
       data, _status_code, _headers = create_branding_theme_payment_services_with_http_info(xero_tenant_id, branding_theme_id, payment_services, opts)
@@ -863,6 +894,7 @@ module XeroRuby
     # @param branding_theme_id [String] Unique identifier for a Branding Theme
     # @param payment_services [PaymentServices] PaymentServices array with PaymentService object in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(PaymentServices, Integer, Hash)>] PaymentServices data, response status code and response headers
     def create_branding_theme_payment_services_with_http_info(xero_tenant_id, branding_theme_id, payment_services, options = {})
       opts = options.dup
@@ -901,6 +933,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -935,6 +968,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
     def create_contact_attachment_by_file_name(xero_tenant_id, contact_id, file_name, body, opts = {})
       data, _status_code, _headers = create_contact_attachment_by_file_name_with_http_info(xero_tenant_id, contact_id, file_name, body, opts)
@@ -946,6 +980,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
     def create_contact_attachment_by_file_name_with_http_info(xero_tenant_id, contact_id, file_name, body, options = {})
       opts = options.dup
@@ -988,6 +1023,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/octet-stream'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -1021,6 +1057,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param contact_groups [ContactGroups] ContactGroups with an array of names in request body
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [ContactGroups]
     def create_contact_group(xero_tenant_id, contact_groups, opts = {})
       data, _status_code, _headers = create_contact_group_with_http_info(xero_tenant_id, contact_groups, opts)
@@ -1031,6 +1068,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param contact_groups [ContactGroups] ContactGroups with an array of names in request body
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(ContactGroups, Integer, Hash)>] ContactGroups data, response status code and response headers
     def create_contact_group_with_http_info(xero_tenant_id, contact_groups, options = {})
       opts = options.dup
@@ -1065,6 +1103,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -1099,6 +1138,7 @@ module XeroRuby
     # @param contact_group_id [String] Unique identifier for a Contact Group
     # @param contacts [Contacts] Contacts with array of contacts specifying the ContactID to be added to ContactGroup in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Contacts]
     def create_contact_group_contacts(xero_tenant_id, contact_group_id, contacts, opts = {})
       data, _status_code, _headers = create_contact_group_contacts_with_http_info(xero_tenant_id, contact_group_id, contacts, opts)
@@ -1110,6 +1150,7 @@ module XeroRuby
     # @param contact_group_id [String] Unique identifier for a Contact Group
     # @param contacts [Contacts] Contacts with array of contacts specifying the ContactID to be added to ContactGroup in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Contacts, Integer, Hash)>] Contacts data, response status code and response headers
     def create_contact_group_contacts_with_http_info(xero_tenant_id, contact_group_id, contacts, options = {})
       opts = options.dup
@@ -1148,6 +1189,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -1182,6 +1224,7 @@ module XeroRuby
     # @param contact_id [String] Unique identifier for a Contact
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [HistoryRecords]
     def create_contact_history(xero_tenant_id, contact_id, history_records, opts = {})
       data, _status_code, _headers = create_contact_history_with_http_info(xero_tenant_id, contact_id, history_records, opts)
@@ -1193,6 +1236,7 @@ module XeroRuby
     # @param contact_id [String] Unique identifier for a Contact
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
     def create_contact_history_with_http_info(xero_tenant_id, contact_id, history_records, options = {})
       opts = options.dup
@@ -1231,6 +1275,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -1265,6 +1310,7 @@ module XeroRuby
     # @param contacts [Contacts] Contacts with an array of Contact objects to create in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Contacts]
     def create_contacts(xero_tenant_id, contacts, opts = {})
       data, _status_code, _headers = create_contacts_with_http_info(xero_tenant_id, contacts, opts)
@@ -1276,6 +1322,7 @@ module XeroRuby
     # @param contacts [Contacts] Contacts with an array of Contact objects to create in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Contacts, Integer, Hash)>] Contacts data, response status code and response headers
     def create_contacts_with_http_info(xero_tenant_id, contacts, options = {})
       opts = options.dup
@@ -1311,6 +1358,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -1346,6 +1394,7 @@ module XeroRuby
     # @param allocations [Allocations] Allocations with array of Allocation object in body of request.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Allocations]
     def create_credit_note_allocation(xero_tenant_id, credit_note_id, allocations, opts = {})
       data, _status_code, _headers = create_credit_note_allocation_with_http_info(xero_tenant_id, credit_note_id, allocations, opts)
@@ -1358,6 +1407,7 @@ module XeroRuby
     # @param allocations [Allocations] Allocations with array of Allocation object in body of request.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Allocations, Integer, Hash)>] Allocations data, response status code and response headers
     def create_credit_note_allocation_with_http_info(xero_tenant_id, credit_note_id, allocations, options = {})
       opts = options.dup
@@ -1397,6 +1447,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -1433,6 +1484,7 @@ module XeroRuby
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_online Allows an attachment to be seen by the end customer within their online invoice (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
     def create_credit_note_attachment_by_file_name(xero_tenant_id, credit_note_id, file_name, body, opts = {})
       data, _status_code, _headers = create_credit_note_attachment_by_file_name_with_http_info(xero_tenant_id, credit_note_id, file_name, body, opts)
@@ -1446,6 +1498,7 @@ module XeroRuby
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_online Allows an attachment to be seen by the end customer within their online invoice
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
     def create_credit_note_attachment_by_file_name_with_http_info(xero_tenant_id, credit_note_id, file_name, body, options = {})
       opts = options.dup
@@ -1489,6 +1542,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/octet-stream'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -1523,6 +1577,7 @@ module XeroRuby
     # @param credit_note_id [String] Unique identifier for a Credit Note
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [HistoryRecords]
     def create_credit_note_history(xero_tenant_id, credit_note_id, history_records, opts = {})
       data, _status_code, _headers = create_credit_note_history_with_http_info(xero_tenant_id, credit_note_id, history_records, opts)
@@ -1534,6 +1589,7 @@ module XeroRuby
     # @param credit_note_id [String] Unique identifier for a Credit Note
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
     def create_credit_note_history_with_http_info(xero_tenant_id, credit_note_id, history_records, options = {})
       opts = options.dup
@@ -1572,6 +1628,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -1607,6 +1664,7 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [CreditNotes]
     def create_credit_notes(xero_tenant_id, credit_notes, opts = {})
       data, _status_code, _headers = create_credit_notes_with_http_info(xero_tenant_id, credit_notes, opts)
@@ -1619,6 +1677,7 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(CreditNotes, Integer, Hash)>] CreditNotes data, response status code and response headers
     def create_credit_notes_with_http_info(xero_tenant_id, credit_notes, options = {})
       opts = options.dup
@@ -1655,6 +1714,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -1688,6 +1748,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param currency [Currency] Currency object in the body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Currencies]
     def create_currency(xero_tenant_id, currency, opts = {})
       data, _status_code, _headers = create_currency_with_http_info(xero_tenant_id, currency, opts)
@@ -1698,6 +1759,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param currency [Currency] Currency object in the body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Currencies, Integer, Hash)>] Currencies data, response status code and response headers
     def create_currency_with_http_info(xero_tenant_id, currency, options = {})
       opts = options.dup
@@ -1732,6 +1794,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -1766,6 +1829,7 @@ module XeroRuby
     # @param employees [Employees] Employees with array of Employee object in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Employees]
     def create_employees(xero_tenant_id, employees, opts = {})
       data, _status_code, _headers = create_employees_with_http_info(xero_tenant_id, employees, opts)
@@ -1777,6 +1841,7 @@ module XeroRuby
     # @param employees [Employees] Employees with array of Employee object in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Employees, Integer, Hash)>] Employees data, response status code and response headers
     def create_employees_with_http_info(xero_tenant_id, employees, options = {})
       opts = options.dup
@@ -1812,6 +1877,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -1846,6 +1912,7 @@ module XeroRuby
     # @param expense_claim_id [String] Unique identifier for a ExpenseClaim
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [HistoryRecords]
     def create_expense_claim_history(xero_tenant_id, expense_claim_id, history_records, opts = {})
       data, _status_code, _headers = create_expense_claim_history_with_http_info(xero_tenant_id, expense_claim_id, history_records, opts)
@@ -1857,6 +1924,7 @@ module XeroRuby
     # @param expense_claim_id [String] Unique identifier for a ExpenseClaim
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
     def create_expense_claim_history_with_http_info(xero_tenant_id, expense_claim_id, history_records, options = {})
       opts = options.dup
@@ -1895,6 +1963,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -1928,6 +1997,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param expense_claims [ExpenseClaims] ExpenseClaims with array of ExpenseClaim object in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [ExpenseClaims]
     def create_expense_claims(xero_tenant_id, expense_claims, opts = {})
       data, _status_code, _headers = create_expense_claims_with_http_info(xero_tenant_id, expense_claims, opts)
@@ -1938,6 +2008,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param expense_claims [ExpenseClaims] ExpenseClaims with array of ExpenseClaim object in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(ExpenseClaims, Integer, Hash)>] ExpenseClaims data, response status code and response headers
     def create_expense_claims_with_http_info(xero_tenant_id, expense_claims, options = {})
       opts = options.dup
@@ -1972,6 +2043,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -2008,6 +2080,7 @@ module XeroRuby
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_online Allows an attachment to be seen by the end customer within their online invoice (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
     def create_invoice_attachment_by_file_name(xero_tenant_id, invoice_id, file_name, body, opts = {})
       data, _status_code, _headers = create_invoice_attachment_by_file_name_with_http_info(xero_tenant_id, invoice_id, file_name, body, opts)
@@ -2021,6 +2094,7 @@ module XeroRuby
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_online Allows an attachment to be seen by the end customer within their online invoice
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
     def create_invoice_attachment_by_file_name_with_http_info(xero_tenant_id, invoice_id, file_name, body, options = {})
       opts = options.dup
@@ -2064,6 +2138,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/octet-stream'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -2098,6 +2173,7 @@ module XeroRuby
     # @param invoice_id [String] Unique identifier for an Invoice
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [HistoryRecords]
     def create_invoice_history(xero_tenant_id, invoice_id, history_records, opts = {})
       data, _status_code, _headers = create_invoice_history_with_http_info(xero_tenant_id, invoice_id, history_records, opts)
@@ -2109,6 +2185,7 @@ module XeroRuby
     # @param invoice_id [String] Unique identifier for an Invoice
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
     def create_invoice_history_with_http_info(xero_tenant_id, invoice_id, history_records, options = {})
       opts = options.dup
@@ -2147,6 +2224,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -2182,6 +2260,7 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Invoices]
     def create_invoices(xero_tenant_id, invoices, opts = {})
       data, _status_code, _headers = create_invoices_with_http_info(xero_tenant_id, invoices, opts)
@@ -2194,6 +2273,7 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Invoices, Integer, Hash)>] Invoices data, response status code and response headers
     def create_invoices_with_http_info(xero_tenant_id, invoices, options = {})
       opts = options.dup
@@ -2230,6 +2310,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -2264,6 +2345,7 @@ module XeroRuby
     # @param item_id [String] Unique identifier for an Item
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [HistoryRecords]
     def create_item_history(xero_tenant_id, item_id, history_records, opts = {})
       data, _status_code, _headers = create_item_history_with_http_info(xero_tenant_id, item_id, history_records, opts)
@@ -2275,6 +2357,7 @@ module XeroRuby
     # @param item_id [String] Unique identifier for an Item
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
     def create_item_history_with_http_info(xero_tenant_id, item_id, history_records, options = {})
       opts = options.dup
@@ -2313,6 +2396,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -2348,6 +2432,7 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Items]
     def create_items(xero_tenant_id, items, opts = {})
       data, _status_code, _headers = create_items_with_http_info(xero_tenant_id, items, opts)
@@ -2360,6 +2445,7 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Items, Integer, Hash)>] Items data, response status code and response headers
     def create_items_with_http_info(xero_tenant_id, items, options = {})
       opts = options.dup
@@ -2396,6 +2482,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -2429,6 +2516,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param linked_transaction [LinkedTransaction] LinkedTransaction object in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [LinkedTransactions]
     def create_linked_transaction(xero_tenant_id, linked_transaction, opts = {})
       data, _status_code, _headers = create_linked_transaction_with_http_info(xero_tenant_id, linked_transaction, opts)
@@ -2439,6 +2527,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param linked_transaction [LinkedTransaction] LinkedTransaction object in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(LinkedTransactions, Integer, Hash)>] LinkedTransactions data, response status code and response headers
     def create_linked_transaction_with_http_info(xero_tenant_id, linked_transaction, options = {})
       opts = options.dup
@@ -2473,6 +2562,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -2508,6 +2598,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
     def create_manual_journal_attachment_by_file_name(xero_tenant_id, manual_journal_id, file_name, body, opts = {})
       data, _status_code, _headers = create_manual_journal_attachment_by_file_name_with_http_info(xero_tenant_id, manual_journal_id, file_name, body, opts)
@@ -2520,6 +2611,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
     def create_manual_journal_attachment_by_file_name_with_http_info(xero_tenant_id, manual_journal_id, file_name, body, options = {})
       opts = options.dup
@@ -2562,6 +2654,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/octet-stream'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -2596,6 +2689,7 @@ module XeroRuby
     # @param manual_journal_id [String] Unique identifier for a ManualJournal
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [HistoryRecords]
     def create_manual_journal_history_record(xero_tenant_id, manual_journal_id, history_records, opts = {})
       data, _status_code, _headers = create_manual_journal_history_record_with_http_info(xero_tenant_id, manual_journal_id, history_records, opts)
@@ -2607,6 +2701,7 @@ module XeroRuby
     # @param manual_journal_id [String] Unique identifier for a ManualJournal
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
     def create_manual_journal_history_record_with_http_info(xero_tenant_id, manual_journal_id, history_records, options = {})
       opts = options.dup
@@ -2645,6 +2740,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -2679,6 +2775,7 @@ module XeroRuby
     # @param manual_journals [ManualJournals] ManualJournals array with ManualJournal object in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [ManualJournals]
     def create_manual_journals(xero_tenant_id, manual_journals, opts = {})
       data, _status_code, _headers = create_manual_journals_with_http_info(xero_tenant_id, manual_journals, opts)
@@ -2690,6 +2787,7 @@ module XeroRuby
     # @param manual_journals [ManualJournals] ManualJournals array with ManualJournal object in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(ManualJournals, Integer, Hash)>] ManualJournals data, response status code and response headers
     def create_manual_journals_with_http_info(xero_tenant_id, manual_journals, options = {})
       opts = options.dup
@@ -2725,6 +2823,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -2760,6 +2859,7 @@ module XeroRuby
     # @param allocations [Allocations] Allocations array with Allocation object in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Allocations]
     def create_overpayment_allocations(xero_tenant_id, overpayment_id, allocations, opts = {})
       data, _status_code, _headers = create_overpayment_allocations_with_http_info(xero_tenant_id, overpayment_id, allocations, opts)
@@ -2772,6 +2872,7 @@ module XeroRuby
     # @param allocations [Allocations] Allocations array with Allocation object in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Allocations, Integer, Hash)>] Allocations data, response status code and response headers
     def create_overpayment_allocations_with_http_info(xero_tenant_id, overpayment_id, allocations, options = {})
       opts = options.dup
@@ -2811,6 +2912,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -2845,6 +2947,7 @@ module XeroRuby
     # @param overpayment_id [String] Unique identifier for a Overpayment
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [HistoryRecords]
     def create_overpayment_history(xero_tenant_id, overpayment_id, history_records, opts = {})
       data, _status_code, _headers = create_overpayment_history_with_http_info(xero_tenant_id, overpayment_id, history_records, opts)
@@ -2856,6 +2959,7 @@ module XeroRuby
     # @param overpayment_id [String] Unique identifier for a Overpayment
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
     def create_overpayment_history_with_http_info(xero_tenant_id, overpayment_id, history_records, options = {})
       opts = options.dup
@@ -2894,6 +2998,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -2927,6 +3032,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param payment [Payment] Request body with a single Payment object
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Payments]
     def create_payment(xero_tenant_id, payment, opts = {})
       data, _status_code, _headers = create_payment_with_http_info(xero_tenant_id, payment, opts)
@@ -2937,6 +3043,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param payment [Payment] Request body with a single Payment object
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Payments, Integer, Hash)>] Payments data, response status code and response headers
     def create_payment_with_http_info(xero_tenant_id, payment, options = {})
       opts = options.dup
@@ -2971,6 +3078,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -3005,6 +3113,7 @@ module XeroRuby
     # @param payment_id [String] Unique identifier for a Payment
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [HistoryRecords]
     def create_payment_history(xero_tenant_id, payment_id, history_records, opts = {})
       data, _status_code, _headers = create_payment_history_with_http_info(xero_tenant_id, payment_id, history_records, opts)
@@ -3016,6 +3125,7 @@ module XeroRuby
     # @param payment_id [String] Unique identifier for a Payment
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
     def create_payment_history_with_http_info(xero_tenant_id, payment_id, history_records, options = {})
       opts = options.dup
@@ -3054,6 +3164,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -3087,6 +3198,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param payment_services [PaymentServices] PaymentServices array with PaymentService object in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [PaymentServices]
     def create_payment_service(xero_tenant_id, payment_services, opts = {})
       data, _status_code, _headers = create_payment_service_with_http_info(xero_tenant_id, payment_services, opts)
@@ -3097,6 +3209,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param payment_services [PaymentServices] PaymentServices array with PaymentService object in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(PaymentServices, Integer, Hash)>] PaymentServices data, response status code and response headers
     def create_payment_service_with_http_info(xero_tenant_id, payment_services, options = {})
       opts = options.dup
@@ -3131,6 +3244,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -3165,6 +3279,7 @@ module XeroRuby
     # @param payments [Payments] Payments array with Payment object in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Payments]
     def create_payments(xero_tenant_id, payments, opts = {})
       data, _status_code, _headers = create_payments_with_http_info(xero_tenant_id, payments, opts)
@@ -3176,6 +3291,7 @@ module XeroRuby
     # @param payments [Payments] Payments array with Payment object in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Payments, Integer, Hash)>] Payments data, response status code and response headers
     def create_payments_with_http_info(xero_tenant_id, payments, options = {})
       opts = options.dup
@@ -3211,6 +3327,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -3246,6 +3363,7 @@ module XeroRuby
     # @param allocations [Allocations] Allocations with an array of Allocation object in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Allocations]
     def create_prepayment_allocations(xero_tenant_id, prepayment_id, allocations, opts = {})
       data, _status_code, _headers = create_prepayment_allocations_with_http_info(xero_tenant_id, prepayment_id, allocations, opts)
@@ -3258,6 +3376,7 @@ module XeroRuby
     # @param allocations [Allocations] Allocations with an array of Allocation object in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Allocations, Integer, Hash)>] Allocations data, response status code and response headers
     def create_prepayment_allocations_with_http_info(xero_tenant_id, prepayment_id, allocations, options = {})
       opts = options.dup
@@ -3297,6 +3416,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -3331,6 +3451,7 @@ module XeroRuby
     # @param prepayment_id [String] Unique identifier for a PrePayment
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [HistoryRecords]
     def create_prepayment_history(xero_tenant_id, prepayment_id, history_records, opts = {})
       data, _status_code, _headers = create_prepayment_history_with_http_info(xero_tenant_id, prepayment_id, history_records, opts)
@@ -3342,6 +3463,7 @@ module XeroRuby
     # @param prepayment_id [String] Unique identifier for a PrePayment
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
     def create_prepayment_history_with_http_info(xero_tenant_id, prepayment_id, history_records, options = {})
       opts = options.dup
@@ -3380,6 +3502,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -3415,6 +3538,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
     def create_purchase_order_attachment_by_file_name(xero_tenant_id, purchase_order_id, file_name, body, opts = {})
       data, _status_code, _headers = create_purchase_order_attachment_by_file_name_with_http_info(xero_tenant_id, purchase_order_id, file_name, body, opts)
@@ -3427,6 +3551,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
     def create_purchase_order_attachment_by_file_name_with_http_info(xero_tenant_id, purchase_order_id, file_name, body, options = {})
       opts = options.dup
@@ -3469,6 +3594,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/octet-stream'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -3503,6 +3629,7 @@ module XeroRuby
     # @param purchase_order_id [String] Unique identifier for an Purchase Order
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [HistoryRecords]
     def create_purchase_order_history(xero_tenant_id, purchase_order_id, history_records, opts = {})
       data, _status_code, _headers = create_purchase_order_history_with_http_info(xero_tenant_id, purchase_order_id, history_records, opts)
@@ -3514,6 +3641,7 @@ module XeroRuby
     # @param purchase_order_id [String] Unique identifier for an Purchase Order
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
     def create_purchase_order_history_with_http_info(xero_tenant_id, purchase_order_id, history_records, options = {})
       opts = options.dup
@@ -3552,6 +3680,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -3586,6 +3715,7 @@ module XeroRuby
     # @param purchase_orders [PurchaseOrders] PurchaseOrders with an array of PurchaseOrder object in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [PurchaseOrders]
     def create_purchase_orders(xero_tenant_id, purchase_orders, opts = {})
       data, _status_code, _headers = create_purchase_orders_with_http_info(xero_tenant_id, purchase_orders, opts)
@@ -3597,6 +3727,7 @@ module XeroRuby
     # @param purchase_orders [PurchaseOrders] PurchaseOrders with an array of PurchaseOrder object in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(PurchaseOrders, Integer, Hash)>] PurchaseOrders data, response status code and response headers
     def create_purchase_orders_with_http_info(xero_tenant_id, purchase_orders, options = {})
       opts = options.dup
@@ -3632,6 +3763,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -3667,6 +3799,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
     def create_quote_attachment_by_file_name(xero_tenant_id, quote_id, file_name, body, opts = {})
       data, _status_code, _headers = create_quote_attachment_by_file_name_with_http_info(xero_tenant_id, quote_id, file_name, body, opts)
@@ -3679,6 +3812,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
     def create_quote_attachment_by_file_name_with_http_info(xero_tenant_id, quote_id, file_name, body, options = {})
       opts = options.dup
@@ -3721,6 +3855,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/octet-stream'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -3755,6 +3890,7 @@ module XeroRuby
     # @param quote_id [String] Unique identifier for an Quote
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [HistoryRecords]
     def create_quote_history(xero_tenant_id, quote_id, history_records, opts = {})
       data, _status_code, _headers = create_quote_history_with_http_info(xero_tenant_id, quote_id, history_records, opts)
@@ -3766,6 +3902,7 @@ module XeroRuby
     # @param quote_id [String] Unique identifier for an Quote
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
     def create_quote_history_with_http_info(xero_tenant_id, quote_id, history_records, options = {})
       opts = options.dup
@@ -3804,6 +3941,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -3838,6 +3976,7 @@ module XeroRuby
     # @param quotes [Quotes] Quotes with an array of Quote object in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Quotes]
     def create_quotes(xero_tenant_id, quotes, opts = {})
       data, _status_code, _headers = create_quotes_with_http_info(xero_tenant_id, quotes, opts)
@@ -3849,6 +3988,7 @@ module XeroRuby
     # @param quotes [Quotes] Quotes with an array of Quote object in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Quotes, Integer, Hash)>] Quotes data, response status code and response headers
     def create_quotes_with_http_info(xero_tenant_id, quotes, options = {})
       opts = options.dup
@@ -3884,6 +4024,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -3918,6 +4059,7 @@ module XeroRuby
     # @param receipts [Receipts] Receipts with an array of Receipt object in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Receipts]
     def create_receipt(xero_tenant_id, receipts, opts = {})
       data, _status_code, _headers = create_receipt_with_http_info(xero_tenant_id, receipts, opts)
@@ -3929,6 +4071,7 @@ module XeroRuby
     # @param receipts [Receipts] Receipts with an array of Receipt object in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Receipts, Integer, Hash)>] Receipts data, response status code and response headers
     def create_receipt_with_http_info(xero_tenant_id, receipts, options = {})
       opts = options.dup
@@ -3964,6 +4107,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -3999,6 +4143,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
     def create_receipt_attachment_by_file_name(xero_tenant_id, receipt_id, file_name, body, opts = {})
       data, _status_code, _headers = create_receipt_attachment_by_file_name_with_http_info(xero_tenant_id, receipt_id, file_name, body, opts)
@@ -4011,6 +4156,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
     def create_receipt_attachment_by_file_name_with_http_info(xero_tenant_id, receipt_id, file_name, body, options = {})
       opts = options.dup
@@ -4053,6 +4199,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/octet-stream'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -4087,6 +4234,7 @@ module XeroRuby
     # @param receipt_id [String] Unique identifier for a Receipt
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [HistoryRecords]
     def create_receipt_history(xero_tenant_id, receipt_id, history_records, opts = {})
       data, _status_code, _headers = create_receipt_history_with_http_info(xero_tenant_id, receipt_id, history_records, opts)
@@ -4098,6 +4246,7 @@ module XeroRuby
     # @param receipt_id [String] Unique identifier for a Receipt
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
     def create_receipt_history_with_http_info(xero_tenant_id, receipt_id, history_records, options = {})
       opts = options.dup
@@ -4136,6 +4285,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -4171,6 +4321,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
     def create_repeating_invoice_attachment_by_file_name(xero_tenant_id, repeating_invoice_id, file_name, body, opts = {})
       data, _status_code, _headers = create_repeating_invoice_attachment_by_file_name_with_http_info(xero_tenant_id, repeating_invoice_id, file_name, body, opts)
@@ -4183,6 +4334,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
     def create_repeating_invoice_attachment_by_file_name_with_http_info(xero_tenant_id, repeating_invoice_id, file_name, body, options = {})
       opts = options.dup
@@ -4225,6 +4377,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/octet-stream'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -4259,6 +4412,7 @@ module XeroRuby
     # @param repeating_invoice_id [String] Unique identifier for a Repeating Invoice
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [HistoryRecords]
     def create_repeating_invoice_history(xero_tenant_id, repeating_invoice_id, history_records, opts = {})
       data, _status_code, _headers = create_repeating_invoice_history_with_http_info(xero_tenant_id, repeating_invoice_id, history_records, opts)
@@ -4270,6 +4424,7 @@ module XeroRuby
     # @param repeating_invoice_id [String] Unique identifier for a Repeating Invoice
     # @param history_records [HistoryRecords] HistoryRecords containing an array of HistoryRecord objects in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(HistoryRecords, Integer, Hash)>] HistoryRecords data, response status code and response headers
     def create_repeating_invoice_history_with_http_info(xero_tenant_id, repeating_invoice_id, history_records, options = {})
       opts = options.dup
@@ -4308,6 +4463,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -4342,6 +4498,7 @@ module XeroRuby
     # @param repeating_invoices [RepeatingInvoices] RepeatingInvoices with an array of repeating invoice objects in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [RepeatingInvoices]
     def create_repeating_invoices(xero_tenant_id, repeating_invoices, opts = {})
       data, _status_code, _headers = create_repeating_invoices_with_http_info(xero_tenant_id, repeating_invoices, opts)
@@ -4353,6 +4510,7 @@ module XeroRuby
     # @param repeating_invoices [RepeatingInvoices] RepeatingInvoices with an array of repeating invoice objects in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(RepeatingInvoices, Integer, Hash)>] RepeatingInvoices data, response status code and response headers
     def create_repeating_invoices_with_http_info(xero_tenant_id, repeating_invoices, options = {})
       opts = options.dup
@@ -4388,6 +4546,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -4421,6 +4580,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param tax_rates [TaxRates] TaxRates array with TaxRate object in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [TaxRates]
     def create_tax_rates(xero_tenant_id, tax_rates, opts = {})
       data, _status_code, _headers = create_tax_rates_with_http_info(xero_tenant_id, tax_rates, opts)
@@ -4431,6 +4591,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param tax_rates [TaxRates] TaxRates array with TaxRate object in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(TaxRates, Integer, Hash)>] TaxRates data, response status code and response headers
     def create_tax_rates_with_http_info(xero_tenant_id, tax_rates, options = {})
       opts = options.dup
@@ -4465,6 +4626,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -4498,6 +4660,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param tracking_category [TrackingCategory] TrackingCategory object in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [TrackingCategories]
     def create_tracking_category(xero_tenant_id, tracking_category, opts = {})
       data, _status_code, _headers = create_tracking_category_with_http_info(xero_tenant_id, tracking_category, opts)
@@ -4508,6 +4671,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param tracking_category [TrackingCategory] TrackingCategory object in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(TrackingCategories, Integer, Hash)>] TrackingCategories data, response status code and response headers
     def create_tracking_category_with_http_info(xero_tenant_id, tracking_category, options = {})
       opts = options.dup
@@ -4542,6 +4706,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -4576,6 +4741,7 @@ module XeroRuby
     # @param tracking_category_id [String] Unique identifier for a TrackingCategory
     # @param tracking_option [TrackingOption] TrackingOption object in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [TrackingOptions]
     def create_tracking_options(xero_tenant_id, tracking_category_id, tracking_option, opts = {})
       data, _status_code, _headers = create_tracking_options_with_http_info(xero_tenant_id, tracking_category_id, tracking_option, opts)
@@ -4587,6 +4753,7 @@ module XeroRuby
     # @param tracking_category_id [String] Unique identifier for a TrackingCategory
     # @param tracking_option [TrackingOption] TrackingOption object in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(TrackingOptions, Integer, Hash)>] TrackingOptions data, response status code and response headers
     def create_tracking_options_with_http_info(xero_tenant_id, tracking_category_id, tracking_option, options = {})
       opts = options.dup
@@ -4625,6 +4792,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -4733,6 +4901,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param batch_payment_delete [BatchPaymentDelete] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [BatchPayments]
     def delete_batch_payment(xero_tenant_id, batch_payment_delete, opts = {})
       data, _status_code, _headers = delete_batch_payment_with_http_info(xero_tenant_id, batch_payment_delete, opts)
@@ -4743,6 +4912,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param batch_payment_delete [BatchPaymentDelete] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(BatchPayments, Integer, Hash)>] BatchPayments data, response status code and response headers
     def delete_batch_payment_with_http_info(xero_tenant_id, batch_payment_delete, options = {})
       opts = options.dup
@@ -4777,6 +4947,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -4811,6 +4982,7 @@ module XeroRuby
     # @param batch_payment_id [String] Unique identifier for BatchPayment
     # @param batch_payment_delete_by_url_param [BatchPaymentDeleteByUrlParam] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [BatchPayments]
     def delete_batch_payment_by_url_param(xero_tenant_id, batch_payment_id, batch_payment_delete_by_url_param, opts = {})
       data, _status_code, _headers = delete_batch_payment_by_url_param_with_http_info(xero_tenant_id, batch_payment_id, batch_payment_delete_by_url_param, opts)
@@ -4822,6 +4994,7 @@ module XeroRuby
     # @param batch_payment_id [String] Unique identifier for BatchPayment
     # @param batch_payment_delete_by_url_param [BatchPaymentDeleteByUrlParam] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(BatchPayments, Integer, Hash)>] BatchPayments data, response status code and response headers
     def delete_batch_payment_by_url_param_with_http_info(xero_tenant_id, batch_payment_id, batch_payment_delete_by_url_param, options = {})
       opts = options.dup
@@ -4860,6 +5033,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -5043,6 +5217,87 @@ module XeroRuby
       return data, status_code, headers
     end
 
+    # Deletes an Allocation from a Credit Note
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param credit_note_id [String] Unique identifier for a Credit Note
+    # @param allocation_id [String] Unique identifier for Allocation object
+    # @param [Hash] opts the optional parameters
+    # @return [Allocation]
+    def delete_credit_note_allocations(xero_tenant_id, credit_note_id, allocation_id, opts = {})
+      data, _status_code, _headers = delete_credit_note_allocations_with_http_info(xero_tenant_id, credit_note_id, allocation_id, opts)
+      data
+    end
+
+    # Deletes an Allocation from a Credit Note
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param credit_note_id [String] Unique identifier for a Credit Note
+    # @param allocation_id [String] Unique identifier for Allocation object
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Allocation, Integer, Hash)>] Allocation data, response status code and response headers
+    def delete_credit_note_allocations_with_http_info(xero_tenant_id, credit_note_id, allocation_id, options = {})
+      opts = options.dup
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AccountingApi.delete_credit_note_allocations ...'
+      end
+      # verify the required parameter 'xero_tenant_id' is set
+      if @api_client.config.client_side_validation && xero_tenant_id.nil?
+        fail ArgumentError, "Missing the required parameter 'xero_tenant_id' when calling AccountingApi.delete_credit_note_allocations"
+      end
+      # verify the required parameter 'credit_note_id' is set
+      if @api_client.config.client_side_validation && credit_note_id.nil?
+        fail ArgumentError, "Missing the required parameter 'credit_note_id' when calling AccountingApi.delete_credit_note_allocations"
+      end
+      # verify the required parameter 'allocation_id' is set
+      if @api_client.config.client_side_validation && allocation_id.nil?
+        fail ArgumentError, "Missing the required parameter 'allocation_id' when calling AccountingApi.delete_credit_note_allocations"
+      end
+      # resource path
+      local_var_path = '/CreditNotes/{CreditNoteID}/Allocations/{AllocationID}'.sub('{' + 'CreditNoteID' + '}', credit_note_id.to_s).sub('{' + 'AllocationID' + '}', allocation_id.to_s)
+
+      # camelize keys of incoming `where` opts
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      
+      # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
+      query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+      query_params[:'ContactIDs'] = @api_client.build_collection_param(opts[:'contact_ids'], :csv) if !opts[:'contact_ids'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'xero-tenant-id'] = xero_tenant_id
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'Allocation' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['OAuth2']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, "AccountingApi", new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AccountingApi#delete_credit_note_allocations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Deletes a specific item
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param item_id [String] Unique identifier for an Item
@@ -5193,11 +5448,93 @@ module XeroRuby
       return data, status_code, headers
     end
 
+    # Deletes an Allocation from an overpayment
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param overpayment_id [String] Unique identifier for a Overpayment
+    # @param allocation_id [String] Unique identifier for Allocation object
+    # @param [Hash] opts the optional parameters
+    # @return [Allocation]
+    def delete_overpayment_allocations(xero_tenant_id, overpayment_id, allocation_id, opts = {})
+      data, _status_code, _headers = delete_overpayment_allocations_with_http_info(xero_tenant_id, overpayment_id, allocation_id, opts)
+      data
+    end
+
+    # Deletes an Allocation from an overpayment
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param overpayment_id [String] Unique identifier for a Overpayment
+    # @param allocation_id [String] Unique identifier for Allocation object
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Allocation, Integer, Hash)>] Allocation data, response status code and response headers
+    def delete_overpayment_allocations_with_http_info(xero_tenant_id, overpayment_id, allocation_id, options = {})
+      opts = options.dup
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AccountingApi.delete_overpayment_allocations ...'
+      end
+      # verify the required parameter 'xero_tenant_id' is set
+      if @api_client.config.client_side_validation && xero_tenant_id.nil?
+        fail ArgumentError, "Missing the required parameter 'xero_tenant_id' when calling AccountingApi.delete_overpayment_allocations"
+      end
+      # verify the required parameter 'overpayment_id' is set
+      if @api_client.config.client_side_validation && overpayment_id.nil?
+        fail ArgumentError, "Missing the required parameter 'overpayment_id' when calling AccountingApi.delete_overpayment_allocations"
+      end
+      # verify the required parameter 'allocation_id' is set
+      if @api_client.config.client_side_validation && allocation_id.nil?
+        fail ArgumentError, "Missing the required parameter 'allocation_id' when calling AccountingApi.delete_overpayment_allocations"
+      end
+      # resource path
+      local_var_path = '/Overpayments/{OverpaymentID}/Allocations/{AllocationID}'.sub('{' + 'OverpaymentID' + '}', overpayment_id.to_s).sub('{' + 'AllocationID' + '}', allocation_id.to_s)
+
+      # camelize keys of incoming `where` opts
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      
+      # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
+      query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+      query_params[:'ContactIDs'] = @api_client.build_collection_param(opts[:'contact_ids'], :csv) if !opts[:'contact_ids'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'xero-tenant-id'] = xero_tenant_id
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'Allocation' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['OAuth2']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, "AccountingApi", new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AccountingApi#delete_overpayment_allocations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Updates a specific payment for invoices and credit notes
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param payment_id [String] Unique identifier for a Payment
     # @param payment_delete [PaymentDelete] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Payments]
     def delete_payment(xero_tenant_id, payment_id, payment_delete, opts = {})
       data, _status_code, _headers = delete_payment_with_http_info(xero_tenant_id, payment_id, payment_delete, opts)
@@ -5209,6 +5546,7 @@ module XeroRuby
     # @param payment_id [String] Unique identifier for a Payment
     # @param payment_delete [PaymentDelete] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Payments, Integer, Hash)>] Payments data, response status code and response headers
     def delete_payment_with_http_info(xero_tenant_id, payment_id, payment_delete, options = {})
       opts = options.dup
@@ -5247,6 +5585,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -5272,6 +5611,87 @@ module XeroRuby
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, "AccountingApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AccountingApi#delete_payment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Deletes an Allocation from a Prepayment
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param prepayment_id [String] Unique identifier for a PrePayment
+    # @param allocation_id [String] Unique identifier for Allocation object
+    # @param [Hash] opts the optional parameters
+    # @return [Allocation]
+    def delete_prepayment_allocations(xero_tenant_id, prepayment_id, allocation_id, opts = {})
+      data, _status_code, _headers = delete_prepayment_allocations_with_http_info(xero_tenant_id, prepayment_id, allocation_id, opts)
+      data
+    end
+
+    # Deletes an Allocation from a Prepayment
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param prepayment_id [String] Unique identifier for a PrePayment
+    # @param allocation_id [String] Unique identifier for Allocation object
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Allocation, Integer, Hash)>] Allocation data, response status code and response headers
+    def delete_prepayment_allocations_with_http_info(xero_tenant_id, prepayment_id, allocation_id, options = {})
+      opts = options.dup
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AccountingApi.delete_prepayment_allocations ...'
+      end
+      # verify the required parameter 'xero_tenant_id' is set
+      if @api_client.config.client_side_validation && xero_tenant_id.nil?
+        fail ArgumentError, "Missing the required parameter 'xero_tenant_id' when calling AccountingApi.delete_prepayment_allocations"
+      end
+      # verify the required parameter 'prepayment_id' is set
+      if @api_client.config.client_side_validation && prepayment_id.nil?
+        fail ArgumentError, "Missing the required parameter 'prepayment_id' when calling AccountingApi.delete_prepayment_allocations"
+      end
+      # verify the required parameter 'allocation_id' is set
+      if @api_client.config.client_side_validation && allocation_id.nil?
+        fail ArgumentError, "Missing the required parameter 'allocation_id' when calling AccountingApi.delete_prepayment_allocations"
+      end
+      # resource path
+      local_var_path = '/Prepayments/{PrepaymentID}/Allocations/{AllocationID}'.sub('{' + 'PrepaymentID' + '}', prepayment_id.to_s).sub('{' + 'AllocationID' + '}', allocation_id.to_s)
+
+      # camelize keys of incoming `where` opts
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      
+      # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
+      query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+      query_params[:'ContactIDs'] = @api_client.build_collection_param(opts[:'contact_ids'], :csv) if !opts[:'contact_ids'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'xero-tenant-id'] = xero_tenant_id
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'Allocation' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['OAuth2']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, "AccountingApi", new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AccountingApi#delete_prepayment_allocations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -5437,6 +5857,7 @@ module XeroRuby
     # @param invoice_id [String] Unique identifier for an Invoice
     # @param request_empty [RequestEmpty] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [nil]
     def email_invoice(xero_tenant_id, invoice_id, request_empty, opts = {})
       email_invoice_with_http_info(xero_tenant_id, invoice_id, request_empty, opts)
@@ -5448,6 +5869,7 @@ module XeroRuby
     # @param invoice_id [String] Unique identifier for an Invoice
     # @param request_empty [RequestEmpty] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def email_invoice_with_http_info(xero_tenant_id, invoice_id, request_empty, options = {})
       opts = options.dup
@@ -5486,6 +5908,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -15569,6 +15992,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param setup [Setup] Object including an accounts array, a conversion balances array and a conversion date object in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [ImportSummaryObject]
     def post_setup(xero_tenant_id, setup, opts = {})
       data, _status_code, _headers = post_setup_with_http_info(xero_tenant_id, setup, opts)
@@ -15579,6 +16003,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param setup [Setup] Object including an accounts array, a conversion balances array and a conversion date object in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(ImportSummaryObject, Integer, Hash)>] ImportSummaryObject data, response status code and response headers
     def post_setup_with_http_info(xero_tenant_id, setup, options = {})
       opts = options.dup
@@ -15613,6 +16038,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -15647,6 +16073,7 @@ module XeroRuby
     # @param account_id [String] Unique identifier for Account object
     # @param accounts [Accounts] Request of type Accounts array with one Account
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Accounts]
     def update_account(xero_tenant_id, account_id, accounts, opts = {})
       data, _status_code, _headers = update_account_with_http_info(xero_tenant_id, account_id, accounts, opts)
@@ -15658,6 +16085,7 @@ module XeroRuby
     # @param account_id [String] Unique identifier for Account object
     # @param accounts [Accounts] Request of type Accounts array with one Account
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Accounts, Integer, Hash)>] Accounts data, response status code and response headers
     def update_account_with_http_info(xero_tenant_id, account_id, accounts, options = {})
       opts = options.dup
@@ -15696,6 +16124,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -15731,6 +16160,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
     def update_account_attachment_by_file_name(xero_tenant_id, account_id, file_name, body, opts = {})
       data, _status_code, _headers = update_account_attachment_by_file_name_with_http_info(xero_tenant_id, account_id, file_name, body, opts)
@@ -15743,6 +16173,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
     def update_account_attachment_by_file_name_with_http_info(xero_tenant_id, account_id, file_name, body, options = {})
       opts = options.dup
@@ -15785,6 +16216,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/octet-stream'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -15820,6 +16252,7 @@ module XeroRuby
     # @param bank_transactions [BankTransactions] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [BankTransactions]
     def update_bank_transaction(xero_tenant_id, bank_transaction_id, bank_transactions, opts = {})
       data, _status_code, _headers = update_bank_transaction_with_http_info(xero_tenant_id, bank_transaction_id, bank_transactions, opts)
@@ -15832,6 +16265,7 @@ module XeroRuby
     # @param bank_transactions [BankTransactions] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(BankTransactions, Integer, Hash)>] BankTransactions data, response status code and response headers
     def update_bank_transaction_with_http_info(xero_tenant_id, bank_transaction_id, bank_transactions, options = {})
       opts = options.dup
@@ -15871,6 +16305,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -15906,6 +16341,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
     def update_bank_transaction_attachment_by_file_name(xero_tenant_id, bank_transaction_id, file_name, body, opts = {})
       data, _status_code, _headers = update_bank_transaction_attachment_by_file_name_with_http_info(xero_tenant_id, bank_transaction_id, file_name, body, opts)
@@ -15918,6 +16354,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
     def update_bank_transaction_attachment_by_file_name_with_http_info(xero_tenant_id, bank_transaction_id, file_name, body, options = {})
       opts = options.dup
@@ -15960,6 +16397,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/octet-stream'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -15994,6 +16432,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
     def update_bank_transfer_attachment_by_file_name(xero_tenant_id, bank_transfer_id, file_name, body, opts = {})
       data, _status_code, _headers = update_bank_transfer_attachment_by_file_name_with_http_info(xero_tenant_id, bank_transfer_id, file_name, body, opts)
@@ -16005,6 +16444,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
     def update_bank_transfer_attachment_by_file_name_with_http_info(xero_tenant_id, bank_transfer_id, file_name, body, options = {})
       opts = options.dup
@@ -16047,6 +16487,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/octet-stream'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -16081,6 +16522,7 @@ module XeroRuby
     # @param contact_id [String] Unique identifier for a Contact
     # @param contacts [Contacts] an array of Contacts containing single Contact object with properties to update
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Contacts]
     def update_contact(xero_tenant_id, contact_id, contacts, opts = {})
       data, _status_code, _headers = update_contact_with_http_info(xero_tenant_id, contact_id, contacts, opts)
@@ -16092,6 +16534,7 @@ module XeroRuby
     # @param contact_id [String] Unique identifier for a Contact
     # @param contacts [Contacts] an array of Contacts containing single Contact object with properties to update
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Contacts, Integer, Hash)>] Contacts data, response status code and response headers
     def update_contact_with_http_info(xero_tenant_id, contact_id, contacts, options = {})
       opts = options.dup
@@ -16130,6 +16573,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -16164,6 +16608,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
     def update_contact_attachment_by_file_name(xero_tenant_id, contact_id, file_name, body, opts = {})
       data, _status_code, _headers = update_contact_attachment_by_file_name_with_http_info(xero_tenant_id, contact_id, file_name, body, opts)
@@ -16175,6 +16620,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
     def update_contact_attachment_by_file_name_with_http_info(xero_tenant_id, contact_id, file_name, body, options = {})
       opts = options.dup
@@ -16217,6 +16663,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/octet-stream'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -16251,6 +16698,7 @@ module XeroRuby
     # @param contact_group_id [String] Unique identifier for a Contact Group
     # @param contact_groups [ContactGroups] an array of Contact groups with Name of specific group to update
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [ContactGroups]
     def update_contact_group(xero_tenant_id, contact_group_id, contact_groups, opts = {})
       data, _status_code, _headers = update_contact_group_with_http_info(xero_tenant_id, contact_group_id, contact_groups, opts)
@@ -16262,6 +16710,7 @@ module XeroRuby
     # @param contact_group_id [String] Unique identifier for a Contact Group
     # @param contact_groups [ContactGroups] an array of Contact groups with Name of specific group to update
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(ContactGroups, Integer, Hash)>] ContactGroups data, response status code and response headers
     def update_contact_group_with_http_info(xero_tenant_id, contact_group_id, contact_groups, options = {})
       opts = options.dup
@@ -16300,6 +16749,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -16335,6 +16785,7 @@ module XeroRuby
     # @param credit_notes [CreditNotes] an array of Credit Notes containing credit note details to update
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [CreditNotes]
     def update_credit_note(xero_tenant_id, credit_note_id, credit_notes, opts = {})
       data, _status_code, _headers = update_credit_note_with_http_info(xero_tenant_id, credit_note_id, credit_notes, opts)
@@ -16347,6 +16798,7 @@ module XeroRuby
     # @param credit_notes [CreditNotes] an array of Credit Notes containing credit note details to update
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(CreditNotes, Integer, Hash)>] CreditNotes data, response status code and response headers
     def update_credit_note_with_http_info(xero_tenant_id, credit_note_id, credit_notes, options = {})
       opts = options.dup
@@ -16386,6 +16838,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -16421,6 +16874,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
     def update_credit_note_attachment_by_file_name(xero_tenant_id, credit_note_id, file_name, body, opts = {})
       data, _status_code, _headers = update_credit_note_attachment_by_file_name_with_http_info(xero_tenant_id, credit_note_id, file_name, body, opts)
@@ -16433,6 +16887,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
     def update_credit_note_attachment_by_file_name_with_http_info(xero_tenant_id, credit_note_id, file_name, body, options = {})
       opts = options.dup
@@ -16475,6 +16930,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/octet-stream'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -16509,6 +16965,7 @@ module XeroRuby
     # @param expense_claim_id [String] Unique identifier for a ExpenseClaim
     # @param expense_claims [ExpenseClaims] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [ExpenseClaims]
     def update_expense_claim(xero_tenant_id, expense_claim_id, expense_claims, opts = {})
       data, _status_code, _headers = update_expense_claim_with_http_info(xero_tenant_id, expense_claim_id, expense_claims, opts)
@@ -16520,6 +16977,7 @@ module XeroRuby
     # @param expense_claim_id [String] Unique identifier for a ExpenseClaim
     # @param expense_claims [ExpenseClaims] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(ExpenseClaims, Integer, Hash)>] ExpenseClaims data, response status code and response headers
     def update_expense_claim_with_http_info(xero_tenant_id, expense_claim_id, expense_claims, options = {})
       opts = options.dup
@@ -16558,6 +17016,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -16593,6 +17052,7 @@ module XeroRuby
     # @param invoices [Invoices] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Invoices]
     def update_invoice(xero_tenant_id, invoice_id, invoices, opts = {})
       data, _status_code, _headers = update_invoice_with_http_info(xero_tenant_id, invoice_id, invoices, opts)
@@ -16605,6 +17065,7 @@ module XeroRuby
     # @param invoices [Invoices] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Invoices, Integer, Hash)>] Invoices data, response status code and response headers
     def update_invoice_with_http_info(xero_tenant_id, invoice_id, invoices, options = {})
       opts = options.dup
@@ -16644,6 +17105,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -16679,6 +17141,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
     def update_invoice_attachment_by_file_name(xero_tenant_id, invoice_id, file_name, body, opts = {})
       data, _status_code, _headers = update_invoice_attachment_by_file_name_with_http_info(xero_tenant_id, invoice_id, file_name, body, opts)
@@ -16691,6 +17154,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
     def update_invoice_attachment_by_file_name_with_http_info(xero_tenant_id, invoice_id, file_name, body, options = {})
       opts = options.dup
@@ -16733,6 +17197,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/octet-stream'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -16768,6 +17233,7 @@ module XeroRuby
     # @param items [Items] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Items]
     def update_item(xero_tenant_id, item_id, items, opts = {})
       data, _status_code, _headers = update_item_with_http_info(xero_tenant_id, item_id, items, opts)
@@ -16780,6 +17246,7 @@ module XeroRuby
     # @param items [Items] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Items, Integer, Hash)>] Items data, response status code and response headers
     def update_item_with_http_info(xero_tenant_id, item_id, items, options = {})
       opts = options.dup
@@ -16819,6 +17286,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -16853,6 +17321,7 @@ module XeroRuby
     # @param linked_transaction_id [String] Unique identifier for a LinkedTransaction
     # @param linked_transactions [LinkedTransactions] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [LinkedTransactions]
     def update_linked_transaction(xero_tenant_id, linked_transaction_id, linked_transactions, opts = {})
       data, _status_code, _headers = update_linked_transaction_with_http_info(xero_tenant_id, linked_transaction_id, linked_transactions, opts)
@@ -16864,6 +17333,7 @@ module XeroRuby
     # @param linked_transaction_id [String] Unique identifier for a LinkedTransaction
     # @param linked_transactions [LinkedTransactions] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(LinkedTransactions, Integer, Hash)>] LinkedTransactions data, response status code and response headers
     def update_linked_transaction_with_http_info(xero_tenant_id, linked_transaction_id, linked_transactions, options = {})
       opts = options.dup
@@ -16902,6 +17372,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -16936,6 +17407,7 @@ module XeroRuby
     # @param manual_journal_id [String] Unique identifier for a ManualJournal
     # @param manual_journals [ManualJournals] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [ManualJournals]
     def update_manual_journal(xero_tenant_id, manual_journal_id, manual_journals, opts = {})
       data, _status_code, _headers = update_manual_journal_with_http_info(xero_tenant_id, manual_journal_id, manual_journals, opts)
@@ -16947,6 +17419,7 @@ module XeroRuby
     # @param manual_journal_id [String] Unique identifier for a ManualJournal
     # @param manual_journals [ManualJournals] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(ManualJournals, Integer, Hash)>] ManualJournals data, response status code and response headers
     def update_manual_journal_with_http_info(xero_tenant_id, manual_journal_id, manual_journals, options = {})
       opts = options.dup
@@ -16985,6 +17458,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -17020,6 +17494,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
     def update_manual_journal_attachment_by_file_name(xero_tenant_id, manual_journal_id, file_name, body, opts = {})
       data, _status_code, _headers = update_manual_journal_attachment_by_file_name_with_http_info(xero_tenant_id, manual_journal_id, file_name, body, opts)
@@ -17032,6 +17507,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
     def update_manual_journal_attachment_by_file_name_with_http_info(xero_tenant_id, manual_journal_id, file_name, body, options = {})
       opts = options.dup
@@ -17074,6 +17550,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/octet-stream'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -17109,6 +17586,7 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [BankTransactions]
     def update_or_create_bank_transactions(xero_tenant_id, bank_transactions, opts = {})
       data, _status_code, _headers = update_or_create_bank_transactions_with_http_info(xero_tenant_id, bank_transactions, opts)
@@ -17121,6 +17599,7 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(BankTransactions, Integer, Hash)>] BankTransactions data, response status code and response headers
     def update_or_create_bank_transactions_with_http_info(xero_tenant_id, bank_transactions, options = {})
       opts = options.dup
@@ -17157,6 +17636,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -17191,6 +17671,7 @@ module XeroRuby
     # @param contacts [Contacts] 
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Contacts]
     def update_or_create_contacts(xero_tenant_id, contacts, opts = {})
       data, _status_code, _headers = update_or_create_contacts_with_http_info(xero_tenant_id, contacts, opts)
@@ -17202,6 +17683,7 @@ module XeroRuby
     # @param contacts [Contacts] 
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Contacts, Integer, Hash)>] Contacts data, response status code and response headers
     def update_or_create_contacts_with_http_info(xero_tenant_id, contacts, options = {})
       opts = options.dup
@@ -17237,6 +17719,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -17272,6 +17755,7 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [CreditNotes]
     def update_or_create_credit_notes(xero_tenant_id, credit_notes, opts = {})
       data, _status_code, _headers = update_or_create_credit_notes_with_http_info(xero_tenant_id, credit_notes, opts)
@@ -17284,6 +17768,7 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(CreditNotes, Integer, Hash)>] CreditNotes data, response status code and response headers
     def update_or_create_credit_notes_with_http_info(xero_tenant_id, credit_notes, options = {})
       opts = options.dup
@@ -17320,6 +17805,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -17354,6 +17840,7 @@ module XeroRuby
     # @param employees [Employees] Employees with array of Employee object in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Employees]
     def update_or_create_employees(xero_tenant_id, employees, opts = {})
       data, _status_code, _headers = update_or_create_employees_with_http_info(xero_tenant_id, employees, opts)
@@ -17365,6 +17852,7 @@ module XeroRuby
     # @param employees [Employees] Employees with array of Employee object in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Employees, Integer, Hash)>] Employees data, response status code and response headers
     def update_or_create_employees_with_http_info(xero_tenant_id, employees, options = {})
       opts = options.dup
@@ -17400,6 +17888,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -17435,6 +17924,7 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Invoices]
     def update_or_create_invoices(xero_tenant_id, invoices, opts = {})
       data, _status_code, _headers = update_or_create_invoices_with_http_info(xero_tenant_id, invoices, opts)
@@ -17447,6 +17937,7 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Invoices, Integer, Hash)>] Invoices data, response status code and response headers
     def update_or_create_invoices_with_http_info(xero_tenant_id, invoices, options = {})
       opts = options.dup
@@ -17483,6 +17974,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -17518,6 +18010,7 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Items]
     def update_or_create_items(xero_tenant_id, items, opts = {})
       data, _status_code, _headers = update_or_create_items_with_http_info(xero_tenant_id, items, opts)
@@ -17530,6 +18023,7 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Items, Integer, Hash)>] Items data, response status code and response headers
     def update_or_create_items_with_http_info(xero_tenant_id, items, options = {})
       opts = options.dup
@@ -17566,6 +18060,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -17600,6 +18095,7 @@ module XeroRuby
     # @param manual_journals [ManualJournals] ManualJournals array with ManualJournal object in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [ManualJournals]
     def update_or_create_manual_journals(xero_tenant_id, manual_journals, opts = {})
       data, _status_code, _headers = update_or_create_manual_journals_with_http_info(xero_tenant_id, manual_journals, opts)
@@ -17611,6 +18107,7 @@ module XeroRuby
     # @param manual_journals [ManualJournals] ManualJournals array with ManualJournal object in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(ManualJournals, Integer, Hash)>] ManualJournals data, response status code and response headers
     def update_or_create_manual_journals_with_http_info(xero_tenant_id, manual_journals, options = {})
       opts = options.dup
@@ -17646,6 +18143,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -17680,6 +18178,7 @@ module XeroRuby
     # @param purchase_orders [PurchaseOrders] 
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [PurchaseOrders]
     def update_or_create_purchase_orders(xero_tenant_id, purchase_orders, opts = {})
       data, _status_code, _headers = update_or_create_purchase_orders_with_http_info(xero_tenant_id, purchase_orders, opts)
@@ -17691,6 +18190,7 @@ module XeroRuby
     # @param purchase_orders [PurchaseOrders] 
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(PurchaseOrders, Integer, Hash)>] PurchaseOrders data, response status code and response headers
     def update_or_create_purchase_orders_with_http_info(xero_tenant_id, purchase_orders, options = {})
       opts = options.dup
@@ -17726,6 +18226,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -17760,6 +18261,7 @@ module XeroRuby
     # @param quotes [Quotes] 
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Quotes]
     def update_or_create_quotes(xero_tenant_id, quotes, opts = {})
       data, _status_code, _headers = update_or_create_quotes_with_http_info(xero_tenant_id, quotes, opts)
@@ -17771,6 +18273,7 @@ module XeroRuby
     # @param quotes [Quotes] 
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Quotes, Integer, Hash)>] Quotes data, response status code and response headers
     def update_or_create_quotes_with_http_info(xero_tenant_id, quotes, options = {})
       opts = options.dup
@@ -17806,6 +18309,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -17840,6 +18344,7 @@ module XeroRuby
     # @param repeating_invoices [RepeatingInvoices] RepeatingInvoices with an array of repeating invoice objects in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [RepeatingInvoices]
     def update_or_create_repeating_invoices(xero_tenant_id, repeating_invoices, opts = {})
       data, _status_code, _headers = update_or_create_repeating_invoices_with_http_info(xero_tenant_id, repeating_invoices, opts)
@@ -17851,6 +18356,7 @@ module XeroRuby
     # @param repeating_invoices [RepeatingInvoices] RepeatingInvoices with an array of repeating invoice objects in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(RepeatingInvoices, Integer, Hash)>] RepeatingInvoices data, response status code and response headers
     def update_or_create_repeating_invoices_with_http_info(xero_tenant_id, repeating_invoices, options = {})
       opts = options.dup
@@ -17886,6 +18392,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -17920,6 +18427,7 @@ module XeroRuby
     # @param purchase_order_id [String] Unique identifier for an Purchase Order
     # @param purchase_orders [PurchaseOrders] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [PurchaseOrders]
     def update_purchase_order(xero_tenant_id, purchase_order_id, purchase_orders, opts = {})
       data, _status_code, _headers = update_purchase_order_with_http_info(xero_tenant_id, purchase_order_id, purchase_orders, opts)
@@ -17931,6 +18439,7 @@ module XeroRuby
     # @param purchase_order_id [String] Unique identifier for an Purchase Order
     # @param purchase_orders [PurchaseOrders] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(PurchaseOrders, Integer, Hash)>] PurchaseOrders data, response status code and response headers
     def update_purchase_order_with_http_info(xero_tenant_id, purchase_order_id, purchase_orders, options = {})
       opts = options.dup
@@ -17969,6 +18478,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -18004,6 +18514,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
     def update_purchase_order_attachment_by_file_name(xero_tenant_id, purchase_order_id, file_name, body, opts = {})
       data, _status_code, _headers = update_purchase_order_attachment_by_file_name_with_http_info(xero_tenant_id, purchase_order_id, file_name, body, opts)
@@ -18016,6 +18527,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
     def update_purchase_order_attachment_by_file_name_with_http_info(xero_tenant_id, purchase_order_id, file_name, body, options = {})
       opts = options.dup
@@ -18058,6 +18570,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/octet-stream'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -18092,6 +18605,7 @@ module XeroRuby
     # @param quote_id [String] Unique identifier for an Quote
     # @param quotes [Quotes] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Quotes]
     def update_quote(xero_tenant_id, quote_id, quotes, opts = {})
       data, _status_code, _headers = update_quote_with_http_info(xero_tenant_id, quote_id, quotes, opts)
@@ -18103,6 +18617,7 @@ module XeroRuby
     # @param quote_id [String] Unique identifier for an Quote
     # @param quotes [Quotes] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Quotes, Integer, Hash)>] Quotes data, response status code and response headers
     def update_quote_with_http_info(xero_tenant_id, quote_id, quotes, options = {})
       opts = options.dup
@@ -18141,6 +18656,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -18176,6 +18692,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
     def update_quote_attachment_by_file_name(xero_tenant_id, quote_id, file_name, body, opts = {})
       data, _status_code, _headers = update_quote_attachment_by_file_name_with_http_info(xero_tenant_id, quote_id, file_name, body, opts)
@@ -18188,6 +18705,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
     def update_quote_attachment_by_file_name_with_http_info(xero_tenant_id, quote_id, file_name, body, options = {})
       opts = options.dup
@@ -18230,6 +18748,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/octet-stream'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -18265,6 +18784,7 @@ module XeroRuby
     # @param receipts [Receipts] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Receipts]
     def update_receipt(xero_tenant_id, receipt_id, receipts, opts = {})
       data, _status_code, _headers = update_receipt_with_http_info(xero_tenant_id, receipt_id, receipts, opts)
@@ -18277,6 +18797,7 @@ module XeroRuby
     # @param receipts [Receipts] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Receipts, Integer, Hash)>] Receipts data, response status code and response headers
     def update_receipt_with_http_info(xero_tenant_id, receipt_id, receipts, options = {})
       opts = options.dup
@@ -18316,6 +18837,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -18351,6 +18873,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
     def update_receipt_attachment_by_file_name(xero_tenant_id, receipt_id, file_name, body, opts = {})
       data, _status_code, _headers = update_receipt_attachment_by_file_name_with_http_info(xero_tenant_id, receipt_id, file_name, body, opts)
@@ -18363,6 +18886,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
     def update_receipt_attachment_by_file_name_with_http_info(xero_tenant_id, receipt_id, file_name, body, options = {})
       opts = options.dup
@@ -18405,6 +18929,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/octet-stream'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -18439,6 +18964,7 @@ module XeroRuby
     # @param repeating_invoice_id [String] Unique identifier for a Repeating Invoice
     # @param repeating_invoices [RepeatingInvoices] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [RepeatingInvoices]
     def update_repeating_invoice(xero_tenant_id, repeating_invoice_id, repeating_invoices, opts = {})
       data, _status_code, _headers = update_repeating_invoice_with_http_info(xero_tenant_id, repeating_invoice_id, repeating_invoices, opts)
@@ -18450,6 +18976,7 @@ module XeroRuby
     # @param repeating_invoice_id [String] Unique identifier for a Repeating Invoice
     # @param repeating_invoices [RepeatingInvoices] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(RepeatingInvoices, Integer, Hash)>] RepeatingInvoices data, response status code and response headers
     def update_repeating_invoice_with_http_info(xero_tenant_id, repeating_invoice_id, repeating_invoices, options = {})
       opts = options.dup
@@ -18488,6 +19015,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -18523,6 +19051,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
     def update_repeating_invoice_attachment_by_file_name(xero_tenant_id, repeating_invoice_id, file_name, body, opts = {})
       data, _status_code, _headers = update_repeating_invoice_attachment_by_file_name_with_http_info(xero_tenant_id, repeating_invoice_id, file_name, body, opts)
@@ -18535,6 +19064,7 @@ module XeroRuby
     # @param file_name [String] Name of the attachment
     # @param body [String] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
     def update_repeating_invoice_attachment_by_file_name_with_http_info(xero_tenant_id, repeating_invoice_id, file_name, body, options = {})
       opts = options.dup
@@ -18577,6 +19107,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/octet-stream'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -18610,6 +19141,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param tax_rates [TaxRates] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [TaxRates]
     def update_tax_rate(xero_tenant_id, tax_rates, opts = {})
       data, _status_code, _headers = update_tax_rate_with_http_info(xero_tenant_id, tax_rates, opts)
@@ -18620,6 +19152,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param tax_rates [TaxRates] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(TaxRates, Integer, Hash)>] TaxRates data, response status code and response headers
     def update_tax_rate_with_http_info(xero_tenant_id, tax_rates, options = {})
       opts = options.dup
@@ -18654,6 +19187,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -18688,6 +19222,7 @@ module XeroRuby
     # @param tracking_category_id [String] Unique identifier for a TrackingCategory
     # @param tracking_category [TrackingCategory] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [TrackingCategories]
     def update_tracking_category(xero_tenant_id, tracking_category_id, tracking_category, opts = {})
       data, _status_code, _headers = update_tracking_category_with_http_info(xero_tenant_id, tracking_category_id, tracking_category, opts)
@@ -18699,6 +19234,7 @@ module XeroRuby
     # @param tracking_category_id [String] Unique identifier for a TrackingCategory
     # @param tracking_category [TrackingCategory] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(TrackingCategories, Integer, Hash)>] TrackingCategories data, response status code and response headers
     def update_tracking_category_with_http_info(xero_tenant_id, tracking_category_id, tracking_category, options = {})
       opts = options.dup
@@ -18737,6 +19273,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -18772,6 +19309,7 @@ module XeroRuby
     # @param tracking_option_id [String] Unique identifier for a Tracking Option
     # @param tracking_option [TrackingOption] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [TrackingOptions]
     def update_tracking_options(xero_tenant_id, tracking_category_id, tracking_option_id, tracking_option, opts = {})
       data, _status_code, _headers = update_tracking_options_with_http_info(xero_tenant_id, tracking_category_id, tracking_option_id, tracking_option, opts)
@@ -18784,6 +19322,7 @@ module XeroRuby
     # @param tracking_option_id [String] Unique identifier for a Tracking Option
     # @param tracking_option [TrackingOption] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(TrackingOptions, Integer, Hash)>] TrackingOptions data, response status code and response headers
     def update_tracking_options_with_http_info(xero_tenant_id, tracking_category_id, tracking_option_id, tracking_option, options = {})
       opts = options.dup
@@ -18826,6 +19365,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}

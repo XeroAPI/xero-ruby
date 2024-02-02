@@ -27,7 +27,7 @@ Method | HTTP request | Description
 
 ## create_file_association
 
-> Association create_file_association(xero_tenant_id, file_id, opts)
+> Association create_file_association(xero_tenant_id, file_id, association, opts)
 
 Creates a new file association
 
@@ -60,13 +60,14 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | File id for single object
+association = { "ObjectId": "1270bf7c-5d18-473a-9231-1e36c4bd33ed", "ObjectGroup": "Contact", "ObjectType": "Business" } # Association | 
 opts = {
-  association: { "ObjectId": "1270bf7c-5d18-473a-9231-1e36c4bd33ed", "ObjectGroup": "Contact", "ObjectType": "Business" } # Association | 
+  idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
 
 begin
   #Creates a new file association
-  result = api_instance.create_file_association(xero_tenant_id, file_id, opts)
+  result = api_instance.create_file_association(xero_tenant_id, file_id, association, opts)
   p result
 rescue XeroRuby::Files::ApiError => e
   puts "Exception when calling FilesApi->create_file_association: #{e}"
@@ -80,7 +81,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **file_id** | [**String**](.md)| File id for single object | 
- **association** | [**Association**](Association.md)|  | [optional] 
+ **association** | [**Association**](Association.md)|  | 
+ **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
 
 ### Return type
 
@@ -98,7 +100,7 @@ Name | Type | Description  | Notes
 
 ## create_folder
 
-> Folder create_folder(xero_tenant_id, opts)
+> Folder create_folder(xero_tenant_id, folder, opts)
 
 Creates a new folder
 
@@ -130,13 +132,14 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+folder = { "Name": "My Docs" } # Folder | 
 opts = {
-  folder: { "Name": "My Docs" } # Folder | 
+  idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
 
 begin
   #Creates a new folder
-  result = api_instance.create_folder(xero_tenant_id, opts)
+  result = api_instance.create_folder(xero_tenant_id, folder, opts)
   p result
 rescue XeroRuby::Files::ApiError => e
   puts "Exception when calling FilesApi->create_folder: #{e}"
@@ -149,7 +152,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **folder** | [**Folder**](Folder.md)|  | [optional] 
+ **folder** | [**Folder**](Folder.md)|  | 
+ **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
 
 ### Return type
 
@@ -364,7 +368,7 @@ nil (empty response body)
 
 ## get_associations_by_object
 
-> Array&lt;Association&gt; get_associations_by_object(xero_tenant_id, object_id)
+> Array&lt;Association&gt; get_associations_by_object(xero_tenant_id, object_id, opts)
 
 Retrieves an association object using a unique object ID
 
@@ -397,9 +401,19 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 object_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Object id for single object
+opts = {
+  pagesize: 50, # Integer | pass an optional page size value
+
+  page: 2, # Integer | number of records to skip for pagination
+
+  sort: 'Associations/{ObjectId}?sort=CreatedDateUtc', # String | values to sort by
+
+  direction: 'Associations/{ObjectId}?sort=CreatedDateUtc&direction=DESC' # String | direction to sort by
+}
+
 begin
   #Retrieves an association object using a unique object ID
-  result = api_instance.get_associations_by_object(xero_tenant_id, object_id)
+  result = api_instance.get_associations_by_object(xero_tenant_id, object_id, opts)
   p result
 rescue XeroRuby::Files::ApiError => e
   puts "Exception when calling FilesApi->get_associations_by_object: #{e}"
@@ -413,6 +427,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **object_id** | [**String**](.md)| Object id for single object | 
+ **pagesize** | **Integer**| pass an optional page size value | [optional] 
+ **page** | **Integer**| number of records to skip for pagination | [optional] 
+ **sort** | **String**| values to sort by | [optional] 
+ **direction** | **String**| direction to sort by | [optional] 
 
 ### Return type
 
@@ -964,7 +982,7 @@ Name | Type | Description  | Notes
 
 ## update_file
 
-> FileObject update_file(xero_tenant_id, file_id, opts)
+> FileObject update_file(xero_tenant_id, file_id, file_object, opts)
 
 Update a file
 
@@ -997,13 +1015,14 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 file_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | File id for single object
+file_object = { "FolderId": "bf924975-7097-46f2-a143-1ecfbab3c8c3" } # FileObject | 
 opts = {
-  file_object: { "FolderId": "bf924975-7097-46f2-a143-1ecfbab3c8c3" } # FileObject | 
+  idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
 
 begin
   #Update a file
-  result = api_instance.update_file(xero_tenant_id, file_id, opts)
+  result = api_instance.update_file(xero_tenant_id, file_id, file_object, opts)
   p result
 rescue XeroRuby::Files::ApiError => e
   puts "Exception when calling FilesApi->update_file: #{e}"
@@ -1017,7 +1036,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **file_id** | [**String**](.md)| File id for single object | 
- **file_object** | [**FileObject**](FileObject.md)|  | [optional] 
+ **file_object** | [**FileObject**](FileObject.md)|  | 
+ **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
 
 ### Return type
 
@@ -1035,7 +1055,7 @@ Name | Type | Description  | Notes
 
 ## update_folder
 
-> Folder update_folder(xero_tenant_id, folder_id, folder)
+> Folder update_folder(xero_tenant_id, folder_id, folder, opts)
 
 Updates an existing folder
 
@@ -1069,9 +1089,13 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 folder_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Folder id for single object
 folder = { "Name": "Your Docs" } # Folder | 
+opts = {
+  idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+}
+
 begin
   #Updates an existing folder
-  result = api_instance.update_folder(xero_tenant_id, folder_id, folder)
+  result = api_instance.update_folder(xero_tenant_id, folder_id, folder, opts)
   p result
 rescue XeroRuby::Files::ApiError => e
   puts "Exception when calling FilesApi->update_folder: #{e}"
@@ -1086,6 +1110,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **folder_id** | [**String**](.md)| Folder id for single object | 
  **folder** | [**Folder**](Folder.md)|  | 
+ **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
 
 ### Return type
 
@@ -1137,6 +1162,8 @@ body = 'body_example' # String |
 name = 'name_example' # String | exact name of the file you are uploading
 filename = 'filename_example' # String | 
 opts = {
+  idempotency_key: 'KEY_VALUE', # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+
   mime_type: 'mime_type_example' # String | 
 }
 
@@ -1158,6 +1185,7 @@ Name | Type | Description  | Notes
  **body** | **String**|  | 
  **name** | **String**| exact name of the file you are uploading | 
  **filename** | **String**|  | 
+ **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
  **mime_type** | **String**|  | [optional] 
 
 ### Return type
@@ -1211,6 +1239,8 @@ body = 'body_example' # String |
 name = 'name_example' # String | exact name of the file you are uploading
 filename = 'filename_example' # String | 
 opts = {
+  idempotency_key: 'KEY_VALUE', # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+
   mime_type: 'mime_type_example' # String | 
 }
 
@@ -1233,6 +1263,7 @@ Name | Type | Description  | Notes
  **body** | **String**|  | 
  **name** | **String**| exact name of the file you are uploading | 
  **filename** | **String**|  | 
+ **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
  **mime_type** | **String**|  | [optional] 
 
 ### Return type

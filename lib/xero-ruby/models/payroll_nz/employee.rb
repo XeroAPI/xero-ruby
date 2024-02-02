@@ -60,6 +60,9 @@ module XeroRuby::PayrollNz
     # UTC timestamp when the employee was created in Xero
     attr_accessor :created_date_utc
     
+    # Employee's job title
+    attr_accessor :job_title
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -98,7 +101,8 @@ module XeroRuby::PayrollNz
         :'end_date' => :'endDate',
         :'payroll_calendar_id' => :'payrollCalendarID',
         :'updated_date_utc' => :'updatedDateUTC',
-        :'created_date_utc' => :'createdDateUTC'
+        :'created_date_utc' => :'createdDateUTC',
+        :'job_title' => :'jobTitle'
       }
     end
 
@@ -118,7 +122,8 @@ module XeroRuby::PayrollNz
         :'end_date' => :'Date',
         :'payroll_calendar_id' => :'String',
         :'updated_date_utc' => :'DateTime',
-        :'created_date_utc' => :'DateTime'
+        :'created_date_utc' => :'DateTime',
+        :'job_title' => :'String'
       }
     end
 
@@ -192,6 +197,10 @@ module XeroRuby::PayrollNz
       if attributes.key?(:'created_date_utc')
         self.created_date_utc = attributes[:'created_date_utc']
       end
+
+      if attributes.key?(:'job_title')
+        self.job_title = attributes[:'job_title']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -237,7 +246,8 @@ module XeroRuby::PayrollNz
           end_date == o.end_date &&
           payroll_calendar_id == o.payroll_calendar_id &&
           updated_date_utc == o.updated_date_utc &&
-          created_date_utc == o.created_date_utc
+          created_date_utc == o.created_date_utc &&
+          job_title == o.job_title
     end
 
     # @see the `==` method
@@ -249,7 +259,7 @@ module XeroRuby::PayrollNz
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [employee_id, title, first_name, last_name, date_of_birth, address, email, gender, phone_number, start_date, end_date, payroll_calendar_id, updated_date_utc, created_date_utc].hash
+      [employee_id, title, first_name, last_name, date_of_birth, address, email, gender, phone_number, start_date, end_date, payroll_calendar_id, updated_date_utc, created_date_utc, job_title].hash
     end
 
     # Builds the object from hash

@@ -16,6 +16,8 @@ module XeroRuby::PayrollAu
   class LeavePeriodStatus
     SCHEDULED ||= "SCHEDULED".freeze
     PROCESSED ||= "PROCESSED".freeze
+    REQUESTED ||= "REQUESTED".freeze
+    REJECTED ||= "REJECTED".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

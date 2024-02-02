@@ -18,7 +18,6 @@ module XeroRuby::PayrollAu
     FIXEDAMOUNTEACHPERIOD ||= "FIXEDAMOUNTEACHPERIOD".freeze
     ENTERRATEINPAYTEMPLATE ||= "ENTERRATEINPAYTEMPLATE".freeze
     BASEDONORDINARYEARNINGS ||= "BASEDONORDINARYEARNINGS".freeze
-    EMPTY ||= "".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

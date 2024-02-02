@@ -21,6 +21,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param asset [Asset] Fixed asset you are creating
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Asset]
     def create_asset(xero_tenant_id, asset, opts = {})
       data, _status_code, _headers = create_asset_with_http_info(xero_tenant_id, asset, opts)
@@ -32,6 +33,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param asset [Asset] Fixed asset you are creating
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Asset, Integer, Hash)>] Asset data, response status code and response headers
     def create_asset_with_http_info(xero_tenant_id, asset, options = {})
       opts = options.dup
@@ -66,6 +68,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -98,21 +101,23 @@ module XeroRuby
     # adds a fixed asset type
     # Adds an fixed asset type to the system
     # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param asset_type [AssetType] Asset type to add
     # @param [Hash] opts the optional parameters
-    # @option opts [AssetType] :asset_type Asset type to add
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [AssetType]
-    def create_asset_type(xero_tenant_id, opts = {})
-      data, _status_code, _headers = create_asset_type_with_http_info(xero_tenant_id, opts)
+    def create_asset_type(xero_tenant_id, asset_type, opts = {})
+      data, _status_code, _headers = create_asset_type_with_http_info(xero_tenant_id, asset_type, opts)
       data
     end
 
     # adds a fixed asset type
     # Adds an fixed asset type to the system
     # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param asset_type [AssetType] Asset type to add
     # @param [Hash] opts the optional parameters
-    # @option opts [AssetType] :asset_type Asset type to add
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(AssetType, Integer, Hash)>] AssetType data, response status code and response headers
-    def create_asset_type_with_http_info(xero_tenant_id, options = {})
+    def create_asset_type_with_http_info(xero_tenant_id, asset_type, options = {})
       opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AssetApi.create_asset_type ...'
@@ -120,6 +125,10 @@ module XeroRuby
       # verify the required parameter 'xero_tenant_id' is set
       if @api_client.config.client_side_validation && xero_tenant_id.nil?
         fail ArgumentError, "Missing the required parameter 'xero_tenant_id' when calling AssetApi.create_asset_type"
+      end
+      # verify the required parameter 'asset_type' is set
+      if @api_client.config.client_side_validation && asset_type.nil?
+        fail ArgumentError, "Missing the required parameter 'asset_type' when calling AssetApi.create_asset_type"
       end
       # resource path
       local_var_path = '/AssetTypes'
@@ -141,12 +150,13 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:body] || @api_client.object_to_http_body(opts[:'asset_type']) 
+      post_body = opts[:body] || @api_client.object_to_http_body(asset_type) 
 
       # return_type
       return_type = opts[:return_type] || 'AssetType' 

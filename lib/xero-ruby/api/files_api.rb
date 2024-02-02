@@ -20,11 +20,12 @@ module XeroRuby
     # By passing in the appropriate options, you can create a new folder
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param file_id [String] File id for single object
+    # @param association [Association] 
     # @param [Hash] opts the optional parameters
-    # @option opts [Association] :association 
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Association]
-    def create_file_association(xero_tenant_id, file_id, opts = {})
-      data, _status_code, _headers = create_file_association_with_http_info(xero_tenant_id, file_id, opts)
+    def create_file_association(xero_tenant_id, file_id, association, opts = {})
+      data, _status_code, _headers = create_file_association_with_http_info(xero_tenant_id, file_id, association, opts)
       data
     end
 
@@ -32,10 +33,11 @@ module XeroRuby
     # By passing in the appropriate options, you can create a new folder
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param file_id [String] File id for single object
+    # @param association [Association] 
     # @param [Hash] opts the optional parameters
-    # @option opts [Association] :association 
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Association, Integer, Hash)>] Association data, response status code and response headers
-    def create_file_association_with_http_info(xero_tenant_id, file_id, options = {})
+    def create_file_association_with_http_info(xero_tenant_id, file_id, association, options = {})
       opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FilesApi.create_file_association ...'
@@ -47,6 +49,10 @@ module XeroRuby
       # verify the required parameter 'file_id' is set
       if @api_client.config.client_side_validation && file_id.nil?
         fail ArgumentError, "Missing the required parameter 'file_id' when calling FilesApi.create_file_association"
+      end
+      # verify the required parameter 'association' is set
+      if @api_client.config.client_side_validation && association.nil?
+        fail ArgumentError, "Missing the required parameter 'association' when calling FilesApi.create_file_association"
       end
       # resource path
       local_var_path = '/Files/{FileId}/Associations'.sub('{' + 'FileId' + '}', file_id.to_s)
@@ -68,12 +74,13 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:body] || @api_client.object_to_http_body(opts[:'association']) 
+      post_body = opts[:body] || @api_client.object_to_http_body(association) 
 
       # return_type
       return_type = opts[:return_type] || 'Association' 
@@ -100,21 +107,23 @@ module XeroRuby
     # Creates a new folder
     # By passing in the appropriate properties, you can create a new folder
     # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param folder [Folder] 
     # @param [Hash] opts the optional parameters
-    # @option opts [Folder] :folder 
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Folder]
-    def create_folder(xero_tenant_id, opts = {})
-      data, _status_code, _headers = create_folder_with_http_info(xero_tenant_id, opts)
+    def create_folder(xero_tenant_id, folder, opts = {})
+      data, _status_code, _headers = create_folder_with_http_info(xero_tenant_id, folder, opts)
       data
     end
 
     # Creates a new folder
     # By passing in the appropriate properties, you can create a new folder
     # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param folder [Folder] 
     # @param [Hash] opts the optional parameters
-    # @option opts [Folder] :folder 
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Folder, Integer, Hash)>] Folder data, response status code and response headers
-    def create_folder_with_http_info(xero_tenant_id, options = {})
+    def create_folder_with_http_info(xero_tenant_id, folder, options = {})
       opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FilesApi.create_folder ...'
@@ -122,6 +131,10 @@ module XeroRuby
       # verify the required parameter 'xero_tenant_id' is set
       if @api_client.config.client_side_validation && xero_tenant_id.nil?
         fail ArgumentError, "Missing the required parameter 'xero_tenant_id' when calling FilesApi.create_folder"
+      end
+      # verify the required parameter 'folder' is set
+      if @api_client.config.client_side_validation && folder.nil?
+        fail ArgumentError, "Missing the required parameter 'folder' when calling FilesApi.create_folder"
       end
       # resource path
       local_var_path = '/Folders'
@@ -143,12 +156,13 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:body] || @api_client.object_to_http_body(opts[:'folder']) 
+      post_body = opts[:body] || @api_client.object_to_http_body(folder) 
 
       # return_type
       return_type = opts[:return_type] || 'Folder' 
@@ -408,6 +422,10 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param object_id [String] Object id for single object
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :pagesize pass an optional page size value
+    # @option opts [Integer] :page number of records to skip for pagination
+    # @option opts [String] :sort values to sort by
+    # @option opts [String] :direction direction to sort by
     # @return [Array<Association>]
     def get_associations_by_object(xero_tenant_id, object_id, opts = {})
       data, _status_code, _headers = get_associations_by_object_with_http_info(xero_tenant_id, object_id, opts)
@@ -419,6 +437,10 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param object_id [String] Object id for single object
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :pagesize pass an optional page size value
+    # @option opts [Integer] :page number of records to skip for pagination
+    # @option opts [String] :sort values to sort by
+    # @option opts [String] :direction direction to sort by
     # @return [Array<(Array<Association>, Integer, Hash)>] Array<Association> data, response status code and response headers
     def get_associations_by_object_with_http_info(xero_tenant_id, object_id, options = {})
       opts = options.dup
@@ -433,6 +455,22 @@ module XeroRuby
       if @api_client.config.client_side_validation && object_id.nil?
         fail ArgumentError, "Missing the required parameter 'object_id' when calling FilesApi.get_associations_by_object"
       end
+      if @api_client.config.client_side_validation && !opts[:'pagesize'].nil? && opts[:'pagesize'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"pagesize"]" when calling FilesApi.get_associations_by_object, must be smaller than or equal to 100.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'page'].nil? && opts[:'page'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page"]" when calling FilesApi.get_associations_by_object, must be greater than or equal to 1.'
+      end
+
+      allowable_values = ["Name", "CreatedDateUTC"]
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
+      allowable_values = ["ASC", "DESC"]
+      if @api_client.config.client_side_validation && opts[:'direction'] && !allowable_values.include?(opts[:'direction'])
+        fail ArgumentError, "invalid value for \"direction\", must be one of #{allowable_values}"
+      end
       # resource path
       local_var_path = '/Associations/{ObjectId}'.sub('{' + 'ObjectId' + '}', object_id.to_s)
 
@@ -441,6 +479,10 @@ module XeroRuby
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'pagesize'] = opts[:'pagesize'] if !opts[:'pagesize'].nil?
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'direction'] = opts[:'direction'] if !opts[:'direction'].nil?
       
       # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
       query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
@@ -1107,11 +1149,12 @@ module XeroRuby
     # Updates file properties of a single file
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param file_id [String] File id for single object
+    # @param file_object [FileObject] 
     # @param [Hash] opts the optional parameters
-    # @option opts [FileObject] :file_object 
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [FileObject]
-    def update_file(xero_tenant_id, file_id, opts = {})
-      data, _status_code, _headers = update_file_with_http_info(xero_tenant_id, file_id, opts)
+    def update_file(xero_tenant_id, file_id, file_object, opts = {})
+      data, _status_code, _headers = update_file_with_http_info(xero_tenant_id, file_id, file_object, opts)
       data
     end
 
@@ -1119,10 +1162,11 @@ module XeroRuby
     # Updates file properties of a single file
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param file_id [String] File id for single object
+    # @param file_object [FileObject] 
     # @param [Hash] opts the optional parameters
-    # @option opts [FileObject] :file_object 
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(FileObject, Integer, Hash)>] FileObject data, response status code and response headers
-    def update_file_with_http_info(xero_tenant_id, file_id, options = {})
+    def update_file_with_http_info(xero_tenant_id, file_id, file_object, options = {})
       opts = options.dup
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FilesApi.update_file ...'
@@ -1134,6 +1178,10 @@ module XeroRuby
       # verify the required parameter 'file_id' is set
       if @api_client.config.client_side_validation && file_id.nil?
         fail ArgumentError, "Missing the required parameter 'file_id' when calling FilesApi.update_file"
+      end
+      # verify the required parameter 'file_object' is set
+      if @api_client.config.client_side_validation && file_object.nil?
+        fail ArgumentError, "Missing the required parameter 'file_object' when calling FilesApi.update_file"
       end
       # resource path
       local_var_path = '/Files/{FileId}'.sub('{' + 'FileId' + '}', file_id.to_s)
@@ -1155,12 +1203,13 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:body] || @api_client.object_to_http_body(opts[:'file_object']) 
+      post_body = opts[:body] || @api_client.object_to_http_body(file_object) 
 
       # return_type
       return_type = opts[:return_type] || 'FileObject' 
@@ -1190,6 +1239,7 @@ module XeroRuby
     # @param folder_id [String] Folder id for single object
     # @param folder [Folder] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Folder]
     def update_folder(xero_tenant_id, folder_id, folder, opts = {})
       data, _status_code, _headers = update_folder_with_http_info(xero_tenant_id, folder_id, folder, opts)
@@ -1202,6 +1252,7 @@ module XeroRuby
     # @param folder_id [String] Folder id for single object
     # @param folder [Folder] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Folder, Integer, Hash)>] Folder data, response status code and response headers
     def update_folder_with_http_info(xero_tenant_id, folder_id, folder, options = {})
       opts = options.dup
@@ -1240,6 +1291,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -1275,6 +1327,7 @@ module XeroRuby
     # @param name [String] exact name of the file you are uploading
     # @param filename [String] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [String] :mime_type 
     # @return [FileObject]
     def upload_file(xero_tenant_id, body, name, filename, opts = {})
@@ -1288,6 +1341,7 @@ module XeroRuby
     # @param name [String] exact name of the file you are uploading
     # @param filename [String] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [String] :mime_type 
     # @return [Array<(FileObject, Integer, Hash)>] FileObject data, response status code and response headers
     def upload_file_with_http_info(xero_tenant_id, body, name, filename, options = {})
@@ -1331,6 +1385,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -1371,6 +1426,7 @@ module XeroRuby
     # @param name [String] exact name of the file you are uploading
     # @param filename [String] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [String] :mime_type 
     # @return [FileObject]
     def upload_file_to_folder(xero_tenant_id, folder_id, body, name, filename, opts = {})
@@ -1385,6 +1441,7 @@ module XeroRuby
     # @param name [String] exact name of the file you are uploading
     # @param filename [String] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @option opts [String] :mime_type 
     # @return [Array<(FileObject, Integer, Hash)>] FileObject data, response status code and response headers
     def upload_file_to_folder_with_http_info(xero_tenant_id, folder_id, body, name, filename, options = {})
@@ -1432,6 +1489,7 @@ module XeroRuby
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
       header_params[:'xero-tenant-id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}

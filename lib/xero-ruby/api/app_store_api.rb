@@ -157,6 +157,7 @@ module XeroRuby
     # @param subscription_item_id [String] The unique identifier of the subscriptionItem
     # @param create_usage_record [CreateUsageRecord] Contains the quantity for the usage record to create
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [UsageRecord]
     def post_usage_records(subscription_id, subscription_item_id, create_usage_record, opts = {})
       data, _status_code, _headers = post_usage_records_with_http_info(subscription_id, subscription_item_id, create_usage_record, opts)
@@ -168,6 +169,7 @@ module XeroRuby
     # @param subscription_item_id [String] The unique identifier of the subscriptionItem
     # @param create_usage_record [CreateUsageRecord] Contains the quantity for the usage record to create
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(UsageRecord, Integer, Hash)>] UsageRecord data, response status code and response headers
     def post_usage_records_with_http_info(subscription_id, subscription_item_id, create_usage_record, options = {})
       opts = options.dup
@@ -205,6 +207,7 @@ module XeroRuby
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -240,6 +243,7 @@ module XeroRuby
     # @param usage_record_id [String] The unique identifier of the usage record
     # @param update_usage_record [UpdateUsageRecord] Contains the quantity for the usage record to update
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [UsageRecord]
     def put_usage_records(subscription_id, subscription_item_id, usage_record_id, update_usage_record, opts = {})
       data, _status_code, _headers = put_usage_records_with_http_info(subscription_id, subscription_item_id, usage_record_id, update_usage_record, opts)
@@ -252,6 +256,7 @@ module XeroRuby
     # @param usage_record_id [String] The unique identifier of the usage record
     # @param update_usage_record [UpdateUsageRecord] Contains the quantity for the usage record to update
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(UsageRecord, Integer, Hash)>] UsageRecord data, response status code and response headers
     def put_usage_records_with_http_info(subscription_id, subscription_item_id, usage_record_id, update_usage_record, options = {})
       opts = options.dup
@@ -293,6 +298,7 @@ module XeroRuby
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}

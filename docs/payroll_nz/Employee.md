@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **payroll_calendar_id** | **String** | Xero unique identifier for the payroll calendar of the employee | [optional] 
 **updated_date_utc** | **DateTime** | UTC timestamp of last update to the employee | [optional] 
 **created_date_utc** | **DateTime** | UTC timestamp when the employee was created in Xero | [optional] 
+**job_title** | **String** | Employee&#39;s job title | [optional] 
 
 ## Code Sample
 
@@ -37,7 +38,8 @@ instance = XeroRuby::PayrollNz::Employee.new(employee_id: d90457c4-f1be-4f2e-b4e
                                  end_date: Sun Jan 19 00:00:00 GMT 2020,
                                  payroll_calendar_id: null,
                                  updated_date_utc: null,
-                                 created_date_utc: null)
+                                 created_date_utc: null,
+                                 job_title: General Manager)
 ```
 
 
