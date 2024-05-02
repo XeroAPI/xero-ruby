@@ -196,6 +196,7 @@ Method | HTTP request | Description
 [**get_report_ten_ninety_nine**](AccountingApi.md#get_report_ten_ninety_nine) | **GET** /Reports/TenNinetyNine | Retrieve reports for 1099
 [**get_report_trial_balance**](AccountingApi.md#get_report_trial_balance) | **GET** /Reports/TrialBalance | Retrieves report for trial balance
 [**get_reports_list**](AccountingApi.md#get_reports_list) | **GET** /Reports | Retrieves a list of the organistaions unique reports that require a uuid to fetch
+[**get_tax_rate_by_tax_type**](AccountingApi.md#get_tax_rate_by_tax_type) | **GET** /TaxRates/{TaxType} | Retrieves a specific tax rate according to given TaxType code
 [**get_tax_rates**](AccountingApi.md#get_tax_rates) | **GET** /TaxRates | Retrieves tax rates
 [**get_tracking_categories**](AccountingApi.md#get_tracking_categories) | **GET** /TrackingCategories | Retrieves tracking categories and options
 [**get_tracking_category**](AccountingApi.md#get_tracking_category) | **GET** /TrackingCategories/{TrackingCategoryID} | Retrieves specific tracking categories and options using a unique tracking category Id
@@ -13518,6 +13519,70 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## get_tax_rate_by_tax_type
+
+> TaxRates get_tax_rate_by_tax_type(xero_tenant_id, tax_type)
+
+Retrieves a specific tax rate according to given TaxType code
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# You need to namespace your api method call to one of the following api sets
+# [:accounting_api, :assets_api, :projects_api, :files_api, :payroll_au_api, :payroll_nz_api, :payroll_uk_api, :app_store_api]
+
+api_instance = xero_client.<api_set>
+
+
+
+xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
+tax_type = 'INPUT2' # String | A valid TaxType code
+begin
+  #Retrieves a specific tax rate according to given TaxType code
+  result = api_instance.get_tax_rate_by_tax_type(xero_tenant_id, tax_type)
+  p result
+rescue XeroRuby::Accounting::ApiError => e
+  puts "Exception when calling AccountingApi->get_tax_rate_by_tax_type: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **tax_type** | **String**| A valid TaxType code | 
+
+### Return type
+
+[**TaxRates**](TaxRates.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## get_tax_rates
 
 > TaxRates get_tax_rates(xero_tenant_id, opts)
@@ -13553,9 +13618,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 opts = {
   where: 'Status==\"ACTIVE\"', # String | Filter by an any element
 
-  order: 'Name ASC', # String | Order by an any element
-
-  tax_type: 'INPUT' # String | Filter by tax type
+  order: 'Name ASC' # String | Order by an any element
 }
 
 begin
@@ -13575,7 +13638,6 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **where** | **String**| Filter by an any element | [optional] 
  **order** | **String**| Order by an any element | [optional] 
- **tax_type** | **String**| Filter by tax type | [optional] 
 
 ### Return type
 

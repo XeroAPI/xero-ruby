@@ -107,6 +107,9 @@ module XeroRuby::Accounting
     # Displays array of validation error messages from the API
     attr_accessor :validation_errors
     
+    # Displays array of warning messages from the API
+    attr_accessor :warnings
+    
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -158,7 +161,8 @@ module XeroRuby::Accounting
         :'has_account' => :'HasAccount',
         :'has_validation_errors' => :'HasValidationErrors',
         :'status_attribute_string' => :'StatusAttributeString',
-        :'validation_errors' => :'ValidationErrors'
+        :'validation_errors' => :'ValidationErrors',
+        :'warnings' => :'Warnings'
       }
     end
 
@@ -191,7 +195,8 @@ module XeroRuby::Accounting
         :'has_account' => :'Boolean',
         :'has_validation_errors' => :'Boolean',
         :'status_attribute_string' => :'String',
-        :'validation_errors' => :'Array<ValidationError>'
+        :'validation_errors' => :'Array<ValidationError>',
+        :'warnings' => :'Array<ValidationError>'
       }
     end
 
@@ -323,6 +328,12 @@ module XeroRuby::Accounting
           self.validation_errors = value
         end
       end
+
+      if attributes.key?(:'warnings')
+        if (value = attributes[:'warnings']).is_a?(Array)
+          self.warnings = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -393,7 +404,8 @@ module XeroRuby::Accounting
           has_account == o.has_account &&
           has_validation_errors == o.has_validation_errors &&
           status_attribute_string == o.status_attribute_string &&
-          validation_errors == o.validation_errors
+          validation_errors == o.validation_errors &&
+          warnings == o.warnings
     end
 
     # @see the `==` method
@@ -405,7 +417,7 @@ module XeroRuby::Accounting
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [invoice, credit_note, prepayment, overpayment, invoice_number, credit_note_number, batch_payment, account, code, date, currency_rate, amount, bank_amount, reference, is_reconciled, status, payment_type, updated_date_utc, payment_id, batch_payment_id, bank_account_number, particulars, details, has_account, has_validation_errors, status_attribute_string, validation_errors].hash
+      [invoice, credit_note, prepayment, overpayment, invoice_number, credit_note_number, batch_payment, account, code, date, currency_rate, amount, bank_amount, reference, is_reconciled, status, payment_type, updated_date_utc, payment_id, batch_payment_id, bank_account_number, particulars, details, has_account, has_validation_errors, status_attribute_string, validation_errors, warnings].hash
     end
 
     # Builds the object from hash

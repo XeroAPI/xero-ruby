@@ -15604,12 +15604,86 @@ module XeroRuby
       return data, status_code, headers
     end
 
+    # Retrieves a specific tax rate according to given TaxType code
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param tax_type [String] A valid TaxType code
+    # @param [Hash] opts the optional parameters
+    # @return [TaxRates]
+    def get_tax_rate_by_tax_type(xero_tenant_id, tax_type, opts = {})
+      data, _status_code, _headers = get_tax_rate_by_tax_type_with_http_info(xero_tenant_id, tax_type, opts)
+      data
+    end
+
+    # Retrieves a specific tax rate according to given TaxType code
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param tax_type [String] A valid TaxType code
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TaxRates, Integer, Hash)>] TaxRates data, response status code and response headers
+    def get_tax_rate_by_tax_type_with_http_info(xero_tenant_id, tax_type, options = {})
+      opts = options.dup
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AccountingApi.get_tax_rate_by_tax_type ...'
+      end
+      # verify the required parameter 'xero_tenant_id' is set
+      if @api_client.config.client_side_validation && xero_tenant_id.nil?
+        fail ArgumentError, "Missing the required parameter 'xero_tenant_id' when calling AccountingApi.get_tax_rate_by_tax_type"
+      end
+      # verify the required parameter 'tax_type' is set
+      if @api_client.config.client_side_validation && tax_type.nil?
+        fail ArgumentError, "Missing the required parameter 'tax_type' when calling AccountingApi.get_tax_rate_by_tax_type"
+      end
+      # resource path
+      local_var_path = '/TaxRates/{TaxType}'.sub('{' + 'TaxType' + '}', tax_type.to_s)
+
+      # camelize keys of incoming `where` opts
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      
+      # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
+      query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+      query_params[:'ContactIDs'] = @api_client.build_collection_param(opts[:'contact_ids'], :csv) if !opts[:'contact_ids'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'xero-tenant-id'] = xero_tenant_id
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'TaxRates' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['OAuth2']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "AccountingApi", new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AccountingApi#get_tax_rate_by_tax_type\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Retrieves tax rates
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @option opts [String] :where Filter by an any element
     # @option opts [String] :order Order by an any element
-    # @option opts [String] :tax_type Filter by tax type
     # @return [TaxRates]
     def get_tax_rates(xero_tenant_id, opts = {})
       data, _status_code, _headers = get_tax_rates_with_http_info(xero_tenant_id, opts)
@@ -15621,7 +15695,6 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [String] :where Filter by an any element
     # @option opts [String] :order Order by an any element
-    # @option opts [String] :tax_type Filter by tax type
     # @return [Array<(TaxRates, Integer, Hash)>] TaxRates data, response status code and response headers
     def get_tax_rates_with_http_info(xero_tenant_id, options = {})
       opts = options.dup
@@ -15642,7 +15715,6 @@ module XeroRuby
       query_params = opts[:query_params] || {}
       query_params[:'where'] = opts[:'where'] if !opts[:'where'].nil?
       query_params[:'order'] = opts[:'order'] if !opts[:'order'].nil?
-      query_params[:'TaxType'] = opts[:'tax_type'] if !opts[:'tax_type'].nil?
       
       # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
       query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?

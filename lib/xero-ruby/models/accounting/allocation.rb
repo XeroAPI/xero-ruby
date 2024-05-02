@@ -18,7 +18,7 @@ module XeroRuby::Accounting
   class Allocation
     # Xero generated unique identifier
     attr_accessor :allocation_id
-
+    
 
     attr_accessor :invoice
     
@@ -39,7 +39,7 @@ module XeroRuby::Accounting
     
     # A flag that returns true when the allocation is succesfully deleted
     attr_accessor :is_deleted
-
+    
     # A string to indicate if a invoice status
     attr_accessor :status_attribute_string
     
