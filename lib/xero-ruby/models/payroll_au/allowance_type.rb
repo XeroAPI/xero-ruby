@@ -20,7 +20,6 @@ module XeroRuby::PayrollAu
     MEALS ||= "MEALS".freeze
     TRAVEL ||= "TRAVEL".freeze
     OTHER ||= "OTHER".freeze
-    JOBKEEPER ||= "JOBKEEPER".freeze
     TOOLS ||= "TOOLS".freeze
     TASKS ||= "TASKS".freeze
     QUALIFICATIONS ||= "QUALIFICATIONS".freeze
