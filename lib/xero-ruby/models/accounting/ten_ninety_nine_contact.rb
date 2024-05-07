@@ -84,10 +84,10 @@ module XeroRuby::Accounting
     
     # Contact legal name
     attr_accessor :legal_name
-
+    
     # Contact business name
     attr_accessor :business_name
-
+    
     # Contact federal tax classification
     attr_accessor :federal_tax_classification
     SOLE_PROPRIETOR ||= "SOLE_PROPRIETOR".freeze
@@ -97,7 +97,7 @@ module XeroRuby::Accounting
     C_CORP ||= "C_CORP".freeze
     S_CORP ||= "S_CORP".freeze
     OTHER ||= "OTHER".freeze
-
+    
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values

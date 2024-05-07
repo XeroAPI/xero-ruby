@@ -134,6 +134,9 @@ module XeroRuby::Accounting
     IMREY24 ||= "IMREY24".freeze
     BADDEBTRECOVERYY24 ||= "BADDEBTRECOVERYY24".freeze
     OSOUTPUT2 ||= "OSOUTPUT2".freeze
+    BLINPUT3 ||= "BLINPUT3".freeze
+    BLINPUT3_Y23 ||= "BLINPUT3Y23".freeze
+    BLINPUT3_Y24 ||= "BLINPUT3Y24".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
