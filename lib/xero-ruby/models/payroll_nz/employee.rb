@@ -62,7 +62,7 @@ module XeroRuby::PayrollNz
     
     # Employee's job title
     attr_accessor :job_title
-
+    
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values

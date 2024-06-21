@@ -31,6 +31,7 @@ Name | Type | Description | Notes
 **has_validation_errors** | **Boolean** | A boolean to indicate if a contact has an validation errors | [optional] [default to false]
 **status_attribute_string** | **String** | A string to indicate if a invoice status | [optional] 
 **validation_errors** | [**Array&lt;ValidationError&gt;**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
+**warnings** | [**Array&lt;ValidationError&gt;**](ValidationError.md) | Displays array of warning messages from the API | [optional] 
 
 ## Code Sample
 
@@ -63,7 +64,8 @@ instance = XeroRuby::Accounting::Payment.new(invoice: null,
                                  has_account: false,
                                  has_validation_errors: false,
                                  status_attribute_string: null,
-                                 validation_errors: null)
+                                 validation_errors: null,
+                                 warnings: null)
 ```
 
 
