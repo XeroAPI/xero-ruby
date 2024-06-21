@@ -46,7 +46,7 @@ Sample apps can get you started quickly with simple auth flows to advanced usage
 | --- | --- | --- |
 | [`xero-ruby-oauth2-starter`](https://github.com/XeroAPI/Xero-ruby-oauth2-starter) | A Sinatra application showing the basic getting started code to work with the sdk | <img src="https://i.imgur.com/9H4F98M.png" alt="drawing" width="300"/>
 | [`xero-ruby-oauth2-app`](https://github.com/XeroAPI/Xero-ruby-oauth2-app) | Complete rails app with +95% of api set examples, complex filters, pagination, and user/token management in postgres | <img src="https://i.imgur.com/XsAp9Ww.png" alt="drawing" width="500"/>
-| [`xero-ruby-custom-connections-starter`](https://github.com/XeroAPI/xero-ruby-custom-connections-starter) | A getting started Sinatra app showing Custom Connections - a Xero [premium option](https://developer.xero.com/documentation/oauth2/custom-connections) for building M2M integrations to a single org | <img src="https://i.imgur.com/YEkScui.png" alt="drawing" width="300"/>
+| [`xero-ruby-custom-connections-starter`](https://github.com/XeroAPI/xero-ruby-custom-connections-starter) | A getting started Sinatra app showing Custom Connections - a Xero [premium option](https://developer.xero.com/documentation/guides/oauth2/custom-connections) for building M2M integrations to a single org | <img src="https://i.imgur.com/YEkScui.png" alt="drawing" width="300"/>
 | [`xero-ruby-sso-form`](https://github.com/XeroAPI/xero-ruby-sso-form) | A basic Sinatra app showing how to implement SSU to Lead | <img src="https://i.imgur.com/Nf95GVd.png" alt="drawing" width="300"/>
 
 <hr>
