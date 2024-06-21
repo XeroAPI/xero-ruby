@@ -16,15 +16,6 @@ module XeroRuby::Files
   require 'bigdecimal'
 
   class Association
-    # Boolean flag to determines whether the file is sent with the document it is attached to on client facing communications. Note- The SendWithObject element is only returned when using /Associations/{ObjectId} endpoint.
-    attr_accessor :send_with_object
-    
-    # The name of the associated file. Note- The Name element is only returned when using /Associations/{ObjectId} endpoint.
-    attr_accessor :name
-    
-    # The size of the associated file in bytes. Note- The Size element is only returned when using /Associations/{ObjectId} endpoint.
-    attr_accessor :size
-    
     # The unique identifier of the file
     attr_accessor :file_id
     
@@ -40,9 +31,6 @@ module XeroRuby::Files
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'send_with_object' => :'SendWithObject',
-        :'name' => :'Name',
-        :'size' => :'Size',
         :'file_id' => :'FileId',
         :'object_id' => :'ObjectId',
         :'object_group' => :'ObjectGroup',
@@ -53,9 +41,6 @@ module XeroRuby::Files
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'send_with_object' => :'Boolean',
-        :'name' => :'String',
-        :'size' => :'Integer',
         :'file_id' => :'String',
         :'object_id' => :'String',
         :'object_group' => :'ObjectGroup',
@@ -77,18 +62,6 @@ module XeroRuby::Files
         end
         h[k.to_sym] = v
       }
-
-      if attributes.key?(:'send_with_object')
-        self.send_with_object = attributes[:'send_with_object']
-      end
-
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'size')
-        self.size = attributes[:'size']
-      end
 
       if attributes.key?(:'file_id')
         self.file_id = attributes[:'file_id']
@@ -125,9 +98,6 @@ module XeroRuby::Files
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          send_with_object == o.send_with_object &&
-          name == o.name &&
-          size == o.size &&
           file_id == o.file_id &&
           object_id == o.object_id &&
           object_group == o.object_group &&
@@ -143,7 +113,7 @@ module XeroRuby::Files
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [send_with_object, name, size, file_id, object_id, object_group, object_type].hash
+      [file_id, object_id, object_group, object_type].hash
     end
 
     # Builds the object from hash
