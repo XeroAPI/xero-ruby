@@ -54,7 +54,7 @@ module XeroRuby::Accounting
         :'provider_name' => :'String',
         :'date_time_utc' => :'String',
         :'page_info' => :'PageInfo',
-        :'bank_transactions' => :'Array<BankTransactions>'
+        :'bank_transactions' => :'Array<BankTransaction>'
       }
     end
 

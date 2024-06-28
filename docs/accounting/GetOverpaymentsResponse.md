@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **provider_name** | **String** |  | [optional] 
 **date_time_utc** | **String** |  | [optional] 
 **page_info** | [**PageInfo**](PageInfo.md) |  | [optional] 
-**overpayments** | [**Array&lt;Overpayments&gt;**](Overpayments.md) |  | [optional] 
+**overpayments** | [**Array&lt;Overpayment&gt;**](Overpayment.md) |  | [optional] 
 
 ## Code Sample
 

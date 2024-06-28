@@ -54,7 +54,7 @@ module XeroRuby::Accounting
         :'provider_name' => :'String',
         :'date_time_utc' => :'String',
         :'page_info' => :'PageInfo',
-        :'overpayments' => :'Array<Overpayments>'
+        :'overpayments' => :'Array<Overpayment>'
       }
     end
 

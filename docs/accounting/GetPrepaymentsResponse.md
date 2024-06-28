@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **provider_name** | **String** |  | [optional] 
 **date_time_utc** | **String** |  | [optional] 
 **page_info** | [**PageInfo**](PageInfo.md) |  | [optional] 
-**prepayments** | [**Array&lt;Prepayments&gt;**](Prepayments.md) |  | [optional] 
+**prepayments** | [**Array&lt;Prepayment&gt;**](Prepayment.md) |  | [optional] 
 
 ## Code Sample
 

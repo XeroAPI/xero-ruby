@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **provider_name** | **String** |  | [optional] 
 **date_time_utc** | **String** |  | [optional] 
 **page_info** | [**PageInfo**](PageInfo.md) |  | [optional] 
-**credit_notes** | [**Array&lt;CreditNotes&gt;**](CreditNotes.md) |  | [optional] 
+**credit_notes** | [**Array&lt;CreditNote&gt;**](CreditNote.md) |  | [optional] 
 
 ## Code Sample
 

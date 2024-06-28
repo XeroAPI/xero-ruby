@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **provider_name** | **String** |  | [optional] 
 **date_time_utc** | **String** |  | [optional] 
 **page_info** | [**PageInfo**](PageInfo.md) |  | [optional] 
-**bank_transactions** | [**Array&lt;BankTransactions&gt;**](BankTransactions.md) |  | [optional] 
+**bank_transactions** | [**Array&lt;BankTransaction&gt;**](BankTransaction.md) |  | [optional] 
 
 ## Code Sample
 

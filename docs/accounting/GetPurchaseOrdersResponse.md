@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **provider_name** | **String** |  | [optional] 
 **date_time_utc** | **String** |  | [optional] 
 **page_info** | [**PageInfo**](PageInfo.md) |  | [optional] 
-**purchase_orders** | [**Array&lt;PurchaseOrders&gt;**](PurchaseOrders.md) |  | [optional] 
+**purchase_orders** | [**Array&lt;PurchaseOrder&gt;**](PurchaseOrder.md) |  | [optional] 
 
 ## Code Sample
 
