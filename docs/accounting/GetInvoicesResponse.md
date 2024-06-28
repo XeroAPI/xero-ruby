@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **provider_name** | **String** |  | [optional] 
 **date_time_utc** | **String** |  | [optional] 
 **page_info** | [**PageInfo**](PageInfo.md) |  | [optional] 
-**invoices** | [**Array&lt;Invoices&gt;**](Invoices.md) |  | [optional] 
+**invoices** | [**Array&lt;Invoice&gt;**](Invoice.md) |  | [optional] 
 
 ## Code Sample
 
