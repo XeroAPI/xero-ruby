@@ -2860,6 +2860,267 @@ ul.nav-tabs {
     "url" : "http://developer.xero.com/documentation/api/organisation/"
   }
 };
+      defs["GetBankTransactionsResponse"] = {
+  "title" : "",
+  "type" : "object",
+  "properties" : {
+    "Id" : {
+      "type" : "string"
+    },
+    "Status" : {
+      "type" : "string"
+    },
+    "ProviderName" : {
+      "type" : "string"
+    },
+    "DateTimeUTC" : {
+      "type" : "string"
+    },
+    "PageInfo" : {
+      "$ref" : "#/components/schemas/PageInfo"
+    },
+    "BankTransactions" : {
+      "minItems" : 1,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/components/schemas/BankTransaction"
+      }
+    }
+  },
+  "description" : ""
+};
+      defs["GetContactsResponse"] = {
+  "title" : "",
+  "type" : "object",
+  "properties" : {
+    "Id" : {
+      "type" : "string"
+    },
+    "Status" : {
+      "type" : "string"
+    },
+    "ProviderName" : {
+      "type" : "string"
+    },
+    "DateTimeUTC" : {
+      "type" : "string"
+    },
+    "PageInfo" : {
+      "$ref" : "#/components/schemas/PageInfo"
+    },
+    "Contacts" : {
+      "minItems" : 1,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/components/schemas/Contact"
+      }
+    }
+  },
+  "description" : ""
+};
+      defs["GetCreditNotesResponse"] = {
+  "title" : "",
+  "type" : "object",
+  "properties" : {
+    "Id" : {
+      "type" : "string"
+    },
+    "Status" : {
+      "type" : "string"
+    },
+    "ProviderName" : {
+      "type" : "string"
+    },
+    "DateTimeUTC" : {
+      "type" : "string"
+    },
+    "PageInfo" : {
+      "$ref" : "#/components/schemas/PageInfo"
+    },
+    "CreditNotes" : {
+      "minItems" : 1,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/components/schemas/CreditNote"
+      }
+    }
+  },
+  "description" : ""
+};
+      defs["GetInvoicesResponse"] = {
+  "title" : "",
+  "type" : "object",
+  "properties" : {
+    "Id" : {
+      "type" : "string"
+    },
+    "Status" : {
+      "type" : "string"
+    },
+    "ProviderName" : {
+      "type" : "string"
+    },
+    "DateTimeUTC" : {
+      "type" : "string"
+    },
+    "PageInfo" : {
+      "$ref" : "#/components/schemas/PageInfo"
+    },
+    "Invoices" : {
+      "minItems" : 1,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/components/schemas/Invoice"
+      }
+    }
+  },
+  "description" : ""
+};
+      defs["GetManualJournalsResponse"] = {
+  "title" : "",
+  "type" : "object",
+  "properties" : {
+    "Id" : {
+      "type" : "string"
+    },
+    "Status" : {
+      "type" : "string"
+    },
+    "ProviderName" : {
+      "type" : "string"
+    },
+    "DateTimeUTC" : {
+      "type" : "string"
+    },
+    "PageInfo" : {
+      "$ref" : "#/components/schemas/PageInfo"
+    },
+    "ManualJournals" : {
+      "minItems" : 1,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/components/schemas/ManualJournal"
+      }
+    }
+  },
+  "description" : ""
+};
+      defs["GetOverpaymentsResponse"] = {
+  "title" : "",
+  "type" : "object",
+  "properties" : {
+    "Id" : {
+      "type" : "string"
+    },
+    "Status" : {
+      "type" : "string"
+    },
+    "ProviderName" : {
+      "type" : "string"
+    },
+    "DateTimeUTC" : {
+      "type" : "string"
+    },
+    "PageInfo" : {
+      "$ref" : "#/components/schemas/PageInfo"
+    },
+    "Overpayments" : {
+      "minItems" : 1,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/components/schemas/Overpayment"
+      }
+    }
+  },
+  "description" : ""
+};
+      defs["GetPaymentsResponse"] = {
+  "title" : "",
+  "type" : "object",
+  "properties" : {
+    "Id" : {
+      "type" : "string"
+    },
+    "Status" : {
+      "type" : "string"
+    },
+    "ProviderName" : {
+      "type" : "string"
+    },
+    "DateTimeUTC" : {
+      "type" : "string"
+    },
+    "PageInfo" : {
+      "$ref" : "#/components/schemas/PageInfo"
+    },
+    "Payments" : {
+      "minItems" : 1,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/components/schemas/Payment"
+      }
+    }
+  },
+  "description" : ""
+};
+      defs["GetPrepaymentsResponse"] = {
+  "title" : "",
+  "type" : "object",
+  "properties" : {
+    "Id" : {
+      "type" : "string"
+    },
+    "Status" : {
+      "type" : "string"
+    },
+    "ProviderName" : {
+      "type" : "string"
+    },
+    "DateTimeUTC" : {
+      "type" : "string"
+    },
+    "PageInfo" : {
+      "$ref" : "#/components/schemas/PageInfo"
+    },
+    "Prepayments" : {
+      "minItems" : 1,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/components/schemas/Prepayment"
+      }
+    }
+  },
+  "description" : ""
+};
+      defs["GetPurchaseOrdersResponse"] = {
+  "title" : "",
+  "type" : "object",
+  "properties" : {
+    "Id" : {
+      "type" : "string"
+    },
+    "Status" : {
+      "type" : "string"
+    },
+    "ProviderName" : {
+      "type" : "string"
+    },
+    "DateTimeUTC" : {
+      "type" : "string"
+    },
+    "PageInfo" : {
+      "$ref" : "#/components/schemas/PageInfo"
+    },
+    "PurchaseOrders" : {
+      "minItems" : 1,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/components/schemas/PurchaseOrder"
+      }
+    }
+  },
+  "description" : ""
+};
       defs["HistoryRecord"] = {
   "title" : "",
   "type" : "object",
@@ -4247,6 +4508,25 @@ ul.nav-tabs {
   },
   "description" : "",
   "x-isObjectArray" : true
+};
+      defs["PageInfo"] = {
+  "title" : "",
+  "type" : "object",
+  "properties" : {
+    "Page" : {
+      "type" : "integer"
+    },
+    "PageSize" : {
+      "type" : "integer"
+    },
+    "TotalPages" : {
+      "type" : "integer"
+    },
+    "TotalRows" : {
+      "type" : "integer"
+    }
+  },
+  "description" : "Pagination information"
 };
       defs["Payment"] = {
   "title" : "",
@@ -6100,7 +6380,7 @@ ul.nav-tabs {
           <nav id="scrollingNav">
             <ul class="sidenav nav nav-list">
               <li class="nav-header" data-group="Accounting"><strong>SDK: </strong><span id='sdk-name'></span></li>
-              <li class="nav-header" data-group="Accounting"><strong>VSN: </strong>7.0.0</li>
+              <li class="nav-header" data-group="Accounting"><strong>VSN: </strong>8.0.0</li>
               <li class="nav-header" data-group="Accounting"><a href="#api-Accounting">Methods</a></li>
               <li data-group="Accounting" data-name="createAccount" class="">
                 <a href="#api-Accounting-createAccount">createAccount</a>
@@ -20356,9 +20636,10 @@ where = 'Status==#{XeroRuby::Accounting::BankTransaction::AUTHORISED}'
 order = 'Type ASC'
 page = 1
 unitdp = 4
+pageSize = 100
 
 begin
-  response = xero_client.accounting_api.get_bank_transactions(xero_tenant_id, if_modified_since, where, order, page, unitdp)
+  response = xero_client.accounting_api.get_bank_transactions(xero_tenant_id, if_modified_since, where, order, page, unitdp, pageSize)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_bank_transactions: #{e}"
@@ -20513,6 +20794,26 @@ Up to 100 bank transactions will be returned in a single API call with line item
 
                     <div class="inner description marked">
 e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">pageSize</td>
+<td>
+
+
+    <div id="d2e199_getBankTransactions_pageSize">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description marked">
+Number of records to retrieve per page
                     </div>
             </div>
         </div>
@@ -23729,9 +24030,10 @@ page = 1
 include_archived = true
 summary_only = true
 search_term = 'Joe Bloggs'
+pageSize = 100
 
 begin
-  response = xero_client.accounting_api.get_contacts(xero_tenant_id, if_modified_since, where, order, ids, page, include_archived, summary_only, search_term)
+  response = xero_client.accounting_api.get_contacts(xero_tenant_id, if_modified_since, where, order, ids, page, include_archived, summary_only, search_term, pageSize)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_contacts: #{e}"
@@ -23949,6 +24251,26 @@ Use summaryOnly=true in GET Contacts and Invoices endpoint to retrieve a smaller
 
                     <div class="inner description marked">
 Search parameter that performs a case-insensitive text search across the Name, FirstName, LastName, ContactNumber and EmailAddress fields.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">pageSize</td>
+<td>
+
+
+    <div id="d2e199_getContacts_pageSize">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description marked">
+Number of records to retrieve per page
                     </div>
             </div>
         </div>
@@ -24826,9 +25148,10 @@ where = 'Status==#{XeroRuby::Accounting::CreditNote::DRAFT}'
 order = 'CreditNoteNumber ASC'
 page = 1
 unitdp = 4
+pageSize = 100
 
 begin
-  response = xero_client.accounting_api.get_credit_notes(xero_tenant_id, if_modified_since, where, order, page, unitdp)
+  response = xero_client.accounting_api.get_credit_notes(xero_tenant_id, if_modified_since, where, order, page, unitdp, pageSize)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_credit_notes: #{e}"
@@ -24983,6 +25306,26 @@ e.g. page=1 – Up to 100 credit notes will be returned in a single API call wit
 
                     <div class="inner description marked">
 e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">pageSize</td>
+<td>
+
+
+    <div id="d2e199_getCreditNotes_pageSize">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description marked">
+Number of records to retrieve per page
                     </div>
             </div>
         </div>
@@ -26752,9 +27095,10 @@ include_archived = true
 created_by_my_app = false
 unitdp = 4
 summary_only = true
+pageSize = 100
 
 begin
-  response = xero_client.accounting_api.get_invoices(xero_tenant_id, if_modified_since, where, order, ids, invoice_numbers, contact_ids, statuses, page, include_archived, created_by_my_app, unitdp, summary_only)
+  response = xero_client.accounting_api.get_invoices(xero_tenant_id, if_modified_since, where, order, ids, invoice_numbers, contact_ids, statuses, page, include_archived, created_by_my_app, unitdp, summary_only, pageSize)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_invoices: #{e}"
@@ -27055,6 +27399,26 @@ e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal place
 
                     <div class="inner description marked">
 Use summaryOnly=true in GET Contacts and Invoices endpoint to retrieve a smaller version of the response object. This returns only lightweight fields, excluding computation-heavy fields from the response, making the API calls quick and efficient.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">pageSize</td>
+<td>
+
+
+    <div id="d2e199_getInvoices_pageSize">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description marked">
+Number of records to retrieve per page
                     </div>
             </div>
         </div>
@@ -28831,9 +29195,10 @@ if_modified_since = "2020-02-06T12:17:43.202-08:00"
 where = 'Status==#{XeroRuby::Accounting::ManualJournal::DRAFT}'
 order = 'Date ASC'
 page = 1
+pageSize = 100
 
 begin
-  response = xero_client.accounting_api.get_manual_journals(xero_tenant_id, if_modified_since, where, order, page)
+  response = xero_client.accounting_api.get_manual_journals(xero_tenant_id, if_modified_since, where, order, page, pageSize)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_manual_journals: #{e}"
@@ -28968,6 +29333,26 @@ Order by an any element
 
                     <div class="inner description marked">
 e.g. page=1 – Up to 100 manual journals will be returned in a single API call with line items shown for each overpayment
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">pageSize</td>
+<td>
+
+
+    <div id="d2e199_getManualJournals_pageSize">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description marked">
+Number of records to retrieve per page
                     </div>
             </div>
         </div>
@@ -30281,9 +30666,10 @@ if_modified_since = "2020-02-06T12:17:43.202-08:00"
 where = 'Status==#{XeroRuby::Accounting::Payment::AUTHORISED}'
 order = 'Amount ASC'
 page = 1
+pageSize = 100
 
 begin
-  response = xero_client.accounting_api.get_payments(xero_tenant_id, if_modified_since, where, order, page)
+  response = xero_client.accounting_api.get_payments(xero_tenant_id, if_modified_since, where, order, page, pageSize)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_payments: #{e}"
@@ -30418,6 +30804,26 @@ Order by an any element
 
                     <div class="inner description marked">
 Up to 100 payments will be returned in a single API call
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">pageSize</td>
+<td>
+
+
+    <div id="d2e199_getPayments_pageSize">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description marked">
+Number of records to retrieve per page
                     </div>
             </div>
         </div>
@@ -31818,9 +32224,10 @@ date_from = '2019-12-01'
 date_to = '2019-12-31'
 order = 'PurchaseOrderNumber ASC'
 page = 1
+pageSize = 100
 
 begin
-  response = xero_client.accounting_api.get_purchase_orders(xero_tenant_id, if_modified_since, status, date_from, date_to, order, page)
+  response = xero_client.accounting_api.get_purchase_orders(xero_tenant_id, if_modified_since, status, date_from, date_to, order, page, pageSize)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_purchase_orders: #{e}"
@@ -31995,6 +32402,26 @@ Order by an any element
 
                     <div class="inner description marked">
 To specify a page, append the page parameter to the URL e.g. ?page=1. If there are 100 records in the response you will need to check if there is any more data by fetching the next page e.g ?page=2 and continuing this process until no more results are returned.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">pageSize</td>
+<td>
+
+
+    <div id="d2e199_getPurchaseOrders_pageSize">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description marked">
+Number of records to retrieve per page
                     </div>
             </div>
         </div>

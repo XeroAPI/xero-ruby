@@ -5795,7 +5795,7 @@ Name | Type | Description  | Notes
 
 ## get_bank_transactions
 
-> BankTransactions get_bank_transactions(xero_tenant_id, opts)
+> GetBankTransactionsResponse get_bank_transactions(xero_tenant_id, opts)
 
 Retrieves any spent or received money transactions
 
@@ -5834,7 +5834,9 @@ opts = {
 
   page: 1, # Integer | Up to 100 bank transactions will be returned in a single API call with line items details
 
-  unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+  unitdp: 4, # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+
+  page_size: 100 # Integer | Number of records to retrieve per page
 }
 
 begin
@@ -5857,10 +5859,11 @@ Name | Type | Description  | Notes
  **order** | **String**| Order by an any element | [optional] 
  **page** | **Integer**| Up to 100 bank transactions will be returned in a single API call with line items details | [optional] 
  **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
+ **page_size** | **Integer**| Number of records to retrieve per page | [optional] 
 
 ### Return type
 
-[**BankTransactions**](BankTransactions.md)
+[**GetBankTransactionsResponse**](GetBankTransactionsResponse.md)
 
 ### Authorization
 
@@ -7465,7 +7468,7 @@ Name | Type | Description  | Notes
 
 ## get_contacts
 
-> Contacts get_contacts(xero_tenant_id, opts)
+> GetContactsResponse get_contacts(xero_tenant_id, opts)
 
 Retrieves all contacts in a Xero organisation
 
@@ -7510,7 +7513,9 @@ opts = {
 
   summary_only: false, # Boolean | Use summaryOnly=true in GET Contacts and Invoices endpoint to retrieve a smaller version of the response object. This returns only lightweight fields, excluding computation-heavy fields from the response, making the API calls quick and efficient.
 
-  search_term: 'Joe Bloggs' # String | Search parameter that performs a case-insensitive text search across the Name, FirstName, LastName, ContactNumber and EmailAddress fields.
+  search_term: 'Joe Bloggs', # String | Search parameter that performs a case-insensitive text search across the Name, FirstName, LastName, ContactNumber and EmailAddress fields.
+
+  page_size: 100 # Integer | Number of records to retrieve per page
 }
 
 begin
@@ -7536,10 +7541,11 @@ Name | Type | Description  | Notes
  **include_archived** | **Boolean**| e.g. includeArchived&#x3D;true - Contacts with a status of ARCHIVED will be included in the response | [optional] 
  **summary_only** | **Boolean**| Use summaryOnly&#x3D;true in GET Contacts and Invoices endpoint to retrieve a smaller version of the response object. This returns only lightweight fields, excluding computation-heavy fields from the response, making the API calls quick and efficient. | [optional] [default to false]
  **search_term** | **String**| Search parameter that performs a case-insensitive text search across the Name, FirstName, LastName, ContactNumber and EmailAddress fields. | [optional] 
+ **page_size** | **Integer**| Number of records to retrieve per page | [optional] 
 
 ### Return type
 
-[**Contacts**](Contacts.md)
+[**GetContactsResponse**](GetContactsResponse.md)
 
 ### Authorization
 
@@ -7950,7 +7956,7 @@ Name | Type | Description  | Notes
 
 ## get_credit_notes
 
-> CreditNotes get_credit_notes(xero_tenant_id, opts)
+> GetCreditNotesResponse get_credit_notes(xero_tenant_id, opts)
 
 Retrieves any credit notes
 
@@ -7989,7 +7995,9 @@ opts = {
 
   page: 1, # Integer | e.g. page=1 – Up to 100 credit notes will be returned in a single API call with line items shown for each credit note
 
-  unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+  unitdp: 4, # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+
+  page_size: 100 # Integer | Number of records to retrieve per page
 }
 
 begin
@@ -8012,10 +8020,11 @@ Name | Type | Description  | Notes
  **order** | **String**| Order by an any element | [optional] 
  **page** | **Integer**| e.g. page&#x3D;1 – Up to 100 credit notes will be returned in a single API call with line items shown for each credit note | [optional] 
  **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
+ **page_size** | **Integer**| Number of records to retrieve per page | [optional] 
 
 ### Return type
 
-[**CreditNotes**](CreditNotes.md)
+[**GetCreditNotesResponse**](GetCreditNotesResponse.md)
 
 ### Authorization
 
@@ -8896,7 +8905,7 @@ Name | Type | Description  | Notes
 
 ## get_invoices
 
-> Invoices get_invoices(xero_tenant_id, opts)
+> GetInvoicesResponse get_invoices(xero_tenant_id, opts)
 
 Retrieves sales invoices or purchase bills
 
@@ -8949,7 +8958,9 @@ opts = {
 
   unitdp: 4, # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
-  summary_only: false # Boolean | Use summaryOnly=true in GET Contacts and Invoices endpoint to retrieve a smaller version of the response object. This returns only lightweight fields, excluding computation-heavy fields from the response, making the API calls quick and efficient.
+  summary_only: false, # Boolean | Use summaryOnly=true in GET Contacts and Invoices endpoint to retrieve a smaller version of the response object. This returns only lightweight fields, excluding computation-heavy fields from the response, making the API calls quick and efficient.
+
+  page_size: 100 # Integer | Number of records to retrieve per page
 }
 
 begin
@@ -8979,10 +8990,11 @@ Name | Type | Description  | Notes
  **created_by_my_app** | **Boolean**| When set to true you&#39;ll only retrieve Invoices created by your app | [optional] 
  **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
  **summary_only** | **Boolean**| Use summaryOnly&#x3D;true in GET Contacts and Invoices endpoint to retrieve a smaller version of the response object. This returns only lightweight fields, excluding computation-heavy fields from the response, making the API calls quick and efficient. | [optional] [default to false]
+ **page_size** | **Integer**| Number of records to retrieve per page | [optional] 
 
 ### Return type
 
-[**Invoices**](Invoices.md)
+[**GetInvoicesResponse**](GetInvoicesResponse.md)
 
 ### Authorization
 
@@ -9816,7 +9828,7 @@ Name | Type | Description  | Notes
 
 ## get_manual_journals
 
-> ManualJournals get_manual_journals(xero_tenant_id, opts)
+> GetManualJournalsResponse get_manual_journals(xero_tenant_id, opts)
 
 Retrieves manual journals
 
@@ -9853,7 +9865,9 @@ opts = {
 
   order: 'Date ASC', # String | Order by an any element
 
-  page: 1 # Integer | e.g. page=1 – Up to 100 manual journals will be returned in a single API call with line items shown for each overpayment
+  page: 1, # Integer | e.g. page=1 – Up to 100 manual journals will be returned in a single API call with line items shown for each overpayment
+
+  page_size: 100 # Integer | Number of records to retrieve per page
 }
 
 begin
@@ -9875,10 +9889,11 @@ Name | Type | Description  | Notes
  **where** | **String**| Filter by an any element | [optional] 
  **order** | **String**| Order by an any element | [optional] 
  **page** | **Integer**| e.g. page&#x3D;1 – Up to 100 manual journals will be returned in a single API call with line items shown for each overpayment | [optional] 
+ **page_size** | **Integer**| Number of records to retrieve per page | [optional] 
 
 ### Return type
 
-[**ManualJournals**](ManualJournals.md)
+[**GetManualJournalsResponse**](GetManualJournalsResponse.md)
 
 ### Authorization
 
@@ -10336,7 +10351,7 @@ Name | Type | Description  | Notes
 
 ## get_overpayments
 
-> Overpayments get_overpayments(xero_tenant_id, opts)
+> GetOverpaymentsResponse get_overpayments(xero_tenant_id, opts)
 
 Retrieves overpayments
 
@@ -10401,7 +10416,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Overpayments**](Overpayments.md)
+[**GetOverpaymentsResponse**](GetOverpaymentsResponse.md)
 
 ### Authorization
 
@@ -10605,7 +10620,7 @@ Name | Type | Description  | Notes
 
 ## get_payments
 
-> Payments get_payments(xero_tenant_id, opts)
+> GetPaymentsResponse get_payments(xero_tenant_id, opts)
 
 Retrieves payments for invoices and credit notes
 
@@ -10642,7 +10657,9 @@ opts = {
 
   order: 'Amount ASC', # String | Order by an any element
 
-  page: 1 # Integer | Up to 100 payments will be returned in a single API call
+  page: 1, # Integer | Up to 100 payments will be returned in a single API call
+
+  page_size: 100 # Integer | Number of records to retrieve per page
 }
 
 begin
@@ -10664,10 +10681,11 @@ Name | Type | Description  | Notes
  **where** | **String**| Filter by an any element | [optional] 
  **order** | **String**| Order by an any element | [optional] 
  **page** | **Integer**| Up to 100 payments will be returned in a single API call | [optional] 
+ **page_size** | **Integer**| Number of records to retrieve per page | [optional] 
 
 ### Return type
 
-[**Payments**](Payments.md)
+[**GetPaymentsResponse**](GetPaymentsResponse.md)
 
 ### Authorization
 
@@ -10809,7 +10827,7 @@ Name | Type | Description  | Notes
 
 ## get_prepayments
 
-> Prepayments get_prepayments(xero_tenant_id, opts)
+> GetPrepaymentsResponse get_prepayments(xero_tenant_id, opts)
 
 Retrieves prepayments
 
@@ -10874,7 +10892,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Prepayments**](Prepayments.md)
+[**GetPrepaymentsResponse**](GetPrepaymentsResponse.md)
 
 ### Authorization
 
@@ -11344,7 +11362,7 @@ Name | Type | Description  | Notes
 
 ## get_purchase_orders
 
-> PurchaseOrders get_purchase_orders(xero_tenant_id, opts)
+> GetPurchaseOrdersResponse get_purchase_orders(xero_tenant_id, opts)
 
 Retrieves purchase orders
 
@@ -11385,7 +11403,9 @@ opts = {
 
   order: 'PurchaseOrderNumber ASC', # String | Order by an any element
 
-  page: 1 # Integer | To specify a page, append the page parameter to the URL e.g. ?page=1. If there are 100 records in the response you will need to check if there is any more data by fetching the next page e.g ?page=2 and continuing this process until no more results are returned.
+  page: 1, # Integer | To specify a page, append the page parameter to the URL e.g. ?page=1. If there are 100 records in the response you will need to check if there is any more data by fetching the next page e.g ?page=2 and continuing this process until no more results are returned.
+
+  page_size: 100 # Integer | Number of records to retrieve per page
 }
 
 begin
@@ -11409,10 +11429,11 @@ Name | Type | Description  | Notes
  **date_to** | **String**| Filter by purchase order date (e.g. GET https://.../PurchaseOrders?DateFrom&#x3D;2015-12-01&amp;DateTo&#x3D;2015-12-31 | [optional] 
  **order** | **String**| Order by an any element | [optional] 
  **page** | **Integer**| To specify a page, append the page parameter to the URL e.g. ?page&#x3D;1. If there are 100 records in the response you will need to check if there is any more data by fetching the next page e.g ?page&#x3D;2 and continuing this process until no more results are returned. | [optional] 
+ **page_size** | **Integer**| Number of records to retrieve per page | [optional] 
 
 ### Return type
 
-[**PurchaseOrders**](PurchaseOrders.md)
+[**GetPurchaseOrdersResponse**](GetPurchaseOrdersResponse.md)
 
 ### Authorization
 
