@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**pagination** | [**Pagination**](Pagination.md) |  | [optional] 
 **purchase_orders** | [**Array&lt;PurchaseOrder&gt;**](PurchaseOrder.md) |  | [optional] 
 
 ## Code Sample
@@ -11,7 +12,8 @@ Name | Type | Description | Notes
 ```ruby
 require 'XeroRuby::Accounting'
 
-instance = XeroRuby::Accounting::PurchaseOrders.new(purchase_orders: null)
+instance = XeroRuby::Accounting::PurchaseOrders.new(pagination: null,
+                                 purchase_orders: null)
 ```
 
 

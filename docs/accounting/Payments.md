@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**pagination** | [**Pagination**](Pagination.md) |  | [optional] 
 **payments** | [**Array&lt;Payment&gt;**](Payment.md) |  | [optional] 
 
 ## Code Sample
@@ -11,7 +12,8 @@ Name | Type | Description | Notes
 ```ruby
 require 'XeroRuby::Accounting'
 
-instance = XeroRuby::Accounting::Payments.new(payments: null)
+instance = XeroRuby::Accounting::Payments.new(pagination: null,
+                                 payments: null)
 ```
 
 
