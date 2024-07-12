@@ -15,46 +15,36 @@ require 'date'
 module XeroRuby::Accounting
   require 'bigdecimal'
 
-  class GetManualJournalsResponse
+  class Pagination
 
-    attr_accessor :id
+    attr_accessor :page
     
 
-    attr_accessor :status
+    attr_accessor :page_size
     
 
-    attr_accessor :provider_name
+    attr_accessor :page_count
     
 
-    attr_accessor :date_time_utc
-    
-
-    attr_accessor :page_info
-    
-
-    attr_accessor :manual_journals
+    attr_accessor :item_count
     
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'Id',
-        :'status' => :'Status',
-        :'provider_name' => :'ProviderName',
-        :'date_time_utc' => :'DateTimeUTC',
-        :'page_info' => :'PageInfo',
-        :'manual_journals' => :'ManualJournals'
+        :'page' => :'page',
+        :'page_size' => :'pageSize',
+        :'page_count' => :'pageCount',
+        :'item_count' => :'itemCount'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'String',
-        :'status' => :'String',
-        :'provider_name' => :'String',
-        :'date_time_utc' => :'String',
-        :'page_info' => :'PageInfo',
-        :'manual_journals' => :'Array<ManualJournal>'
+        :'page' => :'Integer',
+        :'page_size' => :'Integer',
+        :'page_count' => :'Integer',
+        :'item_count' => :'Integer'
       }
     end
 
@@ -62,41 +52,31 @@ module XeroRuby::Accounting
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `XeroRuby::Accounting::GetManualJournalsResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `XeroRuby::Accounting::Pagination` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `XeroRuby::Accounting::GetManualJournalsResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `XeroRuby::Accounting::Pagination`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'page')
+        self.page = attributes[:'page']
       end
 
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
+      if attributes.key?(:'page_size')
+        self.page_size = attributes[:'page_size']
       end
 
-      if attributes.key?(:'provider_name')
-        self.provider_name = attributes[:'provider_name']
+      if attributes.key?(:'page_count')
+        self.page_count = attributes[:'page_count']
       end
 
-      if attributes.key?(:'date_time_utc')
-        self.date_time_utc = attributes[:'date_time_utc']
-      end
-
-      if attributes.key?(:'page_info')
-        self.page_info = attributes[:'page_info']
-      end
-
-      if attributes.key?(:'manual_journals')
-        if (value = attributes[:'manual_journals']).is_a?(Array)
-          self.manual_journals = value
-        end
+      if attributes.key?(:'item_count')
+        self.item_count = attributes[:'item_count']
       end
     end
 
@@ -118,12 +98,10 @@ module XeroRuby::Accounting
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          status == o.status &&
-          provider_name == o.provider_name &&
-          date_time_utc == o.date_time_utc &&
-          page_info == o.page_info &&
-          manual_journals == o.manual_journals
+          page == o.page &&
+          page_size == o.page_size &&
+          page_count == o.page_count &&
+          item_count == o.item_count
     end
 
     # @see the `==` method
@@ -135,7 +113,7 @@ module XeroRuby::Accounting
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, status, provider_name, date_time_utc, page_info, manual_journals].hash
+      [page, page_size, page_count, item_count].hash
     end
 
     # Builds the object from hash

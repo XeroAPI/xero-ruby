@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**pagination** | [**Pagination**](Pagination.md) |  | [optional] 
 **manual_journals** | [**Array&lt;ManualJournal&gt;**](ManualJournal.md) |  | [optional] 
 
 ## Code Sample
@@ -11,7 +12,8 @@ Name | Type | Description | Notes
 ```ruby
 require 'XeroRuby::Accounting'
 
-instance = XeroRuby::Accounting::ManualJournals.new(manual_journals: null)
+instance = XeroRuby::Accounting::ManualJournals.new(pagination: null,
+                                 manual_journals: null)
 ```
 
 

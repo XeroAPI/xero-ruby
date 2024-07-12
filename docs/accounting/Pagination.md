@@ -1,4 +1,4 @@
-# XeroRuby::Accounting::PageInfo
+# XeroRuby::Accounting::Pagination
 
 ## Properties
 
@@ -6,18 +6,18 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **page** | **Integer** |  | [optional] 
 **page_size** | **Integer** |  | [optional] 
-**total_pages** | **Integer** |  | [optional] 
-**total_rows** | **Integer** |  | [optional] 
+**page_count** | **Integer** |  | [optional] 
+**item_count** | **Integer** |  | [optional] 
 
 ## Code Sample
 
 ```ruby
 require 'XeroRuby::Accounting'
 
-instance = XeroRuby::Accounting::PageInfo.new(page: null,
+instance = XeroRuby::Accounting::Pagination.new(page: null,
                                  page_size: null,
-                                 total_pages: null,
-                                 total_rows: null)
+                                 page_count: null,
+                                 item_count: null)
 ```
 
 

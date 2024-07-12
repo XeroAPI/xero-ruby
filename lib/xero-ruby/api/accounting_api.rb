@@ -6680,7 +6680,7 @@ module XeroRuby
     # @option opts [Integer] :page Up to 100 bank transactions will be returned in a single API call with line items details
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @option opts [Integer] :page_size Number of records to retrieve per page
-    # @return [GetBankTransactionsResponse]
+    # @return [BankTransactions]
     def get_bank_transactions(xero_tenant_id, opts = {})
       data, _status_code, _headers = get_bank_transactions_with_http_info(xero_tenant_id, opts)
       data
@@ -6695,7 +6695,7 @@ module XeroRuby
     # @option opts [Integer] :page Up to 100 bank transactions will be returned in a single API call with line items details
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @option opts [Integer] :page_size Number of records to retrieve per page
-    # @return [Array<(GetBankTransactionsResponse, Integer, Hash)>] GetBankTransactionsResponse data, response status code and response headers
+    # @return [Array<(BankTransactions, Integer, Hash)>] BankTransactions data, response status code and response headers
     def get_bank_transactions_with_http_info(xero_tenant_id, options = {})
       opts = options.dup
       if @api_client.config.debugging
@@ -6737,7 +6737,7 @@ module XeroRuby
       post_body = opts[:body] 
 
       # return_type
-      return_type = opts[:return_type] || 'GetBankTransactionsResponse' 
+      return_type = opts[:return_type] || 'BankTransactions' 
 
       # auth_names
       auth_names = opts[:auth_names] || ['OAuth2']
@@ -8631,7 +8631,7 @@ module XeroRuby
     # @option opts [Boolean] :summary_only Use summaryOnly&#x3D;true in GET Contacts and Invoices endpoint to retrieve a smaller version of the response object. This returns only lightweight fields, excluding computation-heavy fields from the response, making the API calls quick and efficient. (default to false)
     # @option opts [String] :search_term Search parameter that performs a case-insensitive text search across the Name, FirstName, LastName, ContactNumber and EmailAddress fields.
     # @option opts [Integer] :page_size Number of records to retrieve per page
-    # @return [GetContactsResponse]
+    # @return [Contacts]
     def get_contacts(xero_tenant_id, opts = {})
       data, _status_code, _headers = get_contacts_with_http_info(xero_tenant_id, opts)
       data
@@ -8649,7 +8649,7 @@ module XeroRuby
     # @option opts [Boolean] :summary_only Use summaryOnly&#x3D;true in GET Contacts and Invoices endpoint to retrieve a smaller version of the response object. This returns only lightweight fields, excluding computation-heavy fields from the response, making the API calls quick and efficient.
     # @option opts [String] :search_term Search parameter that performs a case-insensitive text search across the Name, FirstName, LastName, ContactNumber and EmailAddress fields.
     # @option opts [Integer] :page_size Number of records to retrieve per page
-    # @return [Array<(GetContactsResponse, Integer, Hash)>] GetContactsResponse data, response status code and response headers
+    # @return [Array<(Contacts, Integer, Hash)>] Contacts data, response status code and response headers
     def get_contacts_with_http_info(xero_tenant_id, options = {})
       opts = options.dup
       if @api_client.config.debugging
@@ -8694,7 +8694,7 @@ module XeroRuby
       post_body = opts[:body] 
 
       # return_type
-      return_type = opts[:return_type] || 'GetContactsResponse' 
+      return_type = opts[:return_type] || 'Contacts' 
 
       # auth_names
       auth_names = opts[:auth_names] || ['OAuth2']
@@ -9203,7 +9203,7 @@ module XeroRuby
     # @option opts [Integer] :page e.g. page&#x3D;1 – Up to 100 credit notes will be returned in a single API call with line items shown for each credit note
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @option opts [Integer] :page_size Number of records to retrieve per page
-    # @return [GetCreditNotesResponse]
+    # @return [CreditNotes]
     def get_credit_notes(xero_tenant_id, opts = {})
       data, _status_code, _headers = get_credit_notes_with_http_info(xero_tenant_id, opts)
       data
@@ -9218,7 +9218,7 @@ module XeroRuby
     # @option opts [Integer] :page e.g. page&#x3D;1 – Up to 100 credit notes will be returned in a single API call with line items shown for each credit note
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @option opts [Integer] :page_size Number of records to retrieve per page
-    # @return [Array<(GetCreditNotesResponse, Integer, Hash)>] GetCreditNotesResponse data, response status code and response headers
+    # @return [Array<(CreditNotes, Integer, Hash)>] CreditNotes data, response status code and response headers
     def get_credit_notes_with_http_info(xero_tenant_id, options = {})
       opts = options.dup
       if @api_client.config.debugging
@@ -9260,7 +9260,7 @@ module XeroRuby
       post_body = opts[:body] 
 
       # return_type
-      return_type = opts[:return_type] || 'GetCreditNotesResponse' 
+      return_type = opts[:return_type] || 'CreditNotes' 
 
       # auth_names
       auth_names = opts[:auth_names] || ['OAuth2']
@@ -10301,7 +10301,8 @@ module XeroRuby
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @option opts [Boolean] :summary_only Use summaryOnly&#x3D;true in GET Contacts and Invoices endpoint to retrieve a smaller version of the response object. This returns only lightweight fields, excluding computation-heavy fields from the response, making the API calls quick and efficient. (default to false)
     # @option opts [Integer] :page_size Number of records to retrieve per page
-    # @return [GetInvoicesResponse]
+    # @option opts [String] :search_term Search parameter that performs a case-insensitive text search across the fields e.g. InvoiceNumber, Reference.
+    # @return [Invoices]
     def get_invoices(xero_tenant_id, opts = {})
       data, _status_code, _headers = get_invoices_with_http_info(xero_tenant_id, opts)
       data
@@ -10323,7 +10324,8 @@ module XeroRuby
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @option opts [Boolean] :summary_only Use summaryOnly&#x3D;true in GET Contacts and Invoices endpoint to retrieve a smaller version of the response object. This returns only lightweight fields, excluding computation-heavy fields from the response, making the API calls quick and efficient.
     # @option opts [Integer] :page_size Number of records to retrieve per page
-    # @return [Array<(GetInvoicesResponse, Integer, Hash)>] GetInvoicesResponse data, response status code and response headers
+    # @option opts [String] :search_term Search parameter that performs a case-insensitive text search across the fields e.g. InvoiceNumber, Reference.
+    # @return [Array<(Invoices, Integer, Hash)>] Invoices data, response status code and response headers
     def get_invoices_with_http_info(xero_tenant_id, options = {})
       opts = options.dup
       if @api_client.config.debugging
@@ -10353,6 +10355,7 @@ module XeroRuby
       query_params[:'unitdp'] = opts[:'unitdp'] if !opts[:'unitdp'].nil?
       query_params[:'summaryOnly'] = opts[:'summary_only'] if !opts[:'summary_only'].nil?
       query_params[:'pageSize'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'searchTerm'] = opts[:'search_term'] if !opts[:'search_term'].nil?
       
       # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
       query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
@@ -10372,7 +10375,7 @@ module XeroRuby
       post_body = opts[:body] 
 
       # return_type
-      return_type = opts[:return_type] || 'GetInvoicesResponse' 
+      return_type = opts[:return_type] || 'Invoices' 
 
       # auth_names
       auth_names = opts[:auth_names] || ['OAuth2']
@@ -11351,7 +11354,7 @@ module XeroRuby
     # @option opts [String] :order Order by an any element
     # @option opts [Integer] :page e.g. page&#x3D;1 – Up to 100 manual journals will be returned in a single API call with line items shown for each overpayment
     # @option opts [Integer] :page_size Number of records to retrieve per page
-    # @return [GetManualJournalsResponse]
+    # @return [ManualJournals]
     def get_manual_journals(xero_tenant_id, opts = {})
       data, _status_code, _headers = get_manual_journals_with_http_info(xero_tenant_id, opts)
       data
@@ -11365,7 +11368,7 @@ module XeroRuby
     # @option opts [String] :order Order by an any element
     # @option opts [Integer] :page e.g. page&#x3D;1 – Up to 100 manual journals will be returned in a single API call with line items shown for each overpayment
     # @option opts [Integer] :page_size Number of records to retrieve per page
-    # @return [Array<(GetManualJournalsResponse, Integer, Hash)>] GetManualJournalsResponse data, response status code and response headers
+    # @return [Array<(ManualJournals, Integer, Hash)>] ManualJournals data, response status code and response headers
     def get_manual_journals_with_http_info(xero_tenant_id, options = {})
       opts = options.dup
       if @api_client.config.debugging
@@ -11406,7 +11409,7 @@ module XeroRuby
       post_body = opts[:body] 
 
       # return_type
-      return_type = opts[:return_type] || 'GetManualJournalsResponse' 
+      return_type = opts[:return_type] || 'ManualJournals' 
 
       # auth_names
       auth_names = opts[:auth_names] || ['OAuth2']
@@ -11948,7 +11951,8 @@ module XeroRuby
     # @option opts [String] :order Order by an any element
     # @option opts [Integer] :page e.g. page&#x3D;1 – Up to 100 overpayments will be returned in a single API call with line items shown for each overpayment
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
-    # @return [GetOverpaymentsResponse]
+    # @option opts [Integer] :page_size Number of records to retrieve per page
+    # @return [Overpayments]
     def get_overpayments(xero_tenant_id, opts = {})
       data, _status_code, _headers = get_overpayments_with_http_info(xero_tenant_id, opts)
       data
@@ -11962,7 +11966,8 @@ module XeroRuby
     # @option opts [String] :order Order by an any element
     # @option opts [Integer] :page e.g. page&#x3D;1 – Up to 100 overpayments will be returned in a single API call with line items shown for each overpayment
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
-    # @return [Array<(GetOverpaymentsResponse, Integer, Hash)>] GetOverpaymentsResponse data, response status code and response headers
+    # @option opts [Integer] :page_size Number of records to retrieve per page
+    # @return [Array<(Overpayments, Integer, Hash)>] Overpayments data, response status code and response headers
     def get_overpayments_with_http_info(xero_tenant_id, options = {})
       opts = options.dup
       if @api_client.config.debugging
@@ -11984,6 +11989,7 @@ module XeroRuby
       query_params[:'order'] = opts[:'order'] if !opts[:'order'].nil?
       query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
       query_params[:'unitdp'] = opts[:'unitdp'] if !opts[:'unitdp'].nil?
+      query_params[:'pageSize'] = opts[:'page_size'] if !opts[:'page_size'].nil?
       
       # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
       query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
@@ -12003,7 +12009,7 @@ module XeroRuby
       post_body = opts[:body] 
 
       # return_type
-      return_type = opts[:return_type] || 'GetOverpaymentsResponse' 
+      return_type = opts[:return_type] || 'Overpayments' 
 
       # auth_names
       auth_names = opts[:auth_names] || ['OAuth2']
@@ -12251,7 +12257,7 @@ module XeroRuby
     # @option opts [String] :order Order by an any element
     # @option opts [Integer] :page Up to 100 payments will be returned in a single API call
     # @option opts [Integer] :page_size Number of records to retrieve per page
-    # @return [GetPaymentsResponse]
+    # @return [Payments]
     def get_payments(xero_tenant_id, opts = {})
       data, _status_code, _headers = get_payments_with_http_info(xero_tenant_id, opts)
       data
@@ -12265,7 +12271,7 @@ module XeroRuby
     # @option opts [String] :order Order by an any element
     # @option opts [Integer] :page Up to 100 payments will be returned in a single API call
     # @option opts [Integer] :page_size Number of records to retrieve per page
-    # @return [Array<(GetPaymentsResponse, Integer, Hash)>] GetPaymentsResponse data, response status code and response headers
+    # @return [Array<(Payments, Integer, Hash)>] Payments data, response status code and response headers
     def get_payments_with_http_info(xero_tenant_id, options = {})
       opts = options.dup
       if @api_client.config.debugging
@@ -12306,7 +12312,7 @@ module XeroRuby
       post_body = opts[:body] 
 
       # return_type
-      return_type = opts[:return_type] || 'GetPaymentsResponse' 
+      return_type = opts[:return_type] || 'Payments' 
 
       # auth_names
       auth_names = opts[:auth_names] || ['OAuth2']
@@ -12485,7 +12491,8 @@ module XeroRuby
     # @option opts [String] :order Order by an any element
     # @option opts [Integer] :page e.g. page&#x3D;1 – Up to 100 prepayments will be returned in a single API call with line items shown for each overpayment
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
-    # @return [GetPrepaymentsResponse]
+    # @option opts [Integer] :page_size Number of records to retrieve per page
+    # @return [Prepayments]
     def get_prepayments(xero_tenant_id, opts = {})
       data, _status_code, _headers = get_prepayments_with_http_info(xero_tenant_id, opts)
       data
@@ -12499,7 +12506,8 @@ module XeroRuby
     # @option opts [String] :order Order by an any element
     # @option opts [Integer] :page e.g. page&#x3D;1 – Up to 100 prepayments will be returned in a single API call with line items shown for each overpayment
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
-    # @return [Array<(GetPrepaymentsResponse, Integer, Hash)>] GetPrepaymentsResponse data, response status code and response headers
+    # @option opts [Integer] :page_size Number of records to retrieve per page
+    # @return [Array<(Prepayments, Integer, Hash)>] Prepayments data, response status code and response headers
     def get_prepayments_with_http_info(xero_tenant_id, options = {})
       opts = options.dup
       if @api_client.config.debugging
@@ -12521,6 +12529,7 @@ module XeroRuby
       query_params[:'order'] = opts[:'order'] if !opts[:'order'].nil?
       query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
       query_params[:'unitdp'] = opts[:'unitdp'] if !opts[:'unitdp'].nil?
+      query_params[:'pageSize'] = opts[:'page_size'] if !opts[:'page_size'].nil?
       
       # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
       query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
@@ -12540,7 +12549,7 @@ module XeroRuby
       post_body = opts[:body] 
 
       # return_type
-      return_type = opts[:return_type] || 'GetPrepaymentsResponse' 
+      return_type = opts[:return_type] || 'Prepayments' 
 
       # auth_names
       auth_names = opts[:auth_names] || ['OAuth2']
@@ -13122,7 +13131,7 @@ module XeroRuby
     # @option opts [String] :order Order by an any element
     # @option opts [Integer] :page To specify a page, append the page parameter to the URL e.g. ?page&#x3D;1. If there are 100 records in the response you will need to check if there is any more data by fetching the next page e.g ?page&#x3D;2 and continuing this process until no more results are returned.
     # @option opts [Integer] :page_size Number of records to retrieve per page
-    # @return [GetPurchaseOrdersResponse]
+    # @return [PurchaseOrders]
     def get_purchase_orders(xero_tenant_id, opts = {})
       data, _status_code, _headers = get_purchase_orders_with_http_info(xero_tenant_id, opts)
       data
@@ -13138,7 +13147,7 @@ module XeroRuby
     # @option opts [String] :order Order by an any element
     # @option opts [Integer] :page To specify a page, append the page parameter to the URL e.g. ?page&#x3D;1. If there are 100 records in the response you will need to check if there is any more data by fetching the next page e.g ?page&#x3D;2 and continuing this process until no more results are returned.
     # @option opts [Integer] :page_size Number of records to retrieve per page
-    # @return [Array<(GetPurchaseOrdersResponse, Integer, Hash)>] GetPurchaseOrdersResponse data, response status code and response headers
+    # @return [Array<(PurchaseOrders, Integer, Hash)>] PurchaseOrders data, response status code and response headers
     def get_purchase_orders_with_http_info(xero_tenant_id, options = {})
       opts = options.dup
       if @api_client.config.debugging
@@ -13185,7 +13194,7 @@ module XeroRuby
       post_body = opts[:body] 
 
       # return_type
-      return_type = opts[:return_type] || 'GetPurchaseOrdersResponse' 
+      return_type = opts[:return_type] || 'PurchaseOrders' 
 
       # auth_names
       auth_names = opts[:auth_names] || ['OAuth2']
