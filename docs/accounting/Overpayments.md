@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**pagination** | [**Pagination**](Pagination.md) |  | [optional] 
 **overpayments** | [**Array&lt;Overpayment&gt;**](Overpayment.md) |  | [optional] 
 
 ## Code Sample
@@ -11,7 +12,8 @@ Name | Type | Description | Notes
 ```ruby
 require 'XeroRuby::Accounting'
 
-instance = XeroRuby::Accounting::Overpayments.new(overpayments: null)
+instance = XeroRuby::Accounting::Overpayments.new(pagination: null,
+                                 overpayments: null)
 ```
 
 

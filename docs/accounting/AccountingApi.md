@@ -5795,7 +5795,7 @@ Name | Type | Description  | Notes
 
 ## get_bank_transactions
 
-> GetBankTransactionsResponse get_bank_transactions(xero_tenant_id, opts)
+> BankTransactions get_bank_transactions(xero_tenant_id, opts)
 
 Retrieves any spent or received money transactions
 
@@ -5863,7 +5863,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetBankTransactionsResponse**](GetBankTransactionsResponse.md)
+[**BankTransactions**](BankTransactions.md)
 
 ### Authorization
 
@@ -7468,7 +7468,7 @@ Name | Type | Description  | Notes
 
 ## get_contacts
 
-> GetContactsResponse get_contacts(xero_tenant_id, opts)
+> Contacts get_contacts(xero_tenant_id, opts)
 
 Retrieves all contacts in a Xero organisation
 
@@ -7545,7 +7545,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetContactsResponse**](GetContactsResponse.md)
+[**Contacts**](Contacts.md)
 
 ### Authorization
 
@@ -7956,7 +7956,7 @@ Name | Type | Description  | Notes
 
 ## get_credit_notes
 
-> GetCreditNotesResponse get_credit_notes(xero_tenant_id, opts)
+> CreditNotes get_credit_notes(xero_tenant_id, opts)
 
 Retrieves any credit notes
 
@@ -8024,7 +8024,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetCreditNotesResponse**](GetCreditNotesResponse.md)
+[**CreditNotes**](CreditNotes.md)
 
 ### Authorization
 
@@ -8905,7 +8905,7 @@ Name | Type | Description  | Notes
 
 ## get_invoices
 
-> GetInvoicesResponse get_invoices(xero_tenant_id, opts)
+> Invoices get_invoices(xero_tenant_id, opts)
 
 Retrieves sales invoices or purchase bills
 
@@ -8960,7 +8960,9 @@ opts = {
 
   summary_only: false, # Boolean | Use summaryOnly=true in GET Contacts and Invoices endpoint to retrieve a smaller version of the response object. This returns only lightweight fields, excluding computation-heavy fields from the response, making the API calls quick and efficient.
 
-  page_size: 100 # Integer | Number of records to retrieve per page
+  page_size: 100, # Integer | Number of records to retrieve per page
+
+  search_term: 'SearchTerm=REF12' # String | Search parameter that performs a case-insensitive text search across the fields e.g. InvoiceNumber, Reference.
 }
 
 begin
@@ -8991,10 +8993,11 @@ Name | Type | Description  | Notes
  **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
  **summary_only** | **Boolean**| Use summaryOnly&#x3D;true in GET Contacts and Invoices endpoint to retrieve a smaller version of the response object. This returns only lightweight fields, excluding computation-heavy fields from the response, making the API calls quick and efficient. | [optional] [default to false]
  **page_size** | **Integer**| Number of records to retrieve per page | [optional] 
+ **search_term** | **String**| Search parameter that performs a case-insensitive text search across the fields e.g. InvoiceNumber, Reference. | [optional] 
 
 ### Return type
 
-[**GetInvoicesResponse**](GetInvoicesResponse.md)
+[**Invoices**](Invoices.md)
 
 ### Authorization
 
@@ -9828,7 +9831,7 @@ Name | Type | Description  | Notes
 
 ## get_manual_journals
 
-> GetManualJournalsResponse get_manual_journals(xero_tenant_id, opts)
+> ManualJournals get_manual_journals(xero_tenant_id, opts)
 
 Retrieves manual journals
 
@@ -9893,7 +9896,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetManualJournalsResponse**](GetManualJournalsResponse.md)
+[**ManualJournals**](ManualJournals.md)
 
 ### Authorization
 
@@ -10351,7 +10354,7 @@ Name | Type | Description  | Notes
 
 ## get_overpayments
 
-> GetOverpaymentsResponse get_overpayments(xero_tenant_id, opts)
+> Overpayments get_overpayments(xero_tenant_id, opts)
 
 Retrieves overpayments
 
@@ -10390,7 +10393,9 @@ opts = {
 
   page: 1, # Integer | e.g. page=1 – Up to 100 overpayments will be returned in a single API call with line items shown for each overpayment
 
-  unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+  unitdp: 4, # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+
+  page_size: 100 # Integer | Number of records to retrieve per page
 }
 
 begin
@@ -10413,10 +10418,11 @@ Name | Type | Description  | Notes
  **order** | **String**| Order by an any element | [optional] 
  **page** | **Integer**| e.g. page&#x3D;1 – Up to 100 overpayments will be returned in a single API call with line items shown for each overpayment | [optional] 
  **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
+ **page_size** | **Integer**| Number of records to retrieve per page | [optional] 
 
 ### Return type
 
-[**GetOverpaymentsResponse**](GetOverpaymentsResponse.md)
+[**Overpayments**](Overpayments.md)
 
 ### Authorization
 
@@ -10620,7 +10626,7 @@ Name | Type | Description  | Notes
 
 ## get_payments
 
-> GetPaymentsResponse get_payments(xero_tenant_id, opts)
+> Payments get_payments(xero_tenant_id, opts)
 
 Retrieves payments for invoices and credit notes
 
@@ -10685,7 +10691,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetPaymentsResponse**](GetPaymentsResponse.md)
+[**Payments**](Payments.md)
 
 ### Authorization
 
@@ -10827,7 +10833,7 @@ Name | Type | Description  | Notes
 
 ## get_prepayments
 
-> GetPrepaymentsResponse get_prepayments(xero_tenant_id, opts)
+> Prepayments get_prepayments(xero_tenant_id, opts)
 
 Retrieves prepayments
 
@@ -10866,7 +10872,9 @@ opts = {
 
   page: 1, # Integer | e.g. page=1 – Up to 100 prepayments will be returned in a single API call with line items shown for each overpayment
 
-  unitdp: 4 # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+  unitdp: 4, # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+
+  page_size: 100 # Integer | Number of records to retrieve per page
 }
 
 begin
@@ -10889,10 +10897,11 @@ Name | Type | Description  | Notes
  **order** | **String**| Order by an any element | [optional] 
  **page** | **Integer**| e.g. page&#x3D;1 – Up to 100 prepayments will be returned in a single API call with line items shown for each overpayment | [optional] 
  **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
+ **page_size** | **Integer**| Number of records to retrieve per page | [optional] 
 
 ### Return type
 
-[**GetPrepaymentsResponse**](GetPrepaymentsResponse.md)
+[**Prepayments**](Prepayments.md)
 
 ### Authorization
 
@@ -11362,7 +11371,7 @@ Name | Type | Description  | Notes
 
 ## get_purchase_orders
 
-> GetPurchaseOrdersResponse get_purchase_orders(xero_tenant_id, opts)
+> PurchaseOrders get_purchase_orders(xero_tenant_id, opts)
 
 Retrieves purchase orders
 
@@ -11433,7 +11442,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetPurchaseOrdersResponse**](GetPurchaseOrdersResponse.md)
+[**PurchaseOrders**](PurchaseOrders.md)
 
 ### Authorization
 

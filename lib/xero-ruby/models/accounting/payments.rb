@@ -17,11 +17,15 @@ module XeroRuby::Accounting
 
   class Payments
 
+    attr_accessor :pagination
+    
+
     attr_accessor :payments
     
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'pagination' => :'pagination',
         :'payments' => :'Payments'
       }
     end
@@ -29,6 +33,7 @@ module XeroRuby::Accounting
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'pagination' => :'Pagination',
         :'payments' => :'Array<Payment>'
       }
     end
@@ -47,6 +52,10 @@ module XeroRuby::Accounting
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'pagination')
+        self.pagination = attributes[:'pagination']
+      end
 
       if attributes.key?(:'payments')
         if (value = attributes[:'payments']).is_a?(Array)
@@ -73,6 +82,7 @@ module XeroRuby::Accounting
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          pagination == o.pagination &&
           payments == o.payments
     end
 
@@ -85,7 +95,7 @@ module XeroRuby::Accounting
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [payments].hash
+      [pagination, payments].hash
     end
 
     # Builds the object from hash

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**pagination** | [**Pagination**](Pagination.md) |  | [optional] 
 **prepayments** | [**Array&lt;Prepayment&gt;**](Prepayment.md) |  | [optional] 
 
 ## Code Sample
@@ -11,7 +12,8 @@ Name | Type | Description | Notes
 ```ruby
 require 'XeroRuby::Accounting'
 
-instance = XeroRuby::Accounting::Prepayments.new(prepayments: null)
+instance = XeroRuby::Accounting::Prepayments.new(pagination: null,
+                                 prepayments: null)
 ```
 
 

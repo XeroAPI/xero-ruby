@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**pagination** | [**Pagination**](Pagination.md) |  | [optional] 
 **credit_notes** | [**Array&lt;CreditNote&gt;**](CreditNote.md) |  | [optional] 
 
 ## Code Sample
@@ -11,7 +12,8 @@ Name | Type | Description | Notes
 ```ruby
 require 'XeroRuby::Accounting'
 
-instance = XeroRuby::Accounting::CreditNotes.new(credit_notes: null)
+instance = XeroRuby::Accounting::CreditNotes.new(pagination: null,
+                                 credit_notes: null)
 ```
 
 
