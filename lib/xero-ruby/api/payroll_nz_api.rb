@@ -371,7 +371,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'earnings_template' when calling PayrollNzApi.create_employee_earnings_template"
       end
       # resource path
-      local_var_path = '/Employees/{EmployeeID}/PayTemplates/earnings'.sub('{' + 'EmployeeID' + '}', employee_id.to_s)
+      local_var_path = '/Employees/{EmployeeID}/PayTemplates/Earnings'.sub('{' + 'EmployeeID' + '}', employee_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -543,7 +543,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'employee_leave_setup' when calling PayrollNzApi.create_employee_leave_setup"
       end
       # resource path
-      local_var_path = '/Employees/{EmployeeID}/leaveSetup'.sub('{' + 'EmployeeID' + '}', employee_id.to_s)
+      local_var_path = '/Employees/{EmployeeID}/LeaveSetup'.sub('{' + 'EmployeeID' + '}', employee_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -715,7 +715,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'employee_opening_balance' when calling PayrollNzApi.create_employee_opening_balances"
       end
       # resource path
-      local_var_path = '/Employees/{EmployeeID}/openingBalances'.sub('{' + 'EmployeeID' + '}', employee_id.to_s)
+      local_var_path = '/Employees/{EmployeeID}/OpeningBalances'.sub('{' + 'EmployeeID' + '}', employee_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -936,6 +936,92 @@ module XeroRuby
       return data, status_code, headers
     end
 
+    # Creates an employee working pattern
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param employee_id [String] Employee id for single object
+    # @param employee_working_pattern_with_working_weeks_request [EmployeeWorkingPatternWithWorkingWeeksRequest] 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+    # @return [EmployeeWorkingPatternWithWorkingWeeksObject]
+    def create_employee_working_pattern(xero_tenant_id, employee_id, employee_working_pattern_with_working_weeks_request, opts = {})
+      data, _status_code, _headers = create_employee_working_pattern_with_http_info(xero_tenant_id, employee_id, employee_working_pattern_with_working_weeks_request, opts)
+      data
+    end
+
+    # Creates an employee working pattern
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param employee_id [String] Employee id for single object
+    # @param employee_working_pattern_with_working_weeks_request [EmployeeWorkingPatternWithWorkingWeeksRequest] 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+    # @return [Array<(EmployeeWorkingPatternWithWorkingWeeksObject, Integer, Hash)>] EmployeeWorkingPatternWithWorkingWeeksObject data, response status code and response headers
+    def create_employee_working_pattern_with_http_info(xero_tenant_id, employee_id, employee_working_pattern_with_working_weeks_request, options = {})
+      opts = options.dup
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: PayrollNzApi.create_employee_working_pattern ...'
+      end
+      # verify the required parameter 'xero_tenant_id' is set
+      if @api_client.config.client_side_validation && xero_tenant_id.nil?
+        fail ArgumentError, "Missing the required parameter 'xero_tenant_id' when calling PayrollNzApi.create_employee_working_pattern"
+      end
+      # verify the required parameter 'employee_id' is set
+      if @api_client.config.client_side_validation && employee_id.nil?
+        fail ArgumentError, "Missing the required parameter 'employee_id' when calling PayrollNzApi.create_employee_working_pattern"
+      end
+      # verify the required parameter 'employee_working_pattern_with_working_weeks_request' is set
+      if @api_client.config.client_side_validation && employee_working_pattern_with_working_weeks_request.nil?
+        fail ArgumentError, "Missing the required parameter 'employee_working_pattern_with_working_weeks_request' when calling PayrollNzApi.create_employee_working_pattern"
+      end
+      # resource path
+      local_var_path = '/Employees/{EmployeeID}/Working-Patterns'.sub('{' + 'EmployeeID' + '}', employee_id.to_s)
+
+      # camelize keys of incoming `where` opts
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      
+      # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
+      query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+      query_params[:'ContactIDs'] = @api_client.build_collection_param(opts[:'contact_ids'], :csv) if !opts[:'contact_ids'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      header_params[:'Xero-Tenant-Id'] = xero_tenant_id
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] || @api_client.object_to_http_body(employee_working_pattern_with_working_weeks_request) 
+
+      # return_type
+      return_type = opts[:return_type] || 'EmployeeWorkingPatternWithWorkingWeeksObject' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['OAuth2']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, "PayrollNzApi", new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PayrollNzApi#create_employee_working_pattern\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Creates an employment detail for a specific employee
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
@@ -1139,7 +1225,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'earnings_template' when calling PayrollNzApi.create_multiple_employee_earnings_template"
       end
       # resource path
-      local_var_path = '/Employees/{EmployeeID}/paytemplateearnings'.sub('{' + 'EmployeeID' + '}', employee_id.to_s)
+      local_var_path = '/Employees/{EmployeeID}/PayTemplateEarnings'.sub('{' + 'EmployeeID' + '}', employee_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -1709,7 +1795,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'pay_template_earning_id' when calling PayrollNzApi.delete_employee_earnings_template"
       end
       # resource path
-      local_var_path = '/Employees/{EmployeeID}/PayTemplates/earnings/{PayTemplateEarningID}'.sub('{' + 'EmployeeID' + '}', employee_id.to_s).sub('{' + 'PayTemplateEarningID' + '}', pay_template_earning_id.to_s)
+      local_var_path = '/Employees/{EmployeeID}/PayTemplates/Earnings/{PayTemplateEarningID}'.sub('{' + 'EmployeeID' + '}', employee_id.to_s).sub('{' + 'PayTemplateEarningID' + '}', pay_template_earning_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -1913,6 +1999,87 @@ module XeroRuby
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, "PayrollNzApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PayrollNzApi#delete_employee_salary_and_wage\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # deletes employee's working patterns
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param employee_id [String] Employee id for single object
+    # @param employee_working_pattern_id [String] Employee working pattern id for single object
+    # @param [Hash] opts the optional parameters
+    # @return [EmployeeLeaveObject]
+    def delete_employee_working_pattern(xero_tenant_id, employee_id, employee_working_pattern_id, opts = {})
+      data, _status_code, _headers = delete_employee_working_pattern_with_http_info(xero_tenant_id, employee_id, employee_working_pattern_id, opts)
+      data
+    end
+
+    # deletes employee&#39;s working patterns
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param employee_id [String] Employee id for single object
+    # @param employee_working_pattern_id [String] Employee working pattern id for single object
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(EmployeeLeaveObject, Integer, Hash)>] EmployeeLeaveObject data, response status code and response headers
+    def delete_employee_working_pattern_with_http_info(xero_tenant_id, employee_id, employee_working_pattern_id, options = {})
+      opts = options.dup
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: PayrollNzApi.delete_employee_working_pattern ...'
+      end
+      # verify the required parameter 'xero_tenant_id' is set
+      if @api_client.config.client_side_validation && xero_tenant_id.nil?
+        fail ArgumentError, "Missing the required parameter 'xero_tenant_id' when calling PayrollNzApi.delete_employee_working_pattern"
+      end
+      # verify the required parameter 'employee_id' is set
+      if @api_client.config.client_side_validation && employee_id.nil?
+        fail ArgumentError, "Missing the required parameter 'employee_id' when calling PayrollNzApi.delete_employee_working_pattern"
+      end
+      # verify the required parameter 'employee_working_pattern_id' is set
+      if @api_client.config.client_side_validation && employee_working_pattern_id.nil?
+        fail ArgumentError, "Missing the required parameter 'employee_working_pattern_id' when calling PayrollNzApi.delete_employee_working_pattern"
+      end
+      # resource path
+      local_var_path = '/Employees/{EmployeeID}/Working-Patterns/{EmployeeWorkingPatternID}'.sub('{' + 'EmployeeID' + '}', employee_id.to_s).sub('{' + 'EmployeeWorkingPatternID' + '}', employee_working_pattern_id.to_s)
+
+      # camelize keys of incoming `where` opts
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      
+      # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
+      query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+      query_params[:'ContactIDs'] = @api_client.build_collection_param(opts[:'contact_ids'], :csv) if !opts[:'contact_ids'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'Xero-Tenant-Id'] = xero_tenant_id
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'EmployeeLeaveObject' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['OAuth2']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, "PayrollNzApi", new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PayrollNzApi#delete_employee_working_pattern\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2777,7 +2944,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'employee_id' when calling PayrollNzApi.get_employee_opening_balances"
       end
       # resource path
-      local_var_path = '/Employees/{EmployeeID}/openingBalances'.sub('{' + 'EmployeeID' + '}', employee_id.to_s)
+      local_var_path = '/Employees/{EmployeeID}/OpeningBalances'.sub('{' + 'EmployeeID' + '}', employee_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
@@ -3203,6 +3370,162 @@ module XeroRuby
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, "PayrollNzApi", new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PayrollNzApi#get_employee_tax\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieves employee's working patterns
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param employee_id [String] Employee id for single object
+    # @param employee_working_pattern_id [String] Employee working pattern id for single object
+    # @param [Hash] opts the optional parameters
+    # @return [EmployeeWorkingPatternWithWorkingWeeksObject]
+    def get_employee_working_pattern(xero_tenant_id, employee_id, employee_working_pattern_id, opts = {})
+      data, _status_code, _headers = get_employee_working_pattern_with_http_info(xero_tenant_id, employee_id, employee_working_pattern_id, opts)
+      data
+    end
+
+    # Retrieves employee&#39;s working patterns
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param employee_id [String] Employee id for single object
+    # @param employee_working_pattern_id [String] Employee working pattern id for single object
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(EmployeeWorkingPatternWithWorkingWeeksObject, Integer, Hash)>] EmployeeWorkingPatternWithWorkingWeeksObject data, response status code and response headers
+    def get_employee_working_pattern_with_http_info(xero_tenant_id, employee_id, employee_working_pattern_id, options = {})
+      opts = options.dup
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: PayrollNzApi.get_employee_working_pattern ...'
+      end
+      # verify the required parameter 'xero_tenant_id' is set
+      if @api_client.config.client_side_validation && xero_tenant_id.nil?
+        fail ArgumentError, "Missing the required parameter 'xero_tenant_id' when calling PayrollNzApi.get_employee_working_pattern"
+      end
+      # verify the required parameter 'employee_id' is set
+      if @api_client.config.client_side_validation && employee_id.nil?
+        fail ArgumentError, "Missing the required parameter 'employee_id' when calling PayrollNzApi.get_employee_working_pattern"
+      end
+      # verify the required parameter 'employee_working_pattern_id' is set
+      if @api_client.config.client_side_validation && employee_working_pattern_id.nil?
+        fail ArgumentError, "Missing the required parameter 'employee_working_pattern_id' when calling PayrollNzApi.get_employee_working_pattern"
+      end
+      # resource path
+      local_var_path = '/Employees/{EmployeeID}/Working-Patterns/{EmployeeWorkingPatternID}'.sub('{' + 'EmployeeID' + '}', employee_id.to_s).sub('{' + 'EmployeeWorkingPatternID' + '}', employee_working_pattern_id.to_s)
+
+      # camelize keys of incoming `where` opts
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      
+      # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
+      query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+      query_params[:'ContactIDs'] = @api_client.build_collection_param(opts[:'contact_ids'], :csv) if !opts[:'contact_ids'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'Xero-Tenant-Id'] = xero_tenant_id
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'EmployeeWorkingPatternWithWorkingWeeksObject' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['OAuth2']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "PayrollNzApi", new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PayrollNzApi#get_employee_working_pattern\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieves employee's working patterns
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param employee_id [String] Employee id for single object
+    # @param [Hash] opts the optional parameters
+    # @return [EmployeeWorkingPatternsObject]
+    def get_employee_working_patterns(xero_tenant_id, employee_id, opts = {})
+      data, _status_code, _headers = get_employee_working_patterns_with_http_info(xero_tenant_id, employee_id, opts)
+      data
+    end
+
+    # Retrieves employee&#39;s working patterns
+    # @param xero_tenant_id [String] Xero identifier for Tenant
+    # @param employee_id [String] Employee id for single object
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(EmployeeWorkingPatternsObject, Integer, Hash)>] EmployeeWorkingPatternsObject data, response status code and response headers
+    def get_employee_working_patterns_with_http_info(xero_tenant_id, employee_id, options = {})
+      opts = options.dup
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: PayrollNzApi.get_employee_working_patterns ...'
+      end
+      # verify the required parameter 'xero_tenant_id' is set
+      if @api_client.config.client_side_validation && xero_tenant_id.nil?
+        fail ArgumentError, "Missing the required parameter 'xero_tenant_id' when calling PayrollNzApi.get_employee_working_patterns"
+      end
+      # verify the required parameter 'employee_id' is set
+      if @api_client.config.client_side_validation && employee_id.nil?
+        fail ArgumentError, "Missing the required parameter 'employee_id' when calling PayrollNzApi.get_employee_working_patterns"
+      end
+      # resource path
+      local_var_path = '/Employees/{EmployeeID}/Working-Patterns'.sub('{' + 'EmployeeID' + '}', employee_id.to_s)
+
+      # camelize keys of incoming `where` opts
+      opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      
+      # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
+      query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+      query_params[:'ContactIDs'] = @api_client.build_collection_param(opts[:'contact_ids'], :csv) if !opts[:'contact_ids'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'Xero-Tenant-Id'] = xero_tenant_id
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'EmployeeWorkingPatternsObject' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['OAuth2']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, "PayrollNzApi", new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PayrollNzApi#get_employee_working_patterns\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -4835,7 +5158,7 @@ module XeroRuby
         fail ArgumentError, "Missing the required parameter 'earnings_template' when calling PayrollNzApi.update_employee_earnings_template"
       end
       # resource path
-      local_var_path = '/Employees/{EmployeeID}/PayTemplates/earnings/{PayTemplateEarningID}'.sub('{' + 'EmployeeID' + '}', employee_id.to_s).sub('{' + 'PayTemplateEarningID' + '}', pay_template_earning_id.to_s)
+      local_var_path = '/Employees/{EmployeeID}/PayTemplates/Earnings/{PayTemplateEarningID}'.sub('{' + 'EmployeeID' + '}', employee_id.to_s).sub('{' + 'PayTemplateEarningID' + '}', pay_template_earning_id.to_s)
 
       # camelize keys of incoming `where` opts
       opts[:'where'] = @api_client.parameterize_where(opts[:'where']) if !opts[:'where'].nil?

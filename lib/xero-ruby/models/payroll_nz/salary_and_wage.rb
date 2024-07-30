@@ -51,6 +51,11 @@ module XeroRuby::PayrollNz
     SALARY ||= "Salary".freeze
     HOURLY ||= "Hourly".freeze
     
+    # The type of the Working Pattern of the corresponding salary and wages
+    attr_accessor :work_pattern_type
+    DAYS_AND_HOURS ||= "DaysAndHours".freeze
+    REGULAR_WEEK ||= "RegularWeek".freeze
+    
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -85,7 +90,8 @@ module XeroRuby::PayrollNz
         :'effective_from' => :'effectiveFrom',
         :'annual_salary' => :'annualSalary',
         :'status' => :'status',
-        :'payment_type' => :'paymentType'
+        :'payment_type' => :'paymentType',
+        :'work_pattern_type' => :'workPatternType'
       }
     end
 
@@ -101,7 +107,8 @@ module XeroRuby::PayrollNz
         :'effective_from' => :'Date',
         :'annual_salary' => :'BigDecimal',
         :'status' => :'String',
-        :'payment_type' => :'String'
+        :'payment_type' => :'String',
+        :'work_pattern_type' => :'String'
       }
     end
 
@@ -159,6 +166,10 @@ module XeroRuby::PayrollNz
       if attributes.key?(:'payment_type')
         self.payment_type = attributes[:'payment_type']
       end
+
+      if attributes.key?(:'work_pattern_type')
+        self.work_pattern_type = attributes[:'work_pattern_type']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -210,6 +221,8 @@ module XeroRuby::PayrollNz
       return false if @payment_type.nil?
       payment_type_validator = EnumAttributeValidator.new('String', ["Salary", "Hourly"])
       return false unless payment_type_validator.valid?(@payment_type)
+      work_pattern_type_validator = EnumAttributeValidator.new('String', ["DaysAndHours", "RegularWeek"])
+      return false unless work_pattern_type_validator.valid?(@work_pattern_type)
       true
     end
 
@@ -233,6 +246,16 @@ module XeroRuby::PayrollNz
       @payment_type = payment_type
     end
 
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] work_pattern_type Object to be assigned
+    def work_pattern_type=(work_pattern_type)
+      validator = EnumAttributeValidator.new('String', ["DaysAndHours", "RegularWeek"])
+      unless validator.valid?(work_pattern_type)
+        fail ArgumentError, "invalid value for \"work_pattern_type\", must be one of #{validator.allowable_values}."
+      end
+      @work_pattern_type = work_pattern_type
+    end
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
@@ -247,7 +270,8 @@ module XeroRuby::PayrollNz
           effective_from == o.effective_from &&
           annual_salary == o.annual_salary &&
           status == o.status &&
-          payment_type == o.payment_type
+          payment_type == o.payment_type &&
+          work_pattern_type == o.work_pattern_type
     end
 
     # @see the `==` method
@@ -259,7 +283,7 @@ module XeroRuby::PayrollNz
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [salary_and_wages_id, earnings_rate_id, number_of_units_per_week, rate_per_unit, number_of_units_per_day, days_per_week, effective_from, annual_salary, status, payment_type].hash
+      [salary_and_wages_id, earnings_rate_id, number_of_units_per_week, rate_per_unit, number_of_units_per_day, days_per_week, effective_from, annual_salary, status, payment_type, work_pattern_type].hash
     end
 
     # Builds the object from hash

@@ -63,6 +63,12 @@ module XeroRuby::PayrollNz
     # Employee's job title
     attr_accessor :job_title
     
+    # Engagement type of the employee
+    attr_accessor :engagement_type
+    
+    # End date for an employee with a fixed-term engagement type
+    attr_accessor :fixed_term_end_date
+    
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -102,7 +108,9 @@ module XeroRuby::PayrollNz
         :'payroll_calendar_id' => :'payrollCalendarID',
         :'updated_date_utc' => :'updatedDateUTC',
         :'created_date_utc' => :'createdDateUTC',
-        :'job_title' => :'jobTitle'
+        :'job_title' => :'jobTitle',
+        :'engagement_type' => :'engagementType',
+        :'fixed_term_end_date' => :'fixedTermEndDate'
       }
     end
 
@@ -123,7 +131,9 @@ module XeroRuby::PayrollNz
         :'payroll_calendar_id' => :'String',
         :'updated_date_utc' => :'DateTime',
         :'created_date_utc' => :'DateTime',
-        :'job_title' => :'String'
+        :'job_title' => :'String',
+        :'engagement_type' => :'String',
+        :'fixed_term_end_date' => :'Date'
       }
     end
 
@@ -201,6 +211,14 @@ module XeroRuby::PayrollNz
       if attributes.key?(:'job_title')
         self.job_title = attributes[:'job_title']
       end
+
+      if attributes.key?(:'engagement_type')
+        self.engagement_type = attributes[:'engagement_type']
+      end
+
+      if attributes.key?(:'fixed_term_end_date')
+        self.fixed_term_end_date = attributes[:'fixed_term_end_date']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -247,7 +265,9 @@ module XeroRuby::PayrollNz
           payroll_calendar_id == o.payroll_calendar_id &&
           updated_date_utc == o.updated_date_utc &&
           created_date_utc == o.created_date_utc &&
-          job_title == o.job_title
+          job_title == o.job_title &&
+          engagement_type == o.engagement_type &&
+          fixed_term_end_date == o.fixed_term_end_date
     end
 
     # @see the `==` method
@@ -259,7 +279,7 @@ module XeroRuby::PayrollNz
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [employee_id, title, first_name, last_name, date_of_birth, address, email, gender, phone_number, start_date, end_date, payroll_calendar_id, updated_date_utc, created_date_utc, job_title].hash
+      [employee_id, title, first_name, last_name, date_of_birth, address, email, gender, phone_number, start_date, end_date, payroll_calendar_id, updated_date_utc, created_date_utc, job_title, engagement_type, fixed_term_end_date].hash
     end
 
     # Builds the object from hash

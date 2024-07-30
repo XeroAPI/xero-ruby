@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **annual_salary** | **BigDecimal** | The annual salary | 
 **status** | **String** | The current status of the corresponding salary and wages | 
 **payment_type** | **String** | The type of the payment of the corresponding salary and wages | 
+**work_pattern_type** | **String** | The type of the Working Pattern of the corresponding salary and wages | [optional] 
 
 ## Code Sample
 
@@ -29,7 +30,8 @@ instance = XeroRuby::PayrollNz::SalaryAndWage.new(salary_and_wages_id: null,
                                  effective_from: null,
                                  annual_salary: null,
                                  status: null,
-                                 payment_type: null)
+                                 payment_type: null,
+                                 work_pattern_type: null)
 ```
 
 

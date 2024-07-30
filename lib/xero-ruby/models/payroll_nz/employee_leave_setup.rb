@@ -37,6 +37,12 @@ module XeroRuby::PayrollNz
     # Initial sick leave balance. This will be positive unless they've taken sick leave in advance
     attr_accessor :sick_leave_opening_balance
     
+    # Set Schedule of Accrual Type for Sick Leave
+    attr_accessor :sick_leave_schedule_of_accrual
+    
+    # If Sick Leave Schedule of Accrual is \"OnAnniversaryDate\", this is the date when entitled to Sick Leave
+    attr_accessor :sick_leave_anniversary_date
+    
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -46,7 +52,9 @@ module XeroRuby::PayrollNz
         :'negative_annual_leave_balance_paid_amount' => :'negativeAnnualLeaveBalancePaidAmount',
         :'sick_leave_hours_to_accrue_annually' => :'sickLeaveHoursToAccrueAnnually',
         :'sick_leave_maximum_hours_to_accrue' => :'sickLeaveMaximumHoursToAccrue',
-        :'sick_leave_opening_balance' => :'sickLeaveOpeningBalance'
+        :'sick_leave_opening_balance' => :'sickLeaveOpeningBalance',
+        :'sick_leave_schedule_of_accrual' => :'SickLeaveScheduleOfAccrual',
+        :'sick_leave_anniversary_date' => :'SickLeaveAnniversaryDate'
       }
     end
 
@@ -59,7 +67,9 @@ module XeroRuby::PayrollNz
         :'negative_annual_leave_balance_paid_amount' => :'BigDecimal',
         :'sick_leave_hours_to_accrue_annually' => :'BigDecimal',
         :'sick_leave_maximum_hours_to_accrue' => :'BigDecimal',
-        :'sick_leave_opening_balance' => :'BigDecimal'
+        :'sick_leave_opening_balance' => :'BigDecimal',
+        :'sick_leave_schedule_of_accrual' => :'String',
+        :'sick_leave_anniversary_date' => :'Date'
       }
     end
 
@@ -105,6 +115,14 @@ module XeroRuby::PayrollNz
       if attributes.key?(:'sick_leave_opening_balance')
         self.sick_leave_opening_balance = attributes[:'sick_leave_opening_balance']
       end
+
+      if attributes.key?(:'sick_leave_schedule_of_accrual')
+        self.sick_leave_schedule_of_accrual = attributes[:'sick_leave_schedule_of_accrual']
+      end
+
+      if attributes.key?(:'sick_leave_anniversary_date')
+        self.sick_leave_anniversary_date = attributes[:'sick_leave_anniversary_date']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -131,7 +149,9 @@ module XeroRuby::PayrollNz
           negative_annual_leave_balance_paid_amount == o.negative_annual_leave_balance_paid_amount &&
           sick_leave_hours_to_accrue_annually == o.sick_leave_hours_to_accrue_annually &&
           sick_leave_maximum_hours_to_accrue == o.sick_leave_maximum_hours_to_accrue &&
-          sick_leave_opening_balance == o.sick_leave_opening_balance
+          sick_leave_opening_balance == o.sick_leave_opening_balance &&
+          sick_leave_schedule_of_accrual == o.sick_leave_schedule_of_accrual &&
+          sick_leave_anniversary_date == o.sick_leave_anniversary_date
     end
 
     # @see the `==` method
@@ -143,7 +163,7 @@ module XeroRuby::PayrollNz
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [include_holiday_pay, holiday_pay_opening_balance, annual_leave_opening_balance, negative_annual_leave_balance_paid_amount, sick_leave_hours_to_accrue_annually, sick_leave_maximum_hours_to_accrue, sick_leave_opening_balance].hash
+      [include_holiday_pay, holiday_pay_opening_balance, annual_leave_opening_balance, negative_annual_leave_balance_paid_amount, sick_leave_hours_to_accrue_annually, sick_leave_maximum_hours_to_accrue, sick_leave_opening_balance, sick_leave_schedule_of_accrual, sick_leave_anniversary_date].hash
     end
 
     # Builds the object from hash

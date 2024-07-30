@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **sick_leave_hours_to_accrue_annually** | **BigDecimal** | Number of hours accrued annually for sick leave. Multiply the number of days they&#39;re entitled to by the hours worked per day | [optional] 
 **sick_leave_maximum_hours_to_accrue** | **BigDecimal** | Maximum number of hours accrued annually for sick leave. Multiply the maximum days they can accrue by the hours worked per day | [optional] 
 **sick_leave_opening_balance** | **BigDecimal** | Initial sick leave balance. This will be positive unless they&#39;ve taken sick leave in advance | [optional] 
+**sick_leave_schedule_of_accrual** | **String** | Set Schedule of Accrual Type for Sick Leave | [optional] 
+**sick_leave_anniversary_date** | **Date** | If Sick Leave Schedule of Accrual is \&quot;OnAnniversaryDate\&quot;, this is the date when entitled to Sick Leave | [optional] 
 
 ## Code Sample
 
@@ -23,7 +25,9 @@ instance = XeroRuby::PayrollNz::EmployeeLeaveSetup.new(include_holiday_pay: fals
                                  negative_annual_leave_balance_paid_amount: 10.0,
                                  sick_leave_hours_to_accrue_annually: 100.5,
                                  sick_leave_maximum_hours_to_accrue: 200.5,
-                                 sick_leave_opening_balance: 10.5)
+                                 sick_leave_opening_balance: 10.5,
+                                 sick_leave_schedule_of_accrual: OnAnniversaryDate,
+                                 sick_leave_anniversary_date: Sun Jan 19 00:00:00 GMT 2020)
 ```
 
 

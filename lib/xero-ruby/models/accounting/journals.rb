@@ -16,12 +16,16 @@ module XeroRuby::Accounting
   require 'bigdecimal'
 
   class Journals
+    # Displays array of warning messages from the API
+    attr_accessor :warnings
+    
 
     attr_accessor :journals
     
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'warnings' => :'Warnings',
         :'journals' => :'Journals'
       }
     end
@@ -29,6 +33,7 @@ module XeroRuby::Accounting
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'warnings' => :'Array<ValidationError>',
         :'journals' => :'Array<Journal>'
       }
     end
@@ -47,6 +52,12 @@ module XeroRuby::Accounting
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'warnings')
+        if (value = attributes[:'warnings']).is_a?(Array)
+          self.warnings = value
+        end
+      end
 
       if attributes.key?(:'journals')
         if (value = attributes[:'journals']).is_a?(Array)
@@ -73,6 +84,7 @@ module XeroRuby::Accounting
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          warnings == o.warnings &&
           journals == o.journals
     end
 
@@ -85,7 +97,7 @@ module XeroRuby::Accounting
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [journals].hash
+      [warnings, journals].hash
     end
 
     # Builds the object from hash

@@ -50,6 +50,9 @@ module XeroRuby::PayrollNz
     # Specific to Annual Leave. Annual leave balance in dollars
     attr_accessor :annual_leave_total_amount_paid
     
+    # The date when an employee becomes entitled to their accrual.
+    attr_accessor :schedule_of_accrual_date
+    
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -84,7 +87,8 @@ module XeroRuby::PayrollNz
         :'percentage_of_gross_earnings' => :'percentageOfGrossEarnings',
         :'include_holiday_pay_every_pay' => :'includeHolidayPayEveryPay',
         :'show_annual_leave_in_advance' => :'showAnnualLeaveInAdvance',
-        :'annual_leave_total_amount_paid' => :'annualLeaveTotalAmountPaid'
+        :'annual_leave_total_amount_paid' => :'annualLeaveTotalAmountPaid',
+        :'schedule_of_accrual_date' => :'scheduleOfAccrualDate'
       }
     end
 
@@ -100,7 +104,8 @@ module XeroRuby::PayrollNz
         :'percentage_of_gross_earnings' => :'BigDecimal',
         :'include_holiday_pay_every_pay' => :'Boolean',
         :'show_annual_leave_in_advance' => :'Boolean',
-        :'annual_leave_total_amount_paid' => :'BigDecimal'
+        :'annual_leave_total_amount_paid' => :'BigDecimal',
+        :'schedule_of_accrual_date' => :'Date'
       }
     end
 
@@ -158,6 +163,10 @@ module XeroRuby::PayrollNz
       if attributes.key?(:'annual_leave_total_amount_paid')
         self.annual_leave_total_amount_paid = attributes[:'annual_leave_total_amount_paid']
       end
+
+      if attributes.key?(:'schedule_of_accrual_date')
+        self.schedule_of_accrual_date = attributes[:'schedule_of_accrual_date']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -199,7 +208,8 @@ module XeroRuby::PayrollNz
           percentage_of_gross_earnings == o.percentage_of_gross_earnings &&
           include_holiday_pay_every_pay == o.include_holiday_pay_every_pay &&
           show_annual_leave_in_advance == o.show_annual_leave_in_advance &&
-          annual_leave_total_amount_paid == o.annual_leave_total_amount_paid
+          annual_leave_total_amount_paid == o.annual_leave_total_amount_paid &&
+          schedule_of_accrual_date == o.schedule_of_accrual_date
     end
 
     # @see the `==` method
@@ -211,7 +221,7 @@ module XeroRuby::PayrollNz
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [leave_type_id, schedule_of_accrual, hours_accrued_annually, maximum_to_accrue, opening_balance, rate_accrued_hourly, percentage_of_gross_earnings, include_holiday_pay_every_pay, show_annual_leave_in_advance, annual_leave_total_amount_paid].hash
+      [leave_type_id, schedule_of_accrual, hours_accrued_annually, maximum_to_accrue, opening_balance, rate_accrued_hourly, percentage_of_gross_earnings, include_holiday_pay_every_pay, show_annual_leave_in_advance, annual_leave_total_amount_paid, schedule_of_accrual_date].hash
     end
 
     # Builds the object from hash

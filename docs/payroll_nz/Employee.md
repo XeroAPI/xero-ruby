@@ -19,6 +19,8 @@ Name | Type | Description | Notes
 **updated_date_utc** | **DateTime** | UTC timestamp of last update to the employee | [optional] 
 **created_date_utc** | **DateTime** | UTC timestamp when the employee was created in Xero | [optional] 
 **job_title** | **String** | Employee&#39;s job title | [optional] 
+**engagement_type** | **String** | Engagement type of the employee | [optional] 
+**fixed_term_end_date** | **Date** | End date for an employee with a fixed-term engagement type | [optional] 
 
 ## Code Sample
 
@@ -39,7 +41,9 @@ instance = XeroRuby::PayrollNz::Employee.new(employee_id: d90457c4-f1be-4f2e-b4e
                                  payroll_calendar_id: null,
                                  updated_date_utc: null,
                                  created_date_utc: null,
-                                 job_title: General Manager)
+                                 job_title: General Manager,
+                                 engagement_type: Permanent,
+                                 fixed_term_end_date: Sun Jan 19 00:00:00 GMT 2020)
 ```
 
 

@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **include_holiday_pay_every_pay** | **Boolean** | Specific to Holiday pay. Flag determining if pay for leave type is added on each pay run. | [optional] 
 **show_annual_leave_in_advance** | **Boolean** | Specific to Annual Leave. Flag to include leave available to take in advance in the balance in the payslip | [optional] 
 **annual_leave_total_amount_paid** | **BigDecimal** | Specific to Annual Leave. Annual leave balance in dollars | [optional] 
+**schedule_of_accrual_date** | **Date** | The date when an employee becomes entitled to their accrual. | [optional] 
 
 ## Code Sample
 
@@ -29,7 +30,8 @@ instance = XeroRuby::PayrollNz::EmployeeLeaveType.new(leave_type_id: null,
                                  percentage_of_gross_earnings: null,
                                  include_holiday_pay_every_pay: null,
                                  show_annual_leave_in_advance: null,
-                                 annual_leave_total_amount_paid: null)
+                                 annual_leave_total_amount_paid: null,
+                                 schedule_of_accrual_date: Sun Jan 19 00:00:00 GMT 2020)
 ```
 
 
