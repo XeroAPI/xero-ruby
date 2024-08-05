@@ -8,25 +8,27 @@ Method | HTTP request | Description
 [**create_deduction**](PayrollNzApi.md#create_deduction) | **POST** /Deductions | Creates a new deduction for a specific employee
 [**create_earnings_rate**](PayrollNzApi.md#create_earnings_rate) | **POST** /EarningsRates | Creates a new earnings rate
 [**create_employee**](PayrollNzApi.md#create_employee) | **POST** /Employees | Creates an employees
-[**create_employee_earnings_template**](PayrollNzApi.md#create_employee_earnings_template) | **POST** /Employees/{EmployeeID}/PayTemplates/earnings | Creates earnings template records for an employee
+[**create_employee_earnings_template**](PayrollNzApi.md#create_employee_earnings_template) | **POST** /Employees/{EmployeeID}/PayTemplates/Earnings | Creates earnings template records for an employee
 [**create_employee_leave**](PayrollNzApi.md#create_employee_leave) | **POST** /Employees/{EmployeeID}/Leave | Creates leave records for a specific employee
-[**create_employee_leave_setup**](PayrollNzApi.md#create_employee_leave_setup) | **POST** /Employees/{EmployeeID}/leaveSetup | Creates a leave set-up for a specific employee. This is required before viewing, configuring and requesting leave for an employee
+[**create_employee_leave_setup**](PayrollNzApi.md#create_employee_leave_setup) | **POST** /Employees/{EmployeeID}/LeaveSetup | Creates a leave set-up for a specific employee. This is required before viewing, configuring and requesting leave for an employee
 [**create_employee_leave_type**](PayrollNzApi.md#create_employee_leave_type) | **POST** /Employees/{EmployeeID}/LeaveTypes | Creates leave type records for a specific employee
-[**create_employee_opening_balances**](PayrollNzApi.md#create_employee_opening_balances) | **POST** /Employees/{EmployeeID}/openingBalances | Creates opening balances for a specific employee
+[**create_employee_opening_balances**](PayrollNzApi.md#create_employee_opening_balances) | **POST** /Employees/{EmployeeID}/OpeningBalances | Creates opening balances for a specific employee
 [**create_employee_payment_method**](PayrollNzApi.md#create_employee_payment_method) | **POST** /Employees/{EmployeeID}/PaymentMethods | Creates a payment method for an employee
 [**create_employee_salary_and_wage**](PayrollNzApi.md#create_employee_salary_and_wage) | **POST** /Employees/{EmployeeID}/SalaryAndWages | Creates an employee salary and wage record
+[**create_employee_working_pattern**](PayrollNzApi.md#create_employee_working_pattern) | **POST** /Employees/{EmployeeID}/Working-Patterns | Creates an employee working pattern
 [**create_employment**](PayrollNzApi.md#create_employment) | **POST** /Employees/{EmployeeID}/Employment | Creates an employment detail for a specific employee
 [**create_leave_type**](PayrollNzApi.md#create_leave_type) | **POST** /LeaveTypes | Creates a new leave type
-[**create_multiple_employee_earnings_template**](PayrollNzApi.md#create_multiple_employee_earnings_template) | **POST** /Employees/{EmployeeID}/paytemplateearnings | Creates multiple employee earnings template records for a specific employee
+[**create_multiple_employee_earnings_template**](PayrollNzApi.md#create_multiple_employee_earnings_template) | **POST** /Employees/{EmployeeID}/PayTemplateEarnings | Creates multiple employee earnings template records for a specific employee
 [**create_pay_run**](PayrollNzApi.md#create_pay_run) | **POST** /PayRuns | Creates a pay run
 [**create_pay_run_calendar**](PayrollNzApi.md#create_pay_run_calendar) | **POST** /PayRunCalendars | Creates a new payrun calendar
 [**create_reimbursement**](PayrollNzApi.md#create_reimbursement) | **POST** /Reimbursements | Creates a new reimbursement
 [**create_superannuation**](PayrollNzApi.md#create_superannuation) | **POST** /Superannuations | Creates a new superannuation
 [**create_timesheet**](PayrollNzApi.md#create_timesheet) | **POST** /Timesheets | Creates a new timesheet
 [**create_timesheet_line**](PayrollNzApi.md#create_timesheet_line) | **POST** /Timesheets/{TimesheetID}/Lines | Create a new timesheet line for a specific time sheet
-[**delete_employee_earnings_template**](PayrollNzApi.md#delete_employee_earnings_template) | **DELETE** /Employees/{EmployeeID}/PayTemplates/earnings/{PayTemplateEarningID} | Deletes an employee&#39;s earnings template record
+[**delete_employee_earnings_template**](PayrollNzApi.md#delete_employee_earnings_template) | **DELETE** /Employees/{EmployeeID}/PayTemplates/Earnings/{PayTemplateEarningID} | Deletes an employee&#39;s earnings template record
 [**delete_employee_leave**](PayrollNzApi.md#delete_employee_leave) | **DELETE** /Employees/{EmployeeID}/Leave/{LeaveID} | Deletes a leave record for a specific employee
 [**delete_employee_salary_and_wage**](PayrollNzApi.md#delete_employee_salary_and_wage) | **DELETE** /Employees/{EmployeeID}/SalaryAndWages/{SalaryAndWagesID} | Deletes an employee&#39;s salary and wages record
+[**delete_employee_working_pattern**](PayrollNzApi.md#delete_employee_working_pattern) | **DELETE** /Employees/{EmployeeID}/Working-Patterns/{EmployeeWorkingPatternID} | deletes employee&#39;s working patterns
 [**delete_timesheet**](PayrollNzApi.md#delete_timesheet) | **DELETE** /Timesheets/{TimesheetID} | Deletes a timesheet
 [**delete_timesheet_line**](PayrollNzApi.md#delete_timesheet_line) | **DELETE** /Timesheets/{TimesheetID}/Lines/{TimesheetLineID} | Deletes a timesheet line for a specific timesheet
 [**get_deduction**](PayrollNzApi.md#get_deduction) | **GET** /Deductions/{deductionId} | Retrieves a single deduction by using a unique deduction ID
@@ -38,12 +40,14 @@ Method | HTTP request | Description
 [**get_employee_leave_periods**](PayrollNzApi.md#get_employee_leave_periods) | **GET** /Employees/{EmployeeID}/LeavePeriods | Retrieves leave periods for a specific employee
 [**get_employee_leave_types**](PayrollNzApi.md#get_employee_leave_types) | **GET** /Employees/{EmployeeID}/LeaveTypes | Retrieves leave types for a specific employee
 [**get_employee_leaves**](PayrollNzApi.md#get_employee_leaves) | **GET** /Employees/{EmployeeID}/Leave | Retrieves leave records for a specific employee
-[**get_employee_opening_balances**](PayrollNzApi.md#get_employee_opening_balances) | **GET** /Employees/{EmployeeID}/openingBalances | Retrieves the opening balance for a specific employee
+[**get_employee_opening_balances**](PayrollNzApi.md#get_employee_opening_balances) | **GET** /Employees/{EmployeeID}/OpeningBalances | Retrieves the opening balance for a specific employee
 [**get_employee_pay_templates**](PayrollNzApi.md#get_employee_pay_templates) | **GET** /Employees/{EmployeeID}/PayTemplates | Retrieves pay templates for a specific employee
 [**get_employee_payment_method**](PayrollNzApi.md#get_employee_payment_method) | **GET** /Employees/{EmployeeID}/PaymentMethods | Retrieves available payment methods for a specific employee
 [**get_employee_salary_and_wage**](PayrollNzApi.md#get_employee_salary_and_wage) | **GET** /Employees/{EmployeeID}/SalaryAndWages/{SalaryAndWagesID} | Retrieves an employee&#39;s salary and wages record by using a unique salary and wage ID
 [**get_employee_salary_and_wages**](PayrollNzApi.md#get_employee_salary_and_wages) | **GET** /Employees/{EmployeeID}/SalaryAndWages | Retrieves an employee&#39;s salary and wages
 [**get_employee_tax**](PayrollNzApi.md#get_employee_tax) | **GET** /Employees/{EmployeeID}/Tax | Retrieves tax records for a specific employee
+[**get_employee_working_pattern**](PayrollNzApi.md#get_employee_working_pattern) | **GET** /Employees/{EmployeeID}/Working-Patterns/{EmployeeWorkingPatternID} | Retrieves employee&#39;s working patterns
+[**get_employee_working_patterns**](PayrollNzApi.md#get_employee_working_patterns) | **GET** /Employees/{EmployeeID}/Working-Patterns | Retrieves employee&#39;s working patterns
 [**get_employees**](PayrollNzApi.md#get_employees) | **GET** /Employees | Retrieves employees
 [**get_leave_type**](PayrollNzApi.md#get_leave_type) | **GET** /LeaveTypes/{LeaveTypeID} | Retrieves a specific leave type by using a unique leave type ID
 [**get_leave_types**](PayrollNzApi.md#get_leave_types) | **GET** /LeaveTypes | Retrieves leave types
@@ -65,7 +69,7 @@ Method | HTTP request | Description
 [**get_tracking_categories**](PayrollNzApi.md#get_tracking_categories) | **GET** /Settings/TrackingCategories | Retrieves tracking categories
 [**revert_timesheet**](PayrollNzApi.md#revert_timesheet) | **POST** /Timesheets/{TimesheetID}/RevertToDraft | Reverts a timesheet to draft
 [**update_employee**](PayrollNzApi.md#update_employee) | **PUT** /Employees/{EmployeeID} | Updates an existing employee
-[**update_employee_earnings_template**](PayrollNzApi.md#update_employee_earnings_template) | **PUT** /Employees/{EmployeeID}/PayTemplates/earnings/{PayTemplateEarningID} | Updates an earnings template records for an employee
+[**update_employee_earnings_template**](PayrollNzApi.md#update_employee_earnings_template) | **PUT** /Employees/{EmployeeID}/PayTemplates/Earnings/{PayTemplateEarningID} | Updates an earnings template records for an employee
 [**update_employee_leave**](PayrollNzApi.md#update_employee_leave) | **PUT** /Employees/{EmployeeID}/Leave/{LeaveID} | Updates leave records for a specific employee
 [**update_employee_salary_and_wage**](PayrollNzApi.md#update_employee_salary_and_wage) | **PUT** /Employees/{EmployeeID}/SalaryAndWages/{SalaryAndWagesID} | Updates an employee&#39;s salary and wages record
 [**update_employee_tax**](PayrollNzApi.md#update_employee_tax) | **POST** /Employees/{EmployeeID}/Tax | Updates the tax records for a specific employee
@@ -526,7 +530,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
-employee_leave_setup = { "holidayPayOpeningBalance": 10, "annualLeaveOpeningBalance": 100, "sickLeaveHoursToAccrueAnnually": 20, "sickLeaveOpeningBalance": 10 } # EmployeeLeaveSetup | 
+employee_leave_setup = { "holidayPayOpeningBalance": 10, "annualLeaveOpeningBalance": 100, "sickLeaveHoursToAccrueAnnually": 20, "sickLeaveToAccrueAnnually": 20, "sickLeaveOpeningBalance": 10, "sickLeaveScheduleOfAccrual": "OnAnniversaryDate", "sickLeaveAnniversaryDate": "2023-12-31", "annualLeaveAnniversaryDate": "2023-12-31" } # EmployeeLeaveSetup | 
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -597,7 +601,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
-employee_leave_type = { "leaveTypeID": "35da97ae-05b9-427f-9a98-69157ba42cec", "scheduleOfAccrual": "AnnuallyAfter6Months", "hoursAccruedAnnually": 10, "maximumToAccrue": 80, "openingBalance": 100, "rateAccruedHourly": 3.5 } # EmployeeLeaveType | 
+employee_leave_type = { "leaveTypeID": "35da97ae-05b9-427f-9a98-69157ba42cec", "scheduleOfAccrual": "AnnuallyAfter6Months", "hoursAccruedAnnually": 10, "unitsAccruedAnnually": 10, "typeOfUnitsToAccrue": "Hours", "openingBalanceTypeOfUnits": "Hours" "maximumToAccrue": 80, "openingBalance": 100, "rateAccruedHourly": 3.5 } # EmployeeLeaveType | 
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -848,6 +852,77 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## create_employee_working_pattern
+
+> EmployeeWorkingPatternWithWorkingWeeksObject create_employee_working_pattern(xero_tenant_id, employee_id, employee_working_pattern_with_working_weeks_request, opts)
+
+Creates an employee working pattern
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# You need to namespace your api method call to one of the following api sets
+# [:accounting_api, :assets_api, :projects_api, :files_api, :payroll_au_api, :payroll_nz_api, :payroll_uk_api, :app_store_api]
+
+api_instance = xero_client.<api_set>
+
+
+
+xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
+employee_working_pattern_with_working_weeks_request = { "effectiveFrom": "2020-01-01T00:00:00", "workingWeeks": [ { "monday": 0.0, "tuesday": 3.0000, "wednesday": 0.0, "thursday": 0.0, "friday": 0.0, "saturday": 0.0, "sunday": 0.0 } ] } # EmployeeWorkingPatternWithWorkingWeeksRequest | 
+opts = {
+  idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+}
+
+begin
+  #Creates an employee working pattern
+  result = api_instance.create_employee_working_pattern(xero_tenant_id, employee_id, employee_working_pattern_with_working_weeks_request, opts)
+  p result
+rescue XeroRuby::PayrollNz::ApiError => e
+  puts "Exception when calling PayrollNzApi->create_employee_working_pattern: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **employee_id** | [**String**](.md)| Employee id for single object | 
+ **employee_working_pattern_with_working_weeks_request** | [**EmployeeWorkingPatternWithWorkingWeeksRequest**](EmployeeWorkingPatternWithWorkingWeeksRequest.md)|  | 
+ **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
+
+### Return type
+
+[**EmployeeWorkingPatternWithWorkingWeeksObject**](EmployeeWorkingPatternWithWorkingWeeksObject.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## create_employment
 
 > EmploymentObject create_employment(xero_tenant_id, employee_id, employment, opts)
@@ -881,7 +956,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
-employment = { "payrollCalendarID": "9aa56064-990f-4ad3-a189-d966d8f6a030", "startDate": "2020-09-02" } # Employment | 
+employment = { "payrollCalendarID": "9aa56064-990f-4ad3-a189-d966d8f6a030", "startDate": "2020-09-02", "engagementType": "FixedTerm", "fixedTermEndDate": "2026-01-01" } # Employment | 
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -1662,6 +1737,72 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SalaryAndWageObject**](SalaryAndWageObject.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## delete_employee_working_pattern
+
+> EmployeeLeaveObject delete_employee_working_pattern(xero_tenant_id, employee_id, employee_working_pattern_id)
+
+deletes employee's working patterns
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# You need to namespace your api method call to one of the following api sets
+# [:accounting_api, :assets_api, :projects_api, :files_api, :payroll_au_api, :payroll_nz_api, :payroll_uk_api, :app_store_api]
+
+api_instance = xero_client.<api_set>
+
+
+
+xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
+employee_working_pattern_id = '4ff1e5cc-9835-40d5-bb18-09f3b118db9c' # String | Employee working pattern id for single object
+begin
+  #deletes employee's working patterns
+  result = api_instance.delete_employee_working_pattern(xero_tenant_id, employee_id, employee_working_pattern_id)
+  p result
+rescue XeroRuby::PayrollNz::ApiError => e
+  puts "Exception when calling PayrollNzApi->delete_employee_working_pattern: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **employee_id** | [**String**](.md)| Employee id for single object | 
+ **employee_working_pattern_id** | [**String**](.md)| Employee working pattern id for single object | 
+
+### Return type
+
+[**EmployeeLeaveObject**](EmployeeLeaveObject.md)
 
 ### Authorization
 
@@ -2773,6 +2914,136 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmployeeTaxObject**](EmployeeTaxObject.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_employee_working_pattern
+
+> EmployeeWorkingPatternWithWorkingWeeksObject get_employee_working_pattern(xero_tenant_id, employee_id, employee_working_pattern_id)
+
+Retrieves employee's working patterns
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# You need to namespace your api method call to one of the following api sets
+# [:accounting_api, :assets_api, :projects_api, :files_api, :payroll_au_api, :payroll_nz_api, :payroll_uk_api, :app_store_api]
+
+api_instance = xero_client.<api_set>
+
+
+
+xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
+employee_working_pattern_id = '4ff1e5cc-9835-40d5-bb18-09f3b118db9c' # String | Employee working pattern id for single object
+begin
+  #Retrieves employee's working patterns
+  result = api_instance.get_employee_working_pattern(xero_tenant_id, employee_id, employee_working_pattern_id)
+  p result
+rescue XeroRuby::PayrollNz::ApiError => e
+  puts "Exception when calling PayrollNzApi->get_employee_working_pattern: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **employee_id** | [**String**](.md)| Employee id for single object | 
+ **employee_working_pattern_id** | [**String**](.md)| Employee working pattern id for single object | 
+
+### Return type
+
+[**EmployeeWorkingPatternWithWorkingWeeksObject**](EmployeeWorkingPatternWithWorkingWeeksObject.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_employee_working_patterns
+
+> EmployeeWorkingPatternsObject get_employee_working_patterns(xero_tenant_id, employee_id)
+
+Retrieves employee's working patterns
+
+### Example
+
+```ruby
+# load the gem
+require 'xero-ruby'
+
+creds = {
+  client_id: ENV['CLIENT_ID'],
+  client_secret: ENV['CLIENT_SECRET'],
+  redirect_uri: ENV['REDIRECT_URI'],
+  scopes: ENV['SCOPES']
+}
+xero_client = XeroRuby::ApiClient.new(credentials: creds)
+
+token_set = fetch_valid_token_set(user) # example
+
+xero_client.refresh_token_set(token_set)
+
+# You need to namespace your api method call to one of the following api sets
+# [:accounting_api, :assets_api, :projects_api, :files_api, :payroll_au_api, :payroll_nz_api, :payroll_uk_api, :app_store_api]
+
+api_instance = xero_client.<api_set>
+
+
+
+xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
+employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
+begin
+  #Retrieves employee's working patterns
+  result = api_instance.get_employee_working_patterns(xero_tenant_id, employee_id)
+  p result
+rescue XeroRuby::PayrollNz::ApiError => e
+  puts "Exception when calling PayrollNzApi->get_employee_working_patterns: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **String**| Xero identifier for Tenant | 
+ **employee_id** | [**String**](.md)| Employee id for single object | 
+
+### Return type
+
+[**EmployeeWorkingPatternsObject**](EmployeeWorkingPatternsObject.md)
 
 ### Authorization
 

@@ -19,6 +19,9 @@ module XeroRuby::Accounting
 
     attr_accessor :pagination
     
+    # Displays array of warning messages from the API
+    attr_accessor :warnings
+    
 
     attr_accessor :purchase_orders
     
@@ -26,6 +29,7 @@ module XeroRuby::Accounting
     def self.attribute_map
       {
         :'pagination' => :'pagination',
+        :'warnings' => :'Warnings',
         :'purchase_orders' => :'PurchaseOrders'
       }
     end
@@ -34,6 +38,7 @@ module XeroRuby::Accounting
     def self.openapi_types
       {
         :'pagination' => :'Pagination',
+        :'warnings' => :'Array<ValidationError>',
         :'purchase_orders' => :'Array<PurchaseOrder>'
       }
     end
@@ -55,6 +60,12 @@ module XeroRuby::Accounting
 
       if attributes.key?(:'pagination')
         self.pagination = attributes[:'pagination']
+      end
+
+      if attributes.key?(:'warnings')
+        if (value = attributes[:'warnings']).is_a?(Array)
+          self.warnings = value
+        end
       end
 
       if attributes.key?(:'purchase_orders')
@@ -83,6 +94,7 @@ module XeroRuby::Accounting
       return true if self.equal?(o)
       self.class == o.class &&
           pagination == o.pagination &&
+          warnings == o.warnings &&
           purchase_orders == o.purchase_orders
     end
 
@@ -95,7 +107,7 @@ module XeroRuby::Accounting
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [pagination, purchase_orders].hash
+      [pagination, warnings, purchase_orders].hash
     end
 
     # Builds the object from hash

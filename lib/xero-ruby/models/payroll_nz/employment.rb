@@ -25,12 +25,20 @@ module XeroRuby::PayrollNz
     # Start date of the employment (YYYY-MM-DD)
     attr_accessor :start_date
     
+    # Engagement type of the employee
+    attr_accessor :engagement_type
+    
+    # End date for an employee with a fixed-term engagement type
+    attr_accessor :fixed_term_end_date
+    
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'payroll_calendar_id' => :'payrollCalendarID',
         :'pay_run_calendar_id' => :'payRunCalendarID',
-        :'start_date' => :'startDate'
+        :'start_date' => :'startDate',
+        :'engagement_type' => :'engagementType',
+        :'fixed_term_end_date' => :'fixedTermEndDate'
       }
     end
 
@@ -39,7 +47,9 @@ module XeroRuby::PayrollNz
       {
         :'payroll_calendar_id' => :'String',
         :'pay_run_calendar_id' => :'String',
-        :'start_date' => :'Date'
+        :'start_date' => :'Date',
+        :'engagement_type' => :'String',
+        :'fixed_term_end_date' => :'Date'
       }
     end
 
@@ -69,6 +79,14 @@ module XeroRuby::PayrollNz
       if attributes.key?(:'start_date')
         self.start_date = attributes[:'start_date']
       end
+
+      if attributes.key?(:'engagement_type')
+        self.engagement_type = attributes[:'engagement_type']
+      end
+
+      if attributes.key?(:'fixed_term_end_date')
+        self.fixed_term_end_date = attributes[:'fixed_term_end_date']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -91,7 +109,9 @@ module XeroRuby::PayrollNz
       self.class == o.class &&
           payroll_calendar_id == o.payroll_calendar_id &&
           pay_run_calendar_id == o.pay_run_calendar_id &&
-          start_date == o.start_date
+          start_date == o.start_date &&
+          engagement_type == o.engagement_type &&
+          fixed_term_end_date == o.fixed_term_end_date
     end
 
     # @see the `==` method
@@ -103,7 +123,7 @@ module XeroRuby::PayrollNz
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [payroll_calendar_id, pay_run_calendar_id, start_date].hash
+      [payroll_calendar_id, pay_run_calendar_id, start_date, engagement_type, fixed_term_end_date].hash
     end
 
     # Builds the object from hash
