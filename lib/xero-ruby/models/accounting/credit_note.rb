@@ -78,7 +78,7 @@ module XeroRuby::Accounting
     # ACCRECCREDIT only – additional reference number
     attr_accessor :reference
     
-    # boolean to indicate if a credit note has been sent to a contact via  the Xero app (currently read only)
+    # Boolean to set whether the credit note in the Xero app should be marked as “sent”. This can be set only on credit notes that have been approved
     attr_accessor :sent_to_contact
     
     # The currency rate for a multicurrency invoice. If no rate is specified, the XE.com day rate is used
