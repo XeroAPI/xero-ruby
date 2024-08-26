@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **credit_note_id** | **String** | Xero generated unique identifier | [optional] 
 **credit_note_number** | **String** | ACCRECCREDIT – Unique alpha numeric code identifying credit note (when missing will auto-generate from your Organisation Invoice Settings) | [optional] 
 **reference** | **String** | ACCRECCREDIT only – additional reference number | [optional] 
-**sent_to_contact** | **Boolean** | boolean to indicate if a credit note has been sent to a contact via  the Xero app (currently read only) | [optional] 
+**sent_to_contact** | **Boolean** | Boolean to set whether the credit note in the Xero app should be marked as “sent”. This can be set only on credit notes that have been approved | [optional] 
 **currency_rate** | **BigDecimal** | The currency rate for a multicurrency invoice. If no rate is specified, the XE.com day rate is used | [optional] 
 **remaining_credit** | **BigDecimal** | The remaining credit balance on the Credit Note | [optional] 
 **allocations** | [**Array&lt;Allocation&gt;**](Allocation.md) | See Allocations | [optional] 
