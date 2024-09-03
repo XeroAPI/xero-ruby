@@ -1,6 +1,6 @@
 # XeroRuby::Accounting::AccountingApi
 
-All URIs are relative to *https://api.xero.com/api.xro/2.0*
+All URIs are relative to test *https://api.xero.com/api.xro/2.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
