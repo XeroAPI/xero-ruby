@@ -1,6 +1,6 @@
 # XeroRuby::Files::FilesApi
 
-All URIs are relative to test*https://api.xero.com/files.xro/1.0*
+All URIs are relative to test test12*https://api.xero.com/files.xro/1.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
