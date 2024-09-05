@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'shared helper methods' do
 
   describe '#parse_date' do
-    let(:model_instance) {XeroRuby::Accounting::Account.new}
+    let(:model_instance) { XeroRuby::Accounting::Account.new }
 
     it 'can parse from ms date with backslash' do
       datestring = "\/Date(1519851689297+0000)\/"
@@ -85,11 +85,11 @@ describe 'shared helper methods' do
 
     describe '#attributes' do
       it 'can serialize invoice attributes into a snake_case hash' do
-        expect(invoice.to_attributes).to eq({currency_code: "USD", has_attachments: false, has_errors: false, invoice_number: "abc-123", total_discount: 100, type: "ACCPAY"})
+        expect(invoice.to_attributes).to eq({ currency_code: "USD", has_attachments: false, has_errors: false, invoice_number: "abc-123", total_discount: 100, type: "ACCPAY" })
       end
   
       it 'can serialize contact attributes into a snake_case hash' do
-        expect(contact.to_attributes).to eq({account_number: "abc-123", contact_status: "ACTIVE", email_address: "email@gmail.com", first_name: 'Contact', has_attachments: false, has_validation_errors: false, last_name: "Name", name: "Contact Name"})
+        expect(contact.to_attributes).to eq({ account_number: "abc-123", contact_status: "ACTIVE", email_address: "email@gmail.com", first_name: 'Contact', has_attachments: false, has_validation_errors: false, last_name: "Name", name: "Contact Name" })
       end
 
       it 'can serialize nested attributes into a snake_case hash' do

@@ -52,7 +52,7 @@ module XeroRuby
 
     def append_to_default_config(default_config, user_config)
       config = default_config
-      user_config.each{|k,v| config.send("#{k}=", v)}
+      user_config.each { |k, v| config.send("#{k}=", v) }
       config
     end
 
@@ -143,7 +143,7 @@ module XeroRuby
       set_access_token(token_set[:access_token]) if token_set[:access_token]
       set_id_token(token_set[:id_token]) if token_set[:id_token]
       
-      return true
+      true
     end
 
     def set_access_token(access_token)
@@ -160,7 +160,7 @@ module XeroRuby
       }
       token_set = token_request(data, '/token')
 
-      return token_set
+      token_set
     end
 
     def get_token_set_from_callback(params)
@@ -173,7 +173,7 @@ module XeroRuby
 
       validate_tokens(token_set)
       validate_state(params)
-      return token_set
+      token_set
     end
 
     def validate_tokens(token_set)
@@ -184,17 +184,17 @@ module XeroRuby
         decode_jwt(access_token) if access_token
         decode_jwt(id_token) if id_token
       end
-      return true
+      true
     end
 
     def validate_state(params)
       if params['state'] != @state
         raise StandardError.new "WARNING: @config.state: #{@state} and OAuth callback state: #{params['state']} do not match!"
       end
-      return true
+      true
     end
 
-    def decode_jwt(tkn, verify=true)
+    def decode_jwt(tkn, verify = true)
       if verify == true
 
         response = Faraday.get('https://identity.xero.com/.well-known/openid-configuration/jwks') do |req|
@@ -220,7 +220,7 @@ module XeroRuby
         grant_type: 'refresh_token',
         refresh_token: token_set[:refresh_token]
       }
-      return token_request(data, '/token')
+      token_request(data, '/token')
     end
 
     def revoke_token(token_set)
@@ -228,7 +228,7 @@ module XeroRuby
       data = {
         token: token_set[:refresh_token]
       }
-      return token_request(data, '/revocation')
+      token_request(data, '/revocation')
     end
 
     def token_request(data, path)
@@ -245,24 +245,24 @@ module XeroRuby
       else
         body = {}
       end
-      return body
+      body
     end
 
     # Connection heplers
     def connections
       @config.base_url = 'https://api.xero.com'
-      opts = { :header_params => {'Content-Type': 'application/json'}, :auth_names => ['OAuth2'] }
+      opts = { :header_params => { 'Content-Type': 'application/json' }, :auth_names => ['OAuth2'] }
       response = call_api(:GET, "/connections/", nil, opts)
       response[0]
     end
 
     def last_connection
-      connections.sort { |a,b| DateTime.parse(a['updatedDateUtc']) <=> DateTime.parse(b['updatedDateUtc'])}.last
+      connections.sort { |a, b| DateTime.parse(a['updatedDateUtc']) <=> DateTime.parse(b['updatedDateUtc']) }.last
     end
 
     def disconnect(connection_id)
       @config.base_url = 'https://api.xero.com'
-      opts = { :header_params => {'Content-Type': 'application/json'}, :auth_names => ['OAuth2'] }
+      opts = { :header_params => { 'Content-Type': 'application/json' }, :auth_names => ['OAuth2'] }
       call_api(:DELETE, "/connections/#{connection_id}", nil, opts)
       connections
     end
@@ -286,7 +286,7 @@ module XeroRuby
       when "AssetApi"
         method_base_url = @config.asset_url
       when "FilesApi"
-       method_base_url = @config.files_url
+        method_base_url = @config.files_url
       when "PayrollAuApi"
         method_base_url = @config.payroll_au_url
       when "PayrollNzApi"
