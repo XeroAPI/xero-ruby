@@ -1,6 +1,6 @@
 # XeroRuby::Finance::FinanceApi
 
-All URIs are relative to *https://api.xero.com/finance.xro/1.0*
+All URIs are relative to test*https://api.xero.com/finance.xro/1.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
