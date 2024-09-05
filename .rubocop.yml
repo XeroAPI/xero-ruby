@@ -140,7 +140,7 @@ Lint/RequireParentheses:
   Enabled: true
 
 Style/RedundantReturn:
-  Enabled: true
+  Enabled: false
   AllowMultipleReturnValues: true
 
 Style/Semicolon:

@@ -143,7 +143,7 @@ module XeroRuby
       set_access_token(token_set[:access_token]) if token_set[:access_token]
       set_id_token(token_set[:id_token]) if token_set[:id_token]
       
-      true
+      return true
     end
 
     def set_access_token(access_token)
@@ -160,7 +160,7 @@ module XeroRuby
       }
       token_set = token_request(data, '/token')
 
-      token_set
+      return token_set
     end
 
     def get_token_set_from_callback(params)
@@ -173,7 +173,7 @@ module XeroRuby
 
       validate_tokens(token_set)
       validate_state(params)
-      token_set
+      return token_set
     end
 
     def validate_tokens(token_set)
@@ -184,14 +184,14 @@ module XeroRuby
         decode_jwt(access_token) if access_token
         decode_jwt(id_token) if id_token
       end
-      true
+      return true
     end
 
     def validate_state(params)
       if params['state'] != @state
         raise StandardError.new "WARNING: @config.state: #{@state} and OAuth callback state: #{params['state']} do not match!"
       end
-      true
+      return true
     end
 
     def decode_jwt(tkn, verify = true)
@@ -220,7 +220,7 @@ module XeroRuby
         grant_type: 'refresh_token',
         refresh_token: token_set[:refresh_token]
       }
-      token_request(data, '/token')
+      return token_request(data, '/token')
     end
 
     def revoke_token(token_set)
@@ -228,7 +228,7 @@ module XeroRuby
       data = {
         token: token_set[:refresh_token]
       }
-      token_request(data, '/revocation')
+      return token_request(data, '/revocation')
     end
 
     def token_request(data, path)
@@ -245,7 +245,7 @@ module XeroRuby
       else
         body = {}
       end
-      body
+      return body
     end
 
     # Connection heplers
