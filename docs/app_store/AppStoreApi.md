@@ -1,6 +1,6 @@
 # XeroRuby::AppStore::AppStoreApi
 
-All URIs are relative to test test12*https://api.xero.com/appstore/2.0*
+All URIs are relative to *https://api.xero.com/appstore/2.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

@@ -1,6 +1,6 @@
 # XeroRuby::PayrollAu::PayrollAuApi
 
-All URIs are relative to test test12*https://api.xero.com/payroll.xro/1.0*
+All URIs are relative to *https://api.xero.com/payroll.xro/1.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
