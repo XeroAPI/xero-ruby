@@ -52,7 +52,7 @@ module XeroRuby
 
     def append_to_default_config(default_config, user_config)
       config = default_config
-      user_config.each{|k,v| config.send("#{k}=", v)}
+      user_config.each { |k, v| config.send("#{k}=", v) }
       config
     end
 
@@ -194,7 +194,7 @@ module XeroRuby
       return true
     end
 
-    def decode_jwt(tkn, verify=true)
+    def decode_jwt(tkn, verify = true)
       if verify == true
 
         response = Faraday.get('https://identity.xero.com/.well-known/openid-configuration/jwks') do |req|
@@ -251,18 +251,18 @@ module XeroRuby
     # Connection heplers
     def connections
       @config.base_url = 'https://api.xero.com'
-      opts = { :header_params => {'Content-Type': 'application/json'}, :auth_names => ['OAuth2'] }
+      opts = { :header_params => { 'Content-Type': 'application/json' }, :auth_names => ['OAuth2'] }
       response = call_api(:GET, "/connections/", nil, opts)
       response[0]
     end
 
     def last_connection
-      connections.sort { |a,b| DateTime.parse(a['updatedDateUtc']) <=> DateTime.parse(b['updatedDateUtc'])}.last
+      connections.sort { |a, b| DateTime.parse(a['updatedDateUtc']) <=> DateTime.parse(b['updatedDateUtc']) }.last
     end
 
     def disconnect(connection_id)
       @config.base_url = 'https://api.xero.com'
-      opts = { :header_params => {'Content-Type': 'application/json'}, :auth_names => ['OAuth2'] }
+      opts = { :header_params => { 'Content-Type': 'application/json' }, :auth_names => ['OAuth2'] }
       call_api(:DELETE, "/connections/#{connection_id}", nil, opts)
       connections
     end
@@ -286,7 +286,7 @@ module XeroRuby
       when "AssetApi"
         method_base_url = @config.asset_url
       when "FilesApi"
-       method_base_url = @config.files_url
+        method_base_url = @config.files_url
       when "PayrollAuApi"
         method_base_url = @config.payroll_au_url
       when "PayrollNzApi"

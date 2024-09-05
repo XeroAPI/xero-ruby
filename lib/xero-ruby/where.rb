@@ -17,51 +17,51 @@ module XeroRuby
 
     private
 
-    def parameterize_option(key, value)
-      quoted_key = quote_key(key)
+      def parameterize_option(key, value)
+        quoted_key = quote_key(key)
 
-      case value
-      when Array
-        operator, query = value
+        case value
+        when Array
+          operator, query = value
 
-        if STRING_FUNCTIONS.include?(camelize_key(operator))
-          "#{quoted_key}.#{camelize_key(operator)}(#{quote_value(query)})"
+          if STRING_FUNCTIONS.include?(camelize_key(operator))
+            "#{quoted_key}.#{camelize_key(operator)}(#{quote_value(query)})"
+          else
+            "#{quoted_key} #{operator} #{quote_value(query)}"
+          end
+        when Range
+          "#{quoted_key} >= #{quote_value(value.first)} AND #{quoted_key} <= #{quote_value(value.last)}"
+        when /^\./
+          "#{quoted_key}#{value}"
         else
-        "#{quoted_key} #{operator} #{quote_value(query)}"
+          "#{quoted_key} #{value}"
         end
-      when Range
-        "#{quoted_key} >= #{quote_value(value.first)} AND #{quoted_key} <= #{quote_value(value.last)}"
-      when /^\./
-        "#{quoted_key}#{value}"
-      else
-        "#{quoted_key} #{value}"
       end
-    end
 
-    def quote_key(key)
-      case key
-      when :contact_id
-        'Contact.ContactID'
-      when :contact_number
-        'Contact.ContactNumber'
-      when :invoice_id
-        'Invoice.InvoiceId'
-      else
-        camelize_key(key)
+      def quote_key(key)
+        case key
+        when :contact_id
+          'Contact.ContactID'
+        when :contact_number
+          'Contact.ContactNumber'
+        when :invoice_id
+          'Invoice.InvoiceId'
+        else
+          camelize_key(key)
+        end
       end
-    end
 
-    def quote_value(value)
-      case value
-      when DateTime, Date, Time
-        "DateTime(#{value.strftime("%Y,%m,%d")})"
-      when Numeric, false, true
-        value.to_s
-      when UUID_REGEXP
-        %{guid("#{value}")}
-      else
-        %{"#{value.to_s.gsub('"', '""')}"}
+      def quote_value(value)
+        case value
+        when DateTime, Date, Time
+          "DateTime(#{value.strftime("%Y,%m,%d")})"
+        when Numeric, false, true
+          value.to_s
+        when UUID_REGEXP
+          %{guid("#{value}")}
+        else
+          %{"#{value.to_s.gsub('"', '""')}"}
+        end
       end
-    end
   end
 end

@@ -69,13 +69,13 @@ describe XeroRuby::Where do
   end
 
   describe "operators starting with a dot" do
-    let(:opts) { {a: '.Test("Hello")' } }
+    let(:opts) { { a: '.Test("Hello")' } }
 
     it { is_expected.to eq %{A.Test("Hello")} }
   end
 
   describe "unmatched operators" do
-    let(:opts) { {a: 'something unusual'} }
+    let(:opts) { { a: 'something unusual' } }
 
     it { is_expected.to eq %{A something unusual} }
   end
