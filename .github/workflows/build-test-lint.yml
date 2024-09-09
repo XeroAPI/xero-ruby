@@ -1,0 +1,39 @@
+name: Ruby Build, Lint and Test
+
+on:
+    pull_request:
+      branches:
+        - master
+
+jobs:
+    build-test-lint:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout xero-ruby repo
+              uses: actions/checkout@v4
+              with:
+                repository: XeroAPI/xero-ruby
+                path: xero-ruby
+
+            - name: Set up Ruby environment
+              uses: ruby/setup-ruby@v1
+              with: 
+                ruby-version: '3.0'
+                bundler-cache: true
+
+            - name: Install dependencies
+              run: bundle install
+              working-directory: xero-ruby
+
+            - name: Compile Build
+              run: find . -name "*.rb" | xargs -n 1 ruby -c > /dev/null 2>&1 || exit 1
+              working-directory: xero-ruby
+
+            - name: Lint Code
+              run: bundle exec rubocop
+              working-directory: xero-ruby
+
+            - name: Run Tests
+              run: bundle exec rake spec
+              working-directory: xero-ruby
