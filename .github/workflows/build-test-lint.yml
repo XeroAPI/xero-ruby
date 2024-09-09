@@ -1,9 +1,7 @@
 name: Ruby Build, Lint and Test
 
 on:
-    pull_request:
-      branches:
-        - master
+    push:
 
 jobs:
     build-test-lint:
