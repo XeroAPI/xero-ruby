@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **maximum_to_accrue** | **Float** | The maximum number of hours that can be accrued for the leave | [optional] 
 **opening_balance** | **Float** | The initial number of hours assigned when the leave was added to the employee | [optional] 
 **rate_accrued_hourly** | **Float** | The number of hours added to the leave balance for every hour worked by the employee. This is normally 0, unless the scheduleOfAccrual chosen is \&quot;OnHourWorked\&quot; | [optional] 
+**schedule_of_accrual_date** | **Date** | The date when an employee becomes entitled to their accrual. Only applicable when scheduleOfAccrual is \&quot;OnAnniversaryDate\&quot; | [optional] 
 
 ## Code Sample
 
@@ -21,7 +22,8 @@ instance = XeroRuby::PayrollUk::EmployeeLeaveType.new(leave_type_id: null,
                                  hours_accrued_annually: null,
                                  maximum_to_accrue: null,
                                  opening_balance: null,
-                                 rate_accrued_hourly: null)
+                                 rate_accrued_hourly: null,
+                                 schedule_of_accrual_date: Mon Apr 01 00:00:00 GMT 2024)
 ```
 
 
