@@ -38,6 +38,9 @@ module XeroRuby::PayrollUk
     # The number of hours added to the leave balance for every hour worked by the employee. This is normally 0, unless the scheduleOfAccrual chosen is \"OnHourWorked\"
     attr_accessor :rate_accrued_hourly
     
+    # The date when an employee becomes entitled to their accrual. Only applicable when scheduleOfAccrual is \"OnAnniversaryDate\"
+    attr_accessor :schedule_of_accrual_date
+    
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -68,7 +71,8 @@ module XeroRuby::PayrollUk
         :'hours_accrued_annually' => :'hoursAccruedAnnually',
         :'maximum_to_accrue' => :'maximumToAccrue',
         :'opening_balance' => :'openingBalance',
-        :'rate_accrued_hourly' => :'rateAccruedHourly'
+        :'rate_accrued_hourly' => :'rateAccruedHourly',
+        :'schedule_of_accrual_date' => :'scheduleOfAccrualDate'
       }
     end
 
@@ -80,7 +84,8 @@ module XeroRuby::PayrollUk
         :'hours_accrued_annually' => :'Float',
         :'maximum_to_accrue' => :'Float',
         :'opening_balance' => :'Float',
-        :'rate_accrued_hourly' => :'Float'
+        :'rate_accrued_hourly' => :'Float',
+        :'schedule_of_accrual_date' => :'Date'
       }
     end
 
@@ -121,6 +126,10 @@ module XeroRuby::PayrollUk
 
       if attributes.key?(:'rate_accrued_hourly')
         self.rate_accrued_hourly = attributes[:'rate_accrued_hourly']
+      end
+
+      if attributes.key?(:'schedule_of_accrual_date')
+        self.schedule_of_accrual_date = attributes[:'schedule_of_accrual_date']
       end
     end
 
@@ -169,7 +178,8 @@ module XeroRuby::PayrollUk
           hours_accrued_annually == o.hours_accrued_annually &&
           maximum_to_accrue == o.maximum_to_accrue &&
           opening_balance == o.opening_balance &&
-          rate_accrued_hourly == o.rate_accrued_hourly
+          rate_accrued_hourly == o.rate_accrued_hourly &&
+          schedule_of_accrual_date == o.schedule_of_accrual_date
     end
 
     # @see the `==` method
@@ -181,7 +191,7 @@ module XeroRuby::PayrollUk
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [leave_type_id, schedule_of_accrual, hours_accrued_annually, maximum_to_accrue, opening_balance, rate_accrued_hourly].hash
+      [leave_type_id, schedule_of_accrual, hours_accrued_annually, maximum_to_accrue, opening_balance, rate_accrued_hourly, schedule_of_accrual_date].hash
     end
 
     # Builds the object from hash
