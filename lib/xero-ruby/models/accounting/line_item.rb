@@ -61,6 +61,42 @@ module XeroRuby::Accounting
     # The Xero identifier for a Repeating Invoice
     attr_accessor :repeating_invoice_id
     
+    # The type of taxability
+    attr_accessor :taxability
+    TAXABLE ||= "TAXABLE".freeze
+    NON_TAXABLE ||= "NON_TAXABLE".freeze
+    EXEMPT ||= "EXEMPT".freeze
+    PART_TAXABLE ||= "PART_TAXABLE".freeze
+    NOT_APPLICABLE ||= "NOT_APPLICABLE".freeze
+    
+    # The ID of the sales tax code
+    attr_accessor :sales_tax_code_id
+    
+    # An array of tax components defined for this line item
+    attr_accessor :tax_breakdown
+    
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -78,7 +114,10 @@ module XeroRuby::Accounting
         :'tracking' => :'Tracking',
         :'discount_rate' => :'DiscountRate',
         :'discount_amount' => :'DiscountAmount',
-        :'repeating_invoice_id' => :'RepeatingInvoiceID'
+        :'repeating_invoice_id' => :'RepeatingInvoiceID',
+        :'taxability' => :'Taxability',
+        :'sales_tax_code_id' => :'SalesTaxCodeId',
+        :'tax_breakdown' => :'TaxBreakdown'
       }
     end
 
@@ -99,7 +138,10 @@ module XeroRuby::Accounting
         :'tracking' => :'Array<LineItemTracking>',
         :'discount_rate' => :'BigDecimal',
         :'discount_amount' => :'BigDecimal',
-        :'repeating_invoice_id' => :'String'
+        :'repeating_invoice_id' => :'String',
+        :'taxability' => :'String',
+        :'sales_tax_code_id' => :'Float',
+        :'tax_breakdown' => :'Array<TaxBreakdownComponent>'
       }
     end
 
@@ -179,6 +221,20 @@ module XeroRuby::Accounting
       if attributes.key?(:'repeating_invoice_id')
         self.repeating_invoice_id = attributes[:'repeating_invoice_id']
       end
+
+      if attributes.key?(:'taxability')
+        self.taxability = attributes[:'taxability']
+      end
+
+      if attributes.key?(:'sales_tax_code_id')
+        self.sales_tax_code_id = attributes[:'sales_tax_code_id']
+      end
+
+      if attributes.key?(:'tax_breakdown')
+        if (value = attributes[:'tax_breakdown']).is_a?(Array)
+          self.tax_breakdown = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -191,7 +247,19 @@ module XeroRuby::Accounting
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      taxability_validator = EnumAttributeValidator.new('String', ["TAXABLE", "NON_TAXABLE", "EXEMPT", "PART_TAXABLE", "NOT_APPLICABLE"])
+      return false unless taxability_validator.valid?(@taxability)
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] taxability Object to be assigned
+    def taxability=(taxability)
+      validator = EnumAttributeValidator.new('String', ["TAXABLE", "NON_TAXABLE", "EXEMPT", "PART_TAXABLE", "NOT_APPLICABLE"])
+      unless validator.valid?(taxability)
+        fail ArgumentError, "invalid value for \"taxability\", must be one of #{validator.allowable_values}."
+      end
+      @taxability = taxability
     end
 
     # Checks equality by comparing each attribute.
@@ -213,7 +281,10 @@ module XeroRuby::Accounting
           tracking == o.tracking &&
           discount_rate == o.discount_rate &&
           discount_amount == o.discount_amount &&
-          repeating_invoice_id == o.repeating_invoice_id
+          repeating_invoice_id == o.repeating_invoice_id &&
+          taxability == o.taxability &&
+          sales_tax_code_id == o.sales_tax_code_id &&
+          tax_breakdown == o.tax_breakdown
     end
 
     # @see the `==` method
@@ -225,7 +296,7 @@ module XeroRuby::Accounting
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [line_item_id, description, quantity, unit_amount, item_code, account_code, account_id, tax_type, tax_amount, item, line_amount, tracking, discount_rate, discount_amount, repeating_invoice_id].hash
+      [line_item_id, description, quantity, unit_amount, item_code, account_code, account_id, tax_type, tax_amount, item, line_amount, tracking, discount_rate, discount_amount, repeating_invoice_id, taxability, sales_tax_code_id, tax_breakdown].hash
     end
 
     # Builds the object from hash

@@ -44,6 +44,7 @@ Name | Type | Description | Notes
 **status_attribute_string** | **String** | A string to indicate if a invoice status | [optional] 
 **validation_errors** | [**Array&lt;ValidationError&gt;**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
 **warnings** | [**Array&lt;ValidationError&gt;**](ValidationError.md) | Displays array of warning messages from the API | [optional] 
+**invoice_addresses** | [**Array&lt;InvoiceAddress&gt;**](InvoiceAddress.md) | An array of addresses used to auto calculate sales tax | [optional] 
 
 ## Code Sample
 
@@ -89,7 +90,8 @@ instance = XeroRuby::Accounting::Invoice.new(type: null,
                                  has_errors: false,
                                  status_attribute_string: null,
                                  validation_errors: null,
-                                 warnings: null)
+                                 warnings: null,
+                                 invoice_addresses: null)
 ```
 
 
