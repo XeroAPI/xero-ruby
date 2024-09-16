@@ -150,6 +150,9 @@ module XeroRuby::Accounting
     # Displays array of warning messages from the API
     attr_accessor :warnings
     
+    # An array of addresses used to auto calculate sales tax
+    attr_accessor :invoice_addresses
+    
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -214,7 +217,8 @@ module XeroRuby::Accounting
         :'has_errors' => :'HasErrors',
         :'status_attribute_string' => :'StatusAttributeString',
         :'validation_errors' => :'ValidationErrors',
-        :'warnings' => :'Warnings'
+        :'warnings' => :'Warnings',
+        :'invoice_addresses' => :'InvoiceAddresses'
       }
     end
 
@@ -260,7 +264,8 @@ module XeroRuby::Accounting
         :'has_errors' => :'Boolean',
         :'status_attribute_string' => :'String',
         :'validation_errors' => :'Array<ValidationError>',
-        :'warnings' => :'Array<ValidationError>'
+        :'warnings' => :'Array<ValidationError>',
+        :'invoice_addresses' => :'Array<InvoiceAddress>'
       }
     end
 
@@ -458,6 +463,12 @@ module XeroRuby::Accounting
           self.warnings = value
         end
       end
+
+      if attributes.key?(:'invoice_addresses')
+        if (value = attributes[:'invoice_addresses']).is_a?(Array)
+          self.invoice_addresses = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -556,7 +567,8 @@ module XeroRuby::Accounting
           has_errors == o.has_errors &&
           status_attribute_string == o.status_attribute_string &&
           validation_errors == o.validation_errors &&
-          warnings == o.warnings
+          warnings == o.warnings &&
+          invoice_addresses == o.invoice_addresses
     end
 
     # @see the `==` method
@@ -568,7 +580,7 @@ module XeroRuby::Accounting
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [type, contact, line_items, date, due_date, line_amount_types, invoice_number, reference, branding_theme_id, url, currency_code, currency_rate, status, sent_to_contact, expected_payment_date, planned_payment_date, cis_deduction, cis_rate, sub_total, total_tax, total, total_discount, invoice_id, repeating_invoice_id, has_attachments, is_discounted, payments, prepayments, overpayments, amount_due, amount_paid, fully_paid_on_date, amount_credited, updated_date_utc, credit_notes, attachments, has_errors, status_attribute_string, validation_errors, warnings].hash
+      [type, contact, line_items, date, due_date, line_amount_types, invoice_number, reference, branding_theme_id, url, currency_code, currency_rate, status, sent_to_contact, expected_payment_date, planned_payment_date, cis_deduction, cis_rate, sub_total, total_tax, total, total_discount, invoice_id, repeating_invoice_id, has_attachments, is_discounted, payments, prepayments, overpayments, amount_due, amount_paid, fully_paid_on_date, amount_credited, updated_date_utc, credit_notes, attachments, has_errors, status_attribute_string, validation_errors, warnings, invoice_addresses].hash
     end
 
     # Builds the object from hash

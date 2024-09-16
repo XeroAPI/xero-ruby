@@ -19,6 +19,9 @@ Name | Type | Description | Notes
 **discount_rate** | **BigDecimal** | Percentage discount being applied to a line item (only supported on  ACCREC invoices – ACC PAY invoices and credit notes in Xero do not support discounts | [optional] 
 **discount_amount** | **BigDecimal** | Discount amount being applied to a line item. Only supported on ACCREC invoices and quotes. ACCPAY invoices and credit notes in Xero do not support discounts. | [optional] 
 **repeating_invoice_id** | **String** | The Xero identifier for a Repeating Invoice | [optional] 
+**taxability** | **String** | The type of taxability | [optional] 
+**sales_tax_code_id** | **Float** | The ID of the sales tax code | [optional] 
+**tax_breakdown** | [**Array&lt;TaxBreakdownComponent&gt;**](TaxBreakdownComponent.md) | An array of tax components defined for this line item | [optional] 
 
 ## Code Sample
 
@@ -39,7 +42,10 @@ instance = XeroRuby::Accounting::LineItem.new(line_item_id: 00000000-0000-0000-0
                                  tracking: null,
                                  discount_rate: null,
                                  discount_amount: null,
-                                 repeating_invoice_id: 00000000-0000-0000-0000-000000000000)
+                                 repeating_invoice_id: 00000000-0000-0000-0000-000000000000,
+                                 taxability: null,
+                                 sales_tax_code_id: null,
+                                 tax_breakdown: null)
 ```
 
 

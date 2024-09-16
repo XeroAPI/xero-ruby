@@ -34,6 +34,7 @@ Name | Type | Description | Notes
 **has_errors** | **Boolean** | A boolean to indicate if a credit note has an validation errors | [optional] [default to false]
 **validation_errors** | [**Array&lt;ValidationError&gt;**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
 **warnings** | [**Array&lt;ValidationError&gt;**](ValidationError.md) | Displays array of warning messages from the API | [optional] 
+**invoice_addresses** | [**Array&lt;InvoiceAddress&gt;**](InvoiceAddress.md) | An array of addresses used to auto calculate sales tax | [optional] 
 
 ## Code Sample
 
@@ -69,7 +70,8 @@ instance = XeroRuby::Accounting::CreditNote.new(type: null,
                                  has_attachments: false,
                                  has_errors: false,
                                  validation_errors: null,
-                                 warnings: null)
+                                 warnings: null,
+                                 invoice_addresses: null)
 ```
 
 
