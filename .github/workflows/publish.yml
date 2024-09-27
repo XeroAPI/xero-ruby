@@ -2,6 +2,7 @@ name: Publish
 on:
   release:
     types: [published]
+  push:
 
 jobs:
   publish:
@@ -22,6 +23,15 @@ jobs:
       - name: Install dependencies
         run: bundle install
         working-directory: xero-ruby
+
+      - name: Set up .gemrc for authentication
+        run: |
+          echo "---" > ~/.gemrc
+          echo ":backtrace: false" >> ~/.gemrc
+          echo ":verbose: true" >> ~/.gemrc
+          echo ":update_sources: true" >> ~/.gemrc
+          echo ":gem: --no-document" >> ~/.gemrc
+          echo ":password: ${{ secrets.RUBYGEMS_API_KEY }}" >> ~/.gemrc
 
       - name: Publish to Ruby
         env:
