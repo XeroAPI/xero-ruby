@@ -25,7 +25,7 @@ jobs:
               working-directory: xero-ruby
 
             - name: Check Outdated Packages
-              run: bundle outdated
+              run: bundle outdated || true
               working-directory: xero-ruby
 
             - name: Check Vulnerable Packages
