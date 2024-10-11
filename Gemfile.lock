@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    xero-ruby (9.3.0)
+    xero-ruby (9.3.0.pre.alpha.1)
       faraday (>= 2.0, < 3.0)
       json (~> 2.1, >= 2.1.0)
       json-jwt (~> 1.16, >= 1.16.3)
