@@ -2,9 +2,6 @@ name: Publish
 on:
   release:
     types: [published]
-  pull_request:
-    branches:
-      - master
 
 jobs:
   publish:
@@ -37,19 +34,19 @@ jobs:
           ruby-version: '3.2.0'
           bundler-cache: true
 
-      # - name: Install dependencies
-      #   run: bundle install
-      #   working-directory: xero-ruby
+      - name: Install dependencies
+        run: bundle install
+        working-directory: xero-ruby
 
-      # - name: Publish to Ruby
-      #   env:
-      #     GEM_HOST_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
-      #   run: |
-      #     gemspec_file=$(ls *.gemspec) 
-      #     gem_file=$(gem build "$gemspec_file" | grep -o '[^ ]*\.gem')
-      #     echo "$gem_file"
-      #     gem push "$gem_file"
-      #   working-directory: xero-ruby
+      - name: Publish to Ruby
+        env:
+          GEM_HOST_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
+        run: |
+          gemspec_file=$(ls *.gemspec) 
+          gem_file=$(gem build "$gemspec_file" | grep -o '[^ ]*\.gem')
+          echo "$gem_file"
+          gem push "$gem_file"
+        working-directory: xero-ruby
 
   notify-slack-on-success:
     runs-on: ubuntu-latest
