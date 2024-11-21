@@ -34,14 +34,14 @@ We have an official [message board](https://community.xero.com/developer) where 
 
 # How Can I Contribute?
 
-You can contribute by reporting bugs, suggesting enhancements, improving documentation i.e. [README](https://github.com/XeroAPI/xero-ruby/README.md) or submitting a pull request.
+You can contribute by reporting bugs, suggesting enhancements, improving documentation i.e. [README](https://github.com/XeroAPI/xero-ruby/blob/master/README.md) or submitting a pull request.
 
 ## Reporting Bugs
 
 Bugs are tracked as issues in this repository.
 
 Before opening a new issue:
-* **check [the README](https://github.com/XeroAPI/xero-ruby/README.md)** to see if the behavior you observed might be expected and if configuration options are available to provide you with the desired behavior.
+* **check [the README](https://github.com/XeroAPI/xero-ruby/blob/master/README.md)** to see if the behavior you observed might be expected and if configuration options are available to provide you with the desired behavior.
 
 * **perform a cursory search** to see if there's [an existing issue](https://github.com/XeroAPI/xero-ruby/issues) covering your feedback. If there is one and the issue is still open, **add a :+1: reaction** on the issue to express interest in the issue being resolved. That will help the team gauge interest without the noise of comments which trigger notifications to all watchers. Comments should be used only if you have new and useful information to share.
 
