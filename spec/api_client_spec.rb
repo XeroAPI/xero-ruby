@@ -100,6 +100,22 @@ describe XeroRuby::ApiClient do
     end
   end
 
+  describe 'validations' do
+    subject { XeroRuby::ApiClient.new(config: {}, credentials: credentials) }
+
+    context 'when the client id is not valid' do
+      let(:credentials) { { client_id: '' } }
+
+      it { is_expected.not_to be_client_id_valid }
+    end
+
+    context 'when the client id is valid' do
+      let(:credentials) { { client_id: 'AAAAAA9E3FC416CF84283851A1BB7185' } }
+
+      it { is_expected.to be_client_id_valid }
+    end
+  end
+
   describe 'api_client helper functions' do
     let(:api_client) { XeroRuby::ApiClient.new }
     let(:token_set) { { 'access_token': 'eyx.authorization.data', 'id_token': 'eyx.authentication.data', 'refresh_token': 'REFRESHMENTS' } }
