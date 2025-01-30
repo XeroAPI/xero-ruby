@@ -6,9 +6,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **leave_type_id** | **String** | The Xero identifier for leave type | [optional] 
 **schedule_of_accrual** | **String** | The schedule of accrual | [optional] 
-**hours_accrued_annually** | **BigDecimal** | The number of hours accrued for the leave annually. This is 0 when the scheduleOfAccrual chosen is \&quot;OnHourWorked\&quot; | [optional] 
-**maximum_to_accrue** | **BigDecimal** | The maximum number of hours that can be accrued for the leave | [optional] 
-**opening_balance** | **BigDecimal** | The initial number of hours assigned when the leave was added to the employee | [optional] 
+**hours_accrued_annually** | **BigDecimal** | Deprecated use UnitsAccruedAnnually | [optional] 
+**units_accrued_annually** | **BigDecimal** | The number of units accrued for the leave annually. This is 0 when the ScheduleOfAccrual chosen is \&quot;NoAccruals\&quot; | [optional] 
+**type_of_units_to_accrue** | **String** | The type of units accrued for the leave annually | [optional] 
+**maximum_to_accrue** | **BigDecimal** | The maximum number of units that can be accrued for the leave | [optional] 
+**opening_balance** | **BigDecimal** | The initial number of units assigned when the leave was added to the employee | [optional] 
+**opening_balance_type_of_units** | **String** | The type of units for the opening balance | [optional] 
 **rate_accrued_hourly** | **BigDecimal** | The number of hours added to the leave balance for every hour worked by the employee. This is normally 0, unless the scheduleOfAccrual chosen is \&quot;OnHourWorked\&quot; | [optional] 
 **percentage_of_gross_earnings** | **BigDecimal** | Specific for scheduleOfAccrual having percentage of gross earnings. Identifies how much percentage of gross earnings is accrued per pay period. | [optional] 
 **include_holiday_pay_every_pay** | **Boolean** | Specific to Holiday pay. Flag determining if pay for leave type is added on each pay run. | [optional] 
@@ -24,8 +27,11 @@ require 'XeroRuby::PayrollNz'
 instance = XeroRuby::PayrollNz::EmployeeLeaveType.new(leave_type_id: null,
                                  schedule_of_accrual: null,
                                  hours_accrued_annually: null,
+                                 units_accrued_annually: null,
+                                 type_of_units_to_accrue: null,
                                  maximum_to_accrue: null,
                                  opening_balance: null,
+                                 opening_balance_type_of_units: null,
                                  rate_accrued_hourly: null,
                                  percentage_of_gross_earnings: null,
                                  include_holiday_pay_every_pay: null,
