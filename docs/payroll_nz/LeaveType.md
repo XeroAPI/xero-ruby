@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **show_on_payslip** | **Boolean** | Indicate that a balance for this leave type to be shown on the employee’s payslips | 
 **updated_date_utc** | **DateTime** | UTC timestamp of last update to the leave type note | [optional] 
 **is_active** | **Boolean** | Shows whether the leave type is active or not | [optional] 
+**type_of_units** | **String** | The type of units to be paid for the leave type | [optional] 
+**type_of_units_to_accrue** | **String** | The type of units to be accrued for the leave type | [optional] 
 
 ## Code Sample
 
@@ -21,7 +23,9 @@ instance = XeroRuby::PayrollNz::LeaveType.new(leave_type_id: null,
                                  is_paid_leave: null,
                                  show_on_payslip: null,
                                  updated_date_utc: null,
-                                 is_active: null)
+                                 is_active: null,
+                                 type_of_units: null,
+                                 type_of_units_to_accrue: null)
 ```
 
 

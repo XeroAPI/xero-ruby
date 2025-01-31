@@ -34,6 +34,12 @@ module XeroRuby::PayrollNz
     # Shows whether the leave type is active or not
     attr_accessor :is_active
     
+    # The type of units to be paid for the leave type
+    attr_accessor :type_of_units
+    
+    # The type of units to be accrued for the leave type
+    attr_accessor :type_of_units_to_accrue
+    
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -42,7 +48,9 @@ module XeroRuby::PayrollNz
         :'is_paid_leave' => :'isPaidLeave',
         :'show_on_payslip' => :'showOnPayslip',
         :'updated_date_utc' => :'updatedDateUTC',
-        :'is_active' => :'isActive'
+        :'is_active' => :'isActive',
+        :'type_of_units' => :'typeOfUnits',
+        :'type_of_units_to_accrue' => :'typeOfUnitsToAccrue'
       }
     end
 
@@ -54,7 +62,9 @@ module XeroRuby::PayrollNz
         :'is_paid_leave' => :'Boolean',
         :'show_on_payslip' => :'Boolean',
         :'updated_date_utc' => :'DateTime',
-        :'is_active' => :'Boolean'
+        :'is_active' => :'Boolean',
+        :'type_of_units' => :'String',
+        :'type_of_units_to_accrue' => :'String'
       }
     end
 
@@ -96,6 +106,14 @@ module XeroRuby::PayrollNz
       if attributes.key?(:'is_active')
         self.is_active = attributes[:'is_active']
       end
+
+      if attributes.key?(:'type_of_units')
+        self.type_of_units = attributes[:'type_of_units']
+      end
+
+      if attributes.key?(:'type_of_units_to_accrue')
+        self.type_of_units_to_accrue = attributes[:'type_of_units_to_accrue']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -136,7 +154,9 @@ module XeroRuby::PayrollNz
           is_paid_leave == o.is_paid_leave &&
           show_on_payslip == o.show_on_payslip &&
           updated_date_utc == o.updated_date_utc &&
-          is_active == o.is_active
+          is_active == o.is_active &&
+          type_of_units == o.type_of_units &&
+          type_of_units_to_accrue == o.type_of_units_to_accrue
     end
 
     # @see the `==` method
@@ -148,7 +168,7 @@ module XeroRuby::PayrollNz
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [leave_type_id, name, is_paid_leave, show_on_payslip, updated_date_utc, is_active].hash
+      [leave_type_id, name, is_paid_leave, show_on_payslip, updated_date_utc, is_active, type_of_units, type_of_units_to_accrue].hash
     end
 
     # Builds the object from hash

@@ -28,11 +28,17 @@ module XeroRuby::PayrollNz
     # The dollar value of annual leave opening balance if negative.
     attr_accessor :negative_annual_leave_balance_paid_amount
     
-    # Number of hours accrued annually for sick leave. Multiply the number of days they're entitled to by the hours worked per day
+    # Deprecated use SickLeaveToAccrueAnnually
     attr_accessor :sick_leave_hours_to_accrue_annually
     
-    # Maximum number of hours accrued annually for sick leave. Multiply the maximum days they can accrue by the hours worked per day
+    # Deprecated use SickLeaveMaximumToAccrue
     attr_accessor :sick_leave_maximum_hours_to_accrue
+    
+    # Number of units accrued annually for sick leave. The type of units is determined by the property \"TypeOfUnitsToAccrue\" on the \"Sick Leave\" leave type
+    attr_accessor :sick_leave_to_accrue_annually
+    
+    # Maximum number of units accrued annually for sick leave. The type of units is determined by the property \"TypeOfUnitsToAccrue\" on the \"Sick Leave\" leave type
+    attr_accessor :sick_leave_maximum_to_accrue
     
     # Initial sick leave balance. This will be positive unless they've taken sick leave in advance
     attr_accessor :sick_leave_opening_balance
@@ -40,8 +46,11 @@ module XeroRuby::PayrollNz
     # Set Schedule of Accrual Type for Sick Leave
     attr_accessor :sick_leave_schedule_of_accrual
     
-    # If Sick Leave Schedule of Accrual is \"OnAnniversaryDate\", this is the date when entitled to Sick Leave
+    # If Sick Leave Schedule of Accrual is \"OnAnniversaryDate\", this is the date when entitled to Sick Leave. When null the Employee's start date is used as the anniversary date
     attr_accessor :sick_leave_anniversary_date
+    
+    # The first date the employee will accrue Annual Leave. When null the Employee's start date is used as the anniversary date
+    attr_accessor :annual_leave_anniversary_date
     
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -52,9 +61,12 @@ module XeroRuby::PayrollNz
         :'negative_annual_leave_balance_paid_amount' => :'negativeAnnualLeaveBalancePaidAmount',
         :'sick_leave_hours_to_accrue_annually' => :'sickLeaveHoursToAccrueAnnually',
         :'sick_leave_maximum_hours_to_accrue' => :'sickLeaveMaximumHoursToAccrue',
+        :'sick_leave_to_accrue_annually' => :'SickLeaveToAccrueAnnually',
+        :'sick_leave_maximum_to_accrue' => :'SickLeaveMaximumToAccrue',
         :'sick_leave_opening_balance' => :'sickLeaveOpeningBalance',
         :'sick_leave_schedule_of_accrual' => :'SickLeaveScheduleOfAccrual',
-        :'sick_leave_anniversary_date' => :'SickLeaveAnniversaryDate'
+        :'sick_leave_anniversary_date' => :'SickLeaveAnniversaryDate',
+        :'annual_leave_anniversary_date' => :'AnnualLeaveAnniversaryDate'
       }
     end
 
@@ -67,9 +79,12 @@ module XeroRuby::PayrollNz
         :'negative_annual_leave_balance_paid_amount' => :'BigDecimal',
         :'sick_leave_hours_to_accrue_annually' => :'BigDecimal',
         :'sick_leave_maximum_hours_to_accrue' => :'BigDecimal',
+        :'sick_leave_to_accrue_annually' => :'BigDecimal',
+        :'sick_leave_maximum_to_accrue' => :'BigDecimal',
         :'sick_leave_opening_balance' => :'BigDecimal',
         :'sick_leave_schedule_of_accrual' => :'String',
-        :'sick_leave_anniversary_date' => :'Date'
+        :'sick_leave_anniversary_date' => :'Date',
+        :'annual_leave_anniversary_date' => :'Date'
       }
     end
 
@@ -112,6 +127,14 @@ module XeroRuby::PayrollNz
         self.sick_leave_maximum_hours_to_accrue = attributes[:'sick_leave_maximum_hours_to_accrue']
       end
 
+      if attributes.key?(:'sick_leave_to_accrue_annually')
+        self.sick_leave_to_accrue_annually = attributes[:'sick_leave_to_accrue_annually']
+      end
+
+      if attributes.key?(:'sick_leave_maximum_to_accrue')
+        self.sick_leave_maximum_to_accrue = attributes[:'sick_leave_maximum_to_accrue']
+      end
+
       if attributes.key?(:'sick_leave_opening_balance')
         self.sick_leave_opening_balance = attributes[:'sick_leave_opening_balance']
       end
@@ -122,6 +145,10 @@ module XeroRuby::PayrollNz
 
       if attributes.key?(:'sick_leave_anniversary_date')
         self.sick_leave_anniversary_date = attributes[:'sick_leave_anniversary_date']
+      end
+
+      if attributes.key?(:'annual_leave_anniversary_date')
+        self.annual_leave_anniversary_date = attributes[:'annual_leave_anniversary_date']
       end
     end
 
@@ -149,9 +176,12 @@ module XeroRuby::PayrollNz
           negative_annual_leave_balance_paid_amount == o.negative_annual_leave_balance_paid_amount &&
           sick_leave_hours_to_accrue_annually == o.sick_leave_hours_to_accrue_annually &&
           sick_leave_maximum_hours_to_accrue == o.sick_leave_maximum_hours_to_accrue &&
+          sick_leave_to_accrue_annually == o.sick_leave_to_accrue_annually &&
+          sick_leave_maximum_to_accrue == o.sick_leave_maximum_to_accrue &&
           sick_leave_opening_balance == o.sick_leave_opening_balance &&
           sick_leave_schedule_of_accrual == o.sick_leave_schedule_of_accrual &&
-          sick_leave_anniversary_date == o.sick_leave_anniversary_date
+          sick_leave_anniversary_date == o.sick_leave_anniversary_date &&
+          annual_leave_anniversary_date == o.annual_leave_anniversary_date
     end
 
     # @see the `==` method
@@ -163,7 +193,7 @@ module XeroRuby::PayrollNz
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [include_holiday_pay, holiday_pay_opening_balance, annual_leave_opening_balance, negative_annual_leave_balance_paid_amount, sick_leave_hours_to_accrue_annually, sick_leave_maximum_hours_to_accrue, sick_leave_opening_balance, sick_leave_schedule_of_accrual, sick_leave_anniversary_date].hash
+      [include_holiday_pay, holiday_pay_opening_balance, annual_leave_opening_balance, negative_annual_leave_balance_paid_amount, sick_leave_hours_to_accrue_annually, sick_leave_maximum_hours_to_accrue, sick_leave_to_accrue_annually, sick_leave_maximum_to_accrue, sick_leave_opening_balance, sick_leave_schedule_of_accrual, sick_leave_anniversary_date, annual_leave_anniversary_date].hash
     end
 
     # Builds the object from hash

@@ -31,7 +31,7 @@ module XeroRuby::Finance
     # Looking at the most recent bank statement, this field indicates when the document was imported into Xero.  This date is represented in ISO 8601 format.
     attr_accessor :imported_date_time_utc
     
-    # Looking at the most recent bank statement, this field indicates the source of the data (direct bank feed, indirect bank feed, file upload, or manual keying).
+    # Looking at the most recent bank statement, this field indicates the source of the data (direct bank feed, file upload, or manual keying).
     attr_accessor :import_source_type
     
     # Attribute mapping from ruby-style variable name to JSON key.

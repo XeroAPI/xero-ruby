@@ -25,10 +25,20 @@ module XeroRuby::PayrollNz
     # The Number of Units for the leave
     attr_accessor :number_of_units
     
-    # Period Status
+    # The number of units taken for the leave
+    attr_accessor :number_of_units_taken
+    
+    # The type of units paid for the leave
+    attr_accessor :type_of_units
+    
+    # The type of units taken for the leave
+    attr_accessor :type_of_units_taken
+    
+    # Status of leave
     attr_accessor :period_status
     APPROVED ||= "Approved".freeze
     COMPLETED ||= "Completed".freeze
+    ESTIMATED ||= "Estimated".freeze
     
     class EnumAttributeValidator
       attr_reader :datatype
@@ -58,6 +68,9 @@ module XeroRuby::PayrollNz
         :'period_start_date' => :'periodStartDate',
         :'period_end_date' => :'periodEndDate',
         :'number_of_units' => :'numberOfUnits',
+        :'number_of_units_taken' => :'numberOfUnitsTaken',
+        :'type_of_units' => :'typeOfUnits',
+        :'type_of_units_taken' => :'typeOfUnitsTaken',
         :'period_status' => :'periodStatus'
       }
     end
@@ -68,6 +81,9 @@ module XeroRuby::PayrollNz
         :'period_start_date' => :'Date',
         :'period_end_date' => :'Date',
         :'number_of_units' => :'BigDecimal',
+        :'number_of_units_taken' => :'Float',
+        :'type_of_units' => :'String',
+        :'type_of_units_taken' => :'String',
         :'period_status' => :'String'
       }
     end
@@ -99,6 +115,18 @@ module XeroRuby::PayrollNz
         self.number_of_units = attributes[:'number_of_units']
       end
 
+      if attributes.key?(:'number_of_units_taken')
+        self.number_of_units_taken = attributes[:'number_of_units_taken']
+      end
+
+      if attributes.key?(:'type_of_units')
+        self.type_of_units = attributes[:'type_of_units']
+      end
+
+      if attributes.key?(:'type_of_units_taken')
+        self.type_of_units_taken = attributes[:'type_of_units_taken']
+      end
+
       if attributes.key?(:'period_status')
         self.period_status = attributes[:'period_status']
       end
@@ -114,7 +142,7 @@ module XeroRuby::PayrollNz
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      period_status_validator = EnumAttributeValidator.new('String', ["Approved", "Completed"])
+      period_status_validator = EnumAttributeValidator.new('String', ["Approved", "Completed", "Estimated"])
       return false unless period_status_validator.valid?(@period_status)
       true
     end
@@ -122,7 +150,7 @@ module XeroRuby::PayrollNz
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] period_status Object to be assigned
     def period_status=(period_status)
-      validator = EnumAttributeValidator.new('String', ["Approved", "Completed"])
+      validator = EnumAttributeValidator.new('String', ["Approved", "Completed", "Estimated"])
       unless validator.valid?(period_status)
         fail ArgumentError, "invalid value for \"period_status\", must be one of #{validator.allowable_values}."
       end
@@ -137,6 +165,9 @@ module XeroRuby::PayrollNz
           period_start_date == o.period_start_date &&
           period_end_date == o.period_end_date &&
           number_of_units == o.number_of_units &&
+          number_of_units_taken == o.number_of_units_taken &&
+          type_of_units == o.type_of_units &&
+          type_of_units_taken == o.type_of_units_taken &&
           period_status == o.period_status
     end
 
@@ -149,7 +180,7 @@ module XeroRuby::PayrollNz
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [period_start_date, period_end_date, number_of_units, period_status].hash
+      [period_start_date, period_end_date, number_of_units, number_of_units_taken, type_of_units, type_of_units_taken, period_status].hash
     end
 
     # Builds the object from hash
