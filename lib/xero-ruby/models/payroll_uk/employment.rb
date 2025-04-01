@@ -25,51 +25,20 @@ module XeroRuby::PayrollUk
     # The employment number of the employee
     attr_accessor :employee_number
     
-    # The NI Category of the employee
+
     attr_accessor :ni_category
-    A ||= "A".freeze
-    B ||= "B".freeze
-    C ||= "C".freeze
-    F ||= "F".freeze
-    H ||= "H".freeze
-    I ||= "I".freeze
-    J ||= "J".freeze
-    L ||= "L".freeze
-    M ||= "M".freeze
-    S ||= "S".freeze
-    V ||= "V".freeze
-    X ||= "X".freeze
-    Z ||= "Z".freeze
     
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
-
+    # The employee's NI categories
+    attr_accessor :ni_categories
+    
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'payroll_calendar_id' => :'payrollCalendarID',
         :'start_date' => :'startDate',
         :'employee_number' => :'employeeNumber',
-        :'ni_category' => :'niCategory'
+        :'ni_category' => :'niCategory',
+        :'ni_categories' => :'niCategories'
       }
     end
 
@@ -79,7 +48,8 @@ module XeroRuby::PayrollUk
         :'payroll_calendar_id' => :'String',
         :'start_date' => :'Date',
         :'employee_number' => :'String',
-        :'ni_category' => :'String'
+        :'ni_category' => :'NICategoryLetter',
+        :'ni_categories' => :'Array<NICategory>'
       }
     end
 
@@ -113,6 +83,12 @@ module XeroRuby::PayrollUk
       if attributes.key?(:'ni_category')
         self.ni_category = attributes[:'ni_category']
       end
+
+      if attributes.key?(:'ni_categories')
+        if (value = attributes[:'ni_categories']).is_a?(Array)
+          self.ni_categories = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -125,19 +101,7 @@ module XeroRuby::PayrollUk
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      ni_category_validator = EnumAttributeValidator.new('String', ["A", "B", "C", "F", "H", "I", "J", "L", "M", "S", "V", "X", "Z"])
-      return false unless ni_category_validator.valid?(@ni_category)
       true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] ni_category Object to be assigned
-    def ni_category=(ni_category)
-      validator = EnumAttributeValidator.new('String', ["A", "B", "C", "F", "H", "I", "J", "L", "M", "S", "V", "X", "Z"])
-      unless validator.valid?(ni_category)
-        fail ArgumentError, "invalid value for \"ni_category\", must be one of #{validator.allowable_values}."
-      end
-      @ni_category = ni_category
     end
 
     # Checks equality by comparing each attribute.
@@ -148,7 +112,8 @@ module XeroRuby::PayrollUk
           payroll_calendar_id == o.payroll_calendar_id &&
           start_date == o.start_date &&
           employee_number == o.employee_number &&
-          ni_category == o.ni_category
+          ni_category == o.ni_category &&
+          ni_categories == o.ni_categories
     end
 
     # @see the `==` method
@@ -160,7 +125,7 @@ module XeroRuby::PayrollUk
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [payroll_calendar_id, start_date, employee_number, ni_category].hash
+      [payroll_calendar_id, start_date, employee_number, ni_category, ni_categories].hash
     end
 
     # Builds the object from hash

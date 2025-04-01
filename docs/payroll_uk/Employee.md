@@ -18,6 +18,8 @@ Name | Type | Description | Notes
 **payroll_calendar_id** | **String** | Xero unique identifier for the payroll calendar of the employee | [optional] 
 **updated_date_utc** | **DateTime** | UTC timestamp of last update to the employee | [optional] 
 **created_date_utc** | **DateTime** | UTC timestamp when the employee was created in Xero | [optional] 
+**ni_category** | [**NICategoryLetter**](NICategoryLetter.md) |  | [optional] 
+**ni_categories** | [**Array&lt;NICategory&gt;**](NICategory.md) | The employee&#39;s NI categories | [optional] 
 **national_insurance_number** | **String** | National insurance number of the employee | [optional] 
 **is_off_payroll_worker** | **Boolean** | Whether the employee is an off payroll worker | [optional] 
 
@@ -40,6 +42,8 @@ instance = XeroRuby::PayrollUk::Employee.new(employee_id: d90457c4-f1be-4f2e-b4e
                                  payroll_calendar_id: null,
                                  updated_date_utc: null,
                                  created_date_utc: null,
+                                 ni_category: null,
+                                 ni_categories: null,
                                  national_insurance_number: AB123456C,
                                  is_off_payroll_worker: null)
 ```
