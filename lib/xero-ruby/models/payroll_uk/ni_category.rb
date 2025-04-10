@@ -15,62 +15,21 @@ require 'date'
 module XeroRuby::PayrollUk
   require 'bigdecimal'
 
-  class Employee
-    # Xero unique identifier for the employee
-    attr_accessor :employee_id
-    
-    # Title of the employee
-    attr_accessor :title
-    
-    # First name of employee
-    attr_accessor :first_name
-    
-    # Last name of employee
-    attr_accessor :last_name
-    
-    # Date of birth of the employee (YYYY-MM-DD)
-    attr_accessor :date_of_birth
-    
-
-    attr_accessor :address
-    
-    # The email address for the employee
-    attr_accessor :email
-    
-    # The employee’s gender
-    attr_accessor :gender
-    M ||= "M".freeze
-    F ||= "F".freeze
-    
-    # Employee phone number
-    attr_accessor :phone_number
-    
-    # Employment start date of the employee at the time it was requested
+  class NICategory
+    # The start date of the NI category (YYYY-MM-DD)
     attr_accessor :start_date
-    
-    # Employment end date of the employee at the time it was requested
-    attr_accessor :end_date
-    
-    # Xero unique identifier for the payroll calendar of the employee
-    attr_accessor :payroll_calendar_id
-    
-    # UTC timestamp of last update to the employee
-    attr_accessor :updated_date_utc
-    
-    # UTC timestamp when the employee was created in Xero
-    attr_accessor :created_date_utc
     
 
     attr_accessor :ni_category
     
-    # The employee's NI categories
-    attr_accessor :ni_categories
+    # Xero unique identifier for the NI category
+    attr_accessor :ni_category_id
     
-    # National insurance number of the employee
-    attr_accessor :national_insurance_number
+    # The date in which the employee was first employed as a civilian (YYYY-MM-DD)
+    attr_accessor :date_first_employed_as_civilian
     
-    # Whether the employee is an off payroll worker
-    attr_accessor :is_off_payroll_worker
+    # The workplace postcode
+    attr_accessor :workplace_postcode
     
     class EnumAttributeValidator
       attr_reader :datatype
@@ -97,138 +56,66 @@ module XeroRuby::PayrollUk
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'employee_id' => :'employeeID',
-        :'title' => :'title',
-        :'first_name' => :'firstName',
-        :'last_name' => :'lastName',
-        :'date_of_birth' => :'dateOfBirth',
-        :'address' => :'address',
-        :'email' => :'email',
-        :'gender' => :'gender',
-        :'phone_number' => :'phoneNumber',
         :'start_date' => :'startDate',
-        :'end_date' => :'endDate',
-        :'payroll_calendar_id' => :'payrollCalendarID',
-        :'updated_date_utc' => :'updatedDateUTC',
-        :'created_date_utc' => :'createdDateUTC',
         :'ni_category' => :'niCategory',
-        :'ni_categories' => :'niCategories',
-        :'national_insurance_number' => :'nationalInsuranceNumber',
-        :'is_off_payroll_worker' => :'isOffPayrollWorker'
+        :'ni_category_id' => :'niCategoryID',
+        :'date_first_employed_as_civilian' => :'dateFirstEmployedAsCivilian',
+        :'workplace_postcode' => :'workplacePostcode'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'employee_id' => :'String',
-        :'title' => :'String',
-        :'first_name' => :'String',
-        :'last_name' => :'String',
-        :'date_of_birth' => :'Date',
-        :'address' => :'Address',
-        :'email' => :'String',
-        :'gender' => :'String',
-        :'phone_number' => :'String',
         :'start_date' => :'Date',
-        :'end_date' => :'Date',
-        :'payroll_calendar_id' => :'String',
-        :'updated_date_utc' => :'DateTime',
-        :'created_date_utc' => :'DateTime',
         :'ni_category' => :'NICategoryLetter',
-        :'ni_categories' => :'Array<NICategory>',
-        :'national_insurance_number' => :'String',
-        :'is_off_payroll_worker' => :'Boolean'
+        :'ni_category_id' => :'Float',
+        :'date_first_employed_as_civilian' => :'Date',
+        :'workplace_postcode' => :'String'
       }
+    end
+
+    # List of class defined in oneOf (OpenAPI v3)
+    def self.openapi_one_of
+      [
+      :'NICategoryOneOf',
+      :'NICategoryOneOf1'
+      ]
     end
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `XeroRuby::PayrollUk::Employee` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `XeroRuby::PayrollUk::NICategory` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `XeroRuby::PayrollUk::Employee`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `XeroRuby::PayrollUk::NICategory`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'employee_id')
-        self.employee_id = attributes[:'employee_id']
-      end
-
-      if attributes.key?(:'title')
-        self.title = attributes[:'title']
-      end
-
-      if attributes.key?(:'first_name')
-        self.first_name = attributes[:'first_name']
-      end
-
-      if attributes.key?(:'last_name')
-        self.last_name = attributes[:'last_name']
-      end
-
-      if attributes.key?(:'date_of_birth')
-        self.date_of_birth = attributes[:'date_of_birth']
-      end
-
-      if attributes.key?(:'address')
-        self.address = attributes[:'address']
-      end
-
-      if attributes.key?(:'email')
-        self.email = attributes[:'email']
-      end
-
-      if attributes.key?(:'gender')
-        self.gender = attributes[:'gender']
-      end
-
-      if attributes.key?(:'phone_number')
-        self.phone_number = attributes[:'phone_number']
-      end
-
       if attributes.key?(:'start_date')
         self.start_date = attributes[:'start_date']
-      end
-
-      if attributes.key?(:'end_date')
-        self.end_date = attributes[:'end_date']
-      end
-
-      if attributes.key?(:'payroll_calendar_id')
-        self.payroll_calendar_id = attributes[:'payroll_calendar_id']
-      end
-
-      if attributes.key?(:'updated_date_utc')
-        self.updated_date_utc = attributes[:'updated_date_utc']
-      end
-
-      if attributes.key?(:'created_date_utc')
-        self.created_date_utc = attributes[:'created_date_utc']
       end
 
       if attributes.key?(:'ni_category')
         self.ni_category = attributes[:'ni_category']
       end
 
-      if attributes.key?(:'ni_categories')
-        if (value = attributes[:'ni_categories']).is_a?(Array)
-          self.ni_categories = value
-        end
+      if attributes.key?(:'ni_category_id')
+        self.ni_category_id = attributes[:'ni_category_id']
       end
 
-      if attributes.key?(:'national_insurance_number')
-        self.national_insurance_number = attributes[:'national_insurance_number']
+      if attributes.key?(:'date_first_employed_as_civilian')
+        self.date_first_employed_as_civilian = attributes[:'date_first_employed_as_civilian']
       end
 
-      if attributes.key?(:'is_off_payroll_worker')
-        self.is_off_payroll_worker = attributes[:'is_off_payroll_worker']
+      if attributes.key?(:'workplace_postcode')
+        self.workplace_postcode = attributes[:'workplace_postcode']
       end
     end
 
@@ -236,25 +123,39 @@ module XeroRuby::PayrollUk
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @ni_category.nil?
+        invalid_properties.push('invalid value for "ni_category", ni_category cannot be nil.')
+      end
+
+      if @workplace_postcode.nil?
+        invalid_properties.push('invalid value for "workplace_postcode", workplace_postcode cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      gender_validator = EnumAttributeValidator.new('String', ["M", "F"])
-      return false unless gender_validator.valid?(@gender)
-      true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] gender Object to be assigned
-    def gender=(gender)
-      validator = EnumAttributeValidator.new('String', ["M", "F"])
-      unless validator.valid?(gender)
-        fail ArgumentError, "invalid value for \"gender\", must be one of #{validator.allowable_values}."
+      return false if @ni_category.nil?
+      return false if @workplace_postcode.nil?
+      _one_of_found = false
+      self.class.openapi_one_of.each do |_class|
+        _one_of = XeroRuby::PayrollUk.const_get(_class).build_from_hash(self.to_hash)
+        if _one_of.valid?
+          if _one_of_found
+            return false
+          else
+            _one_of_found = true
+          end
+        end
       end
-      @gender = gender
+
+      if !_one_of_found
+        return false
+      end
+
+      true
     end
 
     # Checks equality by comparing each attribute.
@@ -262,24 +163,11 @@ module XeroRuby::PayrollUk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          employee_id == o.employee_id &&
-          title == o.title &&
-          first_name == o.first_name &&
-          last_name == o.last_name &&
-          date_of_birth == o.date_of_birth &&
-          address == o.address &&
-          email == o.email &&
-          gender == o.gender &&
-          phone_number == o.phone_number &&
           start_date == o.start_date &&
-          end_date == o.end_date &&
-          payroll_calendar_id == o.payroll_calendar_id &&
-          updated_date_utc == o.updated_date_utc &&
-          created_date_utc == o.created_date_utc &&
           ni_category == o.ni_category &&
-          ni_categories == o.ni_categories &&
-          national_insurance_number == o.national_insurance_number &&
-          is_off_payroll_worker == o.is_off_payroll_worker
+          ni_category_id == o.ni_category_id &&
+          date_first_employed_as_civilian == o.date_first_employed_as_civilian &&
+          workplace_postcode == o.workplace_postcode
     end
 
     # @see the `==` method
@@ -291,7 +179,7 @@ module XeroRuby::PayrollUk
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [employee_id, title, first_name, last_name, date_of_birth, address, email, gender, phone_number, start_date, end_date, payroll_calendar_id, updated_date_utc, created_date_utc, ni_category, ni_categories, national_insurance_number, is_off_payroll_worker].hash
+      [start_date, ni_category, ni_category_id, date_first_employed_as_civilian, workplace_postcode].hash
     end
 
     # Builds the object from hash
