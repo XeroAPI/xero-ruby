@@ -17,20 +17,20 @@ module XeroRuby::PayrollUk
     A ||= "A".freeze
     B ||= "B".freeze
     C ||= "C".freeze
-    D ||= "D".freeze
-    E ||= "E".freeze
     F ||= "F".freeze
     H ||= "H".freeze
     I ||= "I".freeze
     J ||= "J".freeze
-    K ||= "K".freeze
     L ||= "L".freeze
     M ||= "M".freeze
-    N ||= "N".freeze
     S ||= "S".freeze
     V ||= "V".freeze
     X ||= "X".freeze
     Z ||= "Z".freeze
+    D ||= "D".freeze
+    E ||= "E".freeze
+    K ||= "K".freeze
+    N ||= "N".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
