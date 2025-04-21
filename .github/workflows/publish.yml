@@ -52,6 +52,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: publish
     if: success()
+    permissions:
+      contents: read
     steps:
       - name: Checkout xero-ruby repo
         uses: actions/checkout@v4
@@ -75,6 +77,8 @@ jobs:
       runs-on: ubuntu-latest
       needs: publish
       if: failure()
+      permissions:
+        contents: read
       steps:
         - name: Checkout xero-ruby repo
           uses: actions/checkout@v4
