@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**payroll_calendar_id** | **String** | Xero unique identifier for the payroll calendar of the employee | [optional] 
+**payroll_calendar_id** | **String** | Xero unique identifier for the payroll calendar of the employee | 
 **pay_run_calendar_id** | **String** | Xero unique identifier for the payrun calendar for the employee (Deprecated in version 1.1.6) | [optional] 
-**start_date** | **Date** | Start date of the employment (YYYY-MM-DD) | [optional] 
-**engagement_type** | **String** | Engagement type of the employee | [optional] 
+**start_date** | **Date** | Start date of the employment (YYYY-MM-DD) | 
+**engagement_type** | **String** | Engagement type of the employee | 
 **fixed_term_end_date** | **Date** | End date for an employee with a fixed-term engagement type | [optional] 
 
 ## Code Sample

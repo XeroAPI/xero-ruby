@@ -100,7 +100,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param account_id [String] Unique identifier for Account object
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
@@ -113,7 +113,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param account_id [String] Unique identifier for Account object
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
@@ -192,7 +192,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param bank_transaction_id [String] Xero generated unique identifier for a bank transaction
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
@@ -205,7 +205,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param bank_transaction_id [String] Xero generated unique identifier for a bank transaction
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
@@ -535,7 +535,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param bank_transfer_id [String] Xero generated unique identifier for a bank transfer
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
@@ -547,7 +547,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param bank_transfer_id [String] Xero generated unique identifier for a bank transfer
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
@@ -966,7 +966,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param contact_id [String] Unique identifier for a Contact
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
@@ -978,7 +978,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param contact_id [String] Unique identifier for a Contact
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
@@ -1481,7 +1481,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param credit_note_id [String] Unique identifier for a Credit Note
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_online Allows an attachment to be seen by the end customer within their online invoice (default to false)
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
@@ -1495,7 +1495,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param credit_note_id [String] Unique identifier for a Credit Note
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_online Allows an attachment to be seen by the end customer within their online invoice
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
@@ -2077,7 +2077,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param invoice_id [String] Unique identifier for an Invoice
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_online Allows an attachment to be seen by the end customer within their online invoice (default to false)
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
@@ -2091,7 +2091,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param invoice_id [String] Unique identifier for an Invoice
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_online Allows an attachment to be seen by the end customer within their online invoice
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
@@ -2596,7 +2596,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param manual_journal_id [String] Unique identifier for a ManualJournal
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
@@ -2609,7 +2609,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param manual_journal_id [String] Unique identifier for a ManualJournal
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
@@ -3536,7 +3536,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param purchase_order_id [String] Unique identifier for an Purchase Order
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
@@ -3549,7 +3549,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param purchase_order_id [String] Unique identifier for an Purchase Order
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
@@ -3797,7 +3797,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param quote_id [String] Unique identifier for an Quote
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
@@ -3810,7 +3810,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param quote_id [String] Unique identifier for an Quote
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
@@ -4141,7 +4141,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param receipt_id [String] Unique identifier for a Receipt
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
@@ -4154,7 +4154,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param receipt_id [String] Unique identifier for a Receipt
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
@@ -4319,7 +4319,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param repeating_invoice_id [String] Unique identifier for a Repeating Invoice
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
@@ -4332,7 +4332,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param repeating_invoice_id [String] Unique identifier for a Repeating Invoice
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
@@ -16260,7 +16260,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param account_id [String] Unique identifier for Account object
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
@@ -16273,7 +16273,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param account_id [String] Unique identifier for Account object
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
@@ -16441,7 +16441,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param bank_transaction_id [String] Xero generated unique identifier for a bank transaction
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
@@ -16454,7 +16454,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param bank_transaction_id [String] Xero generated unique identifier for a bank transaction
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
@@ -16532,7 +16532,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param bank_transfer_id [String] Xero generated unique identifier for a bank transfer
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
@@ -16544,7 +16544,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param bank_transfer_id [String] Xero generated unique identifier for a bank transfer
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
@@ -16708,7 +16708,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param contact_id [String] Unique identifier for a Contact
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
@@ -16720,7 +16720,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param contact_id [String] Unique identifier for a Contact
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
@@ -16974,7 +16974,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param credit_note_id [String] Unique identifier for a Credit Note
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
@@ -16987,7 +16987,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param credit_note_id [String] Unique identifier for a Credit Note
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
@@ -17241,7 +17241,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param invoice_id [String] Unique identifier for an Invoice
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
@@ -17254,7 +17254,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param invoice_id [String] Unique identifier for an Invoice
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
@@ -17594,7 +17594,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param manual_journal_id [String] Unique identifier for a ManualJournal
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
@@ -17607,7 +17607,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param manual_journal_id [String] Unique identifier for a ManualJournal
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
@@ -18614,7 +18614,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param purchase_order_id [String] Unique identifier for an Purchase Order
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
@@ -18627,7 +18627,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param purchase_order_id [String] Unique identifier for an Purchase Order
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
@@ -18792,7 +18792,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param quote_id [String] Unique identifier for an Quote
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
@@ -18805,7 +18805,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param quote_id [String] Unique identifier for an Quote
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
@@ -18973,7 +18973,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param receipt_id [String] Unique identifier for a Receipt
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
@@ -18986,7 +18986,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param receipt_id [String] Unique identifier for a Receipt
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
@@ -19151,7 +19151,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param repeating_invoice_id [String] Unique identifier for a Repeating Invoice
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Attachments]
@@ -19164,7 +19164,7 @@ module XeroRuby
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param repeating_invoice_id [String] Unique identifier for a Repeating Invoice
     # @param file_name [String] Name of the attachment
-    # @param body [String] Byte array of file in body of request
+    # @param body [File] Byte array of file in body of request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
     # @return [Array<(Attachments, Integer, Hash)>] Attachments data, response status code and response headers
