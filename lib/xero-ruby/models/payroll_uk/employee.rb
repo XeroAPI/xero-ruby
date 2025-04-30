@@ -60,6 +60,12 @@ module XeroRuby::PayrollUk
     # UTC timestamp when the employee was created in Xero
     attr_accessor :created_date_utc
     
+
+    attr_accessor :ni_category
+    
+    # The employee's NI categories
+    attr_accessor :ni_categories
+    
     # National insurance number of the employee
     attr_accessor :national_insurance_number
     
@@ -105,6 +111,8 @@ module XeroRuby::PayrollUk
         :'payroll_calendar_id' => :'payrollCalendarID',
         :'updated_date_utc' => :'updatedDateUTC',
         :'created_date_utc' => :'createdDateUTC',
+        :'ni_category' => :'niCategory',
+        :'ni_categories' => :'niCategories',
         :'national_insurance_number' => :'nationalInsuranceNumber',
         :'is_off_payroll_worker' => :'isOffPayrollWorker'
       }
@@ -127,6 +135,8 @@ module XeroRuby::PayrollUk
         :'payroll_calendar_id' => :'String',
         :'updated_date_utc' => :'DateTime',
         :'created_date_utc' => :'DateTime',
+        :'ni_category' => :'NICategoryLetter',
+        :'ni_categories' => :'Array<NICategory>',
         :'national_insurance_number' => :'String',
         :'is_off_payroll_worker' => :'Boolean'
       }
@@ -203,6 +213,16 @@ module XeroRuby::PayrollUk
         self.created_date_utc = attributes[:'created_date_utc']
       end
 
+      if attributes.key?(:'ni_category')
+        self.ni_category = attributes[:'ni_category']
+      end
+
+      if attributes.key?(:'ni_categories')
+        if (value = attributes[:'ni_categories']).is_a?(Array)
+          self.ni_categories = value
+        end
+      end
+
       if attributes.key?(:'national_insurance_number')
         self.national_insurance_number = attributes[:'national_insurance_number']
       end
@@ -256,6 +276,8 @@ module XeroRuby::PayrollUk
           payroll_calendar_id == o.payroll_calendar_id &&
           updated_date_utc == o.updated_date_utc &&
           created_date_utc == o.created_date_utc &&
+          ni_category == o.ni_category &&
+          ni_categories == o.ni_categories &&
           national_insurance_number == o.national_insurance_number &&
           is_off_payroll_worker == o.is_off_payroll_worker
     end
@@ -269,7 +291,7 @@ module XeroRuby::PayrollUk
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [employee_id, title, first_name, last_name, date_of_birth, address, email, gender, phone_number, start_date, end_date, payroll_calendar_id, updated_date_utc, created_date_utc, national_insurance_number, is_off_payroll_worker].hash
+      [employee_id, title, first_name, last_name, date_of_birth, address, email, gender, phone_number, start_date, end_date, payroll_calendar_id, updated_date_utc, created_date_utc, ni_category, ni_categories, national_insurance_number, is_off_payroll_worker].hash
     end
 
     # Builds the object from hash

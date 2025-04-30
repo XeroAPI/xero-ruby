@@ -19,9 +19,6 @@ module XeroRuby::Finance
     # Sum of the amounts of all statement lines where the source of the data was a direct bank feed in to Xero via an API integration.   This could be from a bank or aggregator.   This gives an indication on the certainty of correctness of the data.
     attr_accessor :direct_bank_feed
     
-    # No longer in use.
-    attr_accessor :indirect_bank_feed
-    
     # Sum of the amounts of all statement lines where the source of the data was a file manually uploaded in to Xero.   This gives an indication on the certainty of correctness of the data.
     attr_accessor :file_upload
     
@@ -31,9 +28,6 @@ module XeroRuby::Finance
     # Sum of the amounts of all statement lines where the source of the data was a direct bank feed in to Xero via an API integration.   This could be from a bank or aggregator.  This gives an indication on the certainty of correctness of the data.  Only positive transactions are included.
     attr_accessor :direct_bank_feed_pos
     
-    # No longer in use.
-    attr_accessor :indirect_bank_feed_pos
-    
     # Sum of the amounts of all statement lines where the source of the data was a file manually uploaded in to Xero.   This gives an indication on the certainty of correctness of the data. Only positive transactions are included.
     attr_accessor :file_upload_pos
     
@@ -42,9 +36,6 @@ module XeroRuby::Finance
     
     # Sum of the amounts of all statement lines where the source of the data was a direct bank feed in to Xero via an API integration.   This could be from a bank or aggregator.   This gives an indication on the certainty of correctness of the data.  Only negative transactions are included.
     attr_accessor :direct_bank_feed_neg
-    
-    # No longer in use.
-    attr_accessor :indirect_bank_feed_neg
     
     # Sum of the amounts of all statement lines where the source of the data was a file manually uploaded in to Xero.   This gives an indication on the certainty of correctness of the data.  Only negative transactions are included.
     attr_accessor :file_upload_neg
@@ -65,15 +56,12 @@ module XeroRuby::Finance
     def self.attribute_map
       {
         :'direct_bank_feed' => :'directBankFeed',
-        :'indirect_bank_feed' => :'indirectBankFeed',
         :'file_upload' => :'fileUpload',
         :'manual' => :'manual',
         :'direct_bank_feed_pos' => :'directBankFeedPos',
-        :'indirect_bank_feed_pos' => :'indirectBankFeedPos',
         :'file_upload_pos' => :'fileUploadPos',
         :'manual_pos' => :'manualPos',
         :'direct_bank_feed_neg' => :'directBankFeedNeg',
-        :'indirect_bank_feed_neg' => :'indirectBankFeedNeg',
         :'file_upload_neg' => :'fileUploadNeg',
         :'manual_neg' => :'manualNeg',
         :'other_pos' => :'otherPos',
@@ -86,15 +74,12 @@ module XeroRuby::Finance
     def self.openapi_types
       {
         :'direct_bank_feed' => :'BigDecimal',
-        :'indirect_bank_feed' => :'BigDecimal',
         :'file_upload' => :'BigDecimal',
         :'manual' => :'BigDecimal',
         :'direct_bank_feed_pos' => :'BigDecimal',
-        :'indirect_bank_feed_pos' => :'BigDecimal',
         :'file_upload_pos' => :'BigDecimal',
         :'manual_pos' => :'BigDecimal',
         :'direct_bank_feed_neg' => :'BigDecimal',
-        :'indirect_bank_feed_neg' => :'BigDecimal',
         :'file_upload_neg' => :'BigDecimal',
         :'manual_neg' => :'BigDecimal',
         :'other_pos' => :'BigDecimal',
@@ -122,10 +107,6 @@ module XeroRuby::Finance
         self.direct_bank_feed = attributes[:'direct_bank_feed']
       end
 
-      if attributes.key?(:'indirect_bank_feed')
-        self.indirect_bank_feed = attributes[:'indirect_bank_feed']
-      end
-
       if attributes.key?(:'file_upload')
         self.file_upload = attributes[:'file_upload']
       end
@@ -138,10 +119,6 @@ module XeroRuby::Finance
         self.direct_bank_feed_pos = attributes[:'direct_bank_feed_pos']
       end
 
-      if attributes.key?(:'indirect_bank_feed_pos')
-        self.indirect_bank_feed_pos = attributes[:'indirect_bank_feed_pos']
-      end
-
       if attributes.key?(:'file_upload_pos')
         self.file_upload_pos = attributes[:'file_upload_pos']
       end
@@ -152,10 +129,6 @@ module XeroRuby::Finance
 
       if attributes.key?(:'direct_bank_feed_neg')
         self.direct_bank_feed_neg = attributes[:'direct_bank_feed_neg']
-      end
-
-      if attributes.key?(:'indirect_bank_feed_neg')
-        self.indirect_bank_feed_neg = attributes[:'indirect_bank_feed_neg']
       end
 
       if attributes.key?(:'file_upload_neg')
@@ -198,15 +171,12 @@ module XeroRuby::Finance
       return true if self.equal?(o)
       self.class == o.class &&
           direct_bank_feed == o.direct_bank_feed &&
-          indirect_bank_feed == o.indirect_bank_feed &&
           file_upload == o.file_upload &&
           manual == o.manual &&
           direct_bank_feed_pos == o.direct_bank_feed_pos &&
-          indirect_bank_feed_pos == o.indirect_bank_feed_pos &&
           file_upload_pos == o.file_upload_pos &&
           manual_pos == o.manual_pos &&
           direct_bank_feed_neg == o.direct_bank_feed_neg &&
-          indirect_bank_feed_neg == o.indirect_bank_feed_neg &&
           file_upload_neg == o.file_upload_neg &&
           manual_neg == o.manual_neg &&
           other_pos == o.other_pos &&
@@ -223,7 +193,7 @@ module XeroRuby::Finance
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [direct_bank_feed, indirect_bank_feed, file_upload, manual, direct_bank_feed_pos, indirect_bank_feed_pos, file_upload_pos, manual_pos, direct_bank_feed_neg, indirect_bank_feed_neg, file_upload_neg, manual_neg, other_pos, other_neg, other].hash
+      [direct_bank_feed, file_upload, manual, direct_bank_feed_pos, file_upload_pos, manual_pos, direct_bank_feed_neg, file_upload_neg, manual_neg, other_pos, other_neg, other].hash
     end
 
     # Builds the object from hash
