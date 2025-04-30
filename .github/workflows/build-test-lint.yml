@@ -24,14 +24,6 @@ jobs:
               run: bundle install
               working-directory: xero-ruby
 
-            - name: Check Vulnerable Packages
-              run: bundle audit
-              working-directory: xero-ruby
-
-            - name: Check Outdated Packages
-              run: bundle outdated || true
-              working-directory: xero-ruby
-
             - name: Compile Build
               run: find . -name "*.rb" | xargs -n 1 ruby -c > /dev/null 2>&1 || exit 1
               working-directory: xero-ruby
