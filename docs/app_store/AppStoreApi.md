@@ -168,7 +168,7 @@ api_instance = xero_client.<api_set>
 
 subscription_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for Subscription object
 subscription_item_id = '00000000-0000-0000-0000-000000000000' # String | The unique identifier of the subscriptionItem
-create_usage_record = { "timestamp": "2022-01-21T13:01:00", "quantity": 10 } # CreateUsageRecord | Contains the quantity for the usage record to create
+create_usage_record = {"timestamp":"2022-01-21T13:01:00","quantity":10} # CreateUsageRecord | Contains the quantity for the usage record to create
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -240,7 +240,7 @@ api_instance = xero_client.<api_set>
 subscription_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for Subscription object
 subscription_item_id = '00000000-0000-0000-0000-000000000000' # String | The unique identifier of the subscriptionItem
 usage_record_id = '00000000-0000-0000-0000-000000000000' # String | The unique identifier of the usage record
-update_usage_record = { "quantity": 10 } # UpdateUsageRecord | Contains the quantity for the usage record to update
+update_usage_record = {"quantity":10} # UpdateUsageRecord | Contains the quantity for the usage record to update
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }

@@ -236,12 +236,42 @@ module XeroRuby::PayrollUk
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @title.nil?
+        invalid_properties.push('invalid value for "title", title cannot be nil.')
+      end
+
+      if @first_name.nil?
+        invalid_properties.push('invalid value for "first_name", first_name cannot be nil.')
+      end
+
+      if @last_name.nil?
+        invalid_properties.push('invalid value for "last_name", last_name cannot be nil.')
+      end
+
+      if @date_of_birth.nil?
+        invalid_properties.push('invalid value for "date_of_birth", date_of_birth cannot be nil.')
+      end
+
+      if @address.nil?
+        invalid_properties.push('invalid value for "address", address cannot be nil.')
+      end
+
+      if @gender.nil?
+        invalid_properties.push('invalid value for "gender", gender cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @title.nil?
+      return false if @first_name.nil?
+      return false if @last_name.nil?
+      return false if @date_of_birth.nil?
+      return false if @address.nil?
+      return false if @gender.nil?
       gender_validator = EnumAttributeValidator.new('String', ["M", "F"])
       return false unless gender_validator.valid?(@gender)
       true

@@ -200,7 +200,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 project_id = 'project_id_example' # String | You can specify an individual project by appending the projectId to the endpoint
-time_entry_create_or_update = { "userId": "00000000-0000-0000-0000-000000000000", "taskId": "00000000-0000-0000-0000-000000000000", "dateUtc": "2020-02-26T15:00:00Z", "duration":30, "description": "My description" } # TimeEntryCreateOrUpdate | The time entry object you are creating
+time_entry_create_or_update = {"userId":"00000000-0000-0000-0000-000000000000","taskId":"00000000-0000-0000-0000-000000000000","dateUtc":"2020-02-26T15:00:00Z","duration":30,"description":"My description"} # TimeEntryCreateOrUpdate | The time entry object you are creating
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -1159,7 +1159,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 project_id = 'project_id_example' # String | You can specify an individual project by appending the projectId to the endpoint
 time_entry_id = 'time_entry_id_example' # String | You can specify an individual time entry by appending the id to the endpoint
-time_entry_create_or_update = { "userId": "00000000-0000-0000-0000-000000000000", "taskId": "00000000-0000-0000-0000-000000000000", "dateUtc": "2020-02-27T15:00:00Z", "duration":45, "description": "My UPDATED description" } # TimeEntryCreateOrUpdate | The time entry object you are updating
+time_entry_create_or_update = {"userId":"00000000-0000-0000-0000-000000000000","taskId":"00000000-0000-0000-0000-000000000000","dateUtc":"2020-02-27T15:00:00Z","duration":45,"description":"My UPDATED description"} # TimeEntryCreateOrUpdate | The time entry object you are updating
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
