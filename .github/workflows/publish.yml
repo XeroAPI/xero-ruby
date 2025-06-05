@@ -101,7 +101,6 @@ jobs:
             button_type: "danger"
             package_version: ${{needs.publish.outputs.release_number}}
             repo_link: ${{github.server_url}}/${{github.repository}}
-  
   notify-codegen-repo:
      needs: publish
      if: always()
@@ -114,8 +113,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          repository: XeroAPI/xero-node
-          path: xero-node
+            repository: XeroAPI/xero-ruby
+            path: xero-ruby
 
       - name: Install octokit dependencies
         run: npm i
@@ -141,7 +140,7 @@ jobs:
               -H "Content-Type: application/json" \
               https://api.github.com/repos/xero-internal/xeroapi-sdk-codegen/actions/workflows/notify-sdk-publish.yml/dispatches \
               -d '{
-                "ref": "deploy-track-pipeline-changes",
+                "ref": "master",
                 "inputs": {
                   "commit": "${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}",
                   "status": "${{needs.publish.result}}",
