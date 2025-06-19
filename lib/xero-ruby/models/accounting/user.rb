@@ -43,6 +43,7 @@ module XeroRuby::Accounting
     MANAGEDCLIENT ||= "MANAGEDCLIENT".freeze
     CASHBOOKCLIENT ||= "CASHBOOKCLIENT".freeze
     UNKNOWN ||= "UNKNOWN".freeze
+    REMOVED ||= "REMOVED".freeze
     
     class EnumAttributeValidator
       attr_reader :datatype
@@ -146,7 +147,7 @@ module XeroRuby::Accounting
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      organisation_role_validator = EnumAttributeValidator.new('String', ["READONLY", "INVOICEONLY", "STANDARD", "FINANCIALADVISER", "MANAGEDCLIENT", "CASHBOOKCLIENT", "UNKNOWN"])
+      organisation_role_validator = EnumAttributeValidator.new('String', ["READONLY", "INVOICEONLY", "STANDARD", "FINANCIALADVISER", "MANAGEDCLIENT", "CASHBOOKCLIENT", "UNKNOWN", "REMOVED"])
       return false unless organisation_role_validator.valid?(@organisation_role)
       true
     end
@@ -154,7 +155,7 @@ module XeroRuby::Accounting
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] organisation_role Object to be assigned
     def organisation_role=(organisation_role)
-      validator = EnumAttributeValidator.new('String', ["READONLY", "INVOICEONLY", "STANDARD", "FINANCIALADVISER", "MANAGEDCLIENT", "CASHBOOKCLIENT", "UNKNOWN"])
+      validator = EnumAttributeValidator.new('String', ["READONLY", "INVOICEONLY", "STANDARD", "FINANCIALADVISER", "MANAGEDCLIENT", "CASHBOOKCLIENT", "UNKNOWN", "REMOVED"])
       unless validator.valid?(organisation_role)
         fail ArgumentError, "invalid value for \"organisation_role\", must be one of #{validator.allowable_values}."
       end

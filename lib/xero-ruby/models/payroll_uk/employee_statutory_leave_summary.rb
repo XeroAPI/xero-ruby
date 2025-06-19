@@ -30,6 +30,7 @@ module XeroRuby::PayrollUk
     PATERNITY ||= "Paternity".freeze
     SHAREDPARENTAL ||= "Sharedparental".freeze
     BEREAVEMENT ||= "Bereavement".freeze
+    NEONATAL_CARE ||= "NeonatalCare".freeze
     
     # The date when the leave starts
     attr_accessor :start_date
@@ -148,7 +149,7 @@ module XeroRuby::PayrollUk
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      type_validator = EnumAttributeValidator.new('String', ["Sick", "Adoption", "Maternity", "Paternity", "Sharedparental", "Bereavement"])
+      type_validator = EnumAttributeValidator.new('String', ["Sick", "Adoption", "Maternity", "Paternity", "Sharedparental", "Bereavement", "NeonatalCare"])
       return false unless type_validator.valid?(@type)
       status_validator = EnumAttributeValidator.new('String', ["Pending", "In-Progress", "Completed"])
       return false unless status_validator.valid?(@status)
@@ -158,7 +159,7 @@ module XeroRuby::PayrollUk
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] type Object to be assigned
     def type=(type)
-      validator = EnumAttributeValidator.new('String', ["Sick", "Adoption", "Maternity", "Paternity", "Sharedparental", "Bereavement"])
+      validator = EnumAttributeValidator.new('String', ["Sick", "Adoption", "Maternity", "Paternity", "Sharedparental", "Bereavement", "NeonatalCare"])
       unless validator.valid?(type)
         fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
       end
