@@ -745,7 +745,9 @@ opts = {
 
   page: 2, # Integer | number of records to skip for pagination
 
-  sort: 'CreatedDateUTC DESC' # String | values to sort by
+  sort: 'CreatedDateUTC', # String | values to sort by
+
+  direction: 'ASC' # String | sort direction
 }
 
 begin
@@ -766,6 +768,7 @@ Name | Type | Description  | Notes
  **pagesize** | **Integer**| pass an optional page size value | [optional] 
  **page** | **Integer**| number of records to skip for pagination | [optional] 
  **sort** | **String**| values to sort by | [optional] 
+ **direction** | **String**| sort direction | [optional] 
 
 ### Return type
 

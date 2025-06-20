@@ -25,11 +25,12 @@ module XeroRuby::AppStore
     # The unit of the per seat product. e.g. \"user\", \"organisation\", \"SMS\", etc
     attr_accessor :seat_unit
     
-    # The pricing model of the product: * FIXED: Customers are charged a fixed amount for each billing period * PER_SEAT: Customers are charged based on the number of units they purchase * METERED: Customers are charged per use of this product 
+    # The pricing model of the product: * FIXED: Customers are charged a fixed amount for each billing period * PER_SEAT: Customers are charged based on the number of units they purchase * METERED: Customers are charged per use of this product * SIMPLE: Customers are charged on a fixed amount for each billing period with an optional add-on feature 
     attr_accessor :type
     FIXED ||= "FIXED".freeze
     PER_SEAT ||= "PER_SEAT".freeze
     METERED ||= "METERED".freeze
+    SIMPLE ||= "SIMPLE".freeze
     
     # The unit of the usage product. e.g. \"user\", \"minutes\", \"SMS\", etc
     attr_accessor :usage_unit
@@ -124,7 +125,7 @@ module XeroRuby::AppStore
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      type_validator = EnumAttributeValidator.new('String', ["FIXED", "PER_SEAT", "METERED"])
+      type_validator = EnumAttributeValidator.new('String', ["FIXED", "PER_SEAT", "METERED", "SIMPLE"])
       return false unless type_validator.valid?(@type)
       true
     end
@@ -132,7 +133,7 @@ module XeroRuby::AppStore
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] type Object to be assigned
     def type=(type)
-      validator = EnumAttributeValidator.new('String', ["FIXED", "PER_SEAT", "METERED"])
+      validator = EnumAttributeValidator.new('String', ["FIXED", "PER_SEAT", "METERED", "SIMPLE"])
       unless validator.valid?(type)
         fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
       end

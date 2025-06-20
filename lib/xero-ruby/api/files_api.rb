@@ -835,6 +835,7 @@ module XeroRuby
     # @option opts [Integer] :pagesize pass an optional page size value
     # @option opts [Integer] :page number of records to skip for pagination
     # @option opts [String] :sort values to sort by
+    # @option opts [String] :direction sort direction
     # @return [Files]
     def get_files(xero_tenant_id, opts = {})
       data, _status_code, _headers = get_files_with_http_info(xero_tenant_id, opts)
@@ -847,6 +848,7 @@ module XeroRuby
     # @option opts [Integer] :pagesize pass an optional page size value
     # @option opts [Integer] :page number of records to skip for pagination
     # @option opts [String] :sort values to sort by
+    # @option opts [String] :direction sort direction
     # @return [Array<(Files, Integer, Hash)>] Files data, response status code and response headers
     def get_files_with_http_info(xero_tenant_id, options = {})
       opts = options.dup
@@ -869,6 +871,10 @@ module XeroRuby
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
       end
+      allowable_values = ["ASC", "DESC"]
+      if @api_client.config.client_side_validation && opts[:'direction'] && !allowable_values.include?(opts[:'direction'])
+        fail ArgumentError, "invalid value for \"direction\", must be one of #{allowable_values}"
+      end
       # resource path
       local_var_path = '/Files'
 
@@ -880,6 +886,7 @@ module XeroRuby
       query_params[:'pagesize'] = opts[:'pagesize'] if !opts[:'pagesize'].nil?
       query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
       query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'direction'] = opts[:'direction'] if !opts[:'direction'].nil?
       
       # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
       query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?

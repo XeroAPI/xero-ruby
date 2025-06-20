@@ -24,6 +24,7 @@ module XeroRuby::PayrollUk
     PATERNITY ||= "Paternity".freeze
     SHAREDPARENTAL ||= "Sharedparental".freeze
     BEREAVEMENT ||= "Bereavement".freeze
+    NEONATAL_CARE ||= "NeonatalCare".freeze
     
     # The balance remaining for the corresponding leave type as of specified date.
     attr_accessor :balance_remaining
@@ -110,7 +111,7 @@ module XeroRuby::PayrollUk
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      leave_type_validator = EnumAttributeValidator.new('String', ["Sick", "Adoption", "Maternity", "Paternity", "Sharedparental", "Bereavement"])
+      leave_type_validator = EnumAttributeValidator.new('String', ["Sick", "Adoption", "Maternity", "Paternity", "Sharedparental", "Bereavement", "NeonatalCare"])
       return false unless leave_type_validator.valid?(@leave_type)
       units_validator = EnumAttributeValidator.new('String', ["Hours"])
       return false unless units_validator.valid?(@units)
@@ -120,7 +121,7 @@ module XeroRuby::PayrollUk
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] leave_type Object to be assigned
     def leave_type=(leave_type)
-      validator = EnumAttributeValidator.new('String', ["Sick", "Adoption", "Maternity", "Paternity", "Sharedparental", "Bereavement"])
+      validator = EnumAttributeValidator.new('String', ["Sick", "Adoption", "Maternity", "Paternity", "Sharedparental", "Bereavement", "NeonatalCare"])
       unless validator.valid?(leave_type)
         fail ArgumentError, "invalid value for \"leave_type\", must be one of #{validator.allowable_values}."
       end
