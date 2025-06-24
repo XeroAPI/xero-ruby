@@ -1170,7 +1170,7 @@ ul.nav-tabs {
           <nav id="scrollingNav">
             <ul class="sidenav nav nav-list">
               <li class="nav-header" data-group="Files"><strong>SDK: </strong><span id='sdk-name'></span></li>
-              <li class="nav-header" data-group="Files"><strong>VSN: </strong>11.2.0</li>
+              <li class="nav-header" data-group="Files"><strong>VSN: </strong>11.3.0</li>
               <li class="nav-header" data-group="Files"><a href="#api-Files">Methods</a></li>
               <li data-group="Files" data-name="createFileAssociation" class="">
                 <a href="#api-Files-createFileAssociation">createFileAssociation</a>
@@ -2625,10 +2625,11 @@ Xero identifier for Tenant
 xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 pagesize = 50
 page = 2
-sort = 'CreatedDateUTC DESC'
+sort = 'CreatedDateUTC'
+direction = 'ASC'
 
 begin
-  response = xero_client.accounting_api.get_files(xero_tenant_id, pagesize, page, sort)
+  response = xero_client.accounting_api.get_files(xero_tenant_id, pagesize, page, sort, direction)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_files: #{e}"
@@ -2740,6 +2741,26 @@ number of records to skip for pagination
 
                     <div class="inner description marked">
 values to sort by
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">direction</td>
+<td>
+
+
+    <div id="d2e199_getFiles_direction">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+sort direction
                     </div>
             </div>
         </div>
