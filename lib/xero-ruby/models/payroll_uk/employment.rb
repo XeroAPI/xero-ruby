@@ -95,12 +95,32 @@ module XeroRuby::PayrollUk
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @payroll_calendar_id.nil?
+        invalid_properties.push('invalid value for "payroll_calendar_id", payroll_calendar_id cannot be nil.')
+      end
+
+      if @start_date.nil?
+        invalid_properties.push('invalid value for "start_date", start_date cannot be nil.')
+      end
+
+      if @employee_number.nil?
+        invalid_properties.push('invalid value for "employee_number", employee_number cannot be nil.')
+      end
+
+      if @ni_categories.nil?
+        invalid_properties.push('invalid value for "ni_categories", ni_categories cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @payroll_calendar_id.nil?
+      return false if @start_date.nil?
+      return false if @employee_number.nil?
+      return false if @ni_categories.nil?
       true
     end
 

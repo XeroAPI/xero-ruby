@@ -385,7 +385,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-employee = {"title":"Mr","firstName":"Mike","lastName":"Fancy","dateOfBirth":"1999-01-01T00:00:00","gender":"M","email":"mike@starkindustries.com","isOffPayrollWorker":false,"address":{"addressLine1":"171 Midsummer","city":"Milton Keyness","postCode":"MK9 1EB"}} # Employee | 
+employee = {"title":"Mr","firstName":"Mike","lastName":"Fancy","dateOfBirth":"1999-01-01T00:00:00Z","gender":"M","email":"mike@starkindustries.com","isOffPayrollWorker":false,"address":{"addressLine1":"171 Midsummer","city":"Milton Keyness","postCode":"MK9 1EB"}} # Employee | 
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -950,7 +950,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
-employment = { "PayrollCalendarID": "216d80e6-af55-47b1-b718-9457c3f5d2fe", "StartDate": "2020-04-01", "NICategories": [ { "NICategory": "A", "StartDate": "2020-05-01" } ], "EmployeeNumber": "123ABC" } # Employment | 
+employment = {"payrollCalendarID":"cdfb8371-0b21-4b8a-8903-1024df6c391e","startDate":"2024-04-01","niCategories":[{"niCategory":"I","startDate":"2020-05-01","workplacePostcode":"SW1A 1AA"}],"employeeNumber":"123ABC"} # Employment | 
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -4351,7 +4351,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
-employee = {"title":"Mr.","firstName":"TestDataUK","lastName":"Tester","dateOfBirth":"1992-11-22T00:00:00","gender":"M","email":"tester@gmail.com","phoneNumber":"0400123456","isOffPayrollWorker":false,"address":{"addressLine1":"171 Midsummer","city":"Milton Keyness","postCode":"MK9 1EB"}} # Employee | 
+employee = {"title":"Mr.","firstName":"TestDataUK","lastName":"Tester","dateOfBirth":"1992-11-22T00:00:00Z","gender":"M","email":"tester@gmail.com","phoneNumber":"0400123456","isOffPayrollWorker":false,"address":{"addressLine1":"171 Midsummer","city":"Milton Keyness","postCode":"MK9 1EB"}} # Employee | 
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
