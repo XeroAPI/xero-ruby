@@ -347,7 +347,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 account_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for Account object
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = File.new('/path/to/file') # File | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -369,7 +369,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **account_id** | [**String**](.md)| Unique identifier for Account object | 
  **file_name** | **String**| Name of the attachment | 
- **body** | **File**| Byte array of file in body of request | 
+ **body** | **String**| Byte array of file in body of request | 
  **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
 
 ### Return type
@@ -420,7 +420,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transaction_id = '00000000-0000-0000-0000-000000000000' # String | Xero generated unique identifier for a bank transaction
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = File.new('/path/to/file') # File | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -442,7 +442,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **bank_transaction_id** | [**String**](.md)| Xero generated unique identifier for a bank transaction | 
  **file_name** | **String**| Name of the attachment | 
- **body** | **File**| Byte array of file in body of request | 
+ **body** | **String**| Byte array of file in body of request | 
  **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
 
 ### Return type
@@ -708,7 +708,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transfer_id = '00000000-0000-0000-0000-000000000000' # String | Xero generated unique identifier for a bank transfer
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = File.new('/path/to/file') # File | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -729,7 +729,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **bank_transfer_id** | [**String**](.md)| Xero generated unique identifier for a bank transfer | 
  **file_name** | **String**| Name of the attachment | 
- **body** | **File**| Byte array of file in body of request | 
+ **body** | **String**| Byte array of file in body of request | 
  **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
 
 ### Return type
@@ -1065,7 +1065,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Contact
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = File.new('/path/to/file') # File | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -1086,7 +1086,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **contact_id** | [**String**](.md)| Unique identifier for a Contact | 
  **file_name** | **String**| Name of the attachment | 
- **body** | **File**| Byte array of file in body of request | 
+ **body** | **String**| Byte array of file in body of request | 
  **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
 
 ### Return type
@@ -1494,7 +1494,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 credit_note_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Credit Note
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = File.new('/path/to/file') # File | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 opts = {
   include_online: false, # Boolean | Allows an attachment to be seen by the end customer within their online invoice
 
@@ -1518,7 +1518,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **credit_note_id** | [**String**](.md)| Unique identifier for a Credit Note | 
  **file_name** | **String**| Name of the attachment | 
- **body** | **File**| Byte array of file in body of request | 
+ **body** | **String**| Byte array of file in body of request | 
  **include_online** | **Boolean**| Allows an attachment to be seen by the end customer within their online invoice | [optional] [default to false]
  **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
 
@@ -1997,7 +1997,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Invoice
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = File.new('/path/to/file') # File | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 opts = {
   include_online: false, # Boolean | Allows an attachment to be seen by the end customer within their online invoice
 
@@ -2021,7 +2021,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **invoice_id** | [**String**](.md)| Unique identifier for an Invoice | 
  **file_name** | **String**| Name of the attachment | 
- **body** | **File**| Byte array of file in body of request | 
+ **body** | **String**| Byte array of file in body of request | 
  **include_online** | **Boolean**| Allows an attachment to be seen by the end customer within their online invoice | [optional] [default to false]
  **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
 
@@ -2434,7 +2434,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 manual_journal_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a ManualJournal
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = File.new('/path/to/file') # File | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -2456,7 +2456,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **manual_journal_id** | [**String**](.md)| Unique identifier for a ManualJournal | 
  **file_name** | **String**| Name of the attachment | 
- **body** | **File**| Byte array of file in body of request | 
+ **body** | **String**| Byte array of file in body of request | 
  **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
 
 ### Return type
@@ -3221,7 +3221,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 purchase_order_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Purchase Order
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = File.new('/path/to/file') # File | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -3243,7 +3243,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **purchase_order_id** | [**String**](.md)| Unique identifier for an Purchase Order | 
  **file_name** | **String**| Name of the attachment | 
- **body** | **File**| Byte array of file in body of request | 
+ **body** | **String**| Byte array of file in body of request | 
  **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
 
 ### Return type
@@ -3437,7 +3437,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 quote_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Quote
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = File.new('/path/to/file') # File | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -3459,7 +3459,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **quote_id** | [**String**](.md)| Unique identifier for an Quote | 
  **file_name** | **String**| Name of the attachment | 
- **body** | **File**| Byte array of file in body of request | 
+ **body** | **String**| Byte array of file in body of request | 
  **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
 
 ### Return type
@@ -3725,7 +3725,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 receipt_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Receipt
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = File.new('/path/to/file') # File | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -3747,7 +3747,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **receipt_id** | [**String**](.md)| Unique identifier for a Receipt | 
  **file_name** | **String**| Name of the attachment | 
- **body** | **File**| Byte array of file in body of request | 
+ **body** | **String**| Byte array of file in body of request | 
  **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
 
 ### Return type
@@ -3869,7 +3869,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 repeating_invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Repeating Invoice
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = File.new('/path/to/file') # File | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -3891,7 +3891,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **repeating_invoice_id** | [**String**](.md)| Unique identifier for a Repeating Invoice | 
  **file_name** | **String**| Name of the attachment | 
- **body** | **File**| Byte array of file in body of request | 
+ **body** | **String**| Byte array of file in body of request | 
  **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
 
 ### Return type
@@ -14131,7 +14131,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 account_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for Account object
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = File.new('/path/to/file') # File | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -14153,7 +14153,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **account_id** | [**String**](.md)| Unique identifier for Account object | 
  **file_name** | **String**| Name of the attachment | 
- **body** | **File**| Byte array of file in body of request | 
+ **body** | **String**| Byte array of file in body of request | 
  **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
 
 ### Return type
@@ -14278,7 +14278,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transaction_id = '00000000-0000-0000-0000-000000000000' # String | Xero generated unique identifier for a bank transaction
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = File.new('/path/to/file') # File | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -14300,7 +14300,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **bank_transaction_id** | [**String**](.md)| Xero generated unique identifier for a bank transaction | 
  **file_name** | **String**| Name of the attachment | 
- **body** | **File**| Byte array of file in body of request | 
+ **body** | **String**| Byte array of file in body of request | 
  **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
 
 ### Return type
@@ -14351,7 +14351,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transfer_id = '00000000-0000-0000-0000-000000000000' # String | Xero generated unique identifier for a bank transfer
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = File.new('/path/to/file') # File | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -14372,7 +14372,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **bank_transfer_id** | [**String**](.md)| Xero generated unique identifier for a bank transfer | 
  **file_name** | **String**| Name of the attachment | 
- **body** | **File**| Byte array of file in body of request | 
+ **body** | **String**| Byte array of file in body of request | 
  **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
 
 ### Return type
@@ -14494,7 +14494,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Contact
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = File.new('/path/to/file') # File | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -14515,7 +14515,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **contact_id** | [**String**](.md)| Unique identifier for a Contact | 
  **file_name** | **String**| Name of the attachment | 
- **body** | **File**| Byte array of file in body of request | 
+ **body** | **String**| Byte array of file in body of request | 
  **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
 
 ### Return type
@@ -14711,7 +14711,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 credit_note_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Credit Note
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = File.new('/path/to/file') # File | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -14733,7 +14733,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **credit_note_id** | [**String**](.md)| Unique identifier for a Credit Note | 
  **file_name** | **String**| Name of the attachment | 
- **body** | **File**| Byte array of file in body of request | 
+ **body** | **String**| Byte array of file in body of request | 
  **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
 
 ### Return type
@@ -14929,7 +14929,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Invoice
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = File.new('/path/to/file') # File | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -14951,7 +14951,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **invoice_id** | [**String**](.md)| Unique identifier for an Invoice | 
  **file_name** | **String**| Name of the attachment | 
- **body** | **File**| Byte array of file in body of request | 
+ **body** | **String**| Byte array of file in body of request | 
  **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
 
 ### Return type
@@ -15218,7 +15218,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 manual_journal_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a ManualJournal
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = File.new('/path/to/file') # File | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -15240,7 +15240,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **manual_journal_id** | [**String**](.md)| Unique identifier for a ManualJournal | 
  **file_name** | **String**| Name of the attachment | 
- **body** | **File**| Byte array of file in body of request | 
+ **body** | **String**| Byte array of file in body of request | 
  **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
 
 ### Return type
@@ -16094,7 +16094,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 purchase_order_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Purchase Order
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = File.new('/path/to/file') # File | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -16116,7 +16116,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **purchase_order_id** | [**String**](.md)| Unique identifier for an Purchase Order | 
  **file_name** | **String**| Name of the attachment | 
- **body** | **File**| Byte array of file in body of request | 
+ **body** | **String**| Byte array of file in body of request | 
  **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
 
 ### Return type
@@ -16238,7 +16238,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 quote_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Quote
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = File.new('/path/to/file') # File | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -16260,7 +16260,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **quote_id** | [**String**](.md)| Unique identifier for an Quote | 
  **file_name** | **String**| Name of the attachment | 
- **body** | **File**| Byte array of file in body of request | 
+ **body** | **String**| Byte array of file in body of request | 
  **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
 
 ### Return type
@@ -16385,7 +16385,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 receipt_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Receipt
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = File.new('/path/to/file') # File | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -16407,7 +16407,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **receipt_id** | [**String**](.md)| Unique identifier for a Receipt | 
  **file_name** | **String**| Name of the attachment | 
- **body** | **File**| Byte array of file in body of request | 
+ **body** | **String**| Byte array of file in body of request | 
  **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
 
 ### Return type
@@ -16529,7 +16529,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 repeating_invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Repeating Invoice
 file_name = 'xero-dev.jpg' # String | Name of the attachment
-body = File.new('/path/to/file') # File | Byte array of file in body of request
+body = 'body_example' # String | Byte array of file in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -16551,7 +16551,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **repeating_invoice_id** | [**String**](.md)| Unique identifier for a Repeating Invoice | 
  **file_name** | **String**| Name of the attachment | 
- **body** | **File**| Byte array of file in body of request | 
+ **body** | **String**| Byte array of file in body of request | 
  **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
 
 ### Return type

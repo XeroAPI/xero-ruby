@@ -7248,7 +7248,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 account_id = '00000000-0000-0000-0000-000000000000'
 file_name = 'xero-dev.jpg'
 idempotency_key = 'KEY_VALUE'
-
+body = File.read('assets/images/xero-api.png')
 begin
   response = xero_client.accounting_api.create_account_attachment_by_file_name(xero_tenant_id, account_id, file_name, body, idempotency_key)
   return response
@@ -7386,7 +7386,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -7403,7 +7403,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -7443,7 +7443,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 bank_transaction_id = '00000000-0000-0000-0000-000000000000'
 file_name = 'xero-dev.jpg'
 idempotency_key = 'KEY_VALUE'
-
+body = File.read('assets/images/xero-api.png')
 begin
   response = xero_client.accounting_api.create_bank_transaction_attachment_by_file_name(xero_tenant_id, bank_transaction_id, file_name, body, idempotency_key)
   return response
@@ -7581,7 +7581,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -7598,7 +7598,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -8249,7 +8249,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 bank_transfer_id = '00000000-0000-0000-0000-000000000000'
 file_name = 'xero-dev.jpg'
 idempotency_key = 'KEY_VALUE'
-
+body = File.read('assets/images/xero-api.png')
 begin
   response = xero_client.accounting_api.create_bank_transfer_attachment_by_file_name(xero_tenant_id, bank_transfer_id, file_name, body, idempotency_key)
   return response
@@ -8387,7 +8387,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -8404,7 +8404,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -9219,7 +9219,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 contact_id = '00000000-0000-0000-0000-000000000000'
 file_name = 'xero-dev.jpg'
 idempotency_key = 'KEY_VALUE'
-
+body = File.read('assets/images/xero-api.png')
 begin
   response = xero_client.accounting_api.create_contact_attachment_by_file_name(xero_tenant_id, contact_id, file_name, body, idempotency_key)
   return response
@@ -9357,7 +9357,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -9374,7 +9374,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -10396,7 +10396,7 @@ credit_note_id = '00000000-0000-0000-0000-000000000000'
 file_name = 'xero-dev.jpg'
 include_online = true
 idempotency_key = 'KEY_VALUE'
-
+body = File.read('assets/images/xero-api.png')
 begin
   response = xero_client.accounting_api.create_credit_note_attachment_by_file_name(xero_tenant_id, credit_note_id, file_name, body, include_online, idempotency_key)
   return response
@@ -10534,7 +10534,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -10551,7 +10551,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -11707,7 +11707,7 @@ invoice_id = '00000000-0000-0000-0000-000000000000'
 file_name = 'xero-dev.jpg'
 include_online = true
 idempotency_key = 'KEY_VALUE'
-
+body = File.read('assets/images/xero-api.png')
 begin
   response = xero_client.accounting_api.create_invoice_attachment_by_file_name(xero_tenant_id, invoice_id, file_name, body, include_online, idempotency_key)
   return response
@@ -11845,7 +11845,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -11862,7 +11862,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -12896,7 +12896,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 manual_journal_id = '00000000-0000-0000-0000-000000000000'
 file_name = 'xero-dev.jpg'
 idempotency_key = 'KEY_VALUE'
-
+body = File.read('assets/images/xero-api.png')
 begin
   response = xero_client.accounting_api.create_manual_journal_attachment_by_file_name(xero_tenant_id, manual_journal_id, file_name, body, idempotency_key)
   return response
@@ -13034,7 +13034,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -13051,7 +13051,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -14999,7 +14999,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 purchase_order_id = '00000000-0000-0000-0000-000000000000'
 file_name = 'xero-dev.jpg'
 idempotency_key = 'KEY_VALUE'
-
+body = File.read('assets/images/xero-api.png')
 begin
   response = xero_client.accounting_api.create_purchase_order_attachment_by_file_name(xero_tenant_id, purchase_order_id, file_name, body, idempotency_key)
   return response
@@ -15137,7 +15137,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -15154,7 +15154,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -15579,7 +15579,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 quote_id = '00000000-0000-0000-0000-000000000000'
 file_name = 'xero-dev.jpg'
 idempotency_key = 'KEY_VALUE'
-
+body = File.read('assets/images/xero-api.png')
 begin
   response = xero_client.accounting_api.create_quote_attachment_by_file_name(xero_tenant_id, quote_id, file_name, body, idempotency_key)
   return response
@@ -15717,7 +15717,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -15734,7 +15734,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -16372,7 +16372,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 receipt_id = '00000000-0000-0000-0000-000000000000'
 file_name = 'xero-dev.jpg'
 idempotency_key = 'KEY_VALUE'
-
+body = File.read('assets/images/xero-api.png')
 begin
   response = xero_client.accounting_api.create_receipt_attachment_by_file_name(xero_tenant_id, receipt_id, file_name, body, idempotency_key)
   return response
@@ -16510,7 +16510,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -16527,7 +16527,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -16750,7 +16750,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 repeating_invoice_id = '00000000-0000-0000-0000-000000000000'
 file_name = 'xero-dev.jpg'
 idempotency_key = 'KEY_VALUE'
-
+body = File.read('assets/images/xero-api.png')
 begin
   response = xero_client.accounting_api.create_repeating_invoice_attachment_by_file_name(xero_tenant_id, repeating_invoice_id, file_name, body, idempotency_key)
   return response
@@ -16888,7 +16888,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -16905,7 +16905,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -38713,7 +38713,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 account_id = '00000000-0000-0000-0000-000000000000'
 file_name = 'xero-dev.jpg'
 idempotency_key = 'KEY_VALUE'
-
+body = File.read('assets/images/xero-api.png')
 begin
   response = xero_client.accounting_api.update_account_attachment_by_file_name(xero_tenant_id, account_id, file_name, body, idempotency_key)
   return response
@@ -38851,7 +38851,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -38868,7 +38868,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -39205,7 +39205,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 bank_transaction_id = '00000000-0000-0000-0000-000000000000'
 file_name = 'xero-dev.jpg'
 idempotency_key = 'KEY_VALUE'
-
+body = File.read('assets/images/xero-api.png')
 begin
   response = xero_client.accounting_api.update_bank_transaction_attachment_by_file_name(xero_tenant_id, bank_transaction_id, file_name, body, idempotency_key)
   return response
@@ -39343,7 +39343,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -39360,7 +39360,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -39400,7 +39400,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 bank_transfer_id = '00000000-0000-0000-0000-000000000000'
 file_name = 'xero-dev.jpg'
 idempotency_key = 'KEY_VALUE'
-
+body = File.read('assets/images/xero-api.png')
 begin
   response = xero_client.accounting_api.update_bank_transfer_attachment_by_file_name(xero_tenant_id, bank_transfer_id, file_name, body, idempotency_key)
   return response
@@ -39538,7 +39538,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -39555,7 +39555,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -39780,7 +39780,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 contact_id = '00000000-0000-0000-0000-000000000000'
 file_name = 'xero-dev.jpg'
 idempotency_key = 'KEY_VALUE'
-
+body = File.read('assets/images/xero-api.png')
 begin
   response = xero_client.accounting_api.update_contact_attachment_by_file_name(xero_tenant_id, contact_id, file_name, body, idempotency_key)
   return response
@@ -39918,7 +39918,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -39935,7 +39935,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -40401,7 +40401,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 credit_note_id = '00000000-0000-0000-0000-000000000000'
 file_name = 'xero-dev.jpg'
 idempotency_key = 'KEY_VALUE'
-
+body = File.read('assets/images/xero-api.png')
 begin
   response = xero_client.accounting_api.update_credit_note_attachment_by_file_name(xero_tenant_id, credit_note_id, file_name, body, idempotency_key)
   return response
@@ -40539,7 +40539,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -40556,7 +40556,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -41013,7 +41013,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 invoice_id = '00000000-0000-0000-0000-000000000000'
 file_name = 'xero-dev.jpg'
 idempotency_key = 'KEY_VALUE'
-
+body = File.read('assets/images/xero-api.png')
 begin
   response = xero_client.accounting_api.update_invoice_attachment_by_file_name(xero_tenant_id, invoice_id, file_name, body, idempotency_key)
   return response
@@ -41151,7 +41151,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -41168,7 +41168,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -41806,7 +41806,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 manual_journal_id = '00000000-0000-0000-0000-000000000000'
 file_name = 'xero-dev.jpg'
 idempotency_key = 'KEY_VALUE'
-
+body = File.read('assets/images/xero-api.png')
 begin
   response = xero_client.accounting_api.update_manual_journal_attachment_by_file_name(xero_tenant_id, manual_journal_id, file_name, body, idempotency_key)
   return response
@@ -41944,7 +41944,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -41961,7 +41961,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -44269,7 +44269,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 purchase_order_id = '00000000-0000-0000-0000-000000000000'
 file_name = 'xero-dev.jpg'
 idempotency_key = 'KEY_VALUE'
-
+body = File.read('assets/images/xero-api.png')
 begin
   response = xero_client.accounting_api.update_purchase_order_attachment_by_file_name(xero_tenant_id, purchase_order_id, file_name, body, idempotency_key)
   return response
@@ -44407,7 +44407,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -44424,7 +44424,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -44657,7 +44657,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 quote_id = '00000000-0000-0000-0000-000000000000'
 file_name = 'xero-dev.jpg'
 idempotency_key = 'KEY_VALUE'
-
+body = File.read('assets/images/xero-api.png')
 begin
   response = xero_client.accounting_api.update_quote_attachment_by_file_name(xero_tenant_id, quote_id, file_name, body, idempotency_key)
   return response
@@ -44795,7 +44795,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -44812,7 +44812,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -45073,7 +45073,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 receipt_id = '00000000-0000-0000-0000-000000000000'
 file_name = 'xero-dev.jpg'
 idempotency_key = 'KEY_VALUE'
-
+body = File.read('assets/images/xero-api.png')
 begin
   response = xero_client.accounting_api.update_receipt_attachment_by_file_name(xero_tenant_id, receipt_id, file_name, body, idempotency_key)
   return response
@@ -45211,7 +45211,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -45228,7 +45228,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -45484,7 +45484,7 @@ xero_tenant_id = 'YOUR_XERO_TENANT_ID'
 repeating_invoice_id = '00000000-0000-0000-0000-000000000000'
 file_name = 'xero-dev.jpg'
 idempotency_key = 'KEY_VALUE'
-
+body = File.read('assets/images/xero-api.png')
 begin
   response = xero_client.accounting_api.update_repeating_invoice_attachment_by_file_name(xero_tenant_id, repeating_invoice_id, file_name, body, idempotency_key)
   return response
@@ -45622,7 +45622,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -45639,7 +45639,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
