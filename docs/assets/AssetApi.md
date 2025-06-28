@@ -47,7 +47,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-asset = { "assetName":"Computer74863", "assetNumber":"123477544", "purchaseDate":"2020-01-01", "purchasePrice":100.0, "disposalPrice":23.23, "assetStatus":"Draft", "bookDepreciationSetting":{ "depreciationMethod":"StraightLine", "averagingMethod":"ActualDays", "depreciationRate":0.5, "depreciationCalculationMethod":"None" }, "bookDepreciationDetail":{ "currentCapitalGain":5.32, "currentGainLoss":3.88, "depreciationStartDate":"2020-01-02", "costLimit":100.0, "currentAccumDepreciationAmount":2.25 }, "AccountingBookValue":99.5 } # Asset | Fixed asset you are creating
+asset = {"assetName":"Computer74863","assetNumber":"123477544","purchaseDate":"2020-01-01","purchasePrice":100.0,"disposalPrice":23.23,"assetStatus":"Draft","bookDepreciationSetting":{"depreciationMethod":"StraightLine","averagingMethod":"ActualDays","depreciationRate":0.5,"depreciationCalculationMethod":"None"},"bookDepreciationDetail":{"currentCapitalGain":5.32,"currentGainLoss":3.88,"depreciationStartDate":"2020-01-02","costLimit":100.0,"currentAccumDepreciationAmount":2.25},"AccountingBookValue":99.5} # Asset | Fixed asset you are creating
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -118,7 +118,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-asset_type = { "assetTypeName":"Machinery11004", "fixedAssetAccountId":"3d8d063a-c148-4bb8-8b3c-a5e2ad3b1e82", "depreciationExpenseAccountId":"d1602f69-f900-4616-8d34-90af393fa368", "accumulatedDepreciationAccountId":"9195cadd-8645-41e6-9f67-7bcd421defe8", "bookDepreciationSetting":{ "depreciationMethod":"DiminishingValue100", "averagingMethod":"ActualDays", "depreciationRate":0.05, "depreciationCalculationMethod":"None" } } # AssetType | Asset type to add
+asset_type = {"assetTypeName":"Machinery11004","fixedAssetAccountId":"3d8d063a-c148-4bb8-8b3c-a5e2ad3b1e82","depreciationExpenseAccountId":"d1602f69-f900-4616-8d34-90af393fa368","accumulatedDepreciationAccountId":"9195cadd-8645-41e6-9f67-7bcd421defe8","bookDepreciationSetting":{"depreciationMethod":"DiminishingValue100","averagingMethod":"ActualDays","depreciationRate":0.05,"depreciationCalculationMethod":"None"}} # AssetType | Asset type to add
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }

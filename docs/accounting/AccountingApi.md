@@ -276,7 +276,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-account = { "Code":"123456", "Name":"Foobar", "Type":"EXPENSE", "Description":"Hello World" } # Account | Account object in body of request
+account = {"Code":"123456","Name":"Foobar","Type":"EXPENSE","Description":"Hello World"} # Account | Account object in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -492,7 +492,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transaction_id = '00000000-0000-0000-0000-000000000000' # String | Xero generated unique identifier for a bank transaction
-history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+history_records = {"HistoryRecords":[{"Details":"Hello World"}]} # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -562,7 +562,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-bank_transactions = { bankTransactions: [{ type: BankTransaction.TypeEnum.SPEND, contact: { contactID: "00000000-0000-0000-0000-000000000000" }, lineItems: [{ description: "Foobar", quantity: 1.0, unitAmount: 20.0, accountCode: "000" } ], bankAccount: { code: "000" }}]} # BankTransactions | BankTransactions with an array of BankTransaction objects in body of request
+bank_transactions = {"bankTransactions":[{"type":"BankTransaction.TypeEnum.SPEND","contact":{"contactID":"00000000-0000-0000-0000-000000000000"},"lineItems":[{"description":"Foobar","quantity":1.0,"unitAmount":20.0,"accountCode":"000"}],"bankAccount":{"code":"000"}}]} # BankTransactions | BankTransactions with an array of BankTransaction objects in body of request
 opts = {
   summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 
@@ -637,7 +637,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-bank_transfers = { "BankTransfers": [ { "FromBankAccount": { "Code": "090", "Name": "My Savings", "AccountID": "00000000-0000-0000-0000-000000000000", "Type": "BANK", "BankAccountNumber": "123455", "Status": "ACTIVE", "BankAccountType": "BANK", "CurrencyCode": "USD", "TaxType": "NONE", "EnablePaymentsToAccount": false, "ShowInExpenseClaims": false, "Class": "ASSET", "ReportingCode": "ASS", "ReportingCodeName": "Assets", "HasAttachments": false, "UpdatedDateUTC": "2016-10-17T13:45:33.993-07:00" }, "ToBankAccount": { "Code": "088", "Name": "Business Wells Fargo", "AccountID": "00000000-0000-0000-0000-000000000000", "Type": "BANK", "BankAccountNumber": "123455", "Status": "ACTIVE", "BankAccountType": "BANK", "CurrencyCode": "USD", "TaxType": "NONE", "EnablePaymentsToAccount": false, "ShowInExpenseClaims": false, "Class": "ASSET", "ReportingCode": "ASS", "ReportingCodeName": "Assets", "HasAttachments": false, "UpdatedDateUTC": "2016-06-03T08:31:14.517-07:00" }, "Amount": "50.00", "FromIsReconciled": true, "ToIsReconciled": true, "Reference": "Sub 098801" } ] } # BankTransfers | BankTransfers with array of BankTransfer objects in request body
+bank_transfers = {"BankTransfers":[{"FromBankAccount":{"Code":"090","Name":"My Savings","AccountID":"00000000-0000-0000-0000-000000000000","Type":"BANK","BankAccountNumber":"123455","Status":"ACTIVE","BankAccountType":"BANK","CurrencyCode":"USD","TaxType":"NONE","EnablePaymentsToAccount":false,"ShowInExpenseClaims":false,"Class":"ASSET","ReportingCode":"ASS","ReportingCodeName":"Assets","HasAttachments":false,"UpdatedDateUTC":"2016-10-17T13:45:33.993-07:00"},"ToBankAccount":{"Code":"088","Name":"Business Wells Fargo","AccountID":"00000000-0000-0000-0000-000000000000","Type":"BANK","BankAccountNumber":"123455","Status":"ACTIVE","BankAccountType":"BANK","CurrencyCode":"USD","TaxType":"NONE","EnablePaymentsToAccount":false,"ShowInExpenseClaims":false,"Class":"ASSET","ReportingCode":"ASS","ReportingCodeName":"Assets","HasAttachments":false,"UpdatedDateUTC":"2016-06-03T08:31:14.517-07:00"},"Amount":"50.00","FromIsReconciled":true,"ToIsReconciled":true,"Reference":"Sub 098801"}]} # BankTransfers | BankTransfers with array of BankTransfer objects in request body
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -779,7 +779,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transfer_id = '00000000-0000-0000-0000-000000000000' # String | Xero generated unique identifier for a bank transfer
-history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+history_records = {"HistoryRecords":[{"Details":"Hello World"}]} # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -849,7 +849,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-batch_payments = { "BatchPayments": [ { "Account": { "AccountID": "00000000-0000-0000-0000-000000000000" }, "Reference": "ref", "Date": "2018-08-01", "Payments": [ { "Account": { "Code": "001" }, "Date": "2019-12-31", "Amount": 500, "Invoice": { "InvoiceID": "00000000-0000-0000-0000-000000000000", "LineItems": [], "Contact": {}, "Type": "ACCPAY" } } ] } ] } # BatchPayments | BatchPayments with an array of Payments in body of request
+batch_payments = {"BatchPayments":[{"Account":{"AccountID":"00000000-0000-0000-0000-000000000000"},"Reference":"ref","Date":"2018-08-01","Payments":[{"Account":{"Code":"001"},"Date":"2019-12-31","Amount":500,"Invoice":{"InvoiceID":"00000000-0000-0000-0000-000000000000","LineItems":[],"Contact":{},"Type":"ACCPAY"}}]}]} # BatchPayments | BatchPayments with an array of Payments in body of request
 opts = {
   summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 
@@ -922,7 +922,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 batch_payment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for BatchPayment
-history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+history_records = {"HistoryRecords":[{"Details":"Hello World"}]} # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -993,7 +993,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 branding_theme_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Branding Theme
-payment_services = { "PaymentServices": [ { "PaymentServiceID": "54b3b4f6-0443-4fba-bcd1-61ec0c35ca55", "PaymentServiceName": "PayUpNow", "PaymentServiceUrl": "https://www.payupnow.com/", "PaymentServiceType": "Custom", "PayNowText": "Time To Pay" } ] } # PaymentServices | PaymentServices array with PaymentService object in body of request
+payment_services = {"PaymentServices":[{"PaymentServiceID":"54b3b4f6-0443-4fba-bcd1-61ec0c35ca55","PaymentServiceName":"PayUpNow","PaymentServiceUrl":"https://www.payupnow.com/","PaymentServiceType":"Custom","PayNowText":"Time To Pay"}]} # PaymentServices | PaymentServices array with PaymentService object in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -1135,7 +1135,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-contact_groups = { "ContactGroups": [{ "Name": "VIPs" }]} # ContactGroups | ContactGroups with an array of names in request body
+contact_groups = {"ContactGroups":[{"Name":"VIPs"}]} # ContactGroups | ContactGroups with an array of names in request body
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -1205,7 +1205,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_group_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Contact Group
-contacts = { "Contacts": [ { "ContactID": "a3675fc4-f8dd-4f03-ba5b-f1870566bcd7" }, { "ContactID": "4e1753b9-018a-4775-b6aa-1bc7871cfee3" } ] } # Contacts | Contacts with array of contacts specifying the ContactID to be added to ContactGroup in body of request
+contacts = {"Contacts":[{"ContactID":"a3675fc4-f8dd-4f03-ba5b-f1870566bcd7"},{"ContactID":"4e1753b9-018a-4775-b6aa-1bc7871cfee3"}]} # Contacts | Contacts with array of contacts specifying the ContactID to be added to ContactGroup in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -1276,7 +1276,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Contact
-history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+history_records = {"HistoryRecords":[{"Details":"Hello World"}]} # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -1346,7 +1346,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-contacts = { "Contacts": [ { "ContactID": "3ff6d40c-af9a-40a3-89ce-3c1556a25591", "ContactStatus": "ACTIVE", "Name": "Foo9987", "EmailAddress": "sid32476@blah.com", "BankAccountDetails": "", "Addresses": [ { "AddressType": "STREET", "City": "", "Region": "", "PostalCode": "", "Country": "" }, { "AddressType": "POBOX", "City": "", "Region": "", "PostalCode": "", "Country": "" } ], "Phones": [ { "PhoneType": "DEFAULT", "PhoneNumber": "", "PhoneAreaCode": "", "PhoneCountryCode": "" }, { "PhoneType": "DDI", "PhoneNumber": "", "PhoneAreaCode": "", "PhoneCountryCode": "" }, { "PhoneType": "FAX", "PhoneNumber": "", "PhoneAreaCode": "", "PhoneCountryCode": "" }, { "PhoneType": "MOBILE", "PhoneNumber": "555-1212", "PhoneAreaCode": "415", "PhoneCountryCode": "" } ], "UpdatedDateUTC": "/Date(1551399321043+0000)/", "ContactGroups": [], "IsSupplier": false, "IsCustomer": false, "SalesTrackingCategories": [], "PurchasesTrackingCategories": [], "PaymentTerms": { "Bills": { "Day": 15, "Type": "OFCURRENTMONTH" }, "Sales": { "Day": 10, "Type": "DAYSAFTERBILLMONTH" } }, "ContactPersons": [] } ] } # Contacts | Contacts with an array of Contact objects to create in body of request
+contacts = {"Contacts":[{"ContactID":"3ff6d40c-af9a-40a3-89ce-3c1556a25591","ContactStatus":"ACTIVE","Name":"Foo9987","EmailAddress":"sid32476@blah.com","BankAccountDetails":"","Addresses":[{"AddressType":"STREET","City":"","Region":"","PostalCode":"","Country":""},{"AddressType":"POBOX","City":"","Region":"","PostalCode":"","Country":""}],"Phones":[{"PhoneType":"DEFAULT","PhoneNumber":"","PhoneAreaCode":"","PhoneCountryCode":""},{"PhoneType":"DDI","PhoneNumber":"","PhoneAreaCode":"","PhoneCountryCode":""},{"PhoneType":"FAX","PhoneNumber":"","PhoneAreaCode":"","PhoneCountryCode":""},{"PhoneType":"MOBILE","PhoneNumber":"555-1212","PhoneAreaCode":"415","PhoneCountryCode":""}],"UpdatedDateUTC":"/Date(1551399321043+0000)/","ContactGroups":[],"IsSupplier":false,"IsCustomer":false,"SalesTrackingCategories":[],"PurchasesTrackingCategories":[],"PaymentTerms":{"Bills":{"Day":15,"Type":"OFCURRENTMONTH"},"Sales":{"Day":10,"Type":"DAYSAFTERBILLMONTH"}},"ContactPersons":[]}]} # Contacts | Contacts with an array of Contact objects to create in body of request
 opts = {
   summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 
@@ -1419,7 +1419,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 credit_note_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Credit Note
-allocations = { "Allocations": [ { "Invoice": { "LineItems": [], "InvoiceID": "c45720a1-ade3-4a38-a064-d15489be6841" }, "Amount": 1, "Date": "2019-03-05" } ] } # Allocations | Allocations with array of Allocation object in body of request.
+allocations = {"Allocations":[{"Invoice":{"LineItems":[],"InvoiceID":"c45720a1-ade3-4a38-a064-d15489be6841"},"Amount":1,"Date":"2019-03-05"}]} # Allocations | Allocations with array of Allocation object in body of request.
 opts = {
   summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 
@@ -1569,7 +1569,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 credit_note_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Credit Note
-history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+history_records = {"HistoryRecords":[{"Details":"Hello World"}]} # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -1639,7 +1639,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-credit_notes = { "CreditNotes":[ { "Type":"ACCPAYCREDIT", "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "Date":"2019-01-05", "LineItems":[ { "Description":"Foobar", "Quantity":2.0, "UnitAmount":20.0, "AccountCode":"400" } ] } ] } # CreditNotes | Credit Notes with array of CreditNote object in body of request
+credit_notes = {"CreditNotes":[{"Type":"ACCPAYCREDIT","Contact":{"ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8"},"Date":"2019-01-05","LineItems":[{"Description":"Foobar","Quantity":2.0,"UnitAmount":20.0,"AccountCode":"400"}]}]} # CreditNotes | Credit Notes with array of CreditNote object in body of request
 opts = {
   summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 
@@ -1714,7 +1714,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-currency = { "Code": "USD", "Description": "United States Dollar" } # Currency | Currency object in the body of request
+currency = {"Code":"USD","Description":"United States Dollar"} # Currency | Currency object in the body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -1783,7 +1783,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-employees = { "Employees": [ { "FirstName": "Nick", "LastName": "Fury", "ExternalLink": { "Url": "http://twitter.com/#!/search/Nick+Fury" } } ] } # Employees | Employees with array of Employee object in body of request
+employees = {"Employees":[{"FirstName":"Nick","LastName":"Fury","ExternalLink":{"Url":"http://twitter.com/#!/search/Nick+Fury"}}]} # Employees | Employees with array of Employee object in body of request
 opts = {
   summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 
@@ -1856,7 +1856,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 expense_claim_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a ExpenseClaim
-history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+history_records = {"HistoryRecords":[{"Details":"Hello World"}]} # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -1926,7 +1926,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-expense_claims = { "ExpenseClaims": [ { "Status": "SUBMITTED", "User": { "UserID": "d1164823-0ac1-41ad-987b-b4e30fe0b273" }, "Receipts": [ { "Lineitems": [], "ReceiptID": "dc1c7f6d-0a4c-402f-acac-551d62ce5816" } ] } ] } # ExpenseClaims | ExpenseClaims with array of ExpenseClaim object in body of request
+expense_claims = {"ExpenseClaims":[{"Status":"SUBMITTED","User":{"UserID":"d1164823-0ac1-41ad-987b-b4e30fe0b273"},"Receipts":[{"Lineitems":[],"ReceiptID":"dc1c7f6d-0a4c-402f-acac-551d62ce5816"}]}]} # ExpenseClaims | ExpenseClaims with array of ExpenseClaim object in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -2072,7 +2072,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Invoice
-history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+history_records = {"HistoryRecords":[{"Details":"Hello World"}]} # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -2142,7 +2142,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-invoices = { "Invoices": [ { "Type": "ACCREC", "Contact": { "ContactID": "430fa14a-f945-44d3-9f97-5df5e28441b8" }, "LineItems": [ { "Description": "Acme Tires", "Quantity": 2, "UnitAmount": 20, "AccountCode": "200", "TaxType": "NONE", "LineAmount": 40 } ], "Date": "2019-03-11", "DueDate": "2018-12-10", "Reference": "Website Design", "Status": "AUTHORISED" } ] } # Invoices | Invoices with an array of invoice objects in body of request
+invoices = {"Invoices":[{"Type":"ACCREC","Contact":{"ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8"},"LineItems":[{"Description":"Acme Tires","Quantity":2,"UnitAmount":20,"AccountCode":"200","TaxType":"NONE","LineAmount":40}],"Date":"2019-03-11","DueDate":"2018-12-10","Reference":"Website Design","Status":"AUTHORISED"}]} # Invoices | Invoices with an array of invoice objects in body of request
 opts = {
   summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 
@@ -2218,7 +2218,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 item_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Item
-history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+history_records = {"HistoryRecords":[{"Details":"Hello World"}]} # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -2288,7 +2288,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-items = { "Items": [ { "Code": "code123", "Name": "Item Name XYZ", "Description": "Foobar", "InventoryAssetAccountCode": "140", "PurchaseDetails": { "COGSAccountCode": "500" } } ] } # Items | Items with an array of Item objects in body of request
+items = {"Items":[{"Code":"code123","Name":"Item Name XYZ","Description":"Foobar","InventoryAssetAccountCode":"140","PurchaseDetails":{"COGSAccountCode":"500"}}]} # Items | Items with an array of Item objects in body of request
 opts = {
   summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 
@@ -2363,7 +2363,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-linked_transaction = { "LinkedTransactions": [ { "SourceTransactionID": "a848644a-f20f-4630-98c3-386bd7505631", "SourceLineItemID": "b0df260d-3cc8-4ced-9bd6-41924f624ed3" } ] } # LinkedTransaction | LinkedTransaction object in body of request
+linked_transaction = {"LinkedTransactions":[{"SourceTransactionID":"a848644a-f20f-4630-98c3-386bd7505631","SourceLineItemID":"b0df260d-3cc8-4ced-9bd6-41924f624ed3"}]} # LinkedTransaction | LinkedTransaction object in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -2506,7 +2506,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 manual_journal_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a ManualJournal
-history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+history_records = {"HistoryRecords":[{"Details":"Hello World"}]} # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -2576,7 +2576,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-manual_journals = { "ManualJournals": [ { "Narration": "Journal Desc", "JournalLines": [ { "LineAmount": 100, "AccountCode": "400", "Description": "Money Movement" }, { "LineAmount": -100, "AccountCode": "400", "Description": "Prepayment of things", "Tracking": [ { "Name": "North", "Option": "Region" } ] } ], "Date": "2019-03-14" } ] } # ManualJournals | ManualJournals array with ManualJournal object in body of request
+manual_journals = {"ManualJournals":[{"Narration":"Journal Desc","JournalLines":[{"LineAmount":100,"AccountCode":"400","Description":"Money Movement"},{"LineAmount":-100,"AccountCode":"400","Description":"Prepayment of things","Tracking":[{"Name":"North","Option":"Region"}]}],"Date":"2019-03-14"}]} # ManualJournals | ManualJournals array with ManualJournal object in body of request
 opts = {
   summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 
@@ -2649,7 +2649,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 overpayment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Overpayment
-allocations = { "Allocations": [ { "Invoice": { "InvoiceID": "00000000-0000-0000-0000-000000000000", "LineItems": [], "Contact": {}, "Type": "ACCPAY" }, "Amount": 10.00, "Date": "2019-03-12" } ] } # Allocations | Allocations array with Allocation object in body of request
+allocations = {"Allocations":[{"Invoice":{"InvoiceID":"00000000-0000-0000-0000-000000000000","LineItems":[],"Contact":{},"Type":"ACCPAY"},"Amount":10.0,"Date":"2019-03-12"}]} # Allocations | Allocations array with Allocation object in body of request
 opts = {
   summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 
@@ -2723,7 +2723,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 overpayment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Overpayment
-history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+history_records = {"HistoryRecords":[{"Details":"Hello World"}]} # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -2793,7 +2793,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-payment = { "Payments": [ { "Invoice": { "LineItems": [], "InvoiceID": "00000000-0000-0000-0000-000000000000" }, "Account": { "Code": "970" }, "Date": "2019-03-12", "Amount": 1 } ] } # Payment | Request body with a single Payment object
+payment = {"Payments":[{"Invoice":{"LineItems":[],"InvoiceID":"00000000-0000-0000-0000-000000000000"},"Account":{"Code":"970"},"Date":"2019-03-12","Amount":1}]} # Payment | Request body with a single Payment object
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -2863,7 +2863,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 payment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Payment
-history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+history_records = {"HistoryRecords":[{"Details":"Hello World"}]} # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -2933,7 +2933,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-payment_services = { "PaymentServices": [ { "PaymentServiceName": "PayUpNow", "PaymentServiceUrl": "https://www.payupnow.com/", "PayNowText": "Time To Pay" } ] } # PaymentServices | PaymentServices array with PaymentService object in body of request
+payment_services = {"PaymentServices":[{"PaymentServiceName":"PayUpNow","PaymentServiceUrl":"https://www.payupnow.com/","PayNowText":"Time To Pay"}]} # PaymentServices | PaymentServices array with PaymentService object in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -3002,7 +3002,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-payments = { "Payments": [ { "Invoice": { "LineItems": [], "InvoiceID": "00000000-0000-0000-0000-000000000000" }, "Account": { "Code": "970" }, "Date": "2019-03-12", "Amount": 1 } ] } # Payments | Payments array with Payment object in body of request
+payments = {"Payments":[{"Invoice":{"LineItems":[],"InvoiceID":"00000000-0000-0000-0000-000000000000"},"Account":{"Code":"970"},"Date":"2019-03-12","Amount":1}]} # Payments | Payments array with Payment object in body of request
 opts = {
   summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 
@@ -3075,7 +3075,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 prepayment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a PrePayment
-allocations = { "Allocations": [ { "Invoice": { "LineItems": [], "InvoiceID": "00000000-0000-0000-0000-000000000000" }, "Amount": 1, "Date": "2019-01-10" } ] } # Allocations | Allocations with an array of Allocation object in body of request
+allocations = {"Allocations":[{"Invoice":{"LineItems":[],"InvoiceID":"00000000-0000-0000-0000-000000000000"},"Amount":1,"Date":"2019-01-10"}]} # Allocations | Allocations with an array of Allocation object in body of request
 opts = {
   summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 
@@ -3149,7 +3149,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 prepayment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a PrePayment
-history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+history_records = {"HistoryRecords":[{"Details":"Hello World"}]} # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -3293,7 +3293,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 purchase_order_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Purchase Order
-history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+history_records = {"HistoryRecords":[{"Details":"Hello World"}]} # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -3363,7 +3363,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-purchase_orders = { "PurchaseOrders": [ { "Contact": { "ContactID": "00000000-0000-0000-0000-000000000000" }, "LineItems": [ { "Description": "Foobar", "Quantity": 1, "UnitAmount": 20, "AccountCode": "710" } ], "Date": "2019-03-13" } ] } # PurchaseOrders | PurchaseOrders with an array of PurchaseOrder object in body of request
+purchase_orders = {"PurchaseOrders":[{"Contact":{"ContactID":"00000000-0000-0000-0000-000000000000"},"LineItems":[{"Description":"Foobar","Quantity":1,"UnitAmount":20,"AccountCode":"710"}],"Date":"2019-03-13"}]} # PurchaseOrders | PurchaseOrders with an array of PurchaseOrder object in body of request
 opts = {
   summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 
@@ -3509,7 +3509,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 quote_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Quote
-history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+history_records = {"HistoryRecords":[{"Details":"Hello World"}]} # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -3579,7 +3579,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-quotes = { "Quotes": [ { "Contact": { "ContactID": "00000000-0000-0000-0000-000000000000" }, "LineItems": [ { "Description": "Foobar", "Quantity": 1, "UnitAmount": 20, "AccountCode": "12775" } ], "Date": "2020-02-01" } ] } # Quotes | Quotes with an array of Quote object in body of request
+quotes = {"Quotes":[{"Contact":{"ContactID":"00000000-0000-0000-0000-000000000000"},"LineItems":[{"Description":"Foobar","Quantity":1,"UnitAmount":20,"AccountCode":"12775"}],"Date":"2020-02-01"}]} # Quotes | Quotes with an array of Quote object in body of request
 opts = {
   summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 
@@ -3651,7 +3651,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-receipts = { "Receipts": [ { "Contact": { "ContactID": "00000000-0000-0000-0000-000000000000" }, "Lineitems": [ { "Description": "Foobar", "Quantity": 2, "UnitAmount": 20, "AccountCode": "400", "TaxType": "NONE", "LineAmount": 40 } ], "User": { "UserID": "00000000-0000-0000-0000-000000000000" }, "LineAmountTypes": "NoTax", "Status": "DRAFT" } ] } # Receipts | Receipts with an array of Receipt object in body of request
+receipts = {"Receipts":[{"Contact":{"ContactID":"00000000-0000-0000-0000-000000000000"},"Lineitems":[{"Description":"Foobar","Quantity":2,"UnitAmount":20,"AccountCode":"400","TaxType":"NONE","LineAmount":40}],"User":{"UserID":"00000000-0000-0000-0000-000000000000"},"LineAmountTypes":"NoTax","Status":"DRAFT"}]} # Receipts | Receipts with an array of Receipt object in body of request
 opts = {
   unitdp: 4, # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
@@ -3797,7 +3797,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 receipt_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Receipt
-history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+history_records = {"HistoryRecords":[{"Details":"Hello World"}]} # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -3941,7 +3941,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 repeating_invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Repeating Invoice
-history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] } # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+history_records = {"HistoryRecords":[{"Details":"Hello World"}]} # HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -4011,7 +4011,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-repeating_invoices = { "RepeatingInvoices": [ { "Schedule": { "Period": 1, "Unit": "MONTHLY", "DueDate": 10, "DueDateType": "OFFOLLOWINGMONTH", "StartDate": "\/Date(1555286400000+0000)\/" }, "Type": "ACCREC", "Reference": "[Week]", "ApprovedForSending": false, "SendCopy": false, "MarkAsSent": false, "IncludePDF": false, "Contact": { "ContactID": "430fa14a-f945-44d3-9f97-5df5e28441b8", "Name": "Liam Gallagher" }, "Status": "AUTHORISED", "LineAmountTypes": "Exclusive", "LineItems": [ { "Description": "Guitars Fender Strat", "UnitAmount": 5000.00, "TaxType": "OUTPUT2", "TaxAmount": 750.00, "LineAmount": 5000.00, "AccountCode": "200", "Tracking": [], "Quantity": 1.0000, "LineItemID": "13a8353c-d2af-4d5b-920c-438449f08900", "DiscountEnteredAsPercent": true } ], "CurrencyCode": "NZD" } ] } # RepeatingInvoices | RepeatingInvoices with an array of repeating invoice objects in body of request
+repeating_invoices = {"RepeatingInvoices":[{"Schedule":{"Period":1,"Unit":"MONTHLY","DueDate":10,"DueDateType":"OFFOLLOWINGMONTH","StartDate":"/Date(1555286400000+0000)/"},"Type":"ACCREC","Reference":"[Week]","ApprovedForSending":false,"SendCopy":false,"MarkAsSent":false,"IncludePDF":false,"Contact":{"ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8","Name":"Liam Gallagher"},"Status":"AUTHORISED","LineAmountTypes":"Exclusive","LineItems":[{"Description":"Guitars Fender Strat","UnitAmount":5000.0,"TaxType":"OUTPUT2","TaxAmount":750.0,"LineAmount":5000.0,"AccountCode":"200","Tracking":[],"Quantity":1.0,"LineItemID":"13a8353c-d2af-4d5b-920c-438449f08900","DiscountEnteredAsPercent":true}],"CurrencyCode":"NZD"}]} # RepeatingInvoices | RepeatingInvoices with an array of repeating invoice objects in body of request
 opts = {
   summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 
@@ -4083,7 +4083,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-tax_rates = { "TaxRates": [ { "Name": "CA State Tax", "TaxComponents": [ { "Name": "State Tax", "Rate": 2.25 } ] } ] } # TaxRates | TaxRates array with TaxRate object in body of request
+tax_rates = {"TaxRates":[{"Name":"CA State Tax","TaxComponents":[{"Name":"State Tax","Rate":2.25}]}]} # TaxRates | TaxRates array with TaxRate object in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -4152,7 +4152,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-tracking_category = { name: "FooBar" } # TrackingCategory | TrackingCategory object in body of request
+tracking_category = {"name":"FooBar"} # TrackingCategory | TrackingCategory object in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -4222,7 +4222,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 tracking_category_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a TrackingCategory
-tracking_option = { name: " Bar" } # TrackingOption | TrackingOption object in body of request
+tracking_option = {"name":" Bar"} # TrackingOption | TrackingOption object in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -4356,7 +4356,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-batch_payment_delete = { "BatchPaymentID": "9bf296e9-0748-4d29-a3dc-24dde1098030", "Status":"DELETED" } # BatchPaymentDelete | 
+batch_payment_delete = {"BatchPaymentID":"9bf296e9-0748-4d29-a3dc-24dde1098030","Status":"DELETED"} # BatchPaymentDelete | 
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -4426,7 +4426,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 batch_payment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for BatchPayment
-batch_payment_delete_by_url_param = { "Status":"DELETED" } # BatchPaymentDeleteByUrlParam | 
+batch_payment_delete_by_url_param = {"Status":"DELETED"} # BatchPaymentDeleteByUrlParam | 
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -4883,7 +4883,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 payment_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Payment
-payment_delete = { "Payments":[ { "Status":"DELETED" } ] } # PaymentDelete | 
+payment_delete = {"Payments":[{"Status":"DELETED"}]} # PaymentDelete | 
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -13989,7 +13989,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-setup = { "ConversionDate": {}, "ConversionBalances": [], "Accounts": [ { "Code": "200", "Name": "Sales", "Type": "SALES", "ReportingCode": "REV.TRA.GOO" }, { "Code": "400", "Name": "Advertising", "Type": "OVERHEADS", "ReportingCode": "EXP" }, { "Code": "610", "Name": "Accounts Receivable", "Type": "CURRENT", "SystemAccount": "DEBTORS", "ReportingCode": "ASS.CUR.REC.TRA" }, { "Code": "800", "Name": "Accounts Payable", "Type": "CURRLIAB", "SystemAccount": "CREDITORS", "ReportingCode": "LIA.CUR.PAY" } ] } # Setup | Object including an accounts array, a conversion balances array and a conversion date object in body of request
+setup = {"ConversionDate":{},"ConversionBalances":[],"Accounts":[{"Code":"200","Name":"Sales","Type":"SALES","ReportingCode":"REV.TRA.GOO"},{"Code":"400","Name":"Advertising","Type":"OVERHEADS","ReportingCode":"EXP"},{"Code":"610","Name":"Accounts Receivable","Type":"CURRENT","SystemAccount":"DEBTORS","ReportingCode":"ASS.CUR.REC.TRA"},{"Code":"800","Name":"Accounts Payable","Type":"CURRLIAB","SystemAccount":"CREDITORS","ReportingCode":"LIA.CUR.PAY"}]} # Setup | Object including an accounts array, a conversion balances array and a conversion date object in body of request
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -14059,7 +14059,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 account_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for Account object
-accounts = { "Accounts":[ { "Code":"123456", "Name":"BarFoo", "AccountID":"99ce6032-0678-4aa0-8148-240c75fee33a", "Type":"EXPENSE", "Description":"GoodBye World", "TaxType":"INPUT", "EnablePaymentsToAccount":false, "ShowInExpenseClaims":false, "Class":"EXPENSE", "ReportingCode":"EXP", "ReportingCodeName":"Expense", "UpdatedDateUTC":"2019-02-21T16:29:47.96-08:00" } ] } # Accounts | Request of type Accounts array with one Account
+accounts = {"Accounts":[{"Code":"123456","Name":"BarFoo","AccountID":"99ce6032-0678-4aa0-8148-240c75fee33a","Type":"EXPENSE","Description":"GoodBye World","TaxType":"INPUT","EnablePaymentsToAccount":false,"ShowInExpenseClaims":false,"Class":"EXPENSE","ReportingCode":"EXP","ReportingCodeName":"Expense","UpdatedDateUTC":"2019-02-21T16:29:47.96-08:00"}]} # Accounts | Request of type Accounts array with one Account
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -14203,7 +14203,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 bank_transaction_id = '00000000-0000-0000-0000-000000000000' # String | Xero generated unique identifier for a bank transaction
-bank_transactions = { "BankTransactions": [ { "Type": "SPEND", "Contact": { "ContactID": "00000000-0000-0000-0000-000000000000", "ContactStatus": "ACTIVE", "Name": "Buzz Lightyear", "FirstName": "Buzz", "LastName": "Lightyear", "EmailAddress": "buzz.Lightyear@email.com", "ContactPersons": [], "BankAccountDetails": "", "Addresses": [ { "AddressType": "STREET", "City": "", "Region": "", "PostalCode": "", "Country": "" }, { "AddressType": "POBOX", "AddressLine1": "", "AddressLine2": "", "AddressLine3": "", "AddressLine4": "", "City": "Palo Alto", "Region": "CA", "PostalCode": "94020", "Country": "United States" } ], "Phones": [ { "PhoneType": "DEFAULT", "PhoneNumber": "847-1294", "PhoneAreaCode": "(626)", "PhoneCountryCode": "" }, { "PhoneType": "DDI", "PhoneNumber": "", "PhoneAreaCode": "", "PhoneCountryCode": "" }, { "PhoneType": "FAX", "PhoneNumber": "", "PhoneAreaCode": "", "PhoneCountryCode": "" }, { "PhoneType": "MOBILE", "PhoneNumber": "", "PhoneAreaCode": "", "PhoneCountryCode": "" } ], "UpdatedDateUTC": "2017-08-21T13:49:04.227-07:00", "ContactGroups": [] }, "Lineitems": [], "BankAccount": { "Code": "088", "Name": "Business Wells Fargo", "AccountID": "00000000-0000-0000-0000-000000000000" }, "IsReconciled": false, "Date": "2019-02-25", "Reference": "You just updated", "CurrencyCode": "USD", "CurrencyRate": 1, "Status": "AUTHORISED", "LineAmountTypes": "Inclusive", "TotalTax": 1.74, "BankTransactionID": "00000000-0000-0000-0000-000000000000", "UpdatedDateUTC": "2019-02-26T12:39:27.813-08:00" } ] } # BankTransactions | 
+bank_transactions = {"BankTransactions":[{"Type":"SPEND","Contact":{"ContactID":"00000000-0000-0000-0000-000000000000","ContactStatus":"ACTIVE","Name":"Buzz Lightyear","FirstName":"Buzz","LastName":"Lightyear","EmailAddress":"buzz.Lightyear@email.com","ContactPersons":[],"BankAccountDetails":"","Addresses":[{"AddressType":"STREET","City":"","Region":"","PostalCode":"","Country":""},{"AddressType":"POBOX","AddressLine1":"","AddressLine2":"","AddressLine3":"","AddressLine4":"","City":"Palo Alto","Region":"CA","PostalCode":"94020","Country":"United States"}],"Phones":[{"PhoneType":"DEFAULT","PhoneNumber":"847-1294","PhoneAreaCode":"(626)","PhoneCountryCode":""},{"PhoneType":"DDI","PhoneNumber":"","PhoneAreaCode":"","PhoneCountryCode":""},{"PhoneType":"FAX","PhoneNumber":"","PhoneAreaCode":"","PhoneCountryCode":""},{"PhoneType":"MOBILE","PhoneNumber":"","PhoneAreaCode":"","PhoneCountryCode":""}],"UpdatedDateUTC":"2017-08-21T13:49:04.227-07:00","ContactGroups":[]},"Lineitems":[],"BankAccount":{"Code":"088","Name":"Business Wells Fargo","AccountID":"00000000-0000-0000-0000-000000000000"},"IsReconciled":false,"Date":"2019-02-25","Reference":"You just updated","CurrencyCode":"USD","CurrencyRate":1,"Status":"AUTHORISED","LineAmountTypes":"Inclusive","TotalTax":1.74,"BankTransactionID":"00000000-0000-0000-0000-000000000000","UpdatedDateUTC":"2019-02-26T12:39:27.813-08:00"}]} # BankTransactions | 
 opts = {
   unitdp: 4, # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
@@ -14422,7 +14422,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Contact
-contacts = { "Contacts": [{ "ContactID": "00000000-0000-0000-0000-000000000000", "Name": "Thanos" }]} # Contacts | an array of Contacts containing single Contact object with properties to update
+contacts = {"Contacts":[{"ContactID":"00000000-0000-0000-0000-000000000000","Name":"Thanos"}]} # Contacts | an array of Contacts containing single Contact object with properties to update
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -14565,7 +14565,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 contact_group_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Contact Group
-contact_groups = { "ContactGroups":[ { "Name":"Suppliers" } ] } # ContactGroups | an array of Contact groups with Name of specific group to update
+contact_groups = {"ContactGroups":[{"Name":"Suppliers"}]} # ContactGroups | an array of Contact groups with Name of specific group to update
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -14636,7 +14636,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 credit_note_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Credit Note
-credit_notes = { "CreditNotes": [ { "Type": "ACCPAYCREDIT", "Contact": { "ContactID": "430fa14a-f945-44d3-9f97-5df5e28441b8" }, "Date": "2019-01-05", "Status": "AUTHORISED", "Reference": "HelloWorld", "SentToContact": true, "LineItems": [ { "Description": "Foobar", "Quantity": 2, "UnitAmount": 20, "AccountCode": "400" } ] } ] } # CreditNotes | an array of Credit Notes containing credit note details to update
+credit_notes = {"CreditNotes":[{"Type":"ACCPAYCREDIT","Contact":{"ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8"},"Date":"2019-01-05","Status":"AUTHORISED","Reference":"HelloWorld","SentToContact":true,"LineItems":[{"Description":"Foobar","Quantity":2,"UnitAmount":20,"AccountCode":"400"}]}]} # CreditNotes | an array of Credit Notes containing credit note details to update
 opts = {
   unitdp: 4, # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
@@ -14783,7 +14783,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 expense_claim_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a ExpenseClaim
-expense_claims = { "ExpenseClaims": [ { "Status": "SUBMITTED", "User": { "UserID": "d1164823-0ac1-41ad-987b-b4e30fe0b273" }, "Receipts": [ { "Lineitems": [], "ReceiptID": "dc1c7f6d-0a4c-402f-acac-551d62ce5816" } ] } ] } # ExpenseClaims | 
+expense_claims = {"ExpenseClaims":[{"Status":"SUBMITTED","User":{"UserID":"d1164823-0ac1-41ad-987b-b4e30fe0b273"},"Receipts":[{"Lineitems":[],"ReceiptID":"dc1c7f6d-0a4c-402f-acac-551d62ce5816"}]}]} # ExpenseClaims | 
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -14854,7 +14854,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Invoice
-invoices = { "Invoices": [{ Reference: "May the force be with you", "InvoiceID": "00000000-0000-0000-0000-000000000000", "LineItems": [], "Contact": {}, "Type": "ACCPAY" }]} # Invoices | 
+invoices = {"Invoices":[{"Reference":"May the force be with you","InvoiceID":"00000000-0000-0000-0000-000000000000","LineItems":[],"Contact":{},"Type":"ACCPAY"}]} # Invoices | 
 opts = {
   unitdp: 4, # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
@@ -15001,7 +15001,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 item_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Item
-items = { "Items": [ { "Code": "ItemCode123", "Description": "Description 123" } ] } # Items | 
+items = {"Items":[{"Code":"ItemCode123","Description":"Description 123"}]} # Items | 
 opts = {
   unitdp: 4, # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
@@ -15075,7 +15075,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 linked_transaction_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a LinkedTransaction
-linked_transactions = { "LinkedTransactions": [ { "SourceTransactionID": "00000000-0000-0000-0000-000000000000", "SourceLineItemID": "00000000-0000-0000-0000-000000000000" } ] } # LinkedTransactions | 
+linked_transactions = {"LinkedTransactions":[{"SourceTransactionID":"00000000-0000-0000-0000-000000000000","SourceLineItemID":"00000000-0000-0000-0000-000000000000"}]} # LinkedTransactions | 
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -15146,7 +15146,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 manual_journal_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a ManualJournal
-manual_journals = { "ManualJournals": [ { "Narration": "Hello Xero", "ManualJournalID": "00000000-0000-0000-0000-000000000000", "JournalLines": [] } ] } # ManualJournals | 
+manual_journals = {"ManualJournals":[{"Narration":"Hello Xero","ManualJournalID":"00000000-0000-0000-0000-000000000000","JournalLines":[]}]} # ManualJournals | 
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -15289,7 +15289,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-bank_transactions = { "BankTransactions": [ { "Type": "SPEND", "Contact": { "ContactID": "00000000-0000-0000-0000-000000000000" }, "Lineitems": [ { "Description": "Foobar", "Quantity": 1, "UnitAmount": 20, "AccountCode": "400" } ], "BankAccount": { "Code": "088" } } ] } # BankTransactions | 
+bank_transactions = {"BankTransactions":[{"Type":"SPEND","Contact":{"ContactID":"00000000-0000-0000-0000-000000000000"},"Lineitems":[{"Description":"Foobar","Quantity":1,"UnitAmount":20,"AccountCode":"400"}],"BankAccount":{"Code":"088"}}]} # BankTransactions | 
 opts = {
   summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 
@@ -15364,7 +15364,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-contacts = { "Contacts": [ { "Name": "Bruce Banner", "EmailAddress": "hulk@avengers.com", "Phones": [ { "PhoneType": "MOBILE", "PhoneNumber": "555-1212", "PhoneAreaCode": "415" } ], "PaymentTerms": { "Bills": { "Day": 15, "Type": "OFCURRENTMONTH" }, "Sales": { "Day": 10, "Type": "DAYSAFTERBILLMONTH" } } } ] } # Contacts | 
+contacts = {"Contacts":[{"Name":"Bruce Banner","EmailAddress":"hulk@avengers.com","Phones":[{"PhoneType":"MOBILE","PhoneNumber":"555-1212","PhoneAreaCode":"415"}],"PaymentTerms":{"Bills":{"Day":15,"Type":"OFCURRENTMONTH"},"Sales":{"Day":10,"Type":"DAYSAFTERBILLMONTH"}}}]} # Contacts | 
 opts = {
   summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 
@@ -15436,7 +15436,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-credit_notes = { "CreditNotes":[ { "Type":"ACCPAYCREDIT", "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "Date":"2019-01-05", "Status":"AUTHORISED", "Reference": "HelloWorld", "LineItems":[ { "Description":"Foobar", "Quantity":2.0, "UnitAmount":20.0, "AccountCode":"400" } ] } ] } # CreditNotes | an array of Credit Notes with a single CreditNote object.
+credit_notes = {"CreditNotes":[{"Type":"ACCPAYCREDIT","Contact":{"ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8"},"Date":"2019-01-05","Status":"AUTHORISED","Reference":"HelloWorld","LineItems":[{"Description":"Foobar","Quantity":2.0,"UnitAmount":20.0,"AccountCode":"400"}]}]} # CreditNotes | an array of Credit Notes with a single CreditNote object.
 opts = {
   summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 
@@ -15511,7 +15511,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-employees = { "Employees": [ { "FirstName": "Nick", "LastName": "Fury", "ExternalLink": { "Url": "http://twitter.com/#!/search/Nick+Fury" } } ] } # Employees | Employees with array of Employee object in body of request
+employees = {"Employees":[{"FirstName":"Nick","LastName":"Fury","ExternalLink":{"Url":"http://twitter.com/#!/search/Nick+Fury"}}]} # Employees | Employees with array of Employee object in body of request
 opts = {
   summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 
@@ -15583,7 +15583,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-invoices = { "Invoices": [ { "Type": "ACCREC", "Contact": { "ContactID": "430fa14a-f945-44d3-9f97-5df5e28441b8" }, "LineItems": [ { "Description": "Acme Tires", "Quantity": 2, "UnitAmount": 20, "AccountCode": "200", "TaxType": "NONE", "LineAmount": 40 } ], "Date": "2019-03-11", "DueDate": "2018-12-10", "Reference": "Website Design", "Status": "AUTHORISED" } ] } # Invoices | 
+invoices = {"Invoices":[{"Type":"ACCREC","Contact":{"ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8"},"LineItems":[{"Description":"Acme Tires","Quantity":2,"UnitAmount":20,"AccountCode":"200","TaxType":"NONE","LineAmount":40}],"Date":"2019-03-11","DueDate":"2018-12-10","Reference":"Website Design","Status":"AUTHORISED"}]} # Invoices | 
 opts = {
   summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 
@@ -15658,7 +15658,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-items = { "Items": [ { "Code": "ItemCode123", "Name": "ItemName XYZ", "Description": "Item Description ABC" } ] } # Items | 
+items = {"Items":[{"Code":"ItemCode123","Name":"ItemName XYZ","Description":"Item Description ABC"}]} # Items | 
 opts = {
   summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 
@@ -15733,7 +15733,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-manual_journals = { "ManualJournals": [ { "Narration": "Journal Desc", "JournalLines": [ { "LineAmount": 100, "AccountCode": "400", "Description": "Money Movement" }, { "LineAmount": -100, "AccountCode": "400", "Description": "Prepayment of things", "Tracking": [ { "Name": "North", "Option": "Region" } ] } ], "Date": "2019-03-14" } ] } # ManualJournals | ManualJournals array with ManualJournal object in body of request
+manual_journals = {"ManualJournals":[{"Narration":"Journal Desc","JournalLines":[{"LineAmount":100,"AccountCode":"400","Description":"Money Movement"},{"LineAmount":-100,"AccountCode":"400","Description":"Prepayment of things","Tracking":[{"Name":"North","Option":"Region"}]}],"Date":"2019-03-14"}]} # ManualJournals | ManualJournals array with ManualJournal object in body of request
 opts = {
   summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 
@@ -15805,7 +15805,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-purchase_orders = { "PurchaseOrders": [ { "Contact": { "ContactID": "00000000-0000-0000-0000-000000000000" }, "LineItems": [ { "Description": "Foobar", "Quantity": 1, "UnitAmount": 20, "AccountCode": "710" } ], "Date": "2019-03-13" } ] } # PurchaseOrders | 
+purchase_orders = {"PurchaseOrders":[{"Contact":{"ContactID":"00000000-0000-0000-0000-000000000000"},"LineItems":[{"Description":"Foobar","Quantity":1,"UnitAmount":20,"AccountCode":"710"}],"Date":"2019-03-13"}]} # PurchaseOrders | 
 opts = {
   summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 
@@ -15877,7 +15877,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-quotes = { "Quotes": [ { "Contact": { "ContactID": "00000000-0000-0000-0000-000000000000" }, "LineItems": [ { "Description": "Foobar", "Quantity": 1, "UnitAmount": 20, "AccountCode": "12775" } ], "Date": "2020-02-01" } ] } # Quotes | 
+quotes = {"Quotes":[{"Contact":{"ContactID":"00000000-0000-0000-0000-000000000000"},"LineItems":[{"Description":"Foobar","Quantity":1,"UnitAmount":20,"AccountCode":"12775"}],"Date":"2020-02-01"}]} # Quotes | 
 opts = {
   summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 
@@ -15949,7 +15949,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-repeating_invoices = { "RepeatingInvoices": [ { "Schedule": { "Period": 1, "Unit": "MONTHLY", "DueDate": 10, "DueDateType": "OFFOLLOWINGMONTH", "StartDate": "\/Date(1555286400000+0000)\/" }, "Type": "ACCREC", "Reference": "[Week]", "ApprovedForSending": false, "SendCopy": false, "MarkAsSent": false, "IncludePDF": false, "Contact": { "ContactID": "430fa14a-f945-44d3-9f97-5df5e28441b8", "Name": "Liam Gallagher" }, "Status": "AUTHORISED", "LineAmountTypes": "Exclusive", "LineItems": [ { "Description": "Guitars Fender Strat", "UnitAmount": 5000.00, "TaxType": "OUTPUT2", "TaxAmount": 750.00, "LineAmount": 5000.00, "AccountCode": "200", "Tracking": [], "Quantity": 1.0000, "LineItemID": "13a8353c-d2af-4d5b-920c-438449f08900", "DiscountEnteredAsPercent": true } ], "CurrencyCode": "NZD" } ] } # RepeatingInvoices | RepeatingInvoices with an array of repeating invoice objects in body of request
+repeating_invoices = {"RepeatingInvoices":[{"Schedule":{"Period":1,"Unit":"MONTHLY","DueDate":10,"DueDateType":"OFFOLLOWINGMONTH","StartDate":"/Date(1555286400000+0000)/"},"Type":"ACCREC","Reference":"[Week]","ApprovedForSending":false,"SendCopy":false,"MarkAsSent":false,"IncludePDF":false,"Contact":{"ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8","Name":"Liam Gallagher"},"Status":"AUTHORISED","LineAmountTypes":"Exclusive","LineItems":[{"Description":"Guitars Fender Strat","UnitAmount":5000.0,"TaxType":"OUTPUT2","TaxAmount":750.0,"LineAmount":5000.0,"AccountCode":"200","Tracking":[],"Quantity":1.0,"LineItemID":"13a8353c-d2af-4d5b-920c-438449f08900","DiscountEnteredAsPercent":true}],"CurrencyCode":"NZD"}]} # RepeatingInvoices | RepeatingInvoices with an array of repeating invoice objects in body of request
 opts = {
   summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 
@@ -16022,7 +16022,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 purchase_order_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Purchase Order
-purchase_orders = { "PurchaseOrders": [ { "AttentionTo": "Peter Parker", "LineItems": [], "Contact": {} } ] } # PurchaseOrders | 
+purchase_orders = {"PurchaseOrders":[{"AttentionTo":"Peter Parker","LineItems":[],"Contact":{}}]} # PurchaseOrders | 
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -16166,7 +16166,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 quote_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Quote
-quotes = { "Quotes": [ { "Reference": "I am an update", "Contact": { "ContactID": "00000000-0000-0000-0000-000000000000" }, "Date": "2020-02-01" } ] } # Quotes | 
+quotes = {"Quotes":[{"Reference":"I am an update","Contact":{"ContactID":"00000000-0000-0000-0000-000000000000"},"Date":"2020-02-01"}]} # Quotes | 
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -16310,7 +16310,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 receipt_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Receipt
-receipts = { "Receipts": [ { "Lineitems": [], "User": { "UserID": "00000000-0000-0000-0000-000000000000" }, "Reference": "Foobar" } ] } # Receipts | 
+receipts = {"Receipts":[{"Lineitems":[],"User":{"UserID":"00000000-0000-0000-0000-000000000000"},"Reference":"Foobar"}]} # Receipts | 
 opts = {
   unitdp: 4, # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
@@ -16457,7 +16457,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 repeating_invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Repeating Invoice
-repeating_invoices = { "Schedule": { "Period": 1, "Unit": "MONTHLY", "DueDate": 10, "DueDateType": "OFFOLLOWINGMONTH", "StartDate": "\/Date(1555286400000+0000)\/", "EndDate": "\/Date(1569801600000+0000)\/", "NextScheduledDate": "\/Date(1555286400000+0000)\/" }, "RepeatingInvoiceID": "428c0d75-909f-4b04-8403-a48dc27283b0", "Type": "ACCREC", "Reference": "[Week]", "HasAttachments": true, "ApprovedForSending": false, "SendCopy": false, "MarkAsSent": false, "IncludePDF": false, "ID": "428c0d75-909f-4b04-8403-a48dc27283b0", "Contact": { "ContactID": "430fa14a-f945-44d3-9f97-5df5e28441b8", "Name": "Liam Gallagher", "Addresses": [], "Phones": [], "ContactGroups": [], "ContactPersons": [], "HasValidationErrors": false }, "Status": "DELETED", "LineAmountTypes": "Exclusive", "LineItems": [ { "Description": "Guitars Fender Strat", "UnitAmount": 5000.00, "TaxType": "OUTPUT2", "TaxAmount": 750.00, "LineAmount": 5000.00, "AccountCode": "200", "Tracking": [], "Quantity": 1.0000, "LineItemID": "13a8353c-d2af-4d5b-920c-438449f08900", "DiscountEnteredAsPercent": true } ], "SubTotal": 5000.00, "TotalTax": 750.00, "Total": 5750.00, "CurrencyCode": "NZD" } # RepeatingInvoices | 
+repeating_invoices = {"Schedule":{"Period":1,"Unit":"MONTHLY","DueDate":10,"DueDateType":"OFFOLLOWINGMONTH","StartDate":"/Date(1555286400000+0000)/","EndDate":"/Date(1569801600000+0000)/","NextScheduledDate":"/Date(1555286400000+0000)/"},"RepeatingInvoiceID":"428c0d75-909f-4b04-8403-a48dc27283b0","Type":"ACCREC","Reference":"[Week]","HasAttachments":true,"ApprovedForSending":false,"SendCopy":false,"MarkAsSent":false,"IncludePDF":false,"ID":"428c0d75-909f-4b04-8403-a48dc27283b0","Contact":{"ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8","Name":"Liam Gallagher","Addresses":[],"Phones":[],"ContactGroups":[],"ContactPersons":[],"HasValidationErrors":false},"Status":"DELETED","LineAmountTypes":"Exclusive","LineItems":[{"Description":"Guitars Fender Strat","UnitAmount":5000.0,"TaxType":"OUTPUT2","TaxAmount":750.0,"LineAmount":5000.0,"AccountCode":"200","Tracking":[],"Quantity":1.0,"LineItemID":"13a8353c-d2af-4d5b-920c-438449f08900","DiscountEnteredAsPercent":true}],"SubTotal":5000.0,"TotalTax":750.0,"Total":5750.0,"CurrencyCode":"NZD"} # RepeatingInvoices | 
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -16600,7 +16600,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-tax_rates = { "TaxRates": [ { "Name": "State Tax NY", "TaxComponents": [ { "Name": "State Tax", "Rate": 2.25 } ], "Status": "DELETED", "ReportTaxType": "INPUT" } ] } # TaxRates | 
+tax_rates = {"TaxRates":[{"Name":"State Tax NY","TaxComponents":[{"Name":"State Tax","Rate":2.25}],"Status":"DELETED","ReportTaxType":"INPUT"}]} # TaxRates | 
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -16670,7 +16670,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 tracking_category_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a TrackingCategory
-tracking_category = { "Name": "Avengers" } # TrackingCategory | 
+tracking_category = {"Name":"Avengers"} # TrackingCategory | 
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -16742,7 +16742,7 @@ api_instance = xero_client.<api_set>
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 tracking_category_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a TrackingCategory
 tracking_option_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for a Tracking Option
-tracking_option = { name: "Vision" } # TrackingOption | 
+tracking_option = {"name":"Vision"} # TrackingOption | 
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }

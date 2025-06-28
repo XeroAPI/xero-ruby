@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**payroll_calendar_id** | **String** | Xero unique identifier for the payroll calendar of the employee | [optional] 
-**start_date** | **Date** | Start date of the employment (YYYY-MM-DD) | [optional] 
-**employee_number** | **String** | The employment number of the employee | [optional] 
+**payroll_calendar_id** | **String** | Xero unique identifier for the payroll calendar of the employee | 
+**start_date** | **Date** | Start date of the employment (YYYY-MM-DD) | 
+**employee_number** | **String** | The employment number of the employee | 
 **ni_category** | [**NICategoryLetter**](NICategoryLetter.md) |  | [optional] 
-**ni_categories** | [**Array&lt;NICategory&gt;**](NICategory.md) | The employee&#39;s NI categories | [optional] 
+**ni_categories** | [**Array&lt;NICategory&gt;**](NICategory.md) | The employee&#39;s NI categories | 
 
 ## Code Sample
 

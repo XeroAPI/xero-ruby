@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **employee_id** | **String** | Xero unique identifier for the employee | [optional] 
-**title** | **String** | Title of the employee | [optional] 
-**first_name** | **String** | First name of employee | [optional] 
-**last_name** | **String** | Last name of employee | [optional] 
-**date_of_birth** | **Date** | Date of birth of the employee (YYYY-MM-DD) | [optional] 
-**address** | [**Address**](Address.md) |  | [optional] 
+**title** | **String** | Title of the employee | 
+**first_name** | **String** | First name of employee | 
+**last_name** | **String** | Last name of employee | 
+**date_of_birth** | **Date** | Date of birth of the employee (YYYY-MM-DD) | 
+**address** | [**Address**](Address.md) |  | 
 **email** | **String** | The email address for the employee | [optional] 
-**gender** | **String** | The employee’s gender | [optional] 
+**gender** | **String** | The employee’s gender | 
 **phone_number** | **String** | Employee phone number | [optional] 
 **start_date** | **Date** | Employment start date of the employee at the time it was requested | [optional] 
 **end_date** | **Date** | Employment end date of the employee at the time it was requested | [optional] 
