@@ -1825,6 +1825,7 @@ module XeroRuby
     end
 
     # Creates new employees used in Xero payrun
+    # This endpoint is deprecated and will be removed April 28, 2026
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employees [Employees] Employees with array of Employee object in body of request
     # @param [Hash] opts the optional parameters
@@ -1837,6 +1838,7 @@ module XeroRuby
     end
 
     # Creates new employees used in Xero payrun
+    # This endpoint is deprecated and will be removed April 28, 2026
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employees [Employees] Employees with array of Employee object in body of request
     # @param [Hash] opts the optional parameters
@@ -9357,6 +9359,7 @@ module XeroRuby
     end
 
     # Retrieves a specific employee used in Xero payrun using a unique employee Id
+    # This endpoint is deprecated and will be removed April 28, 2026
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Unique identifier for a Employee
     # @param [Hash] opts the optional parameters
@@ -9367,6 +9370,7 @@ module XeroRuby
     end
 
     # Retrieves a specific employee used in Xero payrun using a unique employee Id
+    # This endpoint is deprecated and will be removed April 28, 2026
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Unique identifier for a Employee
     # @param [Hash] opts the optional parameters
@@ -9432,6 +9436,7 @@ module XeroRuby
     end
 
     # Retrieves employees used in Xero payrun
+    # This endpoint is deprecated and will be removed April 28, 2026
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @option opts [DateTime] :if_modified_since Only records created or modified since this timestamp will be returned
@@ -9444,6 +9449,7 @@ module XeroRuby
     end
 
     # Retrieves employees used in Xero payrun
+    # This endpoint is deprecated and will be removed April 28, 2026
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param [Hash] opts the optional parameters
     # @option opts [DateTime] :if_modified_since Only records created or modified since this timestamp will be returned
@@ -17938,6 +17944,7 @@ module XeroRuby
     end
 
     # Creates a single new employees used in Xero payrun
+    # This endpoint is deprecated and will be removed April 28, 2026
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employees [Employees] Employees with array of Employee object in body of request
     # @param [Hash] opts the optional parameters
@@ -17950,6 +17957,7 @@ module XeroRuby
     end
 
     # Creates a single new employees used in Xero payrun
+    # This endpoint is deprecated and will be removed April 28, 2026
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employees [Employees] Employees with array of Employee object in body of request
     # @param [Hash] opts the optional parameters
