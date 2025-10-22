@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **contact_persons** | [**Array&lt;ContactPerson&gt;**](ContactPerson.md) | See contact persons | [optional] 
 **bank_account_details** | **String** | Bank account number of contact | [optional] 
 **tax_number** | **String** | Tax number of contact – this is also known as the ABN (Australia), GST Number (New Zealand), VAT Number (UK) or Tax ID Number (US and global) in the Xero UI depending on which regionalized version of Xero you are using (max length &#x3D; 50) | [optional] 
+**tax_number_type** | **String** | Identifier of the regional type of tax number, such as US, UK, or other regional tax identifiers | [optional] 
 **accounts_receivable_tax_type** | **String** | The tax type from TaxRates | [optional] 
 **accounts_payable_tax_type** | **String** | The tax type from TaxRates | [optional] 
 **addresses** | [**Array&lt;Address&gt;**](Address.md) | Store certain address types for a contact – see address types | [optional] 
@@ -65,6 +66,7 @@ instance = XeroRuby::Accounting::Contact.new(contact_id: null,
                                  contact_persons: null,
                                  bank_account_details: null,
                                  tax_number: null,
+                                 tax_number_type: null,
                                  accounts_receivable_tax_type: null,
                                  accounts_payable_tax_type: null,
                                  addresses: null,

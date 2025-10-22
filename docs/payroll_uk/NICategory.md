@@ -15,10 +15,10 @@ Name | Type | Description | Notes
 ```ruby
 require 'XeroRuby::PayrollUk'
 
-instance = XeroRuby::PayrollUk::NICategory.new(start_date: Mon Dec 02 00:00:00 GMT 2024,
+instance = XeroRuby::PayrollUk::NICategory.new(start_date: Mon Dec 02 00:00:00 UTC 2024,
                                  ni_category: null,
                                  ni_category_id: 15,
-                                 date_first_employed_as_civilian: Mon Dec 02 00:00:00 GMT 2024,
+                                 date_first_employed_as_civilian: Mon Dec 02 00:00:00 UTC 2024,
                                  workplace_postcode: SW1A 1AA)
 ```
 
