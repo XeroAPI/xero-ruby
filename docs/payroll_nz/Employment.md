@@ -19,7 +19,7 @@ instance = XeroRuby::PayrollNz::Employment.new(payroll_calendar_id: null,
                                  pay_run_calendar_id: null,
                                  start_date: null,
                                  engagement_type: Permanent,
-                                 fixed_term_end_date: Sun Jan 19 00:00:00 GMT 2020)
+                                 fixed_term_end_date: Sun Jan 19 00:00:00 UTC 2020)
 ```
 
 

@@ -58,6 +58,13 @@ module XeroRuby::Accounting
     # Tax number of contact – this is also known as the ABN (Australia), GST Number (New Zealand), VAT Number (UK) or Tax ID Number (US and global) in the Xero UI depending on which regionalized version of Xero you are using (max length = 50)
     attr_accessor :tax_number
     
+    # Identifier of the regional type of tax number, such as US, UK, or other regional tax identifiers
+    attr_accessor :tax_number_type
+    SSN ||= "SSN".freeze
+    EIN ||= "EIN".freeze
+    ITIN ||= "ITIN".freeze
+    ATIN ||= "ATIN".freeze
+    
     # The tax type from TaxRates
     attr_accessor :accounts_receivable_tax_type
     
@@ -189,6 +196,7 @@ module XeroRuby::Accounting
         :'contact_persons' => :'ContactPersons',
         :'bank_account_details' => :'BankAccountDetails',
         :'tax_number' => :'TaxNumber',
+        :'tax_number_type' => :'TaxNumberType',
         :'accounts_receivable_tax_type' => :'AccountsReceivableTaxType',
         :'accounts_payable_tax_type' => :'AccountsPayableTaxType',
         :'addresses' => :'Addresses',
@@ -237,6 +245,7 @@ module XeroRuby::Accounting
         :'contact_persons' => :'Array<ContactPerson>',
         :'bank_account_details' => :'String',
         :'tax_number' => :'String',
+        :'tax_number_type' => :'String',
         :'accounts_receivable_tax_type' => :'String',
         :'accounts_payable_tax_type' => :'String',
         :'addresses' => :'Array<Address>',
@@ -336,6 +345,10 @@ module XeroRuby::Accounting
 
       if attributes.key?(:'tax_number')
         self.tax_number = attributes[:'tax_number']
+      end
+
+      if attributes.key?(:'tax_number_type')
+        self.tax_number_type = attributes[:'tax_number_type']
       end
 
       if attributes.key?(:'accounts_receivable_tax_type')
@@ -525,6 +538,8 @@ module XeroRuby::Accounting
       return false if !@company_number.nil? && @company_number.to_s.length > 50
       return false if !@email_address.nil? && @email_address.to_s.length > 255
       return false if !@tax_number.nil? && @tax_number.to_s.length > 50
+      tax_number_type_validator = EnumAttributeValidator.new('String', ["SSN", "EIN", "ITIN", "ATIN"])
+      return false unless tax_number_type_validator.valid?(@tax_number_type)
       sales_default_line_amount_type_validator = EnumAttributeValidator.new('String', ["INCLUSIVE", "EXCLUSIVE", "NONE"])
       return false unless sales_default_line_amount_type_validator.valid?(@sales_default_line_amount_type)
       purchases_default_line_amount_type_validator = EnumAttributeValidator.new('String', ["INCLUSIVE", "EXCLUSIVE", "NONE"])
@@ -623,6 +638,16 @@ module XeroRuby::Accounting
     end
 
     # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] tax_number_type Object to be assigned
+    def tax_number_type=(tax_number_type)
+      validator = EnumAttributeValidator.new('String', ["SSN", "EIN", "ITIN", "ATIN"])
+      unless validator.valid?(tax_number_type)
+        fail ArgumentError, "invalid value for \"tax_number_type\", must be one of #{validator.allowable_values}."
+      end
+      @tax_number_type = tax_number_type
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
     # @param [Object] sales_default_line_amount_type Object to be assigned
     def sales_default_line_amount_type=(sales_default_line_amount_type)
       validator = EnumAttributeValidator.new('String', ["INCLUSIVE", "EXCLUSIVE", "NONE"])
@@ -660,6 +685,7 @@ module XeroRuby::Accounting
           contact_persons == o.contact_persons &&
           bank_account_details == o.bank_account_details &&
           tax_number == o.tax_number &&
+          tax_number_type == o.tax_number_type &&
           accounts_receivable_tax_type == o.accounts_receivable_tax_type &&
           accounts_payable_tax_type == o.accounts_payable_tax_type &&
           addresses == o.addresses &&
@@ -700,7 +726,7 @@ module XeroRuby::Accounting
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [contact_id, merged_to_contact_id, contact_number, account_number, contact_status, name, first_name, last_name, company_number, email_address, contact_persons, bank_account_details, tax_number, accounts_receivable_tax_type, accounts_payable_tax_type, addresses, phones, is_supplier, is_customer, sales_default_line_amount_type, purchases_default_line_amount_type, default_currency, xero_network_key, sales_default_account_code, purchases_default_account_code, sales_tracking_categories, purchases_tracking_categories, tracking_category_name, tracking_category_option, payment_terms, updated_date_utc, contact_groups, website, branding_theme, batch_payments, discount, balances, attachments, has_attachments, validation_errors, has_validation_errors, status_attribute_string].hash
+      [contact_id, merged_to_contact_id, contact_number, account_number, contact_status, name, first_name, last_name, company_number, email_address, contact_persons, bank_account_details, tax_number, tax_number_type, accounts_receivable_tax_type, accounts_payable_tax_type, addresses, phones, is_supplier, is_customer, sales_default_line_amount_type, purchases_default_line_amount_type, default_currency, xero_network_key, sales_default_account_code, purchases_default_account_code, sales_tracking_categories, purchases_tracking_categories, tracking_category_name, tracking_category_option, payment_terms, updated_date_utc, contact_groups, website, branding_theme, batch_payments, discount, balances, attachments, has_attachments, validation_errors, has_validation_errors, status_attribute_string].hash
     end
 
     # Builds the object from hash

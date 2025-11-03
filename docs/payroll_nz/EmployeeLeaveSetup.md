@@ -32,8 +32,8 @@ instance = XeroRuby::PayrollNz::EmployeeLeaveSetup.new(include_holiday_pay: fals
                                  sick_leave_maximum_to_accrue: 200.5,
                                  sick_leave_opening_balance: 10.5,
                                  sick_leave_schedule_of_accrual: OnAnniversaryDate,
-                                 sick_leave_anniversary_date: Sun Jan 19 00:00:00 GMT 2020,
-                                 annual_leave_anniversary_date: Sun Jan 19 00:00:00 GMT 2020)
+                                 sick_leave_anniversary_date: Sun Jan 19 00:00:00 UTC 2020,
+                                 annual_leave_anniversary_date: Sun Jan 19 00:00:00 UTC 2020)
 ```
 
 

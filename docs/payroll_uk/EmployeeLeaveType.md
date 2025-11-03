@@ -23,7 +23,7 @@ instance = XeroRuby::PayrollUk::EmployeeLeaveType.new(leave_type_id: null,
                                  maximum_to_accrue: null,
                                  opening_balance: null,
                                  rate_accrued_hourly: null,
-                                 schedule_of_accrual_date: Mon Apr 01 00:00:00 GMT 2024)
+                                 schedule_of_accrual_date: Mon Apr 01 00:00:00 UTC 2024)
 ```
 
 

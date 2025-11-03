@@ -37,7 +37,7 @@ instance = XeroRuby::PayrollNz::EmployeeLeaveType.new(leave_type_id: null,
                                  include_holiday_pay_every_pay: null,
                                  show_annual_leave_in_advance: null,
                                  annual_leave_total_amount_paid: null,
-                                 schedule_of_accrual_date: Sun Jan 19 00:00:00 GMT 2020)
+                                 schedule_of_accrual_date: Sun Jan 19 00:00:00 UTC 2020)
 ```
 
 
