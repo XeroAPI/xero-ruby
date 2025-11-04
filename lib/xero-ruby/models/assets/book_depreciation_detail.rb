@@ -37,6 +37,21 @@ module XeroRuby::Assets
     # All depreciation occurring in the current financial year.
     attr_accessor :current_accum_depreciation_amount
     
+    # (New Zealand Orgs Only) The portion of capital gain realised from the disposal of a fixed asset that is attributable to its business use.
+    attr_accessor :business_use_capital_gain
+    
+    # (New Zealand Orgs Only) Represents the gain or loss from the disposal of the business use portion of a fixed asset. This value records the financial result (profit or loss) related specifically to the asset’s business use.
+    attr_accessor :business_use_current_gain_loss
+    
+    # (New Zealand Orgs Only) The portion of capital gain realised from the disposal of a fixed asset that is attributable to its private (non-business) use.
+    attr_accessor :private_use_capital_gain
+    
+    # (New Zealand Orgs Only) Represents the gain or loss from the disposal of the private use portion of a fixed asset. This value records the financial result (profit or loss) related specifically to the asset’s private use.
+    attr_accessor :private_use_current_gain_loss
+    
+    # (New Zealand Orgs Only) The Investment Boost deduction percentage.
+    attr_accessor :initial_deduction_percentage
+    
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -46,7 +61,12 @@ module XeroRuby::Assets
         :'cost_limit' => :'costLimit',
         :'residual_value' => :'residualValue',
         :'prior_accum_depreciation_amount' => :'priorAccumDepreciationAmount',
-        :'current_accum_depreciation_amount' => :'currentAccumDepreciationAmount'
+        :'current_accum_depreciation_amount' => :'currentAccumDepreciationAmount',
+        :'business_use_capital_gain' => :'businessUseCapitalGain',
+        :'business_use_current_gain_loss' => :'businessUseCurrentGainLoss',
+        :'private_use_capital_gain' => :'privateUseCapitalGain',
+        :'private_use_current_gain_loss' => :'privateUseCurrentGainLoss',
+        :'initial_deduction_percentage' => :'initialDeductionPercentage'
       }
     end
 
@@ -59,7 +79,12 @@ module XeroRuby::Assets
         :'cost_limit' => :'BigDecimal',
         :'residual_value' => :'BigDecimal',
         :'prior_accum_depreciation_amount' => :'BigDecimal',
-        :'current_accum_depreciation_amount' => :'BigDecimal'
+        :'current_accum_depreciation_amount' => :'BigDecimal',
+        :'business_use_capital_gain' => :'BigDecimal',
+        :'business_use_current_gain_loss' => :'BigDecimal',
+        :'private_use_capital_gain' => :'BigDecimal',
+        :'private_use_current_gain_loss' => :'BigDecimal',
+        :'initial_deduction_percentage' => :'Float'
       }
     end
 
@@ -105,6 +130,26 @@ module XeroRuby::Assets
       if attributes.key?(:'current_accum_depreciation_amount')
         self.current_accum_depreciation_amount = attributes[:'current_accum_depreciation_amount']
       end
+
+      if attributes.key?(:'business_use_capital_gain')
+        self.business_use_capital_gain = attributes[:'business_use_capital_gain']
+      end
+
+      if attributes.key?(:'business_use_current_gain_loss')
+        self.business_use_current_gain_loss = attributes[:'business_use_current_gain_loss']
+      end
+
+      if attributes.key?(:'private_use_capital_gain')
+        self.private_use_capital_gain = attributes[:'private_use_capital_gain']
+      end
+
+      if attributes.key?(:'private_use_current_gain_loss')
+        self.private_use_current_gain_loss = attributes[:'private_use_current_gain_loss']
+      end
+
+      if attributes.key?(:'initial_deduction_percentage')
+        self.initial_deduction_percentage = attributes[:'initial_deduction_percentage']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -131,7 +176,12 @@ module XeroRuby::Assets
           cost_limit == o.cost_limit &&
           residual_value == o.residual_value &&
           prior_accum_depreciation_amount == o.prior_accum_depreciation_amount &&
-          current_accum_depreciation_amount == o.current_accum_depreciation_amount
+          current_accum_depreciation_amount == o.current_accum_depreciation_amount &&
+          business_use_capital_gain == o.business_use_capital_gain &&
+          business_use_current_gain_loss == o.business_use_current_gain_loss &&
+          private_use_capital_gain == o.private_use_capital_gain &&
+          private_use_current_gain_loss == o.private_use_current_gain_loss &&
+          initial_deduction_percentage == o.initial_deduction_percentage
     end
 
     # @see the `==` method
@@ -143,7 +193,7 @@ module XeroRuby::Assets
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [current_capital_gain, current_gain_loss, depreciation_start_date, cost_limit, residual_value, prior_accum_depreciation_amount, current_accum_depreciation_amount].hash
+      [current_capital_gain, current_gain_loss, depreciation_start_date, cost_limit, residual_value, prior_accum_depreciation_amount, current_accum_depreciation_amount, business_use_capital_gain, business_use_current_gain_loss, private_use_capital_gain, private_use_current_gain_loss, initial_deduction_percentage].hash
     end
 
     # Builds the object from hash

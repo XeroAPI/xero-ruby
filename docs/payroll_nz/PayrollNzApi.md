@@ -73,7 +73,6 @@ Method | HTTP request | Description
 [**update_employee_leave**](PayrollNzApi.md#update_employee_leave) | **PUT** /Employees/{EmployeeID}/Leave/{LeaveID} | Updates leave records for a specific employee
 [**update_employee_salary_and_wage**](PayrollNzApi.md#update_employee_salary_and_wage) | **PUT** /Employees/{EmployeeID}/SalaryAndWages/{SalaryAndWagesID} | Updates an employee&#39;s salary and wages record
 [**update_employee_tax**](PayrollNzApi.md#update_employee_tax) | **POST** /Employees/{EmployeeID}/Tax | Updates the tax records for a specific employee
-[**update_pay_run**](PayrollNzApi.md#update_pay_run) | **PUT** /PayRuns/{PayRunID} | Updates a pay run
 [**update_pay_slip_line_items**](PayrollNzApi.md#update_pay_slip_line_items) | **PUT** /PaySlips/{PaySlipID} | Creates an employee pay slip
 [**update_timesheet_line**](PayrollNzApi.md#update_timesheet_line) | **PUT** /Timesheets/{TimesheetID}/Lines/{TimesheetLineID} | Updates a timesheet line for a specific timesheet
 
@@ -4739,77 +4738,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmployeeTaxObject**](EmployeeTaxObject.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## update_pay_run
-
-> PayRunObject update_pay_run(xero_tenant_id, pay_run_id, pay_run, opts)
-
-Updates a pay run
-
-### Example
-
-```ruby
-# load the gem
-require 'xero-ruby'
-
-creds = {
-  client_id: ENV['CLIENT_ID'],
-  client_secret: ENV['CLIENT_SECRET'],
-  redirect_uri: ENV['REDIRECT_URI'],
-  scopes: ENV['SCOPES']
-}
-xero_client = XeroRuby::ApiClient.new(credentials: creds)
-
-token_set = fetch_valid_token_set(user) # example
-
-xero_client.refresh_token_set(token_set)
-
-# You need to namespace your api method call to one of the following api sets
-# [:accounting_api, :assets_api, :projects_api, :files_api, :payroll_au_api, :payroll_nz_api, :payroll_uk_api, :app_store_api]
-
-api_instance = xero_client.<api_set>
-
-
-
-xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
-pay_run_id = 'pay_run_id_example' # String | Identifier for the pay run
-pay_run = {"paymentDate":"2019-07-01"} # PayRun | 
-opts = {
-  idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
-}
-
-begin
-  #Updates a pay run
-  result = api_instance.update_pay_run(xero_tenant_id, pay_run_id, pay_run, opts)
-  p result
-rescue XeroRuby::PayrollNz::ApiError => e
-  puts "Exception when calling PayrollNzApi->update_pay_run: #{e}"
-end
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **pay_run_id** | [**String**](.md)| Identifier for the pay run | 
- **pay_run** | [**PayRun**](PayRun.md)|  | 
- **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
-
-### Return type
-
-[**PayRunObject**](PayRunObject.md)
 
 ### Authorization
 
