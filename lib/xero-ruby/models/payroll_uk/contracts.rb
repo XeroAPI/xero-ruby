@@ -15,46 +15,51 @@ require 'date'
 module XeroRuby::PayrollUk
   require 'bigdecimal'
 
-  class Employment
-    # Xero unique identifier for the payroll calendar of the employee
-    attr_accessor :payroll_calendar_id
-    
-    # Start date of the employment (YYYY-MM-DD)
+  class Contracts
+    # The contract start date of the employee. This will be locked once an employee has been paid and cannot be changed (YYYY-MM-DD)
     attr_accessor :start_date
     
-    # The employment number of the employee
-    attr_accessor :employee_number
+
+    attr_accessor :employment_status
     
 
-    attr_accessor :ni_category
+    attr_accessor :contract_type
     
-    # The employee's NI categories
-    attr_accessor :ni_categories
+    # The public key of the contract. Public key is required if the intention is to edit an existing contract. If no key is supplied a new contract will be created
+    attr_accessor :public_key
     
-    # The employee's contracts
-    attr_accessor :contracts
+    # describes whether the contract is fixed term (required if trying to create Fixed term contract)
+    attr_accessor :is_fixed_term
+    
+    # The fixed term end date of the employee. Not required if isFixedTerm is false or not provided (required if trying to create Fixed term contract)
+    attr_accessor :fixed_term_end_date
+    
+
+    attr_accessor :developmental_role_details
     
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'payroll_calendar_id' => :'payrollCalendarID',
         :'start_date' => :'startDate',
-        :'employee_number' => :'employeeNumber',
-        :'ni_category' => :'niCategory',
-        :'ni_categories' => :'niCategories',
-        :'contracts' => :'contracts'
+        :'employment_status' => :'employmentStatus',
+        :'contract_type' => :'contractType',
+        :'public_key' => :'publicKey',
+        :'is_fixed_term' => :'isFixedTerm',
+        :'fixed_term_end_date' => :'fixedTermEndDate',
+        :'developmental_role_details' => :'developmentalRoleDetails'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'payroll_calendar_id' => :'String',
         :'start_date' => :'Date',
-        :'employee_number' => :'String',
-        :'ni_category' => :'NICategoryLetter',
-        :'ni_categories' => :'Array<NICategory>',
-        :'contracts' => :'Array<Contracts>'
+        :'employment_status' => :'EmploymentStatus',
+        :'contract_type' => :'ContractType',
+        :'public_key' => :'String',
+        :'is_fixed_term' => :'Boolean',
+        :'fixed_term_end_date' => :'Date',
+        :'developmental_role_details' => :'DevelopmentalRoleDetails'
       }
     end
 
@@ -62,43 +67,43 @@ module XeroRuby::PayrollUk
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `XeroRuby::PayrollUk::Employment` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `XeroRuby::PayrollUk::Contracts` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `XeroRuby::PayrollUk::Employment`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `XeroRuby::PayrollUk::Contracts`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
-
-      if attributes.key?(:'payroll_calendar_id')
-        self.payroll_calendar_id = attributes[:'payroll_calendar_id']
-      end
 
       if attributes.key?(:'start_date')
         self.start_date = attributes[:'start_date']
       end
 
-      if attributes.key?(:'employee_number')
-        self.employee_number = attributes[:'employee_number']
+      if attributes.key?(:'employment_status')
+        self.employment_status = attributes[:'employment_status']
       end
 
-      if attributes.key?(:'ni_category')
-        self.ni_category = attributes[:'ni_category']
+      if attributes.key?(:'contract_type')
+        self.contract_type = attributes[:'contract_type']
       end
 
-      if attributes.key?(:'ni_categories')
-        if (value = attributes[:'ni_categories']).is_a?(Array)
-          self.ni_categories = value
-        end
+      if attributes.key?(:'public_key')
+        self.public_key = attributes[:'public_key']
       end
 
-      if attributes.key?(:'contracts')
-        if (value = attributes[:'contracts']).is_a?(Array)
-          self.contracts = value
-        end
+      if attributes.key?(:'is_fixed_term')
+        self.is_fixed_term = attributes[:'is_fixed_term']
+      end
+
+      if attributes.key?(:'fixed_term_end_date')
+        self.fixed_term_end_date = attributes[:'fixed_term_end_date']
+      end
+
+      if attributes.key?(:'developmental_role_details')
+        self.developmental_role_details = attributes[:'developmental_role_details']
       end
     end
 
@@ -106,20 +111,16 @@ module XeroRuby::PayrollUk
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @payroll_calendar_id.nil?
-        invalid_properties.push('invalid value for "payroll_calendar_id", payroll_calendar_id cannot be nil.')
-      end
-
       if @start_date.nil?
         invalid_properties.push('invalid value for "start_date", start_date cannot be nil.')
       end
 
-      if @employee_number.nil?
-        invalid_properties.push('invalid value for "employee_number", employee_number cannot be nil.')
+      if @employment_status.nil?
+        invalid_properties.push('invalid value for "employment_status", employment_status cannot be nil.')
       end
 
-      if @ni_categories.nil?
-        invalid_properties.push('invalid value for "ni_categories", ni_categories cannot be nil.')
+      if @contract_type.nil?
+        invalid_properties.push('invalid value for "contract_type", contract_type cannot be nil.')
       end
 
       invalid_properties
@@ -128,10 +129,9 @@ module XeroRuby::PayrollUk
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @payroll_calendar_id.nil?
       return false if @start_date.nil?
-      return false if @employee_number.nil?
-      return false if @ni_categories.nil?
+      return false if @employment_status.nil?
+      return false if @contract_type.nil?
       true
     end
 
@@ -140,12 +140,13 @@ module XeroRuby::PayrollUk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          payroll_calendar_id == o.payroll_calendar_id &&
           start_date == o.start_date &&
-          employee_number == o.employee_number &&
-          ni_category == o.ni_category &&
-          ni_categories == o.ni_categories &&
-          contracts == o.contracts
+          employment_status == o.employment_status &&
+          contract_type == o.contract_type &&
+          public_key == o.public_key &&
+          is_fixed_term == o.is_fixed_term &&
+          fixed_term_end_date == o.fixed_term_end_date &&
+          developmental_role_details == o.developmental_role_details
     end
 
     # @see the `==` method
@@ -157,7 +158,7 @@ module XeroRuby::PayrollUk
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [payroll_calendar_id, start_date, employee_number, ni_category, ni_categories, contracts].hash
+      [start_date, employment_status, contract_type, public_key, is_fixed_term, fixed_term_end_date, developmental_role_details].hash
     end
 
     # Builds the object from hash

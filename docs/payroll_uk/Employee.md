@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **ni_categories** | [**Array&lt;NICategory&gt;**](NICategory.md) | The employee&#39;s NI categories | [optional] 
 **national_insurance_number** | **String** | National insurance number of the employee | [optional] 
 **is_off_payroll_worker** | **Boolean** | Whether the employee is an off payroll worker | [optional] 
+**contracts** | [**Array&lt;Contracts&gt;**](Contracts.md) | The employee&#39;s contracts | [optional] 
 
 ## Code Sample
 
@@ -45,7 +46,8 @@ instance = XeroRuby::PayrollUk::Employee.new(employee_id: d90457c4-f1be-4f2e-b4e
                                  ni_category: null,
                                  ni_categories: null,
                                  national_insurance_number: AB123456C,
-                                 is_off_payroll_worker: null)
+                                 is_off_payroll_worker: null,
+                                 contracts: null)
 ```
 
 
