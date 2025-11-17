@@ -15,46 +15,36 @@ require 'date'
 module XeroRuby::PayrollUk
   require 'bigdecimal'
 
-  class Employment
-    # Xero unique identifier for the payroll calendar of the employee
-    attr_accessor :payroll_calendar_id
-    
-    # Start date of the employment (YYYY-MM-DD)
+  class DevelopmentalRoleDetails
+    # The start date of the developmental role
     attr_accessor :start_date
     
-    # The employment number of the employee
-    attr_accessor :employee_number
+    # The end date of the developmental role
+    attr_accessor :end_date
     
-
-    attr_accessor :ni_category
+    # The developmental role type - \"Apprentice\" is the only supported role currently
+    attr_accessor :developmental_role
     
-    # The employee's NI categories
-    attr_accessor :ni_categories
-    
-    # The employee's contracts
-    attr_accessor :contracts
+    # The public key of the developmental role. Public key is required if the intention is to edit an existing developmental role. If no key is supplied a new developmental role will be created
+    attr_accessor :public_key
     
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'payroll_calendar_id' => :'payrollCalendarID',
         :'start_date' => :'startDate',
-        :'employee_number' => :'employeeNumber',
-        :'ni_category' => :'niCategory',
-        :'ni_categories' => :'niCategories',
-        :'contracts' => :'contracts'
+        :'end_date' => :'endDate',
+        :'developmental_role' => :'developmentalRole',
+        :'public_key' => :'publicKey'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'payroll_calendar_id' => :'String',
         :'start_date' => :'Date',
-        :'employee_number' => :'String',
-        :'ni_category' => :'NICategoryLetter',
-        :'ni_categories' => :'Array<NICategory>',
-        :'contracts' => :'Array<Contracts>'
+        :'end_date' => :'Date',
+        :'developmental_role' => :'String',
+        :'public_key' => :'String'
       }
     end
 
@@ -62,43 +52,31 @@ module XeroRuby::PayrollUk
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `XeroRuby::PayrollUk::Employment` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `XeroRuby::PayrollUk::DevelopmentalRoleDetails` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `XeroRuby::PayrollUk::Employment`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `XeroRuby::PayrollUk::DevelopmentalRoleDetails`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
-
-      if attributes.key?(:'payroll_calendar_id')
-        self.payroll_calendar_id = attributes[:'payroll_calendar_id']
-      end
 
       if attributes.key?(:'start_date')
         self.start_date = attributes[:'start_date']
       end
 
-      if attributes.key?(:'employee_number')
-        self.employee_number = attributes[:'employee_number']
+      if attributes.key?(:'end_date')
+        self.end_date = attributes[:'end_date']
       end
 
-      if attributes.key?(:'ni_category')
-        self.ni_category = attributes[:'ni_category']
+      if attributes.key?(:'developmental_role')
+        self.developmental_role = attributes[:'developmental_role']
       end
 
-      if attributes.key?(:'ni_categories')
-        if (value = attributes[:'ni_categories']).is_a?(Array)
-          self.ni_categories = value
-        end
-      end
-
-      if attributes.key?(:'contracts')
-        if (value = attributes[:'contracts']).is_a?(Array)
-          self.contracts = value
-        end
+      if attributes.key?(:'public_key')
+        self.public_key = attributes[:'public_key']
       end
     end
 
@@ -106,20 +84,16 @@ module XeroRuby::PayrollUk
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @payroll_calendar_id.nil?
-        invalid_properties.push('invalid value for "payroll_calendar_id", payroll_calendar_id cannot be nil.')
-      end
-
       if @start_date.nil?
         invalid_properties.push('invalid value for "start_date", start_date cannot be nil.')
       end
 
-      if @employee_number.nil?
-        invalid_properties.push('invalid value for "employee_number", employee_number cannot be nil.')
+      if @end_date.nil?
+        invalid_properties.push('invalid value for "end_date", end_date cannot be nil.')
       end
 
-      if @ni_categories.nil?
-        invalid_properties.push('invalid value for "ni_categories", ni_categories cannot be nil.')
+      if @developmental_role.nil?
+        invalid_properties.push('invalid value for "developmental_role", developmental_role cannot be nil.')
       end
 
       invalid_properties
@@ -128,10 +102,9 @@ module XeroRuby::PayrollUk
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @payroll_calendar_id.nil?
       return false if @start_date.nil?
-      return false if @employee_number.nil?
-      return false if @ni_categories.nil?
+      return false if @end_date.nil?
+      return false if @developmental_role.nil?
       true
     end
 
@@ -140,12 +113,10 @@ module XeroRuby::PayrollUk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          payroll_calendar_id == o.payroll_calendar_id &&
           start_date == o.start_date &&
-          employee_number == o.employee_number &&
-          ni_category == o.ni_category &&
-          ni_categories == o.ni_categories &&
-          contracts == o.contracts
+          end_date == o.end_date &&
+          developmental_role == o.developmental_role &&
+          public_key == o.public_key
     end
 
     # @see the `==` method
@@ -157,7 +128,7 @@ module XeroRuby::PayrollUk
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [payroll_calendar_id, start_date, employee_number, ni_category, ni_categories, contracts].hash
+      [start_date, end_date, developmental_role, public_key].hash
     end
 
     # Builds the object from hash

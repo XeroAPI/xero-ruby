@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **employee_number** | **String** | The employment number of the employee | 
 **ni_category** | [**NICategoryLetter**](NICategoryLetter.md) |  | [optional] 
 **ni_categories** | [**Array&lt;NICategory&gt;**](NICategory.md) | The employee&#39;s NI categories | 
+**contracts** | [**Array&lt;Contracts&gt;**](Contracts.md) | The employee&#39;s contracts | [optional] 
 
 ## Code Sample
 
@@ -19,7 +20,8 @@ instance = XeroRuby::PayrollUk::Employment.new(payroll_calendar_id: null,
                                  start_date: null,
                                  employee_number: 7,
                                  ni_category: null,
-                                 ni_categories: null)
+                                 ni_categories: null,
+                                 contracts: null)
 ```
 
 

@@ -72,6 +72,9 @@ module XeroRuby::PayrollUk
     # Whether the employee is an off payroll worker
     attr_accessor :is_off_payroll_worker
     
+    # The employee's contracts
+    attr_accessor :contracts
+    
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -114,7 +117,8 @@ module XeroRuby::PayrollUk
         :'ni_category' => :'niCategory',
         :'ni_categories' => :'niCategories',
         :'national_insurance_number' => :'nationalInsuranceNumber',
-        :'is_off_payroll_worker' => :'isOffPayrollWorker'
+        :'is_off_payroll_worker' => :'isOffPayrollWorker',
+        :'contracts' => :'contracts'
       }
     end
 
@@ -138,7 +142,8 @@ module XeroRuby::PayrollUk
         :'ni_category' => :'NICategoryLetter',
         :'ni_categories' => :'Array<NICategory>',
         :'national_insurance_number' => :'String',
-        :'is_off_payroll_worker' => :'Boolean'
+        :'is_off_payroll_worker' => :'Boolean',
+        :'contracts' => :'Array<Contracts>'
       }
     end
 
@@ -230,6 +235,12 @@ module XeroRuby::PayrollUk
       if attributes.key?(:'is_off_payroll_worker')
         self.is_off_payroll_worker = attributes[:'is_off_payroll_worker']
       end
+
+      if attributes.key?(:'contracts')
+        if (value = attributes[:'contracts']).is_a?(Array)
+          self.contracts = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -309,7 +320,8 @@ module XeroRuby::PayrollUk
           ni_category == o.ni_category &&
           ni_categories == o.ni_categories &&
           national_insurance_number == o.national_insurance_number &&
-          is_off_payroll_worker == o.is_off_payroll_worker
+          is_off_payroll_worker == o.is_off_payroll_worker &&
+          contracts == o.contracts
     end
 
     # @see the `==` method
@@ -321,7 +333,7 @@ module XeroRuby::PayrollUk
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [employee_id, title, first_name, last_name, date_of_birth, address, email, gender, phone_number, start_date, end_date, payroll_calendar_id, updated_date_utc, created_date_utc, ni_category, ni_categories, national_insurance_number, is_off_payroll_worker].hash
+      [employee_id, title, first_name, last_name, date_of_birth, address, email, gender, phone_number, start_date, end_date, payroll_calendar_id, updated_date_utc, created_date_utc, ni_category, ni_categories, national_insurance_number, is_off_payroll_worker, contracts].hash
     end
 
     # Builds the object from hash
