@@ -26,9 +26,6 @@ module XeroRuby::PayrollNz
     PERCENTAGE_OF_GROSS_EARNINGS ||= "PercentageOfGrossEarnings".freeze
     NO_ACCRUALS ||= "NoAccruals".freeze
     
-    # Deprecated use UnitsAccruedAnnually
-    attr_accessor :hours_accrued_annually
-    
     # The number of units accrued for the leave annually. This is 0 when the ScheduleOfAccrual chosen is \"NoAccruals\"
     attr_accessor :units_accrued_annually
     
@@ -44,7 +41,7 @@ module XeroRuby::PayrollNz
     # The type of units for the opening balance
     attr_accessor :opening_balance_type_of_units
     
-    # The number of hours added to the leave balance for every hour worked by the employee. This is normally 0, unless the scheduleOfAccrual chosen is \"OnHourWorked\"
+    # not supported in Payroll NZ
     attr_accessor :rate_accrued_hourly
     
     # Specific for scheduleOfAccrual having percentage of gross earnings. Identifies how much percentage of gross earnings is accrued per pay period.
@@ -89,8 +86,7 @@ module XeroRuby::PayrollNz
       {
         :'leave_type_id' => :'leaveTypeID',
         :'schedule_of_accrual' => :'scheduleOfAccrual',
-        :'hours_accrued_annually' => :'hoursAccruedAnnually',
-        :'units_accrued_annually' => :'UnitsAccruedAnnually',
+        :'units_accrued_annually' => :'unitsAccruedAnnually',
         :'type_of_units_to_accrue' => :'typeOfUnitsToAccrue',
         :'maximum_to_accrue' => :'maximumToAccrue',
         :'opening_balance' => :'openingBalance',
@@ -109,7 +105,6 @@ module XeroRuby::PayrollNz
       {
         :'leave_type_id' => :'String',
         :'schedule_of_accrual' => :'String',
-        :'hours_accrued_annually' => :'BigDecimal',
         :'units_accrued_annually' => :'BigDecimal',
         :'type_of_units_to_accrue' => :'String',
         :'maximum_to_accrue' => :'BigDecimal',
@@ -145,10 +140,6 @@ module XeroRuby::PayrollNz
 
       if attributes.key?(:'schedule_of_accrual')
         self.schedule_of_accrual = attributes[:'schedule_of_accrual']
-      end
-
-      if attributes.key?(:'hours_accrued_annually')
-        self.hours_accrued_annually = attributes[:'hours_accrued_annually']
       end
 
       if attributes.key?(:'units_accrued_annually')
@@ -228,7 +219,6 @@ module XeroRuby::PayrollNz
       self.class == o.class &&
           leave_type_id == o.leave_type_id &&
           schedule_of_accrual == o.schedule_of_accrual &&
-          hours_accrued_annually == o.hours_accrued_annually &&
           units_accrued_annually == o.units_accrued_annually &&
           type_of_units_to_accrue == o.type_of_units_to_accrue &&
           maximum_to_accrue == o.maximum_to_accrue &&
@@ -251,7 +241,7 @@ module XeroRuby::PayrollNz
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [leave_type_id, schedule_of_accrual, hours_accrued_annually, units_accrued_annually, type_of_units_to_accrue, maximum_to_accrue, opening_balance, opening_balance_type_of_units, rate_accrued_hourly, percentage_of_gross_earnings, include_holiday_pay_every_pay, show_annual_leave_in_advance, annual_leave_total_amount_paid, schedule_of_accrual_date].hash
+      [leave_type_id, schedule_of_accrual, units_accrued_annually, type_of_units_to_accrue, maximum_to_accrue, opening_balance, opening_balance_type_of_units, rate_accrued_hourly, percentage_of_gross_earnings, include_holiday_pay_every_pay, show_annual_leave_in_advance, annual_leave_total_amount_paid, schedule_of_accrual_date].hash
     end
 
     # Builds the object from hash

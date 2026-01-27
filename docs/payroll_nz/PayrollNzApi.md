@@ -529,7 +529,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
-employee_leave_setup = {"holidayPayOpeningBalance":10,"annualLeaveOpeningBalance":100,"sickLeaveHoursToAccrueAnnually":20,"sickLeaveToAccrueAnnually":20,"sickLeaveOpeningBalance":10,"sickLeaveScheduleOfAccrual":"OnAnniversaryDate","sickLeaveAnniversaryDate":"2023-12-31","annualLeaveAnniversaryDate":"2023-12-31"} # EmployeeLeaveSetup | 
+employee_leave_setup = {"holidayPayOpeningBalance":10,"annualLeaveOpeningBalance":100,"sickLeaveToAccrueAnnually":20,"sickLeaveOpeningBalance":10,"sickLeaveScheduleOfAccrual":"OnAnniversaryDate","sickLeaveAnniversaryDate":"2023-12-31","annualLeaveAnniversaryDate":"2023-12-31"} # EmployeeLeaveSetup | 
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }
@@ -600,7 +600,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'xero_tenant_id_example' # String | Xero identifier for Tenant
 employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c' # String | Employee id for single object
-employee_leave_type = {"leaveTypeID":"35da97ae-05b9-427f-9a98-69157ba42cec","scheduleOfAccrual":"AnnuallyAfter6Months","hoursAccruedAnnually":10,"unitsAccruedAnnually":10,"typeOfUnitsToAccrue":"Hours","openingBalanceTypeOfUnits":"Hours","maximumToAccrue":80,"openingBalance":100,"rateAccruedHourly":3.5} # EmployeeLeaveType | 
+employee_leave_type = {"leaveTypeID":"35da97ae-05b9-427f-9a98-69157ba42cec","scheduleOfAccrual":"AnnuallyAfter6Months","unitsAccruedAnnually":10,"typeOfUnitsToAccrue":"Hours","openingBalanceTypeOfUnits":"Hours","maximumToAccrue":80,"openingBalance":100,"rateAccruedHourly":null} # EmployeeLeaveType | 
 opts = {
   idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
 }

@@ -11958,6 +11958,7 @@ module XeroRuby
     # @option opts [Integer] :page e.g. page&#x3D;1 – Up to 100 overpayments will be returned in a single API call with line items shown for each overpayment
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @option opts [Integer] :page_size Number of records to retrieve per page
+    # @option opts [Array<String>] :references Filter by a comma-separated list of References
     # @return [Overpayments]
     def get_overpayments(xero_tenant_id, opts = {})
       data, _status_code, _headers = get_overpayments_with_http_info(xero_tenant_id, opts)
@@ -11973,6 +11974,7 @@ module XeroRuby
     # @option opts [Integer] :page e.g. page&#x3D;1 – Up to 100 overpayments will be returned in a single API call with line items shown for each overpayment
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @option opts [Integer] :page_size Number of records to retrieve per page
+    # @option opts [Array<String>] :references Filter by a comma-separated list of References
     # @return [Array<(Overpayments, Integer, Hash)>] Overpayments data, response status code and response headers
     def get_overpayments_with_http_info(xero_tenant_id, options = {})
       opts = options.dup
@@ -11996,6 +11998,7 @@ module XeroRuby
       query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
       query_params[:'unitdp'] = opts[:'unitdp'] if !opts[:'unitdp'].nil?
       query_params[:'pageSize'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'References'] = @api_client.build_collection_param(opts[:'references'], :csv) if !opts[:'references'].nil?
       
       # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
       query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?

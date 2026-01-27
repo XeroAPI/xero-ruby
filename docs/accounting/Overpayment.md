@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **applied_amount** | **Float** | The amount of applied to an invoice | [optional] 
 **payments** | [**Array&lt;Payment&gt;**](Payment.md) | See Payments | [optional] 
 **has_attachments** | **Boolean** | boolean to indicate if a overpayment has an attachment | [optional] [default to false]
+**reference** | **String** | An optional description for Overpayment | [optional] 
 **attachments** | [**Array&lt;Attachment&gt;**](Attachment.md) | See Attachments | [optional] 
 
 ## Code Sample
@@ -47,6 +48,7 @@ instance = XeroRuby::Accounting::Overpayment.new(type: null,
                                  applied_amount: 2.0,
                                  payments: null,
                                  has_attachments: false,
+                                 reference: Ref for payment,
                                  attachments: null)
 ```
 
