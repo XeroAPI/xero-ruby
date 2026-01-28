@@ -28,12 +28,6 @@ module XeroRuby::PayrollNz
     # The dollar value of annual leave opening balance if negative.
     attr_accessor :negative_annual_leave_balance_paid_amount
     
-    # Deprecated use SickLeaveToAccrueAnnually
-    attr_accessor :sick_leave_hours_to_accrue_annually
-    
-    # Deprecated use SickLeaveMaximumToAccrue
-    attr_accessor :sick_leave_maximum_hours_to_accrue
-    
     # Number of units accrued annually for sick leave. The type of units is determined by the property \"TypeOfUnitsToAccrue\" on the \"Sick Leave\" leave type
     attr_accessor :sick_leave_to_accrue_annually
     
@@ -59,8 +53,6 @@ module XeroRuby::PayrollNz
         :'holiday_pay_opening_balance' => :'holidayPayOpeningBalance',
         :'annual_leave_opening_balance' => :'annualLeaveOpeningBalance',
         :'negative_annual_leave_balance_paid_amount' => :'negativeAnnualLeaveBalancePaidAmount',
-        :'sick_leave_hours_to_accrue_annually' => :'sickLeaveHoursToAccrueAnnually',
-        :'sick_leave_maximum_hours_to_accrue' => :'sickLeaveMaximumHoursToAccrue',
         :'sick_leave_to_accrue_annually' => :'SickLeaveToAccrueAnnually',
         :'sick_leave_maximum_to_accrue' => :'SickLeaveMaximumToAccrue',
         :'sick_leave_opening_balance' => :'sickLeaveOpeningBalance',
@@ -77,8 +69,6 @@ module XeroRuby::PayrollNz
         :'holiday_pay_opening_balance' => :'BigDecimal',
         :'annual_leave_opening_balance' => :'BigDecimal',
         :'negative_annual_leave_balance_paid_amount' => :'BigDecimal',
-        :'sick_leave_hours_to_accrue_annually' => :'BigDecimal',
-        :'sick_leave_maximum_hours_to_accrue' => :'BigDecimal',
         :'sick_leave_to_accrue_annually' => :'BigDecimal',
         :'sick_leave_maximum_to_accrue' => :'BigDecimal',
         :'sick_leave_opening_balance' => :'BigDecimal',
@@ -117,14 +107,6 @@ module XeroRuby::PayrollNz
 
       if attributes.key?(:'negative_annual_leave_balance_paid_amount')
         self.negative_annual_leave_balance_paid_amount = attributes[:'negative_annual_leave_balance_paid_amount']
-      end
-
-      if attributes.key?(:'sick_leave_hours_to_accrue_annually')
-        self.sick_leave_hours_to_accrue_annually = attributes[:'sick_leave_hours_to_accrue_annually']
-      end
-
-      if attributes.key?(:'sick_leave_maximum_hours_to_accrue')
-        self.sick_leave_maximum_hours_to_accrue = attributes[:'sick_leave_maximum_hours_to_accrue']
       end
 
       if attributes.key?(:'sick_leave_to_accrue_annually')
@@ -174,8 +156,6 @@ module XeroRuby::PayrollNz
           holiday_pay_opening_balance == o.holiday_pay_opening_balance &&
           annual_leave_opening_balance == o.annual_leave_opening_balance &&
           negative_annual_leave_balance_paid_amount == o.negative_annual_leave_balance_paid_amount &&
-          sick_leave_hours_to_accrue_annually == o.sick_leave_hours_to_accrue_annually &&
-          sick_leave_maximum_hours_to_accrue == o.sick_leave_maximum_hours_to_accrue &&
           sick_leave_to_accrue_annually == o.sick_leave_to_accrue_annually &&
           sick_leave_maximum_to_accrue == o.sick_leave_maximum_to_accrue &&
           sick_leave_opening_balance == o.sick_leave_opening_balance &&
@@ -193,7 +173,7 @@ module XeroRuby::PayrollNz
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [include_holiday_pay, holiday_pay_opening_balance, annual_leave_opening_balance, negative_annual_leave_balance_paid_amount, sick_leave_hours_to_accrue_annually, sick_leave_maximum_hours_to_accrue, sick_leave_to_accrue_annually, sick_leave_maximum_to_accrue, sick_leave_opening_balance, sick_leave_schedule_of_accrual, sick_leave_anniversary_date, annual_leave_anniversary_date].hash
+      [include_holiday_pay, holiday_pay_opening_balance, annual_leave_opening_balance, negative_annual_leave_balance_paid_amount, sick_leave_to_accrue_annually, sick_leave_maximum_to_accrue, sick_leave_opening_balance, sick_leave_schedule_of_accrual, sick_leave_anniversary_date, annual_leave_anniversary_date].hash
     end
 
     # Builds the object from hash

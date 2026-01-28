@@ -76,6 +76,9 @@ module XeroRuby::Accounting
     # boolean to indicate if a overpayment has an attachment
     attr_accessor :has_attachments
     
+    # An optional description for Overpayment
+    attr_accessor :reference
+    
     # See Attachments
     attr_accessor :attachments
     
@@ -122,6 +125,7 @@ module XeroRuby::Accounting
         :'applied_amount' => :'AppliedAmount',
         :'payments' => :'Payments',
         :'has_attachments' => :'HasAttachments',
+        :'reference' => :'Reference',
         :'attachments' => :'Attachments'
       }
     end
@@ -147,6 +151,7 @@ module XeroRuby::Accounting
         :'applied_amount' => :'Float',
         :'payments' => :'Array<Payment>',
         :'has_attachments' => :'Boolean',
+        :'reference' => :'String',
         :'attachments' => :'Array<Attachment>'
       }
     end
@@ -246,6 +251,10 @@ module XeroRuby::Accounting
         self.has_attachments = false
       end
 
+      if attributes.key?(:'reference')
+        self.reference = attributes[:'reference']
+      end
+
       if attributes.key?(:'attachments')
         if (value = attributes[:'attachments']).is_a?(Array)
           self.attachments = value
@@ -313,6 +322,7 @@ module XeroRuby::Accounting
           applied_amount == o.applied_amount &&
           payments == o.payments &&
           has_attachments == o.has_attachments &&
+          reference == o.reference &&
           attachments == o.attachments
     end
 
@@ -325,7 +335,7 @@ module XeroRuby::Accounting
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [type, contact, date, status, line_amount_types, line_items, sub_total, total_tax, total, updated_date_utc, currency_code, overpayment_id, currency_rate, remaining_credit, allocations, applied_amount, payments, has_attachments, attachments].hash
+      [type, contact, date, status, line_amount_types, line_items, sub_total, total_tax, total, updated_date_utc, currency_code, overpayment_id, currency_rate, remaining_credit, allocations, applied_amount, payments, has_attachments, reference, attachments].hash
     end
 
     # Builds the object from hash
