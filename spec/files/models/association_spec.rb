@@ -38,7 +38,7 @@ describe 'Association' do
     end
   end
 
-  describe 'test attribute "object_id"' do
+  describe 'test attribute "xero_object_id"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
