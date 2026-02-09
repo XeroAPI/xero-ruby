@@ -31,59 +31,6 @@ describe 'FinanceApi' do
     end
   end
 
-  # unit tests for get_accounting_activity_account_usage
-  # Get account usage
-  # A summary of how each account is being transacted on exposing the level of detail and amounts attributable to manual adjustments.
-  # @param xero_tenant_id Xero identifier for Tenant
-  # @param [Hash] opts the optional parameters
-  # @option opts [String] :start_month date, yyyy-MM                 If no parameter is provided, the month 12 months prior to the end month will be used.                Account usage for up to 12 months from this date will be returned.
-  # @option opts [String] :end_month date, yyyy-MM                 If no parameter is provided, the current month will be used.                Account usage for up to 12 months prior to this date will be returned.
-  # @return [AccountUsageResponse]
-  describe 'get_accounting_activity_account_usage test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for get_accounting_activity_lock_history
-  # Get lock history
-  # Provides a history of locking of accounting books. Locking may be an indicator of good accounting practices that could reduce the risk of changes to accounting records in prior periods.
-  # @param xero_tenant_id Xero identifier for Tenant
-  # @param [Hash] opts the optional parameters
-  # @option opts [String] :end_date date, yyyy-MM-dd                 If no parameter is provided, the current date will be used.                Any changes to hard or soft lock dates that were made within the period up to 12 months before this date will be returned.                Please be aware that there may be a delay of up to 3 days before a change is visible from this API.
-  # @return [LockHistoryResponse]
-  describe 'get_accounting_activity_lock_history test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for get_accounting_activity_report_history
-  # Get report history
-  # For a specified organisation, provides a summary of all the reports published within a given period, which may be an indicator for good business management and oversight.
-  # @param xero_tenant_id Xero identifier for Tenant
-  # @param [Hash] opts the optional parameters
-  # @option opts [String] :end_date date, yyyy-MM-dd                 If no parameter is provided, the current date will be used.                Any reports that were published within the period up to 12 months before this date will be returned.                Please be aware that there may be a delay of up to 3 days before a published report is visible from this API.
-  # @return [ReportHistoryResponse]
-  describe 'get_accounting_activity_report_history test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for get_accounting_activity_user_activities
-  # Get user activities
-  # For a specified organisation, provides a list of all the users registered, and a history of their accounting transactions. Also identifies the existence of an external accounting advisor and the level of interaction.
-  # @param xero_tenant_id Xero identifier for Tenant
-  # @param [Hash] opts the optional parameters
-  # @option opts [String] :data_month date, yyyy-MM                 The specified month must be complete (in the past); The current month cannot be specified since it is not complete.                If no parameter is provided, the month immediately previous to the current month will be used.                Any user activities occurring within the specified month will be returned.                Please be aware that there may be a delay of up to 3 days before a user activity is visible from this API.
-  # @return [UserActivitiesResponse]
-  describe 'get_accounting_activity_user_activities test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
   # unit tests for get_cash_validation
   # Get cash validation
   # Summarizes the total cash position for each account for an org
