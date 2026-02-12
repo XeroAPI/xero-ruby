@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **name** | **String** | The name of the associated file. Note- The Name element is only returned when using /Associations/{ObjectId} endpoint. | [optional] 
 **size** | **Integer** | The size of the associated file in bytes. Note- The Size element is only returned when using /Associations/{ObjectId} endpoint. | [optional] 
 **file_id** | **String** | The unique identifier of the file | [optional] 
-**object_id** | **String** | The identifier of the object that the file is being associated with (e.g. InvoiceID, BankTransactionID, ContactID) | [optional] 
+**xero_object_id** | **String** | The identifier of the object that the file is being associated with (e.g. InvoiceID, BankTransactionID, ContactID) | [optional] 
 **object_group** | [**ObjectGroup**](ObjectGroup.md) |  | [optional] 
 **object_type** | [**ObjectType**](ObjectType.md) |  | [optional] 
 
@@ -21,7 +21,7 @@ instance = XeroRuby::Files::Association.new(send_with_object: true,
                                  name: Test.pdf,
                                  size: 12357,
                                  file_id: null,
-                                 object_id: null,
+                                 xero_object_id: null,
                                  object_group: null,
                                  object_type: null)
 ```
