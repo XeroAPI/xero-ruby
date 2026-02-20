@@ -1505,35 +1505,6 @@ ul.nav-tabs {
   "additionalProperties" : false,
   "description" : ""
 };
-      defs["HistoryRecordResponse"] = {
-  "title" : "",
-  "type" : "object",
-  "properties" : {
-    "changes" : {
-      "type" : "string",
-      "description" : "The type of change recorded against the document"
-    },
-    "dateUTCString" : {
-      "type" : "string",
-      "description" : "UTC date that the history record was created"
-    },
-    "dateUTC" : {
-      "type" : "string",
-      "description" : "UTC date that the history record was created",
-      "format" : "date-time"
-    },
-    "user" : {
-      "type" : "string",
-      "description" : "The users first and last name"
-    },
-    "details" : {
-      "type" : "string",
-      "description" : "Description of the change event or transaction"
-    }
-  },
-  "additionalProperties" : false,
-  "description" : ""
-};
       defs["IncomeByContactResponse"] = {
   "title" : "",
   "type" : "object",
@@ -1800,36 +1771,6 @@ ul.nav-tabs {
       "items" : {
         "$ref" : "#/components/schemas/PnlAccount"
       }
-    }
-  },
-  "additionalProperties" : false,
-  "description" : ""
-};
-      defs["PracticeResponse"] = {
-  "title" : "",
-  "type" : "object",
-  "properties" : {
-    "xeroPartnerSince" : {
-      "type" : "integer",
-      "description" : "Year of becoming a partner.",
-      "format" : "int32"
-    },
-    "tier" : {
-      "type" : "string",
-      "description" : "Customer tier e.g. Silver"
-    },
-    "location" : {
-      "type" : "string",
-      "description" : "Country of location."
-    },
-    "organisationCount" : {
-      "type" : "integer",
-      "description" : "Organisation count.",
-      "format" : "int32"
-    },
-    "staffCertified" : {
-      "type" : "boolean",
-      "description" : "Staff certified (true/false)."
     }
   },
   "additionalProperties" : false,
@@ -2351,7 +2292,7 @@ ul.nav-tabs {
   "additionalProperties" : false,
   "description" : ""
 };
-
+      
       var errs = {};
       
       function routeDocs(event) {
