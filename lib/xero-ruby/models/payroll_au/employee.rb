@@ -121,9 +121,6 @@ module XeroRuby::PayrollAu
     attr_accessor :leave_balances
     
 
-    attr_accessor :leave_lines
-    
-
     attr_accessor :super_memberships
     
 
@@ -191,7 +188,6 @@ module XeroRuby::PayrollAu
         :'country_of_residence' => :'CountryOfResidence',
         :'is_stp2_qualified' => :'IsSTP2Qualified',
         :'leave_balances' => :'LeaveBalances',
-        :'leave_lines' => :'LeaveLines',
         :'super_memberships' => :'SuperMemberships',
         :'status' => :'Status',
         :'updated_date_utc' => :'UpdatedDateUTC',
@@ -233,7 +229,6 @@ module XeroRuby::PayrollAu
         :'country_of_residence' => :'CountryOfResidence',
         :'is_stp2_qualified' => :'Boolean',
         :'leave_balances' => :'Array<LeaveBalance>',
-        :'leave_lines' => :'Array<LeaveLine>',
         :'super_memberships' => :'Array<SuperMembership>',
         :'status' => :'EmployeeStatus',
         :'updated_date_utc' => :'DateTime',
@@ -384,12 +379,6 @@ module XeroRuby::PayrollAu
         end
       end
 
-      if attributes.key?(:'leave_lines')
-        if (value = attributes[:'leave_lines']).is_a?(Array)
-          self.leave_lines = value
-        end
-      end
-
       if attributes.key?(:'super_memberships')
         if (value = attributes[:'super_memberships']).is_a?(Array)
           self.super_memberships = value
@@ -499,7 +488,6 @@ module XeroRuby::PayrollAu
           country_of_residence == o.country_of_residence &&
           is_stp2_qualified == o.is_stp2_qualified &&
           leave_balances == o.leave_balances &&
-          leave_lines == o.leave_lines &&
           super_memberships == o.super_memberships &&
           status == o.status &&
           updated_date_utc == o.updated_date_utc &&
@@ -515,7 +503,7 @@ module XeroRuby::PayrollAu
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [first_name, last_name, date_of_birth, home_address, start_date, title, middle_names, email, gender, phone, mobile, twitter_user_name, is_authorised_to_approve_leave, is_authorised_to_approve_timesheets, job_title, classification, ordinary_earnings_rate_id, payroll_calendar_id, employee_group_name, employee_id, termination_date, termination_reason, bank_accounts, pay_template, opening_balances, tax_declaration, income_type, employment_type, country_of_residence, is_stp2_qualified, leave_balances, leave_lines, super_memberships, status, updated_date_utc, validation_errors].hash
+      [first_name, last_name, date_of_birth, home_address, start_date, title, middle_names, email, gender, phone, mobile, twitter_user_name, is_authorised_to_approve_leave, is_authorised_to_approve_timesheets, job_title, classification, ordinary_earnings_rate_id, payroll_calendar_id, employee_group_name, employee_id, termination_date, termination_reason, bank_accounts, pay_template, opening_balances, tax_declaration, income_type, employment_type, country_of_residence, is_stp2_qualified, leave_balances, super_memberships, status, updated_date_utc, validation_errors].hash
     end
 
     # Builds the object from hash

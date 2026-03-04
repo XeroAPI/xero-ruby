@@ -49,6 +49,9 @@ module XeroRuby::PayrollAu
     # Set this to indicate that the leave type is exempt from superannuation guarantee contribution
     attr_accessor :sgc_exempt
     
+    # Optional Boolean to determine if the earnings rate is considered as qualifying earnings for superannuation guarantee calculations. When not specified value is calculated based on earnings type and superannuation settings
+    attr_accessor :is_qualifying_earnings
+    
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -62,7 +65,8 @@ module XeroRuby::PayrollAu
         :'show_on_payslip' => :'ShowOnPayslip',
         :'current_record' => :'CurrentRecord',
         :'leave_category_code' => :'LeaveCategoryCode',
-        :'sgc_exempt' => :'SGCExempt'
+        :'sgc_exempt' => :'SGCExempt',
+        :'is_qualifying_earnings' => :'IsQualifyingEarnings'
       }
     end
 
@@ -79,7 +83,8 @@ module XeroRuby::PayrollAu
         :'show_on_payslip' => :'Boolean',
         :'current_record' => :'Boolean',
         :'leave_category_code' => :'LeaveCategoryCode',
-        :'sgc_exempt' => :'Boolean'
+        :'sgc_exempt' => :'Boolean',
+        :'is_qualifying_earnings' => :'Boolean'
       }
     end
 
@@ -141,6 +146,10 @@ module XeroRuby::PayrollAu
       if attributes.key?(:'sgc_exempt')
         self.sgc_exempt = attributes[:'sgc_exempt']
       end
+
+      if attributes.key?(:'is_qualifying_earnings')
+        self.is_qualifying_earnings = attributes[:'is_qualifying_earnings']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -186,7 +195,8 @@ module XeroRuby::PayrollAu
           show_on_payslip == o.show_on_payslip &&
           current_record == o.current_record &&
           leave_category_code == o.leave_category_code &&
-          sgc_exempt == o.sgc_exempt
+          sgc_exempt == o.sgc_exempt &&
+          is_qualifying_earnings == o.is_qualifying_earnings
     end
 
     # @see the `==` method
@@ -198,7 +208,7 @@ module XeroRuby::PayrollAu
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, type_of_units, leave_type_id, normal_entitlement, leave_loading_rate, updated_date_utc, is_paid_leave, show_on_payslip, current_record, leave_category_code, sgc_exempt].hash
+      [name, type_of_units, leave_type_id, normal_entitlement, leave_loading_rate, updated_date_utc, is_paid_leave, show_on_payslip, current_record, leave_category_code, sgc_exempt, is_qualifying_earnings].hash
     end
 
     # Builds the object from hash

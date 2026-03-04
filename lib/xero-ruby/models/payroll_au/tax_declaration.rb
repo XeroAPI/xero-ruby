@@ -79,6 +79,9 @@ module XeroRuby::PayrollAu
     # Last modified timestamp
     attr_accessor :updated_date_utc
     
+    # Optional Boolean to determine if leave loading is considered as qualifying earnings for superannuation guarantee calculations
+    attr_accessor :include_leave_loading_in_qualifying_earnings
+    
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -102,7 +105,8 @@ module XeroRuby::PayrollAu
         :'approved_withholding_variation_percentage' => :'ApprovedWithholdingVariationPercentage',
         :'has_student_startup_loan' => :'HasStudentStartupLoan',
         :'has_loan_or_student_debt' => :'HasLoanOrStudentDebt',
-        :'updated_date_utc' => :'UpdatedDateUTC'
+        :'updated_date_utc' => :'UpdatedDateUTC',
+        :'include_leave_loading_in_qualifying_earnings' => :'IncludeLeaveLoadingInQualifyingEarnings'
       }
     end
 
@@ -129,7 +133,8 @@ module XeroRuby::PayrollAu
         :'approved_withholding_variation_percentage' => :'Float',
         :'has_student_startup_loan' => :'Boolean',
         :'has_loan_or_student_debt' => :'Boolean',
-        :'updated_date_utc' => :'DateTime'
+        :'updated_date_utc' => :'DateTime',
+        :'include_leave_loading_in_qualifying_earnings' => :'Boolean'
       }
     end
 
@@ -231,6 +236,10 @@ module XeroRuby::PayrollAu
       if attributes.key?(:'updated_date_utc')
         self.updated_date_utc = attributes[:'updated_date_utc']
       end
+
+      if attributes.key?(:'include_leave_loading_in_qualifying_earnings')
+        self.include_leave_loading_in_qualifying_earnings = attributes[:'include_leave_loading_in_qualifying_earnings']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -271,7 +280,8 @@ module XeroRuby::PayrollAu
           approved_withholding_variation_percentage == o.approved_withholding_variation_percentage &&
           has_student_startup_loan == o.has_student_startup_loan &&
           has_loan_or_student_debt == o.has_loan_or_student_debt &&
-          updated_date_utc == o.updated_date_utc
+          updated_date_utc == o.updated_date_utc &&
+          include_leave_loading_in_qualifying_earnings == o.include_leave_loading_in_qualifying_earnings
     end
 
     # @see the `==` method
@@ -283,7 +293,7 @@ module XeroRuby::PayrollAu
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [employee_id, employment_basis, tfn_exemption_type, tax_file_number, abn, australian_resident_for_tax_purposes, residency_status, tax_scale_type, work_condition, senior_marital_status, tax_free_threshold_claimed, tax_offset_estimated_amount, has_help_debt, has_sfss_debt, has_trade_support_loan_debt, upward_variation_tax_withholding_amount, eligible_to_receive_leave_loading, approved_withholding_variation_percentage, has_student_startup_loan, has_loan_or_student_debt, updated_date_utc].hash
+      [employee_id, employment_basis, tfn_exemption_type, tax_file_number, abn, australian_resident_for_tax_purposes, residency_status, tax_scale_type, work_condition, senior_marital_status, tax_free_threshold_claimed, tax_offset_estimated_amount, has_help_debt, has_sfss_debt, has_trade_support_loan_debt, upward_variation_tax_withholding_amount, eligible_to_receive_leave_loading, approved_withholding_variation_percentage, has_student_startup_loan, has_loan_or_student_debt, updated_date_utc, include_leave_loading_in_qualifying_earnings].hash
     end
 
     # Builds the object from hash

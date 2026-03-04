@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **current_record** | **Boolean** | Is the current record | [optional] 
 **leave_category_code** | [**LeaveCategoryCode**](LeaveCategoryCode.md) |  | [optional] 
 **sgc_exempt** | **Boolean** | Set this to indicate that the leave type is exempt from superannuation guarantee contribution | [optional] 
+**is_qualifying_earnings** | **Boolean** | Optional Boolean to determine if the earnings rate is considered as qualifying earnings for superannuation guarantee calculations. When not specified value is calculated based on earnings type and superannuation settings | [optional] 
 
 ## Code Sample
 
@@ -31,7 +32,8 @@ instance = XeroRuby::PayrollAu::LeaveType.new(name: PTO,
                                  show_on_payslip: true,
                                  current_record: true,
                                  leave_category_code: null,
-                                 sgc_exempt: true)
+                                 sgc_exempt: true,
+                                 is_qualifying_earnings: true)
 ```
 
 
