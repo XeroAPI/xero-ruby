@@ -63,7 +63,7 @@ module XeroRuby::PayrollAu
         :'deduction_lines' => :'Array<DeductionLine>',
         :'super_lines' => :'Array<SuperLine>',
         :'reimbursement_lines' => :'Array<ReimbursementLine>',
-        :'leave_lines' => :'Array<LeaveLine>',
+        :'leave_lines' => :'Array<OpeningBalanceLeaveLine>',
         :'paid_leave_earnings_lines' => :'Array<PaidLeaveEarningsLine>'
       }
     end

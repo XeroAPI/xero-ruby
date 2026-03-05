@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **deduction_lines** | [**Array&lt;DeductionLine&gt;**](DeductionLine.md) |  | [optional] 
 **super_lines** | [**Array&lt;SuperLine&gt;**](SuperLine.md) |  | [optional] 
 **reimbursement_lines** | [**Array&lt;ReimbursementLine&gt;**](ReimbursementLine.md) |  | [optional] 
-**leave_lines** | [**Array&lt;LeaveLine&gt;**](LeaveLine.md) |  | [optional] 
+**leave_lines** | [**Array&lt;OpeningBalanceLeaveLine&gt;**](OpeningBalanceLeaveLine.md) |  | [optional] 
 **paid_leave_earnings_lines** | [**Array&lt;PaidLeaveEarningsLine&gt;**](PaidLeaveEarningsLine.md) |  | [optional] 
 
 ## Code Sample
