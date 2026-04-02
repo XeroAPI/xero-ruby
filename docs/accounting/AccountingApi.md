@@ -10883,7 +10883,9 @@ opts = {
 
   unitdp: 4, # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
-  page_size: 100 # Integer | Number of records to retrieve per page
+  page_size: 100, # Integer | Number of records to retrieve per page
+
+  invoice_numbers: ['&quot;INV-001&quot;, &quot;INV-002&quot;'] # Array<String> | Filter by a comma-separated list of InvoiceNumbers
 }
 
 begin
@@ -10907,6 +10909,7 @@ Name | Type | Description  | Notes
  **page** | **Integer**| e.g. page&#x3D;1 – Up to 100 prepayments will be returned in a single API call with line items shown for each overpayment | [optional] 
  **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
  **page_size** | **Integer**| Number of records to retrieve per page | [optional] 
+ **invoice_numbers** | [**Array&lt;String&gt;**](String.md)| Filter by a comma-separated list of InvoiceNumbers | [optional] 
 
 ### Return type
 
