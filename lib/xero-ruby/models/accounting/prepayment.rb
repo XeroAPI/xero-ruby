@@ -53,6 +53,9 @@ module XeroRuby::Accounting
     # Returns Invoice number field. Reference field isn't available.
     attr_accessor :reference
     
+    # Returns Invoice number for prepayment receive document only.
+    attr_accessor :invoice_number
+    
     # UTC timestamp of last update to the prepayment
     attr_accessor :updated_date_utc
     
@@ -118,6 +121,7 @@ module XeroRuby::Accounting
         :'total_tax' => :'TotalTax',
         :'total' => :'Total',
         :'reference' => :'Reference',
+        :'invoice_number' => :'InvoiceNumber',
         :'updated_date_utc' => :'UpdatedDateUTC',
         :'currency_code' => :'CurrencyCode',
         :'prepayment_id' => :'PrepaymentID',
@@ -144,6 +148,7 @@ module XeroRuby::Accounting
         :'total_tax' => :'BigDecimal',
         :'total' => :'BigDecimal',
         :'reference' => :'String',
+        :'invoice_number' => :'String',
         :'updated_date_utc' => :'DateTime',
         :'currency_code' => :'CurrencyCode',
         :'prepayment_id' => :'String',
@@ -212,6 +217,10 @@ module XeroRuby::Accounting
 
       if attributes.key?(:'reference')
         self.reference = attributes[:'reference']
+      end
+
+      if attributes.key?(:'invoice_number')
+        self.invoice_number = attributes[:'invoice_number']
       end
 
       if attributes.key?(:'updated_date_utc')
@@ -315,6 +324,7 @@ module XeroRuby::Accounting
           total_tax == o.total_tax &&
           total == o.total &&
           reference == o.reference &&
+          invoice_number == o.invoice_number &&
           updated_date_utc == o.updated_date_utc &&
           currency_code == o.currency_code &&
           prepayment_id == o.prepayment_id &&
@@ -336,7 +346,7 @@ module XeroRuby::Accounting
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [type, contact, date, status, line_amount_types, line_items, sub_total, total_tax, total, reference, updated_date_utc, currency_code, prepayment_id, currency_rate, remaining_credit, allocations, payments, applied_amount, has_attachments, attachments].hash
+      [type, contact, date, status, line_amount_types, line_items, sub_total, total_tax, total, reference, invoice_number, updated_date_utc, currency_code, prepayment_id, currency_rate, remaining_credit, allocations, payments, applied_amount, has_attachments, attachments].hash
     end
 
     # Builds the object from hash
