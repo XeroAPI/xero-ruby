@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **total_tax** | **BigDecimal** | The total tax on the prepayment | [optional] 
 **total** | **BigDecimal** | The total of the prepayment(subtotal + total tax) | [optional] 
 **reference** | **String** | Returns Invoice number field. Reference field isn&#39;t available. | [optional] 
+**invoice_number** | **String** | Returns Invoice number for prepayment receive document only. | [optional] 
 **updated_date_utc** | **DateTime** | UTC timestamp of last update to the prepayment | [optional] 
 **currency_code** | [**CurrencyCode**](CurrencyCode.md) |  | [optional] 
 **prepayment_id** | **String** | Xero generated unique identifier | [optional] 
@@ -40,6 +41,7 @@ instance = XeroRuby::Accounting::Prepayment.new(type: null,
                                  total_tax: null,
                                  total: null,
                                  reference: null,
+                                 invoice_number: null,
                                  updated_date_utc: /Date(1573755038314)/,
                                  currency_code: null,
                                  prepayment_id: null,
