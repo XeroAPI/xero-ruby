@@ -47,18 +47,26 @@ module XeroRuby::Accounting
     # Organisation Type
     attr_accessor :organisation_type
     ACCOUNTING_PRACTICE ||= "ACCOUNTING_PRACTICE".freeze
+    CCORPORATIONLLC ||= "CCORPORATIONLLC".freeze
     COMPANY ||= "COMPANY".freeze
     CHARITY ||= "CHARITY".freeze
     CLUB_OR_SOCIETY ||= "CLUB_OR_SOCIETY".freeze
     INDIVIDUAL ||= "INDIVIDUAL".freeze
+    LLC ||= "LLC".freeze
     LOOK_THROUGH_COMPANY ||= "LOOK_THROUGH_COMPANY".freeze
     NOT_FOR_PROFIT ||= "NOT_FOR_PROFIT".freeze
+    NOTLLC ||= "NOTLLC".freeze
     PARTNERSHIP ||= "PARTNERSHIP".freeze
+    PARTNERSHIPLLC ||= "PARTNERSHIPLLC".freeze
+    PERSONAL ||= "PERSONAL".freeze
     S_CORPORATION ||= "S_CORPORATION".freeze
+    SCORPORATIONLLC ||= "SCORPORATIONLLC".freeze
     SELF_MANAGED_SUPERANNUATION_FUND ||= "SELF_MANAGED_SUPERANNUATION_FUND".freeze
+    SINGLEMEMBERLLC ||= "SINGLEMEMBERLLC".freeze
     SOLE_TRADER ||= "SOLE_TRADER".freeze
     SUPERANNUATION_FUND ||= "SUPERANNUATION_FUND".freeze
     TRUST ||= "TRUST".freeze
+    UNSPECIFIED ||= "UNSPECIFIED".freeze
     
 
     attr_accessor :base_currency
@@ -137,18 +145,26 @@ module XeroRuby::Accounting
     # Organisation Entity Type
     attr_accessor :organisation_entity_type
     ACCOUNTING_PRACTICE ||= "ACCOUNTING_PRACTICE".freeze
+    CCORPORATIONLLC ||= "CCORPORATIONLLC".freeze
     COMPANY ||= "COMPANY".freeze
     CHARITY ||= "CHARITY".freeze
     CLUB_OR_SOCIETY ||= "CLUB_OR_SOCIETY".freeze
     INDIVIDUAL ||= "INDIVIDUAL".freeze
+    LLC ||= "LLC".freeze
     LOOK_THROUGH_COMPANY ||= "LOOK_THROUGH_COMPANY".freeze
     NOT_FOR_PROFIT ||= "NOT_FOR_PROFIT".freeze
+    NOTLLC ||= "NOTLLC".freeze
     PARTNERSHIP ||= "PARTNERSHIP".freeze
+    PARTNERSHIPLLC ||= "PARTNERSHIPLLC".freeze
+    PERSONAL ||= "PERSONAL".freeze
     S_CORPORATION ||= "S_CORPORATION".freeze
+    SCORPORATIONLLC ||= "SCORPORATIONLLC".freeze
     SELF_MANAGED_SUPERANNUATION_FUND ||= "SELF_MANAGED_SUPERANNUATION_FUND".freeze
+    SINGLEMEMBERLLC ||= "SINGLEMEMBERLLC".freeze
     SOLE_TRADER ||= "SOLE_TRADER".freeze
     SUPERANNUATION_FUND ||= "SUPERANNUATION_FUND".freeze
     TRUST ||= "TRUST".freeze
+    UNSPECIFIED ||= "UNSPECIFIED".freeze
     
     # A unique identifier for the organisation. Potential uses.
     attr_accessor :short_code
@@ -463,13 +479,13 @@ module XeroRuby::Accounting
     def valid?
       version_validator = EnumAttributeValidator.new('String', ["AU", "NZ", "GLOBAL", "UK", "US", "AUONRAMP", "NZONRAMP", "GLOBALONRAMP", "UKONRAMP", "USONRAMP"])
       return false unless version_validator.valid?(@version)
-      organisation_type_validator = EnumAttributeValidator.new('String', ["ACCOUNTING_PRACTICE", "COMPANY", "CHARITY", "CLUB_OR_SOCIETY", "INDIVIDUAL", "LOOK_THROUGH_COMPANY", "NOT_FOR_PROFIT", "PARTNERSHIP", "S_CORPORATION", "SELF_MANAGED_SUPERANNUATION_FUND", "SOLE_TRADER", "SUPERANNUATION_FUND", "TRUST"])
+      organisation_type_validator = EnumAttributeValidator.new('String', ["ACCOUNTING_PRACTICE", "CCORPORATIONLLC", "COMPANY", "CHARITY", "CLUB_OR_SOCIETY", "INDIVIDUAL", "LLC", "LOOK_THROUGH_COMPANY", "NOT_FOR_PROFIT", "NOTLLC", "PARTNERSHIP", "PARTNERSHIPLLC", "PERSONAL", "S_CORPORATION", "SCORPORATIONLLC", "SELF_MANAGED_SUPERANNUATION_FUND", "SINGLEMEMBERLLC", "SOLE_TRADER", "SUPERANNUATION_FUND", "TRUST", "UNSPECIFIED"])
       return false unless organisation_type_validator.valid?(@organisation_type)
       sales_tax_basis_validator = EnumAttributeValidator.new('String', ["PAYMENTS", "INVOICE", "NONE", "CASH", "ACCRUAL", "FLATRATECASH", "FLATRATEACCRUAL", "ACCRUALS"])
       return false unless sales_tax_basis_validator.valid?(@sales_tax_basis)
       sales_tax_period_validator = EnumAttributeValidator.new('String', ["MONTHLY", "QUARTERLY1", "QUARTERLY2", "QUARTERLY3", "ANNUALLY", "ONEMONTHS", "TWOMONTHS", "SIXMONTHS", "1MONTHLY", "2MONTHLY", "3MONTHLY", "6MONTHLY", "QUARTERLY", "YEARLY", "NONE"])
       return false unless sales_tax_period_validator.valid?(@sales_tax_period)
-      organisation_entity_type_validator = EnumAttributeValidator.new('String', ["ACCOUNTING_PRACTICE", "COMPANY", "CHARITY", "CLUB_OR_SOCIETY", "INDIVIDUAL", "LOOK_THROUGH_COMPANY", "NOT_FOR_PROFIT", "PARTNERSHIP", "S_CORPORATION", "SELF_MANAGED_SUPERANNUATION_FUND", "SOLE_TRADER", "SUPERANNUATION_FUND", "TRUST"])
+      organisation_entity_type_validator = EnumAttributeValidator.new('String', ["ACCOUNTING_PRACTICE", "CCORPORATIONLLC", "COMPANY", "CHARITY", "CLUB_OR_SOCIETY", "INDIVIDUAL", "LLC", "LOOK_THROUGH_COMPANY", "NOT_FOR_PROFIT", "NOTLLC", "PARTNERSHIP", "PARTNERSHIPLLC", "PERSONAL", "S_CORPORATION", "SCORPORATIONLLC", "SELF_MANAGED_SUPERANNUATION_FUND", "SINGLEMEMBERLLC", "SOLE_TRADER", "SUPERANNUATION_FUND", "TRUST", "UNSPECIFIED"])
       return false unless organisation_entity_type_validator.valid?(@organisation_entity_type)
       _class_validator = EnumAttributeValidator.new('String', ["DEMO", "TRIAL", "STARTER", "STANDARD", "PREMIUM", "PREMIUM_20", "PREMIUM_50", "PREMIUM_100", "LEDGER", "GST_CASHBOOK", "NON_GST_CASHBOOK", "ULTIMATE", "LITE", "ULTIMATE_10", "ULTIMATE_20", "ULTIMATE_50", "ULTIMATE_100", "IGNITE", "GROW", "COMPREHENSIVE", "SIMPLE"])
       return false unless _class_validator.valid?(@_class)
@@ -491,7 +507,7 @@ module XeroRuby::Accounting
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] organisation_type Object to be assigned
     def organisation_type=(organisation_type)
-      validator = EnumAttributeValidator.new('String', ["ACCOUNTING_PRACTICE", "COMPANY", "CHARITY", "CLUB_OR_SOCIETY", "INDIVIDUAL", "LOOK_THROUGH_COMPANY", "NOT_FOR_PROFIT", "PARTNERSHIP", "S_CORPORATION", "SELF_MANAGED_SUPERANNUATION_FUND", "SOLE_TRADER", "SUPERANNUATION_FUND", "TRUST"])
+      validator = EnumAttributeValidator.new('String', ["ACCOUNTING_PRACTICE", "CCORPORATIONLLC", "COMPANY", "CHARITY", "CLUB_OR_SOCIETY", "INDIVIDUAL", "LLC", "LOOK_THROUGH_COMPANY", "NOT_FOR_PROFIT", "NOTLLC", "PARTNERSHIP", "PARTNERSHIPLLC", "PERSONAL", "S_CORPORATION", "SCORPORATIONLLC", "SELF_MANAGED_SUPERANNUATION_FUND", "SINGLEMEMBERLLC", "SOLE_TRADER", "SUPERANNUATION_FUND", "TRUST", "UNSPECIFIED"])
       unless validator.valid?(organisation_type)
         fail ArgumentError, "invalid value for \"organisation_type\", must be one of #{validator.allowable_values}."
       end
@@ -521,7 +537,7 @@ module XeroRuby::Accounting
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] organisation_entity_type Object to be assigned
     def organisation_entity_type=(organisation_entity_type)
-      validator = EnumAttributeValidator.new('String', ["ACCOUNTING_PRACTICE", "COMPANY", "CHARITY", "CLUB_OR_SOCIETY", "INDIVIDUAL", "LOOK_THROUGH_COMPANY", "NOT_FOR_PROFIT", "PARTNERSHIP", "S_CORPORATION", "SELF_MANAGED_SUPERANNUATION_FUND", "SOLE_TRADER", "SUPERANNUATION_FUND", "TRUST"])
+      validator = EnumAttributeValidator.new('String', ["ACCOUNTING_PRACTICE", "CCORPORATIONLLC", "COMPANY", "CHARITY", "CLUB_OR_SOCIETY", "INDIVIDUAL", "LLC", "LOOK_THROUGH_COMPANY", "NOT_FOR_PROFIT", "NOTLLC", "PARTNERSHIP", "PARTNERSHIPLLC", "PERSONAL", "S_CORPORATION", "SCORPORATIONLLC", "SELF_MANAGED_SUPERANNUATION_FUND", "SINGLEMEMBERLLC", "SOLE_TRADER", "SUPERANNUATION_FUND", "TRUST", "UNSPECIFIED"])
       unless validator.valid?(organisation_entity_type)
         fail ArgumentError, "invalid value for \"organisation_entity_type\", must be one of #{validator.allowable_values}."
       end
