@@ -29,7 +29,7 @@ module XeroRuby::Files
     attr_accessor :file_id
     
     # The identifier of the object that the file is being associated with (e.g. InvoiceID, BankTransactionID, ContactID)
-    attr_accessor :object_id
+    attr_accessor :xero_object_id
     
 
     attr_accessor :object_group
@@ -44,7 +44,7 @@ module XeroRuby::Files
         :'name' => :'Name',
         :'size' => :'Size',
         :'file_id' => :'FileId',
-        :'object_id' => :'ObjectId',
+        :'xero_object_id' => :'ObjectId',
         :'object_group' => :'ObjectGroup',
         :'object_type' => :'ObjectType'
       }
@@ -57,7 +57,7 @@ module XeroRuby::Files
         :'name' => :'String',
         :'size' => :'Integer',
         :'file_id' => :'String',
-        :'object_id' => :'String',
+        :'xero_object_id' => :'String',
         :'object_group' => :'ObjectGroup',
         :'object_type' => :'ObjectType'
       }
@@ -94,8 +94,8 @@ module XeroRuby::Files
         self.file_id = attributes[:'file_id']
       end
 
-      if attributes.key?(:'object_id')
-        self.object_id = attributes[:'object_id']
+      if attributes.key?(:'xero_object_id')
+        self.xero_object_id = attributes[:'xero_object_id']
       end
 
       if attributes.key?(:'object_group')
@@ -129,7 +129,7 @@ module XeroRuby::Files
           name == o.name &&
           size == o.size &&
           file_id == o.file_id &&
-          object_id == o.object_id &&
+          xero_object_id == o.xero_object_id &&
           object_group == o.object_group &&
           object_type == o.object_type
     end
@@ -143,7 +143,7 @@ module XeroRuby::Files
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [send_with_object, name, size, file_id, object_id, object_group, object_type].hash
+      [send_with_object, name, size, file_id, xero_object_id, object_group, object_type].hash
     end
 
     # Builds the object from hash
