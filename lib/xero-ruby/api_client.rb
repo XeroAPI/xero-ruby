@@ -164,6 +164,8 @@ module XeroRuby
     end
 
     def get_token_set_from_callback(params)
+      validate_state(params)
+
       data = {
         grant_type: @grant_type,
         code: params['code'],
@@ -172,7 +174,6 @@ module XeroRuby
       token_set = token_request(data, '/token')
 
       validate_tokens(token_set)
-      validate_state(params)
       return token_set
     end
 

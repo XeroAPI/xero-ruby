@@ -100,6 +100,89 @@ describe XeroRuby::ApiClient do
     end
   end
 
+  describe '#get_token_set_from_callback' do
+    let(:credentials) do
+      {
+        client_id: 'abc',
+        client_secret: '123',
+        redirect_uri: 'https://mydomain.com/callback',
+        scopes: 'openid profile email',
+        state: 'expected-state'
+      }
+    end
+    let(:api_client) { XeroRuby::ApiClient.new(credentials: credentials) }
+    let(:existing_token_set) do
+      {
+        'access_token' => 'existing-access-token',
+        'id_token' => 'existing-id-token'
+      }
+    end
+    let(:new_token_set) do
+      {
+        'access_token' => 'new-access-token',
+        'id_token' => 'new-id-token'
+      }
+    end
+
+    it 'rejects a mismatched state before requesting or mutating tokens' do
+      api_client.set_token_set(existing_token_set)
+
+      expect(api_client).not_to receive(:token_request)
+      expect(api_client).not_to receive(:set_token_set)
+
+      expect {
+        api_client.get_token_set_from_callback(
+          'code' => 'callback-code',
+          'state' => 'attacker-state'
+        )
+      }.to raise_error(
+        StandardError,
+        'WARNING: @config.state: expected-state and OAuth callback state: attacker-state do not match!'
+      )
+
+      expect(api_client.token_set).to eq(existing_token_set.with_indifferent_access)
+      expect(api_client.access_token).to eq('existing-access-token')
+      expect(api_client.id_token).to eq('existing-id-token')
+    end
+
+    it 'exchanges and stores tokens when a supplied state matches' do
+      callback_params = {
+        'code' => 'callback-code',
+        'state' => 'expected-state'
+      }
+
+      expect(api_client).to receive(:token_request).with(
+        {
+          grant_type: 'authorization_code',
+          code: 'callback-code',
+          redirect_uri: 'https://mydomain.com/callback'
+        },
+        '/token'
+      ) do
+        api_client.set_token_set(new_token_set)
+        new_token_set
+      end
+      expect(api_client).to receive(:validate_tokens).with(new_token_set).and_return(true)
+
+      expect(api_client.get_token_set_from_callback(callback_params)).to eq(new_token_set)
+      expect(api_client.token_set).to eq(new_token_set.with_indifferent_access)
+    end
+
+    it 'continues to allow callbacks without state when no state was configured' do
+      client_without_state = XeroRuby::ApiClient.new(credentials: {
+        client_id: 'abc',
+        client_secret: '123',
+        redirect_uri: 'https://mydomain.com/callback',
+        scopes: 'openid profile email'
+      })
+
+      expect(client_without_state).to receive(:token_request).and_return(new_token_set)
+      expect(client_without_state).to receive(:validate_tokens).with(new_token_set).and_return(true)
+
+      expect(client_without_state.get_token_set_from_callback('code' => 'callback-code')).to eq(new_token_set)
+    end
+  end
+
   describe 'api_client helper functions' do
     let(:api_client) { XeroRuby::ApiClient.new }
     let(:token_set) { { 'access_token': 'eyx.authorization.data', 'id_token': 'eyx.authentication.data', 'refresh_token': 'REFRESHMENTS' } }
