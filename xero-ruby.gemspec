@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://developer.xero.com"
   s.summary     = "Xero Accounting API Ruby Gem"
   s.description = "Xero API OAuth2.0 SDK - Ruby Gem"
-  s.license     = "Unlicense"
+  s.license     = "MIT"
   s.required_ruby_version = ">= 2.3"
 
   s.add_runtime_dependency 'faraday', '>= 2.0', '< 3.0'
@@ -31,7 +31,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'json-jwt', '~> 1.16', '>= 1.16.3'
   s.add_development_dependency 'rspec', '~> 3.6', '>= 3.6.0'
 
-  s.files         = Dir.glob("{lib}/**/*") + %w(README.md)
+  s.files         = Dir.glob("{lib}/**/*") + %w(LICENSE README.md)
   s.test_files    = `find spec/*`.split("\n")
   s.executables   = []
   s.require_paths = ["lib"]
