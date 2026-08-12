@@ -71,7 +71,7 @@ describe XeroRuby::ApiClient do
           }
           api_client = XeroRuby::ApiClient.new(credentials: creds)
           altered_state = { 'state': 'not-original-state' }
-          expect { api_client.validate_state(altered_state) }.to raise_error(StandardError, 'WARNING: @config.state: custom-state and OAuth callback state:  do not match!')
+          expect { api_client.validate_state(altered_state) }.to raise_error(StandardError, 'WARNING: OAuth callback state does not match!')
         end
       end
 
@@ -137,8 +137,10 @@ describe XeroRuby::ApiClient do
         )
       }.to raise_error(
         StandardError,
-        'WARNING: @config.state: expected-state and OAuth callback state: attacker-state do not match!'
-      )
+        'WARNING: OAuth callback state does not match!'
+      ) { |error|
+        expect(error.message).not_to include('expected-state', 'attacker-state')
+      }
 
       expect(api_client.token_set).to eq(existing_token_set.with_indifferent_access)
       expect(api_client.access_token).to eq('existing-access-token')
