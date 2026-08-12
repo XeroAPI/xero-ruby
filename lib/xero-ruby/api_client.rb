@@ -95,6 +95,11 @@ module XeroRuby
       XeroRuby::PayrollAuApi.new(self)
     end
 
+    def payroll_au_v2_api
+      @config.base_url = @config.payroll_au_v2_url
+      XeroRuby::PayrollAuV2Api.new(self)
+    end
+
     def payroll_nz_api
       @config.base_url = @config.payroll_nz_url
       XeroRuby::PayrollNzApi.new(self)
@@ -289,6 +294,8 @@ module XeroRuby
         method_base_url = @config.files_url
       when "PayrollAuApi"
         method_base_url = @config.payroll_au_url
+      when "PayrollAuV2Api"
+        method_base_url = @config.payroll_au_v2_url
       when "PayrollNzApi"
         method_base_url = @config.payroll_nz_url
       when "PayrollUkApi"
@@ -517,6 +524,8 @@ module XeroRuby
           XeroRuby::Files.const_get(return_type).build_from_hash(data)
         when 'PayrollAuApi'
           XeroRuby::PayrollAu.const_get(return_type).build_from_hash(data)
+        when 'PayrollAuV2Api'
+          XeroRuby::PayrollAuV2.const_get(return_type).build_from_hash(data)
         when 'PayrollNzApi'
           XeroRuby::PayrollNz.const_get(return_type).build_from_hash(data)
         when 'PayrollUkApi'

@@ -12,6 +12,7 @@ describe XeroRuby::Configuration do
       expect(config.project_url).to eq('https://api.xero.com/projects.xro/2.0/')
       expect(config.files_url).to eq('https://api.xero.com/files.xro/1.0/')
       expect(config.payroll_au_url).to eq('https://api.xero.com/payroll.xro/1.0/')
+      expect(config.payroll_au_v2_url).to eq('https://api.xero.com/payroll.xro/2.0/')
       expect(config.payroll_nz_url).to eq('https://api.xero.com/payroll.xro/2.0/')
       expect(config.payroll_uk_url).to eq('https://api.xero.com/payroll.xro/2.0/')
       expect(config.finance_url).to eq('https://api.xero.com/finance.xro/1.0/')

@@ -168,6 +168,9 @@ describe XeroRuby::ApiClient do
       
       api_client.payroll_au_api
       expect(api_client.config.base_url).to eq('https://api.xero.com/payroll.xro/1.0/')
+
+      expect(api_client.payroll_au_v2_api).to be_a(XeroRuby::PayrollAuV2Api)
+      expect(api_client.config.base_url).to eq('https://api.xero.com/payroll.xro/2.0/')
       
       api_client.payroll_nz_api
       expect(api_client.config.base_url).to eq('https://api.xero.com/payroll.xro/2.0/')
@@ -220,6 +223,16 @@ describe XeroRuby::ApiClient do
       data = api_client.deserialize(response, 'Hash<String, String>', 'AccountingApi')
       expect(data).to be_instance_of(Hash)
       expect(data).to eq(:message => 'Hello')
+    end
+
+    it 'deserializes Payroll AU v2 models in their own namespace' do
+      api_client = XeroRuby::ApiClient.new
+      headers = { 'Content-Type' => 'application/json' }
+      response = double('response', headers: headers, body: '{}')
+
+      data = api_client.deserialize(response, 'TimesheetObject', 'PayrollAuV2Api')
+
+      expect(data).to be_instance_of(XeroRuby::PayrollAuV2::TimesheetObject)
     end
   end
 
