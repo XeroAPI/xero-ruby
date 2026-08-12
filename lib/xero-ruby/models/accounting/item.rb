@@ -49,8 +49,14 @@ module XeroRuby::Accounting
     # The value of the item on hand. Calculated using average cost accounting.
     attr_accessor :total_cost_pool
     
-    # The quantity of the item on hand
+    # The quantity of the item on hand. This will be 0 if `QuantityOnBackOrder` is greater than 0.
     attr_accessor :quantity_on_hand
+    
+    # The quantity of the item available. This is equal to `QuantityOnHand` - `QuantityOnBackOrder`. This value will be negative if `QuantityOnBackOrder` is greater than 0.
+    attr_accessor :quantity_available
+    
+    # The quantity of the item on backorder. This will be 0 if `QuantityOnHand` is greater than 0.
+    attr_accessor :quantity_on_back_order
     
     # Last modified date in UTC format
     attr_accessor :updated_date_utc
@@ -79,6 +85,8 @@ module XeroRuby::Accounting
         :'is_tracked_as_inventory' => :'IsTrackedAsInventory',
         :'total_cost_pool' => :'TotalCostPool',
         :'quantity_on_hand' => :'QuantityOnHand',
+        :'quantity_available' => :'QuantityAvailable',
+        :'quantity_on_back_order' => :'QuantityOnBackOrder',
         :'updated_date_utc' => :'UpdatedDateUTC',
         :'item_id' => :'ItemID',
         :'status_attribute_string' => :'StatusAttributeString',
@@ -101,6 +109,8 @@ module XeroRuby::Accounting
         :'is_tracked_as_inventory' => :'Boolean',
         :'total_cost_pool' => :'BigDecimal',
         :'quantity_on_hand' => :'BigDecimal',
+        :'quantity_available' => :'Float',
+        :'quantity_on_back_order' => :'Float',
         :'updated_date_utc' => :'DateTime',
         :'item_id' => :'String',
         :'status_attribute_string' => :'String',
@@ -169,6 +179,14 @@ module XeroRuby::Accounting
 
       if attributes.key?(:'quantity_on_hand')
         self.quantity_on_hand = attributes[:'quantity_on_hand']
+      end
+
+      if attributes.key?(:'quantity_available')
+        self.quantity_available = attributes[:'quantity_available']
+      end
+
+      if attributes.key?(:'quantity_on_back_order')
+        self.quantity_on_back_order = attributes[:'quantity_on_back_order']
       end
 
       if attributes.key?(:'updated_date_utc')
@@ -289,6 +307,8 @@ module XeroRuby::Accounting
           is_tracked_as_inventory == o.is_tracked_as_inventory &&
           total_cost_pool == o.total_cost_pool &&
           quantity_on_hand == o.quantity_on_hand &&
+          quantity_available == o.quantity_available &&
+          quantity_on_back_order == o.quantity_on_back_order &&
           updated_date_utc == o.updated_date_utc &&
           item_id == o.item_id &&
           status_attribute_string == o.status_attribute_string &&
@@ -304,7 +324,7 @@ module XeroRuby::Accounting
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [code, inventory_asset_account_code, name, is_sold, is_purchased, description, purchase_description, purchase_details, sales_details, is_tracked_as_inventory, total_cost_pool, quantity_on_hand, updated_date_utc, item_id, status_attribute_string, validation_errors].hash
+      [code, inventory_asset_account_code, name, is_sold, is_purchased, description, purchase_description, purchase_details, sales_details, is_tracked_as_inventory, total_cost_pool, quantity_on_hand, quantity_available, quantity_on_back_order, updated_date_utc, item_id, status_attribute_string, validation_errors].hash
     end
 
     # Builds the object from hash

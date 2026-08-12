@@ -2178,6 +2178,7 @@ module XeroRuby
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+    # @option opts [Boolean] :allow_backorders Allows an invoice to be created even when one or more line items contain tracked inventory where the invoice quantity would cause the available quantity to go negative
     # @return [Invoices]
     def create_invoices(xero_tenant_id, invoices, opts = {})
       data, _status_code, _headers = create_invoices_with_http_info(xero_tenant_id, invoices, opts)
@@ -2191,6 +2192,7 @@ module XeroRuby
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+    # @option opts [Boolean] :allow_backorders Allows an invoice to be created even when one or more line items contain tracked inventory where the invoice quantity would cause the available quantity to go negative
     # @return [Array<(Invoices, Integer, Hash)>] Invoices data, response status code and response headers
     def create_invoices_with_http_info(xero_tenant_id, invoices, options = {})
       opts = options.dup
@@ -2215,6 +2217,7 @@ module XeroRuby
       query_params = opts[:query_params] || {}
       query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
       query_params[:'unitdp'] = opts[:'unitdp'] if !opts[:'unitdp'].nil?
+      query_params[:'allowBackorders'] = opts[:'allow_backorders'] if !opts[:'allow_backorders'].nil?
       
       # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
       query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
@@ -6766,6 +6769,7 @@ module XeroRuby
     # @option opts [Integer] :page Up to 100 bank transactions will be returned in a single API call with line items details
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @option opts [Integer] :page_size Number of records to retrieve per page
+    # @option opts [Array<String>] :references Filter by a comma-separated list of References
     # @return [BankTransactions]
     def get_bank_transactions(xero_tenant_id, opts = {})
       data, _status_code, _headers = get_bank_transactions_with_http_info(xero_tenant_id, opts)
@@ -6781,6 +6785,7 @@ module XeroRuby
     # @option opts [Integer] :page Up to 100 bank transactions will be returned in a single API call with line items details
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @option opts [Integer] :page_size Number of records to retrieve per page
+    # @option opts [Array<String>] :references Filter by a comma-separated list of References
     # @return [Array<(BankTransactions, Integer, Hash)>] BankTransactions data, response status code and response headers
     def get_bank_transactions_with_http_info(xero_tenant_id, options = {})
       opts = options.dup
@@ -6804,6 +6809,7 @@ module XeroRuby
       query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
       query_params[:'unitdp'] = opts[:'unitdp'] if !opts[:'unitdp'].nil?
       query_params[:'pageSize'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'References'] = @api_client.build_collection_param(opts[:'references'], :csv) if !opts[:'references'].nil?
       
       # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
       query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
@@ -12428,10 +12434,11 @@ module XeroRuby
     # @option opts [DateTime] :if_modified_since Only records created or modified since this timestamp will be returned
     # @option opts [String] :where Filter by an any element
     # @option opts [String] :order Order by an any element
-    # @option opts [Integer] :page e.g. page&#x3D;1 – Up to 100 prepayments will be returned in a single API call with line items shown for each overpayment
+    # @option opts [Integer] :page e.g. page&#x3D;1 – Up to 100 prepayments will be returned in a single API call with line items shown for each prepayment
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @option opts [Integer] :page_size Number of records to retrieve per page
     # @option opts [Array<String>] :invoice_numbers Filter by a comma-separated list of InvoiceNumbers
+    # @option opts [Array<String>] :references Filter by a comma-separated list of References
     # @return [Prepayments]
     def get_prepayments(xero_tenant_id, opts = {})
       data, _status_code, _headers = get_prepayments_with_http_info(xero_tenant_id, opts)
@@ -12444,10 +12451,11 @@ module XeroRuby
     # @option opts [DateTime] :if_modified_since Only records created or modified since this timestamp will be returned
     # @option opts [String] :where Filter by an any element
     # @option opts [String] :order Order by an any element
-    # @option opts [Integer] :page e.g. page&#x3D;1 – Up to 100 prepayments will be returned in a single API call with line items shown for each overpayment
+    # @option opts [Integer] :page e.g. page&#x3D;1 – Up to 100 prepayments will be returned in a single API call with line items shown for each prepayment
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @option opts [Integer] :page_size Number of records to retrieve per page
     # @option opts [Array<String>] :invoice_numbers Filter by a comma-separated list of InvoiceNumbers
+    # @option opts [Array<String>] :references Filter by a comma-separated list of References
     # @return [Array<(Prepayments, Integer, Hash)>] Prepayments data, response status code and response headers
     def get_prepayments_with_http_info(xero_tenant_id, options = {})
       opts = options.dup
@@ -12472,6 +12480,7 @@ module XeroRuby
       query_params[:'unitdp'] = opts[:'unitdp'] if !opts[:'unitdp'].nil?
       query_params[:'pageSize'] = opts[:'page_size'] if !opts[:'page_size'].nil?
       query_params[:'InvoiceNumbers'] = @api_client.build_collection_param(opts[:'invoice_numbers'], :csv) if !opts[:'invoice_numbers'].nil?
+      query_params[:'References'] = @api_client.build_collection_param(opts[:'references'], :csv) if !opts[:'references'].nil?
       
       # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
       query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
@@ -17097,6 +17106,7 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+    # @option opts [Boolean] :allow_backorders Allows an invoice to be created even when one or more line items contain tracked inventory where the invoice quantity would cause the available quantity to go negative
     # @return [Invoices]
     def update_invoice(xero_tenant_id, invoice_id, invoices, opts = {})
       data, _status_code, _headers = update_invoice_with_http_info(xero_tenant_id, invoice_id, invoices, opts)
@@ -17110,6 +17120,7 @@ module XeroRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+    # @option opts [Boolean] :allow_backorders Allows an invoice to be created even when one or more line items contain tracked inventory where the invoice quantity would cause the available quantity to go negative
     # @return [Array<(Invoices, Integer, Hash)>] Invoices data, response status code and response headers
     def update_invoice_with_http_info(xero_tenant_id, invoice_id, invoices, options = {})
       opts = options.dup
@@ -17137,6 +17148,7 @@ module XeroRuby
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'unitdp'] = opts[:'unitdp'] if !opts[:'unitdp'].nil?
+      query_params[:'allowBackorders'] = opts[:'allow_backorders'] if !opts[:'allow_backorders'].nil?
       
       # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
       query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
@@ -17886,6 +17898,7 @@ module XeroRuby
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+    # @option opts [Boolean] :allow_backorders Allows an invoice to be created even when one or more line items contain tracked inventory where the invoice quantity would cause the available quantity to go negative
     # @return [Invoices]
     def update_or_create_invoices(xero_tenant_id, invoices, opts = {})
       data, _status_code, _headers = update_or_create_invoices_with_http_info(xero_tenant_id, invoices, opts)
@@ -17899,6 +17912,7 @@ module XeroRuby
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+    # @option opts [Boolean] :allow_backorders Allows an invoice to be created even when one or more line items contain tracked inventory where the invoice quantity would cause the available quantity to go negative
     # @return [Array<(Invoices, Integer, Hash)>] Invoices data, response status code and response headers
     def update_or_create_invoices_with_http_info(xero_tenant_id, invoices, options = {})
       opts = options.dup
@@ -17923,6 +17937,7 @@ module XeroRuby
       query_params = opts[:query_params] || {}
       query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
       query_params[:'unitdp'] = opts[:'unitdp'] if !opts[:'unitdp'].nil?
+      query_params[:'allowBackorders'] = opts[:'allow_backorders'] if !opts[:'allow_backorders'].nil?
       
       # XeroAPI's `IDs` convention openapi-generator does not snake_case properly.. manual over-riding `i_ds` malformations:
       query_params[:'IDs'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
