@@ -3,7 +3,7 @@ PATH
   specs:
     xero-ruby (18.1.0)
       faraday (>= 2.0, < 3.0)
-      json (~> 2.1, >= 2.1.0)
+      json (>= 2.1.0, < 4)
       json-jwt (~> 1.16, >= 1.16.3)
 
 GEM
