@@ -16,6 +16,11 @@ jobs:
     timeout-minutes: 20
     strategy:
       fail-fast: false
+      # NOTE: this matrix floors at Ruby 3.2, but xero-ruby.gemspec still
+      # declares required_ruby_version ">= 2.3". Until PR #387 raises that
+      # floor to ">= 3.2", the gem advertises support for 2.3 through 3.1
+      # with no CI coverage on those versions. Merge #387 with or before
+      # this workflow, or widen the matrix back down to the gemspec floor.
       matrix:
         include:
           - os: ubuntu-latest
@@ -27,7 +32,7 @@ jobs:
 
     steps:
       - name: Check out event source
-        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.2.2
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@95ef2b042f9d7a56d8268cba8559e2842e2ad01b # v1.321.0
