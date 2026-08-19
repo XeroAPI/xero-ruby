@@ -61,17 +61,36 @@ describe XeroRuby::ApiClient do
           expect(api_client.authorization_url).to eq('https://login.xero.com/identity/connect/authorize?response_type=code&client_id=abc&redirect_uri=https%3A%2F%2Fmydomain.com%2Fcallback&scope=openid+profile+email+accounting.transactions+accounting.settings')
         end
 
-        it "Validates state on callback matches @config.state" do
-          creds = {
+        let(:stateful_creds) do
+          {
             client_id: 'abc',
             client_secret: '123',
             redirect_uri: 'https://mydomain.com/callback',
             scopes: 'openid profile email accounting.transactions accounting.settings',
             state: "custom-state"
           }
-          api_client = XeroRuby::ApiClient.new(credentials: creds)
-          altered_state = { 'state': 'not-original-state' }
+        end
+
+        it "Accepts a callback state that matches @config.state" do
+          api_client = XeroRuby::ApiClient.new(credentials: stateful_creds)
+          matching_state = { 'state' => 'custom-state' }
+          expect(api_client.validate_state(matching_state)).to eq(true)
+        end
+
+        it "Validates state on callback matches @config.state" do
+          api_client = XeroRuby::ApiClient.new(credentials: stateful_creds)
+          altered_state = { 'state' => 'not-original-state' }
           expect { api_client.validate_state(altered_state) }.to raise_error(StandardError, 'WARNING: OAuth callback state does not match!')
+        end
+
+        it "Rejects a callback that omits state when @config.state is set" do
+          api_client = XeroRuby::ApiClient.new(credentials: stateful_creds)
+          expect { api_client.validate_state({}) }.to raise_error(StandardError, 'WARNING: OAuth callback is missing the state parameter!')
+        end
+
+        it "Rejects a callback with a blank state when @config.state is set" do
+          api_client = XeroRuby::ApiClient.new(credentials: stateful_creds)
+          expect { api_client.validate_state({ 'state' => '' }) }.to raise_error(StandardError, 'WARNING: OAuth callback is missing the state parameter!')
         end
       end
 
@@ -141,6 +160,24 @@ describe XeroRuby::ApiClient do
       ) { |error|
         expect(error.message).not_to include('expected-state', 'attacker-state')
       }
+
+      expect(api_client.token_set).to eq(existing_token_set.with_indifferent_access)
+      expect(api_client.access_token).to eq('existing-access-token')
+      expect(api_client.id_token).to eq('existing-id-token')
+    end
+
+    it 'rejects a callback that omits state before requesting or mutating tokens' do
+      api_client.set_token_set(existing_token_set)
+
+      expect(api_client).not_to receive(:token_request)
+      expect(api_client).not_to receive(:set_token_set)
+
+      expect {
+        api_client.get_token_set_from_callback('code' => 'attacker-code')
+      }.to raise_error(
+        StandardError,
+        'WARNING: OAuth callback is missing the state parameter!'
+      )
 
       expect(api_client.token_set).to eq(existing_token_set.with_indifferent_access)
       expect(api_client.access_token).to eq('existing-access-token')

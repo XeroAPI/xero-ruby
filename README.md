@@ -82,6 +82,16 @@ creds = {
 xero_client ||= XeroRuby::ApiClient.new(credentials: creds)
 ```
 
+> **Security note on `state`.** `state` is optional, but omitting it leaves the
+> authorization code flow with no CSRF protection. Without it the SDK has nothing
+> to compare the callback against, so an attacker who can send a victim to
+> `/your-callback?code=<attacker_code>` can bind the victim's session to the
+> attacker's Xero tokens. Set `state` to an unguessable, per-authorization value
+> that you persist in the user's session, and pass the same client credentials
+> when you handle the callback. When `state` is set, `xero-ruby` rejects any
+> callback whose `state` is missing, blank, or does not match, and it does so
+> before the authorization code is exchanged.
+
 For additional [config](/lib/xero-ruby/configuration.rb) options you can pass an optional named parameter `config: {}`
 ```ruby
 config = { timeout: 30, debugging: true }

@@ -17,6 +17,7 @@ require 'find'
 require 'faraday'
 require 'base64'
 require 'cgi'
+require 'openssl'
 require 'json/jwt'
 
 module XeroRuby
@@ -189,10 +190,37 @@ module XeroRuby
     end
 
     def validate_state(params)
-      if params['state'] != @state
+      # No state was configured on the client, so there is nothing to compare the
+      # callback against. This is the SDK default and it leaves the authorization
+      # code flow without CSRF protection - see the `state` note in the README.
+      return true if blank_state?(@state)
+
+      callback_state = params['state']
+      if blank_state?(callback_state)
+        raise StandardError.new 'WARNING: OAuth callback is missing the state parameter!'
+      end
+
+      unless secure_compare(callback_state.to_s, @state.to_s)
         raise StandardError.new 'WARNING: OAuth callback state does not match!'
       end
       return true
+    end
+
+    def blank_state?(value)
+      value.nil? || value.to_s.empty?
+    end
+
+    # Constant time comparison so the CSRF nonce is not recoverable from response
+    # timing. Both sides are digested first, which gives the byte loop a fixed
+    # length regardless of how long the supplied values are.
+    def secure_compare(a, b)
+      a_digest = OpenSSL::Digest::SHA256.digest(a)
+      b_digest = OpenSSL::Digest::SHA256.digest(b)
+      result = 0
+      a_digest.bytesize.times do |i|
+        result |= a_digest.getbyte(i) ^ b_digest.getbyte(i)
+      end
+      result.zero?
     end
 
     def decode_jwt(tkn, verify = true)
