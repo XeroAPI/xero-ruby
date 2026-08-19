@@ -2,9 +2,9 @@ PATH
   remote: .
   specs:
     xero-ruby (18.1.0)
-      faraday (>= 2.0, < 3.0)
-      json (~> 2.1, >= 2.1.0)
-      json-jwt (~> 1.16, >= 1.16.3)
+      faraday (>= 2.14.3, < 3.0)
+      json (~> 2.1, >= 2.21.2)
+      json-jwt (~> 1.16, >= 1.16.6)
 
 GEM
   remote: https://rubygems.org/
@@ -113,7 +113,6 @@ GEM
 PLATFORMS
   arm64-darwin-23
   ruby
-  x64-mingw-ucrt
 
 DEPENDENCIES
   bundler-audit

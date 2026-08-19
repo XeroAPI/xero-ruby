@@ -26,9 +26,9 @@ Gem::Specification.new do |s|
   s.license     = "Unlicense"
   s.required_ruby_version = ">= 2.3"
 
-  s.add_runtime_dependency 'faraday', '>= 2.0', '< 3.0'
-  s.add_runtime_dependency 'json', '~> 2.1', '>= 2.1.0'
-  s.add_runtime_dependency 'json-jwt', '~> 1.16', '>= 1.16.3'
+  s.add_runtime_dependency 'faraday', '>= 2.14.3', '< 3.0'
+  s.add_runtime_dependency 'json', '~> 2.1', '>= 2.21.2'
+  s.add_runtime_dependency 'json-jwt', '~> 1.16', '>= 1.16.6'
   s.add_development_dependency 'rspec', '~> 3.6', '>= 3.6.0'
 
   s.files         = Dir.glob("{lib}/**/*") + %w(README.md)
