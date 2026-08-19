@@ -19,6 +19,22 @@ describe XeroRuby::Configuration do
     end
   end
 
+  # Regression guard for hand-maintained Payroll AU v2 wiring. OpenAPI Generator
+  # does not emit payroll_au_v2_url and regeneration overwrites configuration.rb,
+  # so a codegen bump that drops it fails here instead of only surfacing later as
+  # a NoMethodError from ApiClient#payroll_au_v2_api.
+  describe 'payroll_au_v2_url' do
+    it 'is exposed as a reader and a writer' do
+      expect(config).to respond_to(:payroll_au_v2_url)
+      expect(config).to respond_to(:payroll_au_v2_url=)
+    end
+
+    it 'defaults to the payroll 2.0 base url and not the v1 one' do
+      expect(config.payroll_au_v2_url).to eq('https://api.xero.com/payroll.xro/2.0/')
+      expect(config.payroll_au_v2_url).not_to eq(config.payroll_au_url)
+    end
+  end
+
   describe 'config' do
     it 'should apply the default configuration options' do
       client = XeroRuby::ApiClient.new(credentials: {})

@@ -31,6 +31,9 @@ module XeroRuby
     attr_accessor :project_url
     attr_accessor :files_url
     attr_accessor :payroll_au_url
+    # HAND-MAINTAINED: not emitted by OpenAPI Generator. Regeneration overwrites
+    # this file, so a codegen bump must also update the generator templates.
+    # Guarded by spec/configuration_spec.rb.
     attr_accessor :payroll_au_v2_url
     attr_accessor :payroll_nz_url
     attr_accessor :payroll_uk_url

@@ -95,6 +95,12 @@ module XeroRuby
       XeroRuby::PayrollAuApi.new(self)
     end
 
+    # HAND-MAINTAINED: this accessor, the PayrollAuV2Api branches in `call_api`
+    # and `deserialize`, and `payroll_au_v2_url` in configuration.rb are not yet
+    # emitted by OpenAPI Generator. Regeneration overwrites this file (see commit
+    # d400b016), so any codegen bump must also update the generator templates or
+    # these are silently dropped and `payroll_au_v2_api` raises NoMethodError.
+    # spec/configuration_spec.rb and spec/api_client_spec.rb guard against that.
     def payroll_au_v2_api
       @config.base_url = @config.payroll_au_v2_url
       XeroRuby::PayrollAuV2Api.new(self)
@@ -307,7 +313,9 @@ module XeroRuby
       when "FinanceApi"
         method_base_url = @config.finance_url
       else
-        method_base_url = @config.accounting_url
+        # `connections` and `disconnect` call through with no API class and set
+        # @config.base_url themselves, so honour it before falling back.
+        method_base_url = @config.base_url || @config.accounting_url
       end
 
       connection = Faraday.new(:url => method_base_url, :ssl => ssl_options) do |conn|
@@ -321,7 +329,7 @@ module XeroRuby
 
       begin
         response = connection.public_send(http_method.to_sym.downcase) do |req|
-          build_request(http_method, path, req, opts)
+          build_request(http_method, path, req, opts, method_base_url)
         end
 
         if @config.debugging
@@ -366,8 +374,8 @@ module XeroRuby
     # @option opts [Hash] :form_params Query parameters
     # @option opts [Object] :body HTTP body (JSON/XML)
     # @return A Faraday Request
-    def build_request(http_method, path, request, opts = {})
-      url = build_request_url(path)
+    def build_request(http_method, path, request, opts = {}, base_url = nil)
+      url = build_request_url(path, base_url)
       http_method = http_method.to_sym.downcase
 
       header_params = @default_headers.merge(opts[:header_params] || {})
@@ -576,11 +584,16 @@ module XeroRuby
       filename.gsub(/.*[\/\\]/, '')
     end
 
-    def build_request_url(path)
-      if @config.base_url
+    # `base_url` is resolved per call from the API class that issued the request.
+    # Falling back to @config.base_url would read shared mutable state that any
+    # later `client.<other>_api` call has already overwritten, which sends the
+    # request to the wrong API set while still deserialising into this one.
+    def build_request_url(path, base_url = nil)
+      base_url ||= @config.base_url
+      if base_url
         # Add leading and trailing slashes to path
         path = "/#{path}".gsub(/\/+/, '/')
-        @config.base_url + path
+        base_url + path
       else
         path
       end

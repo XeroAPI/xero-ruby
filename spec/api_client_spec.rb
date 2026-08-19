@@ -566,4 +566,31 @@ describe XeroRuby::ApiClient do
       end
     end
   end
+
+  # Regression guards for hand-maintained Payroll AU v2 wiring. OpenAPI Generator
+  # does not emit these and regeneration overwrites api_client.rb, so if a codegen
+  # bump drops them these examples fail instead of the SDK silently losing v2.
+  describe 'payroll AU v2 wiring' do
+    let(:api_client) { XeroRuby::ApiClient.new }
+
+    it 'exposes the payroll_au_v2_api accessor' do
+      expect(api_client).to respond_to(:payroll_au_v2_api)
+      expect(api_client.payroll_au_v2_api).to be_a(XeroRuby::PayrollAuV2Api)
+    end
+
+    it 'resolves the request url from the calling API class, not the last-set base_url' do
+      api_client.payroll_au_v2_api
+      api_client.payroll_au_api
+      expect(api_client.config.base_url).to eq('https://api.xero.com/payroll.xro/1.0/')
+
+      url = api_client.build_request_url('/Timesheets', api_client.config.payroll_au_v2_url)
+      expect(url).to start_with('https://api.xero.com/payroll.xro/2.0/')
+      expect(url).not_to start_with('https://api.xero.com/payroll.xro/1.0/')
+    end
+
+    it 'still falls back to the shared base_url when no per-call base url is given' do
+      api_client.config.base_url = 'https://api.xero.com'
+      expect(api_client.build_request_url('/connections/')).to eq('https://api.xero.com/connections/')
+    end
+  end
 end
