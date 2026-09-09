@@ -9,6 +9,8 @@ OpenAPI Generator version: 4.3.1
 
 =end
 
+require 'logger'
+
 module XeroRuby
   class Configuration
     # Defines url scheme
