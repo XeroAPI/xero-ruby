@@ -137,6 +137,18 @@ describe XeroRuby::ApiClient do
       expect(api_client.refresh_token_set(token_set)).to eq(token_set)
     end
 
+    it "#revoke_token" do
+      expect(api_client).to receive(:token_request).with(
+        {
+          token: token_set[:refresh_token],
+          token_type_hint: 'refresh_token'
+        },
+        '/revocation'
+      ).and_return(token_set)
+
+      expect(api_client.revoke_token(token_set)).to eq(token_set)
+    end
+
     it "#connections" do
       expect(api_client).to receive(:call_api).and_return(connections)
       expect(api_client.config.base_url).to eq(nil)
