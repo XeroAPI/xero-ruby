@@ -3596,7 +3596,7 @@ leave_application_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 idempotency_key = 'KEY_VALUE'
 
 begin
-  response = xero_client.accounting_api.approve_leave_application(xero_tenant_id, leave_application_id, idempotency_key)
+  response = xero_client.payroll_au_api.approve_leave_application(xero_tenant_id, leave_application_id, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling approve_leave_application: #{e}"
@@ -3744,7 +3744,7 @@ employee = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_employee(xero_tenant_id, employee, idempotency_key)
+  response = xero_client.payroll_au_api.create_employee(xero_tenant_id, employee, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_employee: #{e}"
@@ -3893,7 +3893,7 @@ leaveApplication = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_leave_application(xero_tenant_id, leaveApplication, idempotency_key)
+  response = xero_client.payroll_au_api.create_leave_application(xero_tenant_id, leaveApplication, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_leave_application: #{e}"
@@ -4075,7 +4075,7 @@ pay_item = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_pay_item(xero_tenant_id, payItem, idempotency_key)
+  response = xero_client.payroll_au_api.create_pay_item(xero_tenant_id, payItem, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_pay_item: #{e}"
@@ -4234,7 +4234,7 @@ pay_run = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_pay_run(xero_tenant_id, payRun, idempotency_key)
+  response = xero_client.payroll_au_api.create_pay_run(xero_tenant_id, payRun, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_pay_run: #{e}"
@@ -4384,7 +4384,7 @@ payroll_calendars = []
 payroll_calendars << payroll_calendar
 
 begin
-  response = xero_client.accounting_api.create_payroll_calendar(xero_tenant_id, payrollCalendar, idempotency_key)
+  response = xero_client.payroll_au_api.create_payroll_calendar(xero_tenant_id, payrollCalendar, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_payroll_calendar: #{e}"
@@ -4528,7 +4528,7 @@ super_fund = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_superfund(xero_tenant_id, superFund, idempotency_key)
+  response = xero_client.payroll_au_api.create_superfund(xero_tenant_id, superFund, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_superfund: #{e}"
@@ -4676,7 +4676,7 @@ timesheet = {
 }  
 
 begin
-  response = xero_client.accounting_api.create_timesheet(xero_tenant_id, timesheet, idempotency_key)
+  response = xero_client.payroll_au_api.create_timesheet(xero_tenant_id, timesheet, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling create_timesheet: #{e}"
@@ -4815,7 +4815,7 @@ xero_tenant_id = 'xeroTenantId_example'
 employee_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.get_employee(xero_tenant_id, employee_id)
+  response = xero_client.payroll_au_api.get_employee(xero_tenant_id, employee_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_employee: #{e}"
@@ -4936,7 +4936,7 @@ order = 'EmailAddress%20DESC'
 page = 56
 
 begin
-  response = xero_client.accounting_api.get_employees(xero_tenant_id, if_modified_since, where, order, page)
+  response = xero_client.payroll_au_api.get_employees(xero_tenant_id, if_modified_since, where, order, page)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_employees: #{e}"
@@ -5111,7 +5111,7 @@ xero_tenant_id = 'xeroTenantId_example'
 leave_application_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.get_leave_application(xero_tenant_id, leave_application_id)
+  response = xero_client.payroll_au_api.get_leave_application(xero_tenant_id, leave_application_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_leave_application: #{e}"
@@ -5232,7 +5232,7 @@ order = 'EmailAddress%20DESC'
 page = 56
 
 begin
-  response = xero_client.accounting_api.get_leave_applications(xero_tenant_id, if_modified_since, where, order, page)
+  response = xero_client.payroll_au_api.get_leave_applications(xero_tenant_id, if_modified_since, where, order, page)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_leave_applications: #{e}"
@@ -5410,7 +5410,7 @@ order = 'EmailAddress%20DESC'
 page = 56
 
 begin
-  response = xero_client.accounting_api.get_leave_applications_v2(xero_tenant_id, if_modified_since, where, order, page)
+  response = xero_client.payroll_au_api.get_leave_applications_v2(xero_tenant_id, if_modified_since, where, order, page)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_leave_applications_v2: #{e}"
@@ -5588,7 +5588,7 @@ order = 'EmailAddress%20DESC'
 page = 56
 
 begin
-  response = xero_client.accounting_api.get_pay_items(xero_tenant_id, if_modified_since, where, order, page)
+  response = xero_client.payroll_au_api.get_pay_items(xero_tenant_id, if_modified_since, where, order, page)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_pay_items: #{e}"
@@ -5763,7 +5763,7 @@ xero_tenant_id = 'xeroTenantId_example'
 pay_run_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.get_pay_run(xero_tenant_id, pay_run_id)
+  response = xero_client.payroll_au_api.get_pay_run(xero_tenant_id, pay_run_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_pay_run: #{e}"
@@ -5884,7 +5884,7 @@ order = 'EmailAddress%20DESC'
 page = 56
 
 begin
-  response = xero_client.accounting_api.get_pay_runs(xero_tenant_id, if_modified_since, where, order, page)
+  response = xero_client.payroll_au_api.get_pay_runs(xero_tenant_id, if_modified_since, where, order, page)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_pay_runs: #{e}"
@@ -6059,7 +6059,7 @@ xero_tenant_id = 'xeroTenantId_example'
 payroll_calendar_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.get_payroll_calendar(xero_tenant_id, payroll_calendar_id)
+  response = xero_client.payroll_au_api.get_payroll_calendar(xero_tenant_id, payroll_calendar_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_payroll_calendar: #{e}"
@@ -6180,7 +6180,7 @@ order = 'EmailAddress%20DESC'
 page = 56
 
 begin
-  response = xero_client.accounting_api.get_payroll_calendars(xero_tenant_id, if_modified_since, where, order, page)
+  response = xero_client.payroll_au_api.get_payroll_calendars(xero_tenant_id, if_modified_since, where, order, page)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_payroll_calendars: #{e}"
@@ -6355,7 +6355,7 @@ xero_tenant_id = 'xeroTenantId_example'
 payslip_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.get_payslip(xero_tenant_id, payslip_id)
+  response = xero_client.payroll_au_api.get_payslip(xero_tenant_id, payslip_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_payslip: #{e}"
@@ -6472,7 +6472,7 @@ Xero identifier for Tenant
 xero_tenant_id = 'xeroTenantId_example'
 
 begin
-  response = xero_client.accounting_api.get_settings(xero_tenant_id)
+  response = xero_client.payroll_au_api.get_settings(xero_tenant_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_settings: #{e}"
@@ -6557,7 +6557,7 @@ xero_tenant_id = 'xeroTenantId_example'
 super_fund_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.get_superfund(xero_tenant_id, super_fund_id)
+  response = xero_client.payroll_au_api.get_superfund(xero_tenant_id, super_fund_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_superfund: #{e}"
@@ -6676,7 +6676,7 @@ aBN = '40022701955'
 uSI = 'OSF0001AU'
 
 begin
-  response = xero_client.accounting_api.get_superfund_products(xero_tenant_id, aBN, uSI)
+  response = xero_client.payroll_au_api.get_superfund_products(xero_tenant_id, aBN, uSI)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_superfund_products: #{e}"
@@ -6811,7 +6811,7 @@ order = 'EmailAddress%20DESC'
 page = 56
 
 begin
-  response = xero_client.accounting_api.get_superfunds(xero_tenant_id, if_modified_since, where, order, page)
+  response = xero_client.payroll_au_api.get_superfunds(xero_tenant_id, if_modified_since, where, order, page)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_superfunds: #{e}"
@@ -6986,7 +6986,7 @@ xero_tenant_id = 'xeroTenantId_example'
 timesheet_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 
 begin
-  response = xero_client.accounting_api.get_timesheet(xero_tenant_id, timesheet_id)
+  response = xero_client.payroll_au_api.get_timesheet(xero_tenant_id, timesheet_id)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_timesheet: #{e}"
@@ -7107,7 +7107,7 @@ order = 'EmailAddress%20DESC'
 page = 56
 
 begin
-  response = xero_client.accounting_api.get_timesheets(xero_tenant_id, if_modified_since, where, order, page)
+  response = xero_client.payroll_au_api.get_timesheets(xero_tenant_id, if_modified_since, where, order, page)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling get_timesheets: #{e}"
@@ -7283,7 +7283,7 @@ leave_application_id = '4ff1e5cc-9835-40d5-bb18-09fdb118db9c'
 idempotency_key = 'KEY_VALUE'
 
 begin
-  response = xero_client.accounting_api.reject_leave_application(xero_tenant_id, leave_application_id, idempotency_key)
+  response = xero_client.payroll_au_api.reject_leave_application(xero_tenant_id, leave_application_id, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling reject_leave_application: #{e}"
@@ -7432,7 +7432,7 @@ employee = {
 }  
 
 begin
-  response = xero_client.accounting_api.update_employee(xero_tenant_id, employee_id, employee, idempotency_key)
+  response = xero_client.payroll_au_api.update_employee(xero_tenant_id, employee_id, employee, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_employee: #{e}"
@@ -7615,7 +7615,7 @@ leaveApplication = {
 }  
 
 begin
-  response = xero_client.accounting_api.update_leave_application(xero_tenant_id, leave_application_id, leaveApplication, idempotency_key)
+  response = xero_client.payroll_au_api.update_leave_application(xero_tenant_id, leave_application_id, leaveApplication, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_leave_application: #{e}"
@@ -7792,7 +7792,7 @@ pay_run = {
 }  
 
 begin
-  response = xero_client.accounting_api.update_pay_run(xero_tenant_id, pay_run_id, payRun, idempotency_key)
+  response = xero_client.payroll_au_api.update_pay_run(xero_tenant_id, pay_run_id, payRun, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_pay_run: #{e}"
@@ -7979,7 +7979,7 @@ payslip_lines = []
 payslip_lines << payslip_line
 
 begin
-  response = xero_client.accounting_api.update_payslip(xero_tenant_id, payslip_id, payslipLines, idempotency_key)
+  response = xero_client.payroll_au_api.update_payslip(xero_tenant_id, payslip_id, payslipLines, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_payslip: #{e}"
@@ -8166,7 +8166,7 @@ super_fund = {
 }  
 
 begin
-  response = xero_client.accounting_api.update_superfund(xero_tenant_id, super_fund_id, superFund, idempotency_key)
+  response = xero_client.payroll_au_api.update_superfund(xero_tenant_id, super_fund_id, superFund, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_superfund: #{e}"
@@ -8348,7 +8348,7 @@ timesheet = {
 }  
 
 begin
-  response = xero_client.accounting_api.update_timesheet(xero_tenant_id, timesheet_id, timesheet, idempotency_key)
+  response = xero_client.payroll_au_api.update_timesheet(xero_tenant_id, timesheet_id, timesheet, idempotency_key)
   return response
 rescue XeroRuby::ApiError => e
   puts "Exception when calling update_timesheet: #{e}"
