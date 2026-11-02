@@ -25,13 +25,13 @@ module XeroRuby::PayrollNz
     # Special tax rate percentage.
     attr_accessor :special_tax_rate_percentage
     
-    # Does the employee has a special student loan rate?
+    # Does the employee have a special student loan rate?
     attr_accessor :has_special_student_loan_rate
     
     # The employee student loan rate percentage.
     attr_accessor :special_student_loan_rate_percentage
     
-    # The employee eligibility for KiwiSaver.
+    # The employee eligibility for KiwiSaver. Deprecated, replaced by kiwiSaverStatus. Omit this field from POST requests.
     attr_accessor :is_eligible_for_kiwi_saver
     
     # Employer superannuation contribution tax rate.
@@ -44,6 +44,15 @@ module XeroRuby::PayrollNz
     ON_A_CONTRIBUTIONS_HOLIDAY ||= "OnAContributionsHoliday".freeze
     ON_A_SAVINGS_SUSPENSION ||= "OnASavingsSuspension".freeze
     NOT_CURRENTLY_A_KIWI_SAVER_MEMBER ||= "NotCurrentlyAKiwiSaverMember".freeze
+    
+    # KiwiSaver eligibility. Required in POST requests for all tax codes except WT and NSW.
+    attr_accessor :kiwi_saver_status
+    ACTIVE_KIWI_SAVER_MEMBER ||= "ActiveKiwiSaverMember".freeze
+    AUTOMATICALLY_ENROLLED_INTO_KIWI_SAVER ||= "AutomaticallyEnrolledIntoKiwiSaver".freeze
+    EMPLOYED_FOR_LESS_THAN28_DAYS ||= "EmployedForLessThan28Days".freeze
+    NOT_REQUIRED_TO_BE_AUTOMATICALLY_ENROLLED ||= "NotRequiredToBeAutomaticallyEnrolled".freeze
+    OPTED_INTO_KIWI_SAVER ||= "OptedIntoKiwiSaver".freeze
+    NOT_ELIGIBLE_FOR_KIWI_SAVER ||= "NotEligibleForKiwiSaver".freeze
     
     # Employee Contribution percentage.
     attr_accessor :kiwi_saver_employee_contribution_rate_percentage
@@ -68,6 +77,9 @@ module XeroRuby::PayrollNz
     
     # The date of the letter from IR.
     attr_accessor :student_loan_as_at
+    
+    # Is the employee registered for GST? Required in POST requests when taxCode is WT.
+    attr_accessor :registered_for_gst
     
     class EnumAttributeValidator
       attr_reader :datatype
@@ -102,6 +114,7 @@ module XeroRuby::PayrollNz
         :'is_eligible_for_kiwi_saver' => :'isEligibleForKiwiSaver',
         :'esct_rate_percentage' => :'esctRatePercentage',
         :'kiwi_saver_contributions' => :'kiwiSaverContributions',
+        :'kiwi_saver_status' => :'kiwiSaverStatus',
         :'kiwi_saver_employee_contribution_rate_percentage' => :'kiwiSaverEmployeeContributionRatePercentage',
         :'kiwi_saver_employer_contribution_rate_percentage' => :'kiwiSaverEmployerContributionRatePercentage',
         :'kiwi_saver_employer_salary_sacrifice_contribution_rate_percentage' => :'kiwiSaverEmployerSalarySacrificeContributionRatePercentage',
@@ -109,7 +122,8 @@ module XeroRuby::PayrollNz
         :'kiwi_saver_contribution_holiday_end_date' => :'kiwiSaverContributionHolidayEndDate',
         :'has_student_loan_balance' => :'hasStudentLoanBalance',
         :'student_loan_balance' => :'studentLoanBalance',
-        :'student_loan_as_at' => :'studentLoanAsAt'
+        :'student_loan_as_at' => :'studentLoanAsAt',
+        :'registered_for_gst' => :'registeredForGST'
       }
     end
 
@@ -124,6 +138,7 @@ module XeroRuby::PayrollNz
         :'is_eligible_for_kiwi_saver' => :'Boolean',
         :'esct_rate_percentage' => :'BigDecimal',
         :'kiwi_saver_contributions' => :'String',
+        :'kiwi_saver_status' => :'String',
         :'kiwi_saver_employee_contribution_rate_percentage' => :'BigDecimal',
         :'kiwi_saver_employer_contribution_rate_percentage' => :'BigDecimal',
         :'kiwi_saver_employer_salary_sacrifice_contribution_rate_percentage' => :'BigDecimal',
@@ -131,7 +146,8 @@ module XeroRuby::PayrollNz
         :'kiwi_saver_contribution_holiday_end_date' => :'Date',
         :'has_student_loan_balance' => :'Boolean',
         :'student_loan_balance' => :'BigDecimal',
-        :'student_loan_as_at' => :'Date'
+        :'student_loan_as_at' => :'Date',
+        :'registered_for_gst' => :'Boolean'
       }
     end
 
@@ -182,6 +198,10 @@ module XeroRuby::PayrollNz
         self.kiwi_saver_contributions = attributes[:'kiwi_saver_contributions']
       end
 
+      if attributes.key?(:'kiwi_saver_status')
+        self.kiwi_saver_status = attributes[:'kiwi_saver_status']
+      end
+
       if attributes.key?(:'kiwi_saver_employee_contribution_rate_percentage')
         self.kiwi_saver_employee_contribution_rate_percentage = attributes[:'kiwi_saver_employee_contribution_rate_percentage']
       end
@@ -213,6 +233,10 @@ module XeroRuby::PayrollNz
       if attributes.key?(:'student_loan_as_at')
         self.student_loan_as_at = attributes[:'student_loan_as_at']
       end
+
+      if attributes.key?(:'registered_for_gst')
+        self.registered_for_gst = attributes[:'registered_for_gst']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -227,6 +251,8 @@ module XeroRuby::PayrollNz
     def valid?
       kiwi_saver_contributions_validator = EnumAttributeValidator.new('String', ["MakeContributions", "OptOut", "OnAContributionsHoliday", "OnASavingsSuspension", "NotCurrentlyAKiwiSaverMember"])
       return false unless kiwi_saver_contributions_validator.valid?(@kiwi_saver_contributions)
+      kiwi_saver_status_validator = EnumAttributeValidator.new('String', ["ActiveKiwiSaverMember", "AutomaticallyEnrolledIntoKiwiSaver", "EmployedForLessThan28Days", "NotRequiredToBeAutomaticallyEnrolled", "OptedIntoKiwiSaver", "NotEligibleForKiwiSaver"])
+      return false unless kiwi_saver_status_validator.valid?(@kiwi_saver_status)
       true
     end
 
@@ -238,6 +264,16 @@ module XeroRuby::PayrollNz
         fail ArgumentError, "invalid value for \"kiwi_saver_contributions\", must be one of #{validator.allowable_values}."
       end
       @kiwi_saver_contributions = kiwi_saver_contributions
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] kiwi_saver_status Object to be assigned
+    def kiwi_saver_status=(kiwi_saver_status)
+      validator = EnumAttributeValidator.new('String', ["ActiveKiwiSaverMember", "AutomaticallyEnrolledIntoKiwiSaver", "EmployedForLessThan28Days", "NotRequiredToBeAutomaticallyEnrolled", "OptedIntoKiwiSaver", "NotEligibleForKiwiSaver"])
+      unless validator.valid?(kiwi_saver_status)
+        fail ArgumentError, "invalid value for \"kiwi_saver_status\", must be one of #{validator.allowable_values}."
+      end
+      @kiwi_saver_status = kiwi_saver_status
     end
 
     # Checks equality by comparing each attribute.
@@ -253,6 +289,7 @@ module XeroRuby::PayrollNz
           is_eligible_for_kiwi_saver == o.is_eligible_for_kiwi_saver &&
           esct_rate_percentage == o.esct_rate_percentage &&
           kiwi_saver_contributions == o.kiwi_saver_contributions &&
+          kiwi_saver_status == o.kiwi_saver_status &&
           kiwi_saver_employee_contribution_rate_percentage == o.kiwi_saver_employee_contribution_rate_percentage &&
           kiwi_saver_employer_contribution_rate_percentage == o.kiwi_saver_employer_contribution_rate_percentage &&
           kiwi_saver_employer_salary_sacrifice_contribution_rate_percentage == o.kiwi_saver_employer_salary_sacrifice_contribution_rate_percentage &&
@@ -260,7 +297,8 @@ module XeroRuby::PayrollNz
           kiwi_saver_contribution_holiday_end_date == o.kiwi_saver_contribution_holiday_end_date &&
           has_student_loan_balance == o.has_student_loan_balance &&
           student_loan_balance == o.student_loan_balance &&
-          student_loan_as_at == o.student_loan_as_at
+          student_loan_as_at == o.student_loan_as_at &&
+          registered_for_gst == o.registered_for_gst
     end
 
     # @see the `==` method
@@ -272,7 +310,7 @@ module XeroRuby::PayrollNz
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ird_number, tax_code, special_tax_rate_percentage, has_special_student_loan_rate, special_student_loan_rate_percentage, is_eligible_for_kiwi_saver, esct_rate_percentage, kiwi_saver_contributions, kiwi_saver_employee_contribution_rate_percentage, kiwi_saver_employer_contribution_rate_percentage, kiwi_saver_employer_salary_sacrifice_contribution_rate_percentage, kiwi_saver_opt_out_date, kiwi_saver_contribution_holiday_end_date, has_student_loan_balance, student_loan_balance, student_loan_as_at].hash
+      [ird_number, tax_code, special_tax_rate_percentage, has_special_student_loan_rate, special_student_loan_rate_percentage, is_eligible_for_kiwi_saver, esct_rate_percentage, kiwi_saver_contributions, kiwi_saver_status, kiwi_saver_employee_contribution_rate_percentage, kiwi_saver_employer_contribution_rate_percentage, kiwi_saver_employer_salary_sacrifice_contribution_rate_percentage, kiwi_saver_opt_out_date, kiwi_saver_contribution_holiday_end_date, has_student_loan_balance, student_loan_balance, student_loan_as_at, registered_for_gst].hash
     end
 
     # Builds the object from hash

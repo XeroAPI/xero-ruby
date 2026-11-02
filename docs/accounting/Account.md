@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **reporting_code_name** | **String** | Shown if set | [optional] 
 **has_attachments** | **Boolean** | boolean to indicate if an account has an attachment (read only) | [optional] [default to false]
 **updated_date_utc** | **DateTime** | Last modified date UTC format | [optional] 
+**created_date_utc** | **DateTime** | Created date UTC format. Only returned by GET Accounts and GET Accounts/{AccountID}, not on POST or PUT responses | [optional] 
 **add_to_watchlist** | **Boolean** | Boolean – describes whether the account is shown in the watchlist widget on the dashboard | [optional] 
 **validation_errors** | [**Array&lt;ValidationError&gt;**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
 
@@ -48,6 +49,7 @@ instance = XeroRuby::Accounting::Account.new(code: 4400,
                                  reporting_code_name: null,
                                  has_attachments: false,
                                  updated_date_utc: /Date(1573755038314)/,
+                                 created_date_utc: /Date(1573755038314)/,
                                  add_to_watchlist: null,
                                  validation_errors: null)
 ```

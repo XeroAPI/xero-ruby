@@ -5392,6 +5392,7 @@ module XeroRuby
     end
 
     # Updates the tax records for a specific employee
+    # Replaces the entire EmployeeTax record. This is not a partial update. Any field omitted from the request is treated as null and overwrites the stored value. To change individual fields, GET the current record, merge your changes, remove deprecated fields such as isEligibleForKiwiSaver, and POST the complete object.
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param employee_tax [EmployeeTax] 
@@ -5404,6 +5405,7 @@ module XeroRuby
     end
 
     # Updates the tax records for a specific employee
+    # Replaces the entire EmployeeTax record. This is not a partial update. Any field omitted from the request is treated as null and overwrites the stored value. To change individual fields, GET the current record, merge your changes, remove deprecated fields such as isEligibleForKiwiSaver, and POST the complete object.
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param employee_id [String] Employee id for single object
     # @param employee_tax [EmployeeTax] 
