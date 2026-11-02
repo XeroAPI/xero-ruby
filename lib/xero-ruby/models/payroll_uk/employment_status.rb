@@ -17,6 +17,7 @@ module XeroRuby::PayrollUk
     EMPLOYEE ||= "Employee".freeze
     WORKER ||= "Worker".freeze
     UNSPECIFIED ||= "Unspecified".freeze
+    OFF_PAYROLL_WORKER ||= "OffPayrollWorker".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

@@ -84,17 +84,23 @@ module XeroRuby::Accounting
     # CIS Deduction rate for the organisation
     attr_accessor :cis_rate
     
-    # Total of invoice excluding taxes
+    # Total of invoice excluding taxes. Calculated automatically by Xero from the invoice's line items. Only for ACCPAY and ACCREC invoices, where this opt-in capability is enabled for your organisation, can SubTotal be supplied on write – on a SUBMITTED or AUTHORISED invoice supplied together with TotalTax and Total, it is validated against the calculated line item totals (see RoundingAmount); it is ignored in all other cases. This write behaviour, and the returned value reflecting it, only applies to the Create and Update endpoints (POST/PUT) and to retrieving a single invoice by ID (GET by ID) – it does not apply when listing invoices (GET) 
     attr_accessor :sub_total
     
-    # Total tax on invoice
+    # Total tax on invoice. Calculated automatically by Xero from the invoice's line items. Only for ACCPAY and ACCREC invoices, where this opt-in capability is enabled for your organisation, can TotalTax be supplied on write – on a SUBMITTED or AUTHORISED invoice supplied together with SubTotal and Total, it is validated against the calculated line item totals (see RoundingAmount); it is ignored in all other cases. This write behaviour, and the returned value reflecting it, only applies to the Create and Update endpoints (POST/PUT) and to retrieving a single invoice by ID (GET by ID) – it does not apply when listing invoices (GET) 
     attr_accessor :total_tax
     
-    # Total of Invoice tax inclusive (i.e. SubTotal + TotalTax). This will be ignored if it doesn’t equal the sum of the LineAmounts
+    # Total of Invoice tax inclusive (i.e. SubTotal + TotalTax + RoundingAmount). Calculated automatically by Xero from the invoice's line items. Only for ACCPAY and ACCREC invoices, where this opt-in capability is enabled for your organisation, can Total be supplied on write – on a SUBMITTED or AUTHORISED invoice supplied together with SubTotal and TotalTax, it is validated against the calculated line item totals plus RoundingAmount; in all other cases this will be ignored if it does not equal the sum of the LineAmounts. This write behaviour, and the returned value reflecting it, only applies to the Create and Update endpoints (POST/PUT) and to retrieving a single invoice by ID (GET by ID) – it does not apply when listing invoices (GET) 
     attr_accessor :total
     
     # Total of discounts applied on the invoice line items
     attr_accessor :total_discount
+    
+    # An optional rounding adjustment added to SubTotal + TotalTax to give Total (i.e. Total = SubTotal + TotalTax + RoundingAmount). Only applies to ACCPAY and ACCREC invoices, and only if this opt-in capability has been enabled for your organisation. Not validated while the invoice is DRAFT. For SUBMITTED and AUTHORISED invoices, RoundingAmount is only applied when SubTotal, TotalTax and Total are all supplied together, and must be between -0.10 and 0.10 – values outside this range are rejected with a validation error (on DRAFT invoices, an out-of-range value is ignored instead). This field is only settable and only returned via the Create and Update endpoints (POST/PUT) and when retrieving a single invoice by ID (GET by ID) – it is not returned when listing invoices (GET) 
+    attr_accessor :rounding_amount
+    
+    # The total amount as originally entered for the invoice, before any RoundingAmount adjustment is applied. Only applies to ACCPAY and ACCREC invoices, and only if this opt-in capability has been enabled for your organisation. Can only be set while the invoice is DRAFT; once the invoice is no longer DRAFT this reflects Total. This field is only settable and only returned via the Create and Update endpoints (POST/PUT) and when retrieving a single invoice by ID (GET by ID) – it is not returned when listing invoices (GET) 
+    attr_accessor :entered_total
     
     # Xero generated unique identifier for invoice
     attr_accessor :invoice_id
@@ -203,6 +209,8 @@ module XeroRuby::Accounting
         :'total_tax' => :'TotalTax',
         :'total' => :'Total',
         :'total_discount' => :'TotalDiscount',
+        :'rounding_amount' => :'RoundingAmount',
+        :'entered_total' => :'EnteredTotal',
         :'invoice_id' => :'InvoiceID',
         :'repeating_invoice_id' => :'RepeatingInvoiceID',
         :'has_attachments' => :'HasAttachments',
@@ -251,6 +259,8 @@ module XeroRuby::Accounting
         :'total_tax' => :'BigDecimal',
         :'total' => :'BigDecimal',
         :'total_discount' => :'BigDecimal',
+        :'rounding_amount' => :'BigDecimal',
+        :'entered_total' => :'BigDecimal',
         :'invoice_id' => :'String',
         :'repeating_invoice_id' => :'String',
         :'has_attachments' => :'Boolean',
@@ -377,6 +387,14 @@ module XeroRuby::Accounting
 
       if attributes.key?(:'total_discount')
         self.total_discount = attributes[:'total_discount']
+      end
+
+      if attributes.key?(:'rounding_amount')
+        self.rounding_amount = attributes[:'rounding_amount']
+      end
+
+      if attributes.key?(:'entered_total')
+        self.entered_total = attributes[:'entered_total']
       end
 
       if attributes.key?(:'invoice_id')
@@ -559,6 +577,8 @@ module XeroRuby::Accounting
           total_tax == o.total_tax &&
           total == o.total &&
           total_discount == o.total_discount &&
+          rounding_amount == o.rounding_amount &&
+          entered_total == o.entered_total &&
           invoice_id == o.invoice_id &&
           repeating_invoice_id == o.repeating_invoice_id &&
           has_attachments == o.has_attachments &&
@@ -590,7 +610,7 @@ module XeroRuby::Accounting
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [type, contact, line_items, date, due_date, line_amount_types, invoice_number, reference, branding_theme_id, url, currency_code, currency_rate, status, sent_to_contact, expected_payment_date, planned_payment_date, cis_deduction, cis_rate, sub_total, total_tax, total, total_discount, invoice_id, repeating_invoice_id, has_attachments, is_discounted, payments, prepayments, overpayments, amount_due, amount_paid, fully_paid_on_date, amount_credited, updated_date_utc, updated_date_utc_string, credit_notes, attachments, has_errors, status_attribute_string, validation_errors, warnings, invoice_addresses].hash
+      [type, contact, line_items, date, due_date, line_amount_types, invoice_number, reference, branding_theme_id, url, currency_code, currency_rate, status, sent_to_contact, expected_payment_date, planned_payment_date, cis_deduction, cis_rate, sub_total, total_tax, total, total_discount, rounding_amount, entered_total, invoice_id, repeating_invoice_id, has_attachments, is_discounted, payments, prepayments, overpayments, amount_due, amount_paid, fully_paid_on_date, amount_credited, updated_date_utc, updated_date_utc_string, credit_notes, attachments, has_errors, status_attribute_string, validation_errors, warnings, invoice_addresses].hash
     end
 
     # Builds the object from hash
