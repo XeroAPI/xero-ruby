@@ -2074,7 +2074,9 @@ opts = {
 
   unitdp: 4, # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
-  idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+  idempotency_key: 'KEY_VALUE', # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+
+  allow_backorders: true # Boolean | Allows an invoice to be created even when one or more line items contain tracked inventory where the invoice quantity would cause the available quantity to go negative
 }
 
 begin
@@ -2096,6 +2098,7 @@ Name | Type | Description  | Notes
  **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
  **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
  **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
+ **allow_backorders** | **Boolean**| Allows an invoice to be created even when one or more line items contain tracked inventory where the invoice quantity would cause the available quantity to go negative | [optional] 
 
 ### Return type
 
@@ -5905,7 +5908,9 @@ opts = {
 
   unitdp: 4, # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
-  page_size: 100 # Integer | Number of records to retrieve per page
+  page_size: 100, # Integer | Number of records to retrieve per page
+
+  references: ['&quot;Ref1&quot;, &quot;Ref2&quot;'] # Array<String> | Filter by a comma-separated list of References
 }
 
 begin
@@ -5929,6 +5934,7 @@ Name | Type | Description  | Notes
  **page** | **Integer**| Up to 100 bank transactions will be returned in a single API call with line items details | [optional] 
  **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
  **page_size** | **Integer**| Number of records to retrieve per page | [optional] 
+ **references** | [**Array&lt;String&gt;**](String.md)| Filter by a comma-separated list of References | [optional] 
 
 ### Return type
 
@@ -10808,13 +10814,15 @@ opts = {
 
   order: 'Reference ASC', # String | Order by an any element
 
-  page: 1, # Integer | e.g. page=1 – Up to 100 prepayments will be returned in a single API call with line items shown for each overpayment
+  page: 1, # Integer | e.g. page=1 – Up to 100 prepayments will be returned in a single API call with line items shown for each prepayment
 
   unitdp: 4, # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
   page_size: 100, # Integer | Number of records to retrieve per page
 
-  invoice_numbers: ['&quot;INV-001&quot;, &quot;INV-002&quot;'] # Array<String> | Filter by a comma-separated list of InvoiceNumbers
+  invoice_numbers: ['&quot;INV-001&quot;, &quot;INV-002&quot;'], # Array<String> | Filter by a comma-separated list of InvoiceNumbers
+
+  references: ['&quot;Ref1&quot;, &quot;Ref2&quot;'] # Array<String> | Filter by a comma-separated list of References
 }
 
 begin
@@ -10835,10 +10843,11 @@ Name | Type | Description  | Notes
  **if_modified_since** | **DateTime**| Only records created or modified since this timestamp will be returned | [optional] 
  **where** | **String**| Filter by an any element | [optional] 
  **order** | **String**| Order by an any element | [optional] 
- **page** | **Integer**| e.g. page&#x3D;1 – Up to 100 prepayments will be returned in a single API call with line items shown for each overpayment | [optional] 
+ **page** | **Integer**| e.g. page&#x3D;1 – Up to 100 prepayments will be returned in a single API call with line items shown for each prepayment | [optional] 
  **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
  **page_size** | **Integer**| Number of records to retrieve per page | [optional] 
  **invoice_numbers** | [**Array&lt;String&gt;**](String.md)| Filter by a comma-separated list of InvoiceNumbers | [optional] 
+ **references** | [**Array&lt;String&gt;**](String.md)| Filter by a comma-separated list of References | [optional] 
 
 ### Return type
 
@@ -14799,7 +14808,9 @@ invoices = {"Invoices":[{"Reference":"May the force be with you","InvoiceID":"00
 opts = {
   unitdp: 4, # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
-  idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+  idempotency_key: 'KEY_VALUE', # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+
+  allow_backorders: true # Boolean | Allows an invoice to be created even when one or more line items contain tracked inventory where the invoice quantity would cause the available quantity to go negative
 }
 
 begin
@@ -14821,6 +14832,7 @@ Name | Type | Description  | Notes
  **invoices** | [**Invoices**](Invoices.md)|  | 
  **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
  **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
+ **allow_backorders** | **Boolean**| Allows an invoice to be created even when one or more line items contain tracked inventory where the invoice quantity would cause the available quantity to go negative | [optional] 
 
 ### Return type
 
@@ -15458,7 +15470,9 @@ opts = {
 
   unitdp: 4, # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
-  idempotency_key: 'KEY_VALUE' # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+  idempotency_key: 'KEY_VALUE', # String | This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+
+  allow_backorders: true # Boolean | Allows an invoice to be created even when one or more line items contain tracked inventory where the invoice quantity would cause the available quantity to go negative
 }
 
 begin
@@ -15480,6 +15494,7 @@ Name | Type | Description  | Notes
  **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
  **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
  **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
+ **allow_backorders** | **Boolean**| Allows an invoice to be created even when one or more line items contain tracked inventory where the invoice quantity would cause the available quantity to go negative | [optional] 
 
 ### Return type
 
