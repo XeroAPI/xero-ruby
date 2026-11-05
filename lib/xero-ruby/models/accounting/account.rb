@@ -104,6 +104,9 @@ module XeroRuby::Accounting
     # Last modified date UTC format
     attr_accessor :updated_date_utc
     
+    # Created date UTC format. Only returned by GET Accounts and GET Accounts/{AccountID}, not on POST or PUT responses
+    attr_accessor :created_date_utc
+    
     # Boolean – describes whether the account is shown in the watchlist widget on the dashboard
     attr_accessor :add_to_watchlist
     
@@ -153,6 +156,7 @@ module XeroRuby::Accounting
         :'reporting_code_name' => :'ReportingCodeName',
         :'has_attachments' => :'HasAttachments',
         :'updated_date_utc' => :'UpdatedDateUTC',
+        :'created_date_utc' => :'CreatedDateUTC',
         :'add_to_watchlist' => :'AddToWatchlist',
         :'validation_errors' => :'ValidationErrors'
       }
@@ -179,6 +183,7 @@ module XeroRuby::Accounting
         :'reporting_code_name' => :'String',
         :'has_attachments' => :'Boolean',
         :'updated_date_utc' => :'DateTime',
+        :'created_date_utc' => :'DateTime',
         :'add_to_watchlist' => :'Boolean',
         :'validation_errors' => :'Array<ValidationError>'
       }
@@ -271,6 +276,10 @@ module XeroRuby::Accounting
 
       if attributes.key?(:'updated_date_utc')
         self.updated_date_utc = attributes[:'updated_date_utc']
+      end
+
+      if attributes.key?(:'created_date_utc')
+        self.created_date_utc = attributes[:'created_date_utc']
       end
 
       if attributes.key?(:'add_to_watchlist')
@@ -383,6 +392,7 @@ module XeroRuby::Accounting
           reporting_code_name == o.reporting_code_name &&
           has_attachments == o.has_attachments &&
           updated_date_utc == o.updated_date_utc &&
+          created_date_utc == o.created_date_utc &&
           add_to_watchlist == o.add_to_watchlist &&
           validation_errors == o.validation_errors
     end
@@ -396,7 +406,7 @@ module XeroRuby::Accounting
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [code, name, account_id, type, bank_account_number, status, description, bank_account_type, currency_code, tax_type, enable_payments_to_account, show_in_expense_claims, _class, system_account, reporting_code, reporting_code_name, has_attachments, updated_date_utc, add_to_watchlist, validation_errors].hash
+      [code, name, account_id, type, bank_account_number, status, description, bank_account_type, currency_code, tax_type, enable_payments_to_account, show_in_expense_claims, _class, system_account, reporting_code, reporting_code_name, has_attachments, updated_date_utc, created_date_utc, add_to_watchlist, validation_errors].hash
     end
 
     # Builds the object from hash
