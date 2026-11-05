@@ -9,569 +9,589 @@ OpenAPI Generator version: 4.3.1
 
 =end
 
-# Common files
-require 'xero-ruby/string_serialization'
-require 'xero-ruby/where'
-require 'xero-ruby/api_client'
-require 'xero-ruby/api_error'
-require 'xero-ruby/version'
-require 'xero-ruby/configuration'
-
-# Models
-require 'xero-ruby/models/finance/balance_sheet_account_detail'
-require 'xero-ruby/models/finance/balance_sheet_account_group'
-require 'xero-ruby/models/finance/balance_sheet_account_type'
-require 'xero-ruby/models/finance/balance_sheet_response'
-require 'xero-ruby/models/finance/bank_statement_accounting_response'
-require 'xero-ruby/models/finance/bank_statement_response'
-require 'xero-ruby/models/finance/bank_transaction_response'
-require 'xero-ruby/models/finance/cash_account_response'
-require 'xero-ruby/models/finance/cash_balance'
-require 'xero-ruby/models/finance/cash_validation_response'
-require 'xero-ruby/models/finance/cashflow_account'
-require 'xero-ruby/models/finance/cashflow_activity'
-require 'xero-ruby/models/finance/cashflow_response'
-require 'xero-ruby/models/finance/cashflow_type'
-require 'xero-ruby/models/finance/contact_detail'
-require 'xero-ruby/models/finance/contact_response'
-require 'xero-ruby/models/finance/contact_total_detail'
-require 'xero-ruby/models/finance/contact_total_other'
-require 'xero-ruby/models/finance/credit_note_response'
-require 'xero-ruby/models/finance/current_statement_response'
-require 'xero-ruby/models/finance/data_source_response'
-require 'xero-ruby/models/finance/income_by_contact_response'
-require 'xero-ruby/models/finance/invoice_response'
-require 'xero-ruby/models/finance/line_item_response'
-require 'xero-ruby/models/finance/manual_journal_total'
-require 'xero-ruby/models/finance/overpayment_response'
-require 'xero-ruby/models/finance/payment_response'
-require 'xero-ruby/models/finance/pnl_account'
-require 'xero-ruby/models/finance/pnl_account_class'
-require 'xero-ruby/models/finance/pnl_account_type'
-require 'xero-ruby/models/finance/prepayment_response'
-require 'xero-ruby/models/finance/problem'
-require 'xero-ruby/models/finance/problem_type'
-require 'xero-ruby/models/finance/profit_and_loss_response'
-require 'xero-ruby/models/finance/statement_balance_response'
-require 'xero-ruby/models/finance/statement_line_response'
-require 'xero-ruby/models/finance/statement_lines_response'
-require 'xero-ruby/models/finance/statement_response'
-require 'xero-ruby/models/finance/total_detail'
-require 'xero-ruby/models/finance/total_other'
-require 'xero-ruby/models/finance/trial_balance_account'
-require 'xero-ruby/models/finance/trial_balance_entry'
-require 'xero-ruby/models/finance/trial_balance_movement'
-require 'xero-ruby/models/finance/trial_balance_response'
-require 'xero-ruby/models/app_store/create_usage_record'
-require 'xero-ruby/models/app_store/plan'
-require 'xero-ruby/models/app_store/price'
-require 'xero-ruby/models/app_store/problem_details'
-require 'xero-ruby/models/app_store/product'
-require 'xero-ruby/models/app_store/subscription'
-require 'xero-ruby/models/app_store/subscription_item'
-require 'xero-ruby/models/app_store/update_usage_record'
-require 'xero-ruby/models/app_store/usage_record'
-require 'xero-ruby/models/app_store/usage_records_list'
-require 'xero-ruby/models/payroll_uk/account'
-require 'xero-ruby/models/payroll_uk/accounts'
-require 'xero-ruby/models/payroll_uk/address'
-require 'xero-ruby/models/payroll_uk/bank_account'
-require 'xero-ruby/models/payroll_uk/benefit'
-require 'xero-ruby/models/payroll_uk/benefit_line'
-require 'xero-ruby/models/payroll_uk/benefit_object'
-require 'xero-ruby/models/payroll_uk/benefits'
-require 'xero-ruby/models/payroll_uk/contract_type'
-require 'xero-ruby/models/payroll_uk/contracts'
-require 'xero-ruby/models/payroll_uk/court_order_line'
-require 'xero-ruby/models/payroll_uk/deduction'
-require 'xero-ruby/models/payroll_uk/deduction_line'
-require 'xero-ruby/models/payroll_uk/deduction_object'
-require 'xero-ruby/models/payroll_uk/deductions'
-require 'xero-ruby/models/payroll_uk/developmental_role_details'
-require 'xero-ruby/models/payroll_uk/earnings_line'
-require 'xero-ruby/models/payroll_uk/earnings_order'
-require 'xero-ruby/models/payroll_uk/earnings_order_object'
-require 'xero-ruby/models/payroll_uk/earnings_orders'
-require 'xero-ruby/models/payroll_uk/earnings_rate'
-require 'xero-ruby/models/payroll_uk/earnings_rate_object'
-require 'xero-ruby/models/payroll_uk/earnings_rates'
-require 'xero-ruby/models/payroll_uk/earnings_template'
-require 'xero-ruby/models/payroll_uk/earnings_template_object'
-require 'xero-ruby/models/payroll_uk/employee'
-require 'xero-ruby/models/payroll_uk/employee_leave'
-require 'xero-ruby/models/payroll_uk/employee_leave_balance'
-require 'xero-ruby/models/payroll_uk/employee_leave_balances'
-require 'xero-ruby/models/payroll_uk/employee_leave_object'
-require 'xero-ruby/models/payroll_uk/employee_leave_type'
-require 'xero-ruby/models/payroll_uk/employee_leave_type_object'
-require 'xero-ruby/models/payroll_uk/employee_leave_types'
-require 'xero-ruby/models/payroll_uk/employee_leaves'
-require 'xero-ruby/models/payroll_uk/employee_object'
-require 'xero-ruby/models/payroll_uk/employee_opening_balances'
-require 'xero-ruby/models/payroll_uk/employee_opening_balances_object'
-require 'xero-ruby/models/payroll_uk/employee_pay_template'
-require 'xero-ruby/models/payroll_uk/employee_pay_template_object'
-require 'xero-ruby/models/payroll_uk/employee_pay_templates'
-require 'xero-ruby/models/payroll_uk/employee_statutory_leave_balance'
-require 'xero-ruby/models/payroll_uk/employee_statutory_leave_balance_object'
-require 'xero-ruby/models/payroll_uk/employee_statutory_leave_summary'
-require 'xero-ruby/models/payroll_uk/employee_statutory_leaves_summaries'
-require 'xero-ruby/models/payroll_uk/employee_statutory_sick_leave'
-require 'xero-ruby/models/payroll_uk/employee_statutory_sick_leave_object'
-require 'xero-ruby/models/payroll_uk/employee_statutory_sick_leaves'
-require 'xero-ruby/models/payroll_uk/employee_tax'
-require 'xero-ruby/models/payroll_uk/employee_tax_object'
-require 'xero-ruby/models/payroll_uk/employees'
-require 'xero-ruby/models/payroll_uk/employment'
-require 'xero-ruby/models/payroll_uk/employment_object'
-require 'xero-ruby/models/payroll_uk/employment_status'
-require 'xero-ruby/models/payroll_uk/invalid_field'
-require 'xero-ruby/models/payroll_uk/leave_accrual_line'
-require 'xero-ruby/models/payroll_uk/leave_earnings_line'
-require 'xero-ruby/models/payroll_uk/leave_period'
-require 'xero-ruby/models/payroll_uk/leave_periods'
-require 'xero-ruby/models/payroll_uk/leave_type'
-require 'xero-ruby/models/payroll_uk/leave_type_object'
-require 'xero-ruby/models/payroll_uk/leave_types'
-require 'xero-ruby/models/payroll_uk/ni_category'
-require 'xero-ruby/models/payroll_uk/ni_category_letter'
-require 'xero-ruby/models/payroll_uk/ni_category_one_of'
-require 'xero-ruby/models/payroll_uk/ni_category_one_of1'
-require 'xero-ruby/models/payroll_uk/pagination'
-require 'xero-ruby/models/payroll_uk/pay_run'
-require 'xero-ruby/models/payroll_uk/pay_run_calendar'
-require 'xero-ruby/models/payroll_uk/pay_run_calendar_object'
-require 'xero-ruby/models/payroll_uk/pay_run_calendars'
-require 'xero-ruby/models/payroll_uk/pay_run_object'
-require 'xero-ruby/models/payroll_uk/pay_runs'
-require 'xero-ruby/models/payroll_uk/payment_line'
-require 'xero-ruby/models/payroll_uk/payment_method'
-require 'xero-ruby/models/payroll_uk/payment_method_object'
-require 'xero-ruby/models/payroll_uk/payslip'
-require 'xero-ruby/models/payroll_uk/payslip_object'
-require 'xero-ruby/models/payroll_uk/payslips'
-require 'xero-ruby/models/payroll_uk/problem'
-require 'xero-ruby/models/payroll_uk/reimbursement'
-require 'xero-ruby/models/payroll_uk/reimbursement_line'
-require 'xero-ruby/models/payroll_uk/reimbursement_object'
-require 'xero-ruby/models/payroll_uk/reimbursements'
-require 'xero-ruby/models/payroll_uk/salary_and_wage'
-require 'xero-ruby/models/payroll_uk/salary_and_wage_object'
-require 'xero-ruby/models/payroll_uk/salary_and_wages'
-require 'xero-ruby/models/payroll_uk/settings'
-require 'xero-ruby/models/payroll_uk/statutory_deduction'
-require 'xero-ruby/models/payroll_uk/statutory_deduction_category'
-require 'xero-ruby/models/payroll_uk/tax_line'
-require 'xero-ruby/models/payroll_uk/timesheet'
-require 'xero-ruby/models/payroll_uk/timesheet_earnings_line'
-require 'xero-ruby/models/payroll_uk/timesheet_line'
-require 'xero-ruby/models/payroll_uk/timesheet_line_object'
-require 'xero-ruby/models/payroll_uk/timesheet_object'
-require 'xero-ruby/models/payroll_uk/timesheets'
-require 'xero-ruby/models/payroll_uk/tracking_categories'
-require 'xero-ruby/models/payroll_uk/tracking_category'
-require 'xero-ruby/models/payroll_nz/account'
-require 'xero-ruby/models/payroll_nz/accounts'
-require 'xero-ruby/models/payroll_nz/address'
-require 'xero-ruby/models/payroll_nz/bank_account'
-require 'xero-ruby/models/payroll_nz/benefit'
-require 'xero-ruby/models/payroll_nz/calendar_type'
-require 'xero-ruby/models/payroll_nz/deduction'
-require 'xero-ruby/models/payroll_nz/deduction_line'
-require 'xero-ruby/models/payroll_nz/deduction_object'
-require 'xero-ruby/models/payroll_nz/deductions'
-require 'xero-ruby/models/payroll_nz/earnings_line'
-require 'xero-ruby/models/payroll_nz/earnings_order'
-require 'xero-ruby/models/payroll_nz/earnings_order_object'
-require 'xero-ruby/models/payroll_nz/earnings_orders'
-require 'xero-ruby/models/payroll_nz/earnings_rate'
-require 'xero-ruby/models/payroll_nz/earnings_rate_object'
-require 'xero-ruby/models/payroll_nz/earnings_rates'
-require 'xero-ruby/models/payroll_nz/earnings_template'
-require 'xero-ruby/models/payroll_nz/earnings_template_object'
-require 'xero-ruby/models/payroll_nz/employee'
-require 'xero-ruby/models/payroll_nz/employee_earnings_templates'
-require 'xero-ruby/models/payroll_nz/employee_leave'
-require 'xero-ruby/models/payroll_nz/employee_leave_balance'
-require 'xero-ruby/models/payroll_nz/employee_leave_balances'
-require 'xero-ruby/models/payroll_nz/employee_leave_object'
-require 'xero-ruby/models/payroll_nz/employee_leave_setup'
-require 'xero-ruby/models/payroll_nz/employee_leave_setup_object'
-require 'xero-ruby/models/payroll_nz/employee_leave_type'
-require 'xero-ruby/models/payroll_nz/employee_leave_type_object'
-require 'xero-ruby/models/payroll_nz/employee_leave_types'
-require 'xero-ruby/models/payroll_nz/employee_leaves'
-require 'xero-ruby/models/payroll_nz/employee_object'
-require 'xero-ruby/models/payroll_nz/employee_opening_balance'
-require 'xero-ruby/models/payroll_nz/employee_opening_balances_object'
-require 'xero-ruby/models/payroll_nz/employee_pay_template'
-require 'xero-ruby/models/payroll_nz/employee_pay_template_object'
-require 'xero-ruby/models/payroll_nz/employee_pay_templates'
-require 'xero-ruby/models/payroll_nz/employee_statutory_leave_balance'
-require 'xero-ruby/models/payroll_nz/employee_statutory_leave_balance_object'
-require 'xero-ruby/models/payroll_nz/employee_statutory_leave_summary'
-require 'xero-ruby/models/payroll_nz/employee_statutory_leaves_summaries'
-require 'xero-ruby/models/payroll_nz/employee_statutory_sick_leave'
-require 'xero-ruby/models/payroll_nz/employee_statutory_sick_leave_object'
-require 'xero-ruby/models/payroll_nz/employee_statutory_sick_leaves'
-require 'xero-ruby/models/payroll_nz/employee_tax'
-require 'xero-ruby/models/payroll_nz/employee_tax_object'
-require 'xero-ruby/models/payroll_nz/employee_working_pattern'
-require 'xero-ruby/models/payroll_nz/employee_working_pattern_with_working_weeks'
-require 'xero-ruby/models/payroll_nz/employee_working_pattern_with_working_weeks_object'
-require 'xero-ruby/models/payroll_nz/employee_working_pattern_with_working_weeks_request'
-require 'xero-ruby/models/payroll_nz/employee_working_patterns_object'
-require 'xero-ruby/models/payroll_nz/employees'
-require 'xero-ruby/models/payroll_nz/employment'
-require 'xero-ruby/models/payroll_nz/employment_object'
-require 'xero-ruby/models/payroll_nz/gross_earnings_history'
-require 'xero-ruby/models/payroll_nz/invalid_field'
-require 'xero-ruby/models/payroll_nz/leave_accrual_line'
-require 'xero-ruby/models/payroll_nz/leave_earnings_line'
-require 'xero-ruby/models/payroll_nz/leave_period'
-require 'xero-ruby/models/payroll_nz/leave_periods'
-require 'xero-ruby/models/payroll_nz/leave_type'
-require 'xero-ruby/models/payroll_nz/leave_type_object'
-require 'xero-ruby/models/payroll_nz/leave_types'
-require 'xero-ruby/models/payroll_nz/pagination'
-require 'xero-ruby/models/payroll_nz/pay_run'
-require 'xero-ruby/models/payroll_nz/pay_run_calendar'
-require 'xero-ruby/models/payroll_nz/pay_run_calendar_object'
-require 'xero-ruby/models/payroll_nz/pay_run_calendars'
-require 'xero-ruby/models/payroll_nz/pay_run_object'
-require 'xero-ruby/models/payroll_nz/pay_runs'
-require 'xero-ruby/models/payroll_nz/pay_slip'
-require 'xero-ruby/models/payroll_nz/pay_slip_object'
-require 'xero-ruby/models/payroll_nz/pay_slips'
-require 'xero-ruby/models/payroll_nz/payment_line'
-require 'xero-ruby/models/payroll_nz/payment_method'
-require 'xero-ruby/models/payroll_nz/payment_method_object'
-require 'xero-ruby/models/payroll_nz/problem'
-require 'xero-ruby/models/payroll_nz/reimbursement'
-require 'xero-ruby/models/payroll_nz/reimbursement_line'
-require 'xero-ruby/models/payroll_nz/reimbursement_object'
-require 'xero-ruby/models/payroll_nz/reimbursements'
-require 'xero-ruby/models/payroll_nz/salary_and_wage'
-require 'xero-ruby/models/payroll_nz/salary_and_wage_object'
-require 'xero-ruby/models/payroll_nz/salary_and_wages'
-require 'xero-ruby/models/payroll_nz/settings'
-require 'xero-ruby/models/payroll_nz/statutory_deduction'
-require 'xero-ruby/models/payroll_nz/statutory_deduction_category'
-require 'xero-ruby/models/payroll_nz/statutory_deduction_line'
-require 'xero-ruby/models/payroll_nz/statutory_deduction_object'
-require 'xero-ruby/models/payroll_nz/statutory_deductions'
-require 'xero-ruby/models/payroll_nz/superannuation_line'
-require 'xero-ruby/models/payroll_nz/superannuation_object'
-require 'xero-ruby/models/payroll_nz/superannuations'
-require 'xero-ruby/models/payroll_nz/tax_code'
-require 'xero-ruby/models/payroll_nz/tax_line'
-require 'xero-ruby/models/payroll_nz/tax_settings'
-require 'xero-ruby/models/payroll_nz/timesheet'
-require 'xero-ruby/models/payroll_nz/timesheet_earnings_line'
-require 'xero-ruby/models/payroll_nz/timesheet_line'
-require 'xero-ruby/models/payroll_nz/timesheet_line_object'
-require 'xero-ruby/models/payroll_nz/timesheet_object'
-require 'xero-ruby/models/payroll_nz/timesheets'
-require 'xero-ruby/models/payroll_nz/tracking_categories'
-require 'xero-ruby/models/payroll_nz/tracking_category'
-require 'xero-ruby/models/payroll_nz/working_week'
-require 'xero-ruby/models/payroll_au_v2/invalid_field'
-require 'xero-ruby/models/payroll_au_v2/pagination'
-require 'xero-ruby/models/payroll_au_v2/problem'
-require 'xero-ruby/models/payroll_au_v2/timesheet'
-require 'xero-ruby/models/payroll_au_v2/timesheet_line'
-require 'xero-ruby/models/payroll_au_v2/timesheet_line_object'
-require 'xero-ruby/models/payroll_au_v2/timesheet_object'
-require 'xero-ruby/models/payroll_au_v2/timesheets'
-require 'xero-ruby/models/payroll_au/api_exception'
-require 'xero-ruby/models/payroll_au/account'
-require 'xero-ruby/models/payroll_au/account_type'
-require 'xero-ruby/models/payroll_au/allowance_category'
-require 'xero-ruby/models/payroll_au/allowance_type'
-require 'xero-ruby/models/payroll_au/bank_account'
-require 'xero-ruby/models/payroll_au/calendar_type'
-require 'xero-ruby/models/payroll_au/country_of_residence'
-require 'xero-ruby/models/payroll_au/deduction_line'
-require 'xero-ruby/models/payroll_au/deduction_type'
-require 'xero-ruby/models/payroll_au/deduction_type_calculation_type'
-require 'xero-ruby/models/payroll_au/earnings_line'
-require 'xero-ruby/models/payroll_au/earnings_rate'
-require 'xero-ruby/models/payroll_au/earnings_rate_calculation_type'
-require 'xero-ruby/models/payroll_au/earnings_type'
-require 'xero-ruby/models/payroll_au/employee'
-require 'xero-ruby/models/payroll_au/employee_status'
-require 'xero-ruby/models/payroll_au/employees'
-require 'xero-ruby/models/payroll_au/employment_basis'
-require 'xero-ruby/models/payroll_au/employment_termination_payment_type'
-require 'xero-ruby/models/payroll_au/employment_type'
-require 'xero-ruby/models/payroll_au/entitlement_final_pay_payout_type'
-require 'xero-ruby/models/payroll_au/home_address'
-require 'xero-ruby/models/payroll_au/income_type'
-require 'xero-ruby/models/payroll_au/leave_accrual_line'
-require 'xero-ruby/models/payroll_au/leave_application'
-require 'xero-ruby/models/payroll_au/leave_applications'
-require 'xero-ruby/models/payroll_au/leave_balance'
-require 'xero-ruby/models/payroll_au/leave_category_code'
-require 'xero-ruby/models/payroll_au/leave_earnings_line'
-require 'xero-ruby/models/payroll_au/leave_line'
-require 'xero-ruby/models/payroll_au/leave_line_calculation_type'
-require 'xero-ruby/models/payroll_au/leave_lines'
-require 'xero-ruby/models/payroll_au/leave_period'
-require 'xero-ruby/models/payroll_au/leave_period_status'
-require 'xero-ruby/models/payroll_au/leave_type'
-require 'xero-ruby/models/payroll_au/leave_type_contribution_type'
-require 'xero-ruby/models/payroll_au/manual_tax_type'
-require 'xero-ruby/models/payroll_au/opening_balance_leave_line'
-require 'xero-ruby/models/payroll_au/opening_balances'
-require 'xero-ruby/models/payroll_au/paid_leave_earnings_line'
-require 'xero-ruby/models/payroll_au/pay_item'
-require 'xero-ruby/models/payroll_au/pay_items'
-require 'xero-ruby/models/payroll_au/pay_out_type'
-require 'xero-ruby/models/payroll_au/pay_run'
-require 'xero-ruby/models/payroll_au/pay_run_status'
-require 'xero-ruby/models/payroll_au/pay_runs'
-require 'xero-ruby/models/payroll_au/pay_template'
-require 'xero-ruby/models/payroll_au/payment_frequency_type'
-require 'xero-ruby/models/payroll_au/payroll_calendar'
-require 'xero-ruby/models/payroll_au/payroll_calendars'
-require 'xero-ruby/models/payroll_au/payslip'
-require 'xero-ruby/models/payroll_au/payslip_lines'
-require 'xero-ruby/models/payroll_au/payslip_object'
-require 'xero-ruby/models/payroll_au/payslip_summary'
-require 'xero-ruby/models/payroll_au/payslips'
-require 'xero-ruby/models/payroll_au/rate_type'
-require 'xero-ruby/models/payroll_au/reimbursement_line'
-require 'xero-ruby/models/payroll_au/reimbursement_lines'
-require 'xero-ruby/models/payroll_au/reimbursement_type'
-require 'xero-ruby/models/payroll_au/residency_status'
-require 'xero-ruby/models/payroll_au/senior_marital_status'
-require 'xero-ruby/models/payroll_au/settings'
-require 'xero-ruby/models/payroll_au/settings_object'
-require 'xero-ruby/models/payroll_au/settings_tracking_categories'
-require 'xero-ruby/models/payroll_au/settings_tracking_categories_employee_groups'
-require 'xero-ruby/models/payroll_au/settings_tracking_categories_timesheet_categories'
-require 'xero-ruby/models/payroll_au/state'
-require 'xero-ruby/models/payroll_au/super_fund'
-require 'xero-ruby/models/payroll_au/super_fund_product'
-require 'xero-ruby/models/payroll_au/super_fund_products'
-require 'xero-ruby/models/payroll_au/super_fund_type'
-require 'xero-ruby/models/payroll_au/super_funds'
-require 'xero-ruby/models/payroll_au/super_line'
-require 'xero-ruby/models/payroll_au/super_membership'
-require 'xero-ruby/models/payroll_au/superannuation_calculation_type'
-require 'xero-ruby/models/payroll_au/superannuation_contribution_type'
-require 'xero-ruby/models/payroll_au/superannuation_line'
-require 'xero-ruby/models/payroll_au/tfn_exemption_type'
-require 'xero-ruby/models/payroll_au/tax_declaration'
-require 'xero-ruby/models/payroll_au/tax_line'
-require 'xero-ruby/models/payroll_au/tax_scale_type'
-require 'xero-ruby/models/payroll_au/timesheet'
-require 'xero-ruby/models/payroll_au/timesheet_line'
-require 'xero-ruby/models/payroll_au/timesheet_object'
-require 'xero-ruby/models/payroll_au/timesheet_status'
-require 'xero-ruby/models/payroll_au/timesheets'
-require 'xero-ruby/models/payroll_au/validation_error'
-require 'xero-ruby/models/payroll_au/work_condition'
-require 'xero-ruby/models/files/association'
-require 'xero-ruby/models/files/file_object'
-require 'xero-ruby/models/files/files'
-require 'xero-ruby/models/files/folder'
-require 'xero-ruby/models/files/folders'
-require 'xero-ruby/models/files/object_group'
-require 'xero-ruby/models/files/object_type'
-require 'xero-ruby/models/files/upload_object'
-require 'xero-ruby/models/files/user'
-require 'xero-ruby/models/projects/amount'
-require 'xero-ruby/models/projects/charge_type'
-require 'xero-ruby/models/projects/currency_code'
-require 'xero-ruby/models/projects/error'
-require 'xero-ruby/models/projects/pagination'
-require 'xero-ruby/models/projects/project'
-require 'xero-ruby/models/projects/project_create_or_update'
-require 'xero-ruby/models/projects/project_patch'
-require 'xero-ruby/models/projects/project_status'
-require 'xero-ruby/models/projects/project_user'
-require 'xero-ruby/models/projects/project_users'
-require 'xero-ruby/models/projects/projects'
-require 'xero-ruby/models/projects/task'
-require 'xero-ruby/models/projects/task_create_or_update'
-require 'xero-ruby/models/projects/tasks'
-require 'xero-ruby/models/projects/time_entries'
-require 'xero-ruby/models/projects/time_entry'
-require 'xero-ruby/models/projects/time_entry_create_or_update'
-require 'xero-ruby/models/assets/asset'
-require 'xero-ruby/models/assets/asset_status'
-require 'xero-ruby/models/assets/asset_status_query_param'
-require 'xero-ruby/models/assets/asset_type'
-require 'xero-ruby/models/assets/assets'
-require 'xero-ruby/models/assets/book_depreciation_detail'
-require 'xero-ruby/models/assets/book_depreciation_setting'
-require 'xero-ruby/models/assets/error'
-require 'xero-ruby/models/assets/field_validation_errors_element'
-require 'xero-ruby/models/assets/pagination'
-require 'xero-ruby/models/assets/resource_validation_errors_element'
-require 'xero-ruby/models/assets/setting'
-require 'xero-ruby/models/accounting/account'
-require 'xero-ruby/models/accounting/account_type'
-require 'xero-ruby/models/accounting/accounts'
-require 'xero-ruby/models/accounting/accounts_payable'
-require 'xero-ruby/models/accounting/accounts_receivable'
-require 'xero-ruby/models/accounting/action'
-require 'xero-ruby/models/accounting/actions'
-require 'xero-ruby/models/accounting/address'
-require 'xero-ruby/models/accounting/address_for_organisation'
-require 'xero-ruby/models/accounting/allocation'
-require 'xero-ruby/models/accounting/allocations'
-require 'xero-ruby/models/accounting/attachment'
-require 'xero-ruby/models/accounting/attachments'
-require 'xero-ruby/models/accounting/balance_details'
-require 'xero-ruby/models/accounting/balances'
-require 'xero-ruby/models/accounting/bank_transaction'
-require 'xero-ruby/models/accounting/bank_transactions'
-require 'xero-ruby/models/accounting/bank_transfer'
-require 'xero-ruby/models/accounting/bank_transfer_delete'
-require 'xero-ruby/models/accounting/bank_transfer_delete_by_url_param'
-require 'xero-ruby/models/accounting/bank_transfers'
-require 'xero-ruby/models/accounting/bank_transfers_delete'
-require 'xero-ruby/models/accounting/batch_payment'
-require 'xero-ruby/models/accounting/batch_payment_delete'
-require 'xero-ruby/models/accounting/batch_payment_delete_by_url_param'
-require 'xero-ruby/models/accounting/batch_payment_details'
-require 'xero-ruby/models/accounting/batch_payments'
-require 'xero-ruby/models/accounting/bill'
-require 'xero-ruby/models/accounting/branding_theme'
-require 'xero-ruby/models/accounting/branding_themes'
-require 'xero-ruby/models/accounting/budget'
-require 'xero-ruby/models/accounting/budget_balance'
-require 'xero-ruby/models/accounting/budget_line'
-require 'xero-ruby/models/accounting/budgets'
-require 'xero-ruby/models/accounting/cis_org_setting'
-require 'xero-ruby/models/accounting/cis_org_settings'
-require 'xero-ruby/models/accounting/cis_setting'
-require 'xero-ruby/models/accounting/cis_settings'
-require 'xero-ruby/models/accounting/contact'
-require 'xero-ruby/models/accounting/contact_group'
-require 'xero-ruby/models/accounting/contact_groups'
-require 'xero-ruby/models/accounting/contact_person'
-require 'xero-ruby/models/accounting/contacts'
-require 'xero-ruby/models/accounting/conversion_balances'
-require 'xero-ruby/models/accounting/conversion_date'
-require 'xero-ruby/models/accounting/country_code'
-require 'xero-ruby/models/accounting/credit_note'
-require 'xero-ruby/models/accounting/credit_notes'
-require 'xero-ruby/models/accounting/currencies'
-require 'xero-ruby/models/accounting/currency'
-require 'xero-ruby/models/accounting/currency_code'
-require 'xero-ruby/models/accounting/element'
-require 'xero-ruby/models/accounting/employee'
-require 'xero-ruby/models/accounting/employees'
-require 'xero-ruby/models/accounting/error'
-require 'xero-ruby/models/accounting/expense_claim'
-require 'xero-ruby/models/accounting/expense_claims'
-require 'xero-ruby/models/accounting/external_link'
-require 'xero-ruby/models/accounting/history_record'
-require 'xero-ruby/models/accounting/history_records'
-require 'xero-ruby/models/accounting/import_summary'
-require 'xero-ruby/models/accounting/import_summary_accounts'
-require 'xero-ruby/models/accounting/import_summary_object'
-require 'xero-ruby/models/accounting/import_summary_organisation'
-require 'xero-ruby/models/accounting/invoice'
-require 'xero-ruby/models/accounting/invoice_address'
-require 'xero-ruby/models/accounting/invoice_reminder'
-require 'xero-ruby/models/accounting/invoice_reminders'
-require 'xero-ruby/models/accounting/invoices'
-require 'xero-ruby/models/accounting/item'
-require 'xero-ruby/models/accounting/items'
-require 'xero-ruby/models/accounting/journal'
-require 'xero-ruby/models/accounting/journal_line'
-require 'xero-ruby/models/accounting/journals'
-require 'xero-ruby/models/accounting/line_amount_types'
-require 'xero-ruby/models/accounting/line_item'
-require 'xero-ruby/models/accounting/line_item_item'
-require 'xero-ruby/models/accounting/line_item_tracking'
-require 'xero-ruby/models/accounting/linked_transaction'
-require 'xero-ruby/models/accounting/linked_transactions'
-require 'xero-ruby/models/accounting/manual_journal'
-require 'xero-ruby/models/accounting/manual_journal_line'
-require 'xero-ruby/models/accounting/manual_journals'
-require 'xero-ruby/models/accounting/online_invoice'
-require 'xero-ruby/models/accounting/online_invoices'
-require 'xero-ruby/models/accounting/organisation'
-require 'xero-ruby/models/accounting/organisations'
-require 'xero-ruby/models/accounting/overpayment'
-require 'xero-ruby/models/accounting/overpayments'
-require 'xero-ruby/models/accounting/pagination'
-require 'xero-ruby/models/accounting/payment'
-require 'xero-ruby/models/accounting/payment_delete'
-require 'xero-ruby/models/accounting/payment_service'
-require 'xero-ruby/models/accounting/payment_services'
-require 'xero-ruby/models/accounting/payment_term'
-require 'xero-ruby/models/accounting/payment_term_type'
-require 'xero-ruby/models/accounting/payments'
-require 'xero-ruby/models/accounting/phone'
-require 'xero-ruby/models/accounting/prepayment'
-require 'xero-ruby/models/accounting/prepayments'
-require 'xero-ruby/models/accounting/purchase'
-require 'xero-ruby/models/accounting/purchase_order'
-require 'xero-ruby/models/accounting/purchase_orders'
-require 'xero-ruby/models/accounting/quote'
-require 'xero-ruby/models/accounting/quote_line_amount_types'
-require 'xero-ruby/models/accounting/quote_status_codes'
-require 'xero-ruby/models/accounting/quotes'
-require 'xero-ruby/models/accounting/receipt'
-require 'xero-ruby/models/accounting/receipts'
-require 'xero-ruby/models/accounting/repeating_invoice'
-require 'xero-ruby/models/accounting/repeating_invoices'
-require 'xero-ruby/models/accounting/report'
-require 'xero-ruby/models/accounting/report_attribute'
-require 'xero-ruby/models/accounting/report_cell'
-require 'xero-ruby/models/accounting/report_fields'
-require 'xero-ruby/models/accounting/report_row'
-require 'xero-ruby/models/accounting/report_rows'
-require 'xero-ruby/models/accounting/report_with_row'
-require 'xero-ruby/models/accounting/report_with_rows'
-require 'xero-ruby/models/accounting/reports'
-require 'xero-ruby/models/accounting/request_empty'
-require 'xero-ruby/models/accounting/row_type'
-require 'xero-ruby/models/accounting/sales_tracking_category'
-require 'xero-ruby/models/accounting/schedule'
-require 'xero-ruby/models/accounting/setup'
-require 'xero-ruby/models/accounting/tax_breakdown_component'
-require 'xero-ruby/models/accounting/tax_component'
-require 'xero-ruby/models/accounting/tax_rate'
-require 'xero-ruby/models/accounting/tax_rates'
-require 'xero-ruby/models/accounting/tax_type'
-require 'xero-ruby/models/accounting/ten_ninety_nine_contact'
-require 'xero-ruby/models/accounting/time_zone'
-require 'xero-ruby/models/accounting/tracking_categories'
-require 'xero-ruby/models/accounting/tracking_category'
-require 'xero-ruby/models/accounting/tracking_option'
-require 'xero-ruby/models/accounting/tracking_options'
-require 'xero-ruby/models/accounting/tracking_reference'
-require 'xero-ruby/models/accounting/user'
-require 'xero-ruby/models/accounting/users'
-require 'xero-ruby/models/accounting/validation_error'
-
-# APIs
-require 'xero-ruby/api/finance_api'
-require 'xero-ruby/api/app_store_api'
-require 'xero-ruby/api/payroll_uk_api'
-require 'xero-ruby/api/payroll_nz_api'
-require 'xero-ruby/api/payroll_au_v2_api'
-require 'xero-ruby/api/payroll_au_api'
-require 'xero-ruby/api/files_api'
-require 'xero-ruby/api/project_api'
-require 'xero-ruby/api/asset_api'
-require 'xero-ruby/api/accounting_api'
-
+# Autoloaded so requiring the gem doesn't parse every model and API client.
 module XeroRuby
-  class << self
-    def configure
-      if block_given?
-        yield(Configuration.default)
-      else
-        Configuration.default
-      end
-    end
+  autoload :ApiClient, "#{__dir__}/xero-ruby/api_client"
+  autoload :ApiError, "#{__dir__}/xero-ruby/api_error"
+  autoload :Configuration, "#{__dir__}/xero-ruby/configuration"
+  autoload :Singleton, "#{__dir__}/xero-ruby/singleton"
+  autoload :StringSerialization, "#{__dir__}/xero-ruby/string_serialization"
+  autoload :VERSION, "#{__dir__}/xero-ruby/version"
+  autoload :Where, "#{__dir__}/xero-ruby/where"
+
+  autoload :FinanceApi, "#{__dir__}/xero-ruby/api/finance_api"
+  autoload :AppStoreApi, "#{__dir__}/xero-ruby/api/app_store_api"
+  autoload :PayrollUkApi, "#{__dir__}/xero-ruby/api/payroll_uk_api"
+  autoload :PayrollNzApi, "#{__dir__}/xero-ruby/api/payroll_nz_api"
+  autoload :PayrollAuV2Api, "#{__dir__}/xero-ruby/api/payroll_au_v2_api"
+  autoload :PayrollAuApi, "#{__dir__}/xero-ruby/api/payroll_au_api"
+  autoload :FilesApi, "#{__dir__}/xero-ruby/api/files_api"
+  autoload :ProjectApi, "#{__dir__}/xero-ruby/api/project_api"
+  autoload :AssetApi, "#{__dir__}/xero-ruby/api/asset_api"
+  autoload :AccountingApi, "#{__dir__}/xero-ruby/api/accounting_api"
+
+  module Finance
+    autoload :BalanceSheetAccountDetail, "#{__dir__}/xero-ruby/models/finance/balance_sheet_account_detail"
+    autoload :BalanceSheetAccountGroup, "#{__dir__}/xero-ruby/models/finance/balance_sheet_account_group"
+    autoload :BalanceSheetAccountType, "#{__dir__}/xero-ruby/models/finance/balance_sheet_account_type"
+    autoload :BalanceSheetResponse, "#{__dir__}/xero-ruby/models/finance/balance_sheet_response"
+    autoload :BankStatementAccountingResponse, "#{__dir__}/xero-ruby/models/finance/bank_statement_accounting_response"
+    autoload :BankStatementResponse, "#{__dir__}/xero-ruby/models/finance/bank_statement_response"
+    autoload :BankTransactionResponse, "#{__dir__}/xero-ruby/models/finance/bank_transaction_response"
+    autoload :CashAccountResponse, "#{__dir__}/xero-ruby/models/finance/cash_account_response"
+    autoload :CashBalance, "#{__dir__}/xero-ruby/models/finance/cash_balance"
+    autoload :CashValidationResponse, "#{__dir__}/xero-ruby/models/finance/cash_validation_response"
+    autoload :CashflowAccount, "#{__dir__}/xero-ruby/models/finance/cashflow_account"
+    autoload :CashflowActivity, "#{__dir__}/xero-ruby/models/finance/cashflow_activity"
+    autoload :CashflowResponse, "#{__dir__}/xero-ruby/models/finance/cashflow_response"
+    autoload :CashflowType, "#{__dir__}/xero-ruby/models/finance/cashflow_type"
+    autoload :ContactDetail, "#{__dir__}/xero-ruby/models/finance/contact_detail"
+    autoload :ContactResponse, "#{__dir__}/xero-ruby/models/finance/contact_response"
+    autoload :ContactTotalDetail, "#{__dir__}/xero-ruby/models/finance/contact_total_detail"
+    autoload :ContactTotalOther, "#{__dir__}/xero-ruby/models/finance/contact_total_other"
+    autoload :CreditNoteResponse, "#{__dir__}/xero-ruby/models/finance/credit_note_response"
+    autoload :CurrentStatementResponse, "#{__dir__}/xero-ruby/models/finance/current_statement_response"
+    autoload :DataSourceResponse, "#{__dir__}/xero-ruby/models/finance/data_source_response"
+    autoload :IncomeByContactResponse, "#{__dir__}/xero-ruby/models/finance/income_by_contact_response"
+    autoload :InvoiceResponse, "#{__dir__}/xero-ruby/models/finance/invoice_response"
+    autoload :LineItemResponse, "#{__dir__}/xero-ruby/models/finance/line_item_response"
+    autoload :ManualJournalTotal, "#{__dir__}/xero-ruby/models/finance/manual_journal_total"
+    autoload :OverpaymentResponse, "#{__dir__}/xero-ruby/models/finance/overpayment_response"
+    autoload :PaymentResponse, "#{__dir__}/xero-ruby/models/finance/payment_response"
+    autoload :PnlAccount, "#{__dir__}/xero-ruby/models/finance/pnl_account"
+    autoload :PnlAccountClass, "#{__dir__}/xero-ruby/models/finance/pnl_account_class"
+    autoload :PnlAccountType, "#{__dir__}/xero-ruby/models/finance/pnl_account_type"
+    autoload :PrepaymentResponse, "#{__dir__}/xero-ruby/models/finance/prepayment_response"
+    autoload :Problem, "#{__dir__}/xero-ruby/models/finance/problem"
+    autoload :ProblemType, "#{__dir__}/xero-ruby/models/finance/problem_type"
+    autoload :ProfitAndLossResponse, "#{__dir__}/xero-ruby/models/finance/profit_and_loss_response"
+    autoload :StatementBalanceResponse, "#{__dir__}/xero-ruby/models/finance/statement_balance_response"
+    autoload :StatementLineResponse, "#{__dir__}/xero-ruby/models/finance/statement_line_response"
+    autoload :StatementLinesResponse, "#{__dir__}/xero-ruby/models/finance/statement_lines_response"
+    autoload :StatementResponse, "#{__dir__}/xero-ruby/models/finance/statement_response"
+    autoload :TotalDetail, "#{__dir__}/xero-ruby/models/finance/total_detail"
+    autoload :TotalOther, "#{__dir__}/xero-ruby/models/finance/total_other"
+    autoload :TrialBalanceAccount, "#{__dir__}/xero-ruby/models/finance/trial_balance_account"
+    autoload :TrialBalanceEntry, "#{__dir__}/xero-ruby/models/finance/trial_balance_entry"
+    autoload :TrialBalanceMovement, "#{__dir__}/xero-ruby/models/finance/trial_balance_movement"
+    autoload :TrialBalanceResponse, "#{__dir__}/xero-ruby/models/finance/trial_balance_response"
   end
+
+  module AppStore
+    autoload :CreateUsageRecord, "#{__dir__}/xero-ruby/models/app_store/create_usage_record"
+    autoload :Plan, "#{__dir__}/xero-ruby/models/app_store/plan"
+    autoload :Price, "#{__dir__}/xero-ruby/models/app_store/price"
+    autoload :ProblemDetails, "#{__dir__}/xero-ruby/models/app_store/problem_details"
+    autoload :Product, "#{__dir__}/xero-ruby/models/app_store/product"
+    autoload :Subscription, "#{__dir__}/xero-ruby/models/app_store/subscription"
+    autoload :SubscriptionItem, "#{__dir__}/xero-ruby/models/app_store/subscription_item"
+    autoload :UpdateUsageRecord, "#{__dir__}/xero-ruby/models/app_store/update_usage_record"
+    autoload :UsageRecord, "#{__dir__}/xero-ruby/models/app_store/usage_record"
+    autoload :UsageRecordsList, "#{__dir__}/xero-ruby/models/app_store/usage_records_list"
+  end
+
+  module PayrollUk
+    autoload :Account, "#{__dir__}/xero-ruby/models/payroll_uk/account"
+    autoload :Accounts, "#{__dir__}/xero-ruby/models/payroll_uk/accounts"
+    autoload :Address, "#{__dir__}/xero-ruby/models/payroll_uk/address"
+    autoload :BankAccount, "#{__dir__}/xero-ruby/models/payroll_uk/bank_account"
+    autoload :Benefit, "#{__dir__}/xero-ruby/models/payroll_uk/benefit"
+    autoload :BenefitLine, "#{__dir__}/xero-ruby/models/payroll_uk/benefit_line"
+    autoload :BenefitObject, "#{__dir__}/xero-ruby/models/payroll_uk/benefit_object"
+    autoload :Benefits, "#{__dir__}/xero-ruby/models/payroll_uk/benefits"
+    autoload :ContractType, "#{__dir__}/xero-ruby/models/payroll_uk/contract_type"
+    autoload :Contracts, "#{__dir__}/xero-ruby/models/payroll_uk/contracts"
+    autoload :CourtOrderLine, "#{__dir__}/xero-ruby/models/payroll_uk/court_order_line"
+    autoload :Deduction, "#{__dir__}/xero-ruby/models/payroll_uk/deduction"
+    autoload :DeductionLine, "#{__dir__}/xero-ruby/models/payroll_uk/deduction_line"
+    autoload :DeductionObject, "#{__dir__}/xero-ruby/models/payroll_uk/deduction_object"
+    autoload :Deductions, "#{__dir__}/xero-ruby/models/payroll_uk/deductions"
+    autoload :DevelopmentalRoleDetails, "#{__dir__}/xero-ruby/models/payroll_uk/developmental_role_details"
+    autoload :EarningsLine, "#{__dir__}/xero-ruby/models/payroll_uk/earnings_line"
+    autoload :EarningsOrder, "#{__dir__}/xero-ruby/models/payroll_uk/earnings_order"
+    autoload :EarningsOrderObject, "#{__dir__}/xero-ruby/models/payroll_uk/earnings_order_object"
+    autoload :EarningsOrders, "#{__dir__}/xero-ruby/models/payroll_uk/earnings_orders"
+    autoload :EarningsRate, "#{__dir__}/xero-ruby/models/payroll_uk/earnings_rate"
+    autoload :EarningsRateObject, "#{__dir__}/xero-ruby/models/payroll_uk/earnings_rate_object"
+    autoload :EarningsRates, "#{__dir__}/xero-ruby/models/payroll_uk/earnings_rates"
+    autoload :EarningsTemplate, "#{__dir__}/xero-ruby/models/payroll_uk/earnings_template"
+    autoload :EarningsTemplateObject, "#{__dir__}/xero-ruby/models/payroll_uk/earnings_template_object"
+    autoload :Employee, "#{__dir__}/xero-ruby/models/payroll_uk/employee"
+    autoload :EmployeeLeave, "#{__dir__}/xero-ruby/models/payroll_uk/employee_leave"
+    autoload :EmployeeLeaveBalance, "#{__dir__}/xero-ruby/models/payroll_uk/employee_leave_balance"
+    autoload :EmployeeLeaveBalances, "#{__dir__}/xero-ruby/models/payroll_uk/employee_leave_balances"
+    autoload :EmployeeLeaveObject, "#{__dir__}/xero-ruby/models/payroll_uk/employee_leave_object"
+    autoload :EmployeeLeaveType, "#{__dir__}/xero-ruby/models/payroll_uk/employee_leave_type"
+    autoload :EmployeeLeaveTypeObject, "#{__dir__}/xero-ruby/models/payroll_uk/employee_leave_type_object"
+    autoload :EmployeeLeaveTypes, "#{__dir__}/xero-ruby/models/payroll_uk/employee_leave_types"
+    autoload :EmployeeLeaves, "#{__dir__}/xero-ruby/models/payroll_uk/employee_leaves"
+    autoload :EmployeeObject, "#{__dir__}/xero-ruby/models/payroll_uk/employee_object"
+    autoload :EmployeeOpeningBalances, "#{__dir__}/xero-ruby/models/payroll_uk/employee_opening_balances"
+    autoload :EmployeeOpeningBalancesObject, "#{__dir__}/xero-ruby/models/payroll_uk/employee_opening_balances_object"
+    autoload :EmployeePayTemplate, "#{__dir__}/xero-ruby/models/payroll_uk/employee_pay_template"
+    autoload :EmployeePayTemplateObject, "#{__dir__}/xero-ruby/models/payroll_uk/employee_pay_template_object"
+    autoload :EmployeePayTemplates, "#{__dir__}/xero-ruby/models/payroll_uk/employee_pay_templates"
+    autoload :EmployeeStatutoryLeaveBalance, "#{__dir__}/xero-ruby/models/payroll_uk/employee_statutory_leave_balance"
+    autoload :EmployeeStatutoryLeaveBalanceObject, "#{__dir__}/xero-ruby/models/payroll_uk/employee_statutory_leave_balance_object"
+    autoload :EmployeeStatutoryLeaveSummary, "#{__dir__}/xero-ruby/models/payroll_uk/employee_statutory_leave_summary"
+    autoload :EmployeeStatutoryLeavesSummaries, "#{__dir__}/xero-ruby/models/payroll_uk/employee_statutory_leaves_summaries"
+    autoload :EmployeeStatutorySickLeave, "#{__dir__}/xero-ruby/models/payroll_uk/employee_statutory_sick_leave"
+    autoload :EmployeeStatutorySickLeaveObject, "#{__dir__}/xero-ruby/models/payroll_uk/employee_statutory_sick_leave_object"
+    autoload :EmployeeStatutorySickLeaves, "#{__dir__}/xero-ruby/models/payroll_uk/employee_statutory_sick_leaves"
+    autoload :EmployeeTax, "#{__dir__}/xero-ruby/models/payroll_uk/employee_tax"
+    autoload :EmployeeTaxObject, "#{__dir__}/xero-ruby/models/payroll_uk/employee_tax_object"
+    autoload :Employees, "#{__dir__}/xero-ruby/models/payroll_uk/employees"
+    autoload :Employment, "#{__dir__}/xero-ruby/models/payroll_uk/employment"
+    autoload :EmploymentObject, "#{__dir__}/xero-ruby/models/payroll_uk/employment_object"
+    autoload :EmploymentStatus, "#{__dir__}/xero-ruby/models/payroll_uk/employment_status"
+    autoload :InvalidField, "#{__dir__}/xero-ruby/models/payroll_uk/invalid_field"
+    autoload :LeaveAccrualLine, "#{__dir__}/xero-ruby/models/payroll_uk/leave_accrual_line"
+    autoload :LeaveEarningsLine, "#{__dir__}/xero-ruby/models/payroll_uk/leave_earnings_line"
+    autoload :LeavePeriod, "#{__dir__}/xero-ruby/models/payroll_uk/leave_period"
+    autoload :LeavePeriods, "#{__dir__}/xero-ruby/models/payroll_uk/leave_periods"
+    autoload :LeaveType, "#{__dir__}/xero-ruby/models/payroll_uk/leave_type"
+    autoload :LeaveTypeObject, "#{__dir__}/xero-ruby/models/payroll_uk/leave_type_object"
+    autoload :LeaveTypes, "#{__dir__}/xero-ruby/models/payroll_uk/leave_types"
+    autoload :NICategory, "#{__dir__}/xero-ruby/models/payroll_uk/ni_category"
+    autoload :NICategoryLetter, "#{__dir__}/xero-ruby/models/payroll_uk/ni_category_letter"
+    autoload :NICategoryOneOf, "#{__dir__}/xero-ruby/models/payroll_uk/ni_category_one_of"
+    autoload :NICategoryOneOf1, "#{__dir__}/xero-ruby/models/payroll_uk/ni_category_one_of1"
+    autoload :Pagination, "#{__dir__}/xero-ruby/models/payroll_uk/pagination"
+    autoload :PayRun, "#{__dir__}/xero-ruby/models/payroll_uk/pay_run"
+    autoload :PayRunCalendar, "#{__dir__}/xero-ruby/models/payroll_uk/pay_run_calendar"
+    autoload :PayRunCalendarObject, "#{__dir__}/xero-ruby/models/payroll_uk/pay_run_calendar_object"
+    autoload :PayRunCalendars, "#{__dir__}/xero-ruby/models/payroll_uk/pay_run_calendars"
+    autoload :PayRunObject, "#{__dir__}/xero-ruby/models/payroll_uk/pay_run_object"
+    autoload :PayRuns, "#{__dir__}/xero-ruby/models/payroll_uk/pay_runs"
+    autoload :PaymentLine, "#{__dir__}/xero-ruby/models/payroll_uk/payment_line"
+    autoload :PaymentMethod, "#{__dir__}/xero-ruby/models/payroll_uk/payment_method"
+    autoload :PaymentMethodObject, "#{__dir__}/xero-ruby/models/payroll_uk/payment_method_object"
+    autoload :Payslip, "#{__dir__}/xero-ruby/models/payroll_uk/payslip"
+    autoload :PayslipObject, "#{__dir__}/xero-ruby/models/payroll_uk/payslip_object"
+    autoload :Payslips, "#{__dir__}/xero-ruby/models/payroll_uk/payslips"
+    autoload :Problem, "#{__dir__}/xero-ruby/models/payroll_uk/problem"
+    autoload :Reimbursement, "#{__dir__}/xero-ruby/models/payroll_uk/reimbursement"
+    autoload :ReimbursementLine, "#{__dir__}/xero-ruby/models/payroll_uk/reimbursement_line"
+    autoload :ReimbursementObject, "#{__dir__}/xero-ruby/models/payroll_uk/reimbursement_object"
+    autoload :Reimbursements, "#{__dir__}/xero-ruby/models/payroll_uk/reimbursements"
+    autoload :SalaryAndWage, "#{__dir__}/xero-ruby/models/payroll_uk/salary_and_wage"
+    autoload :SalaryAndWageObject, "#{__dir__}/xero-ruby/models/payroll_uk/salary_and_wage_object"
+    autoload :SalaryAndWages, "#{__dir__}/xero-ruby/models/payroll_uk/salary_and_wages"
+    autoload :Settings, "#{__dir__}/xero-ruby/models/payroll_uk/settings"
+    autoload :StatutoryDeduction, "#{__dir__}/xero-ruby/models/payroll_uk/statutory_deduction"
+    autoload :StatutoryDeductionCategory, "#{__dir__}/xero-ruby/models/payroll_uk/statutory_deduction_category"
+    autoload :TaxLine, "#{__dir__}/xero-ruby/models/payroll_uk/tax_line"
+    autoload :Timesheet, "#{__dir__}/xero-ruby/models/payroll_uk/timesheet"
+    autoload :TimesheetEarningsLine, "#{__dir__}/xero-ruby/models/payroll_uk/timesheet_earnings_line"
+    autoload :TimesheetLine, "#{__dir__}/xero-ruby/models/payroll_uk/timesheet_line"
+    autoload :TimesheetLineObject, "#{__dir__}/xero-ruby/models/payroll_uk/timesheet_line_object"
+    autoload :TimesheetObject, "#{__dir__}/xero-ruby/models/payroll_uk/timesheet_object"
+    autoload :Timesheets, "#{__dir__}/xero-ruby/models/payroll_uk/timesheets"
+    autoload :TrackingCategories, "#{__dir__}/xero-ruby/models/payroll_uk/tracking_categories"
+    autoload :TrackingCategory, "#{__dir__}/xero-ruby/models/payroll_uk/tracking_category"
+  end
+
+  module PayrollNz
+    autoload :Account, "#{__dir__}/xero-ruby/models/payroll_nz/account"
+    autoload :Accounts, "#{__dir__}/xero-ruby/models/payroll_nz/accounts"
+    autoload :Address, "#{__dir__}/xero-ruby/models/payroll_nz/address"
+    autoload :BankAccount, "#{__dir__}/xero-ruby/models/payroll_nz/bank_account"
+    autoload :Benefit, "#{__dir__}/xero-ruby/models/payroll_nz/benefit"
+    autoload :CalendarType, "#{__dir__}/xero-ruby/models/payroll_nz/calendar_type"
+    autoload :Deduction, "#{__dir__}/xero-ruby/models/payroll_nz/deduction"
+    autoload :DeductionLine, "#{__dir__}/xero-ruby/models/payroll_nz/deduction_line"
+    autoload :DeductionObject, "#{__dir__}/xero-ruby/models/payroll_nz/deduction_object"
+    autoload :Deductions, "#{__dir__}/xero-ruby/models/payroll_nz/deductions"
+    autoload :EarningsLine, "#{__dir__}/xero-ruby/models/payroll_nz/earnings_line"
+    autoload :EarningsOrder, "#{__dir__}/xero-ruby/models/payroll_nz/earnings_order"
+    autoload :EarningsOrderObject, "#{__dir__}/xero-ruby/models/payroll_nz/earnings_order_object"
+    autoload :EarningsOrders, "#{__dir__}/xero-ruby/models/payroll_nz/earnings_orders"
+    autoload :EarningsRate, "#{__dir__}/xero-ruby/models/payroll_nz/earnings_rate"
+    autoload :EarningsRateObject, "#{__dir__}/xero-ruby/models/payroll_nz/earnings_rate_object"
+    autoload :EarningsRates, "#{__dir__}/xero-ruby/models/payroll_nz/earnings_rates"
+    autoload :EarningsTemplate, "#{__dir__}/xero-ruby/models/payroll_nz/earnings_template"
+    autoload :EarningsTemplateObject, "#{__dir__}/xero-ruby/models/payroll_nz/earnings_template_object"
+    autoload :Employee, "#{__dir__}/xero-ruby/models/payroll_nz/employee"
+    autoload :EmployeeEarningsTemplates, "#{__dir__}/xero-ruby/models/payroll_nz/employee_earnings_templates"
+    autoload :EmployeeLeave, "#{__dir__}/xero-ruby/models/payroll_nz/employee_leave"
+    autoload :EmployeeLeaveBalance, "#{__dir__}/xero-ruby/models/payroll_nz/employee_leave_balance"
+    autoload :EmployeeLeaveBalances, "#{__dir__}/xero-ruby/models/payroll_nz/employee_leave_balances"
+    autoload :EmployeeLeaveObject, "#{__dir__}/xero-ruby/models/payroll_nz/employee_leave_object"
+    autoload :EmployeeLeaveSetup, "#{__dir__}/xero-ruby/models/payroll_nz/employee_leave_setup"
+    autoload :EmployeeLeaveSetupObject, "#{__dir__}/xero-ruby/models/payroll_nz/employee_leave_setup_object"
+    autoload :EmployeeLeaveType, "#{__dir__}/xero-ruby/models/payroll_nz/employee_leave_type"
+    autoload :EmployeeLeaveTypeObject, "#{__dir__}/xero-ruby/models/payroll_nz/employee_leave_type_object"
+    autoload :EmployeeLeaveTypes, "#{__dir__}/xero-ruby/models/payroll_nz/employee_leave_types"
+    autoload :EmployeeLeaves, "#{__dir__}/xero-ruby/models/payroll_nz/employee_leaves"
+    autoload :EmployeeObject, "#{__dir__}/xero-ruby/models/payroll_nz/employee_object"
+    autoload :EmployeeOpeningBalance, "#{__dir__}/xero-ruby/models/payroll_nz/employee_opening_balance"
+    autoload :EmployeeOpeningBalancesObject, "#{__dir__}/xero-ruby/models/payroll_nz/employee_opening_balances_object"
+    autoload :EmployeePayTemplate, "#{__dir__}/xero-ruby/models/payroll_nz/employee_pay_template"
+    autoload :EmployeePayTemplateObject, "#{__dir__}/xero-ruby/models/payroll_nz/employee_pay_template_object"
+    autoload :EmployeePayTemplates, "#{__dir__}/xero-ruby/models/payroll_nz/employee_pay_templates"
+    autoload :EmployeeStatutoryLeaveBalance, "#{__dir__}/xero-ruby/models/payroll_nz/employee_statutory_leave_balance"
+    autoload :EmployeeStatutoryLeaveBalanceObject, "#{__dir__}/xero-ruby/models/payroll_nz/employee_statutory_leave_balance_object"
+    autoload :EmployeeStatutoryLeaveSummary, "#{__dir__}/xero-ruby/models/payroll_nz/employee_statutory_leave_summary"
+    autoload :EmployeeStatutoryLeavesSummaries, "#{__dir__}/xero-ruby/models/payroll_nz/employee_statutory_leaves_summaries"
+    autoload :EmployeeStatutorySickLeave, "#{__dir__}/xero-ruby/models/payroll_nz/employee_statutory_sick_leave"
+    autoload :EmployeeStatutorySickLeaveObject, "#{__dir__}/xero-ruby/models/payroll_nz/employee_statutory_sick_leave_object"
+    autoload :EmployeeStatutorySickLeaves, "#{__dir__}/xero-ruby/models/payroll_nz/employee_statutory_sick_leaves"
+    autoload :EmployeeTax, "#{__dir__}/xero-ruby/models/payroll_nz/employee_tax"
+    autoload :EmployeeTaxObject, "#{__dir__}/xero-ruby/models/payroll_nz/employee_tax_object"
+    autoload :EmployeeWorkingPattern, "#{__dir__}/xero-ruby/models/payroll_nz/employee_working_pattern"
+    autoload :EmployeeWorkingPatternWithWorkingWeeks, "#{__dir__}/xero-ruby/models/payroll_nz/employee_working_pattern_with_working_weeks"
+    autoload :EmployeeWorkingPatternWithWorkingWeeksObject, "#{__dir__}/xero-ruby/models/payroll_nz/employee_working_pattern_with_working_weeks_object"
+    autoload :EmployeeWorkingPatternWithWorkingWeeksRequest, "#{__dir__}/xero-ruby/models/payroll_nz/employee_working_pattern_with_working_weeks_request"
+    autoload :EmployeeWorkingPatternsObject, "#{__dir__}/xero-ruby/models/payroll_nz/employee_working_patterns_object"
+    autoload :Employees, "#{__dir__}/xero-ruby/models/payroll_nz/employees"
+    autoload :Employment, "#{__dir__}/xero-ruby/models/payroll_nz/employment"
+    autoload :EmploymentObject, "#{__dir__}/xero-ruby/models/payroll_nz/employment_object"
+    autoload :GrossEarningsHistory, "#{__dir__}/xero-ruby/models/payroll_nz/gross_earnings_history"
+    autoload :InvalidField, "#{__dir__}/xero-ruby/models/payroll_nz/invalid_field"
+    autoload :LeaveAccrualLine, "#{__dir__}/xero-ruby/models/payroll_nz/leave_accrual_line"
+    autoload :LeaveEarningsLine, "#{__dir__}/xero-ruby/models/payroll_nz/leave_earnings_line"
+    autoload :LeavePeriod, "#{__dir__}/xero-ruby/models/payroll_nz/leave_period"
+    autoload :LeavePeriods, "#{__dir__}/xero-ruby/models/payroll_nz/leave_periods"
+    autoload :LeaveType, "#{__dir__}/xero-ruby/models/payroll_nz/leave_type"
+    autoload :LeaveTypeObject, "#{__dir__}/xero-ruby/models/payroll_nz/leave_type_object"
+    autoload :LeaveTypes, "#{__dir__}/xero-ruby/models/payroll_nz/leave_types"
+    autoload :Pagination, "#{__dir__}/xero-ruby/models/payroll_nz/pagination"
+    autoload :PayRun, "#{__dir__}/xero-ruby/models/payroll_nz/pay_run"
+    autoload :PayRunCalendar, "#{__dir__}/xero-ruby/models/payroll_nz/pay_run_calendar"
+    autoload :PayRunCalendarObject, "#{__dir__}/xero-ruby/models/payroll_nz/pay_run_calendar_object"
+    autoload :PayRunCalendars, "#{__dir__}/xero-ruby/models/payroll_nz/pay_run_calendars"
+    autoload :PayRunObject, "#{__dir__}/xero-ruby/models/payroll_nz/pay_run_object"
+    autoload :PayRuns, "#{__dir__}/xero-ruby/models/payroll_nz/pay_runs"
+    autoload :PaySlip, "#{__dir__}/xero-ruby/models/payroll_nz/pay_slip"
+    autoload :PaySlipObject, "#{__dir__}/xero-ruby/models/payroll_nz/pay_slip_object"
+    autoload :PaySlips, "#{__dir__}/xero-ruby/models/payroll_nz/pay_slips"
+    autoload :PaymentLine, "#{__dir__}/xero-ruby/models/payroll_nz/payment_line"
+    autoload :PaymentMethod, "#{__dir__}/xero-ruby/models/payroll_nz/payment_method"
+    autoload :PaymentMethodObject, "#{__dir__}/xero-ruby/models/payroll_nz/payment_method_object"
+    autoload :Problem, "#{__dir__}/xero-ruby/models/payroll_nz/problem"
+    autoload :Reimbursement, "#{__dir__}/xero-ruby/models/payroll_nz/reimbursement"
+    autoload :ReimbursementLine, "#{__dir__}/xero-ruby/models/payroll_nz/reimbursement_line"
+    autoload :ReimbursementObject, "#{__dir__}/xero-ruby/models/payroll_nz/reimbursement_object"
+    autoload :Reimbursements, "#{__dir__}/xero-ruby/models/payroll_nz/reimbursements"
+    autoload :SalaryAndWage, "#{__dir__}/xero-ruby/models/payroll_nz/salary_and_wage"
+    autoload :SalaryAndWageObject, "#{__dir__}/xero-ruby/models/payroll_nz/salary_and_wage_object"
+    autoload :SalaryAndWages, "#{__dir__}/xero-ruby/models/payroll_nz/salary_and_wages"
+    autoload :Settings, "#{__dir__}/xero-ruby/models/payroll_nz/settings"
+    autoload :StatutoryDeduction, "#{__dir__}/xero-ruby/models/payroll_nz/statutory_deduction"
+    autoload :StatutoryDeductionCategory, "#{__dir__}/xero-ruby/models/payroll_nz/statutory_deduction_category"
+    autoload :StatutoryDeductionLine, "#{__dir__}/xero-ruby/models/payroll_nz/statutory_deduction_line"
+    autoload :StatutoryDeductionObject, "#{__dir__}/xero-ruby/models/payroll_nz/statutory_deduction_object"
+    autoload :StatutoryDeductions, "#{__dir__}/xero-ruby/models/payroll_nz/statutory_deductions"
+    autoload :SuperannuationLine, "#{__dir__}/xero-ruby/models/payroll_nz/superannuation_line"
+    autoload :SuperannuationObject, "#{__dir__}/xero-ruby/models/payroll_nz/superannuation_object"
+    autoload :Superannuations, "#{__dir__}/xero-ruby/models/payroll_nz/superannuations"
+    autoload :TaxCode, "#{__dir__}/xero-ruby/models/payroll_nz/tax_code"
+    autoload :TaxLine, "#{__dir__}/xero-ruby/models/payroll_nz/tax_line"
+    autoload :TaxSettings, "#{__dir__}/xero-ruby/models/payroll_nz/tax_settings"
+    autoload :Timesheet, "#{__dir__}/xero-ruby/models/payroll_nz/timesheet"
+    autoload :TimesheetEarningsLine, "#{__dir__}/xero-ruby/models/payroll_nz/timesheet_earnings_line"
+    autoload :TimesheetLine, "#{__dir__}/xero-ruby/models/payroll_nz/timesheet_line"
+    autoload :TimesheetLineObject, "#{__dir__}/xero-ruby/models/payroll_nz/timesheet_line_object"
+    autoload :TimesheetObject, "#{__dir__}/xero-ruby/models/payroll_nz/timesheet_object"
+    autoload :Timesheets, "#{__dir__}/xero-ruby/models/payroll_nz/timesheets"
+    autoload :TrackingCategories, "#{__dir__}/xero-ruby/models/payroll_nz/tracking_categories"
+    autoload :TrackingCategory, "#{__dir__}/xero-ruby/models/payroll_nz/tracking_category"
+    autoload :WorkingWeek, "#{__dir__}/xero-ruby/models/payroll_nz/working_week"
+  end
+
+  module PayrollAuV2
+    autoload :InvalidField, "#{__dir__}/xero-ruby/models/payroll_au_v2/invalid_field"
+    autoload :Pagination, "#{__dir__}/xero-ruby/models/payroll_au_v2/pagination"
+    autoload :Problem, "#{__dir__}/xero-ruby/models/payroll_au_v2/problem"
+    autoload :Timesheet, "#{__dir__}/xero-ruby/models/payroll_au_v2/timesheet"
+    autoload :TimesheetLine, "#{__dir__}/xero-ruby/models/payroll_au_v2/timesheet_line"
+    autoload :TimesheetLineObject, "#{__dir__}/xero-ruby/models/payroll_au_v2/timesheet_line_object"
+    autoload :TimesheetObject, "#{__dir__}/xero-ruby/models/payroll_au_v2/timesheet_object"
+    autoload :Timesheets, "#{__dir__}/xero-ruby/models/payroll_au_v2/timesheets"
+  end
+
+  module PayrollAu
+    autoload :APIException, "#{__dir__}/xero-ruby/models/payroll_au/api_exception"
+    autoload :Account, "#{__dir__}/xero-ruby/models/payroll_au/account"
+    autoload :AccountType, "#{__dir__}/xero-ruby/models/payroll_au/account_type"
+    autoload :AllowanceCategory, "#{__dir__}/xero-ruby/models/payroll_au/allowance_category"
+    autoload :AllowanceType, "#{__dir__}/xero-ruby/models/payroll_au/allowance_type"
+    autoload :BankAccount, "#{__dir__}/xero-ruby/models/payroll_au/bank_account"
+    autoload :CalendarType, "#{__dir__}/xero-ruby/models/payroll_au/calendar_type"
+    autoload :CountryOfResidence, "#{__dir__}/xero-ruby/models/payroll_au/country_of_residence"
+    autoload :DeductionLine, "#{__dir__}/xero-ruby/models/payroll_au/deduction_line"
+    autoload :DeductionType, "#{__dir__}/xero-ruby/models/payroll_au/deduction_type"
+    autoload :DeductionTypeCalculationType, "#{__dir__}/xero-ruby/models/payroll_au/deduction_type_calculation_type"
+    autoload :EarningsLine, "#{__dir__}/xero-ruby/models/payroll_au/earnings_line"
+    autoload :EarningsRate, "#{__dir__}/xero-ruby/models/payroll_au/earnings_rate"
+    autoload :EarningsRateCalculationType, "#{__dir__}/xero-ruby/models/payroll_au/earnings_rate_calculation_type"
+    autoload :EarningsType, "#{__dir__}/xero-ruby/models/payroll_au/earnings_type"
+    autoload :Employee, "#{__dir__}/xero-ruby/models/payroll_au/employee"
+    autoload :EmployeeStatus, "#{__dir__}/xero-ruby/models/payroll_au/employee_status"
+    autoload :Employees, "#{__dir__}/xero-ruby/models/payroll_au/employees"
+    autoload :EmploymentBasis, "#{__dir__}/xero-ruby/models/payroll_au/employment_basis"
+    autoload :EmploymentTerminationPaymentType, "#{__dir__}/xero-ruby/models/payroll_au/employment_termination_payment_type"
+    autoload :EmploymentType, "#{__dir__}/xero-ruby/models/payroll_au/employment_type"
+    autoload :EntitlementFinalPayPayoutType, "#{__dir__}/xero-ruby/models/payroll_au/entitlement_final_pay_payout_type"
+    autoload :HomeAddress, "#{__dir__}/xero-ruby/models/payroll_au/home_address"
+    autoload :IncomeType, "#{__dir__}/xero-ruby/models/payroll_au/income_type"
+    autoload :LeaveAccrualLine, "#{__dir__}/xero-ruby/models/payroll_au/leave_accrual_line"
+    autoload :LeaveApplication, "#{__dir__}/xero-ruby/models/payroll_au/leave_application"
+    autoload :LeaveApplications, "#{__dir__}/xero-ruby/models/payroll_au/leave_applications"
+    autoload :LeaveBalance, "#{__dir__}/xero-ruby/models/payroll_au/leave_balance"
+    autoload :LeaveCategoryCode, "#{__dir__}/xero-ruby/models/payroll_au/leave_category_code"
+    autoload :LeaveEarningsLine, "#{__dir__}/xero-ruby/models/payroll_au/leave_earnings_line"
+    autoload :LeaveLine, "#{__dir__}/xero-ruby/models/payroll_au/leave_line"
+    autoload :LeaveLineCalculationType, "#{__dir__}/xero-ruby/models/payroll_au/leave_line_calculation_type"
+    autoload :LeaveLines, "#{__dir__}/xero-ruby/models/payroll_au/leave_lines"
+    autoload :LeavePeriod, "#{__dir__}/xero-ruby/models/payroll_au/leave_period"
+    autoload :LeavePeriodStatus, "#{__dir__}/xero-ruby/models/payroll_au/leave_period_status"
+    autoload :LeaveType, "#{__dir__}/xero-ruby/models/payroll_au/leave_type"
+    autoload :LeaveTypeContributionType, "#{__dir__}/xero-ruby/models/payroll_au/leave_type_contribution_type"
+    autoload :ManualTaxType, "#{__dir__}/xero-ruby/models/payroll_au/manual_tax_type"
+    autoload :OpeningBalanceLeaveLine, "#{__dir__}/xero-ruby/models/payroll_au/opening_balance_leave_line"
+    autoload :OpeningBalances, "#{__dir__}/xero-ruby/models/payroll_au/opening_balances"
+    autoload :PaidLeaveEarningsLine, "#{__dir__}/xero-ruby/models/payroll_au/paid_leave_earnings_line"
+    autoload :PayItem, "#{__dir__}/xero-ruby/models/payroll_au/pay_item"
+    autoload :PayItems, "#{__dir__}/xero-ruby/models/payroll_au/pay_items"
+    autoload :PayOutType, "#{__dir__}/xero-ruby/models/payroll_au/pay_out_type"
+    autoload :PayRun, "#{__dir__}/xero-ruby/models/payroll_au/pay_run"
+    autoload :PayRunStatus, "#{__dir__}/xero-ruby/models/payroll_au/pay_run_status"
+    autoload :PayRuns, "#{__dir__}/xero-ruby/models/payroll_au/pay_runs"
+    autoload :PayTemplate, "#{__dir__}/xero-ruby/models/payroll_au/pay_template"
+    autoload :PaymentFrequencyType, "#{__dir__}/xero-ruby/models/payroll_au/payment_frequency_type"
+    autoload :PayrollCalendar, "#{__dir__}/xero-ruby/models/payroll_au/payroll_calendar"
+    autoload :PayrollCalendars, "#{__dir__}/xero-ruby/models/payroll_au/payroll_calendars"
+    autoload :Payslip, "#{__dir__}/xero-ruby/models/payroll_au/payslip"
+    autoload :PayslipLines, "#{__dir__}/xero-ruby/models/payroll_au/payslip_lines"
+    autoload :PayslipObject, "#{__dir__}/xero-ruby/models/payroll_au/payslip_object"
+    autoload :PayslipSummary, "#{__dir__}/xero-ruby/models/payroll_au/payslip_summary"
+    autoload :Payslips, "#{__dir__}/xero-ruby/models/payroll_au/payslips"
+    autoload :RateType, "#{__dir__}/xero-ruby/models/payroll_au/rate_type"
+    autoload :ReimbursementLine, "#{__dir__}/xero-ruby/models/payroll_au/reimbursement_line"
+    autoload :ReimbursementLines, "#{__dir__}/xero-ruby/models/payroll_au/reimbursement_lines"
+    autoload :ReimbursementType, "#{__dir__}/xero-ruby/models/payroll_au/reimbursement_type"
+    autoload :ResidencyStatus, "#{__dir__}/xero-ruby/models/payroll_au/residency_status"
+    autoload :SeniorMaritalStatus, "#{__dir__}/xero-ruby/models/payroll_au/senior_marital_status"
+    autoload :Settings, "#{__dir__}/xero-ruby/models/payroll_au/settings"
+    autoload :SettingsObject, "#{__dir__}/xero-ruby/models/payroll_au/settings_object"
+    autoload :SettingsTrackingCategories, "#{__dir__}/xero-ruby/models/payroll_au/settings_tracking_categories"
+    autoload :SettingsTrackingCategoriesEmployeeGroups, "#{__dir__}/xero-ruby/models/payroll_au/settings_tracking_categories_employee_groups"
+    autoload :SettingsTrackingCategoriesTimesheetCategories, "#{__dir__}/xero-ruby/models/payroll_au/settings_tracking_categories_timesheet_categories"
+    autoload :State, "#{__dir__}/xero-ruby/models/payroll_au/state"
+    autoload :SuperFund, "#{__dir__}/xero-ruby/models/payroll_au/super_fund"
+    autoload :SuperFundProduct, "#{__dir__}/xero-ruby/models/payroll_au/super_fund_product"
+    autoload :SuperFundProducts, "#{__dir__}/xero-ruby/models/payroll_au/super_fund_products"
+    autoload :SuperFundType, "#{__dir__}/xero-ruby/models/payroll_au/super_fund_type"
+    autoload :SuperFunds, "#{__dir__}/xero-ruby/models/payroll_au/super_funds"
+    autoload :SuperLine, "#{__dir__}/xero-ruby/models/payroll_au/super_line"
+    autoload :SuperMembership, "#{__dir__}/xero-ruby/models/payroll_au/super_membership"
+    autoload :SuperannuationCalculationType, "#{__dir__}/xero-ruby/models/payroll_au/superannuation_calculation_type"
+    autoload :SuperannuationContributionType, "#{__dir__}/xero-ruby/models/payroll_au/superannuation_contribution_type"
+    autoload :SuperannuationLine, "#{__dir__}/xero-ruby/models/payroll_au/superannuation_line"
+    autoload :TFNExemptionType, "#{__dir__}/xero-ruby/models/payroll_au/tfn_exemption_type"
+    autoload :TaxDeclaration, "#{__dir__}/xero-ruby/models/payroll_au/tax_declaration"
+    autoload :TaxLine, "#{__dir__}/xero-ruby/models/payroll_au/tax_line"
+    autoload :TaxScaleType, "#{__dir__}/xero-ruby/models/payroll_au/tax_scale_type"
+    autoload :Timesheet, "#{__dir__}/xero-ruby/models/payroll_au/timesheet"
+    autoload :TimesheetLine, "#{__dir__}/xero-ruby/models/payroll_au/timesheet_line"
+    autoload :TimesheetObject, "#{__dir__}/xero-ruby/models/payroll_au/timesheet_object"
+    autoload :TimesheetStatus, "#{__dir__}/xero-ruby/models/payroll_au/timesheet_status"
+    autoload :Timesheets, "#{__dir__}/xero-ruby/models/payroll_au/timesheets"
+    autoload :ValidationError, "#{__dir__}/xero-ruby/models/payroll_au/validation_error"
+    autoload :WorkCondition, "#{__dir__}/xero-ruby/models/payroll_au/work_condition"
+  end
+
+  module Files
+    autoload :Association, "#{__dir__}/xero-ruby/models/files/association"
+    autoload :FileObject, "#{__dir__}/xero-ruby/models/files/file_object"
+    autoload :Files, "#{__dir__}/xero-ruby/models/files/files"
+    autoload :Folder, "#{__dir__}/xero-ruby/models/files/folder"
+    autoload :Folders, "#{__dir__}/xero-ruby/models/files/folders"
+    autoload :ObjectGroup, "#{__dir__}/xero-ruby/models/files/object_group"
+    autoload :ObjectType, "#{__dir__}/xero-ruby/models/files/object_type"
+    autoload :UploadObject, "#{__dir__}/xero-ruby/models/files/upload_object"
+    autoload :User, "#{__dir__}/xero-ruby/models/files/user"
+  end
+
+  module Projects
+    autoload :Amount, "#{__dir__}/xero-ruby/models/projects/amount"
+    autoload :ChargeType, "#{__dir__}/xero-ruby/models/projects/charge_type"
+    autoload :CurrencyCode, "#{__dir__}/xero-ruby/models/projects/currency_code"
+    autoload :Error, "#{__dir__}/xero-ruby/models/projects/error"
+    autoload :Pagination, "#{__dir__}/xero-ruby/models/projects/pagination"
+    autoload :Project, "#{__dir__}/xero-ruby/models/projects/project"
+    autoload :ProjectCreateOrUpdate, "#{__dir__}/xero-ruby/models/projects/project_create_or_update"
+    autoload :ProjectPatch, "#{__dir__}/xero-ruby/models/projects/project_patch"
+    autoload :ProjectStatus, "#{__dir__}/xero-ruby/models/projects/project_status"
+    autoload :ProjectUser, "#{__dir__}/xero-ruby/models/projects/project_user"
+    autoload :ProjectUsers, "#{__dir__}/xero-ruby/models/projects/project_users"
+    autoload :Projects, "#{__dir__}/xero-ruby/models/projects/projects"
+    autoload :Task, "#{__dir__}/xero-ruby/models/projects/task"
+    autoload :TaskCreateOrUpdate, "#{__dir__}/xero-ruby/models/projects/task_create_or_update"
+    autoload :Tasks, "#{__dir__}/xero-ruby/models/projects/tasks"
+    autoload :TimeEntries, "#{__dir__}/xero-ruby/models/projects/time_entries"
+    autoload :TimeEntry, "#{__dir__}/xero-ruby/models/projects/time_entry"
+    autoload :TimeEntryCreateOrUpdate, "#{__dir__}/xero-ruby/models/projects/time_entry_create_or_update"
+  end
+
+  module Assets
+    autoload :Asset, "#{__dir__}/xero-ruby/models/assets/asset"
+    autoload :AssetStatus, "#{__dir__}/xero-ruby/models/assets/asset_status"
+    autoload :AssetStatusQueryParam, "#{__dir__}/xero-ruby/models/assets/asset_status_query_param"
+    autoload :AssetType, "#{__dir__}/xero-ruby/models/assets/asset_type"
+    autoload :Assets, "#{__dir__}/xero-ruby/models/assets/assets"
+    autoload :BookDepreciationDetail, "#{__dir__}/xero-ruby/models/assets/book_depreciation_detail"
+    autoload :BookDepreciationSetting, "#{__dir__}/xero-ruby/models/assets/book_depreciation_setting"
+    autoload :Error, "#{__dir__}/xero-ruby/models/assets/error"
+    autoload :FieldValidationErrorsElement, "#{__dir__}/xero-ruby/models/assets/field_validation_errors_element"
+    autoload :Pagination, "#{__dir__}/xero-ruby/models/assets/pagination"
+    autoload :ResourceValidationErrorsElement, "#{__dir__}/xero-ruby/models/assets/resource_validation_errors_element"
+    autoload :Setting, "#{__dir__}/xero-ruby/models/assets/setting"
+  end
+
+  module Accounting
+    autoload :Account, "#{__dir__}/xero-ruby/models/accounting/account"
+    autoload :AccountType, "#{__dir__}/xero-ruby/models/accounting/account_type"
+    autoload :Accounts, "#{__dir__}/xero-ruby/models/accounting/accounts"
+    autoload :AccountsPayable, "#{__dir__}/xero-ruby/models/accounting/accounts_payable"
+    autoload :AccountsReceivable, "#{__dir__}/xero-ruby/models/accounting/accounts_receivable"
+    autoload :Action, "#{__dir__}/xero-ruby/models/accounting/action"
+    autoload :Actions, "#{__dir__}/xero-ruby/models/accounting/actions"
+    autoload :Address, "#{__dir__}/xero-ruby/models/accounting/address"
+    autoload :AddressForOrganisation, "#{__dir__}/xero-ruby/models/accounting/address_for_organisation"
+    autoload :Allocation, "#{__dir__}/xero-ruby/models/accounting/allocation"
+    autoload :Allocations, "#{__dir__}/xero-ruby/models/accounting/allocations"
+    autoload :Attachment, "#{__dir__}/xero-ruby/models/accounting/attachment"
+    autoload :Attachments, "#{__dir__}/xero-ruby/models/accounting/attachments"
+    autoload :BalanceDetails, "#{__dir__}/xero-ruby/models/accounting/balance_details"
+    autoload :Balances, "#{__dir__}/xero-ruby/models/accounting/balances"
+    autoload :BankTransaction, "#{__dir__}/xero-ruby/models/accounting/bank_transaction"
+    autoload :BankTransactions, "#{__dir__}/xero-ruby/models/accounting/bank_transactions"
+    autoload :BankTransfer, "#{__dir__}/xero-ruby/models/accounting/bank_transfer"
+    autoload :BankTransferDelete, "#{__dir__}/xero-ruby/models/accounting/bank_transfer_delete"
+    autoload :BankTransferDeleteByUrlParam, "#{__dir__}/xero-ruby/models/accounting/bank_transfer_delete_by_url_param"
+    autoload :BankTransfers, "#{__dir__}/xero-ruby/models/accounting/bank_transfers"
+    autoload :BankTransfersDelete, "#{__dir__}/xero-ruby/models/accounting/bank_transfers_delete"
+    autoload :BatchPayment, "#{__dir__}/xero-ruby/models/accounting/batch_payment"
+    autoload :BatchPaymentDelete, "#{__dir__}/xero-ruby/models/accounting/batch_payment_delete"
+    autoload :BatchPaymentDeleteByUrlParam, "#{__dir__}/xero-ruby/models/accounting/batch_payment_delete_by_url_param"
+    autoload :BatchPaymentDetails, "#{__dir__}/xero-ruby/models/accounting/batch_payment_details"
+    autoload :BatchPayments, "#{__dir__}/xero-ruby/models/accounting/batch_payments"
+    autoload :Bill, "#{__dir__}/xero-ruby/models/accounting/bill"
+    autoload :BrandingTheme, "#{__dir__}/xero-ruby/models/accounting/branding_theme"
+    autoload :BrandingThemes, "#{__dir__}/xero-ruby/models/accounting/branding_themes"
+    autoload :Budget, "#{__dir__}/xero-ruby/models/accounting/budget"
+    autoload :BudgetBalance, "#{__dir__}/xero-ruby/models/accounting/budget_balance"
+    autoload :BudgetLine, "#{__dir__}/xero-ruby/models/accounting/budget_line"
+    autoload :Budgets, "#{__dir__}/xero-ruby/models/accounting/budgets"
+    autoload :CISOrgSetting, "#{__dir__}/xero-ruby/models/accounting/cis_org_setting"
+    autoload :CISOrgSettings, "#{__dir__}/xero-ruby/models/accounting/cis_org_settings"
+    autoload :CISSetting, "#{__dir__}/xero-ruby/models/accounting/cis_setting"
+    autoload :CISSettings, "#{__dir__}/xero-ruby/models/accounting/cis_settings"
+    autoload :Contact, "#{__dir__}/xero-ruby/models/accounting/contact"
+    autoload :ContactGroup, "#{__dir__}/xero-ruby/models/accounting/contact_group"
+    autoload :ContactGroups, "#{__dir__}/xero-ruby/models/accounting/contact_groups"
+    autoload :ContactPerson, "#{__dir__}/xero-ruby/models/accounting/contact_person"
+    autoload :Contacts, "#{__dir__}/xero-ruby/models/accounting/contacts"
+    autoload :ConversionBalances, "#{__dir__}/xero-ruby/models/accounting/conversion_balances"
+    autoload :ConversionDate, "#{__dir__}/xero-ruby/models/accounting/conversion_date"
+    autoload :CountryCode, "#{__dir__}/xero-ruby/models/accounting/country_code"
+    autoload :CreditNote, "#{__dir__}/xero-ruby/models/accounting/credit_note"
+    autoload :CreditNotes, "#{__dir__}/xero-ruby/models/accounting/credit_notes"
+    autoload :Currencies, "#{__dir__}/xero-ruby/models/accounting/currencies"
+    autoload :Currency, "#{__dir__}/xero-ruby/models/accounting/currency"
+    autoload :CurrencyCode, "#{__dir__}/xero-ruby/models/accounting/currency_code"
+    autoload :Element, "#{__dir__}/xero-ruby/models/accounting/element"
+    autoload :Employee, "#{__dir__}/xero-ruby/models/accounting/employee"
+    autoload :Employees, "#{__dir__}/xero-ruby/models/accounting/employees"
+    autoload :Error, "#{__dir__}/xero-ruby/models/accounting/error"
+    autoload :ExpenseClaim, "#{__dir__}/xero-ruby/models/accounting/expense_claim"
+    autoload :ExpenseClaims, "#{__dir__}/xero-ruby/models/accounting/expense_claims"
+    autoload :ExternalLink, "#{__dir__}/xero-ruby/models/accounting/external_link"
+    autoload :HistoryRecord, "#{__dir__}/xero-ruby/models/accounting/history_record"
+    autoload :HistoryRecords, "#{__dir__}/xero-ruby/models/accounting/history_records"
+    autoload :ImportSummary, "#{__dir__}/xero-ruby/models/accounting/import_summary"
+    autoload :ImportSummaryAccounts, "#{__dir__}/xero-ruby/models/accounting/import_summary_accounts"
+    autoload :ImportSummaryObject, "#{__dir__}/xero-ruby/models/accounting/import_summary_object"
+    autoload :ImportSummaryOrganisation, "#{__dir__}/xero-ruby/models/accounting/import_summary_organisation"
+    autoload :Invoice, "#{__dir__}/xero-ruby/models/accounting/invoice"
+    autoload :InvoiceAddress, "#{__dir__}/xero-ruby/models/accounting/invoice_address"
+    autoload :InvoiceReminder, "#{__dir__}/xero-ruby/models/accounting/invoice_reminder"
+    autoload :InvoiceReminders, "#{__dir__}/xero-ruby/models/accounting/invoice_reminders"
+    autoload :Invoices, "#{__dir__}/xero-ruby/models/accounting/invoices"
+    autoload :Item, "#{__dir__}/xero-ruby/models/accounting/item"
+    autoload :Items, "#{__dir__}/xero-ruby/models/accounting/items"
+    autoload :Journal, "#{__dir__}/xero-ruby/models/accounting/journal"
+    autoload :JournalLine, "#{__dir__}/xero-ruby/models/accounting/journal_line"
+    autoload :Journals, "#{__dir__}/xero-ruby/models/accounting/journals"
+    autoload :LineAmountTypes, "#{__dir__}/xero-ruby/models/accounting/line_amount_types"
+    autoload :LineItem, "#{__dir__}/xero-ruby/models/accounting/line_item"
+    autoload :LineItemItem, "#{__dir__}/xero-ruby/models/accounting/line_item_item"
+    autoload :LineItemTracking, "#{__dir__}/xero-ruby/models/accounting/line_item_tracking"
+    autoload :LinkedTransaction, "#{__dir__}/xero-ruby/models/accounting/linked_transaction"
+    autoload :LinkedTransactions, "#{__dir__}/xero-ruby/models/accounting/linked_transactions"
+    autoload :ManualJournal, "#{__dir__}/xero-ruby/models/accounting/manual_journal"
+    autoload :ManualJournalLine, "#{__dir__}/xero-ruby/models/accounting/manual_journal_line"
+    autoload :ManualJournals, "#{__dir__}/xero-ruby/models/accounting/manual_journals"
+    autoload :OnlineInvoice, "#{__dir__}/xero-ruby/models/accounting/online_invoice"
+    autoload :OnlineInvoices, "#{__dir__}/xero-ruby/models/accounting/online_invoices"
+    autoload :Organisation, "#{__dir__}/xero-ruby/models/accounting/organisation"
+    autoload :Organisations, "#{__dir__}/xero-ruby/models/accounting/organisations"
+    autoload :Overpayment, "#{__dir__}/xero-ruby/models/accounting/overpayment"
+    autoload :Overpayments, "#{__dir__}/xero-ruby/models/accounting/overpayments"
+    autoload :Pagination, "#{__dir__}/xero-ruby/models/accounting/pagination"
+    autoload :Payment, "#{__dir__}/xero-ruby/models/accounting/payment"
+    autoload :PaymentDelete, "#{__dir__}/xero-ruby/models/accounting/payment_delete"
+    autoload :PaymentService, "#{__dir__}/xero-ruby/models/accounting/payment_service"
+    autoload :PaymentServices, "#{__dir__}/xero-ruby/models/accounting/payment_services"
+    autoload :PaymentTerm, "#{__dir__}/xero-ruby/models/accounting/payment_term"
+    autoload :PaymentTermType, "#{__dir__}/xero-ruby/models/accounting/payment_term_type"
+    autoload :Payments, "#{__dir__}/xero-ruby/models/accounting/payments"
+    autoload :Phone, "#{__dir__}/xero-ruby/models/accounting/phone"
+    autoload :Prepayment, "#{__dir__}/xero-ruby/models/accounting/prepayment"
+    autoload :Prepayments, "#{__dir__}/xero-ruby/models/accounting/prepayments"
+    autoload :Purchase, "#{__dir__}/xero-ruby/models/accounting/purchase"
+    autoload :PurchaseOrder, "#{__dir__}/xero-ruby/models/accounting/purchase_order"
+    autoload :PurchaseOrders, "#{__dir__}/xero-ruby/models/accounting/purchase_orders"
+    autoload :Quote, "#{__dir__}/xero-ruby/models/accounting/quote"
+    autoload :QuoteLineAmountTypes, "#{__dir__}/xero-ruby/models/accounting/quote_line_amount_types"
+    autoload :QuoteStatusCodes, "#{__dir__}/xero-ruby/models/accounting/quote_status_codes"
+    autoload :Quotes, "#{__dir__}/xero-ruby/models/accounting/quotes"
+    autoload :Receipt, "#{__dir__}/xero-ruby/models/accounting/receipt"
+    autoload :Receipts, "#{__dir__}/xero-ruby/models/accounting/receipts"
+    autoload :RepeatingInvoice, "#{__dir__}/xero-ruby/models/accounting/repeating_invoice"
+    autoload :RepeatingInvoices, "#{__dir__}/xero-ruby/models/accounting/repeating_invoices"
+    autoload :Report, "#{__dir__}/xero-ruby/models/accounting/report"
+    autoload :ReportAttribute, "#{__dir__}/xero-ruby/models/accounting/report_attribute"
+    autoload :ReportCell, "#{__dir__}/xero-ruby/models/accounting/report_cell"
+    autoload :ReportFields, "#{__dir__}/xero-ruby/models/accounting/report_fields"
+    autoload :ReportRow, "#{__dir__}/xero-ruby/models/accounting/report_row"
+    autoload :ReportRows, "#{__dir__}/xero-ruby/models/accounting/report_rows"
+    autoload :ReportWithRow, "#{__dir__}/xero-ruby/models/accounting/report_with_row"
+    autoload :ReportWithRows, "#{__dir__}/xero-ruby/models/accounting/report_with_rows"
+    autoload :Reports, "#{__dir__}/xero-ruby/models/accounting/reports"
+    autoload :RequestEmpty, "#{__dir__}/xero-ruby/models/accounting/request_empty"
+    autoload :RowType, "#{__dir__}/xero-ruby/models/accounting/row_type"
+    autoload :SalesTrackingCategory, "#{__dir__}/xero-ruby/models/accounting/sales_tracking_category"
+    autoload :Schedule, "#{__dir__}/xero-ruby/models/accounting/schedule"
+    autoload :Setup, "#{__dir__}/xero-ruby/models/accounting/setup"
+    autoload :TaxBreakdownComponent, "#{__dir__}/xero-ruby/models/accounting/tax_breakdown_component"
+    autoload :TaxComponent, "#{__dir__}/xero-ruby/models/accounting/tax_component"
+    autoload :TaxRate, "#{__dir__}/xero-ruby/models/accounting/tax_rate"
+    autoload :TaxRates, "#{__dir__}/xero-ruby/models/accounting/tax_rates"
+    autoload :TaxType, "#{__dir__}/xero-ruby/models/accounting/tax_type"
+    autoload :TenNinetyNineContact, "#{__dir__}/xero-ruby/models/accounting/ten_ninety_nine_contact"
+    autoload :TimeZone, "#{__dir__}/xero-ruby/models/accounting/time_zone"
+    autoload :TrackingCategories, "#{__dir__}/xero-ruby/models/accounting/tracking_categories"
+    autoload :TrackingCategory, "#{__dir__}/xero-ruby/models/accounting/tracking_category"
+    autoload :TrackingOption, "#{__dir__}/xero-ruby/models/accounting/tracking_option"
+    autoload :TrackingOptions, "#{__dir__}/xero-ruby/models/accounting/tracking_options"
+    autoload :TrackingReference, "#{__dir__}/xero-ruby/models/accounting/tracking_reference"
+    autoload :User, "#{__dir__}/xero-ruby/models/accounting/user"
+    autoload :Users, "#{__dir__}/xero-ruby/models/accounting/users"
+    autoload :ValidationError, "#{__dir__}/xero-ruby/models/accounting/validation_error"
+  end
+
+  extend Singleton
 end

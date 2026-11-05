@@ -1,3 +1,5 @@
+require 'date'
+
 module XeroRuby
   class Where
     include StringSerialization
