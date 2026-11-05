@@ -226,7 +226,8 @@ module XeroRuby
     def revoke_token(token_set)
       token_set = token_set.with_indifferent_access
       data = {
-        token: token_set[:refresh_token]
+        token: token_set[:refresh_token],
+        token_type_hint: 'refresh_token'
       }
       return token_request(data, '/revocation')
     end
