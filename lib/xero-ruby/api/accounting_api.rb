@@ -2173,7 +2173,7 @@ module XeroRuby
 
     # Creates one or more sales invoices or purchase bills
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param invoices [Invoices] Invoices with an array of invoice objects in body of request
+    # @param invoices [Invoices] Wrapper hash with an `Invoices` array in the request body
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
@@ -2187,7 +2187,7 @@ module XeroRuby
 
     # Creates one or more sales invoices or purchase bills
     # @param xero_tenant_id [String] Xero identifier for Tenant
-    # @param invoices [Invoices] Invoices with an array of invoice objects in body of request
+    # @param invoices [Invoices] Wrapper hash with an `Invoices` array in the request body
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
@@ -17102,7 +17102,7 @@ module XeroRuby
     # Updates a specific sales invoices or purchase bills
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param invoice_id [String] Unique identifier for an Invoice
-    # @param invoices [Invoices] 
+    # @param invoices [Invoices] Wrapper hash with an `Invoices` array in the request body
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
@@ -17116,7 +17116,7 @@ module XeroRuby
     # Updates a specific sales invoices or purchase bills
     # @param xero_tenant_id [String] Xero identifier for Tenant
     # @param invoice_id [String] Unique identifier for an Invoice
-    # @param invoices [Invoices] 
+    # @param invoices [Invoices] Wrapper hash with an `Invoices` array in the request body
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
     # @option opts [String] :idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max.

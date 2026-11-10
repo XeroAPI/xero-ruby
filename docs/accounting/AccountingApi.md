@@ -2068,7 +2068,7 @@ api_instance = xero_client.<api_set>
 
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
-invoices = {"Invoices":[{"Type":"ACCREC","Contact":{"ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8"},"LineItems":[{"Description":"Acme Tires","Quantity":2,"UnitAmount":20,"AccountCode":"200","TaxType":"NONE","LineAmount":40}],"Date":"2019-03-11","DueDate":"2018-12-10","Reference":"Website Design","Status":"AUTHORISED"}]} # Invoices | Invoices with an array of invoice objects in body of request
+invoices = {"Invoices":[{"Type":"ACCREC","Contact":{"ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8"},"LineItems":[{"Description":"Acme Tires","Quantity":2,"UnitAmount":20,"AccountCode":"200","TaxType":"NONE","LineAmount":40}],"Date":"2019-03-11","DueDate":"2018-12-10","Reference":"Website Design","Status":"AUTHORISED"}]} # Invoices | Wrapper hash with an `Invoices` array in the request body
 opts = {
   summarize_errors: false, # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 
@@ -2094,7 +2094,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
- **invoices** | [**Invoices**](Invoices.md)| Invoices with an array of invoice objects in body of request | 
+ **invoices** | [**Invoices**](Invoices.md)| Wrapper hash with an `Invoices` array in the request body |
  **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
  **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
  **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
@@ -14804,7 +14804,7 @@ api_instance = xero_client.<api_set>
 
 xero_tenant_id = 'YOUR_XERO_TENANT_ID' # String | Xero identifier for Tenant
 invoice_id = '00000000-0000-0000-0000-000000000000' # String | Unique identifier for an Invoice
-invoices = {"Invoices":[{"Reference":"May the force be with you","InvoiceID":"00000000-0000-0000-0000-000000000000","LineItems":[],"Contact":{},"Type":"ACCPAY"}]} # Invoices | 
+invoices = {"Invoices":[{"Reference":"May the force be with you","InvoiceID":"00000000-0000-0000-0000-000000000000","LineItems":[],"Contact":{},"Type":"ACCPAY"}]} # Invoices | Wrapper hash with an `Invoices` array in the request body
 opts = {
   unitdp: 4, # Integer | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
@@ -14829,7 +14829,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **String**| Xero identifier for Tenant | 
  **invoice_id** | [**String**](.md)| Unique identifier for an Invoice | 
- **invoices** | [**Invoices**](Invoices.md)|  | 
+ **invoices** | [**Invoices**](Invoices.md)| Wrapper hash with an `Invoices` array in the request body |
  **unitdp** | **Integer**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional] 
  **idempotency_key** | **String**| This allows you to safely retry requests without the risk of duplicate processing. 128 character max. | [optional] 
  **allow_backorders** | **Boolean**| Allows an invoice to be created even when one or more line items contain tracked inventory where the invoice quantity would cause the available quantity to go negative | [optional] 
@@ -16663,4 +16663,3 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
