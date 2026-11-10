@@ -115,6 +115,11 @@ module XeroRuby
       XeroRuby::FinanceApi.new(self)
     end
 
+    def account_data_api
+      @config.base_url = @config.account_data_url
+      XeroRuby::AccountDataApi.new(self)
+    end
+
     # Token Helpers
     def token_set
       @config.token_set
@@ -299,11 +304,14 @@ module XeroRuby
         method_base_url = @config.app_store_url
       when "FinanceApi"
         method_base_url = @config.finance_url
+      when "AccountDataApi"
+        method_base_url = @config.account_data_url
       else
         method_base_url = @config.accounting_url
       end
 
       connection = Faraday.new(:url => method_base_url, :ssl => ssl_options) do |conn|
+        conn.options.params_encoder = Faraday::FlatParamsEncoder if api_client == "AccountDataApi"
         conn.request(:authorization, :basic, config.username, config.password)
         if opts[:header_params]["Content-Type"] == "multipart/form-data"
           conn.request :multipart
@@ -525,6 +533,8 @@ module XeroRuby
           XeroRuby::AppStore.const_get(return_type).build_from_hash(data)
         when 'FinanceApi'
           XeroRuby::Finance.const_get(return_type).build_from_hash(data)
+        when 'AccountDataApi'
+          XeroRuby::AccountData.const_get(return_type).build_from_hash(data)
         else
           XeroRuby::Accounting.const_get(return_type).build_from_hash(data)
         end
