@@ -108,6 +108,24 @@ describe 'Contact' do
     end
   end
 
+  describe 'test attribute "tax_number_type"' do
+    it 'accepts unprefixed tax number types' do
+      ["SSN", "EIN", "ITIN", "ATIN", "NONE"].each do |value|
+        expect { @instance.tax_number_type = value }.not_to raise_error
+      end
+    end
+
+    it 'accepts tax number types returned by the API' do
+      ["TAXNUMBERTYPE/SSN", "TAXNUMBERTYPE/EIN", "TAXNUMBERTYPE/ITIN", "TAXNUMBERTYPE/ATIN", "TAXNUMBERTYPE/NONE"].each do |value|
+        expect { @instance.tax_number_type = value }.not_to raise_error
+      end
+    end
+
+    it 'rejects unsupported tax number types' do
+      expect { @instance.tax_number_type = "INVALID" }.to raise_error(ArgumentError)
+    end
+  end
+
   describe 'test attribute "accounts_receivable_tax_type"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
