@@ -19,6 +19,11 @@ module XeroRuby::Accounting
     # Xero identifier
     attr_accessor :budget_id
     
+    # The tool used to create the budget
+    attr_accessor :created_in
+    XERO_ANALYTICS ||= "XERO_ANALYTICS".freeze
+    BUDGETS_MANAGER ||= "BUDGETS_MANAGER".freeze
+    
     # Type of Budget. OVERALL or TRACKING
     attr_accessor :type
     OVERALL ||= "OVERALL".freeze
@@ -62,6 +67,7 @@ module XeroRuby::Accounting
     def self.attribute_map
       {
         :'budget_id' => :'BudgetID',
+        :'created_in' => :'CreatedIn',
         :'type' => :'Type',
         :'description' => :'Description',
         :'updated_date_utc' => :'UpdatedDateUTC',
@@ -74,6 +80,7 @@ module XeroRuby::Accounting
     def self.openapi_types
       {
         :'budget_id' => :'String',
+        :'created_in' => :'String',
         :'type' => :'String',
         :'description' => :'String',
         :'updated_date_utc' => :'DateTime',
@@ -99,6 +106,10 @@ module XeroRuby::Accounting
 
       if attributes.key?(:'budget_id')
         self.budget_id = attributes[:'budget_id']
+      end
+
+      if attributes.key?(:'created_in')
+        self.created_in = attributes[:'created_in']
       end
 
       if attributes.key?(:'type')
@@ -140,10 +151,22 @@ module XeroRuby::Accounting
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      created_in_validator = EnumAttributeValidator.new('String', ["XERO_ANALYTICS", "BUDGETS_MANAGER"])
+      return false unless created_in_validator.valid?(@created_in)
       type_validator = EnumAttributeValidator.new('String', ["OVERALL", "TRACKING"])
       return false unless type_validator.valid?(@type)
       return false if !@description.nil? && @description.to_s.length > 255
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] created_in Object to be assigned
+    def created_in=(created_in)
+      validator = EnumAttributeValidator.new('String', ["XERO_ANALYTICS", "BUDGETS_MANAGER"])
+      unless validator.valid?(created_in)
+        fail ArgumentError, "invalid value for \"created_in\", must be one of #{validator.allowable_values}."
+      end
+      @created_in = created_in
     end
 
     # Custom attribute writer method checking allowed values (enum).
@@ -172,6 +195,7 @@ module XeroRuby::Accounting
       return true if self.equal?(o)
       self.class == o.class &&
           budget_id == o.budget_id &&
+          created_in == o.created_in &&
           type == o.type &&
           description == o.description &&
           updated_date_utc == o.updated_date_utc &&
@@ -188,7 +212,7 @@ module XeroRuby::Accounting
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [budget_id, type, description, updated_date_utc, budget_lines, tracking].hash
+      [budget_id, created_in, type, description, updated_date_utc, budget_lines, tracking].hash
     end
 
     # Builds the object from hash

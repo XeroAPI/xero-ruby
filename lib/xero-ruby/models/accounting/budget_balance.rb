@@ -22,19 +22,11 @@ module XeroRuby::Accounting
     # LineItem Quantity
     attr_accessor :amount
     
-    # Budgeted amount
-    attr_accessor :unit_amount
-    
-    # Any footnotes associated with this balance
-    attr_accessor :notes
-    
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'period' => :'Period',
-        :'amount' => :'Amount',
-        :'unit_amount' => :'UnitAmount',
-        :'notes' => :'Notes'
+        :'amount' => :'Amount'
       }
     end
 
@@ -42,9 +34,7 @@ module XeroRuby::Accounting
     def self.openapi_types
       {
         :'period' => :'Date',
-        :'amount' => :'BigDecimal',
-        :'unit_amount' => :'BigDecimal',
-        :'notes' => :'String'
+        :'amount' => :'BigDecimal'
       }
     end
 
@@ -70,42 +60,19 @@ module XeroRuby::Accounting
       if attributes.key?(:'amount')
         self.amount = attributes[:'amount']
       end
-
-      if attributes.key?(:'unit_amount')
-        self.unit_amount = attributes[:'unit_amount']
-      end
-
-      if attributes.key?(:'notes')
-        self.notes = attributes[:'notes']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if !@notes.nil? && @notes.to_s.length > 255
-        invalid_properties.push('invalid value for "notes", the character length must be smaller than or equal to 255.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if !@notes.nil? && @notes.to_s.length > 255
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] notes Value to be assigned
-    def notes=(notes)
-      if !notes.nil? && notes.to_s.length > 255
-        fail ArgumentError, 'invalid value for "notes", the character length must be smaller than or equal to 255.'
-      end
-
-      @notes = notes
     end
 
     # Checks equality by comparing each attribute.
@@ -114,9 +81,7 @@ module XeroRuby::Accounting
       return true if self.equal?(o)
       self.class == o.class &&
           period == o.period &&
-          amount == o.amount &&
-          unit_amount == o.unit_amount &&
-          notes == o.notes
+          amount == o.amount
     end
 
     # @see the `==` method
@@ -128,7 +93,7 @@ module XeroRuby::Accounting
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [period, amount, unit_amount, notes].hash
+      [period, amount].hash
     end
 
     # Builds the object from hash

@@ -120,6 +120,11 @@ module XeroRuby
       XeroRuby::AccountDataApi.new(self)
     end
 
+    def bankfeeds_v2_api
+      @config.base_url = @config.bankfeeds_v2_url
+      XeroRuby::FeedConnectionsApi.new(self)
+    end
+
     # Token Helpers
     def token_set
       @config.token_set
@@ -306,6 +311,8 @@ module XeroRuby
         method_base_url = @config.finance_url
       when "AccountDataApi"
         method_base_url = @config.account_data_url
+      when "FeedConnectionsApi"
+        method_base_url = @config.bankfeeds_v2_url
       else
         method_base_url = @config.accounting_url
       end
@@ -535,6 +542,8 @@ module XeroRuby
           XeroRuby::Finance.const_get(return_type).build_from_hash(data)
         when 'AccountDataApi'
           XeroRuby::AccountData.const_get(return_type).build_from_hash(data)
+        when 'FeedConnectionsApi'
+          XeroRuby::BankfeedsV2.const_get(return_type).build_from_hash(data)
         else
           XeroRuby::Accounting.const_get(return_type).build_from_hash(data)
         end

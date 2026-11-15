@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **budget_id** | **String** | Xero identifier | [optional] 
+**created_in** | **String** | The tool used to create the budget | [optional] 
 **type** | **String** | Type of Budget. OVERALL or TRACKING | [optional] 
 **description** | **String** | The Budget description | [optional] 
 **updated_date_utc** | **DateTime** | UTC timestamp of last update to budget | [optional] 
@@ -17,6 +18,7 @@ Name | Type | Description | Notes
 require 'XeroRuby::Accounting'
 
 instance = XeroRuby::Accounting::Budget.new(budget_id: null,
+                                 created_in: null,
                                  type: null,
                                  description: null,
                                  updated_date_utc: /Date(1573755038314)/,
