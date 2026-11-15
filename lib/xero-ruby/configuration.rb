@@ -36,6 +36,7 @@ module XeroRuby
     attr_accessor :app_store_url
     attr_accessor :finance_url
     attr_accessor :account_data_url
+    attr_accessor :bankfeeds_v2_url
 
     # Defines API keys used with API Key authentications.
     #
@@ -155,6 +156,7 @@ module XeroRuby
       @app_store_url = 'https://api.xero.com/appstore/2.0/'
       @finance_url = 'https://api.xero.com/finance.xro/1.0/'
       @account_data_url = 'https://api.xero.com/accountdata.xro/1.0/'
+      @bankfeeds_v2_url = 'https://api.xero.com/bankfeeds.xro/2.0/'
       @access_token = nil
       @id_token = nil
       @api_key = {}
