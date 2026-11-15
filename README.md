@@ -255,7 +255,7 @@ end
 # example strategy
 user.token_set = @token_set if !@token_set["error"]
 user.xero_connections = xero_client.connections
-user.active_tenant_id = xero_client.last_connection
+user.active_tenant_id = xero_client.last_connection['tenantId']
 user.save!
 
 xero_client.accounting_api.get_invoices(xero_client.last_connection['tenantId']).invoices
@@ -291,7 +291,7 @@ A full list of the SDK client's methods:
 require 'xero-ruby'
 
 xero_client.refresh_token_set(user_token_set)
-tenant_id = xero_client.last_connection
+tenant_id = xero_client.last_connection['tenantId']
 
 # Get Accounts
 accounts = xero_client.accounting_api.get_accounts(tenant_id).accounts
