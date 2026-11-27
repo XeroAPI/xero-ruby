@@ -64,6 +64,12 @@ module XeroRuby::Accounting
     EIN ||= "EIN".freeze
     ITIN ||= "ITIN".freeze
     ATIN ||= "ATIN".freeze
+    NONE ||= "NONE".freeze
+    TAXNUMBERTYPE_SSN ||= "TAXNUMBERTYPE/SSN".freeze
+    TAXNUMBERTYPE_EIN ||= "TAXNUMBERTYPE/EIN".freeze
+    TAXNUMBERTYPE_ITIN ||= "TAXNUMBERTYPE/ITIN".freeze
+    TAXNUMBERTYPE_ATIN ||= "TAXNUMBERTYPE/ATIN".freeze
+    TAXNUMBERTYPE_NONE ||= "TAXNUMBERTYPE/NONE".freeze
     
     # The tax type from TaxRates
     attr_accessor :accounts_receivable_tax_type
@@ -538,7 +544,10 @@ module XeroRuby::Accounting
       return false if !@company_number.nil? && @company_number.to_s.length > 50
       return false if !@email_address.nil? && @email_address.to_s.length > 255
       return false if !@tax_number.nil? && @tax_number.to_s.length > 50
-      tax_number_type_validator = EnumAttributeValidator.new('String', ["SSN", "EIN", "ITIN", "ATIN"])
+      tax_number_type_validator = EnumAttributeValidator.new(
+        'String',
+        ["SSN", "EIN", "ITIN", "ATIN", "NONE", "TAXNUMBERTYPE/SSN", "TAXNUMBERTYPE/EIN", "TAXNUMBERTYPE/ITIN", "TAXNUMBERTYPE/ATIN", "TAXNUMBERTYPE/NONE"]
+      )
       return false unless tax_number_type_validator.valid?(@tax_number_type)
       sales_default_line_amount_type_validator = EnumAttributeValidator.new('String', ["INCLUSIVE", "EXCLUSIVE", "NONE"])
       return false unless sales_default_line_amount_type_validator.valid?(@sales_default_line_amount_type)
@@ -640,7 +649,10 @@ module XeroRuby::Accounting
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] tax_number_type Object to be assigned
     def tax_number_type=(tax_number_type)
-      validator = EnumAttributeValidator.new('String', ["SSN", "EIN", "ITIN", "ATIN"])
+      validator = EnumAttributeValidator.new(
+        'String',
+        ["SSN", "EIN", "ITIN", "ATIN", "NONE", "TAXNUMBERTYPE/SSN", "TAXNUMBERTYPE/EIN", "TAXNUMBERTYPE/ITIN", "TAXNUMBERTYPE/ATIN", "TAXNUMBERTYPE/NONE"]
+      )
       unless validator.valid?(tax_number_type)
         fail ArgumentError, "invalid value for \"tax_number_type\", must be one of #{validator.allowable_values}."
       end
